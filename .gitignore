@@ -1,6 +1,10 @@
 # Dependencies
 /node_modules
 
+# Next.js
+/.next
+/out
+
 # Build artifacts
 /build
 
@@ -19,3 +23,7 @@ yarn-error.log*
 # Other
 .DS_Store
 coverage
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
