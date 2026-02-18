@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Utensils, Trophy, Code, Rocket } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Utensils, Trophy } from 'lucide-react'
 
 const colors = {
   bgDark: '#0A0A0B',
@@ -203,37 +203,24 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* More content placeholder */}
-      <section style={{ padding: '100px 24px', backgroundColor: colors.bgDark }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <div style={{
-            width: '80px',
-            height: '80px',
-            borderRadius: '50%',
-            backgroundColor: colors.surfaceDark,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            margin: '0 auto 32px',
-          }}>
-            <Code size={36} style={{ color: colors.primary }} />
-          </div>
+      {/* CTA Section */}
+      <section style={{ padding: '80px 24px', backgroundColor: colors.bgDark, textAlign: 'center' }}>
+        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           <h2 style={{
             fontSize: '28px',
             fontWeight: 700,
             color: colors.textLight,
             marginBottom: '16px',
           }}>
-            More coming soon...
+            Ready to build something?
           </h2>
           <p style={{
             fontSize: '16px',
             color: colors.textLightSecondary,
-            marginBottom: '40px',
+            marginBottom: '32px',
           }}>
-            Full story, background, skills, and experience details are on the way.
+            Let&apos;s talk about your idea and see if we&apos;re a good fit.
           </p>
-
           <Link href="/book" style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -245,7 +232,7 @@ export default function AboutPage() {
             fontWeight: 600,
             fontSize: '16px',
           }}>
-            Let&apos;s Talk <ArrowRight size={18} />
+            Book a Call <ArrowRight size={18} />
           </Link>
         </div>
       </section>

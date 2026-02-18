@@ -17,9 +17,6 @@ import {
   DollarSign,
   Smartphone,
   ShoppingBag,
-  MessageSquare,
-  BarChart3,
-  Utensils,
   Briefcase,
 } from 'lucide-react'
 
@@ -85,7 +82,7 @@ const services = [
     description: 'Full partnership from validation to MVP and beyond',
     features: ['End-to-end development', 'Ongoing technical guidance', 'Success tied together'],
     cta: 'Become Partners',
-    featured: true,
+    featured: false,
   },
   {
     title: 'Build Track',
@@ -110,10 +107,8 @@ const launchedProjects = [
 ]
 
 const inDevelopmentProjects = [
-  { title: 'B2B SaaS', subtitle: 'Onboarding Platform', icon: Briefcase, tags: ['React Native', 'Python', 'Golang'] },
-  { title: 'AI Supply Chain', subtitle: 'Consulting Tool', icon: BarChart3, tags: ['Python', 'AI/ML'] },
-  { title: 'Dawn Patrol', subtitle: 'Golf App', icon: Smartphone, tags: ['React Native', 'Firebase', 'Golang'] },
-  { title: 'ECS-ChatBot', subtitle: 'University Assistant', icon: MessageSquare, tags: ['LangChain', 'Pinecone', 'Python', 'OpenAI'] },
+  { title: 'B2B SaaS', subtitle: 'Enterprise Onboarding', icon: Briefcase, tags: ['React Native', 'Python', 'Golang'] },
+  { title: 'Dawn Patrol', subtitle: 'Weekend Golf League Tracker', icon: Smartphone, tags: ['React Native', 'Firebase', 'Golang'] },
 ]
 
 // ============================================
@@ -154,6 +149,9 @@ export default function HomePage() {
             <a href="#contact" style={{ color: colors.textLightSecondary, fontSize: '14px', display: 'none' }}>
               Contact
             </a>
+            <Link href="/trading" style={{ color: colors.textLightSecondary, fontSize: '14px', fontWeight: 500 }}>
+              Trading
+            </Link>
             <Link href="/book" style={{
               padding: '10px 20px',
               backgroundColor: colors.cta,
@@ -293,7 +291,7 @@ export default function HomePage() {
           }}>
             {[
               { icon: Code, text: 'Honest Validation First' },
-              { icon: Rocket, text: '2-12 Weeks to MVP' },
+              { icon: Rocket, text: 'Weeks to Launch, Not Months' },
               { icon: Zap, text: 'Flexible Deal Structures' },
             ].map((stat, i) => (
               <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: colors.textLightSecondary, fontSize: '14px' }}>
@@ -400,7 +398,7 @@ export default function HomePage() {
             marginBottom: '48px',
           }}>
             {[
-              { number: '40%', label: 'of ideas we validate', sublabel: 'don\'t move forward' },
+              { number: '60%', label: 'of ideas we evaluate', sublabel: 'don\'t move to build' },
               { number: '2-12', label: 'weeks to MVP', sublabel: 'not months' },
               { number: '100%', label: 'aligned incentives', sublabel: 'equity partnerships' },
             ].map((stat, i) => (
@@ -498,7 +496,7 @@ export default function HomePage() {
             You No Longer Wait <span style={{ textDecoration: 'line-through', color: colors.textMuted }}>6-12 Months</span> for Complex Software
           </h2>
           <p style={{ fontSize: '18px', color: colors.textLightSecondary, marginBottom: '48px', maxWidth: '600px' }}>
-            My team is AI-native. We think and build differently. Everyone at my company leverages AI to work at 10x speed.
+            Our team is AI-native. We think and build differently. Everyone at Zapp Studios leverages AI to work at 10x speed.
           </p>
 
           <div style={{
@@ -540,7 +538,7 @@ export default function HomePage() {
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
                 <Zap size={24} style={{ color: colors.primary }} />
-                <h3 style={{ fontSize: '20px', fontWeight: 700, color: colors.textLight }}>My Approach</h3>
+                <h3 style={{ fontSize: '20px', fontWeight: 700, color: colors.textLight }}>Our Approach</h3>
               </div>
               <div style={{ marginBottom: '20px' }}>
                 <div style={{ height: '8px', backgroundColor: colors.bgDark, borderRadius: '4px', overflow: 'hidden' }}>
@@ -586,8 +584,8 @@ export default function HomePage() {
               The Difference?
             </h3>
             <p style={{ color: colors.textLightSecondary, maxWidth: '600px', margin: '0 auto' }}>
-              Aligned incentives. When I take equity, your success becomes my success.
-              I&apos;m not trying to maximize billable hours — I&apos;m trying to maximize your outcome.
+              Aligned incentives. When we take equity, your success becomes our success.
+              We&apos;re not trying to maximize billable hours — we&apos;re trying to maximize your outcome.
             </p>
           </div>
         </div>
@@ -727,7 +725,7 @@ export default function HomePage() {
             marginBottom: '60px',
           }}>
             {[
-              { icon: Search, title: 'Discovery', desc: 'Honest assessment of your idea', duration: '1 call', color: colors.primary },
+              { icon: Search, title: 'Discovery', desc: 'Free call to evaluate your idea', duration: '1 call', color: colors.primary },
               { icon: CheckCircle, title: 'Validation', desc: 'Sprint to validate market fit', duration: '2-3 weeks', color: '#10B981' },
               { icon: Handshake, title: 'Partnership', desc: 'Deal structure that works', duration: '1 week', color: '#3B82F6' },
               { icon: Zap, title: 'Build', desc: 'AI-native development', duration: '2-12 weeks', color: colors.cta },
@@ -878,7 +876,7 @@ export default function HomePage() {
               Ready to start your journey?
             </h3>
             <p style={{ color: colors.textLightSecondary, marginBottom: '28px', fontSize: '16px' }}>
-              Book a free discovery call — we&apos;ll give you an honest assessment.
+              Book a free discovery call — no strings attached.
             </p>
             <Link href="/book" style={{
               display: 'inline-flex',
@@ -1156,7 +1154,7 @@ export default function HomePage() {
             marginTop: '64px',
           }}>
             {[
-              { value: '2-12 Weeks', label: 'to MVP' },
+              { value: 'Weeks', label: 'to Launch' },
               { value: 'Honest', label: 'Validation First' },
               { value: 'Flexible', label: 'Deal Structures' },
             ].map((stat, i) => (
@@ -1209,6 +1207,7 @@ export default function HomePage() {
           <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px', marginTop: '24px' }}>
             We&apos;ll respond within 24 hours
           </p>
+          {/* TODO: Update to professional email (e.g., hello@zappstudios.com) */}
           <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px', marginTop: '12px' }}>
             Or email us at{' '}
             <a href="mailto:hamzazulquernain1@gmail.com" style={{ color: '#fff', textDecoration: 'underline' }}>
