@@ -1,1244 +1,867 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
-  Code,
-  Rocket,
-  Zap,
   ArrowRight,
-  Search,
-  CheckCircle,
-  Handshake,
+  Zap,
+  Code2,
+  Brain,
+  Rocket,
+  Phone,
+  ChevronDown,
+  ChevronUp,
+  ExternalLink,
   TrendingUp,
+  Users,
   Clock,
-  Target,
-  Bot,
   DollarSign,
-  Smartphone,
-  ShoppingBag,
-  Briefcase,
+  Linkedin,
+  Mail,
+  Sparkles,
+  Target,
+  Lightbulb,
 } from 'lucide-react'
 
-// ============================================
-// COLOR CONSTANTS
-// ============================================
-const colors = {
-  // Backgrounds
-  bgDark: '#0A0A0B',
-  bgLight: '#F8FAFC',
-  surfaceDark: '#1E293B',
-  surfaceLight: '#FFFFFF',
-
-  // Brand - Teal
-  primary: '#0D9488',
-  primaryLight: '#14B8A6',
-  primaryDark: '#0F766E',
-
-  // CTA - Orange
-  cta: '#F97316',
-  ctaHover: '#FB923C',
-
-  // Text
-  textLight: '#F8FAFC',
-  textLightSecondary: '#94A3B8',
-  textDark: '#0F172A',
-  textDarkSecondary: '#475569',
-  textMuted: '#64748B',
-
-  // Status
-  success: '#10B981',
-  error: '#EF4444',
-
-  // Borders
-  borderDark: 'rgba(255, 255, 255, 0.1)',
-  borderLight: 'rgba(0, 0, 0, 0.1)',
-  borderAccent: 'rgba(13, 148, 136, 0.3)',
-}
-
-// ============================================
-// DATA
-// ============================================
-const services = [
-  {
-    title: 'Discovery Session',
-    price: 'Free',
-    description: '30-minute honest assessment of your idea',
-    features: ['Market evaluation', 'Technical feasibility', 'Pivot recommendations'],
-    cta: 'Book a Call',
-    featured: false,
-  },
-  {
-    title: 'Validation Sprint',
-    price: '$500-5,000',
-    description: 'Deep market validation before building',
-    features: ['20+ customer interviews', 'Competitor analysis', 'Go/no-go recommendation'],
-    cta: 'Start Validation',
-    featured: false,
-  },
-  {
-    title: 'Venture Partnership',
-    price: '20-50% Equity',
-    description: 'Full partnership from validation to MVP and beyond',
-    features: ['End-to-end development', 'Ongoing technical guidance', 'Success tied together'],
-    cta: 'Become Partners',
-    featured: false,
-  },
-  {
-    title: 'Build Track',
-    price: '2-5% Equity',
-    description: 'For validated ideas or funded startups',
-    features: ['4-12 week sprints', 'Launch-ready product', 'Technical mentorship'],
-    cta: 'Start Building',
-    featured: false,
-  },
-]
-
-const processSteps = [
-  { icon: Search, title: 'Discovery', description: 'We give you an honest assessment of your idea' },
-  { icon: CheckCircle, title: 'Validation', description: '3-week sprint to validate market fit' },
-  { icon: Handshake, title: 'Partnership', description: 'Custom deal structure that works for both' },
-  { icon: Zap, title: 'Build', description: '2-12 weeks to MVP using AI-native development' },
-  { icon: TrendingUp, title: 'Scale', description: 'Ongoing support as you grow' },
-]
-
-const launchedProjects = [
-  { title: 'Royal Pawz', subtitle: 'Pet Grooming Platform', icon: ShoppingBag, tags: ['Next.js', 'React Native', 'PostgreSQL', 'Stripe', 'Golang'], status: 'Generating Revenue', url: 'https://royalpawzusa.com' },
-]
-
-const inDevelopmentProjects = [
-  { title: 'B2B SaaS', subtitle: 'Enterprise Onboarding', icon: Briefcase, tags: ['React Native', 'Python', 'Golang'] },
-  { title: 'Dawn Patrol', subtitle: 'Weekend Golf League Tracker', icon: Smartphone, tags: ['React Native', 'Firebase', 'Golang'] },
-]
-
-// ============================================
-// COMPONENT
-// ============================================
-export default function HomePage() {
+// ─── Scroll animation hook ────────────────────────────────────────
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    setIsVisible(true)
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [threshold])
+
+  return { ref, isVisible }
+}
+
+function AnimatedSection({
+  children,
+  className = '',
+  delay = 0,
+}: {
+  children: React.ReactNode
+  className?: string
+  delay?: number
+}) {
+  const { ref, isVisible } = useInView()
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
+        transition: `opacity 0.7s ease-out ${delay}ms, transform 0.7s ease-out ${delay}ms`,
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+// ─── Navbar ────────────────────────────────────────────────────────
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <main>
-      {/* Navigation - Dark */}
-      <nav style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        padding: '16px 24px',
-        backgroundColor: 'rgba(10, 10, 11, 0.9)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: `1px solid ${colors.borderDark}`,
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}>
-          <div style={{ fontSize: '24px', fontWeight: 800, color: colors.textLight, letterSpacing: '-0.5px' }}>
-            ZAPP STUDIOS
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[var(--color-bg)]/90 backdrop-blur-xl border-b border-[var(--color-border-subtle)]'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between overflow-visible">
+        <Link href="/" className="flex items-center group">
+          <Image src="/logo.jpg" alt="Zapp Studios" width={280} height={80} className="object-contain h-20 w-auto" />
+        </Link>
+
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-8">
+          <a href="#services" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+            Services
+          </a>
+          <a href="#work" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+            Our Work
+          </a>
+          <a href="#how-it-works" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+            How It Works
+          </a>
+          <a href="#faq" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+            FAQ
+          </a>
+          <a href="#ai-class" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors">
+            AI Class
+          </a>
+          <Link
+            href="/book"
+            className="px-4 py-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white text-sm font-medium rounded-lg transition-colors"
+          >
+            Book a Call
+          </Link>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden p-2 text-[var(--color-text-secondary)]"
+          aria-label="Toggle menu"
+        >
+          <div className="w-5 flex flex-col gap-1">
+            <span className={`block h-0.5 bg-current transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+            <span className={`block h-0.5 bg-current transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
+            <span className={`block h-0.5 bg-current transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
-            <a href="#contact" style={{ color: colors.textLightSecondary, fontSize: '14px', display: 'none' }}>
-              Contact
-            </a>
-            <Link href="/trading" style={{ color: colors.textLightSecondary, fontSize: '14px', fontWeight: 500 }}>
-              Trading
-            </Link>
-            <Link href="/book" style={{
-              padding: '10px 20px',
-              backgroundColor: colors.cta,
-              color: '#fff',
-              borderRadius: '8px',
-              fontWeight: 600,
-              fontSize: '14px',
-              transition: 'all 0.2s ease',
-            }}>
-              Start Venture
-            </Link>
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-[var(--color-bg)]/95 backdrop-blur-xl border-b border-[var(--color-border-subtle)]">
+          <div className="px-6 py-4 flex flex-col gap-4">
+            <a href="#services" onClick={() => setMobileOpen(false)} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">Services</a>
+            <a href="#work" onClick={() => setMobileOpen(false)} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">Our Work</a>
+            <a href="#how-it-works" onClick={() => setMobileOpen(false)} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">How It Works</a>
+            <a href="#faq" onClick={() => setMobileOpen(false)} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">FAQ</a>
+            <a href="#ai-class" onClick={() => setMobileOpen(false)} className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">AI Class</a>
+            <Link href="/book" className="px-4 py-2 bg-[var(--color-orange)] text-white text-sm font-medium rounded-lg text-center">Book a Call</Link>
           </div>
         </div>
-      </nav>
+      )}
+    </nav>
+  )
+}
 
-      {/* Hero Section - Dark */}
-      <section style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden',
-        paddingTop: '80px',
-        backgroundColor: colors.bgDark,
-      }}>
-        {/* Background gradient orbs - Teal */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: `
-            radial-gradient(ellipse 80% 50% at 20% 20%, rgba(13, 148, 136, 0.15), transparent),
-            radial-gradient(ellipse 60% 40% at 80% 80%, rgba(20, 184, 166, 0.1), transparent)
-          `,
-        }} />
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
-        }} />
+// ─── Hero ──────────────────────────────────────────────────────────
+function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(var(--color-text-muted) 1px, transparent 1px), linear-gradient(90deg, var(--color-text-muted) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+      </div>
 
-        <div style={{
-          position: 'relative',
-          zIndex: 10,
-          textAlign: 'center',
-          maxWidth: '900px',
-          padding: '0 24px',
-          opacity: isVisible ? 1 : 0,
-          transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'all 0.8s ease',
-        }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '8px 16px',
-            backgroundColor: 'rgba(13, 148, 136, 0.15)',
-            border: `1px solid ${colors.borderAccent}`,
-            borderRadius: '9999px',
-            fontSize: '12px',
-            fontWeight: 600,
-            color: colors.primaryLight,
-            letterSpacing: '1px',
-            marginBottom: '24px',
-          }}>
-            <span style={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: colors.primary }} />
-            TECHNICAL VENTURE PARTNERS
-          </div>
+      {/* Radial glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[var(--color-orange)] opacity-[0.04] rounded-full blur-[120px]" />
 
-          <h1 style={{
-            fontSize: 'clamp(32px, 6vw, 56px)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            marginBottom: '24px',
-            color: colors.textLight,
-          }}>
-            Turning Ideas Into<br />
-            <span className="gradient-text">Technical Realities</span>
-          </h1>
-
-          <p style={{
-            fontSize: 'clamp(16px, 2vw, 20px)',
-            color: colors.textLightSecondary,
-            maxWidth: '700px',
-            margin: '0 auto 40px',
-            lineHeight: 1.7,
-          }}>
-            We&apos;re technical co-founders who combine development expertise with business strategy.
-            From idea validation to funded MVP in weeks, not months.
-          </p>
-
-          <div style={{
-            display: 'flex',
-            gap: '16px',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            marginBottom: '48px',
-          }}>
-            <Link href="/book" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '14px 28px',
-              backgroundColor: colors.cta,
-              color: '#fff',
-              borderRadius: '10px',
-              fontWeight: 600,
-              fontSize: '16px',
-              transition: 'all 0.2s ease',
-            }}>
-              Submit Your Venture <ArrowRight size={18} />
-            </Link>
-            <a href="#services" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '14px 28px',
-              backgroundColor: 'transparent',
-              color: colors.textLight,
-              border: `1px solid ${colors.borderAccent}`,
-              borderRadius: '10px',
-              fontWeight: 600,
-              fontSize: '16px',
-              transition: 'all 0.2s ease',
-            }}>
-              View Process
-            </a>
-          </div>
-
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '32px',
-            flexWrap: 'wrap',
-          }}>
-            {[
-              { icon: Code, text: 'Honest Validation First' },
-              { icon: Rocket, text: 'Weeks to Launch, Not Months' },
-              { icon: Zap, text: 'Flexible Deal Structures' },
-            ].map((stat, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: colors.textLightSecondary, fontSize: '14px' }}>
-                <stat.icon size={18} style={{ color: colors.primary }} />
-                <span>{stat.text}</span>
-              </div>
-            ))}
-          </div>
+      <div className="relative max-w-5xl mx-auto px-6 pt-32 pb-20 text-center">
+        {/* Status pill */}
+        <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-[var(--color-border-default)] bg-[var(--color-bg-elevated)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-success)] animate-pulse" />
+          <span className="text-xs font-medium text-[var(--color-text-secondary)]">Taking on new projects</span>
         </div>
-      </section>
 
-      {/* Value Proposition Section - Light */}
-      <section style={{ padding: '100px 24px', backgroundColor: colors.bgLight, position: 'relative', overflow: 'hidden' }}>
-        {/* Subtle background pattern */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          width: '50%',
-          height: '100%',
-          background: `radial-gradient(circle at 80% 20%, rgba(13, 148, 136, 0.08) 0%, transparent 50%)`,
-          pointerEvents: 'none',
-        }} />
+        {/* Headline */}
+        <h1 className="animate-fade-in-up delay-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6" style={{ opacity: 0 }}>
+          We build your tech.{' '}
+          <br className="hidden sm:block" />
+          <span className="bg-gradient-to-r from-[#60A5FA] via-[#7DD3FC] to-[#93C5FD] bg-clip-text text-transparent">
+            You grow your business.
+          </span>
+        </h1>
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
-          {/* Section header */}
-          <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-            <div style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '2px', color: colors.primary, marginBottom: '16px' }}>
-              WHY WE TELL HARD TRUTHS
-            </div>
-            <h2 style={{
-              fontSize: 'clamp(28px, 4vw, 42px)',
-              fontWeight: 700,
-              color: colors.textDark,
-              marginBottom: '20px',
-              maxWidth: '700px',
-              margin: '0 auto 20px',
-            }}>
-              Most agencies say yes to everything.
-              <br />
-              <span style={{ color: colors.primary }}>We don&apos;t.</span>
-            </h2>
-          </div>
+        {/* Subheadline */}
+        <p className="animate-fade-in-up delay-200 max-w-2xl mx-auto text-lg md:text-xl text-[var(--color-text-secondary)] mb-10 leading-relaxed" style={{ opacity: 0 }}>
+          Zapp Studios is a technical partner for founders and businesses.
+          We build MVPs, integrate AI, and ship products in weeks — for a fraction of the traditional cost.
+        </p>
 
-          {/* Big quote block */}
-          <div style={{
-            backgroundColor: colors.bgDark,
-            borderRadius: '24px',
-            padding: 'clamp(40px, 6vw, 80px)',
-            marginBottom: '48px',
-            position: 'relative',
-            overflow: 'hidden',
-          }}>
-            {/* Quote decoration */}
-            <div style={{
-              position: 'absolute',
-              top: '20px',
-              left: '30px',
-              fontSize: '180px',
-              fontWeight: 900,
-              color: 'rgba(13, 148, 136, 0.1)',
-              lineHeight: 1,
-              fontFamily: 'Georgia, serif',
-              pointerEvents: 'none',
-            }}>
-              &ldquo;
-            </div>
-
-            <div style={{ position: 'relative', zIndex: 1, maxWidth: '800px', margin: '0 auto' }}>
-              <p style={{
-                fontSize: 'clamp(24px, 3vw, 36px)',
-                fontWeight: 600,
-                color: colors.textLight,
-                lineHeight: 1.4,
-                marginBottom: '32px',
-              }}>
-                We&apos;d rather lose a project than watch you waste money on something that won&apos;t work.
-              </p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '50%',
-                  background: `linear-gradient(135deg, ${colors.primary}, ${colors.primaryLight})`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                  <Target size={24} style={{ color: '#fff' }} />
-                </div>
-                <div>
-                  <p style={{ color: colors.textLight, fontWeight: 600, fontSize: '16px' }}>Our Core Principle</p>
-                  <p style={{ color: colors.textLightSecondary, fontSize: '14px' }}>Honesty over revenue, every time</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Stats row */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '24px',
-            marginBottom: '48px',
-          }}>
-            {[
-              { number: '60%', label: 'of ideas we evaluate', sublabel: 'don\'t move to build' },
-              { number: '2-12', label: 'weeks to MVP', sublabel: 'not months' },
-              { number: '100%', label: 'aligned incentives', sublabel: 'equity partnerships' },
-            ].map((stat, i) => (
-              <div key={i} style={{
-                backgroundColor: colors.surfaceLight,
-                borderRadius: '16px',
-                padding: '32px',
-                textAlign: 'center',
-                border: `1px solid ${colors.borderLight}`,
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
-              }}>
-                <div style={{
-                  fontSize: '48px',
-                  fontWeight: 800,
-                  background: `linear-gradient(135deg, ${colors.primary}, ${colors.cta})`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  marginBottom: '8px',
-                }}>
-                  {stat.number}
-                </div>
-                <p style={{ color: colors.textDark, fontWeight: 600, fontSize: '16px', marginBottom: '4px' }}>
-                  {stat.label}
-                </p>
-                <p style={{ color: colors.textMuted, fontSize: '14px' }}>
-                  {stat.sublabel}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* What to expect - horizontal cards */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '16px',
-          }}>
-            {[
-              { icon: Search, title: 'Honest Assessment', desc: 'Real feedback on your idea' },
-              { icon: CheckCircle, title: 'Validate First', desc: 'Before writing code' },
-              { icon: Zap, title: 'Ship Fast', desc: 'AI-native development' },
-              { icon: Handshake, title: 'Win Together', desc: 'Our success = your success' },
-            ].map((item, i) => (
-              <div key={i} style={{
-                backgroundColor: colors.surfaceLight,
-                borderRadius: '12px',
-                padding: '24px',
-                border: `1px solid ${colors.borderLight}`,
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '16px',
-                transition: 'all 0.2s ease',
-              }}>
-                <div style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '10px',
-                  backgroundColor: 'rgba(13, 148, 136, 0.1)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                }}>
-                  <item.icon size={20} style={{ color: colors.primary }} />
-                </div>
-                <div>
-                  <p style={{ color: colors.textDark, fontWeight: 600, fontSize: '15px', marginBottom: '4px' }}>
-                    {item.title}
-                  </p>
-                  <p style={{ color: colors.textMuted, fontSize: '14px' }}>
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* CTAs */}
+        <div className="animate-fade-in-up delay-300 flex flex-col sm:flex-row gap-4 justify-center" style={{ opacity: 0 }}>
+          <Link
+            href="/book"
+            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-semibold rounded-xl transition-all shadow-lg shadow-[var(--color-orange)]/20 hover:shadow-[var(--color-orange)]/30"
+          >
+            Book a Free Strategy Call
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+          <a
+            href="#how-it-works"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] text-[var(--color-text-primary)] font-semibold rounded-xl border border-[var(--color-border-default)] transition-all"
+          >
+            See How It Works
+          </a>
         </div>
-      </section>
 
-      {/* Speed Comparison Section - Dark */}
-      <section style={{ padding: '100px 24px', backgroundColor: colors.bgDark }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '2px', color: colors.primary, marginBottom: '16px' }}>
-            AI-NATIVE DEVELOPMENT
-          </div>
-          <h2 style={{
-            fontSize: 'clamp(28px, 4vw, 42px)',
-            fontWeight: 700,
-            color: colors.textLight,
-            marginBottom: '16px',
-            lineHeight: 1.2,
-            maxWidth: '800px',
-          }}>
-            You No Longer Wait <span style={{ textDecoration: 'line-through', color: colors.textMuted }}>6-12 Months</span> for Complex Software
+        {/* Trust stats */}
+        <div className="animate-fade-in-up delay-500 mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto" style={{ opacity: 0 }}>
+          {[
+            { value: '7-Fig', label: 'Exit delivered' },
+            { value: '2-12w', label: 'Idea to product' },
+            { value: '2-10%', label: 'Equity, not $150K' },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)]">{stat.value}</div>
+              <div className="text-xs text-[var(--color-text-muted)] mt-1">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <ChevronDown className="w-5 h-5 text-[var(--color-text-muted)]" />
+      </div>
+    </section>
+  )
+}
+
+// ─── Problem ───────────────────────────────────────────────────────
+function Problem() {
+  const problems = [
+    {
+      icon: DollarSign,
+      title: 'Agencies charge $75K–$150K upfront',
+      description: 'Most founders and businesses can\'t justify six figures before seeing a single result.',
+    },
+    {
+      icon: Clock,
+      title: 'Traditional dev takes 6–12 months',
+      description: 'By the time your product launches, the market has already moved on.',
+    },
+    {
+      icon: Users,
+      title: 'Freelancers disappear mid-project',
+      description: 'No accountability, no ownership. You\'re left managing someone else\'s spaghetti code.',
+    },
+  ]
+
+  return (
+    <section className="py-24 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection className="text-center mb-16">
+          <p className="text-sm font-mono font-medium text-[var(--color-orange)] mb-3 tracking-wider uppercase">The problem</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Building tech shouldn&apos;t drain your bank account
           </h2>
-          <p style={{ fontSize: '18px', color: colors.textLightSecondary, marginBottom: '48px', maxWidth: '600px' }}>
-            Our team is AI-native. We think and build differently. Everyone at Zapp Studios leverages AI to work at 10x speed.
-          </p>
+        </AnimatedSection>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '24px',
-          }}>
-            {/* Traditional - Red themed */}
-            <div style={{
-              backgroundColor: colors.surfaceDark,
-              border: `1px solid rgba(239, 68, 68, 0.3)`,
-              borderRadius: '16px',
-              padding: '32px',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                <Clock size={24} style={{ color: colors.error }} />
-                <h3 style={{ fontSize: '20px', fontWeight: 700, color: colors.textLight }}>Traditional Agency</h3>
-              </div>
-              <div style={{ marginBottom: '20px' }}>
-                <div style={{ height: '8px', backgroundColor: colors.bgDark, borderRadius: '4px', overflow: 'hidden' }}>
-                  <div style={{ width: '100%', height: '100%', backgroundColor: colors.error }} />
+        <div className="grid md:grid-cols-3 gap-6">
+          {problems.map((p, i) => (
+            <AnimatedSection key={p.title} delay={i * 100}>
+              <div className="h-full p-6 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-default)] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[var(--color-orange-glow)] flex items-center justify-center mb-4">
+                  <p.icon className="w-5 h-5 text-[var(--color-orange)]" />
                 </div>
+                <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{p.description}</p>
               </div>
-              <ul style={{ listStyle: 'none', padding: 0, color: colors.textLightSecondary }}>
-                <li style={{ marginBottom: '8px' }}>6-12 months timeline</li>
-                <li style={{ marginBottom: '8px' }}>$75K-$150K budget</li>
-                <li style={{ marginBottom: '8px' }}>Waterfall process</li>
-                <li>Hourly billing</li>
-              </ul>
-            </div>
-
-            {/* Our Approach - Teal themed */}
-            <div style={{
-              backgroundColor: colors.surfaceDark,
-              border: `1px solid rgba(13, 148, 136, 0.5)`,
-              borderRadius: '16px',
-              padding: '32px',
-              boxShadow: '0 0 30px rgba(13, 148, 136, 0.15)',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                <Zap size={24} style={{ color: colors.primary }} />
-                <h3 style={{ fontSize: '20px', fontWeight: 700, color: colors.textLight }}>Our Approach</h3>
-              </div>
-              <div style={{ marginBottom: '20px' }}>
-                <div style={{ height: '8px', backgroundColor: colors.bgDark, borderRadius: '4px', overflow: 'hidden' }}>
-                  <div style={{ width: '25%', height: '100%', background: `linear-gradient(90deg, ${colors.primary}, ${colors.cta})` }} />
-                </div>
-              </div>
-              <ul style={{ listStyle: 'none', padding: 0, color: colors.textLightSecondary }}>
-                <li style={{ marginBottom: '8px' }}>2-12 weeks timeline</li>
-                <li style={{ marginBottom: '8px' }}>$5K-$50K budget</li>
-                <li style={{ marginBottom: '8px' }}>AI-native development</li>
-                <li>Equity partnership</li>
-              </ul>
-            </div>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '24px',
-            marginTop: '48px',
-          }}>
-            {[
-              { value: '2 weeks', label: 'Simple POC' },
-              { value: '3 months', label: 'Revenue MVP' },
-              { value: '10x', label: 'Faster with AI' },
-            ].map((stat, i) => (
-              <div key={i} style={{ textAlign: 'center', padding: '24px' }}>
-                <div style={{ fontSize: '36px', fontWeight: 800, color: colors.primary, marginBottom: '8px' }}>{stat.value}</div>
-                <div style={{ color: colors.textLightSecondary, fontSize: '14px' }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div style={{
-            backgroundColor: 'rgba(13, 148, 136, 0.1)',
-            border: `1px solid ${colors.borderAccent}`,
-            borderRadius: '16px',
-            padding: '32px',
-            marginTop: '48px',
-            textAlign: 'center',
-          }}>
-            <h3 style={{ fontSize: '20px', fontWeight: 700, color: colors.textLight, marginBottom: '12px' }}>
-              The Difference?
-            </h3>
-            <p style={{ color: colors.textLightSecondary, maxWidth: '600px', margin: '0 auto' }}>
-              Aligned incentives. When we take equity, your success becomes our success.
-              We&apos;re not trying to maximize billable hours — we&apos;re trying to maximize your outcome.
-            </p>
-          </div>
+            </AnimatedSection>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  )
+}
 
-      {/* Services Section - Light */}
-      <section id="services" style={{ padding: '100px 24px', backgroundColor: colors.bgLight }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '2px', color: colors.primary, marginBottom: '16px' }}>
-            PARTNERSHIP OPTIONS
-          </div>
-          <h2 style={{
-            fontSize: 'clamp(28px, 4vw, 42px)',
-            fontWeight: 700,
-            color: colors.textDark,
-            marginBottom: '16px',
-            lineHeight: 1.2,
-          }}>
-            Every Founder Starts Somewhere.
+// ─── Services ──────────────────────────────────────────────────────
+function Services() {
+  const services = [
+    {
+      icon: Rocket,
+      title: 'MVP Development',
+      audience: 'For founders',
+      description:
+        'You have an idea but no technical team. We validate your concept, design it, and build a launch-ready MVP in 2–12 weeks. Instead of paying $100K+ upfront, we take a small equity stake (2–10%) so our success is tied to yours.',
+      features: ['Full-stack development', 'Product design & UX', 'Launch-ready in weeks', 'Equity-aligned incentives'],
+    },
+    {
+      icon: Brain,
+      title: 'AI Integration',
+      audience: 'For businesses',
+      description:
+        'You know AI can transform your business, but don\'t know where to start. We embed AI directly into your operations — automating workflows, cutting costs, and creating competitive advantages that compound over time.',
+      features: ['Workflow automation', 'Custom AI tools', 'Cost reduction analysis', 'Staff training & handoff'],
+    },
+    {
+      icon: Code2,
+      title: 'Technical Partnership',
+      audience: 'For both',
+      description:
+        'Not just a vendor — a partner. We stay involved after launch to iterate, scale, and grow with you. Our equity model means we\'re invested in your long-term success, not just shipping and moving on.',
+      features: ['Ongoing technical guidance', 'Scaling & optimization', 'Strategic product advice', 'Dedicated team'],
+    },
+  ]
+
+  return (
+    <section id="services" className="py-24 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection className="text-center mb-16">
+          <p className="text-sm font-mono font-medium text-[var(--color-orange)] mb-3 tracking-wider uppercase">What we do</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            Two paths, one goal: your success
           </h2>
-          <p style={{ fontSize: '18px', color: colors.textDarkSecondary, marginBottom: '48px', maxWidth: '600px' }}>
-            Pricing depends on where you are in your journey...
+          <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+            Whether you&apos;re a founder with an idea or a business ready for AI, we meet you where you are.
           </p>
+        </AnimatedSection>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '20px',
-          }}>
-            {services.map((service, i) => (
-              <div
-                key={i}
-                style={{
-                  backgroundColor: colors.surfaceLight,
-                  border: service.featured ? `2px solid ${colors.primary}` : `1px solid ${colors.borderLight}`,
-                  borderRadius: '16px',
-                  padding: '32px',
-                  position: 'relative',
-                  boxShadow: service.featured ? `0 0 40px rgba(13, 148, 136, 0.2)` : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-                }}
-              >
-                {service.featured && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '-12px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    padding: '4px 16px',
-                    backgroundColor: colors.primary,
-                    borderRadius: '9999px',
-                    fontSize: '12px',
-                    fontWeight: 600,
-                    color: '#fff',
-                  }}>
-                    RECOMMENDED
+        <div className="grid lg:grid-cols-3 gap-6">
+          {services.map((s, i) => (
+            <AnimatedSection key={s.title} delay={i * 100}>
+              <div className="h-full p-8 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)] transition-all group">
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="w-10 h-10 rounded-xl bg-[var(--color-orange-glow)] flex items-center justify-center group-hover:bg-[var(--color-orange)]/20 transition-colors">
+                    <s.icon className="w-5 h-5 text-[var(--color-orange)]" />
                   </div>
-                )}
-                <h3 style={{ fontSize: '18px', fontWeight: 700, color: colors.textDark, marginBottom: '8px' }}>
-                  {service.title}
-                </h3>
-                <div style={{ fontSize: '28px', fontWeight: 800, color: colors.primary, marginBottom: '12px' }}>
-                  {service.price}
+                  <span className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider">{s.audience}</span>
                 </div>
-                <p style={{ color: colors.textDarkSecondary, fontSize: '14px', marginBottom: '20px' }}>
-                  {service.description}
-                </p>
-                <ul style={{ listStyle: 'none', padding: 0, marginBottom: '24px' }}>
-                  {service.features.map((feature, j) => (
-                    <li key={j} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: colors.textDarkSecondary, fontSize: '14px', marginBottom: '8px' }}>
-                      <CheckCircle size={14} style={{ color: colors.success }} />
-                      {feature}
+                <h3 className="text-xl font-bold mt-4 mb-3">{s.title}</h3>
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-6">{s.description}</p>
+                <ul className="space-y-2">
+                  {s.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
+                      <Sparkles className="w-3.5 h-3.5 text-[var(--color-orange)] shrink-0" />
+                      {f}
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/book"
-                  style={{
-                    display: 'block',
-                    textAlign: 'center',
-                    padding: '12px',
-                    backgroundColor: service.featured ? colors.cta : 'transparent',
-                    border: service.featured ? 'none' : `1px solid ${colors.primary}`,
-                    borderRadius: '8px',
-                    color: service.featured ? '#fff' : colors.primary,
-                    fontWeight: 600,
-                    fontSize: '14px',
-                    transition: 'all 0.2s ease',
-                  }}
-                >
-                  {service.cta}
-                </Link>
               </div>
-            ))}
-          </div>
+            </AnimatedSection>
+          ))}
         </div>
-      </section>
 
-      {/* How It Works Section - Dark */}
-      <section style={{ padding: '100px 24px', backgroundColor: colors.bgDark, position: 'relative', overflow: 'hidden' }}>
-        {/* Background decoration */}
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '800px',
-          height: '800px',
-          background: `radial-gradient(circle, rgba(13, 148, 136, 0.08) 0%, transparent 70%)`,
-          pointerEvents: 'none',
-        }} />
+        <AnimatedSection delay={300} className="text-center mt-10">
+          <Link
+            href="/book"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-orange)] hover:text-[var(--color-orange-light)] transition-colors"
+          >
+            Not sure which path is right? Let&apos;s talk
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </AnimatedSection>
+      </div>
+    </section>
+  )
+}
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative' }}>
-          {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <div style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '2px', color: colors.primary, marginBottom: '16px' }}>
-              HOW IT WORKS
-            </div>
-            <h2 style={{
-              fontSize: 'clamp(32px, 5vw, 48px)',
-              fontWeight: 800,
-              color: colors.textLight,
-              marginBottom: '20px',
-            }}>
-              From idea to launch in<br />
-              <span style={{ color: colors.primary }}>5 clear steps</span>
-            </h2>
-            <p style={{ color: colors.textLightSecondary, fontSize: '18px', maxWidth: '500px', margin: '0 auto' }}>
-              Validation before code. Partnership over transactions.
-            </p>
-          </div>
+// ─── How It Works ──────────────────────────────────────────────────
+function HowItWorks() {
+  const steps = [
+    {
+      num: '01',
+      title: 'Free Strategy Call',
+      description:
+        'We hop on a 30-minute call to understand your idea or business needs. We\'ll be honest — if we don\'t think it\'ll work, we\'ll tell you. We turn away 80% of projects because we\'d rather save you time than take your money.',
+      icon: Phone,
+    },
+    {
+      num: '02',
+      title: 'Scope & Structure',
+      description:
+        'If it\'s a fit, we map out exactly what gets built, the timeline, and the equity/cost structure. Everything is transparent — no surprise invoices, no scope creep. You know what you\'re getting before we write a single line of code.',
+      icon: Target,
+    },
+    {
+      num: '03',
+      title: 'We Build, You Watch',
+      description:
+        'Our team ships fast. Weekly demos, constant communication, and a working product that evolves in front of your eyes. MVP in 2–12 weeks depending on complexity.',
+      icon: Code2,
+    },
+    {
+      num: '04',
+      title: 'Launch & Grow',
+      description:
+        'We don\'t disappear after launch. Our equity stake means we\'re invested in your success long-term. We help you iterate, scale, and grow — because when you win, we win.',
+      icon: TrendingUp,
+    },
+  ]
 
-          {/* Process Steps - Card Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '20px',
-            marginBottom: '60px',
-          }}>
-            {[
-              { icon: Search, title: 'Discovery', desc: 'Free call to evaluate your idea', duration: '1 call', color: colors.primary },
-              { icon: CheckCircle, title: 'Validation', desc: 'Sprint to validate market fit', duration: '2-3 weeks', color: '#10B981' },
-              { icon: Handshake, title: 'Partnership', desc: 'Deal structure that works', duration: '1 week', color: '#3B82F6' },
-              { icon: Zap, title: 'Build', desc: 'AI-native development', duration: '2-12 weeks', color: colors.cta },
-              { icon: TrendingUp, title: 'Scale', desc: 'Ongoing growth support', duration: 'Ongoing', color: '#8B5CF6' },
-            ].map((step, i) => {
-              const Icon = step.icon
-              return (
-                <div key={i} style={{
-                  backgroundColor: colors.surfaceDark,
-                  borderRadius: '20px',
-                  padding: '32px 28px',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  border: `1px solid ${colors.borderDark}`,
-                  transition: 'all 0.3s ease',
-                }}>
-                  {/* Step number */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '-10px',
-                    right: '10px',
-                    fontSize: '100px',
-                    fontWeight: 900,
-                    color: 'rgba(255, 255, 255, 0.03)',
-                    lineHeight: 1,
-                    pointerEvents: 'none',
-                  }}>
-                    {i + 1}
+  return (
+    <section id="how-it-works" className="py-24 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection className="text-center mb-16">
+          <p className="text-sm font-mono font-medium text-[var(--color-orange)] mb-3 tracking-wider uppercase">How it works</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            From call to product in four steps
+          </h2>
+          <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto">
+            No 47-page proposals. No months of &quot;discovery.&quot; Just a clear path from idea to shipped product.
+          </p>
+        </AnimatedSection>
+
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {steps.map((step, i) => (
+            <AnimatedSection key={step.num} delay={i * 100}>
+              <div className="relative p-8 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-default)] transition-colors h-full">
+                <div className="flex items-start gap-4">
+                  <div className="shrink-0">
+                    <span className="text-3xl font-extrabold text-[var(--color-orange)]/20 font-mono">{step.num}</span>
                   </div>
-
-                  {/* Icon with colored background */}
-                  <div style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '16px',
-                    background: `linear-gradient(135deg, ${step.color}20, ${step.color}40)`,
-                    border: `1px solid ${step.color}50`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginBottom: '20px',
-                  }}>
-                    <Icon size={26} style={{ color: step.color }} />
-                  </div>
-
-                  {/* Step indicator */}
-                  <div style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '4px 10px',
-                    backgroundColor: `${step.color}15`,
-                    borderRadius: '20px',
-                    marginBottom: '16px',
-                  }}>
-                    <div style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: step.color }} />
-                    <span style={{ fontSize: '11px', fontWeight: 600, color: step.color, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      Step {i + 1}
-                    </span>
-                  </div>
-
-                  <h3 style={{
-                    fontSize: '22px',
-                    fontWeight: 700,
-                    color: colors.textLight,
-                    marginBottom: '10px',
-                  }}>
-                    {step.title}
-                  </h3>
-
-                  <p style={{
-                    color: colors.textLightSecondary,
-                    fontSize: '15px',
-                    lineHeight: 1.6,
-                    marginBottom: '20px',
-                  }}>
-                    {step.desc}
-                  </p>
-
-                  {/* Duration badge */}
-                  <div style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '6px 12px',
-                    backgroundColor: colors.bgDark,
-                    borderRadius: '8px',
-                    border: `1px solid ${colors.borderDark}`,
-                  }}>
-                    <Clock size={14} style={{ color: colors.textMuted }} />
-                    <span style={{ fontSize: '13px', color: colors.textMuted, fontWeight: 500 }}>
-                      {step.duration}
-                    </span>
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <step.icon className="w-4 h-4 text-[var(--color-orange)]" />
+                      <h3 className="text-lg font-bold">{step.title}</h3>
+                    </div>
+                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{step.description}</p>
                   </div>
                 </div>
-              )
-            })}
-          </div>
-
-          {/* Progress bar */}
-          <div style={{
-            maxWidth: '600px',
-            margin: '0 auto 60px',
-            padding: '0 20px',
-          }}>
-            <div style={{
-              height: '4px',
-              backgroundColor: colors.surfaceDark,
-              borderRadius: '2px',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                height: '100%',
-                width: '100%',
-                background: `linear-gradient(90deg, ${colors.primary}, #10B981, #3B82F6, ${colors.cta}, #8B5CF6)`,
-                borderRadius: '2px',
-              }} />
-            </div>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              marginTop: '12px',
-            }}>
-              <span style={{ fontSize: '12px', color: colors.textMuted }}>Start</span>
-              <span style={{ fontSize: '12px', color: colors.textMuted }}>2-12 weeks total</span>
-              <span style={{ fontSize: '12px', color: colors.textMuted }}>Launch</span>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div style={{
-            textAlign: 'center',
-            backgroundColor: colors.surfaceDark,
-            borderRadius: '24px',
-            padding: '48px 32px',
-            border: `1px solid ${colors.borderDark}`,
-          }}>
-            <h3 style={{
-              fontSize: '24px',
-              fontWeight: 700,
-              color: colors.textLight,
-              marginBottom: '12px',
-            }}>
-              Ready to start your journey?
-            </h3>
-            <p style={{ color: colors.textLightSecondary, marginBottom: '28px', fontSize: '16px' }}>
-              Book a free discovery call — no strings attached.
-            </p>
-            <Link href="/book" style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              padding: '16px 32px',
-              backgroundColor: colors.cta,
-              color: '#fff',
-              borderRadius: '12px',
-              fontWeight: 600,
-              fontSize: '16px',
-              boxShadow: '0 4px 14px rgba(249, 115, 22, 0.4)',
-            }}>
-              Book a Free Call <ArrowRight size={18} />
-            </Link>
-          </div>
+              </div>
+            </AnimatedSection>
+          ))}
         </div>
-      </section>
+      </div>
+    </section>
+  )
+}
 
-      {/* Projects Section - Light */}
-      <section style={{ padding: '100px 24px', backgroundColor: colors.bgLight }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '2px', color: colors.primary, marginBottom: '16px' }}>
-            CURRENT VENTURES
-          </div>
-          <h2 style={{
-            fontSize: 'clamp(28px, 4vw, 42px)',
-            fontWeight: 700,
-            color: colors.textDark,
-            marginBottom: '16px',
-          }}>
-            Projects we&apos;re building right now
+// ─── Case Studies ──────────────────────────────────────────────────
+function CaseStudies() {
+  const projects = [
+    {
+      name: 'DietAI',
+      tagline: 'AI-powered nutrition tracking',
+      description:
+        'Consulted early on product strategy and architecture, then joined as a full-stack web and mobile developer to ship the final product before acquisition. Participated in a 7-figure exit — gaining firsthand experience in the ins and outs of scaling a consumer startup to 50K+ users.',
+      stats: [
+        { label: 'Users', value: '50K+' },
+        { label: 'Rating', value: '4.8\u2605' },
+        { label: 'Exit', value: '7 Figures' },
+        { label: 'Role', value: 'Full-stack' },
+      ],
+      tech: ['Swift', 'React Native', 'Python', 'AI/ML', 'Firebase'],
+      status: '7-Figure Exit',
+      statusColor: 'text-[var(--color-orange)]',
+    },
+    {
+      name: 'Royal Pawz USA',
+      tagline: 'AI-powered pet grooming platform',
+      description:
+        'Leveraged AI across the entire business: built the client-facing web app, the admin dashboard to run operations, and used AI for marketing and workflow automation. Now a revenue-generating business growing rapidly month over month.',
+      stats: [
+        { label: 'Status', value: 'Revenue' },
+        { label: 'Growth', value: 'MoM \u2191' },
+        { label: 'AI Use', value: 'Full-stack' },
+        { label: 'Apps', value: '3 built' },
+      ],
+      tech: ['Next.js', 'React Native', 'PostgreSQL', 'Stripe', 'Golang'],
+      status: 'Live & Growing',
+      statusColor: 'text-[var(--color-success)]',
+      url: 'https://royalpawzusa.com',
+    },
+    {
+      name: 'B2B SaaS Platform',
+      tagline: 'Enterprise solution \u00B7 Under NDA',
+      description:
+        'Built a fully functional proof-of-concept over 3 months for an enterprise B2B SaaS product. The business team is now raising funding to build the full platform. Enterprise SaaS is a different beast — months of security audits, compliance requirements, and infrastructure that consumer apps never touch. That\'s why it requires real funding and a partner who understands the difference.',
+      stats: [
+        { label: 'Timeline', value: '3 months' },
+        { label: 'Stage', value: 'POC done' },
+        { label: 'Next', value: 'Raising' },
+        { label: 'Type', value: 'Enterprise' },
+      ],
+      tech: ['React', 'Python', 'Golang', 'PostgreSQL', 'Security Audits'],
+      status: 'Under NDA',
+      statusColor: 'text-[var(--color-text-muted)]',
+    },
+  ]
+
+  return (
+    <section id="work" className="py-24 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection className="text-center mb-16">
+          <p className="text-sm font-mono font-medium text-[var(--color-orange)] mb-3 tracking-wider uppercase">Our work</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            Real products, real results
           </h2>
-          <p style={{ fontSize: '18px', color: colors.textDarkSecondary, marginBottom: '48px', maxWidth: '600px' }}>
-            From validation to launch — here&apos;s what we&apos;re working on with our partners.
+          <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto">
+            We don&apos;t show mockups. These are live products with real users and real revenue.
           </p>
+        </AnimatedSection>
 
-          {/* MVP Launched Section */}
-          <div style={{ marginBottom: '48px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-              <div style={{
-                padding: '6px 12px',
-                backgroundColor: colors.success,
-                borderRadius: '6px',
-                fontSize: '12px',
-                fontWeight: 700,
-                color: '#fff',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px',
-              }}>
-                MVP Launched
-              </div>
-              <div style={{ height: '1px', flex: 1, backgroundColor: colors.borderLight }} />
-            </div>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '24px',
-            }}>
-              {launchedProjects.map((project, i) => {
-                const Icon = project.icon
-                return (
-                  <a
-                    key={i}
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      backgroundColor: colors.surfaceLight,
-                      border: `2px solid ${colors.success}`,
-                      borderRadius: '16px',
-                      padding: '32px',
-                      boxShadow: '0 4px 20px rgba(16, 185, 129, 0.15)',
-                      position: 'relative',
-                      overflow: 'hidden',
-                      textDecoration: 'none',
-                      display: 'block',
-                      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                    }}
-                  >
-                    {/* Revenue badge */}
-                    <div style={{
-                      position: 'absolute',
-                      top: '16px',
-                      right: '16px',
-                      padding: '4px 10px',
-                      backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                      border: `1px solid ${colors.success}`,
-                      borderRadius: '20px',
-                      fontSize: '11px',
-                      fontWeight: 600,
-                      color: colors.success,
-                    }}>
-                      {project.status}
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
-                      <div style={{
-                        width: '56px',
-                        height: '56px',
-                        borderRadius: '14px',
-                        background: `linear-gradient(135deg, ${colors.success}, #34D399)`,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}>
-                        <Icon size={28} style={{ color: '#fff' }} />
-                      </div>
-                      <div>
-                        <h3 style={{ fontSize: '20px', fontWeight: 700, color: colors.textDark }}>{project.title}</h3>
-                        <p style={{ fontSize: '14px', color: colors.textDarkSecondary }}>{project.subtitle}</p>
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
-                      {project.tags.map((tag, j) => (
-                        <span key={j} style={{
-                          padding: '4px 10px',
-                          backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                          borderRadius: '6px',
-                          fontSize: '12px',
-                          color: colors.textDarkSecondary,
-                        }}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {/* Visit link */}
-                    <div style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      color: colors.success,
-                      fontSize: '14px',
-                      fontWeight: 600,
-                    }}>
-                      Visit Site <ArrowRight size={16} />
-                    </div>
-                  </a>
-                )
-              })}
-            </div>
-          </div>
-
-          {/* In Development Section */}
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-              <div style={{
-                padding: '6px 12px',
-                backgroundColor: colors.cta,
-                borderRadius: '6px',
-                fontSize: '12px',
-                fontWeight: 700,
-                color: '#fff',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px',
-              }}>
-                In Development
-              </div>
-              <div style={{ height: '1px', flex: 1, backgroundColor: colors.borderLight }} />
-            </div>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-              gap: '20px',
-            }}>
-              {inDevelopmentProjects.map((project, i) => {
-                const Icon = project.icon
-                return (
-                  <div key={i} style={{
-                    backgroundColor: colors.surfaceLight,
-                    border: `1px solid ${colors.borderLight}`,
-                    borderRadius: '12px',
-                    padding: '24px',
-                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '14px' }}>
-                      <div style={{
-                        width: '44px',
-                        height: '44px',
-                        borderRadius: '10px',
-                        backgroundColor: 'rgba(249, 115, 22, 0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}>
-                        <Icon size={22} style={{ color: colors.cta }} />
-                      </div>
-                      <div>
-                        <h3 style={{ fontSize: '16px', fontWeight: 700, color: colors.textDark }}>{project.title}</h3>
-                        <p style={{ fontSize: '13px', color: colors.textDarkSecondary }}>{project.subtitle}</p>
-                      </div>
-                    </div>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                      {project.tags.map((tag, j) => (
-                        <span key={j} style={{
-                          padding: '3px 8px',
-                          backgroundColor: 'rgba(249, 115, 22, 0.08)',
-                          borderRadius: '4px',
-                          fontSize: '11px',
-                          color: colors.textMuted,
-                        }}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+        {/* Top row: two cards */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {projects.slice(0, 2).map((project, i) => (
+            <AnimatedSection key={project.name} delay={i * 150}>
+              <div className="h-full p-8 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-default)] transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold">{project.name}</h3>
+                    <p className="text-sm text-[var(--color-text-muted)]">{project.tagline}</p>
                   </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+                  <span className={`text-xs font-mono font-semibold ${project.statusColor} px-3 py-1 rounded-full bg-[var(--color-bg-elevated)] shrink-0 ml-3`}>
+                    {project.status}
+                  </span>
+                </div>
 
-      {/* About Section - Dark */}
-      <section style={{ padding: '100px 24px', backgroundColor: colors.bgDark }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '48px',
-            alignItems: 'center',
-          }}>
-            <div>
-              <h2 style={{
-                fontSize: 'clamp(28px, 4vw, 42px)',
-                fontWeight: 700,
-                color: colors.textLight,
-                marginBottom: '16px',
-              }}>
-                How We Work
-              </h2>
-              <p style={{ color: colors.textLightSecondary, fontSize: '18px', marginBottom: '24px' }}>
-                Technical expertise meets business strategy.
-              </p>
-              <p style={{ color: colors.textLightSecondary, lineHeight: 1.8, marginBottom: '32px' }}>
-                We don&apos;t just write code — we help you figure out what&apos;s worth building.
-                That means honest conversations, market validation, and strategic thinking before a single line of code.
-              </p>
-              <ul style={{ listStyle: 'none', padding: 0 }}>
-                {[
-                  { icon: Handshake, text: 'Partnership structures that align incentives' },
-                  { icon: Target, text: 'Validation before development' },
-                  { icon: Bot, text: 'AI-powered development for speed' },
-                  { icon: DollarSign, text: 'Flexible deals that work for you' },
-                ].map((item, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px', color: colors.textLightSecondary }}>
-                    <item.icon size={20} style={{ color: colors.primary }} />
-                    {item.text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div style={{
-              backgroundColor: colors.surfaceDark,
-              borderRadius: '16px',
-              padding: '48px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              border: `1px solid ${colors.borderDark}`,
-            }}>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '48px', fontWeight: 800, color: colors.primary, marginBottom: '8px' }}>ZAPP</div>
-                <div style={{ color: colors.textLightSecondary, fontSize: '14px' }}>STUDIOS</div>
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                <div className="grid grid-cols-4 gap-3 mb-6">
+                  {project.stats.map((stat) => (
+                    <div key={stat.label} className="text-center p-3 rounded-lg bg-[var(--color-bg-elevated)]">
+                      <div className="text-sm font-bold">{stat.value}</div>
+                      <div className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider mt-0.5">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span key={t} className="text-xs font-mono px-2.5 py-1 rounded-md bg-[var(--color-bg-elevated)] text-[var(--color-text-muted)] border border-[var(--color-border-subtle)]">
+                      {t}
+                    </span>
+                  ))}
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-auto inline-flex items-center gap-1 text-xs text-[var(--color-orange)] hover:text-[var(--color-orange-light)]"
+                    >
+                      Visit <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '24px',
-            marginTop: '64px',
-          }}>
-            {[
-              { value: 'Weeks', label: 'to Launch' },
-              { value: 'Honest', label: 'Validation First' },
-              { value: 'Flexible', label: 'Deal Structures' },
-            ].map((stat, i) => (
-              <div key={i} style={{
-                backgroundColor: colors.surfaceDark,
-                border: `1px solid ${colors.borderDark}`,
-                borderRadius: '16px',
-                padding: '24px',
-                textAlign: 'center',
-              }}>
-                <div style={{ fontSize: '28px', fontWeight: 800, color: colors.primary, marginBottom: '8px' }}>{stat.value}</div>
-                <div style={{ color: colors.textLightSecondary, fontSize: '14px' }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
+            </AnimatedSection>
+          ))}
         </div>
-      </section>
 
-      {/* Contact Section - Teal Gradient */}
-      <section id="contact" style={{
-        padding: '100px 24px',
-        background: `linear-gradient(135deg, ${colors.primaryDark} 0%, ${colors.primary} 50%, ${colors.primaryLight} 100%)`,
-      }}>
-        <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{
-            fontSize: 'clamp(28px, 4vw, 42px)',
-            fontWeight: 700,
-            color: '#fff',
-            marginBottom: '16px',
-          }}>
-            Let&apos;s Talk About Your Idea
+        {/* Bottom row: third card centered */}
+        <div className="max-w-2xl mx-auto mt-6">
+          {projects.slice(2).map((project, i) => (
+            <AnimatedSection key={project.name} delay={300}>
+              <div className="h-full p-8 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-default)] transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold">{project.name}</h3>
+                    <p className="text-sm text-[var(--color-text-muted)]">{project.tagline}</p>
+                  </div>
+                  <span className={`text-xs font-mono font-semibold ${project.statusColor} px-3 py-1 rounded-full bg-[var(--color-bg-elevated)] shrink-0 ml-3`}>
+                    {project.status}
+                  </span>
+                </div>
+
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                <div className="grid grid-cols-4 gap-3 mb-6">
+                  {project.stats.map((stat) => (
+                    <div key={stat.label} className="text-center p-3 rounded-lg bg-[var(--color-bg-elevated)]">
+                      <div className="text-sm font-bold">{stat.value}</div>
+                      <div className="text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider mt-0.5">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((t) => (
+                    <span key={t} className="text-xs font-mono px-2.5 py-1 rounded-md bg-[var(--color-bg-elevated)] text-[var(--color-text-muted)] border border-[var(--color-border-subtle)]">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Pricing Model ─────────────────────────────────────────────────
+function PricingModel() {
+  return (
+    <section className="py-24 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection className="text-center mb-16">
+          <p className="text-sm font-mono font-medium text-[var(--color-orange)] mb-3 tracking-wider uppercase">Our model</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            We only win when you win
           </h2>
-          <p style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '18px', marginBottom: '40px' }}>
-            We&apos;ll give you an honest assessment and figure out if we&apos;re a good fit to work together.
+          <p className="text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+            Instead of charging six figures upfront, we take a small equity stake. This aligns our incentives completely — we&apos;re not just building your product, we&apos;re investing in it.
           </p>
-          <Link href="/book" style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '16px 32px',
-            backgroundColor: colors.cta,
-            color: '#fff',
-            borderRadius: '10px',
-            fontWeight: 600,
-            fontSize: '18px',
-            boxShadow: '0 4px 14px rgba(249, 115, 22, 0.4)',
-          }}>
-            Book a Free Call
-          </Link>
-          <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px', marginTop: '24px' }}>
-            We&apos;ll respond within 24 hours
-          </p>
-          {/* TODO: Update to professional email (e.g., hello@zappstudios.com) */}
-          <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '14px', marginTop: '12px' }}>
-            Or email us at{' '}
-            <a href="mailto:hamzazulquernain1@gmail.com" style={{ color: '#fff', textDecoration: 'underline' }}>
-              hamzazulquernain1@gmail.com
-            </a>
-          </p>
-        </div>
-      </section>
+        </AnimatedSection>
 
-      {/* Footer - Dark */}
-      <footer style={{
-        borderTop: `1px solid ${colors.borderDark}`,
-        padding: '48px 24px',
-        textAlign: 'center',
-        backgroundColor: colors.bgDark,
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ fontSize: '28px', fontWeight: 800, color: colors.textLight, marginBottom: '8px' }}>
-            ZAPP STUDIOS
+        <AnimatedSection>
+          <div className="max-w-4xl mx-auto">
+            {/* Comparison */}
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              {/* Traditional */}
+              <div className="p-8 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-card)]">
+                <div className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider mb-4">Traditional Agency</div>
+                <div className="space-y-4">
+                  {[
+                    '$75K–$150K upfront',
+                    '6–12 months to launch',
+                    'Bill by the hour — slow = more $$$',
+                    'Gone after handoff',
+                    'Zero skin in the game',
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3 text-sm text-[var(--color-text-muted)]">
+                      <span className="text-red-400 mt-0.5 shrink-0">{'\u2715'}</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Zapp */}
+              <div className="p-8 rounded-2xl border border-[var(--color-border-accent)] bg-[var(--color-bg-card)] relative overflow-hidden">
+                <div className="absolute top-0 right-0 px-3 py-1 bg-[var(--color-orange)] text-white text-[10px] font-bold uppercase tracking-wider rounded-bl-lg">
+                  Our Model
+                </div>
+                <div className="text-xs font-mono text-[var(--color-orange)] uppercase tracking-wider mb-4">Zapp Studios</div>
+                <div className="space-y-4">
+                  {[
+                    'Low upfront cost + 2–10% equity',
+                    '2–12 weeks to launch',
+                    'Fast shipping = aligned incentives',
+                    'Long-term partnership',
+                    '100% skin in the game',
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
+                      <span className="text-[var(--color-success)] mt-0.5 shrink-0">{'\u2713'}</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Explanation */}
+            <AnimatedSection delay={200}>
+              <div className="p-6 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border-subtle)] text-center">
+                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                  <span className="font-semibold text-[var(--color-text-primary)]">How it works:</span>{' '}
+                  We charge a reduced hourly rate plus 2–10% equity. The more equity you offer, the lower the upfront cost.
+                  This means our incentives are 100% aligned — we build fast, we build well, and we stick around to help you grow.
+                </p>
+              </div>
+            </AnimatedSection>
           </div>
-          <p style={{ color: colors.textLightSecondary, marginBottom: '24px' }}>
-            Turning Ideas Into Technical Realities
-          </p>
-          <p style={{ color: colors.textMuted, fontSize: '14px', marginBottom: '8px' }}>
-            &copy; {new Date().getFullYear()} Zapp Studios. All Rights Reserved.
-          </p>
-          <p style={{ color: colors.textMuted, fontSize: '14px' }}>
-            Honest partnerships. Real results.
+        </AnimatedSection>
+      </div>
+    </section>
+  )
+}
+
+// ─── AI Class Teaser ───────────────────────────────────────────────
+function ClassTeaser() {
+  return (
+    <section id="ai-class" className="py-24 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection>
+          <div className="relative p-10 md:p-14 rounded-2xl bg-gradient-to-br from-[var(--color-bg-card)] to-[var(--color-bg-elevated)] border border-[var(--color-border-subtle)] text-center overflow-hidden">
+            {/* Background glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-orange)] opacity-[0.03] rounded-full blur-[80px]" />
+
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border border-[var(--color-border-accent)] bg-[var(--color-orange-glow)]">
+                <Lightbulb className="w-3.5 h-3.5 text-[var(--color-orange)]" />
+                <span className="text-xs font-medium text-[var(--color-orange)]">Coming Soon</span>
+              </div>
+
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
+                Monthly AI Class
+              </h2>
+              <p className="text-[var(--color-text-secondary)] max-w-lg mx-auto mb-8">
+                Learn how to leverage AI in your business and products. Practical, hands-on sessions taught by someone who actually builds with AI every day. Details coming soon.
+              </p>
+
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeCckl4XvgHeIAwdkL-dAKLwbRZNz-D1IBbKDV9zCT1tHQSkA/viewform?usp=header"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] text-[var(--color-text-primary)] font-medium rounded-xl border border-[var(--color-border-default)] transition-all text-sm"
+              >
+                Join the Waitlist
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  )
+}
+
+// ─── FAQ ───────────────────────────────────────────────────────────
+function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const faqs = [
+    {
+      q: 'What does "equity partnership" actually mean?',
+      a: 'Instead of charging you $100K+ upfront, we take a small ownership stake (2–10%) in your company or product. This means we invest our time and expertise at a reduced cost, and we only see a real return if your business succeeds. It aligns our goals completely — we want you to win as much as you do.',
+    },
+    {
+      q: 'Why do you turn away 80% of projects?',
+      a: 'Because we\'d rather be honest than take your money. If we don\'t believe your idea has strong market potential, or if the timing isn\'t right, we\'ll tell you. We\'ll even give you feedback on what would need to change. Our reputation is built on results, not volume.',
+    },
+    {
+      q: 'How fast can you actually ship an MVP?',
+      a: 'Most MVPs launch in 2–12 weeks depending on complexity. A simple web app might be 2–4 weeks. A mobile app with AI features might be 8–12 weeks. We\'ll give you an honest timeline on our first call — and we stick to it.',
+    },
+    {
+      q: 'What technologies do you work with?',
+      a: 'We\'re full-stack and AI-native. Our core stack includes React, Next.js, React Native, Python, Golang, and various AI/ML frameworks. But we pick the right tool for the job — not the trendiest one.',
+    },
+    {
+      q: 'What if my idea needs changes after launch?',
+      a: 'That\'s expected and encouraged. Because we\'re equity partners, we stay involved post-launch. We help you iterate based on real user feedback, optimize performance, and scale as you grow. We\'re not a build-and-run shop.',
+    },
+    {
+      q: 'I\'m a business, not a startup. Can you still help?',
+      a: 'Absolutely. We work with established businesses to integrate AI into existing operations — automating workflows, building internal tools, reducing costs, and creating competitive advantages. The equity model can be adapted or we can discuss project-based pricing for businesses.',
+    },
+  ]
+
+  return (
+    <section id="faq" className="py-24 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-3xl mx-auto px-6">
+        <AnimatedSection className="text-center mb-16">
+          <p className="text-sm font-mono font-medium text-[var(--color-orange)] mb-3 tracking-wider uppercase">FAQ</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Questions we get asked
+          </h2>
+        </AnimatedSection>
+
+        <div className="space-y-3">
+          {faqs.map((faq, i) => (
+            <AnimatedSection key={i} delay={i * 50}>
+              <button
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full text-left p-5 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-default)] transition-all"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-semibold text-sm">{faq.q}</span>
+                  {openIndex === i ? (
+                    <ChevronUp className="w-4 h-4 text-[var(--color-text-muted)] shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4 text-[var(--color-text-muted)] shrink-0" />
+                  )}
+                </div>
+                {openIndex === i && (
+                  <p className="mt-3 text-sm text-[var(--color-text-secondary)] leading-relaxed pr-8">
+                    {faq.a}
+                  </p>
+                )}
+              </button>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Final CTA ─────────────────────────────────────────────────────
+function FinalCTA() {
+  return (
+    <section className="py-24 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection>
+          <div className="relative p-12 md:p-16 rounded-2xl bg-gradient-to-br from-[var(--color-orange)]/10 to-transparent border border-[var(--color-border-accent)] text-center overflow-hidden">
+            <div className="absolute inset-0 bg-[var(--color-bg-card)] -z-10" />
+
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Ready to build?
+            </h2>
+            <p className="text-[var(--color-text-secondary)] max-w-lg mx-auto mb-8">
+              Book a free 30-minute strategy call. We&apos;ll be honest about whether we can help — and if we can&apos;t, we&apos;ll point you in the right direction.
+            </p>
+            <Link
+              href="/book"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-semibold rounded-xl transition-all shadow-lg shadow-[var(--color-orange)]/20 hover:shadow-[var(--color-orange)]/30 text-lg"
+            >
+              Book a Free Strategy Call
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+            <p className="text-xs text-[var(--color-text-muted)] mt-4">
+              No commitment. No sales pitch. Just an honest conversation.
+            </p>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  )
+}
+
+// ─── Footer ────────────────────────────────────────────────────────
+function Footer() {
+  return (
+    <footer className="py-12 border-t border-[var(--color-border-subtle)]">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center">
+            <Image src="/logo.jpg" alt="Zapp Studios" width={160} height={44} className="object-contain h-11 w-auto" />
+          </div>
+
+          <div className="flex items-center gap-6">
+            <a
+              href="https://linkedin.com/in/hamza-zulquernain"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a
+              href="mailto:hamzazulquernain1@gmail.com"
+              className="text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-4 h-4" />
+            </a>
+          </div>
+
+          <p className="text-xs text-[var(--color-text-muted)]">
+            &copy; {new Date().getFullYear()} Zapp Studios. All rights reserved.
           </p>
         </div>
-      </footer>
+      </div>
+    </footer>
+  )
+}
+
+// ─── Page ──────────────────────────────────────────────────────────
+export default function Home() {
+  return (
+    <main>
+      <Navbar />
+      <Hero />
+      <Problem />
+      <Services />
+      <HowItWorks />
+      <CaseStudies />
+      <PricingModel />
+      <ClassTeaser />
+      <FAQ />
+      <FinalCTA />
+      <Footer />
     </main>
   )
 }

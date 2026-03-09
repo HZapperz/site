@@ -2,8 +2,13 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Zapp Studios - Turning Ideas Into Technical Realities',
-  description: 'We\'re technical co-founders who combine development expertise with business strategy. From idea validation to funded MVP in weeks, not months.',
+  title: 'Zapp Studios — We Build Your Tech',
+  description: 'Zapp Studios builds MVPs for startups and integrates AI into businesses. Low upfront cost, aligned incentives. Your technical partner from idea to product.',
+  openGraph: {
+    title: 'Zapp Studios — We Build Your Tech',
+    description: 'Zapp Studios builds MVPs for startups and integrates AI into businesses. Low upfront cost, aligned incentives.',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

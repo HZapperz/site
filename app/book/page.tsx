@@ -1,209 +1,78 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import Script from 'next/script'
 import { ArrowLeft, Mail, Calendar } from 'lucide-react'
 
-const colors = {
-  bgDark: '#0A0A0B',
-  surfaceDark: '#1E293B',
-  primary: '#0D9488',
-  primaryLight: '#14B8A6',
-  cta: '#F97316',
-  textLight: '#F8FAFC',
-  textLightSecondary: '#94A3B8',
-  textMuted: '#64748B',
-  borderDark: 'rgba(255, 255, 255, 0.1)',
-  borderAccent: 'rgba(13, 148, 136, 0.3)',
-}
-
 export default function BookPage() {
   return (
-    <main style={{
-      minHeight: '100vh',
-      backgroundColor: colors.bgDark,
-      padding: '24px',
-    }}>
+    <main className="min-h-screen bg-[var(--color-bg)]">
       {/* Calendly Script */}
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         strategy="lazyOnload"
       />
 
-      {/* Navigation */}
-      <nav style={{
-        maxWidth: '1200px',
-        margin: '0 auto 48px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}>
-        <Link href="/" style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          color: colors.textLightSecondary,
-          fontSize: '14px',
-          transition: 'color 0.2s',
-        }}>
-          <ArrowLeft size={18} />
-          Back to Home
+      {/* Nav */}
+      <nav className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back
         </Link>
-        <div style={{ fontSize: '24px', fontWeight: 800, color: colors.textLight }}>
-          ZAPP STUDIOS
-        </div>
+        <Link href="/" className="flex items-center">
+          <Image src="/logo.jpg" alt="Zapp Studios" width={200} height={56} className="object-contain h-14 w-auto" />
+        </Link>
       </nav>
 
-      {/* Content */}
-      <div style={{
-        maxWidth: '800px',
-        margin: '0 auto',
-        textAlign: 'center',
-      }}>
-        <h1 style={{
-          fontSize: 'clamp(32px, 5vw, 48px)',
-          fontWeight: 800,
-          color: colors.textLight,
-          marginBottom: '16px',
-        }}>
-          Let&apos;s Talk
-        </h1>
-        <p style={{
-          color: colors.textLightSecondary,
-          fontSize: '18px',
-          marginBottom: '48px',
-          maxWidth: '600px',
-          margin: '0 auto 48px',
-        }}>
-          We&apos;ll give you an honest assessment of your idea and figure out if we&apos;re a good fit to work together.
-        </p>
-
-        {/* Contact Options */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '24px',
-          marginBottom: '48px',
-        }}>
-          {/* Email Option */}
-          <a
-            href="mailto:hamzazulquernain1@gmail.com"
-            style={{
-              backgroundColor: colors.surfaceDark,
-              border: `1px solid ${colors.borderDark}`,
-              borderRadius: '16px',
-              padding: '32px',
-              textAlign: 'center',
-              transition: 'all 0.2s ease',
-              textDecoration: 'none',
-            }}
-          >
-            <div style={{
-              width: '56px',
-              height: '56px',
-              borderRadius: '14px',
-              backgroundColor: 'rgba(13, 148, 136, 0.2)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 20px',
-            }}>
-              <Mail size={28} style={{ color: colors.primary }} />
-            </div>
-            <h3 style={{ fontSize: '20px', fontWeight: 700, color: colors.textLight, marginBottom: '8px' }}>
-              Send Us an Email
-            </h3>
-            <p style={{ color: colors.textLightSecondary, fontSize: '14px' }}>
-              hamzazulquernain1@gmail.com
-            </p>
-          </a>
-
-          {/* Calendar Option */}
-          <div style={{
-            backgroundColor: colors.surfaceDark,
-            border: `1px solid ${colors.borderAccent}`,
-            borderRadius: '16px',
-            padding: '32px',
-            textAlign: 'center',
-            boxShadow: '0 0 30px rgba(13, 148, 136, 0.1)',
-          }}>
-            <div style={{
-              width: '56px',
-              height: '56px',
-              borderRadius: '14px',
-              backgroundColor: 'rgba(13, 148, 136, 0.2)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 20px',
-            }}>
-              <Calendar size={28} style={{ color: colors.primary }} />
-            </div>
-            <h3 style={{ fontSize: '20px', fontWeight: 700, color: colors.textLight, marginBottom: '8px' }}>
-              Book a Call
-            </h3>
-            <p style={{ color: colors.textLightSecondary, fontSize: '14px' }}>
-              30-minute discovery call
-            </p>
-          </div>
+      <div className="max-w-5xl mx-auto px-6 pb-20">
+        {/* Header */}
+        <div className="text-center mb-12 animate-fade-in-up">
+          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+            Let&apos;s Talk
+          </h1>
+          <p className="text-[var(--color-text-secondary)] max-w-md mx-auto">
+            Book a free 30-minute strategy call. We&apos;ll be honest about whether we&apos;re the right fit.
+          </p>
         </div>
 
-        {/* Calendly Widget */}
-        <div style={{
-          backgroundColor: colors.surfaceDark,
-          borderRadius: '16px',
-          padding: '24px',
-          border: `1px solid ${colors.borderDark}`,
-        }}>
+        {/* Calendly embed */}
+        <div className="animate-fade-in-up delay-200 rounded-2xl overflow-hidden border border-[var(--color-border-subtle)] bg-[var(--color-bg-card)]" style={{ opacity: 0 }}>
           <div
             className="calendly-inline-widget"
-            data-url="https://calendly.com/hamzazulquernain1/zapp-studios-consulting?hide_gdpr_banner=1&background_color=1e293b&text_color=f8fafc&primary_color=0d9488"
-            style={{
-              minWidth: '320px',
-              height: '700px',
-            }}
+            data-url="https://calendly.com/hamzazulquernain1/zapp-studios-consulting?hide_gdpr_banner=1&background_color=1a1b23&text_color=f1f0ee&primary_color=60a5fa"
+            style={{ minWidth: '320px', height: '700px' }}
           />
+        </div>
 
-          {/* Mobile fallback */}
-          <div style={{ marginTop: '24px' }}>
-            <p style={{ color: colors.textMuted, fontSize: '14px', marginBottom: '12px' }}>
-              Having trouble viewing the calendar?
-            </p>
-            <a
-              href="https://calendly.com/hamzazulquernain1/zapp-studios-consulting"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 24px',
-                backgroundColor: colors.cta,
-                color: '#fff',
-                borderRadius: '8px',
-                fontWeight: 600,
-                fontSize: '14px',
-                textDecoration: 'none',
-              }}
-            >
-              Open Calendly
-            </a>
-          </div>
+        {/* Alt contact */}
+        <div className="animate-fade-in-up delay-300 mt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-[var(--color-text-muted)]" style={{ opacity: 0 }}>
+          <span>Or reach out directly:</span>
+          <a
+            href="mailto:hamzazulquernain1@gmail.com"
+            className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-orange)] transition-colors"
+          >
+            <Mail className="w-4 h-4" />
+            hamzazulquernain1@gmail.com
+          </a>
+        </div>
+
+        {/* Mobile fallback */}
+        <div className="mt-6 text-center sm:hidden">
+          <a
+            href="https://calendly.com/hamzazulquernain1/zapp-studios-consulting"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-medium rounded-xl transition-colors text-sm"
+          >
+            <Calendar className="w-4 h-4" />
+            Open Calendar
+          </a>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer style={{
-        maxWidth: '1200px',
-        margin: '80px auto 0',
-        textAlign: 'center',
-        paddingTop: '32px',
-        borderTop: `1px solid ${colors.borderDark}`,
-      }}>
-        <p style={{ color: colors.textMuted, fontSize: '14px' }}>
-          &copy; {new Date().getFullYear()} Zapp Studios. All Rights Reserved.
-        </p>
-      </footer>
     </main>
   )
 }
