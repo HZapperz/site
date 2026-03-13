@@ -42,7 +42,7 @@ export default function ClassesPage() {
         {/* Preview cards */}
         <div className="animate-fade-in-up delay-200 grid sm:grid-cols-3 gap-4 mb-12" style={{ opacity: 0 }}>
           {[
-            { icon: Brain, label: 'Hands-on learning', desc: 'Not theory — real tools, real workflows' },
+            { icon: Brain, label: 'Hands-on learning', desc: 'Not theory  -  real tools, real workflows' },
             { icon: Sparkles, label: 'AI-native approach', desc: 'From someone who ships with AI daily' },
             { icon: Lightbulb, label: 'Business-focused', desc: 'Apply AI to real problems immediately' },
           ].map((item) => (

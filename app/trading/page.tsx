@@ -53,8 +53,8 @@ const products = [
     variants: ['Fine Ground', 'Coarse Ground', 'Grinder Refill'],
     origin: 'Pakistan (Khewra Mine)',
     description:
-      'Sourced from the ancient Khewra Salt Mine in Pakistan — one of the largest and oldest salt mines in the world. Our Himalayan Pink Salt carries a natural mineral profile and is available in fine, coarse, and grinder formats for retail and foodservice.',
-    certifications: ['FDA-Registered Supplier', 'Halal Certified', 'Lab Tested — Heavy Metals Panel'],
+      'Sourced from the ancient Khewra Salt Mine in Pakistan  -  one of the largest and oldest salt mines in the world. Our Himalayan Pink Salt carries a natural mineral profile and is available in fine, coarse, and grinder formats for retail and foodservice.',
+    certifications: ['FDA-Registered Supplier', 'Halal Certified', 'Lab Tested  -  Heavy Metals Panel'],
     color: '#F97316',
   },
   {
@@ -63,8 +63,8 @@ const products = [
     variants: ['225g Pouches', 'Bulk Wholesale'],
     origin: 'Pakistan',
     description:
-      'Organic Moringa oleifera leaf powder — a nutrient-dense superfood supplement with broad retail and health-food market appeal. Processed and packaged to supplement-grade standards with full lab documentation.',
-    certifications: ['Organic Sourced', 'Lab Tested — Salmonella, Heavy Metals, Mycotoxins', 'Halal Certified'],
+      'Organic Moringa oleifera leaf powder  -  a nutrient-dense superfood supplement with broad retail and health-food market appeal. Processed and packaged to supplement-grade standards with full lab documentation.',
+    certifications: ['Organic Sourced', 'Lab Tested  -  Salmonella, Heavy Metals, Mycotoxins', 'Halal Certified'],
     color: '#10B981',
   },
   {
@@ -74,7 +74,7 @@ const products = [
     origin: 'South Asia',
     description:
       'Premium tropical mangoes imported seasonally from South Asia. Sourced from certified farms and imported in compliance with FDA fresh produce requirements, including prior notice filing and FSVP documentation.',
-    certifications: ['FDA-Compliant Import', 'Lab Tested — Pesticide Residue', 'Phytosanitary Certified'],
+    certifications: ['FDA-Compliant Import', 'Lab Tested  -  Pesticide Residue', 'Phytosanitary Certified'],
     color: '#EAB308',
   },
 ]
@@ -82,7 +82,7 @@ const products = [
 const credentials = [
   {
     title: 'FDA Facility Registration Certificate',
-    detail: 'Supplier Reg #12120176528 — AMH Trading, Lahore, Pakistan',
+    detail: 'Supplier Reg #12120176528  -  AMH Trading, Lahore, Pakistan',
     icon: FileText,
   },
   {
@@ -112,7 +112,7 @@ const credentials = [
   },
   {
     title: 'Pakistan Tax Registration (NTN)',
-    detail: 'National Tax Number — verified Pakistani supplier registration',
+    detail: 'National Tax Number  -  verified Pakistani supplier registration',
     icon: FileText,
   },
 ]
@@ -122,7 +122,7 @@ const importSteps = [
     step: '01',
     title: 'Source',
     description:
-      'Products are sourced from AMH Trading (FDA Reg #12120176528) in Lahore, Pakistan — a verified, FDA-registered supplier with full facility documentation.',
+      'Products are sourced from AMH Trading (FDA Reg #12120176528) in Lahore, Pakistan  -  a verified, FDA-registered supplier with full facility documentation.',
     icon: MapPin,
     color: colors.primaryLight,
   },
@@ -288,7 +288,7 @@ export default function TradingPage() {
             lineHeight: 1.7,
           }}>
             US-based importer of premium food commodities. Himalayan Pink Salt, Moringa Powder,
-            and tropical produce — sourced from verified overseas suppliers with full FDA and
+            and tropical produce  -  sourced from verified overseas suppliers with full FDA and
             compliance documentation on file.
           </p>
 
@@ -383,11 +383,11 @@ export default function TradingPage() {
               <p style={{ color: colors.textDarkSecondary, fontSize: '16px', lineHeight: 1.8, marginBottom: '20px' }}>
                 Zulq Trading is a US-based import venture operating under Zapp Studios, LLC. We
                 specialize in the importation of premium food commodities from verified overseas
-                suppliers — with every shipment backed by lab certifications, FDA registrations,
+                suppliers  -  with every shipment backed by lab certifications, FDA registrations,
                 and FSVP documentation.
               </p>
               <p style={{ color: colors.textDarkSecondary, fontSize: '16px', lineHeight: 1.8, marginBottom: '32px' }}>
-                Our primary overseas partner is <strong style={{ color: colors.textDark }}>AMH Trading, Lahore, Pakistan</strong> —
+                Our primary overseas partner is <strong style={{ color: colors.textDark }}>AMH Trading, Lahore, Pakistan</strong>  - 
                 an FDA-registered food facility (Registration #12120176528) with a documented
                 compliance track record. All imports are processed through licensed customs
                 brokers with prior FDA notice filings on record.
@@ -792,7 +792,7 @@ export default function TradingPage() {
             }}>
               {[
                 { label: 'Transport', value: 'Ocean Freight (FCL/LCL)' },
-                { label: 'Entry', value: 'US Customs — Licensed Broker' },
+                { label: 'Entry', value: 'US Customs  -  Licensed Broker' },
                 { label: 'Prior Notice', value: 'FDA Prior Notice Filing' },
                 { label: 'Verification', value: 'FSVP Documentation On File' },
               ].map((item, i) => (
