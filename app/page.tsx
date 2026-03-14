@@ -307,7 +307,7 @@ function Services() {
       title: 'MVP Development',
       audience: 'For founders',
       description:
-        'You have an idea but no technical team. We validate your concept, design it, and build a launch-ready MVP in 2–12 weeks. Instead of paying $100K+ upfront, we take a small equity stake (2–10%) so our success is tied to yours.',
+        'You have an idea but no technical team. We validate your concept, design it, and build a launch-ready MVP in 2–12 weeks. Full cash price is $30–50k — or offer equity and your upfront drops dramatically. Either way, we\'re invested in your success.',
       features: ['Full-stack development', 'Product design & UX', 'Launch-ready in weeks', 'Equity-aligned incentives'],
     },
     {
@@ -634,6 +634,13 @@ function CaseStudies() {
 
 // ─── Pricing Model ─────────────────────────────────────────────────
 function PricingModel() {
+  const tiers = [
+    { equity: '0% equity', cash: '$30k–$50k', discount: 'Full rate', featured: false },
+    { equity: '2–3% equity', cash: '$21k–$35k', discount: '~30% off', featured: false },
+    { equity: '5% equity', cash: '$15k–$25k', discount: '50% off', featured: true },
+    { equity: '8–10% equity', cash: '$9k–$15k', discount: '60–70% off', featured: false },
+  ]
+
   return (
     <section className="py-24 border-t border-[var(--color-border-subtle)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -643,7 +650,7 @@ function PricingModel() {
             We only win when you win
           </h2>
           <p className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-            Instead of charging six figures upfront, we take a small equity stake. This aligns our incentives completely  -  we&apos;re not just building your product, we&apos;re investing in it.
+            Equity is always required — it&apos;s non-negotiable. The more equity you offer, the lower your upfront cash. Simple alignment.
           </p>
         </AnimatedSection>
 
@@ -678,10 +685,10 @@ function PricingModel() {
                 <div className="text-xs font-mono text-[var(--color-orange)] uppercase tracking-wider mb-5">Zapp Studios</div>
                 <div className="space-y-4">
                   {[
-                    'Low upfront cost + 2–10% equity',
+                    'Equity always required (non-negotiable)',
+                    'More equity = less cash upfront',
                     '2–12 weeks to launch',
-                    'Fast shipping = aligned incentives',
-                    'Long-term partnership',
+                    'Long-term partnership, not a handoff',
                     '100% skin in the game',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 text-base text-[var(--color-text-secondary)]">
@@ -693,13 +700,52 @@ function PricingModel() {
               </div>
             </div>
 
-            {/* Explanation */}
+            {/* Pricing tiers */}
             <AnimatedSection delay={200}>
+              <div className="mb-8">
+                <p className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider text-center mb-5">
+                  Simple MVP pricing — adjust by scope
+                </p>
+                <div className="rounded-2xl border border-[var(--color-border-subtle)] overflow-hidden">
+                  {/* Header */}
+                  <div className="grid grid-cols-3 gap-4 px-6 py-3 bg-[var(--color-bg-elevated)] border-b border-[var(--color-border-subtle)]">
+                    <span className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider">Equity</span>
+                    <span className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider text-center">Upfront cash</span>
+                    <span className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider text-right">Savings</span>
+                  </div>
+                  {tiers.map((tier) => (
+                    <div
+                      key={tier.equity}
+                      className={`grid grid-cols-3 gap-4 px-6 py-4 items-center border-b last:border-b-0 border-[var(--color-border-subtle)] ${
+                        tier.featured ? 'bg-[var(--color-orange-glow)]' : 'bg-[var(--color-bg-card)]'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className={`font-semibold text-base ${tier.featured ? 'text-[var(--color-orange)]' : 'text-[var(--color-text-primary)]'}`}>
+                          {tier.equity}
+                        </span>
+                        {tier.featured && (
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[var(--color-orange)]/20 text-[var(--color-orange)]">
+                            Sweet spot
+                          </span>
+                        )}
+                      </div>
+                      <span className="text-center text-base text-[var(--color-text-secondary)]">{tier.cash}</span>
+                      <span className="text-right text-base font-medium text-[var(--color-text-muted)]">{tier.discount}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Explanation */}
+            <AnimatedSection delay={400}>
               <div className="p-6 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border-subtle)] text-center">
                 <p className="text-base text-[var(--color-text-secondary)] leading-relaxed">
                   <span className="font-semibold text-[var(--color-text-primary)]">How it works:</span>{' '}
-                  We charge a reduced hourly rate plus 2–10% equity. The more equity you offer, the lower the upfront cost.
-                  This means our incentives are 100% aligned  -  we build fast, we build well, and we stick around to help you grow.
+                  Full cash price is <span className="font-medium text-[var(--color-text-primary)]">$30–50k</span> depending on scope.
+                  Offer equity and your upfront cost drops — the more equity, the less cash you pay.
+                  Either way, equity means we&apos;re real partners: we build fast, build well, and stay invested in your growth.
                 </p>
               </div>
             </AnimatedSection>
