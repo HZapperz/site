@@ -256,8 +256,8 @@ function Problem() {
   const problems = [
     {
       icon: DollarSign,
-      title: 'Agencies charge $75K–$150K upfront',
-      description: 'Most founders and businesses can\'t justify six figures before seeing a single result.',
+      title: 'Agencies charge $80K–$250K+ upfront',
+      description: 'Traditional agencies haven\'t dropped their rates in years — and that\'s before they charge extra for market validation.',
     },
     {
       icon: Clock,
@@ -650,7 +650,7 @@ function PricingModel() {
             We only win when you win
           </h2>
           <p className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-            Equity is always required — non-negotiable. The more equity you offer, the lower your upfront cash.
+            Traditional agencies charge $80k–$250k+ for the same result. We use AI-native tools to deliver faster — and equity means we&apos;re invested in your success, not just your invoice.
           </p>
         </AnimatedSection>
 
@@ -662,11 +662,11 @@ function PricingModel() {
                 <div className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider mb-5">Traditional Agency</div>
                 <div className="space-y-4">
                   {[
-                    '$75K–$150K upfront',
-                    '6–12 months to launch',
+                    '$80K–$250K+ upfront (pure cash)',
+                    'Validation adds another $10K–$25K',
+                    '3–6 months to launch (if you\'re lucky)',
                     'Bill by the hour  -  slow = more $$$',
-                    'Build the wrong thing and find out too late',
-                    'Gone after handoff',
+                    'Gone after handoff, zero skin in the game',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 text-base text-[var(--color-text-muted)]">
                       <span className="text-red-400 mt-0.5 shrink-0">{'\u2715'}</span>
@@ -810,8 +810,8 @@ function PricingModel() {
               <div className="p-6 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border-subtle)] text-center">
                 <p className="text-base text-[var(--color-text-secondary)] leading-relaxed">
                   <span className="font-semibold text-[var(--color-text-primary)]">How it works:</span>{' '}
-                  Full cash is <span className="font-medium text-[var(--color-text-primary)]">$30–58k</span> depending on scope and package.
-                  Offer equity and your upfront drops dramatically — at 5% you&apos;re paying half. We build fast, validate early, and stay invested in your growth long after launch.
+                  A traditional agency charges <span className="font-medium text-[var(--color-text-primary)]">$80k–$250k+</span> for this. Our full cash price is <span className="font-medium text-[var(--color-text-primary)]">$30–58k</span> — and offer equity at 5% and you&apos;re paying half that.
+                  We build fast, validate early, and stay invested in your growth long after launch.
                 </p>
               </div>
             </AnimatedSection>
