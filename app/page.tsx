@@ -635,10 +635,10 @@ function CaseStudies() {
 // ─── Pricing Model ─────────────────────────────────────────────────
 function PricingModel() {
   const tiers = [
-    { equity: '0% equity', cash: '$30k–$50k', discount: 'Full rate', featured: false },
-    { equity: '2–3% equity', cash: '$21k–$35k', discount: '~30% off', featured: false },
-    { equity: '5% equity', cash: '$15k–$25k', discount: '50% off', featured: true },
-    { equity: '8–10% equity', cash: '$9k–$15k', discount: '60–70% off', featured: false },
+    { equity: '2–3%', buildOnly: '$21k–$35k', valBuild: '$27k–$41k', discount: '~30% off', featured: false },
+    { equity: '5%', buildOnly: '$15k–$25k', valBuild: '$19k–$29k', discount: '50% off', featured: true },
+    { equity: '8–10%', buildOnly: '$9k–$15k', valBuild: '$11k–$17k', discount: '65–70% off', featured: false },
+    { equity: '12%', buildOnly: '—', valBuild: '$8k–$12k', discount: '75–80% off', featured: false },
   ]
 
   return (
@@ -650,15 +650,14 @@ function PricingModel() {
             We only win when you win
           </h2>
           <p className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-            Equity is always required — it&apos;s non-negotiable. The more equity you offer, the lower your upfront cash. Simple alignment.
+            Equity is always required — non-negotiable. The more equity you offer, the lower your upfront cash.
           </p>
         </AnimatedSection>
 
         <AnimatedSection>
           <div className="max-w-4xl mx-auto">
-            {/* Comparison */}
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
-              {/* Traditional */}
+            {/* Traditional vs Zapp */}
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
               <div className="p-8 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-card)]">
                 <div className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider mb-5">Traditional Agency</div>
                 <div className="space-y-4">
@@ -666,8 +665,8 @@ function PricingModel() {
                     '$75K–$150K upfront',
                     '6–12 months to launch',
                     'Bill by the hour  -  slow = more $$$',
+                    'Build the wrong thing and find out too late',
                     'Gone after handoff',
-                    'Zero skin in the game',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 text-base text-[var(--color-text-muted)]">
                       <span className="text-red-400 mt-0.5 shrink-0">{'\u2715'}</span>
@@ -677,7 +676,6 @@ function PricingModel() {
                 </div>
               </div>
 
-              {/* Zapp */}
               <div className="p-8 rounded-2xl border border-[var(--color-border-accent)] bg-[var(--color-bg-card)] relative overflow-hidden">
                 <div className="absolute top-0 right-0 px-3 py-1 bg-[var(--color-orange)] text-white text-[10px] font-bold uppercase tracking-wider rounded-bl-lg">
                   Our Model
@@ -685,10 +683,10 @@ function PricingModel() {
                 <div className="text-xs font-mono text-[var(--color-orange)] uppercase tracking-wider mb-5">Zapp Studios</div>
                 <div className="space-y-4">
                   {[
-                    'Equity always required (non-negotiable)',
-                    'More equity = less cash upfront',
-                    '2–12 weeks to launch',
-                    'Long-term partnership, not a handoff',
+                    'Validate the market before writing code',
+                    'Equity required — more equity = less cash',
+                    '2–12 weeks to a validated, launched MVP',
+                    'Long-term partner, not a vendor',
                     '100% skin in the game',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 text-base text-[var(--color-text-secondary)]">
@@ -700,52 +698,120 @@ function PricingModel() {
               </div>
             </div>
 
-            {/* Pricing tiers */}
-            <AnimatedSection delay={200}>
-              <div className="mb-8">
-                <p className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider text-center mb-5">
-                  Simple MVP pricing — adjust by scope
-                </p>
-                <div className="rounded-2xl border border-[var(--color-border-subtle)] overflow-hidden">
-                  {/* Header */}
-                  <div className="grid grid-cols-3 gap-4 px-6 py-3 bg-[var(--color-bg-elevated)] border-b border-[var(--color-border-subtle)]">
-                    <span className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider">Equity</span>
-                    <span className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider text-center">Upfront cash</span>
-                    <span className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider text-right">Savings</span>
+            {/* Two packages */}
+            <AnimatedSection delay={150}>
+              <div className="grid md:grid-cols-2 gap-6 mb-10">
+                {/* Build-Only */}
+                <div className="p-7 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg-card)]">
+                  <div className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider mb-3">Build-Only</div>
+                  <div className="text-3xl font-bold mb-1">$30k–$50k</div>
+                  <div className="text-sm text-[var(--color-text-muted)] mb-5">0% equity / full cash</div>
+                  <ul className="space-y-2.5">
+                    {['Strategy scoping', 'Full-stack MVP build', 'Product design & UX', '2–12 weeks to launch'].map((f) => (
+                      <li key={f} className="flex items-center gap-2.5 text-base text-[var(--color-text-secondary)]">
+                        <span className="text-[var(--color-success)] shrink-0">{'\u2713'}</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-5 pt-4 border-t border-[var(--color-border-subtle)] text-xs text-[var(--color-text-muted)]">
+                    Max equity: 10%
                   </div>
-                  {tiers.map((tier) => (
-                    <div
-                      key={tier.equity}
-                      className={`grid grid-cols-3 gap-4 px-6 py-4 items-center border-b last:border-b-0 border-[var(--color-border-subtle)] ${
-                        tier.featured ? 'bg-[var(--color-orange-glow)]' : 'bg-[var(--color-bg-card)]'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className={`font-semibold text-base ${tier.featured ? 'text-[var(--color-orange)]' : 'text-[var(--color-text-primary)]'}`}>
-                          {tier.equity}
-                        </span>
-                        {tier.featured && (
-                          <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[var(--color-orange)]/20 text-[var(--color-orange)]">
-                            Sweet spot
-                          </span>
-                        )}
-                      </div>
-                      <span className="text-center text-base text-[var(--color-text-secondary)]">{tier.cash}</span>
-                      <span className="text-right text-base font-medium text-[var(--color-text-muted)]">{tier.discount}</span>
-                    </div>
-                  ))}
+                </div>
+
+                {/* Validation + Build — flagship */}
+                <div className="p-7 rounded-2xl border border-[var(--color-border-accent)] bg-[var(--color-bg-card)] relative overflow-hidden">
+                  <div className="absolute top-0 right-0 px-3 py-1 bg-[var(--color-orange)] text-white text-[10px] font-bold uppercase tracking-wider rounded-bl-lg">
+                    Flagship
+                  </div>
+                  <div className="text-xs font-mono text-[var(--color-orange)] uppercase tracking-wider mb-3">Validation + Build</div>
+                  <div className="text-3xl font-bold mb-1">$38k–$58k</div>
+                  <div className="text-sm text-[var(--color-text-muted)] mb-5">0% equity / full cash</div>
+                  <ul className="space-y-2.5">
+                    {[
+                      'Everything in Build-Only',
+                      '15–20 customer interviews',
+                      'Landing-page smoke test',
+                      'Competitor teardown',
+                      'Validation scorecard + go/no-go',
+                    ].map((f) => (
+                      <li key={f} className="flex items-center gap-2.5 text-base text-[var(--color-text-secondary)]">
+                        <span className="text-[var(--color-success)] shrink-0">{'\u2713'}</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-5 pt-4 border-t border-[var(--color-border-subtle)] text-xs text-[var(--color-text-muted)]">
+                    Max equity: 12–15%
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* Explanation */}
+            {/* Equity sliding scale table */}
+            <AnimatedSection delay={300}>
+              <div className="mb-8">
+                <p className="text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider text-center mb-5">
+                  Equity sliding scale — offer more equity, pay less cash
+                </p>
+                <div className="rounded-2xl border border-[var(--color-border-subtle)] overflow-hidden overflow-x-auto">
+                  <table className="w-full min-w-[480px]">
+                    <thead>
+                      <tr className="bg-[var(--color-bg-elevated)] border-b border-[var(--color-border-subtle)]">
+                        <th className="px-5 py-3 text-left text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider">Equity</th>
+                        <th className="px-5 py-3 text-center text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider">Build-Only</th>
+                        <th className="px-5 py-3 text-center text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider">Validation + Build</th>
+                        <th className="px-5 py-3 text-right text-xs font-mono text-[var(--color-text-muted)] uppercase tracking-wider">Savings</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {tiers.map((tier) => (
+                        <tr
+                          key={tier.equity}
+                          className={`border-b last:border-b-0 border-[var(--color-border-subtle)] ${
+                            tier.featured ? 'bg-[var(--color-orange-glow)]' : 'bg-[var(--color-bg-card)]'
+                          }`}
+                        >
+                          <td className="px-5 py-4">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className={`font-semibold text-base ${tier.featured ? 'text-[var(--color-orange)]' : 'text-[var(--color-text-primary)]'}`}>
+                                {tier.equity}
+                              </span>
+                              {tier.featured && (
+                                <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[var(--color-orange)]/20 text-[var(--color-orange)]">
+                                  Sweet spot
+                                </span>
+                              )}
+                            </div>
+                          </td>
+                          <td className="px-5 py-4 text-center text-base text-[var(--color-text-secondary)]">{tier.buildOnly}</td>
+                          <td className="px-5 py-4 text-center text-base text-[var(--color-text-secondary)]">{tier.valBuild}</td>
+                          <td className="px-5 py-4 text-right text-base font-medium text-[var(--color-text-muted)]">{tier.discount}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Why validation matters */}
             <AnimatedSection delay={400}>
+              <div className="p-6 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border-subtle)] mb-6">
+                <p className="text-sm font-mono font-medium text-[var(--color-orange)] mb-3 uppercase tracking-wider">Why validation matters</p>
+                <p className="text-base text-[var(--color-text-secondary)] leading-relaxed">
+                  Most startups fail because they build the wrong thing. Before writing a single line of code, we run 15–20 targeted customer interviews, test your landing page with real traffic, and tear down your competition. You get a validation scorecard and a clear go/no-go — so you only build what the market actually wants.
+                </p>
+              </div>
+            </AnimatedSection>
+
+            {/* Explanation */}
+            <AnimatedSection delay={500}>
               <div className="p-6 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border-subtle)] text-center">
                 <p className="text-base text-[var(--color-text-secondary)] leading-relaxed">
                   <span className="font-semibold text-[var(--color-text-primary)]">How it works:</span>{' '}
-                  Full cash price is <span className="font-medium text-[var(--color-text-primary)]">$30–50k</span> depending on scope.
-                  Offer equity and your upfront cost drops — the more equity, the less cash you pay.
-                  Either way, equity means we&apos;re real partners: we build fast, build well, and stay invested in your growth.
+                  Full cash is <span className="font-medium text-[var(--color-text-primary)]">$30–58k</span> depending on scope and package.
+                  Offer equity and your upfront drops dramatically — at 5% you&apos;re paying half. We build fast, validate early, and stay invested in your growth long after launch.
                 </p>
               </div>
             </AnimatedSection>
@@ -803,7 +869,7 @@ function FAQ() {
   const faqs = [
     {
       q: 'What does "equity partnership" actually mean?',
-      a: 'Instead of charging you $100K+ upfront, we take a small ownership stake (2–10%) in your company or product. This means we invest our time and expertise at a reduced cost, and we only see a real return if your business succeeds. It aligns our goals completely  -  we want you to win as much as you do.',
+      a: 'Equity is always required — it\'s non-negotiable. Full cash price is $30–58k depending on scope, but offer equity and your upfront drops dramatically (5% equity = ~50% off cash). The more equity you give, the less you pay upfront. This aligns our incentives completely — we only win big if you win big.',
     },
     {
       q: 'Why do you turn away 80% of projects?',
