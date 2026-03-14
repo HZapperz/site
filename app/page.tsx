@@ -185,17 +185,16 @@ function Hero() {
 
         {/* Headline */}
         <h1 className="animate-fade-in-up delay-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6" style={{ opacity: 0 }}>
-          We build your tech.{' '}
+          Validate, build, and ship.{' '}
           <br className="hidden sm:block" />
           <span className="bg-gradient-to-r from-[#60A5FA] via-[#7DD3FC] to-[#93C5FD] bg-clip-text text-transparent">
-            You grow your business.
+            Not a $200K agency bill.
           </span>
         </h1>
 
         {/* Subheadline */}
         <p className="animate-fade-in-up delay-200 max-w-2xl mx-auto text-lg md:text-xl text-[var(--color-text-secondary)] mb-10 leading-relaxed" style={{ opacity: 0 }}>
-          Zapp Studios is a technical partner for founders and businesses.
-          We build MVPs, integrate AI, and ship products in weeks  -  for a fraction of the traditional cost.
+          Zapp Studios is your AI-native technical partner. We run market validation, design, and ship production-ready products in 2–12 weeks — for $30–58k versus the $80k–$250k+ traditional agencies charge.
         </p>
 
         {/* CTAs */}
@@ -219,8 +218,8 @@ function Hero() {
         <div className="animate-fade-in-up delay-500 mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto" style={{ opacity: 0 }}>
           {[
             { value: '7-Fig', label: 'Exit delivered' },
-            { value: '2-12w', label: 'Idea to product' },
-            { value: '2-10%', label: 'Equity, not $150K' },
+            { value: '2-12w', label: 'Validated + shipped' },
+            { value: '$30-58k', label: 'vs $250K+ agencies' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)]">{stat.value}</div>
