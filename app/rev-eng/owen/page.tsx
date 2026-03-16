@@ -3,130 +3,23 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
-  Zap, Search, BarChart3, Bot, ShoppingCart, Users,
-  Megaphone, Settings, Calculator, Cpu, Map, Menu, X,
-  AlertTriangle, Info, ChevronDown, ArrowRight, Check,
-  Clock, Target, DollarSign, Star, TrendingUp, Package,
-  ExternalLink
+  Zap, Watch, Target, Code2, Calculator, TrendingUp, Map,
+  Menu, X, AlertTriangle, Info, ChevronDown, ArrowRight, Check,
+  Clock, DollarSign, ShoppingCart, Users, Megaphone, Package,
+  Printer, Shield, BarChart3
 } from "lucide-react"
 import FinancialModel from "./components/FinancialModel"
-import CustomerFunnel from "./components/CustomerFunnel"
 
 /* ─── NAV SECTIONS ─── */
 const navSections = [
-  { id: "executive", title: "Executive Summary", icon: Zap },
-  { id: "market", title: "Market Research", icon: Search },
-  { id: "audit", title: "Current State", icon: BarChart3 },
-  { id: "automation", title: "Automation", icon: Bot },
-  { id: "funnel", title: "Sales Funnel", icon: ShoppingCart },
-  { id: "journey", title: "Customer Journey", icon: Users },
-  { id: "ads", title: "Ads & Content", icon: Megaphone },
-  { id: "scaling", title: "Scaling Ops", icon: Settings },
+  { id: "summary", title: "The New Strategy", icon: Zap },
+  { id: "watches", title: "Watch Business", icon: Watch },
+  { id: "archery", title: "Archery Business", icon: Target },
+  { id: "platform", title: "What We're Building", icon: Code2 },
   { id: "financial", title: "Financial Model", icon: Calculator },
-  { id: "tech", title: "Tech Stack", icon: Cpu },
+  { id: "growth", title: "Growth Playbook", icon: TrendingUp },
   { id: "roadmap", title: "Roadmap", icon: Map },
 ]
-
-/* ─── AD BRIEFS ─── */
-const adBriefs = [
-  {
-    name: "The Build That Started It All",
-    priority: "red" as const,
-    priorityLabel: "Produce First",
-    hook: "I build $350 custom watches that people mistake for $5,000 Rolexes...",
-    body: "15-30 sec UGC-style video showing Owen's build process. Phone-shot, natural lighting, authentic workshop. Focus on the satisfying moments: crystal pressing, bezel snap, crown screw.",
-    cta: "Shop Custom Watches",
-    format: "Vertical Video (9:16)",
-  },
-  {
-    name: "Before vs After Transformation",
-    priority: "red" as const,
-    priorityLabel: "Produce First",
-    hook: "Stock $200 Seiko → Custom $450 masterpiece in 60 seconds",
-    body: "Side-by-side or transition reveal. Start with stock SKX007, quick cuts of the mod process, end with the finished custom build. Dramatic music beat on the reveal.",
-    cta: "Build Your Own",
-    format: "Vertical Video (9:16)",
-  },
-  {
-    name: "What 50+ Customers Are Saying",
-    priority: "amber" as const,
-    priorityLabel: "High Priority",
-    hook: "Over 50 five-star reviews and 700 watches delivered...",
-    body: "Carousel of Facebook review screenshots with product photos. Each slide: review text + the watch they bought. End with CTA to browse the collection.",
-    cta: "See The Collection",
-    format: "Carousel (5-8 cards)",
-  },
-  {
-    name: "Pick Your Style",
-    priority: "amber" as const,
-    priorityLabel: "High Priority",
-    hook: "Which custom Seiko mod are you?",
-    body: "Carousel showcasing 5-8 different build styles — Diver, Datejust, Nautilus, GMT, Dress. Each card: beauty shot + style name + starting price. Interactive feel.",
-    cta: "Design Yours",
-    format: "Carousel (5-8 cards)",
-  },
-  {
-    name: "Rolex Quality, Seiko Price",
-    priority: "amber" as const,
-    priorityLabel: "High Priority",
-    hook: "My $400 Seiko mod vs an $8,000 Datejust. Spot the difference.",
-    body: "Controversy hook — side-by-side comparison of a Datejust-style mod next to the real thing. Clean photography, let the quality speak. Comments section drives engagement.",
-    cta: "See The Build",
-    format: "Image or Video",
-  },
-  {
-    name: "ASMR Build Session",
-    priority: "blue" as const,
-    priorityLabel: "Test",
-    hook: "[Sound on] 47 parts. One custom watch.",
-    body: "Close-up ASMR-style build video. Emphasized sounds: crystal press click, bezel snap, crown wind, caseback screw. Minimal text overlays. Meditative, satisfying content.",
-    cta: "Order Yours",
-    format: "Vertical Video (15-60 sec)",
-  },
-  {
-    name: "Design Your Dream Watch",
-    priority: "blue" as const,
-    priorityLabel: "Test",
-    hook: "Message us 'BUILD' to design your custom Seiko mod",
-    body: "Click-to-Messenger ad. Shows the configurator concept — choose your case, dial, hands, bezel. CTA opens a ManyChat conversation that qualifies the lead and collects preferences.",
-    cta: "Send Message",
-    format: "Image + CTA Button",
-  },
-  {
-    name: "60 Seconds, 47 Parts",
-    priority: "blue" as const,
-    priorityLabel: "Test",
-    hook: "Watch an entire custom Seiko come together in 60 seconds",
-    body: "Full time-lapse build from empty case to finished watch. Speed ramp on key moments. End with wrist shot and price reveal. Text overlay: \"Starting at $350.\"",
-    cta: "Shop Now",
-    format: "Vertical Video (60 sec)",
-  },
-  {
-    name: "Still Thinking?",
-    priority: "gray" as const,
-    priorityLabel: "Retargeting",
-    hook: "Your custom watch is still waiting...",
-    body: "Dynamic product ad targeting cart abandoners (0-7 days). Shows the exact product they viewed. Urgency: \"Custom builds take 7-14 days — order now to get yours sooner.\"",
-    cta: "Complete Your Order",
-    format: "Dynamic Product Ad",
-  },
-  {
-    name: "Back by Popular Demand",
-    priority: "gray" as const,
-    priorityLabel: "Retargeting",
-    hook: "700+ watches built. Yours could be next.",
-    body: "Retargeting page viewers (7-30 days) who didn't purchase. Social proof focus: review count, total builds, repeat customers. Soft incentive optional.",
-    cta: "Browse Builds",
-    format: "Image + Social Proof",
-  },
-]
-
-const priorityColors = {
-  red: { bg: "bg-red-500/10", text: "text-red-400", border: "border-red-500/20" },
-  amber: { bg: "bg-amber-500/10", text: "text-amber-400", border: "border-amber-500/20" },
-  blue: { bg: "bg-blue-500/10", text: "text-blue-400", border: "border-blue-500/20" },
-  gray: { bg: "bg-white/5", text: "text-[#888]", border: "border-white/10" },
-}
 
 /* ─── REUSABLE COMPONENTS ─── */
 
@@ -152,13 +45,7 @@ function Card({ title, defaultOpen = true, children }: { title: string; defaultO
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
-          >
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden">
             <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-[15px] text-[#ccc] leading-relaxed">{children}</div>
           </motion.div>
         )}
@@ -174,9 +61,7 @@ function DataTable({ headers, rows, accent = false }: { headers: string[]; rows:
         <thead>
           <tr className={accent ? "bg-[#7c5cfc]/10" : "bg-[#1a1a2e]"}>
             {headers.map((h, i) => (
-              <th key={i} className="text-left py-3 px-4 text-xs tracking-wider uppercase text-[#7c5cfc] font-semibold border-b border-[#333] whitespace-nowrap">
-                {h}
-              </th>
+              <th key={i} className="text-left py-3 px-4 text-xs tracking-wider uppercase text-[#7c5cfc] font-semibold border-b border-[#333] whitespace-nowrap">{h}</th>
             ))}
           </tr>
         </thead>
@@ -184,9 +69,7 @@ function DataTable({ headers, rows, accent = false }: { headers: string[]; rows:
           {rows.map((row, ri) => (
             <tr key={ri} className="border-b border-[#1a1a2e] hover:bg-white/[0.02] transition-colors">
               {row.map((cell, ci) => (
-                <td key={ci} className={`py-3.5 px-4 ${ci === 0 ? "text-white font-medium" : "text-[#999]"}`}>
-                  {parseBold(cell)}
-                </td>
+                <td key={ci} className={`py-3.5 px-4 ${ci === 0 ? "text-white font-medium" : "text-[#999]"}`}>{parseBold(cell)}</td>
               ))}
             </tr>
           ))}
@@ -239,9 +122,7 @@ function Bullet({ children }: { children: React.ReactNode }) {
 function NumberedStep({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
   return (
     <div className="flex gap-4 mb-6">
-      <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-[#7c5cfc]/20 flex items-center justify-center text-[#7c5cfc] text-sm font-bold">
-        {n}
-      </div>
+      <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-[#7c5cfc]/20 flex items-center justify-center text-[#7c5cfc] text-sm font-bold">{n}</div>
       <div className="flex-1 min-w-0">
         <div className="text-white font-semibold text-base mb-1">{title}</div>
         <div className="text-[#999] text-[15px] leading-relaxed">{children}</div>
@@ -250,46 +131,17 @@ function NumberedStep({ n, title, children }: { n: number; title: string; childr
   )
 }
 
-function PricingCard({ tier, price, volume, features, highlighted = false }: {
-  tier: string; price: string; volume: string; features: string[]; highlighted?: boolean
-}) {
-  return (
-    <div className={`rounded-xl p-5 sm:p-6 border flex-1 basis-full sm:basis-0 sm:min-w-[220px] ${highlighted ? "bg-[#7c5cfc]/10 border-[#7c5cfc]/30" : "bg-[#141420] border-white/[0.06]"}`}>
-      {highlighted && <div className="text-[11px] font-semibold text-[#7c5cfc] tracking-widest mb-2">RECOMMENDED</div>}
-      <div className="text-xl font-bold text-white mb-1">{tier}</div>
-      <div className="text-[#7c5cfc] font-semibold text-lg mb-1">{price}</div>
-      <div className="text-xs text-[#666] mb-4">{volume}</div>
-      <div className="space-y-2.5">
-        {features.map((f, i) => (
-          <div key={i} className="flex gap-2 text-sm text-[#999]">
-            <Check size={14} className="text-[#4ade80] flex-shrink-0 mt-0.5" />
-            <span>{f}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 function parseBold(text: string): React.ReactNode {
   const parts = text.split(/(\*\*.*?\*\*)/g)
   return parts.map((part, i) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return <strong key={i} className="text-white font-semibold">{part.slice(2, -2)}</strong>
-    }
+    if (part.startsWith("**") && part.endsWith("**")) return <strong key={i} className="text-white font-semibold">{part.slice(2, -2)}</strong>
     return <span key={i}>{part}</span>
   })
 }
 
 function FadeIn({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className={className}
-    >
+    <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.5, ease: "easeOut" }} className={className}>
       {children}
     </motion.div>
   )
@@ -298,28 +150,15 @@ function FadeIn({ children, className = "" }: { children: React.ReactNode; class
 /* ─── MAIN PAGE ─── */
 
 export default function OwenPlaybook() {
-  const [activeSection, setActiveSection] = useState("executive")
+  const [activeSection, setActiveSection] = useState("summary")
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  const mainRef = useRef<HTMLDivElement>(null)
 
-  // Scroll spy
   useEffect(() => {
     const observer = new IntersectionObserver(
-      entries => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
-          }
-        }
-      },
+      entries => { for (const entry of entries) { if (entry.isIntersecting) setActiveSection(entry.target.id) } },
       { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
     )
-
-    navSections.forEach(s => {
-      const el = document.getElementById(s.id)
-      if (el) observer.observe(el)
-    })
-
+    navSections.forEach(s => { const el = document.getElementById(s.id); if (el) observer.observe(el) })
     return () => observer.disconnect()
   }, [])
 
@@ -335,37 +174,22 @@ export default function OwenPlaybook() {
       <aside className="hidden lg:flex flex-col w-[260px] bg-[#0f0f15] border-r border-white/[0.06] sticky top-0 h-screen flex-shrink-0">
         <div className="p-5 border-b border-white/[0.06]">
           <div className="text-[10px] font-bold tracking-[3px] text-[#7c5cfc] mb-1">ZAPP STUDIOS</div>
-          <div className="text-sm font-semibold text-white">Modded Seiko</div>
+          <div className="text-sm font-semibold text-white">[Owen&apos;s Brand]</div>
           <div className="text-[10px] text-[#555] mt-0.5">Revenue Engineering Playbook</div>
         </div>
-
         <nav className="flex-1 py-3 overflow-y-auto">
           {navSections.map(s => {
-            const Icon = s.icon
-            const isActive = activeSection === s.id
+            const Icon = s.icon; const isActive = activeSection === s.id
             return (
-              <button
-                key={s.id}
-                onClick={() => scrollTo(s.id)}
-                className={`w-full flex items-center gap-3 px-5 py-2.5 text-left text-[13px] transition-all cursor-pointer ${
-                  isActive
-                    ? "text-white font-semibold bg-[#7c5cfc]/10 border-l-[3px] border-l-[#7c5cfc]"
-                    : "text-[#666] hover:text-[#999] border-l-[3px] border-l-transparent hover:bg-white/[0.02]"
-                }`}
-              >
-                <Icon size={14} className={isActive ? "text-[#7c5cfc]" : ""} />
-                {s.title}
+              <button key={s.id} onClick={() => scrollTo(s.id)}
+                className={`w-full flex items-center gap-3 px-5 py-2.5 text-left text-[13px] transition-all cursor-pointer ${isActive ? "text-white font-semibold bg-[#7c5cfc]/10 border-l-[3px] border-l-[#7c5cfc]" : "text-[#666] hover:text-[#999] border-l-[3px] border-l-transparent hover:bg-white/[0.02]"}`}>
+                <Icon size={14} className={isActive ? "text-[#7c5cfc]" : ""} />{s.title}
               </button>
             )
           })}
         </nav>
-
         <div className="p-5 border-t border-white/[0.06]">
-          <div className="text-[10px] text-[#444] leading-relaxed">
-            Prepared by Hamza<br />
-            zappstudios.us<br />
-            March 2026
-          </div>
+          <div className="text-[10px] text-[#444] leading-relaxed">Prepared by Hamza<br />zappstudios.us<br />March 2026</div>
         </div>
       </aside>
 
@@ -374,7 +198,7 @@ export default function OwenPlaybook() {
         <div className="flex items-center justify-between px-4 h-14 bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/[0.06]">
           <div>
             <span className="text-[9px] font-bold tracking-[2px] text-[#7c5cfc]">ZAPP STUDIOS</span>
-            <span className="text-sm font-semibold text-white ml-2">Modded Seiko</span>
+            <span className="text-sm font-semibold text-white ml-2">[Owen&apos;s Brand]</span>
           </div>
           <button onClick={() => setMobileNavOpen(!mobileNavOpen)} className="text-[#888] p-2 cursor-pointer">
             {mobileNavOpen ? <X size={20} /> : <Menu size={20} />}
@@ -382,26 +206,13 @@ export default function OwenPlaybook() {
         </div>
         <AnimatePresence>
           {mobileNavOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="overflow-hidden bg-[#0f0f15] border-b border-white/[0.06]"
-            >
+            <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.2 }} className="overflow-hidden bg-[#0f0f15] border-b border-white/[0.06]">
               <nav className="py-2 max-h-[60vh] overflow-y-auto">
                 {navSections.map(s => {
                   const Icon = s.icon
                   return (
-                    <button
-                      key={s.id}
-                      onClick={() => scrollTo(s.id)}
-                      className={`w-full flex items-center gap-3 px-5 py-2.5 text-sm cursor-pointer ${
-                        activeSection === s.id ? "text-white font-semibold" : "text-[#666]"
-                      }`}
-                    >
-                      <Icon size={14} className={activeSection === s.id ? "text-[#7c5cfc]" : ""} />
-                      {s.title}
+                    <button key={s.id} onClick={() => scrollTo(s.id)} className={`w-full flex items-center gap-3 px-5 py-2.5 text-sm cursor-pointer ${activeSection === s.id ? "text-white font-semibold" : "text-[#666]"}`}>
+                      <Icon size={14} className={activeSection === s.id ? "text-[#7c5cfc]" : ""} />{s.title}
                     </button>
                   )
                 })}
@@ -412,22 +223,22 @@ export default function OwenPlaybook() {
       </div>
 
       {/* ─── MAIN CONTENT ─── */}
-      <main ref={mainRef} className="flex-1 min-w-0">
+      <main className="flex-1 min-w-0">
 
         {/* ═══ HERO ═══ */}
-        <section className="relative px-6 sm:px-10 lg:px-16 pt-24 lg:pt-16 pb-12 border-b border-white/[0.06]">
+        <section className="relative px-5 sm:px-10 lg:px-16 pt-24 lg:pt-16 pb-12 border-b border-white/[0.06]">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#7c5cfc]/10 border border-[#7c5cfc]/20 mb-6">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#7c5cfc] animate-pulse" />
-                <span className="text-[10px] font-semibold tracking-widest text-[#7c5cfc]">REVENUE ENGINEERING PLAYBOOK</span>
+                <span className="text-[10px] font-semibold tracking-widest text-[#7c5cfc]">REVENUE ENGINEERING PLAYBOOK — V2</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
-                MODDED SEIKO<br />
+                [OWEN&apos;S BRAND]<br />
                 <span className="text-[#7c5cfc]">&times;</span> ZAPP STUDIOS
               </h1>
               <p className="text-lg sm:text-xl text-[#888] leading-relaxed max-w-xl mb-6">
-                The operational playbook for scaling a custom Seiko watch business from 1-2 builds/day to 7-8 — through automation, demand generation, and strategic pricing.
+                Two businesses, one strategy. Custom watches for steady income, 3D-printed archery parts for explosive growth. Updated after our March 16 call.
               </p>
               <div className="flex flex-wrap gap-4 text-sm text-[#555]">
                 <span>Prepared by Hamza</span>
@@ -437,382 +248,357 @@ export default function OwenPlaybook() {
                 <span>March 2026</span>
               </div>
             </motion.div>
-
-            {/* Key metrics */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap gap-3 mt-10"
-            >
-              <MetricCard label="Current" value="1-2/day" sub="watches built" />
-              <MetricCard label="Target" value="7-8/day" sub="with systems" color="text-[#7c5cfc]" />
-              <MetricCard label="Revenue Target" value="$80-100K" sub="monthly at scale" color="text-[#4ade80]" />
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-wrap gap-3 mt-10">
+              <MetricCard label="Watch Business" value="$7-10K" sub="monthly revenue" />
+              <MetricCard label="Archery Business" value="$2.5-12K" sub="monthly revenue" color="text-[#4ade80]" />
+              <MetricCard label="Goal" value="C8" sub="by end of 2026" color="text-[#7c5cfc]" />
             </motion.div>
           </div>
         </section>
 
 
-        {/* ═══ SECTION 1: EXECUTIVE SUMMARY ═══ */}
-        <section id="executive" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Zap} label="Section 1" title="Executive Summary" /></FadeIn>
+        {/* ═══ THE NEW STRATEGY ═══ */}
+        <section id="summary" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+          <FadeIn><SectionHeader icon={Zap} label="Section 1" title="The New Strategy" /></FadeIn>
           <div className="max-w-3xl space-y-4">
-
             <FadeIn>
-              <Card title="The Opportunity">
-                <p className="mb-3">Owen can build <strong className="text-white">8 custom Seiko watches per day</strong>. He&apos;s currently building 1-2. The difference isn&apos;t skill or capacity — it&apos;s that he&apos;s spending 70% of his day responding to DMs, quoting prices, tracking orders, posting content, and managing listings instead of doing what he&apos;s best at: building watches.</p>
-                <p>The strategy isn&apos;t &quot;help Owen make more watches.&quot; It&apos;s <strong className="text-white">free Owen to ONLY make watches while we create so much demand that he can raise prices</strong>. Supply constraint becomes a feature, not a bug.</p>
+              <Card title="What Changed">
+                <p className="mb-3">After the March 16 call, we&apos;re pivoting from the original &quot;scale Seiko mods to 8/day&quot; plan. The reality:</p>
+                <Bullet><strong className="text-white">Sourcing custom parts is a time bottleneck</strong> that doesn&apos;t scale well — Owen&apos;s expertise is the moat but also the ceiling.</Bullet>
+                <Bullet><strong className="text-white">The brand needs to move away from &quot;Seiko&quot;</strong> in the name given the IP landscape.</Bullet>
+                <Bullet><strong className="text-white">Owen has a second business opportunity</strong> — 3D-printed archery parts — with dramatically better margins and scalability.</Bullet>
+                <p className="mt-3">The new strategy: <strong className="text-white">watches become stable base income, archery becomes the growth engine.</strong> Two separate brands, two separate sites, one unified revenue strategy.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="The Three-Phase Strategy">
-                <div className="space-y-4">
-                  <div className="p-4 rounded-lg bg-[#7c5cfc]/5 border border-[#7c5cfc]/10">
-                    <div className="text-xs font-semibold text-[#7c5cfc] tracking-widest mb-1.5">PHASE 1 — FREE OWEN&apos;S HANDS</div>
-                    <p>Hamza joins as revenue engineering partner handling all marketing, customer service, and business operations. An AI-powered automation system (ManyChat + Make.com + Google Sheets) handles 80% of repetitive customer inquiries. Owen&apos;s only job becomes building watches. <strong className="text-white">Immediate impact: production jumps from 1-2 to 6-8 watches/day.</strong></p>
+              <Card title="Two Businesses, One Goal">
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div className="p-5 rounded-xl bg-[#7c5cfc]/5 border border-[#7c5cfc]/10">
+                    <Watch size={20} className="text-[#7c5cfc] mb-2" />
+                    <div className="text-base font-bold text-white mb-1">Custom Watches</div>
+                    <div className="text-sm text-[#999]">Established brand with 700+ sales and 50+ reviews. Simplified to stock watches ($299) + custom builds ($549+). <strong className="text-white">Steady, reliable income.</strong></div>
                   </div>
-                  <div className="p-4 rounded-lg bg-[#7c5cfc]/5 border border-[#7c5cfc]/10">
-                    <div className="text-xs font-semibold text-[#7c5cfc] tracking-widest mb-1.5">PHASE 2 — FLOOD THE PIPELINE WITH DEMAND</div>
-                    <p>A Shopify store with a visual watch configurator captures buyers 24/7. Paid ads on Meta, TikTok, and Google drive targeted traffic. Organic content builds brand awareness. Owen&apos;s 50+ Facebook reviews become cross-platform social proof. <strong className="text-white">Result: demand significantly exceeds Owen&apos;s daily build capacity.</strong></p>
-                  </div>
-                  <div className="p-4 rounded-lg bg-[#7c5cfc]/5 border border-[#7c5cfc]/10">
-                    <div className="text-xs font-semibold text-[#7c5cfc] tracking-widest mb-1.5">PHASE 3 — RAISE PRICES BECAUSE YOU CAN</div>
-                    <p>When you have a waitlist, you&apos;re underpriced. Shift from a flat $300-$500 range to a tiered model: Collection ($350-$425), Premium ($500-$700), and Bespoke ($750-$1,200). <strong className="text-white">The brand evolves from &quot;guy who mods Seikos on Facebook&quot; to a premium microbrand with a reputation, a waitlist, and pricing power.</strong></p>
+                  <div className="p-5 rounded-xl bg-[#4ade80]/5 border border-[#4ade80]/10">
+                    <Target size={20} className="text-[#4ade80] mb-2" />
+                    <div className="text-base font-bold text-white mb-1">3D-Printed Archery Parts</div>
+                    <div className="text-sm text-[#999]">First real commercial player. Material cost &lt;$1, selling $30-$100. Owen designs, clicks print, ships. <strong className="text-white">The high-growth, high-margin play.</strong></div>
                   </div>
                 </div>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="The Math at Scale">
+              <Card title="The C8 Math">
+                <p className="mb-3">A C8 Corvette runs ~$68,000. Owen needs that in annual net profit. Here&apos;s what that looks like across both businesses:</p>
                 <div className="flex flex-wrap gap-3 mb-4">
-                  <MetricCard label="Monthly Revenue" value="$66-88K" sub="6-8 watches/day x ~$500 ASP x 22 days" color="text-[#4ade80]" />
-                  <MetricCard label="Gross Profit" value="$40-57K" sub="60-65% margins after parts" color="text-[#4ade80]" />
+                  <MetricCard label="Watches" value="~$4,300" sub="monthly gross profit" />
+                  <MetricCard label="Archery" value="~$4,900" sub="monthly gross profit" color="text-[#4ade80]" />
+                  <MetricCard label="Combined" value="~$9,200" sub="minus ads & software" color="text-[#7c5cfc]" />
                 </div>
-                <p>Even conservatively at 5 watches/day with a $450 ASP, that&apos;s <strong className="text-white">$49,500/month</strong>. The C8 comes from margin expansion AND volume, not just volume alone.</p>
+                <p>At combined projections, Owen clears <strong className="text-white">$90-110K/year</strong> before ad spend. Even conservatively after $2-3K/month in ads and software, the C8 is well within reach by end of 2026.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="The Deal Structure">
-                <p className="mb-3">Zapp Studios provides all revenue engineering services — strategy, automation setup, ad management, content direction, and ongoing optimization — at <strong className="text-white">zero cost</strong> to Owen. Owen is the founding case study for Zapp Studios&apos; revenue engineering service.</p>
-                <div className="p-4 rounded-lg bg-[#1a1a2e] mt-3">
-                  <div className="text-xs font-semibold text-white mb-2">Owen covers direct hard costs only:</div>
-                  <Bullet>Ad spend: $1,500-$3,000/month (when ready to launch paid)</Bullet>
-                  <Bullet>Software subscriptions: ~$55-$150/month</Bullet>
-                  <Bullet>API credits for AI tools: ~$5-$10/month</Bullet>
-                </div>
-                <p className="mt-3 text-xs text-[#666]">Hamza&apos;s time, expertise, and systems are completely free. If external development is needed, Owen covers infrastructure costs (hosting, API usage) but not development time.</p>
+              <Card title="Deal Structure">
+                <p>Same as before. Zapp Studios provides all revenue engineering — strategy, site development, ad management, automation — at <strong className="text-white">zero cost</strong>. Owen is the founding case study. Owen covers direct hard costs only: Claude API credits (~$5-10/mo for AI features), ad spend (when ready), and domain/hosting (minimal on Vercel).</p>
               </Card>
             </FadeIn>
           </div>
         </section>
 
 
-        {/* ═══ SECTION 2: MARKET RESEARCH ═══ */}
-        <section id="market" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Search} label="Section 2" title="Market Research & Competitive Landscape" /></FadeIn>
+        {/* ═══ WATCH BUSINESS ═══ */}
+        <section id="watches" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+          <FadeIn><SectionHeader icon={Watch} label="Section 2" title="The Watch Business" /></FadeIn>
           <div className="max-w-3xl space-y-4">
 
             <FadeIn>
-              <Card title="The Seiko Mod Market in 2026">
-                <p className="mb-3">The custom Seiko modding market has exploded since 2020. <strong className="text-white">#SeikoMods has 850K+ Instagram posts</strong>. r/SeikoMods has grown past 400K members. The broader watch market reached $75.8 billion in 2024, projected to hit $116.7B by 2034. Seiko Group&apos;s own sales climbed 11.7% to ~$1.22B in FY2024-2025.</p>
-                <p>The COVID hobby boom of 2020-2022 brought a wave of new modders and buyers. The barrier to entry is extremely low — AliExpress parts + Instagram = instant &quot;business.&quot; But the barrier to building a reputable, quality operation remains high. <strong className="text-white">That&apos;s Owen&apos;s moat.</strong></p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Competitor Pricing Tiers">
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-start gap-3">
-                    <span className="text-xs font-mono text-[#666] w-28 flex-shrink-0">$75-$150</span>
-                    <div><strong className="text-white">Budget:</strong> AliExpress sellers, clone movements, high failure rates. Not real competition.</div>
+              <Card title="The Simplified Model">
+                <p className="mb-4">Move from the old &quot;everything is $299 including custom&quot; to a clean two-tier system:</p>
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                  <div className="p-5 rounded-xl bg-[#141420] border border-white/[0.06]">
+                    <div className="text-xl font-bold text-white mb-1">Stock Collection</div>
+                    <div className="text-[#7c5cfc] font-semibold text-lg mb-1">$299</div>
+                    <div className="text-xs text-[#666] mb-3">5-10 popular designs kept in inventory</div>
+                    <div className="space-y-2">
+                      {["Owen's best-selling designs", "Ships same/next day", "Ready-made — no wait", "Volume driver and entry point"].map((f, i) => (
+                        <div key={i} className="flex gap-2 text-sm text-[#999]"><Check size={14} className="text-[#4ade80] flex-shrink-0 mt-0.5" /><span>{f}</span></div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-xs font-mono text-[#666] w-28 flex-shrink-0">$200-$350</span>
-                    <div><strong className="text-white">Mid-range:</strong> SKYRIM Wrist, Nomods, WatchBrick. Established ops with proper e-commerce.</div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-xs font-mono text-[#7c5cfc] w-28 flex-shrink-0">$400-$700</span>
-                    <div><strong className="text-[#7c5cfc]">Premium (Owen&apos;s tier):</strong> Lucius Atelier, Circa Watch Labs. Differentiation through craftsmanship.</div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-xs font-mono text-[#666] w-28 flex-shrink-0">$700-$1,500+</span>
-                    <div><strong className="text-white">Ultra-premium:</strong> Fully custom one-of-one builds. Undone Watches is the gold standard.</div>
-                  </div>
-                </div>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Key Competitors to Study">
-                <DataTable
-                  headers={["Builder", "Price Range", "Channels", "Differentiator"]}
-                  rows={[
-                    ["SKYRIM Wrist", "$249-$449", "Shopify, IG, SEO blog", "Largest catalog (447+), strong content"],
-                    ["Circa Watch Labs", "$400-$700+", "Shopify w/ configurator", "Online watch builder tool"],
-                    ["Nomods", "$250-$500", "Shopify, Instagram", "Clean branding, educational content"],
-                    ["WatchModMaker", "Free tool / $300-$600", "Custom website", "Community visualization tool"],
-                    ["Lucius Atelier", "$400-$800+", "Shopify, Instagram", "Premium parts supplier AND builder"],
-                    ["Undone Watches", "$350-$800+", "Proprietary configurator", "Gold-standard configurator"],
-                    ["Crystal Times", "Parts + builds", "Shopify", "Major supplier + business guides"],
-                  ]}
-                />
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Trending Styles & Market Shifts">
-                <p className="mb-3"><strong className="text-white">Hot right now:</strong> Rolex Datejust builds, Patek Nautilus &quot;Seikonaut&quot; mods, AP Royal Oak &quot;Seikoak&quot; builds, GMT builds (NH34 movement), VK meca-quartz chronographs.</p>
-                <p className="mb-3"><strong className="text-white">Case size shift:</strong> 42mm+ is increasingly dated. 38-40mm is the new standard. 36mm women&apos;s/unisex builds are an almost completely untapped market.</p>
-                <p><strong className="text-white">Design direction:</strong> Clean, sterile (unbranded) dials now outperform copycat logos. This aligns perfectly with the post-Seiko-IP-notice landscape.</p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <AlertBox type="warning" title="Seiko's October 2025 IP Notice">
-                <p className="mb-2">Seiko Corporation issued an official notice warning against &quot;MOD watches assembled with fake or unauthorized components,&quot; targeting sellers using counterfeit parts and Seiko logos. Most legal experts concluded that modifying genuine Seiko parts remains legal under first-sale doctrine.</p>
-                <p><strong className="text-white">Strategic implication:</strong> Evolve toward selling under the &quot;Modded Seiko&quot; brand identity with &quot;powered by Seiko NH35 movement&quot; language rather than positioning as a Seiko product. This also positions the brand more professionally for the premium tiers.</p>
-              </AlertBox>
-            </FadeIn>
-          </div>
-        </section>
-
-
-        {/* ═══ SECTION 3: CURRENT STATE AUDIT ═══ */}
-        <section id="audit" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={BarChart3} label="Section 3" title="Current State Audit" /></FadeIn>
-          <div className="max-w-3xl space-y-4">
-
-            <FadeIn>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="bg-[#141420] rounded-xl border border-emerald-500/10 p-5 sm:p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <TrendingUp size={18} className="text-[#4ade80]" />
-                    <span className="text-base font-semibold text-[#4ade80]">What&apos;s Working</span>
-                  </div>
-                  <div className="space-y-3 text-[#ccc]">
-                    <Bullet><strong className="text-white">Product quality</strong> — Consistently positive reviews, repeat customers, word-of-mouth</Bullet>
-                    <Bullet><strong className="text-white">Organic reputation</strong> — 50+ Facebook reviews and 700 lifetime sales</Bullet>
-                    <Bullet><strong className="text-white">Production capability</strong> — Can build 8 watches/day when focused solely on assembly</Bullet>
-                    <Bullet><strong className="text-white">Market position</strong> — $300-$500 captures premium-accessible segment at 60-65% margins</Bullet>
-                    <Bullet><strong className="text-white">Early mover advantage</strong> — 3 years of supplier relationships and build efficiency</Bullet>
+                  <div className="p-5 rounded-xl bg-[#7c5cfc]/10 border border-[#7c5cfc]/30">
+                    <div className="text-[11px] font-semibold text-[#7c5cfc] tracking-widest mb-2">PREMIUM</div>
+                    <div className="text-xl font-bold text-white mb-1">Custom Builds</div>
+                    <div className="text-[#7c5cfc] font-semibold text-lg mb-1">$549+</div>
+                    <div className="text-xs text-[#666] mb-3">Customer designs via configurator</div>
+                    <div className="space-y-2">
+                      {["~100 component options (dials, straps, bezels, etc.)", "Visual configurator on the site", "7-14 day build time", "Owen's craftsmanship + customer's vision"].map((f, i) => (
+                        <div key={i} className="flex gap-2 text-sm text-[#999]"><Check size={14} className="text-[#4ade80] flex-shrink-0 mt-0.5" /><span>{f}</span></div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className="bg-[#141420] rounded-xl border border-red-500/10 p-5 sm:p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <AlertTriangle size={18} className="text-[#f87171]" />
-                    <span className="text-base font-semibold text-[#f87171]">What&apos;s Bottlenecking</span>
-                  </div>
-                  <div className="space-y-3 text-[#ccc]">
-                    <Bullet><strong className="text-white">Solo operator</strong> — Every minute on non-build tasks = a watch not built</Bullet>
-                    <Bullet><strong className="text-white">No website</strong> — 100% of sales via Facebook Marketplace DMs</Bullet>
-                    <Bullet><strong className="text-white">No automation</strong> — Every customer interaction is manual</Bullet>
-                    <Bullet><strong className="text-white">No email/phone list</strong> — 700 past customers are uncaptured</Bullet>
-                    <Bullet><strong className="text-white">Single-channel</strong> — Facebook Marketplace is rented land</Bullet>
-                    <Bullet><strong className="text-white">Declining volume</strong> — From 50/day peak to 20-30/month</Bullet>
-                  </div>
-                </div>
-              </div>
+                <AlertBox type="info" title="Why $549 for custom, not $299">
+                  Owen&apos;s been undercharging. Custom builds require sourcing specific parts, design consultation, and Owen&apos;s personal expertise. With 700+ builds and 50+ five-star reviews, he has the brand authority to charge premium. The $250 gap between stock and custom is justified by the customization, wait time, and craftsmanship involved.
+                </AlertBox>
+              </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Revenue at Current State">
-                <p className="mb-3">At 20-30 watches/month x $400 average:</p>
+              <Card title="Rebrand: Moving Away from &quot;Seiko&quot;">
+                <p className="mb-3">The brand name needs to drop &quot;Seiko&quot; — both for IP safety and to position as a premium microbrand rather than a modifier of someone else&apos;s product.</p>
+                <Bullet><strong className="text-white">Product language:</strong> &quot;Powered by Seiko NH35 movement&quot; — this is accurate, legal, and actually sounds more premium than &quot;Seiko mod.&quot;</Bullet>
+                <Bullet><strong className="text-white">Brand positioning:</strong> A custom watch studio, not a modification shop. Owen makes watches — he just happens to use Seiko movements because they&apos;re the best at this price point.</Bullet>
+                <Bullet><strong className="text-white">Name TBD:</strong> We&apos;ll work with Owen on this. The site will use [Owen&apos;s Brand] as placeholder throughout.</Bullet>
+              </Card>
+            </FadeIn>
+
+            <FadeIn>
+              <Card title="The Watch Configurator">
+                <p className="mb-3">The centerpiece of the custom tier. Owen has ~100 component options across his manufacturers. Customers pick their combination, see a preview, and submit the order.</p>
+                <NumberedStep n={1} title="MVP: Option Selectors + Reference Photos">Dropdown/swatch selectors for each component (case, dial, hands, bezel, crystal, strap) with high-quality reference photos. Price updates dynamically. Fast to build, accurate.</NumberedStep>
+                <NumberedStep n={2} title="V2: Layered Image Compositing">2D image-swap where each component is a transparent PNG layer. Customer sees a composite preview update in real time as they select options. This is how Undone Watches and Circa Watch Labs do it.</NumberedStep>
+                <NumberedStep n={3} title="Possible V3: AI-Generated Previews">Use image generation to create lifestyle previews of the configured watch — wrist shots, different lighting. Experimental but could be a differentiator. Not needed for launch.</NumberedStep>
+                <p className="text-sm text-[#888] mt-2">For launch, V1 is more than enough. Owen&apos;s existing customers buy based on trust and portfolio — the configurator just makes the process easier and captures the order automatically instead of going through DMs.</p>
+              </Card>
+            </FadeIn>
+
+            <FadeIn>
+              <Card title="Current State">
                 <div className="flex flex-wrap gap-3 mb-3">
-                  <MetricCard label="Monthly Revenue" value="$8-12K" />
-                  <MetricCard label="COGS (35-40%)" value="$2.8-4.8K" />
-                  <MetricCard label="Gross Profit" value="$5.2-7.2K" color="text-[#4ade80]" />
+                  <MetricCard label="Volume" value="~20/mo" sub="watches sold" />
+                  <MetricCard label="Price" value="$299" sub="even for custom (too low)" />
+                  <MetricCard label="Channel" value="FB Only" sub="Marketplace DMs" />
                 </div>
-                <p>No marketing spend, minimal software costs. This is a profitable side hustle. <strong className="text-white">The playbook turns it into a real business.</strong></p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <AlertBox type="info" title="Social Media Audit Pending">
-                Need access to Owen&apos;s Facebook Insights and Instagram Analytics to fill in real data. Recommended: Owen screenshots his analytics or shares screen on the next call. This will update the audience demographics, engagement rates, and top-performing content sections.
-              </AlertBox>
-            </FadeIn>
-          </div>
-        </section>
-
-
-        {/* ═══ SECTION 4: AUTOMATION SYSTEM ═══ */}
-        <section id="automation" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Bot} label="Section 4" title="The Automation System" /></FadeIn>
-          <div className="max-w-3xl space-y-4">
-
-            <FadeIn>
-              <Card title="The Core Problem">
-                <p className="mb-4">Owen&apos;s four biggest time sinks are all automatable:</p>
-                <NumberedStep n={1} title="Responding to DMs/messages">80% are the same 5 questions</NumberedStep>
-                <NumberedStep n={2} title="Order tracking & follow-ups">Manual status updates for every order</NumberedStep>
-                <NumberedStep n={3} title="Quoting/pricing inquiries">Repeating the same info with minor variations</NumberedStep>
-                <NumberedStep n={4} title="Posting content & managing listings">Falls to the bottom of the priority list</NumberedStep>
-                <p className="mt-2">Automating these recovers an estimated <strong className="text-white">15-20 hours per month</strong> — equivalent to 40-50 additional watches at Owen&apos;s build rate.</p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <AlertBox type="warning" title="Critical: Facebook Marketplace Limitation">
-                <p className="mb-2"><strong className="text-white">ManyChat cannot automate personal Facebook Marketplace messages.</strong> Meta&apos;s Messenger API only grants automation access to Business Page conversations, not personal profile threads.</p>
-                <p className="mb-2"><strong className="text-white">The fix:</strong> List all products on Marketplace through a connected Facebook Business Page. Inquiries from Page-listed items route through the Page&apos;s Messenger inbox, which ManyChat can fully automate.</p>
-                <p className="font-semibold text-amber-400">This is step zero. Everything else depends on it.</p>
-              </AlertBox>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="ManyChat FAQ Bot — $44/month">
-                <p className="mb-4">ManyChat Pro ($15/mo for 500 contacts) + AI add-on ($29/mo). Handles 5 core inquiry types:</p>
-                <div className="space-y-3">
-                  {[
-                    { q: "Pricing", a: "Visual pricing menu: Collection ($350-$425), Premium ($500-$700), Bespoke ($750+) with Quick Reply buttons to Shopify" },
-                    { q: "Shipping", a: "\"Custom builds take 7-14 days. Standard shipping included. Express available.\"" },
-                    { q: "Customization", a: "Gallery carousel of options + direct link to the watch configurator" },
-                    { q: "Warranty/Returns", a: "Policy summary + link to full terms" },
-                    { q: "Order Status", a: "Collects order number, looks up via Sheets integration or escalates to human" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex flex-col sm:flex-row gap-1 sm:gap-3">
-                      <span className="text-sm font-mono text-[#7c5cfc] sm:w-32 flex-shrink-0">{item.q}</span>
-                      <span className="text-[#999] text-[15px] leading-relaxed">{item.a}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 p-4 rounded-lg bg-[#1a1a2e] text-sm text-[#888] leading-relaxed">
-                  <strong className="text-white">AI Replies</strong> trains on your website and product info (250K chars). Responds contextually to any question. Multi-language auto-detection for international buyers. <strong className="text-white">AI Step</strong> runs goal-oriented conversations: &quot;Qualify this lead — collect email, style preference, budget, timeline.&quot; <strong className="text-white">Live Chat Handoff</strong> routes complex questions to Owen/Hamza with push notifications.
-                </div>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="The 6-Stage Automated Order Pipeline">
-                <p className="mb-4 text-sm text-[#666]">ManyChat + Make.com ($9/mo) + Google Sheets (free)</p>
-                <div className="space-y-0">
-                  {[
-                    { stage: "Inquiry", desc: "Customer messages. ManyChat qualifies (style, budget, timeline), captures email/phone." },
-                    { stage: "Quote", desc: "Collection builds get auto-pricing. Premium/Bespoke hits Google Sheets for custom quote." },
-                    { stage: "Payment", desc: "Shopify checkout link sent. Payment triggers Make.com → logs order in Sheets → sends confirmation DM." },
-                    { stage: "Production", desc: "Owen updates status in Sheets (Parts Ordered → Build In Progress → QC → Shipped). Each change auto-sends customer DM/email." },
-                    { stage: "Delivery", desc: "Auto shipping notification with tracking number." },
-                    { stage: "Review", desc: "3 days post-delivery: \"How's the new watch? A review helps us reach more enthusiasts → [link]\"" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-4 relative">
-                      {/* Timeline line */}
-                      {i < 5 && <div className="absolute left-[15px] top-8 w-px h-[calc(100%-8px)] bg-[#222]" />}
-                      {/* Dot */}
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#7c5cfc]/20 flex items-center justify-center text-[#7c5cfc] text-xs font-bold z-10 mt-0.5">
-                        {i + 1}
-                      </div>
-                      {/* Content */}
-                      <div className="flex-1 pb-6">
-                        <div className="text-white font-semibold text-sm">{item.stage}</div>
-                        <div className="text-[#999] text-sm mt-0.5">{item.desc}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Full Automation Stack">
-                <DataTable
-                  headers={["Tool", "Monthly Cost", "Purpose"]}
-                  rows={[
-                    ["ManyChat Pro + AI", "~$44", "DM automation, FAQ bot, AI replies, lead qualification"],
-                    ["Make.com Core", "$9", "Connects ManyChat → Sheets → email triggers"],
-                    ["Google Sheets", "$0", "Lightweight CRM and order tracker"],
-                    ["Buffer or Canva Pro", "$6-$13", "Content scheduling (IG + FB)"],
-                    ["**TOTAL**", "**$59-$66/mo**", ""],
-                  ]}
-                />
+                <p>700+ lifetime sales, 50+ Facebook reviews, 3 years of established reputation. The foundation is solid — <strong className="text-white">the problem is pricing, channel, and process, not product quality.</strong></p>
               </Card>
             </FadeIn>
           </div>
         </section>
 
 
-        {/* ═══ SECTION 5: SALES FUNNEL ═══ */}
-        <section id="funnel" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={ShoppingCart} label="Section 5" title="The Sales Funnel" /></FadeIn>
+        {/* ═══ ARCHERY BUSINESS ═══ */}
+        <section id="archery" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+          <FadeIn><SectionHeader icon={Target} label="Section 3" title="The Archery Opportunity" /></FadeIn>
           <div className="max-w-3xl space-y-4">
 
             <FadeIn>
-              <Card title="Why Owen Needs Shopify — $39/month">
-                <p className="mb-3">Every established Seiko mod shop runs Shopify. Owen is the exception. A store provides:</p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {[
-                    "24/7 sales — browsers buy at 2 AM instead of waiting for DM reply",
-                    "Abandoned cart recovery — auto-emails for $300-$500 items",
-                    "Instagram Shopping — tag products in posts with direct checkout",
-                    "Meta Pixel — track visitors, build retargeting audiences",
-                    "Email capture — pop-ups, checkout, configurator all collect emails",
-                    "Professional credibility — polished store vs \"DM me for pricing\"",
-                    "Analytics — know where buyers come from and where they drop off",
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-2.5 text-[15px]">
-                      <Check size={16} className="text-[#4ade80] flex-shrink-0 mt-0.5" />
-                      <span className="text-[#ccc] leading-relaxed">{item}</span>
-                    </div>
-                  ))}
+              <Card title="Why This Is the Real Play">
+                <div className="grid sm:grid-cols-3 gap-3 mb-4">
+                  <div className="p-4 rounded-xl bg-[#4ade80]/5 border border-[#4ade80]/10 text-center">
+                    <div className="text-2xl font-bold text-[#4ade80]">&lt;$1</div>
+                    <div className="text-xs text-[#666] mt-1">material cost per part</div>
+                  </div>
+                  <div className="p-4 rounded-xl bg-[#4ade80]/5 border border-[#4ade80]/10 text-center">
+                    <div className="text-2xl font-bold text-[#4ade80]">$30-100</div>
+                    <div className="text-xs text-[#666] mt-1">selling price per part</div>
+                  </div>
+                  <div className="p-4 rounded-xl bg-[#4ade80]/5 border border-[#4ade80]/10 text-center">
+                    <div className="text-2xl font-bold text-[#4ade80]">97-99%</div>
+                    <div className="text-xs text-[#666] mt-1">gross margin</div>
+                  </div>
                 </div>
+                <p className="mb-3">Compare that to watches at 60-65% margins with expensive parts and manual assembly. Archery parts are: <strong className="text-white">design once, print infinitely, ship easily.</strong></p>
+                <Bullet><strong className="text-white">First mover:</strong> Only 1-2 hobbyists selling 3D-printed archery parts. Owen would be the first real commercial operation.</Bullet>
+                <Bullet><strong className="text-white">Scalability:</strong> No sourcing bottleneck. No manual assembly expertise required per unit. Owen designs the parts, the printer makes them. Adding a second printer doubles capacity.</Bullet>
+                <Bullet><strong className="text-white">Material capability:</strong> Owen can print carbon fiber and engineering-grade materials — this isn&apos;t PLA hobby printing.</Bullet>
+                <Bullet><strong className="text-white">Built-in network:</strong> Owen&apos;s dad has connections in the archery community. That&apos;s the seed audience.</Bullet>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title={'The Watch Configurator — "Design Your Own"'}>
-                <p className="mb-3">This is the centerpiece. Every successful Seiko mod configurator uses <strong className="text-white">2D layered image-swap, not 3D</strong>. Components are flat layers (dial → hands → crystal → bezel), making photography cheaper and more effective.</p>
-                <p className="mb-4"><strong className="text-white">Recommended: Kickflip</strong> — $0/month + 1.95% per sale. No-code drag-and-drop editor on Shopify. Dynamic pricing adjusts totals as customers select options.</p>
-                <div className="space-y-0 mb-4">
-                  <NumberedStep n={1} title="Week 1 ($0)">Typeform with component photos to validate demand. Process orders manually.</NumberedStep>
-                  <NumberedStep n={2} title="Weeks 2-3 ($200-$500)">Shopify + Kickflip. Photograph all components on transparent backgrounds. Build configurators per style.</NumberedStep>
-                  <NumberedStep n={3} title="Month 2+">Expand styles, add conditional logic for compatibility, optimize based on feedback.</NumberedStep>
-                </div>
-                <p className="text-xs text-[#666]">The configurator transforms passive browsers into engaged buyers who&apos;ve already emotionally committed to &quot;their&quot; watch before they pay.</p>
+              <Card title="The Business Model">
+                <p className="mb-4">Simple product catalog site. No configurator needed — just list the parts, take orders, print and ship.</p>
+                <NumberedStep n={1} title="Product Catalog">Clean e-commerce site with product photos, specs, pricing. Categories by part type. Search and filter.</NumberedStep>
+                <NumberedStep n={2} title="Order Flow">Customer browses → adds to cart → Stripe checkout → order hits the admin portal → Owen prints → ships. The whole pipeline is automated except the printing.</NumberedStep>
+                <NumberedStep n={3} title="Expansion">As Owen identifies what sells, he designs new parts. Each new SKU costs him design time only — no inventory risk, no parts to source. Print on demand.</NumberedStep>
+                <p className="text-sm text-[#888] mt-2">This is the opposite of the watch business. Watches require Owen&apos;s hands for every unit. Archery parts require Owen&apos;s brain for the design, then the printer does the rest.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Configurator Tool Comparison">
+              <Card title="Go-to-Market">
+                <Bullet><strong className="text-white">Seed audience:</strong> Owen&apos;s dad&apos;s archery network. Word of mouth from people who&apos;ve seen the prototype.</Bullet>
+                <Bullet><strong className="text-white">Online communities:</strong> Reddit archery subs, ArcheryTalk forums, Facebook Groups. Share the product, get feedback, build reputation.</Bullet>
+                <Bullet><strong className="text-white">Content:</strong> Short-form video of the printing process, before/after performance tests, comparison with traditional parts.</Bullet>
+                <Bullet><strong className="text-white">Paid ads:</strong> Once organic proves the product-market fit, scale with Meta ads targeting archery interests. The margins mean almost any reasonable CAC is profitable.</Bullet>
+                <p className="mt-3"><strong className="text-white">Key advantage:</strong> At 97%+ margins, Owen can spend aggressively on customer acquisition and still be wildly profitable. A $30 part that costs $0.50 to make can absorb a $10 CAC and still return 65% net margin.</p>
+              </Card>
+            </FadeIn>
+
+            <FadeIn>
+              <AlertBox type="info" title="Brand Name Needed">
+                The archery business needs its own brand identity — name, domain, and visual style. This is separate from the watch brand. We&apos;ll brainstorm with Owen. Should feel technical, precision-oriented, and premium — not hobby-grade.
+              </AlertBox>
+            </FadeIn>
+          </div>
+        </section>
+
+
+        {/* ═══ WHAT WE'RE BUILDING ═══ */}
+        <section id="platform" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+          <FadeIn><SectionHeader icon={Code2} label="Section 4" title="What We&apos;re Building" /></FadeIn>
+          <div className="max-w-3xl space-y-4">
+
+            <FadeIn>
+              <Card title="Why Custom Sites, Not Shopify">
+                <p className="mb-4">Owen mentioned Shopify. Here&apos;s the honest comparison:</p>
                 <DataTable
-                  headers={["Tool", "Monthly Cost", "Setup Cost", "Best For"]}
-                  rows={[
-                    ["Kickflip ★", "$0 + 1.95%/sale", "$0-$500 (photos)", "Best value for small builders"],
-                    ["Zakeke", "$30-$105/mo + fees", "$500-$2K (3D)", "Shops wanting 3D/AR"],
-                    ["Product Personalizer", "$15/mo", "$0", "Simple dropdowns only"],
-                    ["Threekit", "$1K-$5K+/mo", "$5K-$20K+", "Enterprise — overkill"],
-                    ["Typeform (MVP)", "$0-$35/mo", "$0", "Demand validation before investing"],
-                  ]}
+                  headers={["", "Shopify", "Custom (Next.js + Supabase)"]}
                   accent
+                  rows={[
+                    ["Monthly platform fee", "$39/mo", "$0"],
+                    ["Payment processing", "2.9% + $0.30 (Shopify Payments)", "2.9% + $0.30 (Stripe) — same rate"],
+                    ["Third-party payment fee", "+2% if not using Shopify Payments", "$0 — use any processor"],
+                    ["Watch configurator", "$30-$105/mo plugin", "**Built-in, custom to Owen's needs**"],
+                    ["Email marketing", "$20-$45/mo plugin", "**Built-in or free tier tools**"],
+                    ["Admin dashboard", "Limited to Shopify admin", "**Custom portal — orders, inventory, analytics**"],
+                    ["A/B testing", "$50+/mo plugin", "**Built-in**"],
+                    ["Session recording", "$30+/mo plugin", "**Built-in (rrweb)**"],
+                    ["Custom features", "Limited by plugin ecosystem", "**Anything Owen wants**"],
+                    ["Can Owen modify it?", "Liquid templates (limited)", "**Yes — Claude Code can adjust anything**"],
+                    ["Vendor lock-in", "Yes — migrating off Shopify is painful", "**No — Owen owns everything**"],
+                    ["Est. monthly cost", "$120-$300/mo in plugins alone", "**~$0-$20/mo (Vercel free tier + Supabase free tier)**"],
+                  ]}
                 />
+                <p className="mt-4 text-sm text-[#888]"><strong className="text-white">Bottom line:</strong> Shopify&apos;s value is &quot;easy setup without a developer.&quot; Owen has a developer building for free. Custom wins on cost, flexibility, and long-term ownership.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Leveraging 50+ Facebook Reviews">
-                <p className="mb-3">Owen&apos;s reviews are his most underutilized asset. They need to appear everywhere:</p>
-                <div className="space-y-3">
-                  <Bullet><strong className="text-white">Shopify store:</strong> Install Reputon (~$10-$15/mo) to auto-sync Facebook reviews. Place near &quot;Add to Cart&quot; and on homepage. Enable schema markup for Google star ratings.</Bullet>
-                  <Bullet><strong className="text-white">Ad creative:</strong> Review screenshots consistently outperform generic product ads on Meta.</Bullet>
-                  <Bullet><strong className="text-white">Email sequences:</strong> Include &quot;What our customers say&quot; in every email with 2-3 excerpts.</Bullet>
-                  <Bullet><strong className="text-white">Instagram:</strong> Create a &quot;Reviews&quot; Story Highlight. Post testimonials as feed content.</Bullet>
-                </div>
-                <div className="mt-3 p-3 rounded-lg bg-[#1a1a2e] text-xs text-[#888]">
-                  <strong className="text-white">Zero-cost approach:</strong> Screenshot best reviews → add as images on product pages, Stories, emails, ads. Works perfectly.
+              <Card title="The Tech Stack (Both Sites)">
+                <DataTable
+                  headers={["Layer", "Technology", "Cost"]}
+                  rows={[
+                    ["Frontend", "Next.js 14 (React)", "$0"],
+                    ["Database + Auth", "Supabase (Postgres + Auth)", "$0 (free tier)"],
+                    ["Payments", "Stripe", "2.9% + $0.30 per tx"],
+                    ["Hosting", "Vercel", "$0 (free tier)"],
+                    ["Session Recording", "rrweb", "$0 (open source)"],
+                    ["Email", "Resend", "$0 (100 emails/day free)"],
+                    ["Analytics", "Built-in + Vercel Analytics", "$0"],
+                    ["AI Features (optional)", "Claude API", "~$5-10/mo"],
+                    ["**Total infrastructure**", "", "**~$0-$20/mo + Stripe fees**"],
+                  ]}
+                />
+                <p className="mt-3 text-sm text-[#888]">This is the same stack powering Royal Pawz (another Zapp Studios project) — a full-featured platform with admin portal, A/B testing, session recording, order management, and Stripe integration. Proven architecture.</p>
+              </Card>
+            </FadeIn>
+
+            <FadeIn>
+              <Card title="What Each Site Includes">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="p-5 rounded-xl bg-[#141420] border border-white/[0.06]">
+                    <Watch size={18} className="text-[#7c5cfc] mb-2" />
+                    <div className="text-base font-bold text-white mb-3">Watch Site</div>
+                    <div className="space-y-2.5">
+                      {[
+                        "Product catalog (stock collection)",
+                        "Watch configurator (custom builds)",
+                        "Customer accounts + order history",
+                        "Stripe checkout",
+                        "Admin portal: orders, inventory, build tracking",
+                        "Facebook Messenger integration",
+                        "Review/testimonial display",
+                        "A/B testing + session recording",
+                      ].map((f, i) => (
+                        <div key={i} className="flex gap-2 text-sm text-[#999]"><Check size={14} className="text-[#7c5cfc] flex-shrink-0 mt-0.5" /><span>{f}</span></div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="p-5 rounded-xl bg-[#141420] border border-white/[0.06]">
+                    <Target size={18} className="text-[#4ade80] mb-2" />
+                    <div className="text-base font-bold text-white mb-3">Archery Site</div>
+                    <div className="space-y-2.5">
+                      {[
+                        "Product catalog with categories",
+                        "Search + filter by part type",
+                        "Cart + Stripe checkout",
+                        "Customer accounts",
+                        "Admin portal: orders, fulfillment tracking",
+                        "Product reviews",
+                        "A/B testing + session recording",
+                        "Simpler build — can be live in days",
+                      ].map((f, i) => (
+                        <div key={i} className="flex gap-2 text-sm text-[#999]"><Check size={14} className="text-[#4ade80] flex-shrink-0 mt-0.5" /><span>{f}</span></div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Email & SMS Flows — Klaviyo (Free for 500 contacts)">
-                <p className="mb-4"><strong className="text-white">Immediate action:</strong> Import all available customer emails into Klaviyo. Automated flows generate <strong className="text-white">30x more revenue per recipient</strong> than standard campaigns. Email marketing returns <strong className="text-white">$36-$42 for every $1 spent</strong> for DTC brands.</p>
+              <Card title="Replacing the Excel Spreadsheet">
+                <p className="mb-3">Owen currently tracks orders manually in Excel and admits he forgets to update it half the time. The admin portal fixes this:</p>
+                <Bullet><strong className="text-white">Automatic order logging:</strong> Every Stripe payment creates an order record. No manual entry.</Bullet>
+                <Bullet><strong className="text-white">Status tracking:</strong> Owen updates build status (Queued → In Progress → QC → Shipped) from his phone. Customer gets notified automatically.</Bullet>
+                <Bullet><strong className="text-white">Customer history:</strong> Every customer has a profile with order history, saved builds, and contact info. No more lost data.</Bullet>
+                <Bullet><strong className="text-white">Revenue dashboard:</strong> Real-time view of monthly revenue, orders, and inventory across both businesses.</Bullet>
+              </Card>
+            </FadeIn>
 
+            <FadeIn>
+              <Card title="Facebook Messenger Integration" defaultOpen={false}>
+                <p className="mb-3">Owen&apos;s existing customers find him on Facebook Marketplace. We don&apos;t want to kill that channel — we want to funnel it into the new system.</p>
+                <NumberedStep n={1} title="Keep the Facebook presence">Owen continues listing on Marketplace and engaging on his Page. This is his discovery channel.</NumberedStep>
+                <NumberedStep n={2} title="Route inquiries to the site">Auto-responses direct buyers to the site for browsing, configuring, and purchasing. &quot;Check out our full collection and build your own at [site].&quot;</NumberedStep>
+                <NumberedStep n={3} title="Sync conversations">ManyChat (or a custom integration) syncs Messenger conversations to the admin portal so nothing falls through the cracks.</NumberedStep>
+                <p className="text-sm text-[#888] mt-2">Over time, the site becomes the primary sales channel and Facebook becomes the marketing/discovery channel. But we don&apos;t force the transition — we let it happen naturally as the site proves itself.</p>
+              </Card>
+            </FadeIn>
+          </div>
+        </section>
+
+
+        {/* ═══ FINANCIAL MODEL ═══ */}
+        <section id="financial" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+          <FadeIn><SectionHeader icon={Calculator} label="Section 5" title="Financial Model" /></FadeIn>
+          <FadeIn>
+            <div className="max-w-3xl">
+              <p className="text-base text-[#888] mb-8 leading-relaxed">Both businesses in one model. Drag the sliders, tap a scenario preset. The C8 progress bar shows how close Owen is to the annual net profit needed.</p>
+              <FinancialModel />
+            </div>
+          </FadeIn>
+        </section>
+
+
+        {/* ═══ GROWTH PLAYBOOK ═══ */}
+        <section id="growth" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+          <FadeIn><SectionHeader icon={TrendingUp} label="Section 6" title="Growth Playbook" /></FadeIn>
+          <div className="max-w-3xl space-y-4">
+
+            <FadeIn>
+              <Card title="Watch Business: Ads & Content">
+                <p className="mb-3"><strong className="text-white">Budget: $500-$1,500/month on Meta</strong> once the site is live and Pixel is collecting data.</p>
+                <Bullet><strong className="text-white">Best performing creative:</strong> UGC build process videos (15-30 sec), before/after transformations, customer review compilations. Phone-shot content outperforms polished studio content 4x.</Bullet>
+                <Bullet><strong className="text-white">Targeting:</strong> Watch interests (Seiko, Orient, Casio, horology) + lifestyle (whiskey, leather, EDC) + engaged shoppers. After 50+ conversions, build Lookalike Audiences from the 700-customer base.</Bullet>
+                <Bullet><strong className="text-white">Organic:</strong> 4-5 Instagram posts/week, daily Stories, TikTok build videos. Content pillars: build process (40%), finished reveals (20%), BTS (15%), education (15%), social proof (10%).</Bullet>
+                <Bullet><strong className="text-white">Facebook reviews:</strong> Owen&apos;s 50+ reviews need to be everywhere — on the site, in ads, in emails. They&apos;re his most underutilized asset.</Bullet>
+              </Card>
+            </FadeIn>
+
+            <FadeIn>
+              <Card title="Archery Business: Ads & Content">
+                <p className="mb-3"><strong className="text-white">Start organic, scale paid once product-market fit is confirmed.</strong></p>
+                <Bullet><strong className="text-white">Seed launch:</strong> Owen&apos;s dad&apos;s network + archery community posts (Reddit, ArcheryTalk, Facebook Groups). Share the product, get honest feedback, iterate.</Bullet>
+                <Bullet><strong className="text-white">Content that works for archery:</strong> Printing process videos (satisfying to watch), side-by-side performance tests vs traditional parts, durability demos, customer field-test footage.</Bullet>
+                <Bullet><strong className="text-white">Paid ads:</strong> Once 10-20 organic sales confirm demand, launch Meta ads at $500-$1,000/month targeting archery interests. At 97%+ margins, almost any CAC under $20 is wildly profitable for a $50+ avg order.</Bullet>
+                <Bullet><strong className="text-white">YouTube:</strong> Archery YouTube is big. A channel showing the design/print process and field testing builds authority fast. Long-form content creates trust that short-form can&apos;t.</Bullet>
+              </Card>
+            </FadeIn>
+
+            <FadeIn>
+              <Card title="Email & Retention (Both Businesses)">
+                <p className="mb-3">Simple Klaviyo or Resend-based flows for both sites:</p>
                 <div className="space-y-3">
                   {[
-                    { name: "Welcome Series", detail: "Email 1 (instant): brand story + configurator link. Email 2 (Day 2): \"How Owen builds your watch.\" Email 3 (Day 5): reviews + limited availability. Avg revenue: $2.65/recipient." },
-                    { name: "Abandoned Cart", detail: "1hr: \"Still thinking?\" 24hr: social proof + reviews. 72hr: urgency + lead time reminder. Avg revenue: $3.65/recipient." },
-                    { name: "Post-Purchase", detail: "Day 0: confirmation. Day 3: build-in-progress photo. Day 7: shipping. Day 14: review request. Day 30: referral ask." },
-                    { name: "New Drop Announcement", detail: "Email + SMS blast for limited edition releases. Drives urgency and waitlist signups." },
-                    { name: "Win-Back", detail: "90-day inactive customers get a re-engagement sequence with new builds and incentive." },
+                    { name: "Welcome Series", detail: "Brand story + product showcase + social proof. Runs on signup." },
+                    { name: "Abandoned Cart", detail: "Reminder at 1hr, social proof at 24hr, urgency at 72hr." },
+                    { name: "Post-Purchase", detail: "Build updates (watches), shipping notification, review request at day 14." },
+                    { name: "New Product Drop", detail: "Email + SMS blast when new watch designs or archery parts launch." },
                   ].map((flow, i) => (
                     <div key={i} className="p-4 rounded-lg bg-[#1a1a2e] border border-white/[0.04]">
                       <div className="flex items-center gap-2 mb-1.5">
@@ -829,446 +615,100 @@ export default function OwenPlaybook() {
         </section>
 
 
-        {/* ═══ SECTION 6: CUSTOMER JOURNEY FUNNEL ═══ */}
-        <section id="journey" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Users} label="Section 6" title="The Customer Journey Funnel" /></FadeIn>
-          <FadeIn>
-            <div className="max-w-3xl">
-              <p className="text-base text-[#888] mb-8 leading-relaxed">How 10,000 monthly impressions convert into 12 sales and $5,400 in revenue — before paid ads enter the picture. Click each stage to expand.</p>
-              <CustomerFunnel />
-            </div>
-          </FadeIn>
-        </section>
-
-
-        {/* ═══ SECTION 7: ADS & CONTENT STRATEGY ═══ */}
-        <section id="ads" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Megaphone} label="Section 7" title="Paid Ads & Organic Content Strategy" /></FadeIn>
-          <div className="max-w-3xl space-y-4">
-
-            <FadeIn>
-              <Card title="Paid Ads: Start on Meta at $1,500-$3,000/month">
-                <p className="mb-3"><strong className="text-white">Meta (Facebook/Instagram) gets 70-80% of initial ad spend.</strong> Starting budget: $50-$100/day.</p>
-                <p className="mb-3"><strong className="text-white">Best creative formats:</strong></p>
-                <NumberedStep n={1} title="UGC-style video (15-30 sec)">Phone-shot build process. 4x higher engagement than polished brand content.</NumberedStep>
-                <NumberedStep n={2} title="Carousel ads">Showcasing different builds. 30-50% lower CPC than single images.</NumberedStep>
-                <NumberedStep n={3} title="Testimonial/review ads">Customer unboxing reactions + review screenshots.</NumberedStep>
-
-                <p className="mb-3 mt-4"><strong className="text-white">Targeting:</strong> Layer watch interests (Seiko, Orient, Casio, Hamilton, horology) + lifestyle (whiskey, leather goods, EDC) + behavioral (engaged shoppers). After 50+ conversions, Lookalike Audiences from the 700-customer email list become the primary scaling lever.</p>
-
-                <div className="flex flex-wrap gap-3 mt-4">
-                  <MetricCard label="Target CPM" value="$9-$14" />
-                  <MetricCard label="Target CPC" value="$0.70-$1.50" />
-                  <MetricCard label="Target CTR" value="2.0-2.8%" />
-                  <MetricCard label="Target ROAS" value="3-5x" />
-                </div>
-
-                <div className="mt-3 text-xs text-[#666]">Initial CAC: $75-$150, optimizing to $60-$100. Q4 (Nov-Dec) inflates CAC by 30-40%. Q1 is cheapest.</div>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <Card title="TikTok — 15% of Budget" defaultOpen={false}>
-                  <p className="mb-2">$300-$500/month focused on <strong className="text-white">Spark Ads</strong> — promote existing organic posts as paid ads. 142% higher engagement and 43% higher conversion than standard in-feed ads.</p>
-                  <p className="mt-2"><strong className="text-white">Content that goes viral:</strong> Compressed build videos, ASMR assembly, before/after transformations, controversy hooks. Hook in first 1-2 seconds with the finished watch, then rewind.</p>
-                </Card>
-                <Card title="Google Shopping — 10% of Budget" defaultOpen={false}>
-                  <p>Captures high-intent search traffic for &quot;custom Seiko watch,&quot; &quot;Seiko mod for sale.&quot; Custom products qualify for Shopping ads by setting identifier_exists to FALSE. Lower volume than Meta but highest purchase intent of any channel.</p>
-                </Card>
-              </div>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Organic Content Strategy">
-                <p className="mb-3"><strong className="text-white">Posting cadence:</strong> 4-5 Instagram feed posts/week, daily Stories, 5-7 TikToks/week.</p>
-                <div className="space-y-2.5 mb-4">
-                  {[
-                    { pillar: "Build Process", pct: "40%", desc: "Time-lapse assembly, ASMR close-ups, \"what goes into a $400 watch\"" },
-                    { pillar: "Finished Reveals", pct: "20%", desc: "Beauty shots, wrist rolls, lume photography" },
-                    { pillar: "Behind the Scenes", pct: "15%", desc: "Workbench life, sourcing, problem-solving" },
-                    { pillar: "Education", pct: "15%", desc: "Movement comparisons, crystal types, water resistance testing" },
-                    { pillar: "Social Proof", pct: "10%", desc: "Customer wrist shots, testimonials, \"your mod, your story\"" },
-                  ].map((p, i) => (
-                    <div key={i} className="flex items-start sm:items-center gap-3">
-                      <span className="text-sm font-mono text-[#7c5cfc] w-10 flex-shrink-0 pt-2.5 sm:pt-0">{p.pct}</span>
-                      <div className="flex-1 bg-[#1a1a2e] rounded-lg p-3">
-                        <span className="text-white text-[15px] font-medium">{p.pillar}</span>
-                        <span className="text-[#666] text-sm ml-0 sm:ml-2 block sm:inline mt-0.5 sm:mt-0">{p.desc}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-sm text-[#666]"><strong className="text-white">Reddit (underutilized):</strong> r/SeikoMods (400K) — share builds as a contributor. r/WatchExchange (119K) — list builds for sale. Need 30+ days age + positive karma.</p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="The Organic-to-Paid Flywheel">
-                <div className="flex flex-wrap items-center gap-2 text-sm mb-5">
-                  {["Post organic", "ID top performers", "Boost as ads", "Capture emails", "Build Lookalikes", "Run CTA ads", "ManyChat automates", "Shopify closes", "Review → social proof"].map((step, i) => (
-                    <span key={i} className="flex items-center gap-2">
-                      <span className="px-3 py-1.5 rounded-full bg-[#1a1a2e] text-[#ccc] border border-white/[0.06]">{step}</span>
-                      {i < 8 && <ArrowRight size={12} className="text-[#333] hidden sm:block" />}
-                    </span>
-                  ))}
-                </div>
-                <p className="text-[15px] text-[#999] leading-relaxed"><strong className="text-white">Click-to-Messenger ads</strong> capture name and email from every respondent automatically while starting a conversation ManyChat can handle. A <strong className="text-white">Facebook Group</strong> (&quot;Seiko Mod Collectors&quot;) builds community that feeds organic discovery — group posts appear in members&apos; feeds without competing in the ad auction.</p>
-              </Card>
-            </FadeIn>
-
-            {/* Ad Briefs */}
-            <FadeIn>
-              <div className="mt-8">
-                <h3 className="text-lg font-bold text-white mb-1">10 Ad Creative Briefs</h3>
-                <p className="text-xs text-[#666] mb-6">Prioritized by production order. Red = produce first (just Owen&apos;s phone + workbench). Gray = retargeting (needs pixel data).</p>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {adBriefs.map((ad, i) => {
-                    const pc = priorityColors[ad.priority]
-                    return (
-                      <div key={i} className="bg-[#141420] rounded-xl border border-white/[0.06] p-5 sm:p-6 hover:border-white/[0.1] transition-colors">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className={`px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider ${pc.bg} ${pc.text} ${pc.border} border`}>
-                            {ad.priorityLabel.toUpperCase()}
-                          </span>
-                          <span className="text-xs text-[#444]">Ad {i + 1}</span>
-                        </div>
-                        <h4 className="text-white font-semibold text-base mb-2">{ad.name}</h4>
-                        <p className="text-[#7c5cfc] text-sm italic mb-2">&quot;{ad.hook}&quot;</p>
-                        <p className="text-[#999] text-sm leading-relaxed mb-4">{ad.body}</p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs text-[#555] bg-[#1a1a2e] px-2.5 py-1 rounded">{ad.format}</span>
-                          <span className="text-xs text-[#7c5cfc] font-medium">{ad.cta} →</span>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn>
-              <AlertBox type="warning" title="Technical Prerequisites (Before Spending $1 on Ads)">
-                <div className="space-y-2 mt-2">
-                  {[
-                    "Install Meta Pixel + Conversions API on Shopify (43% of users run ad blockers — CAPI captures what pixels miss)",
-                    "Install TikTok Pixel on Shopify",
-                    "Install Google Tag on Shopify",
-                    "Let pixels collect 1-2 weeks of data before launching retargeting",
-                    "Build three retargeting tiers: Hot (0-7 day cart abandoners), Warm (7-30 day viewers), Cool (30-90 day visitors)",
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-2">
-                      <Check size={14} className="text-amber-400 flex-shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </AlertBox>
-            </FadeIn>
-          </div>
-        </section>
-
-
-        {/* ═══ SECTION 8: SCALING OPERATIONS ═══ */}
-        <section id="scaling" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Settings} label="Section 8" title="Scaling Operations" /></FadeIn>
-          <div className="max-w-3xl space-y-4">
-
-            <FadeIn>
-              <Card title="Batch Production Workflow">
-                <p className="mb-4">An experienced builder completes a Seiko mod in 45-75 minutes. At 8/day serial, that&apos;s 8-10 hours. <strong className="text-white">Batch production cuts this to 7-8 hours</strong> by eliminating tool swapping and decision fatigue.</p>
-                <div className="space-y-2 mb-4">
-                  {[
-                    { time: "1 hr", task: "Morning prep & staging", desc: "All 8 builds laid out" },
-                    { time: "1.5 hr", task: "Movement & dial installation", desc: "Batch all 8" },
-                    { time: "1.5-2 hr", task: "Hand setting", desc: "Most skilled step" },
-                    { time: "1 hr", task: "Case assembly", desc: "Crystal, bezel — all 8" },
-                    { time: "1 hr", task: "Final assembly", desc: "Stems, crowns, casebacks" },
-                    { time: "1 hr", task: "QC, strap, photography", desc: "Final checks" },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-[#1a1a2e]">
-                      <Clock size={16} className="text-[#7c5cfc] flex-shrink-0" />
-                      <span className="text-sm font-mono text-[#7c5cfc] w-16 flex-shrink-0">{item.time}</span>
-                      <span className="text-[15px] text-white font-medium">{item.task}</span>
-                      <span className="text-sm text-[#666] ml-auto hidden sm:block">{item.desc}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-sm text-[#888] leading-relaxed"><strong className="text-white">Key enabler: design standardization.</strong> 5 Signature designs (60% of volume), 5 rotating Seasonal designs (25%), and Bespoke custom orders (15%). Signature builds use identical case/crystal/bezel combos — only dials and hands vary.</p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Three-Tier Pricing Model">
-                <p className="mb-4">Move from a flat $300-$500 range to three explicit tiers:</p>
-                <div className="flex flex-wrap gap-3 mb-4">
-                  <PricingCard
-                    tier="Collection"
-                    price="$350-$425"
-                    volume="60% of volume"
-                    features={[
-                      "Highest batchability",
-                      "Signature designs with curated options",
-                      "Volume driver and entry point",
-                      "Same-day or next-day build",
-                    ]}
-                  />
-                  <PricingCard
-                    tier="Premium"
-                    price="$500-$700"
-                    volume="25% of volume"
-                    highlighted
-                    features={[
-                      "GMT builds, skeleton dials",
-                      "Premium finishing",
-                      "Exotic configurations",
-                      "Higher margin, moderate customization",
-                    ]}
-                  />
-                  <PricingCard
-                    tier="Bespoke"
-                    price="$750-$1,200"
-                    volume="15% of volume"
-                    features={[
-                      "Fully custom one-of-one builds",
-                      "Founder-built only",
-                      "Waitlist model",
-                      "Brand prestige play",
-                    ]}
-                  />
-                </div>
-                <p className="text-sm text-[#888] leading-relaxed"><strong className="text-white">Demand-driven pricing:</strong> 2-3 week waitlist justifies 15-20% price increase. 4+ weeks justifies 25-30%. Always maintain slightly more demand than capacity — that&apos;s where pricing power lives.</p>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Hiring Timeline">
-                <div className="space-y-4">
-                  <div className="p-4 sm:p-5 rounded-lg border border-white/[0.06] bg-[#1a1a2e]/50">
-                    <div className="text-sm font-semibold text-[#7c5cfc] mb-1.5">At $15K-$25K/month (3-4 watches/day)</div>
-                    <p className="text-[15px] text-[#ccc] leading-relaxed">Hire <strong className="text-white">part-time assistant</strong> at $15-20/hr for packaging, shipping, customer service, and inventory logging.</p>
-                  </div>
-                  <div className="p-4 sm:p-5 rounded-lg border border-white/[0.06] bg-[#1a1a2e]/50">
-                    <div className="text-sm font-semibold text-[#7c5cfc] mb-1.5">At $25K-$40K/month (5-6 watches/day)</div>
-                    <p className="text-[15px] text-[#ccc] leading-relaxed">Upgrade to <strong className="text-white">full-time assembly assistant</strong>. Train on standard builds — start with crystal pressing and bezel assembly. Owen retains hand installation and all QC. Budget 4-6 weeks and ~$500-$1,000 in practice parts.</p>
-                  </div>
-                  <div className="p-4 sm:p-5 rounded-lg border border-[#7c5cfc]/20 bg-[#7c5cfc]/5">
-                    <div className="text-sm font-semibold text-[#7c5cfc] mb-1.5">At Full Scale — $60K+/month (7-8 watches/day)</div>
-                    <p className="text-[15px] text-[#ccc] mb-2">Three-person team:</p>
-                    <Bullet><strong className="text-white">Owen:</strong> Premium/Bespoke builds, QC, product development</Bullet>
-                    <Bullet><strong className="text-white">Assembly tech:</strong> 4-5 Signature watches/day independently</Bullet>
-                    <Bullet><strong className="text-white">Part-time admin:</strong> Shipping, CS overflow, social media execution</Bullet>
-                  </div>
-                </div>
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Limited Drops & Waitlist Model" defaultOpen={false}>
-                <p className="mb-3"><strong className="text-white">Helm Watches maintains a 27-month, 3,397-person waitlist</strong> for their $375 Miyako model with minimal marketing. The waitlist IS the marketing.</p>
-                <p className="mb-3"><strong className="text-white">The playbook:</strong> Monthly drops of 10-15 themed watches (&quot;Arctic Diver,&quot; &quot;Midnight GMT&quot;) at premium pricing ($450-$600), announced 2 weeks in advance via email and SMS, with a signup form collecting demand signals.</p>
-                <p className="text-sm text-[#888] leading-relaxed">At 12% waitlist-to-purchase conversion, a waitlist of 200 people yields 24 sales per drop. Numbered limited editions create collector value and secondary market premiums.</p>
-              </Card>
-            </FadeIn>
-          </div>
-        </section>
-
-
-        {/* ═══ SECTION 9: FINANCIAL MODEL ═══ */}
-        <section id="financial" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Calculator} label="Section 9" title="Financial Model" /></FadeIn>
-          <FadeIn>
-            <div className="max-w-3xl">
-              <p className="text-base text-[#888] mb-8 leading-relaxed">Drag the sliders to model different scenarios. Tap a preset to jump to a phase. All calculations update in real time.</p>
-              <FinancialModel />
-            </div>
-          </FadeIn>
-        </section>
-
-
-        {/* ═══ SECTION 10: TECH STACK ═══ */}
-        <section id="tech" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Cpu} label="Section 10" title="Tech Stack & Costs" /></FadeIn>
-          <div className="max-w-3xl space-y-4">
-
-            <FadeIn>
-              <Card title="Budget-Lite Stack (~$98/month + 1.95%/sale)">
-                <DataTable
-                  headers={["Tool", "Cost", "Purpose"]}
-                  rows={[
-                    ["Shopify Basic", "$39/mo", "E-commerce store"],
-                    ["Kickflip", "$0 + 1.95%/sale", "Watch configurator"],
-                    ["ManyChat Pro + AI", "~$44/mo", "DM/Messenger automation"],
-                    ["Make.com Core", "$9/mo", "Workflow automation"],
-                    ["Google Sheets", "$0", "CRM + order tracking"],
-                    ["Klaviyo", "$0 (<500 contacts)", "Email/SMS marketing"],
-                    ["Elfsight", "$0 (200 views)", "Facebook review widget"],
-                    ["Buffer", "$6/mo", "Content scheduling"],
-                    ["Canva Free", "$0", "Design"],
-                    ["**TOTAL**", "**~$98/mo**", "**+ 1.95% per configurator sale**"],
-                  ]}
-                  accent
-                />
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Full Automation Stack (~$195/month)">
-                <DataTable
-                  headers={["Tool", "Cost", "Purpose"]}
-                  rows={[
-                    ["Shopify Basic", "$39/mo", "E-commerce store"],
-                    ["Kickflip", "$0 + 1.95%/sale", "Watch configurator"],
-                    ["ManyChat Pro + AI", "~$44/mo", "DM/Messenger automation"],
-                    ["Make.com Core", "$9/mo", "Workflow automation"],
-                    ["Google Sheets", "$0", "CRM + order tracking"],
-                    ["Klaviyo Email", "$20-$30/mo", "Email/SMS automation (500+ contacts)"],
-                    ["Reputon", "~$15/mo", "Facebook reviews on Shopify"],
-                    ["Canva Pro", "$13/mo", "Design + scheduling"],
-                    ["Craftybase", "$49/mo", "Inventory/BOM management"],
-                    ["**TOTAL**", "**~$189-$199/mo**", ""],
-                  ]}
-                />
-              </Card>
-            </FadeIn>
-
-            <FadeIn>
-              <Card title="Future Additions (When Revenue Justifies)" defaultOpen={false}>
-                <DataTable
-                  headers={["Tool", "Cost", "When to Add"]}
-                  rows={[
-                    ["GoHighLevel", "$97/mo", "Replace Sheets CRM + add SMS at $25K+/mo revenue"],
-                    ["Shopify Plan Upgrade", "$105/mo", "For advanced reporting at scale"],
-                    ["Triple Whale / Northbeam", "$100+/mo", "Ad attribution at $5K+/mo ad spend"],
-                    ["Claude API (custom agent)", "~$5-$10/mo", "Advanced AI quoting/CS agent"],
-                  ]}
-                />
-              </Card>
-            </FadeIn>
-          </div>
-        </section>
-
-
-        {/* ═══ SECTION 11: PHASED ROADMAP ═══ */}
+        {/* ═══ ROADMAP ═══ */}
         <section id="roadmap" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={Map} label="Section 11" title="Phased Roadmap" /></FadeIn>
+          <FadeIn><SectionHeader icon={Map} label="Section 7" title="Phased Roadmap" /></FadeIn>
           <div className="max-w-3xl space-y-6">
 
             {[
               {
-                phase: "1",
-                months: "Months 1-2",
-                title: "Foundation",
-                investment: "~$2,000-$3,000",
-                output: "4-6 watches/day, $25,000-$40,000/month",
-                owenRole: "Build watches. Send Hamza raw photos/videos.",
-                color: "#7c5cfc",
-                actions: [
-                  "Create Facebook Business Page, re-list all Marketplace items through it",
-                  "Set up Shopify Basic ($39/mo) with Meta Pixel",
-                  "Install Kickflip configurator — photograph all components",
-                  "Set up ManyChat Pro + AI ($44/mo) for DM automation",
-                  "Connect Make.com ($9/mo) to Google Sheets order tracker",
-                  "Import all available customer emails into Klaviyo (free)",
-                  "Build Welcome + Abandoned Cart email flows",
-                  "Begin filming TikTok/Reels content daily",
-                  "Implement batch production workflow",
-                  "Design 5 Signature builds for standardized production",
-                ],
-              },
-              {
-                phase: "2",
-                months: "Months 3-4",
-                title: "First Hire + Ads Launch",
-                investment: "~$2,000-$3,000/mo (ads + assistant + software)",
-                output: "5-7 watches/day, $40,000-$60,000/month",
-                owenRole: "Build watches, train assistant on basic tasks.",
-                color: "#818cf8",
-                actions: [
-                  "Hire part-time assistant for packaging, shipping, CS overflow",
-                  "Launch Meta ads at $1,500-$2,000/month (10-15 creative assets)",
-                  "Begin TikTok Spark Ads on best-performing organic content",
-                  "Launch first 10-piece limited drop at premium pricing",
-                  "Write SOPs for all assembly steps",
-                  "Place first volume parts order (100 movements, 50 cases)",
-                  "Start training assistant on basic assembly tasks",
-                ],
-              },
-              {
-                phase: "3",
-                months: "Months 5-8",
-                title: "Scale",
-                investment: "~$5,000-$8,000/mo (labor + ads + inventory)",
-                output: "6-8 watches/day, $60,000-$90,000/month",
-                owenRole: "Premium builds, QC, product vision.",
-                color: "#a78bfa",
-                actions: [
-                  "Promote assistant to full-time or hire dedicated assembly tech",
-                  "Set up second workstation with duplicate tools (~$600-$1,300)",
-                  "Owen shifts to Premium/Bespoke builds + QC + product development",
-                  "Launch curated mod kits on Shopify",
-                  "Reach YouTube monetization threshold",
-                  "Establish monthly limited drop cadence",
-                  "Begin micro-influencer seeding (2-3 watches/month to reviewers)",
-                  "Scale Meta ads to $3,000-$5,000/month as ROAS proves out",
-                ],
-              },
-              {
-                phase: "4",
-                months: "Months 9-12",
-                title: "Optimization",
-                investment: "Revenue self-sustaining",
-                output: "Sustained 7-8 watches/day, $80,000-$100,000/month",
-                owenRole: "Creative director + master builder. Everything else is systemized.",
+                phase: "1", months: "Weeks 1-2", title: "Archery Site Live",
+                investment: "~$0-$20 (hosting/domain)", output: "Archery site accepting orders",
+                owenRole: "Photograph products, write descriptions, prep inventory.",
                 color: "#4ade80",
                 actions: [
-                  "Negotiate direct supplier relationships for volume pricing",
-                  "Launch Bespoke tier with online configurator",
-                  "Invest in pressure tester ($200-$500) as quality differentiator",
-                  "Explore co-branded limited editions with watch influencers",
-                  "Evaluate custom dial production for proprietary designs",
-                  "Consider wholesale/B2B channel to watch retailers",
-                  "Explore expansion to other watch platforms (Casio \"Casioak\" mods)",
+                  "Build archery product catalog site (Next.js + Supabase + Stripe)",
+                  "Admin portal for order management",
+                  "Product photos and descriptions from Owen",
+                  "Stripe checkout integration",
+                  "Domain registration + Vercel deployment",
+                  "Seed launch via Owen's dad's archery network",
+                  "Post in archery communities for initial feedback",
+                ],
+              },
+              {
+                phase: "2", months: "Weeks 3-6", title: "Watch Site Development",
+                investment: "~$0-$20/mo + domain", output: "Watch site with stock catalog + configurator MVP",
+                owenRole: "Photograph all components, identify stock designs, provide parts list for configurator.",
+                color: "#7c5cfc",
+                actions: [
+                  "Build watch site with stock collection catalog",
+                  "Build watch configurator (V1: option selectors + reference photos)",
+                  "Customer accounts with order history + saved builds",
+                  "Admin portal: orders, inventory, build status tracking",
+                  "Import Facebook reviews as testimonials",
+                  "Meta Pixel installation for future ad targeting",
+                  "Facebook Messenger → site routing setup",
+                  "Work with Owen on brand name",
+                ],
+              },
+              {
+                phase: "3", months: "Months 2-4", title: "Launch Ads & Scale",
+                investment: "$1,000-$2,500/mo (ads)", output: "Paid traffic to both sites, growing revenue",
+                owenRole: "Film content (builds, prints, tests). Fulfill orders. Enjoy more free time.",
+                color: "#818cf8",
+                actions: [
+                  "Launch Meta ads for watches ($500-$1,500/mo)",
+                  "Launch Meta ads for archery ($500-$1,000/mo) once organic validates",
+                  "Build email flows (Welcome, Abandoned Cart, Post-Purchase)",
+                  "A/B test landing pages and checkout flow",
+                  "Iterate watch configurator based on customer feedback",
+                  "Expand archery catalog based on demand signals",
+                  "Start TikTok/Instagram content for both brands",
+                ],
+              },
+              {
+                phase: "4", months: "Months 5-12", title: "Optimize & C8",
+                investment: "Revenue-funded", output: "Combined $8-15K+/month net profit",
+                owenRole: "Design new archery parts. Build custom watches. Cash C8 check.",
+                color: "#4ade80",
+                actions: [
+                  "Scale ad spend on winning creatives",
+                  "Upgrade watch configurator to V2 (layered image compositing)",
+                  "Expand archery product line based on sales data",
+                  "Consider second 3D printer if archery demand justifies",
+                  "Build YouTube presence for both brands",
+                  "Implement referral program for watch customers",
+                  "Explore wholesale/B2B for archery parts",
+                  "Hit C8 net profit target",
                 ],
               },
             ].map((phase, i) => (
               <FadeIn key={i}>
-                <div className="relative">
-                  {/* Phase card */}
-                  <div className="bg-[#141420] rounded-xl border border-white/[0.06] overflow-hidden">
-                    {/* Header */}
-                    <div className="p-5 sm:p-6 border-b border-white/[0.06]" style={{ borderLeftWidth: 4, borderLeftColor: phase.color }}>
-                      <div className="flex flex-wrap items-center gap-3 mb-2">
-                        <span className="text-xs font-bold tracking-widest" style={{ color: phase.color }}>PHASE {phase.phase}</span>
-                        <span className="text-sm text-[#555]">{phase.months}</span>
-                      </div>
-                      <h3 className="text-xl font-bold text-white">{phase.title}</h3>
-                      <div className="flex flex-wrap gap-4 mt-3 text-sm">
-                        <div>
-                          <span className="text-[#666]">Investment: </span>
-                          <span className="text-white font-medium">{phase.investment}</span>
-                        </div>
-                        <div>
-                          <span className="text-[#666]">Expected: </span>
-                          <span className="font-medium" style={{ color: phase.color }}>{phase.output}</span>
-                        </div>
-                      </div>
+                <div className="bg-[#141420] rounded-xl border border-white/[0.06] overflow-hidden">
+                  <div className="p-5 sm:p-6 border-b border-white/[0.06]" style={{ borderLeftWidth: 4, borderLeftColor: phase.color }}>
+                    <div className="flex flex-wrap items-center gap-3 mb-2">
+                      <span className="text-xs font-bold tracking-widest" style={{ color: phase.color }}>PHASE {phase.phase}</span>
+                      <span className="text-sm text-[#555]">{phase.months}</span>
                     </div>
-
-                    {/* Actions */}
-                    <div className="p-5 sm:p-6">
-                      <div className="grid sm:grid-cols-2 gap-3 mb-4">
-                        {phase.actions.map((action, j) => (
-                          <div key={j} className="flex gap-2.5 text-sm text-[#999]">
-                            <Check size={14} className="flex-shrink-0 mt-0.5" style={{ color: phase.color }} />
-                            <span className="leading-relaxed">{action}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="p-4 rounded-lg bg-[#1a1a2e] text-sm">
-                        <span className="text-[#666]">Owen&apos;s role: </span>
-                        <span className="text-white font-medium">{phase.owenRole}</span>
-                      </div>
+                    <h3 className="text-xl font-bold text-white">{phase.title}</h3>
+                    <div className="flex flex-wrap gap-4 mt-3 text-sm">
+                      <div><span className="text-[#666]">Investment: </span><span className="text-white font-medium">{phase.investment}</span></div>
+                      <div><span className="text-[#666]">Expected: </span><span className="font-medium" style={{ color: phase.color }}>{phase.output}</span></div>
+                    </div>
+                  </div>
+                  <div className="p-5 sm:p-6">
+                    <div className="grid sm:grid-cols-2 gap-3 mb-4">
+                      {phase.actions.map((action, j) => (
+                        <div key={j} className="flex gap-2.5 text-sm text-[#999]">
+                          <Check size={14} className="flex-shrink-0 mt-0.5" style={{ color: phase.color }} />
+                          <span className="leading-relaxed">{action}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="p-4 rounded-lg bg-[#1a1a2e] text-sm">
+                      <span className="text-[#666]">Owen&apos;s role: </span>
+                      <span className="text-white font-medium">{phase.owenRole}</span>
                     </div>
                   </div>
                 </div>
@@ -1279,17 +719,14 @@ export default function OwenPlaybook() {
 
 
         {/* ═══ FOOTER ═══ */}
-        <footer className="px-6 sm:px-10 lg:px-16 py-16 text-center">
+        <footer className="px-5 sm:px-10 lg:px-16 py-16 text-center">
           <div className="text-[10px] font-bold tracking-[3px] text-[#7c5cfc] mb-2">ZAPP STUDIOS</div>
           <div className="text-sm text-[#555] mb-1">Revenue Engineering</div>
           <div className="text-xs text-[#333] mb-6">zappstudios.us</div>
           <div className="text-xs text-[#333] max-w-md mx-auto leading-relaxed">
-            This playbook is a living document. Updated as we execute and learn.
+            This playbook is a living document. Updated after every call as we execute and learn.
           </div>
-          <button
-            onClick={() => window.print()}
-            className="mt-6 px-4 py-2 rounded-lg border border-white/[0.06] text-xs text-[#555] hover:text-white hover:border-white/[0.1] transition-colors cursor-pointer print:hidden"
-          >
+          <button onClick={() => window.print()} className="mt-6 px-4 py-2 rounded-lg border border-white/[0.06] text-xs text-[#555] hover:text-white hover:border-white/[0.1] transition-colors cursor-pointer print:hidden">
             Print / Save as PDF
           </button>
         </footer>
