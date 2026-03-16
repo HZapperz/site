@@ -107,3 +107,10 @@ body {
   background: rgba(96, 165, 250, 0.3);
   color: #FAFAFA;
 }
+
+/* Print styles for playbook */
+@media print {
+  aside { display: none !important; }
+  main { padding: 0 !important; }
+  section { break-inside: avoid; page-break-inside: avoid; border: none !important; }
+}
