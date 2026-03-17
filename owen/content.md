@@ -1,0 +1,13 @@
+Let me kick all three off. I'll start by pulling Owen's actual social presence so we're working with real data, then build the financial model and funnel/ad copy.So here's the deal — both Instagram and Facebook block automated fetching, so I can't pull Owen's actual follower counts, engagement rates, or product photos programmatically. That audit needs to happen manually — I'd recommend asking Owen to screenshot his Facebook insights and Instagram analytics, or you pull them yourself when you have access. That's actually a great thing to do together on the call.
+
+What I *can* build right now are the financial model and the funnel diagram with ad copy. Let me do both.Now the funnel diagram with ad copy:Alright, so you now have three major deliverables built out:
+
+**The interactive P&L model** — Owen can drag sliders and instantly see what happens at different production levels. The preset buttons jump between his current state, Phase 1 (automation only), Phase 2 (ads live), and Phase 3 (full scale). The scenario comparison table at the bottom shows all four side by side. The key number that'll hit Owen: at Phase 3 (8 watches/day, $500 ASP), he's looking at ~$400K+ annual net profit. That's C8 money and then some.
+
+**The customer journey funnel** — Six stages with conversion rate assumptions at each step and a unit economics summary at the bottom. This is what was missing from the playbook — now Owen can see exactly how 10,000 impressions turn into 12 sales and $5,400/month before ads even enter the picture.
+
+**10 ad creative briefs** — Prioritized with the two easiest to produce first (literally just Owen's phone + his workbench). The Click-to-Messenger ad (Ad 7) is the one that ties directly into the ManyChat automation. The retargeting ads (9–10) are for month 2 after the pixel has data.
+
+For the social audit, here's what I'd suggest for the call with Owen: ask him to share his screen and pull up his Facebook Page insights (reach, engagement, review count) and Instagram analytics (followers, reach, top posts). Or just have him screenshot those beforehand. I can then update the playbook's Current State Audit section with real numbers instead of assumptions.
+
+Want me to now fold all of these pieces back into the main interactive playbook artifact so everything lives in one place? Or keep them as separate deliverables you can pull up individually during the call?

@@ -1,0 +1,12 @@
+Ok so this is great. So I want to put all of this together in an artifact like the larger picture info you’ve found as market research and other competitors research, and then I want to propose to him let’s start experimenting with your pricing and running ads. So a landing page could be nice where I could create a customization thing where customers could customize their own and then Owen could build it. I think that’s definitely something we should put together but then he already has like 50 amazing reviews on Facebook so he has a lot of reputation, so honestly funneling traffic there and then we can setup an ai agent to handle the inbound conversations answer any basic questions that the clients are too lazy to read from the FAQ and then free up his time to then make more watches scale the business and make a fuck load more money! And we can do the same principle for his other buisness ideas, he has some 3d printing things that is cool but let’s focus this report on the watches.
+Ok so you kinda get the general idea of my whole thing with revenue engineering, is there anything else we need to research before putting together the artifact?
+Show less
+12:48 PM
+I think I have a solid picture of what you're going for. Before I put this together, let me nail down a few things so the artifact is tight and presentation-ready:
+Once you answer these I'll also do a quick research pass on watch configurator tools (for the customization landing page concept), ManyChat + Facebook Messenger AI agent setups specifically for marketplace sellers, and the best way to funnel Facebook Marketplace traffic into an automated pipeline — then I'll put the whole thing together in one clean artifact.
+Q: What format should this artifact be? Is this something you're presenting TO Owen, or more of a working doc for both of you?
+A: A working document / playbook we both reference
+Q: Should this reference Zapp Studios and your revenue engineering service, or keep it purely about his watch business?
+A: Yeah keep my branding on it just so like if people see it they know I made it but like in the case for Owen’s watch business, I already told him I won’t charge him anything as he’s going to be my case study, if I need to put together a website and there’s like $200 worth of Claude api credits I would ask that he pays that because that’s like an associated cost out of my pocket but in terms of my time that’s completely free 
+Q: What's his actual brand name? Is it literally 'Modded Seiko' or does he have a different name?
+A: Just call it 'Modded Seiko'
