@@ -13,12 +13,12 @@ const stages = [
     conversion: "3%",
     conversionLabel: "click-through rate",
     output: "300 visitors",
-    color: "#7c5cfc",
+    color: "#5b8def",
   },
   {
     icon: MessageCircle,
     title: "Inquiry",
-    description: "DM on Messenger, Instagram message, Shopify chat, or email. ManyChat handles initial response in <60 seconds",
+    description: "DM on Messenger, Instagram message, site chat, or email. ManyChat handles initial response in <60 seconds",
     metric: "300",
     metricLabel: "visitors",
     conversion: "40%",
@@ -51,23 +51,23 @@ const stages = [
   {
     icon: CreditCard,
     title: "Checkout",
-    description: "Shopify checkout with abandoned cart recovery. Payment triggers automated order pipeline in Google Sheets",
+    description: "Stripe checkout with abandoned cart recovery. Payment triggers automated order pipeline in admin portal",
     metric: "24",
     metricLabel: "quotes accepted",
     conversion: "50%",
     conversionLabel: "checkout completion",
     output: "12 purchases",
-    color: "#4ade80",
+    color: "#34d399",
   },
   {
     icon: Star,
     title: "Review & Referral",
-    description: "3 days post-delivery: automated review request. Day 30: referral ask. Reviews feed back into Discovery",
+    description: "14 days post-delivery: automated review request. Day 30: referral ask. Reviews feed back into Discovery",
     metric: "12",
     metricLabel: "customers",
-    conversion: "40%",
+    conversion: "15%",
     conversionLabel: "review rate",
-    output: "~5 reviews/month",
+    output: "~2 reviews/month",
     color: "#facc15",
   },
 ]
@@ -97,7 +97,7 @@ export default function CustomerFunnel() {
                   className="w-full text-left"
                 >
                   <div
-                    className="relative rounded-xl border border-white/[0.06] p-4 sm:p-5 transition-all hover:border-white/[0.12]"
+                    className="relative rounded-xl border border-white/[0.08] p-4 sm:p-5 transition-all hover:border-white/[0.12]"
                     style={{ backgroundColor: `${stage.color}08` }}
                   >
                     <div className="flex items-start gap-3 sm:gap-4">
@@ -120,18 +120,18 @@ export default function CustomerFunnel() {
 
                         {/* Expanded description */}
                         {isExpanded && (
-                          <p className="text-[#999] text-[15px] mt-2 leading-relaxed">{stage.description}</p>
+                          <p className="text-[#b0aca7] text-[15px] mt-2 leading-relaxed">{stage.description}</p>
                         )}
                       </div>
 
                       {/* Metrics */}
                       <div className="flex-shrink-0 text-right hidden sm:block">
                         <div className="text-xl font-bold text-white">{stage.metric}</div>
-                        <div className="text-xs text-[#666]">{stage.metricLabel}</div>
+                        <div className="text-xs text-[#8a8580]">{stage.metricLabel}</div>
                       </div>
 
                       {/* Expand toggle */}
-                      <div className="flex-shrink-0 text-[#555]">
+                      <div className="flex-shrink-0 text-[#6b6762]">
                         {isExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                       </div>
                     </div>
@@ -140,7 +140,7 @@ export default function CustomerFunnel() {
                     <div className="sm:hidden flex items-center gap-4 mt-3 pl-14">
                       <div>
                         <span className="text-white font-bold text-lg">{stage.metric}</span>
-                        <span className="text-xs text-[#666] ml-1.5">{stage.metricLabel}</span>
+                        <span className="text-xs text-[#8a8580] ml-1.5">{stage.metricLabel}</span>
                       </div>
                     </div>
                   </div>
@@ -150,16 +150,16 @@ export default function CustomerFunnel() {
               {/* Connector with conversion rate */}
               {!isLast && (
                 <div className="flex flex-col items-center py-2">
-                  <div className="w-px h-3 bg-[#333]" />
-                  <div className="px-3 py-1.5 rounded-full bg-[#141420] border border-[#222] text-xs">
-                    <span className="text-[#666]">{stage.conversion}</span>
-                    <span className="text-[#555] ml-1">{stage.conversionLabel}</span>
+                  <div className="w-px h-3 bg-[#302d2a]" />
+                  <div className="px-3 py-1.5 rounded-full bg-[#161625] border border-[#242220] text-xs">
+                    <span className="text-[#8a8580]">{stage.conversion}</span>
+                    <span className="text-[#6b6762] ml-1">{stage.conversionLabel}</span>
                   </div>
-                  <div className="w-px h-3 bg-[#333]" />
+                  <div className="w-px h-3 bg-[#302d2a]" />
                   <div className="text-xs font-medium" style={{ color: stages[i + 1].color }}>
                     {stage.output}
                   </div>
-                  <div className="w-px h-3 bg-[#333]" />
+                  <div className="w-px h-3 bg-[#302d2a]" />
                 </div>
               )}
             </div>
@@ -168,40 +168,40 @@ export default function CustomerFunnel() {
       </div>
 
       {/* Unit Economics Summary */}
-      <div className="mt-8 bg-[#141420] rounded-xl border border-[#7c5cfc]/20 p-5 sm:p-7">
-        <div className="text-xs font-semibold text-[#7c5cfc] mb-5 tracking-widest">UNIT ECONOMICS SUMMARY</div>
+      <div className="mt-8 bg-[#161625] rounded-xl border border-[#5b8def]/20 p-5 sm:p-7">
+        <div className="text-xs font-semibold text-[#5b8def] mb-5 tracking-widest">UNIT ECONOMICS SUMMARY</div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
           <div>
-            <div className="text-xs text-[#666] uppercase tracking-wider mb-1">Monthly Sales</div>
+            <div className="text-xs text-[#8a8580] uppercase tracking-wider mb-1">Monthly Sales</div>
             <div className="text-2xl font-bold text-white">12</div>
-            <div className="text-xs text-[#555]">watches</div>
+            <div className="text-xs text-[#6b6762]">watches</div>
           </div>
           <div>
-            <div className="text-xs text-[#666] uppercase tracking-wider mb-1">Revenue</div>
-            <div className="text-2xl font-bold text-[#4ade80]">$5,400</div>
-            <div className="text-xs text-[#555]">at $450 ASP</div>
+            <div className="text-xs text-[#8a8580] uppercase tracking-wider mb-1">Revenue</div>
+            <div className="text-2xl font-bold text-[#34d399]">$5,400</div>
+            <div className="text-xs text-[#6b6762]">at $450 ASP</div>
           </div>
           <div>
-            <div className="text-xs text-[#666] uppercase tracking-wider mb-1">Organic CAC</div>
+            <div className="text-xs text-[#8a8580] uppercase tracking-wider mb-1">Organic CAC</div>
             <div className="text-2xl font-bold text-white">$0</div>
-            <div className="text-xs text-[#555]">before paid ads</div>
+            <div className="text-xs text-[#6b6762]">before paid ads</div>
           </div>
           <div>
-            <div className="text-xs text-[#666] uppercase tracking-wider mb-1">Gross Profit</div>
-            <div className="text-2xl font-bold text-[#4ade80]">$3,348</div>
-            <div className="text-xs text-[#555]">62% margin</div>
+            <div className="text-xs text-[#8a8580] uppercase tracking-wider mb-1">Gross Profit</div>
+            <div className="text-2xl font-bold text-[#34d399]">$3,348</div>
+            <div className="text-xs text-[#6b6762]">62% margin</div>
           </div>
         </div>
-        <div className="mt-5 pt-4 border-t border-[#222] text-sm text-[#666] leading-relaxed">
+        <div className="mt-5 pt-4 border-t border-[#242220] text-sm text-[#8a8580] leading-relaxed">
           These are organic-only numbers before paid advertising. With $2,000/month ad spend targeting 3-5x ROAS, multiply the top of funnel by 3-5x while maintaining similar conversion rates through each stage.
         </div>
       </div>
 
       {/* Feedback loop indicator */}
-      <div className="mt-4 flex items-center justify-center gap-2 text-[10px] text-[#555]">
-        <div className="h-px w-8 bg-[#333]" />
+      <div className="mt-4 flex items-center justify-center gap-2 text-[10px] text-[#6b6762]">
+        <div className="h-px w-8 bg-[#302d2a]" />
         <span>Reviews feed back into Discovery — the flywheel compounds</span>
-        <div className="h-px w-8 bg-[#333]" />
+        <div className="h-px w-8 bg-[#302d2a]" />
       </div>
     </div>
   )
