@@ -6,7 +6,7 @@ const MONO: React.CSSProperties = { fontFamily: "'JetBrains Mono', monospace" }
 
 const WORK = [
   {
-    tag: 'E-COMMERCE',
+    tag: 'LOCAL SERVICE BUSINESS',
     client: 'Royal Pawz USA',
     headline: 'Full revenue system for a pet services brand',
     description:

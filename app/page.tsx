@@ -517,7 +517,7 @@ function Results() {
               className="text-sm uppercase mb-6 block"
               style={{ ...MONO, letterSpacing: '0.15em', color: '#6B6560' }}
             >
-              E-Commerce | Royal Pawz USA
+              Local Service Business | Royal Pawz USA
             </span>
 
             <h3
