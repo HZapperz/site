@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Zapp Studios  -  We Build Your Tech',
-  description: 'Zapp Studios builds MVPs for startups and integrates AI into businesses. Low upfront cost, aligned incentives. Your technical partner from idea to product.',
+  title: 'Zapp Studios — Business Engineering, Founder-Operated',
+  description: "I diagnose the bottlenecks in your business, design the right solutions, and build the systems that enable you to scale. Founder-operated. Hamza Zulquernain.",
   openGraph: {
-    title: 'Zapp Studios  -  We Build Your Tech',
-    description: 'Zapp Studios builds MVPs for startups and integrates AI into businesses. Low upfront cost, aligned incentives.',
+    title: 'Zapp Studios — Business Engineering, Founder-Operated',
+    description: 'Business engineering for companies that are serious about scaling.',
     type: 'website',
   },
 }

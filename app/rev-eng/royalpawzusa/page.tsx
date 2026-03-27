@@ -127,10 +127,10 @@ function FadeIn({ children, className = "" }: { children: React.ReactNode; class
 /* ─── ACRONYM DEFINITIONS ─── */
 const acronyms: Record<string, string> = {
   CPA: "Cost Per Acquisition — how much it costs to acquire one new customer",
-  LTV: "Lifetime Value — total revenue a customer generates over their entire relationship",
+  LTV: "Lifetime Value — total earnings a customer generates over their entire relationship",
   CAC: "Customer Acquisition Cost — total cost to acquire a new customer (same as CPA)",
-  ROAS: "Return On Ad Spend — revenue generated per dollar spent on advertising",
-  AOV: "Average Order Value — average revenue per booking/transaction",
+  ROAS: "Return On Ad Spend — earnings generated per dollar spent on advertising",
+  AOV: "Average Order Value — average earnings per booking/transaction",
   CPC: "Cost Per Click — how much each ad click costs",
   CPL: "Cost Per Lead — how much it costs to generate one lead",
   WOM: "Word of Mouth — customers acquired through referrals, not paid ads",
@@ -240,7 +240,7 @@ export default function RoyalPawzCaseStudy() {
         <div className="p-5 border-b border-white/[0.06]">
           <Image src="/logo.jpg" alt="Zapp Studios" width={140} height={60} className="rounded mb-2" />
           <div className="text-sm font-semibold text-white">Royal Pawz USA</div>
-          <div className="text-[10px] text-[#64748B] mt-0.5">Revenue Engineering Case Study</div>
+          <div className="text-[10px] text-[#64748B] mt-0.5">Growth Case Study</div>
         </div>
         <nav className="flex-1 py-3 overflow-y-auto">
           {navSections.map(s => {
@@ -327,7 +327,7 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn><SectionHeader icon={BookOpen} label="Introduction" title="The Story" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed max-w-4xl mb-8">
-              Royal Pawz is a mobile dog grooming company in Houston. We built their full-stack platform — client booking app, groomer operations app, admin dashboard, AI-powered SMS service — and launched it in late November 2025. What happened next is a case study in why building the product is only half the job. The other half is engineering the revenue.
+              Royal Pawz is a mobile dog grooming company in Houston. We built their full-stack platform — client booking app, groomer operations app, admin dashboard, AI-powered SMS service — and launched it in late November 2025. What happened next is a case study in why building the product is only half the job. The other half is engineering the growth.
             </p>
             <div className="flex flex-wrap gap-1 mb-8">
               {["Observe", "Hypothesize", "Test", "Measure", "Scale"].map((step, i) => (
@@ -370,7 +370,7 @@ export default function RoyalPawzCaseStudy() {
               {[
                 { title: "Client Booking App", desc: "Multi-step booking flow with ZIP-based service area validation, real-time groomer availability, pet profiles, service customization, and integrated Stripe payments. Fully responsive — 80%+ of traffic is mobile.", color: "text-[#60A5FA]" },
                 { title: "Groomer Operations App", desc: "Mobile-first dashboard for groomers to manage their daily schedule, view upcoming appointments with pet details and special instructions, navigate to addresses, and update job status in real-time.", color: "text-emerald-400" },
-                { title: "Admin Dashboard", desc: "Complete business control panel — customer management, booking oversight, revenue reporting, groomer scheduling, service/pricing configuration, and real-time analytics across the entire platform.", color: "text-cyan-400" },
+                { title: "Admin Dashboard", desc: "Complete business control panel — customer management, booking oversight, earnings reporting, groomer scheduling, service/pricing configuration, and real-time analytics across the entire platform.", color: "text-cyan-400" },
                 { title: "AI-Powered SMS Service", desc: "Automated appointment confirmations, reminders, and follow-ups via SMS. Conversational AI handles rebooking requests and common questions. Abandoned cart recovery reaches users who dropped off before completing a booking.", color: "text-amber-400" },
                 { title: "Session Recording & Analytics", desc: "Custom rrweb integration recording every user session across the platform. Rage click detection, funnel drop-off tracking, and heatmap data — the system that made every optimization in this case study possible.", color: "text-red-400" },
                 { title: "A/B Testing Framework", desc: "Built-in split testing infrastructure with event-level tracking, variant assignment, and conversion attribution. Each experiment in this case study ran through this system with randomized traffic splits.", color: "text-[#60A5FA]" },
@@ -463,7 +463,7 @@ export default function RoyalPawzCaseStudy() {
               <Observation>
                 The difference was immediate. Session recordings showed users engaging with the booking flow within seconds of landing — entering their ZIP, browsing services, adding their dog. <strong className="text-white">No more rage clicks. No more confused scrolling. They were booking — not bouncing.</strong>
               </Observation>
-              <p className="mb-4">Bounce rate dropped from 43.6% to 12.1% — a <strong className="text-white">72% improvement</strong>. Net service revenue jumped to $6,849 in February — nearly 5x December&apos;s $1,382. The auth wall had been the single biggest obstacle between Royal Pawz and its customers.</p>
+              <p className="mb-4">Bounce rate dropped from 43.6% to 12.1% — a <strong className="text-white">72% improvement</strong>. Net service earnings jumped to $6,849 in February — nearly 5x December&apos;s $1,382. The auth wall had been the single biggest obstacle between Royal Pawz and its customers.</p>
               <p>But the /book flow was brand new, and we knew there was room to optimize within it. <strong className="text-white">The funnel was working — now it was time to tune it.</strong></p>
             </Card>
             <ResultBox variant="improved" metrics={[
@@ -577,7 +577,7 @@ export default function RoyalPawzCaseStudy() {
         <section id="evidence" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={BarChart3} label="Data" title="The Bigger Picture" /></FadeIn>
           <FadeIn>
-            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Four months of performance across all four phases — with an honest split between new customer acquisition and repeat booking revenue.</p>
+            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Four months of performance across all four phases — with an honest split between new customer acquisition and repeat booking earnings.</p>
             <Card title="Monthly Performance" defaultOpen>
               <DataTable
                 headers={["Month", "Visitors", "New Book.", "Repeat", "New Rev", "Repeat Rev", "Net Rev", "Bounce", "Ad Spend"]}
@@ -588,7 +588,7 @@ export default function RoyalPawzCaseStudy() {
                   [{ text: "Mar '26 *", color: "text-white font-semibold" }, "882", "37", "25", { text: "$4,791", color: "text-white font-semibold" }, "$2,696", { text: "$7,486", color: "text-emerald-400 font-semibold" }, { text: "10.5%", color: "text-emerald-400" }, "$704"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">* March data through March 18 only. Revenue is <strong className="text-white">net service revenue</strong> — excludes tips (go to groomers) and sales tax. Ad spend from Google Ads weekly data (clicks × <Term>CPC</Term>).</p>
+              <p className="text-[13px] text-[#64748B] mt-3">* March data through March 18 only. Earnings is <strong className="text-white">net service earnings</strong> — excludes tips (go to groomers) and sales tax. Ad spend from Google Ads weekly data (clicks × <Term>CPC</Term>).</p>
             </Card>
           </FadeIn>
         </section>
@@ -662,8 +662,8 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn><SectionHeader icon={DollarSign} label="Unit Economics" title="The Honest Math" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Separating what the funnel creates from what retention compounds — because the only numbers worth sharing are the ones you can defend.</p>
-            <AlertBox type="info" title="Revenue = Net Service Revenue">
-              <p>All revenue figures in this report are <strong className="text-white">net service revenue</strong> — the actual money the business earns for grooming services. Tips (which go to groomers) and sales tax (which goes to the state) are excluded. This gives a more honest picture of business performance than gross booking totals.</p>
+            <AlertBox type="info" title="Earnings = Net Service Earnings">
+              <p>All earnings figures in this report are <strong className="text-white">net service earnings</strong> — the actual money the business earns for grooming services. Tips (which go to groomers) and sales tax (which goes to the state) are excluded. This gives a more honest picture of business performance than gross booking totals.</p>
             </AlertBox>
             <div className="flex flex-wrap gap-3 mb-6">
               <MetricCard label="Avg Customer LTV" value="$154" sub="Median $121 · net service rev" color="text-[#34D399]" />
@@ -745,15 +745,15 @@ export default function RoyalPawzCaseStudy() {
             </Card>
 
             <Card title="Business Economics" defaultOpen>
-              <p className="mb-4">Revenue tells half the story. Here&apos;s how the business actually works.</p>
+              <p className="mb-4">The numbers tell half the story. Here&apos;s how the business actually works.</p>
               <div className="space-y-3">
                 <div className="flex gap-4 p-4 bg-white/[0.02] rounded-lg">
                   <div className="text-emerald-400 font-bold text-lg flex-shrink-0 w-24 text-right font-mono">$6,000</div>
-                  <div><strong className="text-white">Monthly breakeven.</strong> Below $6K in monthly revenue, the business is covering fixed costs (insurance, van maintenance, supplies, software). Above $6K, margin kicks in.</div>
+                  <div><strong className="text-white">Monthly breakeven.</strong> Below $6K in monthly earnings, the business is covering fixed costs (insurance, van maintenance, supplies, software). Above $6K, margin kicks in.</div>
                 </div>
                 <div className="flex gap-4 p-4 bg-white/[0.02] rounded-lg">
                   <div className="text-[#60A5FA] font-bold text-lg flex-shrink-0 w-24 text-right font-mono">45%</div>
-                  <div><strong className="text-white">Margin above breakeven.</strong> Every dollar of net revenue past $6K, 45 cents is available for reinvestment. February ($6,849) and March ($7,486) are both above breakeven — that surplus goes back into growth.</div>
+                  <div><strong className="text-white">Margin above breakeven.</strong> Every dollar of net earnings past $6K, 45 cents is available for reinvestment. February ($6,849) and March ($7,486) are both above breakeven — that surplus goes back into growth.</div>
                 </div>
                 <div className="flex gap-4 p-4 bg-white/[0.02] rounded-lg">
                   <div className="text-cyan-400 font-bold text-lg flex-shrink-0 w-24 text-right font-mono">100%</div>
@@ -774,7 +774,7 @@ export default function RoyalPawzCaseStudy() {
                   [{ text: "Mar '26 *", color: "text-white font-semibold" }, "35", "$159", "—", "—", "—", "$159", "—"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">* March cohort still in first month. Values shown are average revenue per customer per month (non-rebookers count as $0). M2 Retention = % of cohort that booked again in month 2. December cohort is the standout at <strong className="text-white">$311 avg LTV</strong> with 50% rebooking — and still growing.</p>
+              <p className="text-[13px] text-[#64748B] mt-3">* March cohort still in first month. Values shown are average earnings per customer per month (non-rebookers count as $0). M2 Retention = % of cohort that booked again in month 2. December cohort is the standout at <strong className="text-white">$311 avg LTV</strong> with 50% rebooking — and still growing.</p>
               <AlertBox type="info" title="Why Recent Cohorts Look Low">
                 <p className="mb-2">Dog grooming is a <strong className="text-white">6–8 week repeat cycle</strong> — most pet owners rebook every 1.5–2 months, not every 30 days. That means the rebooking window for recent cohorts hasn&apos;t opened yet:</p>
                 <div className="space-y-1.5 mt-3 text-[15px]">
@@ -789,7 +789,7 @@ export default function RoyalPawzCaseStudy() {
 
             <AlertBox type="info" title="How to Read These Numbers">
               <p className="mb-2"><strong className="text-white">The funnel optimization directly impacts new customer acquisition</strong> — bounce rate, conversion rate, and first-booking <Term>AOV</Term> are all under its control. The A/B test results (30.8% conversion, +21% AOV) are clean, controlled experiments that prove this.</p>
-              <p className="mb-2"><strong className="text-white">Repeat revenue is a separate value driver.</strong> By March, 36% of net revenue came from returning customers. This compounds the value of every new customer acquired, but it&apos;s driven by service quality, not funnel design.</p>
+              <p className="mb-2"><strong className="text-white">Repeat bookings is a separate value driver.</strong> By March, 36% of net earnings came from returning customers. This compounds the value of every new customer acquired, but it&apos;s driven by service quality, not funnel design.</p>
               <p><strong className="text-white">Not all new customers come from ads.</strong> Roughly half in Feb–Mar came through direct/word-of-mouth. The funnel benefits all traffic equally — but ad spend only deserves credit for the customers it brought in.</p>
             </AlertBox>
 
@@ -848,7 +848,7 @@ export default function RoyalPawzCaseStudy() {
                     <div className="text-[13px] text-[#64748B] mt-1">projected annual return</div>
                   </div>
                 </div>
-                <p className="text-center text-[#94A3B8] text-[14px] mt-3">Current LTV ($154) is based on only 5 months of data — most customers haven&apos;t had time to rebook yet. A retained customer rebooking every 6–8 weeks generates <strong className="text-white">$1,000+ annually</strong> in net service revenue. The Dec cohort ($311 in 3.5 months) is already on this trajectory.</p>
+                <p className="text-center text-[#94A3B8] text-[14px] mt-3">Current LTV ($154) is based on only 5 months of data — most customers haven&apos;t had time to rebook yet. A retained customer rebooking every 6–8 weeks generates <strong className="text-white">$1,000+ annually</strong> in net service earnings. The Dec cohort ($311 in 3.5 months) is already on this trajectory.</p>
               </div>
             </div>
           </FadeIn>
@@ -936,7 +936,7 @@ export default function RoyalPawzCaseStudy() {
                 { icon: "$", color: "bg-emerald-500/10 text-emerald-400", text: "7.7x LTV-to-CPA. New customers cost an estimated ~$20 to acquire their first booking and generate $154 in net lifetime value. Best week hit $14.25 per new customer. Since ~50% of new customers come from word-of-mouth (free), the true blended CPA is even lower." },
                 { icon: "A", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "A/B testing produced a 334% conversion lift. The second test took booking conversion from 7.1% to 30.8% in a controlled experiment. This is the cleanest, most defensible number in the report." },
                 { icon: "↓", color: "bg-cyan-400/10 text-cyan-400", text: "Bounce rate cut by 76%. Fixing the Google Ads landing page and moving from auth-first to value-first reduced bounce from 43.6% to 10.5%. This improvement benefits all traffic sources equally." },
-                { icon: "↑", color: "bg-amber-400/10 text-amber-400", text: "Repeat revenue grew to 36% of total by month 5. $2,696 of $7,486 net revenue in March came from returning customers — built on service quality, compounding the value of every new customer." },
+                { icon: "↑", color: "bg-amber-400/10 text-amber-400", text: "Repeat bookings grew to 36% of total by month 5. $2,696 of $7,486 net earnings in March came from returning customers — built on service quality, compounding the value of every new customer." },
                 { icon: "⚡", color: "bg-emerald-500/10 text-emerald-400", text: "Counter-intuitive wins. Adding more steps (intro screen) increased conversion. Asking for info earlier increased both conversion and AOV. Testing beat assumptions every time." },
                 { icon: "∞", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "Half the new customers come from word-of-mouth. 15 of 34 March new customers were direct/referral — zero acquisition cost. The funnel optimization benefits these free customers too." },
               ].map((item, i) => (
@@ -1029,7 +1029,7 @@ export default function RoyalPawzCaseStudy() {
                 <p><strong className="text-white">Ad spend estimates:</strong> Derived from daily budget caps with ~75% utilization factor. Total confirmed spend: $2,688.12 across the reporting period.</p>
                 <p><strong className="text-white">Customer attribution:</strong> New vs repeat split based on first-booking detection per client_id. Source attribution via session referrer matching (utm_source for Google Ads, direct for organic/WOM).</p>
                 <p><strong className="text-white">A/B testing:</strong> Randomized variant assignment at session start, tracked via custom ab_test_events table. Single-variable tests with concurrent control and treatment groups.</p>
-                <p><strong className="text-white">LTV calculation:</strong> Net service revenue (excluding tips and sales tax) per customer, based on 123 customers over 5 months. LTV is still maturing — early cohorts show increasing value over time, so current figures likely understate true lifetime value.</p>
+                <p><strong className="text-white">LTV calculation:</strong> Net service earnings (excluding tips and sales tax) per customer, based on 123 customers over 5 months. LTV is still maturing — early cohorts show increasing value over time, so current figures likely understate true lifetime value.</p>
                 <p><strong className="text-white">Timeline:</strong> Platform launched ~November 25, 2025. Session tracking installed December 26, 2025. Report period: Dec 26, 2025 – Mar 18, 2026.</p>
               </div>
             </Card>
@@ -1040,7 +1040,7 @@ export default function RoyalPawzCaseStudy() {
         {/* ═══ FOOTER ═══ */}
         <footer className="px-5 sm:px-10 lg:px-16 py-12 text-center">
           <div className="text-base text-white font-semibold mb-1">Zapp Studios</div>
-          <div className="text-[14px] text-[#94A3B8] mb-1">Revenue Engineering</div>
+          <div className="text-[14px] text-[#94A3B8] mb-1">Growth Engineering</div>
           <a href="https://www.zappstudios.us/revenue" className="text-[14px] text-[#60A5FA] hover:underline">zappstudios.us/revenue</a>
           <div className="text-[13px] text-[#64748B] mt-6 max-w-2xl mx-auto leading-relaxed">
             Prepared by Hamza, Founder · Zapp Studios · March 2026
