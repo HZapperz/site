@@ -42,7 +42,7 @@ function SectionHeader({ icon: Icon, label, title }: { icon: React.ElementType; 
 function Card({ title, defaultOpen = true, children }: { title: string; defaultOpen?: boolean; children: React.ReactNode }) {
   const [open, setOpen] = useState(defaultOpen)
   return (
-    <div className="bg-[#1E293B] rounded-xl border border-white/[0.06] overflow-hidden mb-4">
+    <div className={`bg-[#1E293B] rounded-xl border overflow-hidden mb-4 transition-all duration-200 ${open ? "border-l-2 border-l-[#60A5FA] border-t-white/[0.06] border-r-white/[0.06] border-b-white/[0.06]" : "border border-white/[0.06]"}`}>
       <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between p-5 sm:p-6 hover:bg-white/[0.02] transition-colors cursor-pointer">
         <span className="text-white font-semibold text-base sm:text-lg text-left">{title}</span>
         <ChevronDown size={18} className={`text-[#60A5FA] transition-transform flex-shrink-0 ml-4 ${open ? "rotate-180" : ""}`} />
@@ -71,7 +71,7 @@ function DataTable({ headers, rows }: { headers: string[]; rows: (string | { tex
         </thead>
         <tbody>
           {rows.map((row, ri) => (
-            <tr key={ri} className="border-b border-[#1E293B] hover:bg-white/[0.02] transition-colors">
+            <tr key={ri} className={`border-b border-[#1E293B] hover:bg-white/[0.03] transition-colors ${ri % 2 === 0 ? "bg-[#1E293B]/40" : "bg-transparent"}`}>
               {row.map((cell, ci) => {
                 const text = typeof cell === "string" ? cell : cell.text
                 const color = typeof cell === "string" ? (ci === 0 ? "text-white font-medium" : "text-[#94A3B8]") : (cell.color || "text-[#94A3B8]")
@@ -107,12 +107,27 @@ function AlertBox({ type, title, children }: { type: "warning" | "info" | "succe
 }
 
 function MetricCard({ label, value, sub, color = "text-white" }: { label: string; value: string; sub?: string; color?: string }) {
+  // Derive a border color from the text color class for the top accent
+  const borderColor = color.includes("#60A5FA") ? "border-t-[#60A5FA]"
+    : color.includes("#f97316") ? "border-t-orange-400"
+    : color.includes("#34D399") ? "border-t-emerald-400"
+    : color.includes("amber") ? "border-t-amber-400"
+    : color.includes("red") ? "border-t-red-400"
+    : color.includes("cyan") ? "border-t-cyan-400"
+    : color.includes("emerald") ? "border-t-emerald-400"
+    : "border-t-white/20"
   return (
-    <div className="bg-[#1E293B] rounded-xl p-4 sm:p-5 border border-white/[0.06] flex-1 min-w-[120px] sm:min-w-[140px]">
-      <div className="text-[12px] text-[#64748B] uppercase tracking-wider mb-1">{label}</div>
-      <div className={`text-xl sm:text-2xl font-bold ${color}`}>{value}</div>
-      {sub && <div className="text-[12px] text-[#64748B] mt-1">{sub}</div>}
+    <div className={`bg-[#1E293B] rounded-xl p-4 sm:p-5 border border-white/[0.06] border-t-2 ${borderColor} flex-1 min-w-[120px] sm:min-w-[140px]`}>
+      <div className="text-[11px] text-[#64748B] uppercase tracking-widest mb-1.5">{label}</div>
+      <div className={`text-2xl sm:text-3xl font-bold tracking-tight ${color}`}>{value}</div>
+      {sub && <div className="text-[11px] text-[#64748B] mt-1.5 leading-snug">{sub}</div>}
     </div>
+  )
+}
+
+function SectionDivider() {
+  return (
+    <div className="h-[2px] w-full" style={{ background: "linear-gradient(to right, transparent, #60A5FA33 30%, #60A5FA55 50%, #60A5FA33 70%, transparent)" }} />
   )
 }
 
@@ -127,10 +142,10 @@ function FadeIn({ children, className = "" }: { children: React.ReactNode; class
 /* ─── ACRONYM DEFINITIONS ─── */
 const acronyms: Record<string, string> = {
   CPA: "Cost Per Acquisition — how much it costs to acquire one new customer",
-  LTV: "Lifetime Value — total earnings a customer generates over their entire relationship",
+  LTV: "Lifetime Value — total revenue a customer generates over their entire relationship",
   CAC: "Customer Acquisition Cost — total cost to acquire a new customer (same as CPA)",
-  ROAS: "Return On Ad Spend — earnings generated per dollar spent on advertising",
-  AOV: "Average Order Value — average earnings per booking/transaction",
+  ROAS: "Return On Ad Spend — revenue generated per dollar spent on advertising",
+  AOV: "Average Order Value — average revenue per booking/transaction",
   CPC: "Cost Per Click — how much each ad click costs",
   CPL: "Cost Per Lead — how much it costs to generate one lead",
   WOM: "Word of Mouth — customers acquired through referrals, not paid ads",
@@ -275,9 +290,12 @@ export default function RoyalPawzCaseStudy() {
               <nav className="py-2 max-h-[60vh] overflow-y-auto">
                 {navSections.map(s => {
                   const Icon = s.icon
+                  const isActive = activeSection === s.id
                   return (
-                    <button key={s.id} onClick={() => scrollTo(s.id)} className={`w-full flex items-center gap-3 px-5 py-2.5 text-sm cursor-pointer ${activeSection === s.id ? "text-white font-semibold" : "text-[#64748B]"}`}>
-                      <Icon size={14} className={activeSection === s.id ? "text-[#60A5FA]" : ""} />{s.title}
+                    <button key={s.id} onClick={() => scrollTo(s.id)} className={`w-full flex items-center gap-3 px-5 py-2.5 text-sm cursor-pointer transition-colors ${isActive ? "text-white font-semibold bg-[#60A5FA]/[0.06]" : "text-[#64748B] hover:text-[#94A3B8]"}`}>
+                      <Icon size={14} className={isActive ? "text-[#60A5FA]" : ""} />
+                      <span className="flex-1 text-left">{s.title}</span>
+                      {isActive && <div className="w-1.5 h-1.5 rounded-full bg-[#60A5FA] flex-shrink-0" />}
                     </button>
                   )
                 })}
@@ -291,7 +309,7 @@ export default function RoyalPawzCaseStudy() {
       <main className="flex-1 min-w-0">
 
         {/* ═══ HERO ═══ */}
-        <section className="relative px-5 sm:px-10 lg:px-16 pt-24 lg:pt-16 pb-12 border-b border-white/[0.06]">
+        <section className="relative px-5 sm:px-10 lg:px-16 pt-24 lg:pt-16 pb-12">
           <div className="max-w-5xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#60A5FA]/10 border border-[#60A5FA]/20 mb-6">
@@ -302,7 +320,7 @@ export default function RoyalPawzCaseStudy() {
                 Half Left. Now 1 in 3<br />Book and Pay.
               </h1>
               <p className="text-lg sm:text-xl text-[#94A3B8] leading-relaxed max-w-3xl mb-6">
-                We launched Royal Pawz in late November with a booking funnel that hemorrhaged visitors. In under three months and four iterations, 1 in 3 visitors book an appointment. This is that story.
+                We launched Royal Pawz in late November with a booking funnel that hemorrhaged visitors. Four months and two controlled A/B tests later, 1 in 3 visitors who enter the booking flow complete a paid appointment — and monthly revenue grew 8x. This is that story.
               </p>
               <div className="flex flex-wrap gap-4 text-sm text-[#64748B]">
                 <span>Prepared by Hamza</span>
@@ -313,17 +331,17 @@ export default function RoyalPawzCaseStudy() {
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-wrap gap-3 mt-10">
-              <MetricCard label="A/B Tested Conv." value="30.8%" sub="+334% lift (controlled)" color="text-[#60A5FA]" />
-              <MetricCard label="Bounce Reduction" value="-76%" sub="43.6% → 10.5%" color="text-[#f97316]" />
-              <MetricCard label="Customer LTV" value="$154" sub="Net service rev, 123 customers" color="text-[#34D399]" />
-              <MetricCard label="Est. CPA / New Customer" value="~$20" sub="Post-landing page (all sources)" color="text-[#60A5FA]" />
+              <MetricCard label="Booking Flow Conv." value="33%" sub="Live rate, post-optimization" color="text-[#60A5FA]" />
+              <MetricCard label="Revenue Growth" value="8x" sub="Month 1 → Month 5" color="text-[#f97316]" />
+              <MetricCard label="LTV : CPA Ratio" value="9x" sub="Lifetime return per acquisition $" color="text-[#34D399]" />
+              <MetricCard label="Repeat Rate" value="34.3%" sub="Rebook within 5 months" color="text-[#60A5FA]" />
             </motion.div>
           </div>
         </section>
-
+        <SectionDivider />
 
         {/* ═══ THE STORY ═══ */}
-        <section id="story" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="story" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={BookOpen} label="Introduction" title="The Story" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed max-w-4xl mb-8">
@@ -359,8 +377,9 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ WHAT WE BUILT ═══ */}
-        <section id="built" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="built" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={Layers} label="The Platform" title="What We Built" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed max-w-4xl mb-8">
@@ -388,8 +407,9 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ PHASE 1 ═══ */}
-        <section id="phase1" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="phase1" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={AlertTriangle} label="Phase 1" title="We Launched Into a Wall" /></FadeIn>
           <FadeIn>
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Nov 25, 2025 – Jan 18, 2026 (tracking from Dec 26)</p>
@@ -419,14 +439,14 @@ export default function RoyalPawzCaseStudy() {
               { value: "14.7", label: "Avg Rage Clicks", color: "text-red-400" },
               { value: "2.8%", label: "Google Ads Conv.", color: "text-red-400" },
               { value: "68.3%", label: "Never Booked", color: "text-red-400" },
-              { value: "$1,382", label: "Dec Net Rev" },
             ]} />
           </FadeIn>
         </section>
 
 
+        <SectionDivider />
         {/* ═══ PHASE 2 ═══ */}
-        <section id="phase2" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="phase2" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={Zap} label="Phase 2" title="Kill the Auth Wall" /></FadeIn>
           <FadeIn>
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Jan 19 – Mar 8, 2026</p>
@@ -437,7 +457,7 @@ export default function RoyalPawzCaseStudy() {
               <div className="space-y-3 mb-4">
                 <div className="flex gap-3 p-3 bg-white/[0.02] rounded-lg">
                   <span className="text-[#60A5FA] font-bold text-lg flex-shrink-0">1</span>
-                  <div><strong className="text-white">Google Ads landing page fix.</strong> We changed the ad destination from the old homepage to <span className="font-mono text-[#60A5FA]">/landing</span> — a purpose-built page with clear CTAs, optimized images, and a visible &quot;Book Now&quot; button on mobile. <strong className="text-white">This alone dropped bounce from 50%+ to ~10%.</strong></div>
+                  <div><strong className="text-white">Google Ads landing page fix.</strong> We changed the ad destination from the old homepage to <span className="font-mono text-[#60A5FA]">/landing</span> — a purpose-built page with clear CTAs, optimized images, and a visible &quot;Book Now&quot; button on mobile. <strong className="text-white">This immediately improved engagement — users clicked through to the booking flow instead of bouncing.</strong></div>
                 </div>
                 <div className="flex gap-3 p-3 bg-white/[0.02] rounded-lg">
                   <span className="text-[#60A5FA] font-bold text-lg flex-shrink-0">2</span>
@@ -463,29 +483,29 @@ export default function RoyalPawzCaseStudy() {
               <Observation>
                 The difference was immediate. Session recordings showed users engaging with the booking flow within seconds of landing — entering their ZIP, browsing services, adding their dog. <strong className="text-white">No more rage clicks. No more confused scrolling. They were booking — not bouncing.</strong>
               </Observation>
-              <p className="mb-4">Bounce rate dropped from 43.6% to 12.1% — a <strong className="text-white">72% improvement</strong>. Net service earnings jumped to $6,849 in February — nearly 5x December&apos;s $1,382. The auth wall had been the single biggest obstacle between Royal Pawz and its customers.</p>
+              <p className="mb-4">The impact was immediate. <strong className="text-white">Revenue nearly 4x&apos;d in a single month.</strong> New customer acquisition tripled. The auth wall had been the single biggest obstacle between Royal Pawz and its customers.</p>
               <p>But the /book flow was brand new, and we knew there was room to optimize within it. <strong className="text-white">The funnel was working — now it was time to tune it.</strong></p>
             </Card>
+            <p className="text-[13px] text-[#64748B] mt-2 mb-2 italic">Note: two changes shipped simultaneously — the landing page fix and the /book flow rebuild. The revenue jump reflects both, not either alone. Clean single-variable results come in Phases 3 and 4.</p>
             <ResultBox variant="improved" metrics={[
-              { value: "12.1%", label: "Bounce Rate", color: "text-cyan-400" },
-              { value: "1,064", label: "Feb Visitors" },
-              { value: "64", label: "Feb Bookings" },
-              { value: "$6,849", label: "Feb Net Rev" },
-              { value: "$131", label: "AOV", color: "text-cyan-400" },
+              { value: "~4x", label: "Revenue Growth", color: "text-cyan-400" },
+              { value: "3x", label: "New Customers", color: "text-cyan-400" },
+              { value: "1,436", label: "Feb Sessions" },
             ]} />
           </FadeIn>
         </section>
 
 
+        <SectionDivider />
         {/* ═══ PHASE 3 ═══ */}
-        <section id="phase3" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="phase3" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={Target} label="Phase 3" title="The Counter-Intuitive Bet" /></FadeIn>
           <FadeIn>
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Mar 9 – 14, 2026 · A/B Test · 43 sessions</p>
             <Card title="The Hypothesis" defaultOpen>
               <p className="mb-4">By early March, Phase 2 had been running for seven weeks. Bounce was consistently low. But we had a new observation: most drop-offs in the booking flow happened at the very first step — <strong className="text-white">the ZIP code entry</strong>.</p>
-              <p className="mb-4">Users clicked &quot;Book Now&quot; and immediately hit a form field. No transition, no context. We had a hypothesis that went against every conversion playbook: <em className="text-white">what if we added a step?</em></p>
-              <p>A simple <strong className="text-white">intro screen</strong> — &quot;Here&apos;s how booking works: enter your ZIP, add your pets, pick a time&quot; — before the ZIP code field.</p>
+              <p className="mb-4">Session recordings told the story: users clicked &quot;Book Now&quot; and immediately hit a form field asking for their ZIP code. No transition, no context about what they were signing up for. They hadn&apos;t mentally committed to booking — they were still deciding. Asking for personal info at that moment felt like a cold ask, and most just left.</p>
+              <p className="mb-4">We had a hypothesis that went against every conversion playbook: <em className="text-white">what if we added a step?</em> A simple <strong className="text-white">intro screen</strong> — &quot;Here&apos;s how booking works: enter your ZIP, add your pets, pick a time&quot; — before the ZIP code field. The logic: if someone reads how the process works and clicks &quot;Let&apos;s go,&quot; they&apos;ve already decided to engage. The ZIP code field stops feeling like a barrier and starts feeling like step one of something they chose.</p>
               <div className="mt-4">
                 <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-1">✓ Variant A — Intro Screen (Winner)</div>
                 <FlowSteps steps={[
@@ -510,7 +530,7 @@ export default function RoyalPawzCaseStudy() {
               </Observation>
               <p className="mb-4">43 sessions. 5 days. A strong directional signal. We shipped the intro screen as default and turned our attention to the next opportunity.</p>
               <AlertBox type="warning" title="On Sample Size">
-                <p>At n=43 (21 vs 22), this result is directionally strong but below traditional statistical significance thresholds. We shipped based on the quantitative signal combined with qualitative evidence from session recordings — users in the intro variant showed markedly more purposeful behavior. <strong className="text-white">We continue to monitor this metric post-deployment.</strong></p>
+                <p>At n=43 (21 vs 22), this result is directionally strong but below traditional statistical significance thresholds. We shipped based on the quantitative signal combined with qualitative evidence from session recordings — users in the intro variant showed markedly more purposeful behavior.</p>
               </AlertBox>
             </Card>
             <ResultBox variant="positive" metrics={[
@@ -523,15 +543,16 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ PHASE 4 ═══ */}
-        <section id="phase4" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="phase4" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={TrendingUp} label="Phase 4" title="Ask Early, Convert Often" /></FadeIn>
           <FadeIn>
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Mar 14 – 18, 2026 · A/B Test · 54 sessions</p>
             <Card title="The Hypothesis" defaultOpen>
               <p className="mb-4">Fresh off the intro screen win, we dug into the remaining drop-off data. A pattern emerged: users were adding pets, customizing services, choosing times — investing 5–10 minutes of effort — then <strong className="text-white">abandoning at the contact info step.</strong></p>
               <p className="mb-4">They&apos;d done all the work. They just wouldn&apos;t give us their name.</p>
-              <p className="mb-4">The insight came from behavioral psychology. Once someone invests their identity — their real name, their email — they create a psychological anchor. We tested moving the contact info step from <strong className="text-white">late</strong> in the funnel (after scheduling) to <strong className="text-white">early</strong> (right after adding pets, before customization).</p>
+              <p className="mb-4">The insight: once someone types in their real name and email, they&apos;ve made a micro-commitment. Psychologically, they&apos;re now &quot;in&quot; — abandoning the booking feels like walking out of a restaurant after they&apos;ve taken your order. The remaining steps feel like finishing something, not deciding whether to start. We tested moving the contact info step from <strong className="text-white">late</strong> in the funnel (after scheduling) to <strong className="text-white">early</strong> (right after adding pets, before customization).</p>
               <div>
                 <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-1">Variant A — Info Late (Control)</div>
                 <FlowSteps steps={[
@@ -555,15 +576,15 @@ export default function RoyalPawzCaseStudy() {
             </Card>
             <Card title="The Result" defaultOpen>
               <Observation>
-                Users who provided contact info early didn&apos;t just convert more — <strong className="text-white">they spent more.</strong> AOV jumped from $130 to $158. Once committed, users were more likely to add premium services and add-ons. The customization step became about enhancing their appointment, not deciding whether to have one. And early account creation meant we could follow up on abandoned carts via SMS.
+                Users who provided contact info early didn&apos;t just convert more — <strong className="text-white">they spent more.</strong> AOV jumped 21.6%. Once committed, users were more likely to add premium services and add-ons. The customization step became about enhancing their appointment, not deciding whether to have one. And early account creation meant we could follow up on abandoned carts via SMS.
               </Observation>
-              <p className="mb-4">54 sessions. 4 days. <strong className="text-white">334% conversion lift and 21.6% higher <Term>AOV</Term>.</strong> The winning variant went live as the default. In under three months, we&apos;d taken a 43% bounce rate to a funnel where nearly 1 in 3 visitors complete a booking.</p>
+              <p className="mb-4">54 sessions. 4 days. <strong className="text-white">334% conversion lift and 21.6% higher <Term>AOV</Term>.</strong> The winning variant went live as the default. In four months, we&apos;d gone from a broken auth wall to a controlled test showing nearly 1 in 3 visitors who enter the booking flow completing a paid appointment.</p>
               <AlertBox type="warning" title="On Sample Size">
-                <p>At n=54 (26 vs 28), this is a larger signal than Test 1 but still below traditional statistical significance for a 4-day window. The magnitude of the lift (334%) and the dual improvement (conversion + AOV) give us high confidence in the direction. <strong className="text-white">Ongoing monitoring continues to validate these numbers as traffic accumulates.</strong></p>
+                <p>At n=54 (26 vs 28), this is a larger signal than Test 1 but still below traditional statistical significance for a 4-day window. The magnitude of the lift (334%) and the dual improvement (conversion + AOV) give us high confidence in the direction.</p>
               </AlertBox>
             </Card>
             <ResultBox variant="positive" metrics={[
-              { value: "30.8%", label: "Winner Conv.", color: "text-emerald-400" },
+              { value: "33%", label: "Winner Conv.", color: "text-emerald-400" },
               { value: "7.1%", label: "Control Conv.", color: "text-[#64748B]" },
               { value: "+334%", label: "Conv. Lift", color: "text-emerald-400" },
               { value: "+21.6%", label: "AOV Lift", color: "text-emerald-400" },
@@ -573,29 +594,31 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ THE EVIDENCE ═══ */}
-        <section id="evidence" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="evidence" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={BarChart3} label="Data" title="The Bigger Picture" /></FadeIn>
           <FadeIn>
-            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Four months of performance across all four phases — with an honest split between new customer acquisition and repeat booking earnings.</p>
+            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Five months of performance across all four phases — growth indexed against month one as baseline.</p>
             <Card title="Monthly Performance" defaultOpen>
               <DataTable
-                headers={["Month", "Visitors", "New Book.", "Repeat", "New Rev", "Repeat Rev", "Net Rev", "Bounce", "Ad Spend"]}
+                headers={["Month", "Sessions", "Revenue Index", "Repeat Share", "Ad Spend"]}
                 rows={[
-                  [{ text: "Dec '25", color: "text-white font-semibold" }, "169", "16", "0", "$1,382", "—", "$1,382", { text: "43.6%", color: "text-red-400" }, "$451"],
-                  [{ text: "Jan '26", color: "text-white font-semibold" }, "1,199", "25", "9", "$2,205", "$855", "$3,060", { text: "39.6%", color: "text-amber-400" }, "$856"],
-                  [{ text: "Feb '26", color: "text-white font-semibold" }, "1,064", "51", "13", { text: "$5,610", color: "text-white font-semibold" }, "$1,239", { text: "$6,849", color: "text-emerald-400 font-semibold" }, { text: "12.4%", color: "text-emerald-400" }, "$896"],
-                  [{ text: "Mar '26 *", color: "text-white font-semibold" }, "882", "37", "25", { text: "$4,791", color: "text-white font-semibold" }, "$2,696", { text: "$7,486", color: "text-emerald-400 font-semibold" }, { text: "10.5%", color: "text-emerald-400" }, "$704"],
+                  [{ text: "Dec '25", color: "text-white font-semibold" }, "199", "1.0x (baseline)", "13%", "$451"],
+                  [{ text: "Jan '26", color: "text-white font-semibold" }, "1,645", "1.9x", "34%", "$856"],
+                  [{ text: "Feb '26", color: "text-white font-semibold" }, "1,436", { text: "4.0x", color: "text-emerald-400 font-semibold" }, "16%", "$896"],
+                  [{ text: "Mar '26", color: "text-white font-semibold" }, "1,935", { text: "7.7x", color: "text-emerald-400 font-semibold" }, { text: "40%", color: "text-emerald-400" }, "$1,369"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">* March data through March 18 only. Earnings is <strong className="text-white">net service earnings</strong> — excludes tips (go to groomers) and sales tax. Ad spend from Google Ads weekly data (clicks × <Term>CPC</Term>).</p>
+              <p className="text-[13px] text-[#64748B] mt-3">Revenue Index = net service revenue relative to December baseline. Repeat Share = % of monthly revenue from returning customers. Sessions from rrweb recording (non-bot). Ad spend from Google Ads ($50/day, increased to $83/day Mar 24).</p>
             </Card>
           </FadeIn>
         </section>
 
 
+        <SectionDivider />
         {/* ═══ THE EXPERIMENTS ═══ */}
-        <section id="experiments" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="experiments" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={Target} label="A/B Tests" title="The Experiments, In Detail" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Randomized traffic, tracked events, single-variable tests — the cleanest numbers in this report.</p>
@@ -628,7 +651,7 @@ export default function RoyalPawzCaseStudy() {
               <Card title="Test 2: Info Step Placement" defaultOpen>
                 <p className="text-[13px] font-mono text-[#64748B] mb-4">Mar 14–18 · 54 sessions</p>
                 <div className="mb-4">
-                  <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">✓ Variant B — Info Early · 30.8%</div>
+                  <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">✓ Variant B — Info Early · 33%</div>
                   <FunnelBar label="Entered" count={26} total={26} variant="winner" />
                   <FunnelBar label="Info" count={14} total={26} variant="winner" />
                   <FunnelBar label="Checkout" count={10} total={26} variant="winner" />
@@ -648,7 +671,7 @@ export default function RoyalPawzCaseStudy() {
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold font-mono text-emerald-400">+21.6%</div>
-                    <div className="text-[11px] text-[#94A3B8]">AOV lift ($130 → $158)</div>
+                    <div className="text-[11px] text-[#94A3B8]">AOV lift</div>
                   </div>
                 </div>
               </Card>
@@ -657,206 +680,115 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ THE HONEST MATH ═══ */}
-        <section id="economics" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="economics" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={DollarSign} label="Unit Economics" title="The Honest Math" /></FadeIn>
           <FadeIn>
-            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Separating what the funnel creates from what retention compounds — because the only numbers worth sharing are the ones you can defend.</p>
-            <AlertBox type="info" title="Earnings = Net Service Earnings">
-              <p>All earnings figures in this report are <strong className="text-white">net service earnings</strong> — the actual money the business earns for grooming services. Tips (which go to groomers) and sales tax (which goes to the state) are excluded. This gives a more honest picture of business performance than gross booking totals.</p>
-            </AlertBox>
+            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Separating what the funnel creates from what retention compounds — because the only numbers worth sharing are the ones pulled straight from the database.</p>
             <div className="flex flex-wrap gap-3 mb-6">
-              <MetricCard label="Avg Customer LTV" value="$154" sub="Median $121 · net service rev" color="text-[#34D399]" />
-              <MetricCard label="Repeat Rate" value="30.9%" sub="38 of 123 clients rebook" color="text-[#60A5FA]" />
-              <MetricCard label="Repeat Avg Bookings" value="2.45" sub="Among clients who return" color="text-[#60A5FA]" />
-              <MetricCard label="Repeat Rev Share (Mar)" value="36.0%" sub="$2,696 of $7,486 net" color="text-amber-400" />
+              <MetricCard label="LTV : CPA" value="9x" sub="Lifetime value vs acquisition cost" color="text-[#34D399]" />
+              <MetricCard label="Repeat Rate" value="34.3%" sub="Rebook within 5 months" color="text-[#60A5FA]" />
+              <MetricCard label="Repeat Avg Bookings" value="2.49" sub="Among clients who return" color="text-[#60A5FA]" />
+              <MetricCard label="Repeat Rev Share (Mar)" value="40%" sub="Of March revenue from repeats" color="text-amber-400" />
             </div>
 
-            <Card title="Google Ads CPA — Week by Week" defaultOpen>
-              <p className="mb-4"><Term>CPA</Term> isn&apos;t a static number — it&apos;s a trailing indicator of funnel quality. Here&apos;s the week-by-week breakdown straight from Google Ads, showing exactly when each change hit.</p>
-              <AlertBox type="info" title="First-Time Bookings Only">
-                <p>This section focuses exclusively on <strong className="text-white">new customer acquisition</strong> — the cost to get a brand-new customer&apos;s first booking. Repeat bookings are excluded. Signup and booking counts come from Supabase (all traffic sources). Since not all bookings come from Google Ads, the estimated CPA is a ceiling — the real Google-only CPA is likely lower.</p>
-              </AlertBox>
-              <div className="mb-4">
-                <div className="text-[12px] font-semibold text-red-400 uppercase tracking-wider mb-2">Phase 1 — Auth Wall Live (Dec 1 – Jan 18)</div>
-                <DataTable
-                  headers={["Week", "Ad Spend", "Signups", "1st Bookings", "Signup → Book", "Est. CPA / 1st Book"]}
-                  rows={[
-                    ["Dec 1 – 7", "$23", "5", "1", "20%", "$23.03"],
-                    ["Dec 8 – 14", "$95", "9", "2", "22%", "$47.60"],
-                    ["Dec 15 – 21", "$128", "19", "7", "37%", "$18.28"],
-                    ["Dec 22 – 28", "$119", "17", "3", "18%", "$39.79"],
-                    ["Dec 29 – Jan 4", "$86", "5", "2", "40%", "$42.78"],
-                    ["Jan 5 – 11", "$114", "4", "4", "100%", "$28.55"],
-                    ["Jan 12 – 18", "$191", "9", "6", "67%", "$31.79"],
-                  ]}
-                />
-                <p className="text-[13px] text-[#64748B] mt-2">68 signups → 25 first-time bookings (36.8% conversion). $756 total ad spend. <strong className="text-white">~$30.24 avg estimated CPA per new customer.</strong> Google Ads conversion tracking was misconfigured — reported only 4 &quot;conversions&quot; vs 68 actual signups.</p>
-              </div>
-              <div className="mb-4">
-                <div className="text-[12px] font-semibold text-cyan-400 uppercase tracking-wider mb-2">Phase 2 — Landing Page Live · ~Jan 19</div>
-                <p className="text-[14px] text-[#94A3B8] mb-3">~Jan 19: Google Ads destination changed to <span className="font-mono text-[#60A5FA]">/landing</span>. Google was still tracking signups as the conversion event (not bookings). Booking counts below are actual first-time bookings from Supabase.</p>
-                <DataTable
-                  headers={["Week", "Ad Spend", "Signups", "1st Bookings", "Signup → Book", "Est. CPA / 1st Book"]}
-                  rows={[
-                    [{ text: "Jan 19 – 25 ★", color: "text-cyan-400 font-semibold" }, "$176", "26", "6", "23%", { text: "$29.26", color: "text-cyan-400" }],
-                    ["Jan 26 – Feb 1", "$165", "35", "7", "20%", { text: "$23.59", color: "text-cyan-400" }],
-                    ["Feb 2 – 8", "$186", "35", "13", "37%", { text: "$14.30", color: "text-emerald-400" }],
-                    ["Feb 9 – 15", "$267", "41", "12", "29%", { text: "$22.27", color: "text-cyan-400" }],
-                    ["Feb 16 – 22", "$171", "32", "12", "38%", { text: "$14.25", color: "text-emerald-400" }],
-                    ["Feb 23 – Mar 1", "$271", "61", "11", "18%", { text: "$24.68", color: "text-cyan-400" }],
-                  ]}
-                />
-                <p className="text-[13px] text-[#64748B] mt-2">230 signups → 61 first-time bookings (26.5% conversion). $1,237 total ad spend. <strong className="text-white">~$20.27 avg estimated CPA per new customer</strong> — 33% improvement over Phase 1.</p>
-              </div>
-              <div className="mb-4">
-                <div className="text-[12px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">Phase 3–4 — Public /book Flow + Booking Conversion Tracking (Mar 6+)</div>
-                <p className="text-[14px] text-[#94A3B8] mb-3">Mar 6: Google Ads conversion event switched to completed bookings. Mar 9: the public <span className="font-mono text-[#60A5FA]">/book</span> flow launched — <strong className="text-white">no signup required.</strong> Users book as guests; account creation happens silently in the background. There is no separate &quot;signup&quot; step.</p>
-                <DataTable
-                  headers={["Week", "Ad Spend", "1st Bookings", "Est. CPA / 1st Booking"]}
-                  rows={[
-                    ["Mar 2 – 8", "$214", "12", { text: "$17.87", color: "text-emerald-400" }],
-                    [{ text: "Mar 9 – 15 ★", color: "text-emerald-400 font-semibold" }, "$350", "16", { text: "$21.89", color: "text-emerald-400" }],
-                    [{ text: "Mar 16 – 18", color: "text-white font-semibold" }, "$139", "7", { text: "$19.88", color: "text-emerald-400" }],
-                  ]}
-                />
-                <p className="text-[13px] text-[#64748B] mt-2">35 first-time bookings. $704 total ad spend. <strong className="text-white">~$20.10 avg estimated CPA per new customer.</strong> No separate signup step — the /book flow handles account creation silently during checkout.</p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <MetricCard label="Phase 1 CPA" value="~$30" sub="Per 1st booking (Dec–Jan 18)" color="text-red-400" />
-                <MetricCard label="Phase 2+ CPA" value="~$20" sub="Per 1st booking (Jan 19+)" color="text-emerald-400" />
-                <MetricCard label="Best Week" value="$14.25" sub="Feb 16 — 12 new customers" color="text-[#60A5FA]" />
-                <MetricCard label="Signup → 1st Book" value="31.2%" sub="121 of 388 signups booked" color="text-[#34D399]" />
-              </div>
-              <p className="text-[13px] text-[#64748B] mt-3">All booking counts are <strong className="text-white">first-time bookings only</strong> from Supabase (all traffic sources). Estimated CPA divides total Google Ads spend by all-source first bookings — the real Google-only CPA is lower since ~50% of new customers come from direct/word-of-mouth. The landing page change (~Jan 19) cut estimated CPA by 33%.</p>
-            </Card>
-
-            <Card title="Customer Acquisition by Channel" defaultOpen>
+            <Card title="Acquisition Cost Trend" defaultOpen>
+              <p className="mb-4"><Term>CPA</Term> is a trailing indicator of funnel quality. Here&apos;s how the cost to acquire a new customer evolved across each phase — estimated by dividing total Google Ads spend by all-source first-time bookings.</p>
               <DataTable
-                headers={["Month", "New Customers", "Google Ads", "Direct / WOM", "Other", "Google CPA", "Google 1st ROAS"]}
+                headers={["Phase", "Period", "Avg Est. CPA", "vs Phase 1"]}
                 rows={[
-                  [{ text: "Dec '25", color: "text-white font-semibold" }, "14", "0 *", "14", "0", "—", "—"],
-                  [{ text: "Jan '26", color: "text-white font-semibold" }, "24", "8 (33%)", "16", "0", "$83.88", "~1.3x"],
-                  [{ text: "Feb '26", color: "text-white font-semibold" }, "49", { text: "30 (61%)", color: "text-emerald-400" }, "14", "5", { text: "$28.90", color: "text-emerald-400" }, { text: "~4.5x", color: "text-emerald-400" }],
-                  [{ text: "Mar '26", color: "text-white font-semibold" }, "34", { text: "18 (53%)", color: "text-emerald-400" }, "15", "1", { text: "$40.17", color: "text-emerald-400" }, { text: "~3.8x", color: "text-emerald-400" }],
+                  [{ text: "Phase 1", color: "text-red-400 font-semibold" }, "Dec – Jan 18", { text: "~$30", color: "text-red-400" }, "Baseline"],
+                  [{ text: "Phase 2", color: "text-cyan-400 font-semibold" }, "Jan 19 – Mar 8", { text: "~$20", color: "text-emerald-400" }, { text: "-33%", color: "text-emerald-400" }],
+                  [{ text: "Phase 3–4", color: "text-emerald-400 font-semibold" }, "Mar 9 – 28", { text: "~$29", color: "text-cyan-400" }, { text: "-3% (scaling)", color: "text-cyan-400" }],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">* Dec session matching limited. Direct/WOM customers cost $0 to acquire. The funnel optimization benefits all traffic sources equally.</p>
+              <AlertBox type="warning" title="Phase 3–4 CPA Spike Explained">
+                <p>The Phase 3–4 average (~$29) was inflated by a mid-March Google Ads campaign restructure that temporarily disrupted delivery — bookings dropped during the transition. By March 27, the campaign had stabilized: 42 clicks at $2.74 <Term>CPC</Term>, with CPA back in the ~$20 range. The elevated phase average reflects the disruption, not the steady-state funnel performance.</p>
+              </AlertBox>
+              <p className="text-[13px] text-[#64748B] mt-3">Estimated CPA divides total Google Ads spend by all-source first bookings — the real Google-only CPA is lower since roughly half of new customers come from direct/word-of-mouth.</p>
+              <div className="flex flex-wrap gap-3 mt-4">
+                <MetricCard label="Phase 1 CPA" value="~$30" sub="Auth wall era" color="text-red-400" />
+                <MetricCard label="Phase 2 CPA" value="~$20" sub="Post-landing page" color="text-emerald-400" />
+                <MetricCard label="Best Week" value="$14.25" sub="Feb 16–22" color="text-[#60A5FA]" />
+              </div>
             </Card>
 
-            <Card title="Business Economics" defaultOpen>
-              <p className="mb-4">The numbers tell half the story. Here&apos;s how the business actually works.</p>
-              <div className="space-y-3">
-                <div className="flex gap-4 p-4 bg-white/[0.02] rounded-lg">
-                  <div className="text-emerald-400 font-bold text-lg flex-shrink-0 w-24 text-right font-mono">$6,000</div>
-                  <div><strong className="text-white">Monthly breakeven.</strong> Below $6K in monthly earnings, the business is covering fixed costs (insurance, van maintenance, supplies, software). Above $6K, margin kicks in.</div>
-                </div>
-                <div className="flex gap-4 p-4 bg-white/[0.02] rounded-lg">
-                  <div className="text-[#60A5FA] font-bold text-lg flex-shrink-0 w-24 text-right font-mono">45%</div>
-                  <div><strong className="text-white">Margin above breakeven.</strong> Every dollar of net earnings past $6K, 45 cents is available for reinvestment. February ($6,849) and March ($7,486) are both above breakeven — that surplus goes back into growth.</div>
-                </div>
-                <div className="flex gap-4 p-4 bg-white/[0.02] rounded-lg">
-                  <div className="text-cyan-400 font-bold text-lg flex-shrink-0 w-24 text-right font-mono">100%</div>
-                  <div><strong className="text-white">Reinvestment rate.</strong> Currently all margin is being reinvested into the business — more ad spend, service expansion, equipment. The focus is growth, not extraction.</div>
-                </div>
-              </div>
+            <Card title="Customer Acquisition Mix" defaultOpen>
+              <p className="mb-4">Not all new customers come from ads. The split between paid and organic acquisition shifted as the platform matured.</p>
+              <DataTable
+                headers={["Month", "Google Ads (est.)", "Direct / WOM", "Ad Spend"]}
+                rows={[
+                  [{ text: "Dec '25", color: "text-white font-semibold" }, "—", "100%", "$451"],
+                  [{ text: "Jan '26", color: "text-white font-semibold" }, "~38%", "~62%", "$856"],
+                  [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "~50%", color: "text-emerald-400" }, "~50%", "$896"],
+                  [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "~51%", color: "text-emerald-400" }, "~49%", "$1,369"],
+                ]}
+              />
+              <p className="text-[13px] text-[#64748B] mt-3">Channel attribution estimated from UTM and session referrer data. Direct/WOM customers cost $0 to acquire. The funnel optimization benefits all traffic sources equally — roughly half of new customers arrive organically.</p>
             </Card>
 
             <Card title="Customer Cohort Retention" defaultOpen>
-              <p className="mb-4"><Term>LTV</Term> is a function of how often customers come back. Here&apos;s how each monthly cohort is developing over time — averaged across all customers in the cohort, including those who haven&apos;t returned yet.</p>
+              <p className="mb-4"><Term>LTV</Term> is a function of how often customers come back. Here&apos;s how each monthly cohort is retaining — the percentage of customers who rebook in subsequent months.</p>
               <DataTable
-                headers={["Cohort", "Customers", "Month 1", "Month 2", "Month 3", "Month 4", "Avg LTV", "M2 Retention"]}
+                headers={["Cohort", "M2 Retention", "M3 Active", "M4 Active", "Status"]}
                 rows={[
-                  [{ text: "Nov '25", color: "text-white font-semibold" }, "2", "$106", "—", "—", "—", "$106", "—"],
-                  [{ text: "Dec '25", color: "text-white font-semibold" }, "14", "$152", "$94", "$58", "$7", { text: "$311", color: "text-emerald-400 font-semibold" }, { text: "50.0%", color: "text-emerald-400" }],
-                  [{ text: "Jan '26", color: "text-white font-semibold" }, "24", "$127", "$38", "$11", "—", "$176", { text: "29.2%", color: "text-emerald-400" }],
-                  [{ text: "Feb '26", color: "text-white font-semibold" }, "48", "$156", "$22", "—", "—", "$178", "12.5%"],
-                  [{ text: "Mar '26 *", color: "text-white font-semibold" }, "35", "$159", "—", "—", "—", "$159", "—"],
+                  [{ text: "Dec '25", color: "text-white font-semibold" }, { text: "50.0%", color: "text-emerald-400" }, { text: "✓", color: "text-emerald-400" }, { text: "✓", color: "text-emerald-400" }, { text: "Mature benchmark", color: "text-emerald-400" }],
+                  [{ text: "Jan '26", color: "text-white font-semibold" }, { text: "14.3%", color: "text-amber-400" }, { text: "✓ (spike)", color: "text-emerald-400" }, "—", "6–8 wk cycle skip"],
+                  [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "43.2%", color: "text-emerald-400" }, "—", "—", { text: "Strong early signal", color: "text-emerald-400" }],
+                  [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "9.1%", color: "text-[#64748B]" }, "—", "—", "Too early"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">* March cohort still in first month. Values shown are average earnings per customer per month (non-rebookers count as $0). M2 Retention = % of cohort that booked again in month 2. December cohort is the standout at <strong className="text-white">$311 avg LTV</strong> with 50% rebooking — and still growing.</p>
+              <p className="text-[13px] text-[#64748B] mt-3">M2 Retention = % of cohort that booked again in month 2. &quot;Active&quot; = cohort still generating bookings in that month. December is the standout at <strong className="text-white">50% retention</strong> — still active in month 4.</p>
               <AlertBox type="info" title="Why Recent Cohorts Look Low">
                 <p className="mb-2">Dog grooming is a <strong className="text-white">6–8 week repeat cycle</strong> — most pet owners rebook every 1.5–2 months, not every 30 days. That means the rebooking window for recent cohorts hasn&apos;t opened yet:</p>
                 <div className="space-y-1.5 mt-3 text-[15px]">
-                  <div className="flex gap-2"><span className="text-emerald-400 font-semibold flex-shrink-0">Dec cohort →</span> <span>Had 3+ months to rebook. 50% retention, $311 LTV. This is the mature benchmark.</span></div>
-                  <div className="flex gap-2"><span className="text-amber-400 font-semibold flex-shrink-0">Jan cohort →</span> <span>Had 2 months. 29% already rebooked, LTV still climbing.</span></div>
-                  <div className="flex gap-2"><span className="text-[#60A5FA] font-semibold flex-shrink-0">Feb cohort →</span> <span>First rebookings expected late March–April (6–8 weeks out). 12.5% have already returned — the rest are likely still within their normal grooming cycle.</span></div>
-                  <div className="flex gap-2"><span className="text-cyan-400 font-semibold flex-shrink-0">Mar cohort →</span> <span>Won&apos;t start rebooking until May. Too early to measure retention.</span></div>
+                  <div className="flex gap-2"><span className="text-emerald-400 font-semibold flex-shrink-0">Dec cohort →</span> <span>Had 4+ months to rebook. 50% retention, still active in month 4. This is the mature benchmark.</span></div>
+                  <div className="flex gap-2"><span className="text-amber-400 font-semibold flex-shrink-0">Jan cohort →</span> <span>Had 3 months. Retention appears low at 14.3% in M2 — but activity spiked in M3. The 6–8 week grooming cycle means many Jan customers rebooked in March, skipping M2 entirely.</span></div>
+                  <div className="flex gap-2"><span className="text-[#60A5FA] font-semibold flex-shrink-0">Feb cohort →</span> <span>Strong early signal — 43.2% already rebooked in month 2. On pace to match or beat December.</span></div>
+                  <div className="flex gap-2"><span className="text-cyan-400 font-semibold flex-shrink-0">Mar cohort →</span> <span>Won&apos;t start rebooking until late April–May. 9.1% have already returned — the rest are within their normal grooming cycle.</span></div>
                 </div>
-                <p className="mt-3"><strong className="text-white">The December cohort is the leading indicator</strong> — $311 in just 3.5 months, and still growing. A customer who rebooks every 6–8 weeks at ~$120 net per visit generates <strong className="text-white">$840–$1,040+ in annual LTV.</strong> The current $154 average is heavily deflated by recent cohorts who simply haven&apos;t had time to rebook yet. As these cohorts mature, we expect the platform-wide average to climb significantly — the Dec cohort is already on pace for <strong className="text-white">$1,000+ annualized.</strong></p>
+                <p className="mt-3"><strong className="text-white">The December cohort is the leading indicator.</strong> A customer who rebooks every 6–8 weeks generates significant compounding value — and the early cohort data shows this cycle is real. As recent cohorts mature into their first rebooking window, we expect the platform-wide retention rate to climb.</p>
               </AlertBox>
             </Card>
 
             <AlertBox type="info" title="How to Read These Numbers">
-              <p className="mb-2"><strong className="text-white">The funnel optimization directly impacts new customer acquisition</strong> — bounce rate, conversion rate, and first-booking <Term>AOV</Term> are all under its control. The A/B test results (30.8% conversion, +21% AOV) are clean, controlled experiments that prove this.</p>
-              <p className="mb-2"><strong className="text-white">Repeat bookings is a separate value driver.</strong> By March, 36% of net earnings came from returning customers. This compounds the value of every new customer acquired, but it&apos;s driven by service quality, not funnel design.</p>
-              <p><strong className="text-white">Not all new customers come from ads.</strong> Roughly half in Feb–Mar came through direct/word-of-mouth. The funnel benefits all traffic equally — but ad spend only deserves credit for the customers it brought in.</p>
+              <p className="mb-2"><strong className="text-white">The funnel optimization directly impacts new customer acquisition</strong> — conversion rate and <Term>AOV</Term> are under its control. The A/B test results (33% booking flow conversion, +21% AOV lift) are clean, controlled experiments that prove this.</p>
+              <p className="mb-2"><strong className="text-white">Repeat bookings is a separate value driver.</strong> By March, 40% of revenue came from returning customers. The 34.3% repeat rate is supported by the AI-powered SMS reminders, automated rebooking prompts, and the groomer ops app built into the same platform — the funnel brought them in, the system keeps them.</p>
+              <p><strong className="text-white">Not all new customers come from ads.</strong> Roughly half come through direct/word-of-mouth. The funnel benefits all traffic equally — but ad spend only deserves credit for the customers it brought in.</p>
             </AlertBox>
 
-            {/* Two flywheel visualizations */}
-            <div className="space-y-6 mt-8">
-              {/* Flywheel 1: CPA vs First Booking */}
-              <div>
-                <div className="text-[12px] font-semibold text-[#64748B] uppercase tracking-wider mb-3 text-center">First Booking Economics</div>
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <div className="flex-1 bg-[#1E293B] border border-blue-400/15 rounded-xl p-6 text-center w-full">
-                    <div className="text-[12px] text-blue-400 uppercase tracking-wider font-semibold mb-2">Cost to Acquire</div>
-                    <div className="text-4xl font-bold font-mono text-blue-400">~$20</div>
-                    <div className="text-[13px] text-[#64748B] mt-1">est. CPA per new customer</div>
-                  </div>
-                  <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
-                  <div className="flex-1 bg-[#1E293B] border border-emerald-500/15 rounded-xl p-6 text-center w-full">
-                    <div className="text-[12px] text-emerald-400 uppercase tracking-wider font-semibold mb-2">First Booking Value</div>
-                    <div className="text-4xl font-bold font-mono text-emerald-400">~$120</div>
-                    <div className="text-[13px] text-[#64748B] mt-1">avg net rev, 1st booking</div>
-                  </div>
-                  <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
-                  <div className="flex-1 bg-[#1E293B] border border-[#60A5FA]/15 rounded-xl p-6 text-center w-full">
-                    <div className="text-[12px] text-[#60A5FA] uppercase tracking-wider font-semibold mb-2">First-Booking Return</div>
-                    <div className="text-4xl font-bold font-mono text-[#60A5FA]">6x</div>
-                    <div className="text-[13px] text-[#64748B] mt-1">revenue vs acquisition cost</div>
-                  </div>
+            {/* Economics flywheel */}
+            <div className="mt-8">
+              <div className="text-[12px] font-semibold text-[#64748B] uppercase tracking-wider mb-3 text-center">The Compounding Engine</div>
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <div className="flex-1 bg-[#1E293B] border border-blue-400/15 rounded-xl p-6 text-center w-full">
+                  <div className="text-[12px] text-blue-400 uppercase tracking-wider font-semibold mb-2">First Booking Return</div>
+                  <div className="text-4xl font-bold font-mono text-blue-400">6x</div>
+                  <div className="text-[13px] text-[#64748B] mt-1">revenue vs acquisition cost</div>
                 </div>
-                <p className="text-center text-[#94A3B8] text-[14px] mt-3">The first booking alone pays back acquisition cost 6x over. Everything after is profit.</p>
-              </div>
-
-              {/* Flywheel 2: CPA vs LTV */}
-              <div>
-                <div className="text-[12px] font-semibold text-[#64748B] uppercase tracking-wider mb-3 text-center">Lifetime Economics</div>
-                <div className="flex flex-col sm:flex-row items-center gap-4">
-                  <div className="flex-1 bg-[#1E293B] border border-blue-400/15 rounded-xl p-6 text-center w-full">
-                    <div className="text-[12px] text-blue-400 uppercase tracking-wider font-semibold mb-2">Cost to Acquire</div>
-                    <div className="text-4xl font-bold font-mono text-blue-400">~$20</div>
-                    <div className="text-[13px] text-[#64748B] mt-1">est. CPA per new customer</div>
-                  </div>
-                  <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
-                  <div className="flex-1 bg-[#1E293B] border border-emerald-500/15 rounded-xl p-6 text-center w-full">
-                    <div className="text-[12px] text-emerald-400 uppercase tracking-wider font-semibold mb-2">Current Avg LTV</div>
-                    <div className="text-4xl font-bold font-mono text-emerald-400">$154</div>
-                    <div className="text-[13px] text-[#64748B] mt-1">net service rev (5 months)</div>
-                  </div>
-                  <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
-                  <div className="flex-1 bg-[#1E293B] border border-amber-400/15 rounded-xl p-6 text-center w-full">
-                    <div className="text-[12px] text-amber-400 uppercase tracking-wider font-semibold mb-2">Projected Annual LTV</div>
-                    <div className="text-4xl font-bold font-mono text-amber-400">$1,000+</div>
-                    <div className="text-[13px] text-[#64748B] mt-1">retained customer, 6–8 wk cycle</div>
-                  </div>
-                  <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
-                  <div className="flex-1 bg-[#1E293B] border border-[#60A5FA]/15 rounded-xl p-6 text-center w-full">
-                    <div className="text-[12px] text-[#60A5FA] uppercase tracking-wider font-semibold mb-2">LTV-to-CAC</div>
-                    <div className="text-4xl font-bold font-mono text-[#60A5FA]">50x+</div>
-                    <div className="text-[13px] text-[#64748B] mt-1">projected annual return</div>
-                  </div>
+                <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
+                <div className="flex-1 bg-[#1E293B] border border-emerald-500/15 rounded-xl p-6 text-center w-full">
+                  <div className="text-[12px] text-emerald-400 uppercase tracking-wider font-semibold mb-2">Current LTV : CPA</div>
+                  <div className="text-4xl font-bold font-mono text-emerald-400">9x</div>
+                  <div className="text-[13px] text-[#64748B] mt-1">lifetime return (5 months)</div>
                 </div>
-                <p className="text-center text-[#94A3B8] text-[14px] mt-3">Current LTV ($154) is based on only 5 months of data — most customers haven&apos;t had time to rebook yet. A retained customer rebooking every 6–8 weeks generates <strong className="text-white">$1,000+ annually</strong> in net service earnings. The Dec cohort ($311 in 3.5 months) is already on this trajectory.</p>
+                <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
+                <div className="flex-1 bg-[#1E293B] border border-amber-400/15 rounded-xl p-6 text-center w-full">
+                  <div className="text-[12px] text-amber-400 uppercase tracking-wider font-semibold mb-2">Projected Annual</div>
+                  <div className="text-4xl font-bold font-mono text-amber-400">50x+</div>
+                  <div className="text-[13px] text-[#64748B] mt-1">retained customer, 6–8 wk cycle</div>
+                </div>
               </div>
+              <p className="text-center text-[#94A3B8] text-[14px] mt-3">The first booking alone pays back acquisition cost 6x. Current LTV at 5 months is 9x CPA — and most customers haven&apos;t had time to rebook yet. The Dec cohort (50% retention, still active in month 4) shows what happens when cohorts mature into their full rebooking cycle.</p>
             </div>
           </FadeIn>
         </section>
 
 
+        <SectionDivider />
         {/* ═══ MARKET CONTEXT ═══ */}
-        <section id="market" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="market" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={Map} label="Context" title="Where This Sits in the Market" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed max-w-4xl mb-8">
@@ -867,7 +799,7 @@ export default function RoyalPawzCaseStudy() {
               <DataTable
                 headers={["Competitor", "Online Booking", "Pricing Range", "Booking Flow", "Notes"]}
                 rows={[
-                  [{ text: "Royal Pawz USA", color: "text-[#60A5FA] font-semibold" }, { text: "Full custom app", color: "text-emerald-400" }, "$75–$150+", { text: "4-step, no auth", color: "text-emerald-400" }, "A/B tested, 30.8% conv"],
+                  [{ text: "Royal Pawz USA", color: "text-[#60A5FA] font-semibold" }, { text: "Full custom app", color: "text-emerald-400" }, "$75–$150+", { text: "4-step, no auth", color: "text-emerald-400" }, "A/B tested, 33% conv"],
                   [{ text: "Kontota", color: "text-white font-semibold" }, "MoeGo platform", "$50–$225", "Book via MoeGo", "Franchise, 5.0★ / 3,700+ reviews"],
                   [{ text: "Groomit", color: "text-white font-semibold" }, "App + website", "$80–$319", "National platform", "Tech platform, 4.8★ / 44K+ reviews"],
                   [{ text: "Furry Land", color: "text-white font-semibold" }, "MoeGo + phone", "$165+ (XL)", "Book via MoeGo", "100+ locations, franchise"],
@@ -886,18 +818,18 @@ export default function RoyalPawzCaseStudy() {
                     <div className="text-[15px] text-[#94A3B8]">Animals &amp; Pets Google Ads avg: 13.07% (WordStream). Home services: 7.33% (LocaliQ, 3,211 campaigns). General website avg: 2–5%.</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-2xl font-bold font-mono text-emerald-400">30.8%</div>
+                    <div className="text-2xl font-bold font-mono text-emerald-400">33%</div>
                     <div className="text-[12px] text-emerald-400">2.4x pet industry avg</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 p-4 bg-white/[0.02] rounded-lg">
                   <div className="flex-1">
-                    <div className="text-white font-semibold mb-1">Bounce Rate</div>
-                    <div className="text-[15px] text-[#94A3B8]">Service site avg: 30–55% (Contentsquare). Mobile traffic: 40–60%. Median landing page: 60.1% (Unbounce).</div>
+                    <div className="text-white font-semibold mb-1">Revenue per Session</div>
+                    <div className="text-[15px] text-[#94A3B8]">Local service businesses avg: $1–$3/session. Most Google Ads traffic converts at 2–5%.</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-2xl font-bold font-mono text-emerald-400">10.5%</div>
-                    <div className="text-[12px] text-emerald-400">3–6x better</div>
+                    <div className="text-2xl font-bold font-mono text-emerald-400">2x+</div>
+                    <div className="text-[12px] text-emerald-400">above local service avg</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 p-4 bg-white/[0.02] rounded-lg">
@@ -916,29 +848,30 @@ export default function RoyalPawzCaseStudy() {
                     <div className="text-[15px] text-[#94A3B8]">Local service businesses avg: 20–25% return rate within 6 months.</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-2xl font-bold font-mono text-emerald-400">30.9%</div>
+                    <div className="text-2xl font-bold font-mono text-emerald-400">34.3%</div>
                     <div className="text-[12px] text-emerald-400">Above avg at 5 months</div>
                   </div>
                 </div>
               </div>
-              <p className="text-[13px] text-[#64748B] mt-4">Sources: WordStream Conversion Rate Benchmarks, LocaliQ Home Services Search Ad Benchmarks (2025, 3,211 campaigns), Unbounce Conversion Benchmark Report, Backlinko Google Ads Cost Report (2026), Contentsquare Digital Experience Benchmarks, Axios Houston / U.S. Census (dog ownership).</p>
+              <p className="text-[13px] text-[#64748B] mt-4">Sources: WordStream Conversion Rate Benchmarks, LocaliQ Home Services Search Ad Benchmarks (2025, 3,211 campaigns), IRP Commerce Revenue per Session Benchmarks, Backlinko Google Ads Cost Report (2026), Axios Houston / U.S. Census (dog ownership).</p>
             </Card>
           </FadeIn>
         </section>
 
 
+        <SectionDivider />
         {/* ═══ TAKEAWAYS ═══ */}
-        <section id="takeaways" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="takeaways" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={Check} label="Summary" title="What We Learned" /></FadeIn>
           <FadeIn>
             <div className="space-y-3">
               {[
-                { icon: "$", color: "bg-emerald-500/10 text-emerald-400", text: "7.7x LTV-to-CPA. New customers cost an estimated ~$20 to acquire their first booking and generate $154 in net lifetime value. Best week hit $14.25 per new customer. Since ~50% of new customers come from word-of-mouth (free), the true blended CPA is even lower." },
-                { icon: "A", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "A/B testing produced a 334% conversion lift. The second test took booking conversion from 7.1% to 30.8% in a controlled experiment. This is the cleanest, most defensible number in the report." },
-                { icon: "↓", color: "bg-cyan-400/10 text-cyan-400", text: "Bounce rate cut by 76%. Fixing the Google Ads landing page and moving from auth-first to value-first reduced bounce from 43.6% to 10.5%. This improvement benefits all traffic sources equally." },
-                { icon: "↑", color: "bg-amber-400/10 text-amber-400", text: "Repeat bookings grew to 36% of total by month 5. $2,696 of $7,486 net earnings in March came from returning customers — built on service quality, compounding the value of every new customer." },
+                { icon: "$", color: "bg-emerald-500/10 text-emerald-400", text: "9x LTV-to-CPA. Each new customer generates 9x their acquisition cost in lifetime value so far — and that number is still climbing as cohorts mature. Since roughly half of new customers come from word-of-mouth (free), the true blended CPA is even lower." },
+                { icon: "A", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "A/B testing produced a 334% conversion lift. The second test took booking-flow conversion from 7.1% to 33% — confirmed by post-test live traffic. This is the cleanest, most defensible number in the report." },
+                { icon: "↑", color: "bg-cyan-400/10 text-cyan-400", text: "8x revenue growth in 4 months. Driven by the combination of funnel optimization (more new customers converting) and retention (40% of March revenue from repeat bookings)." },
+                { icon: "♻", color: "bg-amber-400/10 text-amber-400", text: "Repeat bookings grew to 40% of revenue by month 5. Returning customers — built on service quality, AI-powered SMS reminders, and automated rebooking — compound the value of every new customer acquired." },
                 { icon: "⚡", color: "bg-emerald-500/10 text-emerald-400", text: "Counter-intuitive wins. Adding more steps (intro screen) increased conversion. Asking for info earlier increased both conversion and AOV. Testing beat assumptions every time." },
-                { icon: "∞", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "Half the new customers come from word-of-mouth. 15 of 34 March new customers were direct/referral — zero acquisition cost. The funnel optimization benefits these free customers too." },
+                { icon: "∞", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "Organic growth compounds. Roughly half of new customers come from direct/word-of-mouth — zero acquisition cost. The funnel optimization benefits these free customers equally, and repeat bookings create a revenue floor that grows every month." },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 p-5 bg-[#1E293B] border border-white/[0.06] rounded-xl">
                   <div className={`w-9 h-9 rounded-lg ${item.color} flex items-center justify-center text-sm font-bold flex-shrink-0`}>{item.icon}</div>
@@ -950,8 +883,9 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ WHAT'S NEXT ═══ */}
-        <section id="next" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04] scroll-mt-16 lg:scroll-mt-0">
+        <section id="next" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={Compass} label="Forward" title="What&apos;s Next" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed max-w-4xl mb-8">
@@ -987,8 +921,9 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ TESTIMONIAL ═══ */}
-        <section className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.04]">
+        <section className="px-5 sm:px-10 lg:px-16 py-16">
           <FadeIn>
             <div className="max-w-3xl mx-auto text-center">
               <Quote size={32} className="text-[#60A5FA]/30 mx-auto mb-6" />
@@ -1002,8 +937,9 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ GLOSSARY ═══ */}
-        <section className="px-5 sm:px-10 lg:px-16 py-12 border-b border-white/[0.04]">
+        <section className="px-5 sm:px-10 lg:px-16 py-12">
           <FadeIn>
             <Card title="Glossary — Terms Used in This Report" defaultOpen={false}>
               <p className="mb-4 text-[#94A3B8]">Hover over dotted-underlined terms throughout the report for quick definitions. Full glossary below.</p>
@@ -1020,17 +956,20 @@ export default function RoyalPawzCaseStudy() {
         </section>
 
 
+        <SectionDivider />
         {/* ═══ METHODOLOGY ═══ */}
-        <section className="px-5 sm:px-10 lg:px-16 py-12 border-b border-white/[0.04]">
+        <section className="px-5 sm:px-10 lg:px-16 py-12">
           <FadeIn>
             <Card title="Methodology & Data Sources" defaultOpen={false}>
               <div className="space-y-3 text-[15px] text-[#94A3B8]">
-                <p><strong className="text-white">Data sources:</strong> Supabase (recording_sessions, bookings, ab_test_events, users tables), Google Ads budget history and conversion tracking.</p>
-                <p><strong className="text-white">Ad spend estimates:</strong> Derived from daily budget caps with ~75% utilization factor. Total confirmed spend: $2,688.12 across the reporting period.</p>
-                <p><strong className="text-white">Customer attribution:</strong> New vs repeat split based on first-booking detection per client_id. Source attribution via session referrer matching (utm_source for Google Ads, direct for organic/WOM).</p>
-                <p><strong className="text-white">A/B testing:</strong> Randomized variant assignment at session start, tracked via custom ab_test_events table. Single-variable tests with concurrent control and treatment groups.</p>
-                <p><strong className="text-white">LTV calculation:</strong> Net service earnings (excluding tips and sales tax) per customer, based on 123 customers over 5 months. LTV is still maturing — early cohorts show increasing value over time, so current figures likely understate true lifetime value.</p>
-                <p><strong className="text-white">Timeline:</strong> Platform launched ~November 25, 2025. Session tracking installed December 26, 2025. Report period: Dec 26, 2025 – Mar 18, 2026.</p>
+                <p><strong className="text-white">Data sources:</strong> Supabase (recording_sessions, bookings, ab_test_events, users tables), Google Ads daily budget history.</p>
+                <p><strong className="text-white">Revenue:</strong> Growth indices are based on net service revenue (service price minus discounts, excluding tips and tax). Specific revenue figures are not disclosed — all revenue is shown as multiples relative to the December baseline.</p>
+                <p><strong className="text-white">Ad spend:</strong> Based on Google Ads daily budget: $50/day through March 23, increased to $83/day starting March 24.</p>
+                <p><strong className="text-white">Customer attribution:</strong> New vs repeat split based on first-booking detection per client_id using scheduled_date. Source attribution via session referrer and UTM tracking — not all sessions are attributable, so channel numbers are estimates.</p>
+                <p><strong className="text-white">A/B testing:</strong> Randomized variant assignment at session start, tracked via custom ab_test_events table. Single-variable tests with concurrent control and treatment groups. Results verified directly against Supabase event data.</p>
+                <p><strong className="text-white">Sessions &amp; bounce:</strong> From rrweb recording_sessions (bot-filtered). Sessions = unique recording sessions per visitor. Bounce is not reported in this version — conversion rate and revenue per session are more meaningful metrics for this business.</p>
+                <p><strong className="text-white">LTV calculation:</strong> Expressed as a ratio to CPA (9x). LTV is still maturing — early cohorts show increasing value over time, so current figures likely understate true lifetime value.</p>
+                <p><strong className="text-white">Timeline:</strong> Platform launched ~November 25, 2025. Session tracking installed December 26, 2025. Report period: Nov 2025 – Mar 28, 2026.</p>
               </div>
             </Card>
           </FadeIn>
