@@ -124,7 +124,7 @@ export default function FoundersPage() {
           Back
         </Link>
         <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="Zapp Studios" width={140} height={40} className="" />
+          <Image src="/logo.png" alt="Zapp Studios" width={140} height={140} className="h-10 w-auto object-contain" />
         </Link>
         <Link
           href="/book"
