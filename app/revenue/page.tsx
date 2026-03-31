@@ -92,7 +92,7 @@ function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between overflow-visible">
         <Link href="/" className="flex items-center group">
-          <Image src="/logo.jpg" alt="Zapp Studios" width={280} height={80} className="object-contain h-20 w-auto" />
+          <Image src="/logo.png" alt="Zapp Studios" width={280} height={80} className="object-contain h-20 w-auto" />
         </Link>
 
         {/* Desktop */}

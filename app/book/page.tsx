@@ -24,7 +24,7 @@ export default function BookPage() {
           Back
         </Link>
         <Link href="/" className="flex items-center">
-          <Image src="/logo.jpg" alt="Zapp Studios" width={200} height={56} className="object-contain h-14 w-auto" />
+          <Image src="/logo.png" alt="Zapp Studios" width={200} height={56} className="object-contain h-14 w-auto" />
         </Link>
       </nav>
 
