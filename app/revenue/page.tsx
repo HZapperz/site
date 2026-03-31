@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import {
   ArrowRight,
   ArrowDown,
@@ -92,7 +91,7 @@ function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between overflow-visible">
         <Link href="/" className="flex items-center group">
-          <Image src="/logo.png" alt="Zapp Studios" width={280} height={80} className="object-contain h-20 w-auto" />
+          <span className="text-2xl font-bold tracking-tight text-[#F5EFE0]">Zapp Studios</span>
         </Link>
 
         {/* Desktop */}

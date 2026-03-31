@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import Script from 'next/script'
 import { ArrowLeft, Mail, Calendar } from 'lucide-react'
 
@@ -24,7 +23,7 @@ export default function BookPage() {
           Back
         </Link>
         <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="Zapp Studios" width={200} height={56} className="object-contain h-14 w-auto" />
+          <span className="text-xl font-bold tracking-tight text-[#F5EFE0]">Zapp Studios</span>
         </Link>
       </nav>
 

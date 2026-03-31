@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import {
@@ -124,7 +123,7 @@ export default function FoundersPage() {
           Back
         </Link>
         <Link href="/" className="flex items-center">
-          <Image src="/logo.png" alt="Zapp Studios" width={140} height={140} className="h-10 w-auto object-contain" />
+          <span className="text-xl font-bold tracking-tight text-[#F5EFE0]">Zapp Studios</span>
         </Link>
         <Link
           href="/book"

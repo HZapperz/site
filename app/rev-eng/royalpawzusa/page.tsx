@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, Fragment } from "react"
-import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Zap, Target, Calculator, TrendingUp, Map, Layers, Compass,
@@ -253,7 +252,7 @@ export default function RoyalPawzCaseStudy() {
       {/* ─── DESKTOP SIDEBAR ─── */}
       <aside className="hidden lg:flex flex-col w-[260px] bg-[#1E293B] border-r border-white/[0.06] sticky top-0 h-screen flex-shrink-0">
         <div className="p-5 border-b border-white/[0.06]">
-          <Image src="/logo.png" alt="Zapp Studios" width={140} height={140} className="h-14 w-auto object-contain mb-2" />
+          <span className="text-xl font-bold tracking-tight text-[#F5EFE0] mb-2">Zapp Studios</span>
           <div className="text-sm font-semibold text-white">Royal Pawz USA</div>
           <div className="text-[10px] text-[#64748B] mt-0.5">Growth Case Study</div>
         </div>
@@ -277,7 +276,7 @@ export default function RoyalPawzCaseStudy() {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-50">
         <div className="flex items-center justify-between px-4 h-14 bg-[#0F172A]/90 backdrop-blur-xl border-b border-white/[0.06]">
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Zapp Studios" width={80} height={80} className="h-8 w-auto object-contain" />
+            <span className="text-lg font-bold tracking-tight text-[#F5EFE0]">Zapp Studios</span>
             <span className="text-sm font-semibold text-white">Royal Pawz USA</span>
           </div>
           <button onClick={() => setMobileNavOpen(!mobileNavOpen)} className="text-[#94A3B8] p-2 cursor-pointer">

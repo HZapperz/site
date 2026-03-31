@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, TrendingUp, Rocket, Brain } from "lucide-react"
@@ -103,7 +102,7 @@ export default function HomePage() {
       {/* ─── HEADER ─── */}
       <header className="w-full max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Zapp Studios" width={140} height={140} className="h-10 w-auto object-contain" />
+          <span className="text-xl font-bold tracking-tight text-[#F5EFE0]">Zapp Studios</span>
         </div>
         <div className="text-[11px] text-[#6B6560] tracking-wider uppercase font-medium">
           Houston, TX
