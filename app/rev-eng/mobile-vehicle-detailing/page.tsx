@@ -3,21 +3,21 @@
 import { useState } from "react";
 
 const SLIDES = [
-  // SLIDE 0 — COVER
+  // SLIDE 0 - COVER
   {
     id: "cover",
     render: () => (
       <div className="flex flex-col items-center justify-center h-full text-center px-16 py-10">
         <div className="text-xs font-bold tracking-widest uppercase mb-6" style={{color:'#2563eb',letterSpacing:'0.2em'}}>Zapp Studios Presents</div>
         <h1 className="text-6xl font-black leading-tight mb-4" style={{color:'#0f172a'}}>Revenue Engineering<br/>for Mobile Detailing</h1>
-        <p className="text-lg max-w-xl mb-8" style={{color:'#64748b'}}>A custom booking platform that turns ad clicks into booked jobs — with A/B tested funnels, session recording, and conversion optimization no SaaS tool offers.</p>
+        <p className="text-lg max-w-xl mb-8" style={{color:'#64748b'}}>A custom booking platform that turns ad clicks into booked jobs - with A/B tested funnels, session recording, and conversion optimization no SaaS tool offers.</p>
         <div className="flex gap-6 text-sm font-semibold" style={{color:'#64748b'}}>
           <span>Houston, TX</span><span>·</span><span>March 2026</span>
         </div>
       </div>
     ),
   },
-  // SLIDE 1 — PROBLEM
+  // SLIDE 1 - PROBLEM
   {
     id: "problem",
     render: () => (
@@ -27,7 +27,7 @@ const SLIDES = [
         <div className="grid grid-cols-3 gap-5 mb-6">
           {[
             {n:"38%",l:"of Houston mobile detailers are phone-only",c:"#dc2626"},
-            {n:"5+",l:"different booking tools used by 8 operators — zero standard",c:"#fb923c"},
+            {n:"5+",l:"different booking tools used by 8 operators - zero standard",c:"#fb923c"},
             {n:"0",l:"operators A/B test their booking flow or track funnel drop-off",c:"#d97706"},
           ].map((s,i)=>(
             <div key={i} className="rounded-2xl p-6" style={{background:'#ffffff',border:'1px solid #e2e8f0'}}>
@@ -45,11 +45,11 @@ const SLIDES = [
           </div>
           <div className="text-xs mt-3" style={{color:'#dc2626'}}>Average: 2-4 days from intent to booking. Every touchpoint leaks revenue.</div>
         </div>
-        <div className="text-base" style={{color:'#64748b'}}>Source: Primary research — 10+ Houston mobile detailer websites audited (March 2026)</div>
+        <div className="text-base" style={{color:'#64748b'}}>Source: Primary research - 10+ Houston mobile detailer websites audited (March 2026)</div>
       </div>
     ),
   },
-  // SLIDE 2 — MARKET
+  // SLIDE 2 - MARKET
   {
     id: "market",
     render: () => (
@@ -61,7 +61,7 @@ const SLIDES = [
             {n:"$18.7B",l:"US car wash & detailing industry (2026)",s:"IBISWorld"},
             {n:"19.4%",l:"CAGR for mobile/on-demand detailing segment",s:"Mordor Intelligence"},
             {n:"3.2M",l:"registered vehicles in Harris County alone",s:"Harris County Tax Office"},
-            {n:"665 mi²",l:"Houston sprawl — makes mobile model dominant",s:""},
+            {n:"665 mi²",l:"Houston sprawl - makes mobile model dominant",s:""},
           ].map((s,i)=>(
             <div key={i} className="rounded-2xl p-5" style={{background:'#ffffff',border:'1px solid #e2e8f0'}}>
               <div className="text-2xl font-black mb-1" style={{color:'#2563eb'}}>{s.n}</div>
@@ -89,7 +89,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 3 — SOLUTION
+  // SLIDE 3 - SOLUTION
   {
     id: "solution",
     render: () => (
@@ -121,7 +121,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 4 — CASE STUDY (TRACTION)
+  // SLIDE 4 - CASE STUDY (TRACTION)
   {
     id: "traction",
     render: () => (
@@ -143,7 +143,7 @@ const SLIDES = [
           ))}
         </div>
         <div className="rounded-xl p-5 mb-4" style={{background:'#ffffff',border:'1px solid #e2e8f0'}}>
-          <div className="text-xs font-bold uppercase mb-3" style={{color:'#64748b'}}>What we built — same playbook for detailing</div>
+          <div className="text-xs font-bold uppercase mb-3" style={{color:'#64748b'}}>What we built - same playbook for detailing</div>
           <div className="grid grid-cols-5 gap-2 text-center text-xs">
             {[
               {s:"Google Ads",p:"High-intent\nkeywords",c:"#0891b2"},
@@ -163,7 +163,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 5 — COMPETITIVE LANDSCAPE
+  // SLIDE 5 - COMPETITIVE LANDSCAPE
   {
     id: "competition",
     render: () => (
@@ -208,12 +208,12 @@ const SLIDES = [
           </table>
         </div>
         <div className="mt-3 text-xs" style={{color:'#64748b'}}>
-          <span style={{color:'#ea580c',fontWeight:700}}>Key insight:</span> Existing tools are operations software (manage what you have). Zapp is a growth engine (get you more). Different category entirely. We can integrate with or replace their CRM — the value is in the demand layer.
+          <span style={{color:'#ea580c',fontWeight:700}}>Key insight:</span> Existing tools are operations software (manage what you have). Zapp is a growth engine (get you more). Different category entirely. We can integrate with or replace their CRM - the value is in the demand layer.
         </div>
       </div>
     ),
   },
-  // SLIDE 6 — BUSINESS MODEL
+  // SLIDE 6 - BUSINESS MODEL
   {
     id: "model",
     render: () => (
@@ -253,7 +253,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 7 — GO TO MARKET
+  // SLIDE 7 - GO TO MARKET
   {
     id: "gtm",
     render: () => (
@@ -262,9 +262,9 @@ const SLIDES = [
         <h2 className="text-5xl font-black mb-6" style={{color:'#0f172a'}}>Land, prove, expand</h2>
         <div className="flex flex-col gap-4 mb-4">
           {[
-            {phase:"Phase 1",t:"Q2 2026 — First Operator",items:["Sign Kings Mobile or 4K Auto Detailing (phone-only, high traffic)", "Build custom booking platform on multi-tenant architecture", "Launch Google Ads campaign, target $1K–2K/mo ad spend", "Hit 25%+ booking conversion within 60 days"],c:"#2563eb"},
-            {phase:"Phase 2",t:"Q3–Q4 2026 — Prove & Document",items:["Publish case study with hard revenue numbers", "Sign 2–3 more Houston operators via warm outreach + case study", "Refine white-label platform with insights from first deployment", "Target $15K–25K MRR across platform fees + ad management"],c:"#0891b2"},
-            {phase:"Phase 3",t:"2027 — Scale",items:["Expand to adjacent Houston niches (mosquito treatment, window cleaning)","Deploy across Texas metros (Dallas, Austin, San Antonio)", "10–15 operators on platform, $50K+ MRR", "Evaluate SaaS productization vs. continuing high-touch model"],c:"#059669"},
+            {phase:"Phase 1",t:"Q2 2026 - First Operator",items:["Sign Kings Mobile or 4K Auto Detailing (phone-only, high traffic)", "Build custom booking platform on multi-tenant architecture", "Launch Google Ads campaign, target $1K–2K/mo ad spend", "Hit 25%+ booking conversion within 60 days"],c:"#2563eb"},
+            {phase:"Phase 2",t:"Q3–Q4 2026 - Prove & Document",items:["Publish case study with hard revenue numbers", "Sign 2–3 more Houston operators via warm outreach + case study", "Refine white-label platform with insights from first deployment", "Target $15K–25K MRR across platform fees + ad management"],c:"#0891b2"},
+            {phase:"Phase 3",t:"2027 - Scale",items:["Expand to adjacent Houston niches (mosquito treatment, window cleaning)","Deploy across Texas metros (Dallas, Austin, San Antonio)", "10–15 operators on platform, $50K+ MRR", "Evaluate SaaS productization vs. continuing high-touch model"],c:"#059669"},
           ].map((s,i)=>(
             <div key={i} className="rounded-xl p-4 flex gap-4" style={{background:'#ffffff',border:`1px solid ${s.c}33`}}>
               <div className="flex-shrink-0 w-28">
@@ -284,7 +284,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 8 — TARGET CLIENTS
+  // SLIDE 8 - TARGET CLIENTS
   {
     id: "targets",
     render: () => (
@@ -322,7 +322,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 9 — GOOGLE ADS OPP
+  // SLIDE 9 - GOOGLE ADS OPP
   {
     id: "ads",
     render: () => (
@@ -363,7 +363,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 10 — RISKS
+  // SLIDE 10 - RISKS
   {
     id: "risks",
     render: () => (
@@ -373,9 +373,9 @@ const SLIDES = [
         <div className="flex flex-col gap-3">
           {[
             {risk:"Urable/OrbisX adoption growing",impact:"High",mit:"We don't compete on CRM. Our value is the demand-side growth engine (landing pages, ads, CRO, funnel analytics) that no SaaS tool provides. Can integrate alongside existing tools."},
-            {risk:"Operators reluctant to pay for marketing",impact:"Med",mit:"Equity-for-services model removes cash objection. Operator pays nothing upfront — we take a stake in the growth we create. Proven with Royal Pawz."},
+            {risk:"Operators reluctant to pay for marketing",impact:"Med",mit:"Equity-for-services model removes cash objection. Operator pays nothing upfront - we take a stake in the growth we create. Proven with Royal Pawz."},
             {risk:"Google Ads CPC inflation over time",impact:"Med",mit:"Early mover advantage locks in lower CPCs. Conversion optimization (33% vs 7%) means we can afford 4× higher CPCs than competitors and still win."},
-            {risk:"Operator churn — they learn and leave",impact:"Med",mit:"The platform is the moat. Session recording data, A/B test history, and automated SMS sequences are embedded in our infrastructure. Switching cost is real."},
+            {risk:"Operator churn - they learn and leave",impact:"Med",mit:"The platform is the moat. Session recording data, A/B test history, and automated SMS sequences are embedded in our infrastructure. Switching cost is real."},
             {risk:"Seasonal demand fluctuations",impact:"Low",mit:"Houston's heat means year-round demand (no snow season). Pollen, dust, and sun damage drive recurring need across all 12 months."},
           ].map((s,i)=>(
             <div key={i} className="rounded-xl p-4 grid grid-cols-12 gap-3" style={{background:'#ffffff',border:'1px solid #e2e8f0'}}>
@@ -390,7 +390,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 11 — TEAM
+  // SLIDE 11 - TEAM
   {
     id: "team",
     render: () => (
@@ -401,9 +401,9 @@ const SLIDES = [
           <div className="flex gap-6 items-start">
             <div className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-black" style={{background:'rgba(37,99,235,0.12)',color:'#2563eb'}}>HZ</div>
             <div>
-              <div className="text-xl font-black" style={{color:'#0f172a'}}>Hamza — Founder, Zapp Studios</div>
+              <div className="text-xl font-black" style={{color:'#0f172a'}}>Hamza - Founder, Zapp Studios</div>
               <div className="text-sm mt-2 leading-relaxed" style={{color:'#64748b'}}>
-                7+ years full-stack iOS, Android & web development. Built Royal Pawz from scratch — landing page, client web app, admin portal, ad system — at under 10% of traditional dev cost using AI. Took booking conversion from industry-standard 7% to 33% and grew revenue 8× in 4 months. Runs the Houston AI Club. Former VC deal evaluator under Bryan Chambers at Capital Factory. CS background (UTD), pivoted to business because the real edge isn't code — it's judgment.
+                7+ years full-stack iOS, Android & web development. Built Royal Pawz from scratch - landing page, client web app, admin portal, ad system - at under 10% of traditional dev cost using AI. Took booking conversion from industry-standard 7% to 33% and grew revenue 8× in 4 months. Runs the Houston AI Club. Former VC deal evaluator under Bryan Chambers at Capital Factory. CS background (UTD), pivoted to business because the real edge isn't code - it's judgment.
               </div>
             </div>
           </div>
@@ -412,7 +412,7 @@ const SLIDES = [
           {[
             {n:"Zapp Studios",d:"AI-native venture studio. Co-builds MVPs in 2–12 weeks in exchange for equity (2–10%) or cash. Validation-first, not dev-agency."},
             {n:"Royal Pawz USA",d:"Owned & operated mobile pet grooming business. The case study. Proof that revenue engineering works in mobile services."},
-            {n:"Houston Network",d:"Houston AI Club organizer. Capital Factory, Ion District connections. Active in startup ecosystem — warm intros to operator clients."},
+            {n:"Houston Network",d:"Houston AI Club organizer. Capital Factory, Ion District connections. Active in startup ecosystem - warm intros to operator clients."},
           ].map((s,i)=>(
             <div key={i} className="rounded-2xl p-5" style={{background:'#ffffff',border:'1px solid #e2e8f0'}}>
               <div className="text-sm font-bold mb-2" style={{color:'#2563eb'}}>{s.n}</div>
@@ -426,7 +426,7 @@ const SLIDES = [
       </div>
     ),
   },
-  // SLIDE 12 — ASK
+  // SLIDE 12 - ASK
   {
     id: "ask",
     render: () => (
@@ -436,7 +436,7 @@ const SLIDES = [
         <div className="grid grid-cols-2 gap-6 max-w-2xl mb-8">
           <div className="rounded-xl p-6 text-left" style={{background:'rgba(5,150,105,0.08)',border:'1px solid rgba(5,150,105,0.15)'}}>
             <div className="text-sm font-bold mb-2" style={{color:'#059669'}}>For Operators</div>
-            <div className="text-base" style={{color:'#334155'}}>We build your booking platform, run your ads, and engineer your growth. You focus on detailing cars. Pay nothing upfront — we take equity or a revenue share.</div>
+            <div className="text-base" style={{color:'#334155'}}>We build your booking platform, run your ads, and engineer your growth. You focus on detailing cars. Pay nothing upfront - we take equity or a revenue share.</div>
           </div>
           <div className="rounded-xl p-6 text-left" style={{background:'rgba(59,130,246,0.08)',border:'1px solid rgba(37,99,235,0.15)'}}>
             <div className="text-sm font-bold mb-2" style={{color:'#2563eb'}}>For Investors</div>
@@ -444,7 +444,7 @@ const SLIDES = [
           </div>
         </div>
         <div className="text-lg font-bold mb-2" style={{color:'#0f172a'}}>zappstudios.us</div>
-        <div className="text-base" style={{color:'#64748b'}}>Houston, TX — Built with AI, driven by judgment</div>
+        <div className="text-base" style={{color:'#64748b'}}>Houston, TX - Built with AI, driven by judgment</div>
       </div>
     ),
   },
@@ -456,7 +456,7 @@ export default function MobileVehicleDetailingPitchDeck() {
 
   return (
     <div className="w-full flex flex-col" style={{fontFamily:'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',background:'#f1f5f9',color:'#0f172a',height:'100vh'}}>
-      {/* Slide area — fixed height so h-full works inside */}
+      {/* Slide area - fixed height so h-full works inside */}
       <div style={{height:'calc(100vh - 64px)',overflowY:'auto'}}>
         {SLIDES[slide].render()}
       </div>

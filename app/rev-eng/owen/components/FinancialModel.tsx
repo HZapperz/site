@@ -314,7 +314,7 @@ export default function FinancialModel() {
           <div className="text-xs font-semibold text-[#948f8a] mb-4 mt-8 tracking-widest">SHARED EXPENSES</div>
           <Slider label="Monthly ad spend" value={adSpend} set={setAdSpend} min={0} max={10000} step={250} unit="$" />
           <Slider label="Software & hosting" value={software} set={setSoftware} min={0} max={500} step={10} unit="$" />
-          <Slider label="Monthly insurance (amortized)" value={insurance} set={setInsurance} min={0} max={700} step={25} unit="$" desc="Product liability + general — $2,500-$8,000/year" />
+          <Slider label="Monthly insurance (amortized)" value={insurance} set={setInsurance} min={0} max={700} step={25} unit="$" desc="Product liability + general - $2,500-$8,000/year" />
           <Slider label="Estimated tax rate" value={taxRate} set={setTaxRate} min={0} max={40} step={5} unit="%" desc="Federal + state on net profit" />
           <div className="flex items-center gap-3 mt-4 mb-2">
             <button
@@ -363,7 +363,7 @@ export default function FinancialModel() {
               {c8Progress >= 100 ? (
                 <span className="text-[#34d399] font-medium">Owen&apos;s getting the C8. {annualTakeHome > 100000 ? "And then some." : ""}</span>
               ) : c8Progress >= 60 ? (
-                <span className="text-[#facc15]">On track — scale archery volume or raise custom watch prices to close the gap.</span>
+                <span className="text-[#facc15]">On track - scale archery volume or raise custom watch prices to close the gap.</span>
               ) : (
                 <span className="text-[#fb7185]">Below target. Need more volume or higher pricing to hit C8 this year.</span>
               )}
@@ -403,7 +403,7 @@ export default function FinancialModel() {
           <div className="bg-[#0e0e1a] rounded-lg p-4">
             <div className="text-[10px] text-[#8a8580] tracking-wider uppercase mb-1">Customer Acq. Cost</div>
             <div className="text-xl font-semibold text-white">
-              {adSpend > 0 && unitEcon.totalEstCustomers > 0 ? fmt(unitEcon.cac) : "—"}
+              {adSpend > 0 && unitEcon.totalEstCustomers > 0 ? fmt(unitEcon.cac) : "-"}
             </div>
             <div className="text-[10px] text-[#6b6762] mt-1">
               {adSpend > 0 ? `${fmt(adSpend)} spend / ~${unitEcon.totalEstCustomers} customers` : "No ad spend"}
@@ -414,7 +414,7 @@ export default function FinancialModel() {
           <div className="bg-[#0e0e1a] rounded-lg p-4">
             <div className="text-[10px] text-[#8a8580] tracking-wider uppercase mb-1">Break-even ROAS</div>
             <div className="text-xl font-semibold text-white">
-              {totalGrossMargin > 0 ? `${unitEcon.breakEvenRoas}x` : "—"}
+              {totalGrossMargin > 0 ? `${unitEcon.breakEvenRoas}x` : "-"}
             </div>
             <div className="text-[10px] text-[#6b6762] mt-1">
               1 / {pct(totalGrossMargin)} gross margin
@@ -425,14 +425,14 @@ export default function FinancialModel() {
           <div className="bg-[#0e0e1a] rounded-lg p-4">
             <div className="text-[10px] text-[#8a8580] tracking-wider uppercase mb-1">Est. Lifetime Value</div>
             <div className="text-xl font-semibold text-white">
-              {(watchStock + watchCustom + archeryParts) > 0 ? fmt(unitEcon.blendedLtv) : "—"}
+              {(watchStock + watchCustom + archeryParts) > 0 ? fmt(unitEcon.blendedLtv) : "-"}
             </div>
             <div className="text-[10px] text-[#6b6762] mt-1">
               {(watchStock + watchCustom) > 0 && <>Watch: {fmt(unitEcon.watchLtv)} (1.2x) </>}
               {(watchStock + watchCustom) > 0 && archeryParts > 0 && <>&middot; </>}
               {archeryParts > 0 && <>Archery: {fmt(unitEcon.archeryLtv)} (2.0x)</>}
             </div>
-            <div className="text-[10px] text-[#fb7185]/60 mt-1">Assumed — validate after 90 days</div>
+            <div className="text-[10px] text-[#fb7185]/60 mt-1">Assumed - validate after 90 days</div>
           </div>
 
           {/* LTV:CAC */}
@@ -449,7 +449,7 @@ export default function FinancialModel() {
             }}>
               {adSpend > 0 && unitEcon.cac > 0
                 ? `${unitEcon.ltvCacRatio}x`
-                : "—"}
+                : "-"}
             </div>
             <div className="text-[10px] mt-1" style={{
               color: adSpend === 0 || unitEcon.cac === 0
@@ -693,7 +693,7 @@ export default function FinancialModel() {
             <ul className="space-y-1.5 text-[13px] text-[#8a8580]">
               <li className="flex items-start gap-2">
                 <span className="text-[#6b6762] mt-0.5">&#8226;</span>
-                <span>Shipping costs not included — passed to customer at checkout</span>
+                <span>Shipping costs not included - passed to customer at checkout</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#6b6762] mt-0.5">&#8226;</span>
@@ -705,11 +705,11 @@ export default function FinancialModel() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#6b6762] mt-0.5">&#8226;</span>
-                <span>Watch and archery ad budgets are combined — in practice may be split across separate campaigns</span>
+                <span>Watch and archery ad budgets are combined - in practice may be split across separate campaigns</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#6b6762] mt-0.5">&#8226;</span>
-                <span>Stripe processing fees (2.9% + $0.30/tx) are included by default — toggle off above to see pre-fee numbers</span>
+                <span>Stripe processing fees (2.9% + $0.30/tx) are included by default - toggle off above to see pre-fee numbers</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#6b6762] mt-0.5">&#8226;</span>
@@ -717,11 +717,11 @@ export default function FinancialModel() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#6b6762] mt-0.5">&#8226;</span>
-                <span>LLC/insurance costs (~$2,600–$8,300/year) not included — see Operations section for full business setup costs</span>
+                <span>LLC/insurance costs (~$2,600–$8,300/year) not included - see Operations section for full business setup costs</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#6b6762] mt-0.5">&#8226;</span>
-                <span>Insurance and taxes are now included in the model. Insurance is amortized monthly from the annual premium. Tax rate is an estimate — consult a CPA for actual quarterly payments.</span>
+                <span>Insurance and taxes are now included in the model. Insurance is amortized monthly from the annual premium. Tax rate is an estimate - consult a CPA for actual quarterly payments.</span>
               </li>
             </ul>
           </div>

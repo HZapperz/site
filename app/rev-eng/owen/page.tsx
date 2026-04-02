@@ -183,7 +183,7 @@ export default function OwenPlaybook() {
         <div className="p-5 border-b border-white/[0.08]">
           <div className="text-[10px] font-bold tracking-[3px] text-[#5b8def] mb-1">ZAPP STUDIOS</div>
           <div className="text-sm font-semibold text-white">[Owen&apos;s Brand]</div>
-          <div className="text-[10px] text-[#6b6762] mt-0.5">Revenue Engineering Playbook</div>
+          <div className="text-[10px] text-[#6b6762] mt-0.5">Growth Playbook</div>
         </div>
         <nav className="flex-1 py-3 overflow-y-auto">
           {navSections.map(s => {
@@ -239,14 +239,14 @@ export default function OwenPlaybook() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#5b8def]/10 border border-[#5b8def]/20 mb-6">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#5b8def] animate-pulse" />
-                <span className="text-[10px] font-semibold tracking-widest text-[#5b8def]">REVENUE ENGINEERING PLAYBOOK — V2</span>
+                <span className="text-[10px] font-semibold tracking-widest text-[#5b8def]">GROWTH PLAYBOOK - V2</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                 [OWEN&apos;S BRAND]<br />
                 <span className="text-[#5b8def]">&times;</span> ZAPP STUDIOS
               </h1>
               <p className="text-lg sm:text-xl text-[#948f8a] leading-relaxed max-w-xl mb-6">
-                Two businesses, one strategy. Custom watches for steady income, 3D-printed archery parts for explosive growth. Everything in this playbook exists to amplify what Owen already does well — build exceptional watches and design precision parts. Updated after our March 16 call.
+                Two businesses, one strategy. Custom watches for steady income, 3D-printed archery parts for explosive growth. Everything in this playbook exists to amplify what Owen already does well - build exceptional watches and design precision parts. Updated after our March 16 call.
               </p>
               <div className="flex flex-wrap gap-4 text-sm text-[#6b6762]">
                 <span>Prepared by Hamza</span>
@@ -275,7 +275,7 @@ export default function OwenPlaybook() {
               </div>
 
               <p className="text-base text-[#c8c4bf] leading-relaxed mb-6">
-                Owen has 700+ watch builds, 50+ five-star reviews, and a proven product — but he&apos;s capped at ~$6K/month selling through Facebook Marketplace DMs at a flat $299. This playbook repackages what Owen already does into <strong className="text-white">two branded businesses</strong> with tiered pricing, custom e-commerce sites, automated operations, and a paid growth engine. <strong className="text-white">Target: $68K+ annual net profit within 12 months.</strong>
+                Owen has 700+ watch builds, 50+ five-star reviews, and a proven product - but he&apos;s capped at ~$6K/month selling through Facebook Marketplace DMs at a flat $299. This playbook repackages what Owen already does into <strong className="text-white">two branded businesses</strong> with tiered pricing, custom e-commerce sites, automated operations, and a paid growth engine. <strong className="text-white">Target: $68K+ annual net profit within 12 months.</strong>
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
@@ -301,13 +301,13 @@ export default function OwenPlaybook() {
                 <div className="p-4 rounded-xl bg-[#5b8def]/5 border border-[#5b8def]/10">
                   <div className="text-xs font-semibold text-[#5b8def] mb-2 tracking-widest">ZAPP STUDIOS PROVIDES</div>
                   <div className="space-y-1.5 text-sm text-[#b0aca7]">
-                    <div>Strategy &amp; revenue engineering</div>
+                    <div>Strategy &amp; growth systems</div>
                     <div>Two custom e-commerce sites</div>
                     <div>Admin portal &amp; automation</div>
                     <div>Ad management &amp; optimization</div>
                     <div>Ongoing iteration &amp; support</div>
                   </div>
-                  <div className="mt-2 text-xs text-[#6b6762]">Cost to Owen: $0 — founding case study</div>
+                  <div className="mt-2 text-xs text-[#6b6762]">Cost to Owen: $0 - founding case study</div>
                 </div>
                 <div className="p-4 rounded-xl bg-[#34d399]/5 border border-[#34d399]/10">
                   <div className="text-xs font-semibold text-[#34d399] mb-2 tracking-widest">OWEN PROVIDES</div>
@@ -323,7 +323,7 @@ export default function OwenPlaybook() {
               </div>
 
               <div className="mt-6 p-4 rounded-lg bg-[#1c1c2e] text-sm text-[#948f8a] leading-relaxed">
-                <strong className="text-white">The asymmetric bet:</strong> Owen risks $2–4.5K over 6 months (the cost of 4–8 watches at current pricing). If it works, he nets $68K+/year doing work he already loves. If it fails, kill switches fire, sites keep running on free tiers, and he falls back to his existing Marketplace channel. Every section below — strategy, financials, operations, growth, risk — ladders up to making this outcome as likely as possible.
+                <strong className="text-white">The asymmetric bet:</strong> Owen risks $2–4.5K over 6 months (the cost of 4–8 watches at current pricing). If it works, he nets $68K+/year doing work he already loves. If it fails, kill switches fire, sites keep running on free tiers, and he falls back to his existing Marketplace channel. Every section below - strategy, financials, operations, growth, risk - ladders up to making this outcome as likely as possible.
               </div>
             </div>
           </FadeIn>
@@ -337,9 +337,9 @@ export default function OwenPlaybook() {
             <FadeIn>
               <Card title="What Changed">
                 <p className="mb-3">After the March 16 call, we&apos;re pivoting from the original &quot;scale Seiko mods to 8/day&quot; plan. The reality:</p>
-                <Bullet><strong className="text-white">Sourcing custom parts is a time bottleneck</strong> that doesn&apos;t scale well — Owen&apos;s expertise is the moat but also the ceiling.</Bullet>
+                <Bullet><strong className="text-white">Sourcing custom parts is a time bottleneck</strong> that doesn&apos;t scale well - Owen&apos;s expertise is the moat but also the ceiling.</Bullet>
                 <Bullet><strong className="text-white">The brand needs to move away from &quot;Seiko&quot;</strong> in the name given the IP landscape.</Bullet>
-                <Bullet><strong className="text-white">Owen has a second business opportunity</strong> — 3D-printed archery parts — with dramatically better margins and scalability.</Bullet>
+                <Bullet><strong className="text-white">Owen has a second business opportunity</strong> - 3D-printed archery parts - with dramatically better margins and scalability.</Bullet>
                 <p className="mt-3">The new strategy: <strong className="text-white">watches become stable base income, archery becomes the growth engine.</strong> Two separate brands, two separate sites, one unified revenue strategy.</p>
               </Card>
             </FadeIn>
@@ -374,12 +374,12 @@ export default function OwenPlaybook() {
                   <div className="space-y-1.5">
                     <div className="flex gap-2"><span className="text-[#8a8580]">Watches:</span> <span>15 stock at $299 + 10 custom at $549 = <strong className="text-white">$9,475/mo</strong> watch revenue</span></div>
                     <div className="flex gap-2"><span className="text-[#8a8580]">Archery:</span> <span>100 parts at $55 avg = <strong className="text-white">$5,500/mo</strong> archery revenue (Month 6 target)</span></div>
-                    <div className="flex gap-2"><span className="text-[#8a8580]">Watch COGS:</span> <span>38% ($3,600) — movement, case, dial, hands, crystal, bezel, strap</span></div>
-                    <div className="flex gap-2"><span className="text-[#8a8580]">Archery COGS:</span> <span>~5% ($275) — material, electricity, packaging, ~5% failed print rate</span></div>
+                    <div className="flex gap-2"><span className="text-[#8a8580]">Watch COGS:</span> <span>38% ($3,600) - movement, case, dial, hands, crystal, bezel, strap</span></div>
+                    <div className="flex gap-2"><span className="text-[#8a8580]">Archery COGS:</span> <span>~5% ($275) - material, electricity, packaging, ~5% failed print rate</span></div>
                     <div className="flex gap-2"><span className="text-[#8a8580]">Expenses:</span> <span>$2,000 ads + $100 software = <strong className="text-white">$2,100/mo</strong></span></div>
                   </div>
                 </div>
-                <p className="mt-3">At combined projections, Owen clears <strong className="text-white">$90-110K/year</strong> before ad spend. Even conservatively after $2-3K/month in ads and software, the C8 is well within reach by end of 2026. These are Month 6 targets — the financial model below lets Owen stress-test every variable.</p>
+                <p className="mt-3">At combined projections, Owen clears <strong className="text-white">$90-110K/year</strong> before ad spend. Even conservatively after $2-3K/month in ads and software, the C8 is well within reach by end of 2026. These are Month 6 targets - the financial model below lets Owen stress-test every variable.</p>
               </Card>
             </FadeIn>
 
@@ -395,13 +395,13 @@ export default function OwenPlaybook() {
                     ["C8 Target", "$11,970", "$12,000", "$3,000", "~$10,500", "~$126K"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]">Pessimistic assumes archery barely takes off (20 parts/month) and watch prices stay flat. Base Case matches the Month 6 targets in the roadmap. C8 Target is what&apos;s needed for the Corvette — aggressive but achievable if both businesses hit their stride. All three assume Stripe fees and software costs.</p>
+                <p className="mt-3 text-sm text-[#948f8a]">Pessimistic assumes archery barely takes off (20 parts/month) and watch prices stay flat. Base Case matches the Month 6 targets in the roadmap. C8 Target is what&apos;s needed for the Corvette - aggressive but achievable if both businesses hit their stride. All three assume Stripe fees and software costs.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
               <Card title="Deal Structure">
-                <p>Same as before. Zapp Studios provides all revenue engineering — strategy, site development, ad management, automation — at <strong className="text-white">zero cost</strong>. Owen is the founding case study. Owen covers direct hard costs only: Claude API credits (~$5-10/mo for AI features), ad spend (when ready), and domain/hosting (minimal on Vercel).</p>
+                <p>Same as before. Zapp Studios provides all growth services - strategy, site development, ad management, automation - at <strong className="text-white">zero cost</strong>. Owen is the founding case study. Owen covers direct hard costs only: Claude API credits (~$5-10/mo for AI features), ad spend (when ready), and domain/hosting (minimal on Vercel).</p>
               </Card>
             </FadeIn>
 
@@ -416,15 +416,15 @@ export default function OwenPlaybook() {
                     <div className="text-lg font-bold text-white">Owen&apos;s Monday Morning Checklist</div>
                   </div>
                 </div>
-                <p className="text-sm text-[#b0aca7] mb-4">This playbook is long. You don&apos;t need to read all of it before starting. Here&apos;s what to do first — the rest is reference material for when you need it.</p>
+                <p className="text-sm text-[#b0aca7] mb-4">This playbook is long. You don&apos;t need to read all of it before starting. Here&apos;s what to do first - the rest is reference material for when you need it.</p>
                 <div className="space-y-2">
                   {[
                     "Pick brand names for both businesses (see naming options in Section 2)",
                     "Form the LLC or confirm existing one covers both businesses (15 min online)",
                     "Get an EIN from IRS.gov (free, 5 minutes)",
-                    "Open a business bank account (Chase, Mercury, or Relay — free)",
+                    "Open a business bank account (Chase, Mercury, or Relay - free)",
                     "Register domains for both brands once names are chosen",
-                    "Photograph first 5 archery SKUs — white background, multiple angles",
+                    "Photograph first 5 archery SKUs - white background, multiple angles",
                     "Start product liability insurance application (takes 1-2 weeks to finalize)",
                   ].map((item, i) => (
                     <div key={i} className="flex gap-3 text-sm">
@@ -454,7 +454,7 @@ export default function OwenPlaybook() {
                     <div className="text-[#5b8def] font-semibold text-lg mb-1">$299</div>
                     <div className="text-xs text-[#8a8580] mb-3">5-10 popular designs kept in inventory</div>
                     <div className="space-y-2">
-                      {["Owen's best-selling designs", "Ships same/next day", "Ready-made — no wait", "Volume driver and entry point"].map((f, i) => (
+                      {["Owen's best-selling designs", "Ships same/next day", "Ready-made - no wait", "Volume driver and entry point"].map((f, i) => (
                         <div key={i} className="flex gap-2 text-sm text-[#b0aca7]"><Check size={14} className="text-[#34d399] flex-shrink-0 mt-0.5" /><span>{f}</span></div>
                       ))}
                     </div>
@@ -472,24 +472,24 @@ export default function OwenPlaybook() {
                   </div>
                 </div>
                 <AlertBox type="info" title="Why We're Recommending $549 for Custom">
-                  Based on the competitive landscape, Owen&apos;s custom builds justify premium pricing — they require sourcing specific parts, design consultation, and his personal expertise. With 700+ builds and 50+ five-star reviews, the brand authority is there. The $250 gap between stock and custom reflects the customization, wait time, and craftsmanship involved. <strong className="text-white">This is a recommendation, not a decision</strong> — Owen knows his customers better than any spreadsheet. The validation test below confirms whether the market agrees.
+                  Based on the competitive landscape, Owen&apos;s custom builds justify premium pricing - they require sourcing specific parts, design consultation, and his personal expertise. With 700+ builds and 50+ five-star reviews, the brand authority is there. The $250 gap between stock and custom reflects the customization, wait time, and craftsmanship involved. <strong className="text-white">This is a recommendation, not a decision</strong> - Owen knows his customers better than any spreadsheet. The validation test below confirms whether the market agrees.
                 </AlertBox>
-                <AlertBox type="info" title="Pricing Validation — Before Launching at $549">
-                  Before committing to the $549 custom price: (1) List 3 custom builds at $549 on Facebook Marketplace alongside the usual $299 stock listings. (2) If 2+ sell within 2 weeks, the price is confirmed — the market accepts it. (3) If 0 sell at $549, test stepping stones at $449 and $499. Owen&apos;s 700+ reviews provide the social proof to justify premium pricing — but let the market confirm it before building the whole site around that number.
+                <AlertBox type="info" title="Pricing Validation - Before Launching at $549">
+                  Before committing to the $549 custom price: (1) List 3 custom builds at $549 on Facebook Marketplace alongside the usual $299 stock listings. (2) If 2+ sell within 2 weeks, the price is confirmed - the market accepts it. (3) If 0 sell at $549, test stepping stones at $449 and $499. Owen&apos;s 700+ reviews provide the social proof to justify premium pricing - but let the market confirm it before building the whole site around that number.
                 </AlertBox>
               </Card>
             </FadeIn>
 
             <FadeIn>
               <Card title="Where Owen Sits in the Market">
-                <p className="mb-4">The global watch market hit <strong className="text-white">$66.4 billion in 2024</strong><SourceTag source="Grand View Research 2024" />, projected to reach $93.1B by 2030. Seiko Group sales climbed <strong className="text-white">11.7% to ~¥175.9B ($1.15B USD)</strong><SourceTag source="Seiko FY2024 IR" /> in FY2024-25. The modding subculture is massive: <strong className="text-white">185K+ Instagram posts tagged #SeikoMod and #SeikoMods</strong><SourceTag source="Inflact, 2026" />, <strong className="text-white">60K+ r/SeikoMods members</strong><SourceTag source="Valet. 2024 est." /> — and the market is stratified by quality tier. Owen&apos;s pricing has been leaving money on the table:</p>
+                <p className="mb-4">The global watch market hit <strong className="text-white">$66.4 billion in 2024</strong><SourceTag source="Grand View Research 2024" />, projected to reach $93.1B by 2030. Seiko Group sales climbed <strong className="text-white">11.7% to ~¥175.9B ($1.15B USD)</strong><SourceTag source="Seiko FY2024 IR" /> in FY2024-25. The modding subculture is massive: <strong className="text-white">185K+ Instagram posts tagged #SeikoMod and #SeikoMods</strong><SourceTag source="Inflact, 2026" />, <strong className="text-white">60K+ r/SeikoMods members</strong><SourceTag source="Valet. 2024 est." /> - and the market is stratified by quality tier. Owen&apos;s pricing has been leaving money on the table:</p>
                 <DataTable
                   headers={["Competitor", "Price Range", "Volume Indicator", "Key Differentiator"]}
                   accent
                   rows={[
-                    ["AliExpress budget sellers", "$75–$150", "High volume, high returns", "Clone movements, poor QC — the race to the bottom"],
+                    ["AliExpress budget sellers", "$75–$150", "High volume, high returns", "Clone movements, poor QC - the race to the bottom"],
                     ["**SKYRIM Wrist**", "$285–$375", "205 products, 700+ reviews", "Shopify store, step-by-step configurator, NH35 + sapphire crystal, free US shipping"],
-                    ["**Owen (current)**", "**$299 flat**", "~20/mo via FB Marketplace", "**700+ builds, 50+ reviews — but underpriced and single-channel**"],
+                    ["**Owen (current)**", "**$299 flat**", "~20/mo via FB Marketplace", "**700+ builds, 50+ reviews - but underpriced and single-channel**"],
                     ["**WatchModCustom / Nomods**", "$350–$500", "Shopify + Instagram", "Configurator, proper e-commerce, multiple payment options"],
                     ["**Circa Watch Labs**", "$400–$600", "Shopify configurator", "Datejust/Nautilus styles, Swiss lume, custom logo upload"],
                     ["**Lucius Atelier / Premium tier**", "$400–$700+", "Parts supplier + builds", "Superior finishing, exotic configs, established brand"],
@@ -497,11 +497,11 @@ export default function OwenPlaybook() {
                     ["**Owen (proposed)**", "**$299 stock / $549+ custom**", "20-30/mo target", "**Configurator, own site, 700-customer base, premium positioning**"],
                   ]}
                 />
-                <AlertBox type="info" title="Seiko IP Notice — October 2025">
-                  Seiko issued a formal notice warning against &quot;MOD watches assembled with fake or unauthorized components.&quot; This did <strong className="text-white">not</strong> kill the market — it <strong className="text-white">accelerated</strong> the shift toward personally branded dials and microbrand identity. Quality operators who rebrand benefit; race-to-the-bottom sellers using counterfeit logos get squeezed. Owen&apos;s rebrand is proactive, not reactive.
+                <AlertBox type="info" title="Seiko IP Notice - October 2025">
+                  Seiko issued a formal notice warning against &quot;MOD watches assembled with fake or unauthorized components.&quot; This did <strong className="text-white">not</strong> kill the market - it <strong className="text-white">accelerated</strong> the shift toward personally branded dials and microbrand identity. Quality operators who rebrand benefit; race-to-the-bottom sellers using counterfeit logos get squeezed. Owen&apos;s rebrand is proactive, not reactive.
                 </AlertBox>
                 <AlertBox type="success" title="The Gap Owen Exploits">
-                  Owen has the <strong className="text-white">track record</strong> of a premium builder (700+ builds, 50+ five-star reviews) but the <strong className="text-white">pricing</strong> of a mid-range seller. The rebrand + custom site + tiered pricing moves him into the $400-$600 bracket where his reputation already belongs — without needing to change his product quality at all.
+                  Owen has the <strong className="text-white">track record</strong> of a premium builder (700+ builds, 50+ five-star reviews) but the <strong className="text-white">pricing</strong> of a mid-range seller. The rebrand + custom site + tiered pricing moves him into the $400-$600 bracket where his reputation already belongs - without needing to change his product quality at all.
                 </AlertBox>
               </Card>
             </FadeIn>
@@ -511,10 +511,10 @@ export default function OwenPlaybook() {
                 <p className="mb-4 text-sm text-[#948f8a]">Sourced reference data supporting the competitive analysis above. All data verified March 2026.</p>
                 <div className="space-y-3">
                   {[
-                    { label: "SKYRIM Wrist", desc: "skyrimwrist.com — 205 products, $285-$375, Shopify store with step-by-step configurator, 700+ reviews at 4.78/5" },
-                    { label: "Circa Watch Labs", desc: "circawatchlabs.com — 215 products, $250-$365, 12 configurator tools, 69 Trustpilot reviews" },
-                    { label: "Moddys Watches", desc: "moddys-watches.com — 860 Trustpilot reviews, $349-$420, 224K Instagram followers, largest social following in the space" },
-                    { label: "Lucius Atelier", desc: "luciusatelier.com — 4,341 reviews at 4.9/5, parts ecosystem, ISO 9001 certified, Swiss Super-LumiNova licensed" },
+                    { label: "SKYRIM Wrist", desc: "skyrimwrist.com - 205 products, $285-$375, Shopify store with step-by-step configurator, 700+ reviews at 4.78/5" },
+                    { label: "Circa Watch Labs", desc: "circawatchlabs.com - 215 products, $250-$365, 12 configurator tools, 69 Trustpilot reviews" },
+                    { label: "Moddys Watches", desc: "moddys-watches.com - 860 Trustpilot reviews, $349-$420, 224K Instagram followers, largest social following in the space" },
+                    { label: "Lucius Atelier", desc: "luciusatelier.com - 4,341 reviews at 4.9/5, parts ecosystem, ISO 9001 certified, Swiss Super-LumiNova licensed" },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-[#0e0e1a]">
                       <span className="text-[#5b8def] mt-0.5 flex-shrink-0">&#8226;</span>
@@ -530,15 +530,15 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Rebrand: Moving Away from &quot;Seiko&quot;">
-                <p className="mb-3">The brand name needs to drop &quot;Seiko&quot; — both for IP safety and to position as a premium microbrand rather than a modifier of someone else&apos;s product.</p>
-                <Bullet><strong className="text-white">Product language:</strong> &quot;Powered by Seiko NH35 movement&quot; — this is accurate, legal, and actually sounds more premium than &quot;Seiko mod.&quot;</Bullet>
-                <Bullet><strong className="text-white">Brand positioning:</strong> A custom watch studio, not a modification shop. Owen makes watches — he just happens to use Seiko movements because they&apos;re the best at this price point.</Bullet>
+                <p className="mb-3">The brand name needs to drop &quot;Seiko&quot; - both for IP safety and to position as a premium microbrand rather than a modifier of someone else&apos;s product.</p>
+                <Bullet><strong className="text-white">Product language:</strong> &quot;Powered by Seiko NH35 movement&quot; - this is accurate, legal, and actually sounds more premium than &quot;Seiko mod.&quot;</Bullet>
+                <Bullet><strong className="text-white">Brand positioning:</strong> A custom watch studio, not a modification shop. Owen makes watches - he just happens to use Seiko movements because they&apos;re the best at this price point.</Bullet>
                 <Bullet><strong className="text-white">Name TBD:</strong> We&apos;ll work with Owen on this. The site will use [Owen&apos;s Brand] as placeholder throughout.</Bullet>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Brand Naming — Decision Needed Before Phase 1">
+              <Card title="Brand Naming - Decision Needed Before Phase 1">
                 <p className="mb-4">Both brands need names before we can register domains, set up email, create social accounts, or configure ManyChat. <strong className="text-white">This is the #1 blocker for Phase 0.</strong> Naming criteria: memorable, .com available, Instagram handle available, no trademark conflicts.</p>
                 <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div className="p-5 rounded-xl bg-[#5b8def]/5 border border-[#5b8def]/10">
@@ -563,7 +563,7 @@ export default function OwenPlaybook() {
                   </div>
                 </div>
                 <AlertBox type="warning" title="Deadline: Before Phase 1 Starts">
-                  Owen picks one name per brand. Hamza checks domain + trademark + Instagram availability. Once confirmed: register domains, create email, claim social handles — all in one session. This should take 30 minutes once the names are chosen.
+                  Owen picks one name per brand. Hamza checks domain + trademark + Instagram availability. Once confirmed: register domains, create email, claim social handles - all in one session. This should take 30 minutes once the names are chosen.
                 </AlertBox>
               </Card>
             </FadeIn>
@@ -573,22 +573,22 @@ export default function OwenPlaybook() {
                 <p className="mb-3">The centerpiece of the custom tier. Owen has ~100 component options across his manufacturers. Customers pick their combination, see a preview, and submit the order.</p>
                 <NumberedStep n={1} title="MVP: Option Selectors + Reference Photos">Dropdown/swatch selectors for each component (case, dial, hands, bezel, crystal, strap) with high-quality reference photos. Price updates dynamically. Fast to build, accurate.</NumberedStep>
                 <NumberedStep n={2} title="V2: Layered Image Compositing">2D image-swap where each component is a transparent PNG layer. Customer sees a composite preview update in real time as they select options. This is how Undone Watches and Circa Watch Labs do it.</NumberedStep>
-                <NumberedStep n={3} title="Possible V3: AI-Generated Previews">Use image generation to create lifestyle previews of the configured watch — wrist shots, different lighting. Experimental but could be a differentiator. Not needed for launch.</NumberedStep>
-                <p className="text-sm text-[#948f8a] mt-2">For launch, V1 is more than enough. Owen&apos;s existing customers buy based on trust and portfolio — the configurator just makes the process easier and captures the order automatically instead of going through DMs.</p>
+                <NumberedStep n={3} title="Possible V3: AI-Generated Previews">Use image generation to create lifestyle previews of the configured watch - wrist shots, different lighting. Experimental but could be a differentiator. Not needed for launch.</NumberedStep>
+                <p className="text-sm text-[#948f8a] mt-2">For launch, V1 is more than enough. Owen&apos;s existing customers buy based on trust and portfolio - the configurator just makes the process easier and captures the order automatically instead of going through DMs.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
               <Card title="Current State">
-                <AlertBox type="success" title="What Owen Built — Without Any of This">
-                  700+ watches sold. 50+ five-star reviews. 3 years of consistent business. No website, no ads, no automation, no help. Just Owen, his workbench, and Facebook Marketplace. Most people with a full e-commerce stack and ad budget don&apos;t hit 700 sales. Owen did it through craftsmanship and reputation alone. Everything below builds on that foundation — it doesn&apos;t replace it.
+                <AlertBox type="success" title="What Owen Built - Without Any of This">
+                  700+ watches sold. 50+ five-star reviews. 3 years of consistent business. No website, no ads, no automation, no help. Just Owen, his workbench, and Facebook Marketplace. Most people with a full e-commerce stack and ad budget don&apos;t hit 700 sales. Owen did it through craftsmanship and reputation alone. Everything below builds on that foundation - it doesn&apos;t replace it.
                 </AlertBox>
                 <div className="flex flex-wrap gap-3 mb-3">
                   <MetricCard label="Volume" value="~20/mo" sub="watches sold" />
                   <MetricCard label="Price" value="$299" sub="even for custom" />
                   <MetricCard label="Channel" value="FB Only" sub="Marketplace DMs" />
                 </div>
-                <p className="mb-4">The foundation is solid — <strong className="text-white">the opportunity is in pricing, channel, and process, not product quality.</strong> Three things we think can be improved:</p>
+                <p className="mb-4">The foundation is solid - <strong className="text-white">the opportunity is in pricing, channel, and process, not product quality.</strong> Three things we think can be improved:</p>
                 <div className="text-xs font-semibold text-[#5b8def] mb-3 tracking-widest">THREE OPPORTUNITIES</div>
                 <div className="space-y-3">
                   <div className="p-4 rounded-lg bg-[#1c1c2e] border-l-4 border-l-[#fb7185]">
@@ -597,11 +597,11 @@ export default function OwenPlaybook() {
                   </div>
                   <div className="p-4 rounded-lg bg-[#1c1c2e] border-l-4 border-l-[#fb7185]">
                     <div className="text-white font-semibold text-sm mb-1">2. An owned channel protects what Owen built</div>
-                    <div className="text-[#b0aca7] text-sm">100% of sales currently come through FB Marketplace — which works, but it&apos;s rented ground. A website + email list gives Owen a channel he owns. If Facebook changes the rules tomorrow, the business keeps running.</div>
+                    <div className="text-[#b0aca7] text-sm">100% of sales currently come through FB Marketplace - which works, but it&apos;s rented ground. A website + email list gives Owen a channel he owns. If Facebook changes the rules tomorrow, the business keeps running.</div>
                   </div>
                   <div className="p-4 rounded-lg bg-[#1c1c2e] border-l-4 border-l-[#fb7185]">
                     <div className="text-white font-semibold text-sm mb-1">3. Owen&apos;s time is spent on admin instead of building</div>
-                    <div className="text-[#b0aca7] text-sm">Every inquiry, quote, order, and follow-up runs through Owen&apos;s personal messages. Order tracking is manual. No automation, no CRM, no automated review collection. Roughly 15-20 hours/month goes to admin that software can handle — time that should go toward watches and design.</div>
+                    <div className="text-[#b0aca7] text-sm">Every inquiry, quote, order, and follow-up runs through Owen&apos;s personal messages. Order tracking is manual. No automation, no CRM, no automated review collection. Roughly 15-20 hours/month goes to admin that software can handle - time that should go toward watches and design.</div>
                   </div>
                 </div>
               </Card>
@@ -631,7 +631,7 @@ export default function OwenPlaybook() {
                     <div className="text-xs text-[#8a8580] mt-1">fully loaded margin</div>
                   </div>
                 </div>
-                <p className="mb-3">Compare that to watches at 60-65% margins with expensive parts and manual assembly. Archery parts are: <strong className="text-white">design once, print infinitely, ship easily.</strong> Note: with $10-20 paid CAC at $50 ASP, effective margin after acquisition drops to ~70-85% — still exceptional, but headline margin is pre-acquisition.</p>
+                <p className="mb-3">Compare that to watches at 60-65% margins with expensive parts and manual assembly. Archery parts are: <strong className="text-white">design once, print infinitely, ship easily.</strong> Note: with $10-20 paid CAC at $50 ASP, effective margin after acquisition drops to ~70-85% - still exceptional, but headline margin is pre-acquisition.</p>
                 <div className="text-xs font-semibold text-[#34d399] mb-3 mt-4 tracking-widest">MARKET SIZING</div>
                 <div className="flex flex-wrap gap-3 mb-4">
                   <MetricCard label="TAM" value="$607.6M" sub="US archery equipment market (2024)" color="text-[#34d399]" />
@@ -639,49 +639,49 @@ export default function OwenPlaybook() {
                   <MetricCard label="SOM" value="$21K+ proven" sub="Etsy sales of 3D-printed archery parts alone" color="text-[#34d399]" />
                   <MetricCard label="Owen Y1" value="$60-150K" sub="target revenue" color="text-white" />
                 </div>
-                <p className="text-sm text-[#948f8a] mb-4">Owen needs to capture less than 0.01% of the total archery equipment market — or roughly 1% of the 3D-printable accessories niche — to hit his Year 1 target. The market is large enough that this business can scale well beyond the C8 goal.</p>
+                <p className="text-sm text-[#948f8a] mb-4">Owen needs to capture less than 0.01% of the total archery equipment market - or roughly 1% of the 3D-printable accessories niche - to hit his Year 1 target. The market is large enough that this business can scale well beyond the C8 goal.</p>
                 <Bullet><strong className="text-white">Market positioning:</strong> 5+ small commercial sellers exist (Genesis 3D Printing, BowBuddyOfficial, Berry Tech Products) but none use engineering-grade materials like carbon fiber PETG or NylonX. Top Etsy sellers use PLA or basic ASA. Owen&apos;s material capability is the differentiator, not being first.</Bullet>
                 <Bullet><strong className="text-white">Scalability:</strong> No sourcing bottleneck. No manual assembly expertise required per unit. Owen designs the parts, the printer makes them. Adding a second printer doubles capacity.</Bullet>
-                <Bullet><strong className="text-white">Material capability:</strong> Owen can print carbon fiber and engineering-grade materials — this isn&apos;t PLA hobby printing.</Bullet>
+                <Bullet><strong className="text-white">Material capability:</strong> Owen can print carbon fiber and engineering-grade materials - this isn&apos;t PLA hobby printing.</Bullet>
                 <Bullet><strong className="text-white">Built-in network:</strong> Owen&apos;s dad has connections in the archery community. That&apos;s the seed audience.</Bullet>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Demand Validation — The Market Exists, Now Validate Owen's Products">
-                <p className="mb-4">The market for 3D-printed archery parts is proven — 21,000+ Etsy sales, 5+ commercial sellers, and specific ArcheryTalk threads requesting exactly these products. The question isn&apos;t whether people buy 3D-printed archery parts. It&apos;s whether they&apos;ll buy <strong className="text-white">Owen&apos;s specific products at his price points with his materials.</strong> Here&apos;s the evidence and the plan to validate his positioning.</p>
+              <Card title="Demand Validation - The Market Exists, Now Validate Owen's Products">
+                <p className="mb-4">The market for 3D-printed archery parts is proven - 21,000+ Etsy sales, 5+ commercial sellers, and specific ArcheryTalk threads requesting exactly these products. The question isn&apos;t whether people buy 3D-printed archery parts. It&apos;s whether they&apos;ll buy <strong className="text-white">Owen&apos;s specific products at his price points with his materials.</strong> Here&apos;s the evidence and the plan to validate his positioning.</p>
 
                 <div className="flex flex-wrap gap-3 mb-4">
                   <MetricCard label="r/archery" value="180K+" sub="members" color="text-[#34d399]" />
-                  <MetricCard label="ArcheryTalk" value="1M+" sub="registered users — largest archery forum" color="text-[#34d399]" />
+                  <MetricCard label="ArcheryTalk" value="1M+" sub="registered users - largest archery forum" color="text-[#34d399]" />
                   <MetricCard label="Aftermarket Accessories" value="$2.1B" sub="US archery equipment market (2024)" color="text-[#34d399]" />
                 </div>
 
                 <DataTable
                   headers={["Signal", "Source", "What It Tells Us"]}
                   rows={[
-                    ["\"Anyone know where to get custom arrow rests?\"", "ArcheryTalk — 10+ specific threads", "Explicit demand for model-specific parts (Mathews limb legs, Axcel sight accessories, custom grips)"],
-                    ["Top archery accessories on Amazon", "Amazon Best Sellers + Reviews", "Arrow rests $30-$80, stabilizers $40-$100. 15+ negative reviews cite breakage, poor fit, cheap plastic — problems 3D printing solves"],
+                    ["\"Anyone know where to get custom arrow rests?\"", "ArcheryTalk - 10+ specific threads", "Explicit demand for model-specific parts (Mathews limb legs, Axcel sight accessories, custom grips)"],
+                    ["Top archery accessories on Amazon", "Amazon Best Sellers + Reviews", "Arrow rests $30-$80, stabilizers $40-$100. 15+ negative reviews cite breakage, poor fit, cheap plastic - problems 3D printing solves"],
                     ["7+ Etsy sellers, 21,000+ combined sales", "Etsy search (verified)", "BowBuddyOfficial: 3,176 sales. kingscreationsusa: 18,300 sales, 4,700 reviews. Market is active and growing."],
-                    ["3D printing subreddits + archery crossover", "r/functionalprint, r/archery", "DIY archers printing their own parts — proves concept, not commercial quality"],
-                    ["5+ commercial operations active", "Genesis 3D Printing, E3D Concepts, Morr Innovations, Archery Print, + Etsy sellers", "Proven business model — but no brand uses engineering-grade materials (carbon fiber, NylonX). Quality gap is Owen's opening."],
+                    ["3D printing subreddits + archery crossover", "r/functionalprint, r/archery", "DIY archers printing their own parts - proves concept, not commercial quality"],
+                    ["5+ commercial operations active", "Genesis 3D Printing, E3D Concepts, Morr Innovations, Archery Print, + Etsy sellers", "Proven business model - but no brand uses engineering-grade materials (carbon fiber, NylonX). Quality gap is Owen's opening."],
                   ]}
                 />
 
-                <div className="text-xs font-semibold text-[#34d399] mb-3 mt-6 tracking-widest">VALIDATION SPRINT — BEFORE BUILDING THE SITE</div>
-                <NumberedStep n={1} title="Community Posts (Day 1-3)">Owen posts prototype photos in 3 archery communities (ArcheryTalk, r/archery, one Facebook Group). Frame as &quot;I&apos;m designing these in carbon fiber — would you use one?&quot; Measure: comments, DMs, and &quot;where can I buy?&quot; signals. <strong className="text-white">Target: 20+ positive reactions.</strong></NumberedStep>
+                <div className="text-xs font-semibold text-[#34d399] mb-3 mt-6 tracking-widest">VALIDATION SPRINT - BEFORE BUILDING THE SITE</div>
+                <NumberedStep n={1} title="Community Posts (Day 1-3)">Owen posts prototype photos in 3 archery communities (ArcheryTalk, r/archery, one Facebook Group). Frame as &quot;I&apos;m designing these in carbon fiber - would you use one?&quot; Measure: comments, DMs, and &quot;where can I buy?&quot; signals. <strong className="text-white">Target: 20+ positive reactions.</strong></NumberedStep>
                 <NumberedStep n={2} title="$50 Test Ad (Day 4-7)">Run a $50 Meta ad to archery interests showing a 15-second print time-lapse + finished part. Link to a simple landing page with an email signup (&quot;Get notified when we launch&quot;). <strong className="text-white">Target: 50+ email signups at &lt;$1 each.</strong></NumberedStep>
                 <NumberedStep n={3} title="Interest Form (Day 1-7)">Google Form linked from all posts and the ad: &quot;What archery parts would you buy? What do you pay now? What material matters?&quot; <strong className="text-white">Target: 30+ responses to validate SKU priorities.</strong></NumberedStep>
                 <NumberedStep n={4} title="Free Samples (Day 8-14)">Ship 10 free parts to community members who expressed interest. Ask for honest feedback, photos in use, and permission to use their review. <strong className="text-white">Target: 5+ usable testimonials before launch.</strong></NumberedStep>
 
                 <AlertBox type="success" title="Proceed Criteria">
-                  If the validation sprint produces <strong className="text-white">50+ email signups AND 5+ positive field reviews</strong> in 2 weeks, demand is confirmed — build the site. If not, adjust the product catalog based on survey feedback before investing in a full e-commerce build. The sprint costs $50 in ads + ~$30 in free samples. Cheapest market research Owen will ever do.
+                  If the validation sprint produces <strong className="text-white">50+ email signups AND 5+ positive field reviews</strong> in 2 weeks, demand is confirmed - build the site. If not, adjust the product catalog based on survey feedback before investing in a full e-commerce build. The sprint costs $50 in ads + ~$30 in free samples. Cheapest market research Owen will ever do.
                 </AlertBox>
 
                 <div className="mt-5 bg-[#0e0e1a] rounded-xl border border-[#34d399]/20 p-5">
                   <div className="flex items-center gap-2 mb-4">
                     <div className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse" />
-                    <span className="text-xs font-semibold text-[#facc15] tracking-widest">VALIDATION RESULTS — SPRINT IN PROGRESS</span>
+                    <span className="text-xs font-semibold text-[#facc15] tracking-widest">VALIDATION RESULTS - SPRINT IN PROGRESS</span>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -714,7 +714,7 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <AlertBox type="warning" title="Execution Plan Below Is Gated on Validation">
-                The detailed archery execution plan — SKUs, content calendars, email flows, ad briefs — activates <strong className="text-white">only after the validation sprint above meets proceed criteria</strong> (50+ email signups AND 5+ positive field reviews in 2 weeks). Until validation confirms demand, the archery investment is $50 in ads + ~$30 in free samples. If validation fails, we pivot the product catalog based on survey feedback before building further. This gate exists because even at 90-95% margins, a business without product-market fit is a zero-margin business.
+                The detailed archery execution plan - SKUs, content calendars, email flows, ad briefs - activates <strong className="text-white">only after the validation sprint above meets proceed criteria</strong> (50+ email signups AND 5+ positive field reviews in 2 weeks). Until validation confirms demand, the archery investment is $50 in ads + ~$30 in free samples. If validation fails, we pivot the product catalog based on survey feedback before building further. This gate exists because even at 90-95% margins, a business without product-market fit is a zero-margin business.
               </AlertBox>
             </FadeIn>
 
@@ -723,10 +723,10 @@ export default function OwenPlaybook() {
                 <p className="mb-4 text-sm text-[#948f8a]">Sourced reference data supporting the competitive analysis above. All data verified March 2026.</p>
                 <div className="space-y-3">
                   {[
-                    { label: "ArcheryTalk — 10+ Demand Threads", desc: "Limb legs, sight accessories, custom grips — explicit 'I would pay for this' quotes across 2022-2025. URLs verified." },
-                    { label: "Etsy — 7+ Sellers, 21,000+ Combined Sales", desc: "BowBuddyOfficial (3,176 sales), kingscreationsusa (18,300 sales, 4,700 reviews), TrustyArrowLLC (5.0 stars)" },
-                    { label: "Amazon — 15 Negative Reviews Citing Breakage", desc: "Arrow rests snapping on first shot, quivers shattering in cold, 'universal' parts fitting no actual bow" },
-                    { label: "Printables.com — 2,200 Downloads for Mathews Limb Legs", desc: "600+ archery models across maker platforms. Top downloads: limb legs, fletching jigs, arrow holders" },
+                    { label: "ArcheryTalk - 10+ Demand Threads", desc: "Limb legs, sight accessories, custom grips - explicit 'I would pay for this' quotes across 2022-2025. URLs verified." },
+                    { label: "Etsy - 7+ Sellers, 21,000+ Combined Sales", desc: "BowBuddyOfficial (3,176 sales), kingscreationsusa (18,300 sales, 4,700 reviews), TrustyArrowLLC (5.0 stars)" },
+                    { label: "Amazon - 15 Negative Reviews Citing Breakage", desc: "Arrow rests snapping on first shot, quivers shattering in cold, 'universal' parts fitting no actual bow" },
+                    { label: "Printables.com - 2,200 Downloads for Mathews Limb Legs", desc: "600+ archery models across maker platforms. Top downloads: limb legs, fletching jigs, arrow holders" },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-[#0e0e1a]">
                       <span className="text-[#34d399] mt-0.5 flex-shrink-0">&#8226;</span>
@@ -742,17 +742,17 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="The Business Model">
-                <p className="mb-4">Simple product catalog site. No configurator needed — just list the parts, take orders, print and ship.</p>
+                <p className="mb-4">Simple product catalog site. No configurator needed - just list the parts, take orders, print and ship.</p>
                 <NumberedStep n={1} title="Product Catalog">Clean e-commerce site with product photos, specs, pricing. Categories by part type. Search and filter.</NumberedStep>
                 <NumberedStep n={2} title="Order Flow">Customer browses → adds to cart → Stripe checkout → order hits the admin portal → Owen prints → ships. The whole pipeline is automated except the printing.</NumberedStep>
-                <NumberedStep n={3} title="Expansion">As Owen identifies what sells, he designs new parts. Each new SKU costs him design time only — no inventory risk, no parts to source. Print on demand.</NumberedStep>
+                <NumberedStep n={3} title="Expansion">As Owen identifies what sells, he designs new parts. Each new SKU costs him design time only - no inventory risk, no parts to source. Print on demand.</NumberedStep>
                 <p className="text-sm text-[#948f8a] mt-2">This is the opposite of the watch business. Watches require Owen&apos;s hands for every unit. Archery parts require Owen&apos;s brain for the design, then the printer does the rest.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
               <Card title="Realistic Unit Economics">
-                <p className="mb-4">The headline margins are real, but let&apos;s be honest about <em>fully loaded</em> costs — not just material:</p>
+                <p className="mb-4">The headline margins are real, but let&apos;s be honest about <em>fully loaded</em> costs - not just material:</p>
                 <DataTable
                   headers={["Cost Component", "Per Unit", "Notes"]}
                   rows={[
@@ -761,7 +761,7 @@ export default function OwenPlaybook() {
                     ["Failed print rate (~5%)", "$0.10–$0.50", "Amortized across successful prints"],
                     ["Packaging + labels", "$1.50–$2.00", "Poly mailer, padding, branded sticker"],
                     ["Printer wear/maintenance", "$0.20–$0.50", "Nozzles, belts, bed surfaces amortized over ~2,000 prints"],
-                    ["**Fully loaded COGS**", "**$2.50–$4.50**", "**Per part — still <10% of sell price**"],
+                    ["**Fully loaded COGS**", "**$2.50–$4.50**", "**Per part - still <10% of sell price**"],
                   ]}
                 />
                 <div className="mt-4 grid sm:grid-cols-3 gap-3">
@@ -784,68 +784,68 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Competitive Landscape">
-                <p className="mb-4">The US archery equipment market is valued at ~$607.6M<SourceTag source="Grand View Research 2024" />, with aftermarket accessories a meaningful subset. The 3D-printing angle is no longer early — here&apos;s what exists:</p>
+                <p className="mb-4">The US archery equipment market is valued at ~$607.6M<SourceTag source="Grand View Research 2024" />, with aftermarket accessories a meaningful subset. The 3D-printing angle is no longer early - here&apos;s what exists:</p>
                 <DataTable
                   headers={["Competitor Type", "Examples", "Price Range", "Owen's Advantage"]}
                   rows={[
-                    ["Traditional manufacturers", "Trophy Ridge, QAD, Spot-Hogg", "$30–$200+", "Injection-molded plastic/metal — can't do one-off custom designs"],
+                    ["Traditional manufacturers", "Trophy Ridge, QAD, Spot-Hogg", "$30–$200+", "Injection-molded plastic/metal - can't do one-off custom designs"],
                     ["Amazon generic sellers", "No-name brands, 50-500 reviews", "$15–$60", "Mass-produced, no customization, slow iteration"],
                     ["Etsy/hobby 3D printers", "7+ active sellers, 21,000+ combined sales", "$10–$93", "Mostly PLA/ASA, some PETG. No carbon fiber. BowBuddyOfficial (3,176 sales) and kingscreationsusa (18,300 sales) lead. Owen differentiates on material quality."],
                     ["DIY/Thingiverse", "Free STL files", "$0 (own printer)", "Requires buyer to own a printer + know how to print"],
                     ["**Owen (proposed)**", "**First engineering-grade materials operation**", "**$30–$100**", "**Carbon fiber + engineering-grade materials, designed by an archer, professional finish**"],
                   ]}
                 />
-                <AlertBox type="info" title="First Mover Isn't Enough — Speed Matters">
-                  The 3D-printed archery parts space is already active — 5+ sellers, 21,000+ Etsy sales. Owen&apos;s window isn&apos;t being first, it&apos;s being best: engineering-grade materials, professional brand, and a real e-commerce site vs. Etsy listings.
+                <AlertBox type="info" title="First Mover Isn't Enough - Speed Matters">
+                  The 3D-printed archery parts space is already active - 5+ sellers, 21,000+ Etsy sales. Owen&apos;s window isn&apos;t being first, it&apos;s being best: engineering-grade materials, professional brand, and a real e-commerce site vs. Etsy listings.
                   <br /><br />
-                  Owen&apos;s advantage: carbon fiber and NylonX materials that existing sellers don&apos;t use, a branded site (not just Etsy), and a systematic content + ads strategy. The existing sellers prove the market — Owen needs to prove the premium positioning.
+                  Owen&apos;s advantage: carbon fiber and NylonX materials that existing sellers don&apos;t use, a branded site (not just Etsy), and a systematic content + ads strategy. The existing sellers prove the market - Owen needs to prove the premium positioning.
                 </AlertBox>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="First 10 SKUs — The Launch Catalog">
+              <Card title="First 10 SKUs - The Launch Catalog">
                 <p className="mb-4">Start focused. These are the highest-demand archery accessories where 3D printing has a clear advantage over traditional manufacturing:</p>
                 <DataTable
                   headers={["SKU", "Product", "Est. Price", "Print Time", "Priority"]}
                   rows={[
-                    ["SKU-001", "Mathews limb legs / bow stand", "$24–$35", "~1.5 hrs", "**Launch — #1 selling 3D-printed archery product on Etsy (4,700+ reviews)**"],
-                    ["SKU-002", "Hoyt limb legs / bow stand", "$24–$35", "~1.5 hrs", "**Launch — Mathews offers stock legs, Hoyt doesn\u2019t = massive gap**"],
-                    ["SKU-003", "Headrest bow hanger (vehicle mount)", "$16–$24", "~2 hrs", "**Launch — BowBuddyOfficial sold 6,500+ units of this exact product**"],
-                    ["SKU-004", "Scope housing / aiming ring (target archery)", "$33–$55", "~1 hr", "**Launch — Berry Tech Products proven niche on eBay**"],
-                    ["SKU-005", "Stabilizer holster / release holder", "$16–$25", "~1 hr", "Launch — 3DHuntingSolutions has 271 reviews in this category"],
-                    ["SKU-006", "Bow wall mount (multi-color options)", "$23–$31", "~2 hrs", "Launch — kingscreationsusa bestseller, 20+ color options"],
-                    ["SKU-007", "Single-arrow quiver (target/3D shoots)", "$15–$25", "~45 min", "Month 2 — TrustyArrowLLC has 387 sales, 5.0\u2605 rating"],
-                    ["SKU-008", "Peep sight housing (custom sizes)", "$11–$20", "~30 min", "Month 2 — Specialty Archery charges $11-$38 for injection-molded versions"],
-                    ["SKU-009", "Cable slide / string stop bracket", "$10–$15", "~30 min", "Month 2 — small, fast to print, high-margin accessory"],
-                    ["SKU-010", "Custom bow grip (per-model fit)", "$35–$60", "~3 hrs", "Month 3 — requires bow-specific measurements, premium pricing justified"],
+                    ["SKU-001", "Mathews limb legs / bow stand", "$24–$35", "~1.5 hrs", "**Launch - #1 selling 3D-printed archery product on Etsy (4,700+ reviews)**"],
+                    ["SKU-002", "Hoyt limb legs / bow stand", "$24–$35", "~1.5 hrs", "**Launch - Mathews offers stock legs, Hoyt doesn\u2019t = massive gap**"],
+                    ["SKU-003", "Headrest bow hanger (vehicle mount)", "$16–$24", "~2 hrs", "**Launch - BowBuddyOfficial sold 6,500+ units of this exact product**"],
+                    ["SKU-004", "Scope housing / aiming ring (target archery)", "$33–$55", "~1 hr", "**Launch - Berry Tech Products proven niche on eBay**"],
+                    ["SKU-005", "Stabilizer holster / release holder", "$16–$25", "~1 hr", "Launch - 3DHuntingSolutions has 271 reviews in this category"],
+                    ["SKU-006", "Bow wall mount (multi-color options)", "$23–$31", "~2 hrs", "Launch - kingscreationsusa bestseller, 20+ color options"],
+                    ["SKU-007", "Single-arrow quiver (target/3D shoots)", "$15–$25", "~45 min", "Month 2 - TrustyArrowLLC has 387 sales, 5.0\u2605 rating"],
+                    ["SKU-008", "Peep sight housing (custom sizes)", "$11–$20", "~30 min", "Month 2 - Specialty Archery charges $11-$38 for injection-molded versions"],
+                    ["SKU-009", "Cable slide / string stop bracket", "$10–$15", "~30 min", "Month 2 - small, fast to print, high-margin accessory"],
+                    ["SKU-010", "Custom bow grip (per-model fit)", "$35–$60", "~3 hrs", "Month 3 - requires bow-specific measurements, premium pricing justified"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]">SKUs 1-6 should be live at launch. Every product here has proven demand — existing sellers have validated the category with thousands of sales. Owen&apos;s edge: carbon fiber PETG and NylonX materials where competitors use PLA/ASA, model-specific fits, and a branded site vs. Etsy listings. Photograph each part on the actual bow model it fits.</p>
+                <p className="mt-3 text-sm text-[#948f8a]">SKUs 1-6 should be live at launch. Every product here has proven demand - existing sellers have validated the category with thousands of sales. Owen&apos;s edge: carbon fiber PETG and NylonX materials where competitors use PLA/ASA, model-specific fits, and a branded site vs. Etsy listings. Photograph each part on the actual bow model it fits.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
               <Card title="Go-to-Market">
                 <Bullet><strong className="text-white">Seed audience:</strong> Owen&apos;s dad&apos;s archery network. Word of mouth from people who&apos;ve seen the prototype. Target: 10-20 initial orders from warm contacts.</Bullet>
-                <Bullet><strong className="text-white">Online communities:</strong> Reddit archery subs (r/archery 180K+, r/bowhunting), ArcheryTalk forums (largest archery forum), archery Facebook BST groups (Traditional Archery Society 80K+ members, Archery Equipment Buy Sale And Trade 30K+ members). Note: Facebook Marketplace auto-removes archery listings — use groups and direct site links instead. <strong className="text-white">Share the product, get honest feedback, iterate.</strong> Do NOT sell — contribute first, link to site in profile.</Bullet>
+                <Bullet><strong className="text-white">Online communities:</strong> Reddit archery subs (r/archery 180K+, r/bowhunting), ArcheryTalk forums (largest archery forum), archery Facebook BST groups (Traditional Archery Society 80K+ members, Archery Equipment Buy Sale And Trade 30K+ members). Note: Facebook Marketplace auto-removes archery listings - use groups and direct site links instead. <strong className="text-white">Share the product, get honest feedback, iterate.</strong> Do NOT sell - contribute first, link to site in profile.</Bullet>
                 <Bullet><strong className="text-white">Content:</strong> Short-form video of the printing process (satisfying time-lapses), side-by-side performance tests vs. traditional parts, durability demos (drop tests, flex tests). Archery YouTube is underserved and has a dedicated audience.</Bullet>
                 <Bullet><strong className="text-white">Paid ads:</strong> Once 10-20 organic sales confirm demand, launch Meta ads at $500-$1,000/month targeting archery interests.</Bullet>
-                <Bullet><strong className="text-white">Etsy as a launch channel:</strong> List on Etsy alongside the custom site. The top 3D-printed archery seller on Etsy has 18,300 sales. Use Etsy for discovery, the branded site for retention and repeat purchases. Etsy fees are ~6.5% + $0.20/listing — worth it for the built-in traffic.</Bullet>
-                <Bullet><strong className="text-white">Pro shop pathway:</strong> Lancaster Archery Supply — the largest US online archery retailer (82K+ products) — already carries 3D-printed accessories from SRP 3D Customs, RamRods Archery, and Gillo. The ATA Show (January, annually) is where Lancaster discovers new brands. Target: have a proven catalog and social presence before ATA Show 2027.</Bullet>
-                <p className="mt-3"><strong className="text-white">Break-even CAC at $50 ASP with 90% margin = $45.</strong> That means Owen can spend up to $45 to acquire a customer and still profit. In practice, aim for $8-$15 CAC — at those numbers, $500/month in ads should generate 33-62 new customers.</p>
+                <Bullet><strong className="text-white">Etsy as a launch channel:</strong> List on Etsy alongside the custom site. The top 3D-printed archery seller on Etsy has 18,300 sales. Use Etsy for discovery, the branded site for retention and repeat purchases. Etsy fees are ~6.5% + $0.20/listing - worth it for the built-in traffic.</Bullet>
+                <Bullet><strong className="text-white">Pro shop pathway:</strong> Lancaster Archery Supply - the largest US online archery retailer (82K+ products) - already carries 3D-printed accessories from SRP 3D Customs, RamRods Archery, and Gillo. The ATA Show (January, annually) is where Lancaster discovers new brands. Target: have a proven catalog and social presence before ATA Show 2027.</Bullet>
+                <p className="mt-3"><strong className="text-white">Break-even CAC at $50 ASP with 90% margin = $45.</strong> That means Owen can spend up to $45 to acquire a customer and still profit. In practice, aim for $8-$15 CAC - at those numbers, $500/month in ads should generate 33-62 new customers.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <AlertBox type="warning" title="Safety & Liability — Take This Seriously">
-                Archery equipment can cause serious injury if it fails. Owen must: (1) print with appropriate engineering-grade materials (no PLA for load-bearing parts), (2) test every design under stress beyond normal use conditions, (3) include clear disclaimers on the site and in packaging (&quot;Use at your own risk, inspect before each use&quot;), (4) consider product liability insurance ($2,500-$8,000/year through a specialty sporting goods broker like Veracity Insurance Solutions), and (5) never make performance claims he hasn&apos;t personally verified. This isn&apos;t optional — one failure and the brand is dead.
+              <AlertBox type="warning" title="Safety & Liability - Take This Seriously">
+                Archery equipment can cause serious injury if it fails. Owen must: (1) print with appropriate engineering-grade materials (no PLA for load-bearing parts), (2) test every design under stress beyond normal use conditions, (3) include clear disclaimers on the site and in packaging (&quot;Use at your own risk, inspect before each use&quot;), (4) consider product liability insurance ($2,500-$8,000/year through a specialty sporting goods broker like Veracity Insurance Solutions), and (5) never make performance claims he hasn&apos;t personally verified. This isn&apos;t optional - one failure and the brand is dead.
               </AlertBox>
             </FadeIn>
 
             <FadeIn>
               <AlertBox type="info" title="Brand Name Needed">
-                The archery business needs its own brand identity — name, domain, and visual style. This is separate from the watch brand. We&apos;ll brainstorm with Owen. Should feel technical, precision-oriented, and premium — not hobby-grade.
+                The archery business needs its own brand identity - name, domain, and visual style. This is separate from the watch brand. We&apos;ll brainstorm with Owen. Should feel technical, precision-oriented, and premium - not hobby-grade.
               </AlertBox>
             </FadeIn>
           </div>
@@ -865,22 +865,22 @@ export default function OwenPlaybook() {
                   accent
                   rows={[
                     ["Monthly platform fee", "$39/mo", "$0"],
-                    ["Payment processing", "2.9% + $0.30 (Shopify Payments)", "2.9% + $0.30 (Stripe) — same rate"],
-                    ["Third-party payment fee", "+2% if not using Shopify Payments", "$0 — use any processor"],
+                    ["Payment processing", "2.9% + $0.30 (Shopify Payments)", "2.9% + $0.30 (Stripe) - same rate"],
+                    ["Third-party payment fee", "+2% if not using Shopify Payments", "$0 - use any processor"],
                     ["Watch configurator", "$30-$105/mo plugin", "**Built-in, custom to Owen's needs**"],
                     ["Email marketing", "$20-$45/mo plugin", "**Built-in or free tier tools**"],
-                    ["Admin dashboard", "Limited to Shopify admin", "**Custom portal — orders, inventory, analytics**"],
+                    ["Admin dashboard", "Limited to Shopify admin", "**Custom portal - orders, inventory, analytics**"],
                     ["A/B testing", "$50+/mo plugin", "**Built-in**"],
                     ["Session recording", "$30+/mo plugin", "**Built-in (rrweb)**"],
                     ["Custom features", "Limited by plugin ecosystem", "**Anything Owen wants**"],
-                    ["Can Owen modify it?", "Liquid templates (limited)", "**Yes — Claude Code can adjust anything**"],
-                    ["Vendor lock-in", "Yes — migrating off Shopify is painful", "**No — Owen owns everything**"],
+                    ["Can Owen modify it?", "Liquid templates (limited)", "**Yes - Claude Code can adjust anything**"],
+                    ["Vendor lock-in", "Yes - migrating off Shopify is painful", "**No - Owen owns everything**"],
                     ["Est. monthly cost", "$120-$300/mo in plugins alone", "**~$0-$20/mo (Vercel free tier + Supabase free tier)**"],
                   ]}
                 />
                 <p className="mt-4 text-sm text-[#948f8a]"><strong className="text-white">Bottom line:</strong> Shopify&apos;s value is &quot;easy setup without a developer.&quot; Owen has a developer building for free. Custom wins on cost, flexibility, and long-term ownership.</p>
                 <AlertBox type="warning" title="Tradeoff: Custom Requires Developer Access">
-                  The custom approach requires ongoing developer access for changes beyond basic content updates. If Zapp Studios&apos; engagement ends, Owen would need a developer for modifications (~$50-100/hr). Shopify&apos;s advantage is self-serve editing. <strong className="text-white">Mitigation:</strong> Owen owns all code, domains, and accounts. The sites run on Vercel/Supabase free tiers independently. For basic modifications, Owen can use Claude Code directly — it can read, understand, and modify the codebase without a human developer.
+                  The custom approach requires ongoing developer access for changes beyond basic content updates. If Zapp Studios&apos; engagement ends, Owen would need a developer for modifications (~$50-100/hr). Shopify&apos;s advantage is self-serve editing. <strong className="text-white">Mitigation:</strong> Owen owns all code, domains, and accounts. The sites run on Vercel/Supabase free tiers independently. For basic modifications, Owen can use Claude Code directly - it can read, understand, and modify the codebase without a human developer.
                 </AlertBox>
               </Card>
             </FadeIn>
@@ -901,12 +901,12 @@ export default function OwenPlaybook() {
                     ["**Total infrastructure**", "", "**~$0-$20/mo + Stripe fees**"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]">This is the same stack powering Royal Pawz (another Zapp Studios project) — a full-featured platform with admin portal, A/B testing, session recording, order management, and Stripe integration. Proven architecture.</p>
+                <p className="mt-3 text-sm text-[#948f8a]">This is the same stack powering Royal Pawz (another Zapp Studios project) - a full-featured platform with admin portal, A/B testing, session recording, order management, and Stripe integration. Proven architecture.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="System Architecture — How Everything Connects">
+              <Card title="System Architecture - How Everything Connects">
                 <p className="mb-4">Every piece of the stack connects to every other. Here&apos;s the data flow from customer visit to fulfilled order:</p>
 
                 <div className="bg-[#0e0e1a] rounded-xl p-5 sm:p-6 overflow-x-auto">
@@ -1033,7 +1033,7 @@ export default function OwenPlaybook() {
                         "Admin portal: orders, fulfillment tracking",
                         "Product reviews",
                         "A/B testing + session recording",
-                        "Simpler build — can be live in days",
+                        "Simpler build - can be live in days",
                       ].map((f, i) => (
                         <div key={i} className="flex gap-2 text-sm text-[#b0aca7]"><Check size={14} className="text-[#34d399] flex-shrink-0 mt-0.5" /><span>{f}</span></div>
                       ))}
@@ -1044,7 +1044,7 @@ export default function OwenPlaybook() {
             </FadeIn>
 
             <FadeIn>
-              <Card title="What It'll Look Like — Page Wireframes" defaultOpen={false}>
+              <Card title="What It'll Look Like - Page Wireframes" defaultOpen={false}>
                 <p className="mb-4">These are rough wireframes showing the key pages. Design will be refined during build, but this sets expectations for layout and functionality.</p>
                 <div className="space-y-5">
                   <div className="bg-[#0e0e1a] rounded-xl p-5 border border-[#5b8def]/20">
@@ -1085,7 +1085,7 @@ export default function OwenPlaybook() {
                     </div>
                   </div>
                   <div className="bg-[#0e0e1a] rounded-xl p-5 border border-white/[0.1]">
-                    <div className="text-sm font-bold text-white mb-3">Admin Portal — Order Dashboard</div>
+                    <div className="text-sm font-bold text-white mb-3">Admin Portal - Order Dashboard</div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2 text-sm text-[#b0aca7]">
                         <div className="text-xs text-[#8a8580] uppercase tracking-wider">Top Bar</div>
@@ -1119,16 +1119,16 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Facebook Messenger Integration">
-                <p className="mb-3">Owen&apos;s existing customers find him on Facebook Marketplace. We don&apos;t want to kill that channel — we want to funnel it into the new system.</p>
+                <p className="mb-3">Owen&apos;s existing customers find him on Facebook Marketplace. We don&apos;t want to kill that channel - we want to funnel it into the new system.</p>
 
                 <AlertBox type="warning" title="Critical Limitation: ManyChat Can't Automate Personal Marketplace Messages">
-                  ManyChat (and every competitor — Chatfuel, Tidio, Respond.io) <strong className="text-white">cannot automate messages on personal Facebook profiles</strong>. Meta&apos;s Messenger API only grants automation access to Business Page conversations. This is confirmed by ManyChat&apos;s own team. The workaround is structural:
+                  ManyChat (and every competitor - Chatfuel, Tidio, Respond.io) <strong className="text-white">cannot automate messages on personal Facebook profiles</strong>. Meta&apos;s Messenger API only grants automation access to Business Page conversations. This is confirmed by ManyChat&apos;s own team. The workaround is structural:
                 </AlertBox>
 
-                <NumberedStep n={1} title="List through a Business Page, not personal profile">Marketplace listings created through a connected Facebook Business Page route inquiries through the Page&apos;s Messenger inbox — which ManyChat <em>can</em> automate. This is the single most important operational change.</NumberedStep>
-                <NumberedStep n={2} title="Auto-qualify and route to site">ManyChat responds in &lt;60 seconds, asks 2-3 qualifying questions (style, budget, timeline), captures email/phone, then sends a direct link to the relevant product page. The critical moment: <strong className="text-white">capture email before sending the link</strong> — &quot;I&apos;ll send you detailed specs and build photos — what&apos;s the best email?&quot;</NumberedStep>
+                <NumberedStep n={1} title="List through a Business Page, not personal profile">Marketplace listings created through a connected Facebook Business Page route inquiries through the Page&apos;s Messenger inbox - which ManyChat <em>can</em> automate. This is the single most important operational change.</NumberedStep>
+                <NumberedStep n={2} title="Auto-qualify and route to site">ManyChat responds in &lt;60 seconds, asks 2-3 qualifying questions (style, budget, timeline), captures email/phone, then sends a direct link to the relevant product page. The critical moment: <strong className="text-white">capture email before sending the link</strong> - &quot;I&apos;ll send you detailed specs and build photos - what&apos;s the best email?&quot;</NumberedStep>
                 <NumberedStep n={3} title="Sync to admin portal">ManyChat feeds lead data into the admin portal via webhook. Every inquiry is logged with customer name, watch interest, and pipeline stage. No more lost conversations.</NumberedStep>
-                <NumberedStep n={4} title="Automated follow-ups">If a lead doesn&apos;t buy within 24 hours, automated email sequence fires (see Growth Playbook). After 24 hours, Facebook&apos;s messaging rules prevent promotional messages — so the email capture in step 2 is essential.</NumberedStep>
+                <NumberedStep n={4} title="Automated follow-ups">If a lead doesn&apos;t buy within 24 hours, automated email sequence fires (see Growth Playbook). After 24 hours, Facebook&apos;s messaging rules prevent promotional messages - so the email capture in step 2 is essential.</NumberedStep>
 
                 <div className="mt-4 p-4 rounded-lg bg-[#1c1c2e] text-sm">
                   <div className="text-xs font-semibold text-[#5b8def] mb-2 tracking-widest">MANYCHAT COST BREAKDOWN</div>
@@ -1137,21 +1137,21 @@ export default function OwenPlaybook() {
                     <div className="flex justify-between"><span>AI add-on (auto-responds to any question using site context)</span><span className="text-white font-medium">$29/mo</span></div>
                     <div className="flex justify-between border-t border-[#302d2a] pt-1.5"><span className="text-white font-medium">Total</span><span className="text-white font-medium">$44/mo</span></div>
                   </div>
-                  <p className="mt-2 text-[#8a8580]">Less than the profit from one watch sale. The AI add-on trains on Owen&apos;s site content and answers pricing, customization, shipping, and warranty questions automatically — handling the 5 most common inquiry types without Owen touching his phone.</p>
+                  <p className="mt-2 text-[#8a8580]">Less than the profit from one watch sale. The AI add-on trains on Owen&apos;s site content and answers pricing, customization, shipping, and warranty questions automatically - handling the 5 most common inquiry types without Owen touching his phone.</p>
                 </div>
 
-                <p className="text-sm text-[#948f8a] mt-4">Over time, the site becomes the primary sales channel and Facebook becomes the marketing/discovery channel. But we don&apos;t force the transition — we let it happen naturally as the site proves itself.</p>
+                <p className="text-sm text-[#948f8a] mt-4">Over time, the site becomes the primary sales channel and Facebook becomes the marketing/discovery channel. But we don&apos;t force the transition - we let it happen naturally as the site proves itself.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Setup Guides — Step by Step" defaultOpen={false}>
-                <p className="mb-4">Reference guides for setting up every tool in the stack. Hamza handles the technical integration — these checklists ensure nothing gets missed.</p>
+              <Card title="Setup Guides - Step by Step" defaultOpen={false}>
+                <p className="mb-4">Reference guides for setting up every tool in the stack. Hamza handles the technical integration - these checklists ensure nothing gets missed.</p>
 
                 <div className="text-xs font-semibold text-[#5b8def] mb-3 mt-2 tracking-widest">1. MANYCHAT SETUP</div>
                 <NumberedStep n={1} title="Create Facebook Business Page">If Owen doesn&apos;t have one, create it now. This is the prerequisite for all Messenger automation. Name it after the watch brand (TBD).</NumberedStep>
                 <NumberedStep n={2} title="Sign up for ManyChat Pro ($15/mo)">Connect the Business Page. ManyChat needs Page admin access to read and respond to messages.</NumberedStep>
-                <NumberedStep n={3} title="Enable AI Add-on ($29/mo)">Train ManyChat AI on the watch site URL once it&apos;s live. It auto-answers pricing, customization, shipping, and warranty questions — the 5 most common inquiry types.</NumberedStep>
+                <NumberedStep n={3} title="Enable AI Add-on ($29/mo)">Train ManyChat AI on the watch site URL once it&apos;s live. It auto-answers pricing, customization, shipping, and warranty questions - the 5 most common inquiry types.</NumberedStep>
                 <NumberedStep n={4} title="Build the Qualification Flow">Copy the script from the Growth Playbook section below into ManyChat&apos;s flow builder. Set up Quick Reply buttons, custom fields for email capture, and the webhook trigger.</NumberedStep>
                 <NumberedStep n={5} title="Test with a Friend">Have someone message the Business Page and go through the full flow. Verify: auto-response fires in &lt;60 seconds, email is captured, webhook hits the admin portal.</NumberedStep>
                 <NumberedStep n={6} title="Switch Marketplace Listings">Re-list items through the Business Page instead of Owen&apos;s personal profile. This is the critical operational change that enables automation.</NumberedStep>
@@ -1166,7 +1166,7 @@ export default function OwenPlaybook() {
                 <div className="text-xs font-semibold text-[#5b8def] mb-3 mt-6 tracking-widest">3. STRIPE INTEGRATION</div>
                 <NumberedStep n={1} title="Create Stripe Account">stripe.com → Sign up. Complete identity verification (takes 1-2 business days). Funds deposit to Owen&apos;s business bank account.</NumberedStep>
                 <NumberedStep n={2} title="Connect to Site">Hamza integrates Stripe Checkout via API. Products and prices are managed in the admin portal, not in Stripe&apos;s dashboard.</NumberedStep>
-                <NumberedStep n={3} title="Set Up Webhooks">Stripe sends a webhook to the site on every successful payment. This auto-creates the order in the admin portal — no manual entry.</NumberedStep>
+                <NumberedStep n={3} title="Set Up Webhooks">Stripe sends a webhook to the site on every successful payment. This auto-creates the order in the admin portal - no manual entry.</NumberedStep>
                 <NumberedStep n={4} title="Test Purchase">Run a $1 test transaction with Stripe&apos;s test mode. Verify: payment succeeds, webhook fires, order appears in admin, confirmation email sends.</NumberedStep>
 
                 <div className="text-xs font-semibold text-[#5b8def] mb-3 mt-6 tracking-widest">4. RESEND EMAIL SETUP</div>
@@ -1189,7 +1189,7 @@ export default function OwenPlaybook() {
                     ["Meta Pixel + CAPI", "$0", "Tracks site visitors for ad targeting and conversion measurement", "~1 hour (Hamza)"],
                     ["Stripe", "2.9% + $0.30/tx", "Processes payments, creates orders via webhook", "~1 hour (Hamza)"],
                     ["Resend", "$0 (free tier)", "Sends automated email flows (welcome, cart, post-purchase)", "~2 hours"],
-                    ["Make.com", "$0–$9/mo", "Connects tools via webhooks — Stripe→Sheets, ManyChat→CRM", "~2 hours"],
+                    ["Make.com", "$0–$9/mo", "Connects tools via webhooks - Stripe→Sheets, ManyChat→CRM", "~2 hours"],
                     ["**Total**", "**$44–$53/mo + Stripe fees**", "**Full automation stack**", "**~8 hours total setup**"],
                   ]}
                 />
@@ -1214,7 +1214,7 @@ export default function OwenPlaybook() {
                   <div><strong className="text-white">Month 6</strong> (~$9,000 net / 50 hrs/wk): <strong className="text-white">~$42/hr</strong></div>
                   <div><strong className="text-white">C8 Target</strong> (~$10,500 net / 50 hrs/wk): <strong className="text-white">~$49/hr</strong></div>
                 </div>
-                <p className="mt-2 text-sm">For context, the US median hourly wage is ~$30/hr. At C8 volumes, Owen is earning $49/hr doing work he enjoys — and the rate improves as archery scales, since print time is mostly unattended.</p>
+                <p className="mt-2 text-sm">For context, the US median hourly wage is ~$30/hr. At C8 volumes, Owen is earning $49/hr doing work he enjoys - and the rate improves as archery scales, since print time is mostly unattended.</p>
               </AlertBox>
 
               <div className="mt-8 bg-[#161625] rounded-xl border border-white/[0.08] p-5 sm:p-6">
@@ -1224,7 +1224,7 @@ export default function OwenPlaybook() {
                   <Bullet>Owen&apos;s labor time is not costed (he&apos;s the owner, not an employee)</Bullet>
                   <Bullet>Shipping costs passed to customer (not in COGS)</Bullet>
                   <Bullet>No hiring costs included (Phase 4+ consideration)</Bullet>
-                  <Bullet><strong className="text-[#fb7185]">LTV is assumed, not derived</strong> — Watch: 1.2x, Archery: 2.0x. These are estimates based on DTC category averages, not Owen&apos;s actual data. <strong className="text-white">This is the #1 metric to validate by Month 3.</strong> If real LTV is below 1.1x for watches or 1.5x for archery, the unit economics need recalculation.</Bullet>
+                  <Bullet><strong className="text-[#fb7185]">LTV is assumed, not derived</strong> - Watch: 1.2x, Archery: 2.0x. These are estimates based on DTC category averages, not Owen&apos;s actual data. <strong className="text-white">This is the #1 metric to validate by Month 3.</strong> If real LTV is below 1.1x for watches or 1.5x for archery, the unit economics need recalculation.</Bullet>
                 </div>
                 <div className="mt-4 pt-4 border-t border-[#222] text-xs text-[#6b6762]">
                   Sources: Varos Watches vertical benchmarks (median CPM $9.20, CTR 1.67%, CPC $0.64, ROAS 3.34x)<SourceTag source="Varos Watches, Feb-Apr 2025" />. DTC watch brand benchmarks (Original Grain allocates 95% of ad budget to Meta at ~$360 ASP<SourceTag source="DTC Case Study" />). Q4 inflates CAC by 30-40% due to holiday competition. Q1 is the cheapest advertising quarter.
@@ -1232,7 +1232,7 @@ export default function OwenPlaybook() {
               </div>
 
               <div className="mt-8 bg-[#161625] rounded-xl border border-[#fb7185]/20 p-5 sm:p-6">
-                <div className="text-xs font-semibold text-[#fb7185] mb-4 tracking-widest">SENSITIVITY MATRIX — WHAT BREAKS WHEN?</div>
+                <div className="text-xs font-semibold text-[#fb7185] mb-4 tracking-widest">SENSITIVITY MATRIX - WHAT BREAKS WHEN?</div>
                 <p className="text-sm text-[#948f8a] mb-4">For each key variable, this shows the tipping point where the business breaks even and where the C8 goal ($68K annual net) becomes impossible.</p>
                 <div className="space-y-3">
                   {[
@@ -1240,7 +1240,7 @@ export default function OwenPlaybook() {
                     { variable: "Watch COGS %", current: "38%", breakEven: "55%", c8Below: "48%", note: "Above 48%, C8 requires unrealistic archery volume" },
                     { variable: "Archery volume (parts/mo)", current: "100 (Month 6)", breakEven: "25", c8Below: "60", note: "Below 25, archery doesn't justify operational overhead" },
                     { variable: "Archery ASP", current: "$55", breakEven: "$20", c8Below: "$35", note: "Below $35, CAC of $10-20 eats too much margin" },
-                    { variable: "Monthly ad spend", current: "$2,000", breakEven: "$0 (organic only)", c8Below: "n/a", note: "Ads are additive — Owen can hit $40K+ organic only, not $68K" },
+                    { variable: "Monthly ad spend", current: "$2,000", breakEven: "$0 (organic only)", c8Below: "n/a", note: "Ads are additive - Owen can hit $40K+ organic only, not $68K" },
                     { variable: "Ad ROAS", current: "3.5x (realistic)", breakEven: "1.6x", c8Below: "2.5x", note: "Below 2.5x, C8 requires cutting ad spend and growing organic" },
                     { variable: "Paid CAC (archery)", current: "$8–$15", breakEven: "$45", c8Below: "$20", note: "Above $20, archery ad spend becomes inefficient" },
                   ].map((row, i) => (
@@ -1273,15 +1273,15 @@ export default function OwenPlaybook() {
 
         {/* ═══ GROWTH PLAYBOOK ═══ */}
         <section id="growth" className="px-5 sm:px-10 lg:px-16 py-16 border-b border-white/[0.06] scroll-mt-16 lg:scroll-mt-0">
-          <FadeIn><SectionHeader icon={TrendingUp} label="Section 6" title="Growth Playbook — Ads, Content & Email" /></FadeIn>
+          <FadeIn><SectionHeader icon={TrendingUp} label="Section 6" title="Growth Playbook - Ads, Content & Email" /></FadeIn>
           <div className="max-w-3xl space-y-4">
 
             <FadeIn>
               <Card title="The Customer Journey: From Discovery to Review">
-                <p className="mb-4">This is the full pipeline across both businesses. Every step is measurable and optimizable — the funnel below shows how 10,000 impressions convert to paying customers through six automated stages.</p>
+                <p className="mb-4">This is the full pipeline across both businesses. Every step is measurable and optimizable - the funnel below shows how 10,000 impressions convert to paying customers through six automated stages.</p>
                 <CustomerFunnel />
                 <div className="mt-4 p-4 rounded-lg bg-[#1c1c2e] text-xs text-[#8a8580] leading-relaxed">
-                  <strong className="text-[#b0aca7]">Conversion rate sources:</strong> E-commerce visitor-to-purchase rate: 0.9-3.0% depending on category (Dynamic Yield/Mastercard XP², 2024-2025). Luxury & Jewelry: 0.9% (Dynamic Yield). Chat inquiry rate: 2-4% of visitors (LiveChat 2024, Tidio 2026). Cart abandonment for luxury: 80-83% (Dynamic Yield). Abandoned cart email recovery: 3.33% per recipient, 10-15% of carts overall (Klaviyo, 143K+ flows). Review request response: 5-15% (Fera.ai, 2M+ requests; Jewelry specifically: 18%). The funnel numbers above are illustrative targets — validate with real data after 30 days of traffic.
+                  <strong className="text-[#b0aca7]">Conversion rate sources:</strong> E-commerce visitor-to-purchase rate: 0.9-3.0% depending on category (Dynamic Yield/Mastercard XP², 2024-2025). Luxury & Jewelry: 0.9% (Dynamic Yield). Chat inquiry rate: 2-4% of visitors (LiveChat 2024, Tidio 2026). Cart abandonment for luxury: 80-83% (Dynamic Yield). Abandoned cart email recovery: 3.33% per recipient, 10-15% of carts overall (Klaviyo, 143K+ flows). Review request response: 5-15% (Fera.ai, 2M+ requests; Jewelry specifically: 18%). The funnel numbers above are illustrative targets - validate with real data after 30 days of traffic.
                 </div>
               </Card>
             </FadeIn>
@@ -1291,7 +1291,7 @@ export default function OwenPlaybook() {
                 <p className="mb-4">Every ad brief, email, and product page is written for these four people. If the content wouldn&apos;t resonate with at least one of them, it doesn&apos;t ship.</p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="p-5 rounded-xl bg-[#5b8def]/5 border border-[#5b8def]/10">
-                    <div className="text-base font-bold text-white mb-1">&quot;Jake&quot; — The EDC Collector</div>
+                    <div className="text-base font-bold text-white mb-1">&quot;Jake&quot; - The EDC Collector</div>
                     <div className="text-sm text-[#b0aca7] space-y-1">
                       <div>32, mechanical engineer. Spends hours on r/watches and r/EDC.</div>
                       <div>Wants a unique daily wear that isn&apos;t mass-produced. Values craftsmanship over brand name.</div>
@@ -1299,15 +1299,15 @@ export default function OwenPlaybook() {
                     </div>
                   </div>
                   <div className="p-5 rounded-xl bg-[#5b8def]/5 border border-[#5b8def]/10">
-                    <div className="text-base font-bold text-white mb-1">&quot;Marcus&quot; — The Gift Buyer</div>
+                    <div className="text-base font-bold text-white mb-1">&quot;Marcus&quot; - The Gift Buyer</div>
                     <div className="text-sm text-[#b0aca7] space-y-1">
                       <div>45, small business owner. Googles &quot;unique gifts for men&quot; around holidays.</div>
-                      <div>Doesn&apos;t know what a Seiko mod is — but sees the craftsmanship and 50+ reviews and trusts it.</div>
+                      <div>Doesn&apos;t know what a Seiko mod is - but sees the craftsmanship and 50+ reviews and trusts it.</div>
                       <div><strong className="text-white">Budget:</strong> $299-$549. <strong className="text-white">Finds us:</strong> Facebook Marketplace, Google.</div>
                     </div>
                   </div>
                   <div className="p-5 rounded-xl bg-[#34d399]/5 border border-[#34d399]/10">
-                    <div className="text-base font-bold text-white mb-1">&quot;Dave&quot; — The Competitive Archer</div>
+                    <div className="text-base font-bold text-white mb-1">&quot;Dave&quot; - The Competitive Archer</div>
                     <div className="text-sm text-[#b0aca7] space-y-1">
                       <div>38, IT technician. Shoots 3-4x/week, frequents ArcheryTalk forums.</div>
                       <div>Knows exactly what parts he needs and is frustrated by cheap plastic alternatives that break.</div>
@@ -1315,7 +1315,7 @@ export default function OwenPlaybook() {
                     </div>
                   </div>
                   <div className="p-5 rounded-xl bg-[#34d399]/5 border border-[#34d399]/10">
-                    <div className="text-base font-bold text-white mb-1">&quot;Tyler&quot; — The Bowhunter</div>
+                    <div className="text-base font-bold text-white mb-1">&quot;Tyler&quot; - The Bowhunter</div>
                     <div className="text-sm text-[#b0aca7] space-y-1">
                       <div>27, electrician. Follows hunting YouTube channels. Hunts fall through winter.</div>
                       <div>Skeptical of 3D printing but intrigued by carbon fiber. Needs to see field-test proof before buying.</div>
@@ -1332,7 +1332,7 @@ export default function OwenPlaybook() {
                 <Bullet><strong className="text-white">Best performing creative:</strong> UGC build process videos (15-30 sec), before/after transformations, customer review compilations. Phone-shot content outperforms polished studio content 4x<SourceTag source="Meta Creative Best Practices" />.</Bullet>
                 <Bullet><strong className="text-white">Targeting:</strong> Watch interests (Seiko, Orient, Casio, horology) + lifestyle (whiskey, leather, EDC) + engaged shoppers. After 50+ conversions, build Lookalike Audiences from the 700-customer base.</Bullet>
                 <Bullet><strong className="text-white">Organic:</strong> 4-5 Instagram posts/week, daily Stories, TikTok build videos. Content pillars: build process (40%), finished reveals (20%), BTS (15%), education (15%), social proof (10%).</Bullet>
-                <Bullet><strong className="text-white">Facebook reviews:</strong> Owen&apos;s 50+ reviews need to be everywhere — on the site, in ads, in emails. They&apos;re his most underutilized asset.</Bullet>
+                <Bullet><strong className="text-white">Facebook reviews:</strong> Owen&apos;s 50+ reviews need to be everywhere - on the site, in ads, in emails. They&apos;re his most underutilized asset.</Bullet>
               </Card>
             </FadeIn>
 
@@ -1340,9 +1340,9 @@ export default function OwenPlaybook() {
               <Card title="First-Week Ad Spend Plan: $500 Budget">
                 <p className="mb-4">When ads go live, don&apos;t spray and pray. Here&apos;s the exact allocation for the first $500:</p>
                 <div className="flex flex-wrap gap-3 mb-4">
-                  <MetricCard label="Prospecting" value="$300" sub="60% — cold audiences" color="text-[#5b8def]" />
-                  <MetricCard label="Retargeting" value="$100" sub="20% — site visitors" />
-                  <MetricCard label="Social Proof" value="$100" sub="20% — testimonial ads" color="text-[#34d399]" />
+                  <MetricCard label="Prospecting" value="$300" sub="60% - cold audiences" color="text-[#5b8def]" />
+                  <MetricCard label="Retargeting" value="$100" sub="20% - site visitors" />
+                  <MetricCard label="Social Proof" value="$100" sub="20% - testimonial ads" color="text-[#34d399]" />
                 </div>
                 <DataTable
                   headers={["Campaign", "Daily Budget", "Audience", "Creative", "Objective"]}
@@ -1356,20 +1356,20 @@ export default function OwenPlaybook() {
                   <div className="text-xs font-semibold text-white mb-3">Prospecting Ad Set Breakdown</div>
                   <div className="grid sm:grid-cols-3 gap-3 mb-4">
                     <div className="p-3 rounded-lg bg-[#1c1c2e] text-sm">
-                      <div className="text-[#5b8def] font-semibold mb-1">Ad Set A — $15/day</div>
+                      <div className="text-[#5b8def] font-semibold mb-1">Ad Set A - $15/day</div>
                       <div className="text-[#b0aca7]">Watch interests (Seiko, Orient, mechanical watches, horology)</div>
                     </div>
                     <div className="p-3 rounded-lg bg-[#1c1c2e] text-sm">
-                      <div className="text-[#5b8def] font-semibold mb-1">Ad Set B — $15/day</div>
+                      <div className="text-[#5b8def] font-semibold mb-1">Ad Set B - $15/day</div>
                       <div className="text-[#b0aca7]">Lifestyle interests (EDC, whiskey, leather, men&apos;s fashion)</div>
                     </div>
                     <div className="p-3 rounded-lg bg-[#1c1c2e] text-sm">
-                      <div className="text-[#5b8def] font-semibold mb-1">Ad Set C — $13/day</div>
-                      <div className="text-[#b0aca7]">Archery interests (if archery site is live — bowhunting, target archery)</div>
+                      <div className="text-[#5b8def] font-semibold mb-1">Ad Set C - $13/day</div>
+                      <div className="text-[#b0aca7]">Archery interests (if archery site is live - bowhunting, target archery)</div>
                     </div>
                   </div>
                 </div>
-                <AlertBox type="warning" title="Kill Rules — Non-Negotiable">
+                <AlertBox type="warning" title="Kill Rules - Non-Negotiable">
                   <div className="space-y-2">
                     <Bullet><strong className="text-white">CTR &lt; 0.8% after $30 spent</strong> on any creative → kill that creative, swap in a new one</Bullet>
                     <Bullet><strong className="text-white">CPM &gt; $18</strong> → audience is too narrow, broaden targeting</Bullet>
@@ -1382,17 +1382,17 @@ export default function OwenPlaybook() {
             </FadeIn>
 
             <FadeIn>
-              <Card title="ManyChat Qualification Flow — The Actual Script" defaultOpen={false}>
+              <Card title="ManyChat Qualification Flow - The Actual Script" defaultOpen={false}>
                 <p className="mb-4">This is the conversation that fires when someone messages the Business Page about a watch. Copy-paste into ManyChat:</p>
                 <div className="space-y-3">
                   {[
                     { sender: "BOT", msg: "Hey! 👋 Thanks for reaching out about our watches. I can help you find the right one. Are you looking for:", type: "Quick Replies: \"Ready-to-ship watch ($299)\" | \"Custom build ($549+)\" | \"Just browsing\"" },
                     { sender: "USER", msg: "[Selects option]", type: "" },
                     { sender: "BOT (if Stock)", msg: "Great choice! Here are our most popular ready-to-ship designs: [Gallery of 5-6 stock watches with prices]. Any of these catch your eye? Or I can show you the full collection on our site.", type: "Quick Replies: \"Show me the full collection\" | \"Tell me more about [specific watch]\" | \"Actually, I want something custom\"" },
-                    { sender: "BOT (if Custom)", msg: "Love it — custom builds are where it gets fun. To help Owen design your perfect watch, I have a couple quick questions:", type: "" },
+                    { sender: "BOT (if Custom)", msg: "Love it - custom builds are where it gets fun. To help Owen design your perfect watch, I have a couple quick questions:", type: "" },
                     { sender: "BOT", msg: "What style are you drawn to?", type: "Quick Replies: \"Diver / Submariner\" | \"Dress / Datejust\" | \"Sport / Nautilus\" | \"Not sure yet\"" },
                     { sender: "BOT", msg: "And what's your budget range?", type: "Quick Replies: \"$549-$649\" | \"$650-$799\" | \"$800+ (full bespoke)\"" },
-                    { sender: "BOT", msg: "Perfect. Last thing — what's the best email to send you build options and a detailed quote? Owen will personally follow up within 24 hours.", type: "Free text input → saves to custom field \"Email\"" },
+                    { sender: "BOT", msg: "Perfect. Last thing - what's the best email to send you build options and a detailed quote? Owen will personally follow up within 24 hours.", type: "Free text input → saves to custom field \"Email\"" },
                     { sender: "BOT (after email capture)", msg: "You're all set! ✅ Owen will reach out soon with design options. In the meantime, try our watch configurator to start designing: [link to configurator]. Talk soon!", type: "Triggers: Webhook to admin portal, adds to email list, starts New Lead email sequence" },
                   ].map((step, i) => (
                     <div key={i} className={`p-4 rounded-lg ${step.sender.startsWith("BOT") ? "bg-[#5b8def]/5 border-l-4 border-l-[#5b8def]" : "bg-[#1c1c2e] border-l-4 border-l-[#666]"}`}>
@@ -1412,7 +1412,7 @@ export default function OwenPlaybook() {
                 <Bullet><strong className="text-white">Seed launch:</strong> Owen&apos;s dad&apos;s network + archery community posts (Reddit, ArcheryTalk, Facebook Groups). Share the product, get honest feedback, iterate.</Bullet>
                 <Bullet><strong className="text-white">Content that works for archery:</strong> Printing process videos (satisfying to watch), side-by-side performance tests vs traditional parts, durability demos, customer field-test footage.</Bullet>
                 <Bullet><strong className="text-white">Paid ads:</strong> Once 10-20 organic sales confirm demand, launch Meta ads at $500-$1,000/month targeting archery interests. At 97%+ margins, almost any CAC under $20 is wildly profitable for a $50+ avg order.</Bullet>
-                <Bullet><strong className="text-white">YouTube:</strong> Archery YouTube is big. A channel showing the design/print process and field testing builds authority fast. Long-form content creates trust that short-form can&apos;t. Key targets: NUSensei (~160K subs, has already covered 3D-printed archery gear), Nock On Archery (John Dudley, ~211K subs), Average Jack Archery (~66K subs). Send free products for honest review — one positive video from these channels is worth months of paid ads.</Bullet>
+                <Bullet><strong className="text-white">YouTube:</strong> Archery YouTube is big. A channel showing the design/print process and field testing builds authority fast. Long-form content creates trust that short-form can&apos;t. Key targets: NUSensei (~160K subs, has already covered 3D-printed archery gear), Nock On Archery (John Dudley, ~211K subs), Average Jack Archery (~66K subs). Send free products for honest review - one positive video from these channels is worth months of paid ads.</Bullet>
               </Card>
             </FadeIn>
 
@@ -1422,39 +1422,39 @@ export default function OwenPlaybook() {
                 <div className="space-y-4">
                   {[
                     {
-                      num: "01", title: "The Print Process (Time-Lapse)", type: "15-30 sec Reel/TikTok", priority: "HIGH — Film this week",
+                      num: "01", title: "The Print Process (Time-Lapse)", type: "15-30 sec Reel/TikTok", priority: "HIGH - Film this week",
                       hook: "\"Watch a $45 arrow rest come to life in 60 seconds\"",
-                      visual: "Phone on tripod pointing at the 3D printer bed. Time-lapse of the full print — from first layer to finished part. Show Owen pulling it off the bed, trimming support material, and test-fitting on a bow.",
-                      cta: "\"Shop the full catalog\" — link to archery site",
+                      visual: "Phone on tripod pointing at the 3D printer bed. Time-lapse of the full print - from first layer to finished part. Show Owen pulling it off the bed, trimming support material, and test-fitting on a bow.",
+                      cta: "\"Shop the full catalog\" - link to archery site",
                       why: "Manufacturing process content is inherently satisfying and gets shared. 3D printing time-lapses perform exceptionally well on TikTok (millions of views on #3Dprinting)."
                     },
                     {
-                      num: "02", title: "Strength Test: Carbon Fiber vs PLA", type: "15-20 sec Reel/TikTok", priority: "HIGH — Film this week",
+                      num: "02", title: "Strength Test: Carbon Fiber vs PLA", type: "15-20 sec Reel/TikTok", priority: "HIGH - Film this week",
                       hook: "\"This is why material matters\"",
-                      visual: "Side-by-side: standard PLA-printed part vs Owen's carbon fiber part. Apply stress — flex test, drop test, or clamp test. PLA snaps, carbon fiber holds. Dramatic, visual, shareable.",
-                      cta: "\"Built for performance\" — link to product page",
-                      why: "Comparison content drives comments and debate. The visual of one part snapping and the other holding is immediately convincing — no explanation needed."
+                      visual: "Side-by-side: standard PLA-printed part vs Owen's carbon fiber part. Apply stress - flex test, drop test, or clamp test. PLA snaps, carbon fiber holds. Dramatic, visual, shareable.",
+                      cta: "\"Built for performance\" - link to product page",
+                      why: "Comparison content drives comments and debate. The visual of one part snapping and the other holding is immediately convincing - no explanation needed."
                     },
                     {
-                      num: "03", title: "Field Test — Real Shots, Real Parts", type: "20-30 sec Video", priority: "HIGH — Film at range",
+                      num: "03", title: "Field Test - Real Shots, Real Parts", type: "20-30 sec Video", priority: "HIGH - Film at range",
                       hook: "\"3D-printed arrow rest. 50 yards. Does it hold up?\"",
-                      visual: "Owen (or his dad) at the archery range. Mount the 3D-printed part, shoot multiple arrows, show grouping. Close-up of the part after 50+ shots — no wear, no failure.",
-                      cta: "\"Tested in the field\" — link to shop",
+                      visual: "Owen (or his dad) at the archery range. Mount the 3D-printed part, shoot multiple arrows, show grouping. Close-up of the part after 50+ shots - no wear, no failure.",
+                      cta: "\"Tested in the field\" - link to shop",
                       why: "Archers are practical. They need to see the part working under real conditions. Field-test content builds trust that product photos can't."
                     },
                     {
-                      num: "04", title: "DIY vs. Pro: Home Printer vs. Owen's", type: "15 sec Carousel/Reel", priority: "MEDIUM — After first sales",
+                      num: "04", title: "DIY vs. Pro: Home Printer vs. Owen's", type: "15 sec Carousel/Reel", priority: "MEDIUM - After first sales",
                       hook: "\"Free STL file vs. a $40 professional part\"",
                       visual: "Left: a rough PLA print from a Thingiverse file (layer lines, stringing, poor fit). Right: Owen's carbon fiber part (smooth finish, precise tolerance, perfect fit). Side-by-side on a bow.",
-                      cta: "\"Skip the headache\" — link to shop",
+                      cta: "\"Skip the headache\" - link to shop",
                       why: "Targets DIY archers who've tried and failed to print their own parts. Shows the quality gap is worth the price."
                     },
                     {
-                      num: "05", title: "\"The $1 Part That Replaces a $60 Factory Part\"", type: "20 sec Reel/TikTok", priority: "MEDIUM — Controversial hook",
+                      num: "05", title: "\"The $1 Part That Replaces a $60 Factory Part\"", type: "20 sec Reel/TikTok", priority: "MEDIUM - Controversial hook",
                       hook: "\"Trophy Ridge charges $60. I make the same thing for $1 in material.\"",
                       visual: "Show the factory part with retail price tag. Show Owen's part printing. Compare side-by-side on a bow. Same performance, fraction of the price.",
-                      cta: "\"Performance doesn't need a markup\" — link to shop",
-                      why: "Controversial hooks drive massive engagement. The value proposition is undeniable — and every comment arguing about it shows the ad to more people."
+                      cta: "\"Performance doesn't need a markup\" - link to shop",
+                      why: "Controversial hooks drive massive engagement. The value proposition is undeniable - and every comment arguing about it shows the ad to more people."
                     },
                   ].map((brief, i) => (
                     <div key={i} className="bg-[#1c1c2e] rounded-xl border border-white/[0.06] p-5">
@@ -1478,48 +1478,48 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Week 1-4 Content Calendar (Archery)" defaultOpen={false}>
-                <p className="mb-4">Separate content track for the archery brand. Owen batches archery content alongside watch content — one extra hour on filming day covers the week:</p>
+                <p className="mb-4">Separate content track for the archery brand. Owen batches archery content alongside watch content - one extra hour on filming day covers the week:</p>
                 <DataTable
                   headers={["Day", "Platform", "Content", "Pillar"]}
                   rows={[
                     ["**Week 1**", "", "", ""],
                     ["Mon", "IG Reel + TikTok", "Time-lapse: arrow rest printing start to finish (30 sec)", "Printing Process (35%)"],
-                    ["Tue", "IG Carousel", "\"5 archery accessories you can 3D print\" — product shots with specs", "Education (20%)"],
-                    ["Wed", "IG Story", "\"What material should I print this in?\" — poll: Carbon Fiber vs PETG", "Education"],
+                    ["Tue", "IG Carousel", "\"5 archery accessories you can 3D print\" - product shots with specs", "Education (20%)"],
+                    ["Wed", "IG Story", "\"What material should I print this in?\" - poll: Carbon Fiber vs PETG", "Education"],
                     ["Thu", "IG Reel + TikTok", "Field test: 3D-printed stabilizer at the range, 30 shots, close-up after", "Field Tests (25%)"],
                     ["Fri", "Reddit + ArcheryTalk", "Post field test results with photos, ask for feedback. Link in profile.", "Community (10%)"],
                     ["**Week 2**", "", "", ""],
-                    ["Mon", "IG Reel + TikTok", "Carbon fiber vs PLA strength test — snap comparison", "Field Tests"],
-                    ["Tue", "IG Story", "Print farm tour — show the printer setup, filament spools, parts drying", "Behind the Scenes (10%)"],
-                    ["Wed", "IG Carousel", "\"Why carbon fiber matters for archery parts\" — 3 slides with close-ups", "Education"],
+                    ["Mon", "IG Reel + TikTok", "Carbon fiber vs PLA strength test - snap comparison", "Field Tests"],
+                    ["Tue", "IG Story", "Print farm tour - show the printer setup, filament spools, parts drying", "Behind the Scenes (10%)"],
+                    ["Wed", "IG Carousel", "\"Why carbon fiber matters for archery parts\" - 3 slides with close-ups", "Education"],
                     ["Thu", "IG Reel + TikTok", "Satisfying ASMR: removing supports from a fresh print + sanding smooth", "Printing Process"],
                     ["Fri", "IG Feed", "Customer field photo repost (if available) or hero product shot with specs", "Community"],
                     ["**Week 3**", "", "", ""],
-                    ["Mon", "IG Reel + TikTok", "\"$60 factory part vs my $40 print — same performance\" (controversial hook)", "Field Tests"],
-                    ["Tue", "IG Story", "\"Which new part should I design next?\" — 2-option poll", "Community"],
-                    ["Wed", "Reddit + ArcheryTalk", "Share design process: \"How I designed a custom quiver mount — feedback welcome\"", "Education"],
+                    ["Mon", "IG Reel + TikTok", "\"$60 factory part vs my $40 print - same performance\" (controversial hook)", "Field Tests"],
+                    ["Tue", "IG Story", "\"Which new part should I design next?\" - 2-option poll", "Community"],
+                    ["Wed", "Reddit + ArcheryTalk", "Share design process: \"How I designed a custom quiver mount - feedback welcome\"", "Education"],
                     ["Thu", "IG Reel + TikTok", "Full print-to-package process: print → QC → package → label → ship", "Printing Process"],
-                    ["Fri", "IG Feed + Story", "\"This week's orders\" — gallery of 4-5 printed parts ready to ship", "Behind the Scenes"],
+                    ["Fri", "IG Feed + Story", "\"This week's orders\" - gallery of 4-5 printed parts ready to ship", "Behind the Scenes"],
                     ["**Week 4**", "", "", ""],
-                    ["Mon", "IG Reel + TikTok", "Owen shooting with his own 3D-printed setup — all parts labeled on screen", "Field Tests"],
+                    ["Mon", "IG Reel + TikTok", "Owen shooting with his own 3D-printed setup - all parts labeled on screen", "Field Tests"],
                     ["Tue", "IG Story", "Day-in-the-life: printing in the morning, testing at the range in the afternoon", "Behind the Scenes"],
-                    ["Wed", "IG Carousel", "\"PLA vs PETG vs Carbon Fiber — which material for which part?\"", "Education"],
+                    ["Wed", "IG Carousel", "\"PLA vs PETG vs Carbon Fiber - which material for which part?\"", "Education"],
                     ["Thu", "IG Reel", "New SKU reveal: show the CAD design → first print → fit test on a bow", "Printing Process"],
                     ["Fri", "IG Feed", "\"Month 1 recap: X parts printed, X shipped, first reviews\" + CTA", "Community"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]"><strong className="text-white">Realistic time commitment:</strong> 2-3 additional hours/week for archery content — print time-lapses run overnight but editing and posting add up. Reddit/ArcheryTalk posts are text + photos (15 minutes each). <strong className="text-white">Total across both brands: ~7-8 hours/week on content.</strong> This is factored into the Time Budget in the Operations section.</p>
+                <p className="mt-3 text-sm text-[#948f8a]"><strong className="text-white">Realistic time commitment:</strong> 2-3 additional hours/week for archery content - print time-lapses run overnight but editing and posting add up. Reddit/ArcheryTalk posts are text + photos (15 minutes each). <strong className="text-white">Total across both brands: ~7-8 hours/week on content.</strong> This is factored into the Time Budget in the Operations section.</p>
 
                 <div className="text-xs font-semibold text-[#34d399] mb-3 mt-6 tracking-widest">WEEKS 5-12: REPEATING TEMPLATE</div>
-                <p className="mb-3 text-sm text-[#b0aca7]">Same principle as watches — after 4 weeks of data, shift to a <strong className="text-white">repeating formula</strong> and adapt based on performance. Archery content has a seasonal edge: hunting season (Sept-Jan) drives 2-3x engagement on bowhunting content.</p>
+                <p className="mb-3 text-sm text-[#b0aca7]">Same principle as watches - after 4 weeks of data, shift to a <strong className="text-white">repeating formula</strong> and adapt based on performance. Archery content has a seasonal edge: hunting season (Sept-Jan) drives 2-3x engagement on bowhunting content.</p>
                 <DataTable
                   headers={["Day", "Platform", "Repeating Formula", "Pillar"]}
                   rows={[
-                    ["Mon", "IG Reel + TikTok", "Printing process video — rotate between time-lapse, sanding/finishing close-up, and failed print blooper. Satisfying process content dominates archery TikTok.", "Printing Process (35%)"],
-                    ["Tue", "IG Carousel or Story", "Education — rotate: material comparison, \"can you 3D print X?\", part design walkthrough, maintenance tips. Cross-post best performers to blog.", "Education (20%)"],
-                    ["Wed", "Reddit + ArcheryTalk", "Community post every other week — share a field test, ask for design feedback, or answer questions in existing threads. **Don't sell — contribute.** The profile link does the selling.", "Community (10%)"],
-                    ["Thu", "IG Reel + TikTok", "Field test or stress test — shoot with the part, bend-test it, compare to factory equivalent. This is the content that converts skeptics.", "Field Tests (25%)"],
-                    ["Fri", "IG Feed + Blog", "**Odd weeks:** Hero product shot or \"this week's prints\" gallery. **Even weeks:** Blog post from SEO calendar — cross-post key graphics to IG carousel.", "BTS / SEO (10%)"],
+                    ["Mon", "IG Reel + TikTok", "Printing process video - rotate between time-lapse, sanding/finishing close-up, and failed print blooper. Satisfying process content dominates archery TikTok.", "Printing Process (35%)"],
+                    ["Tue", "IG Carousel or Story", "Education - rotate: material comparison, \"can you 3D print X?\", part design walkthrough, maintenance tips. Cross-post best performers to blog.", "Education (20%)"],
+                    ["Wed", "Reddit + ArcheryTalk", "Community post every other week - share a field test, ask for design feedback, or answer questions in existing threads. **Don't sell - contribute.** The profile link does the selling.", "Community (10%)"],
+                    ["Thu", "IG Reel + TikTok", "Field test or stress test - shoot with the part, bend-test it, compare to factory equivalent. This is the content that converts skeptics.", "Field Tests (25%)"],
+                    ["Fri", "IG Feed + Blog", "**Odd weeks:** Hero product shot or \"this week's prints\" gallery. **Even weeks:** Blog post from SEO calendar - cross-post key graphics to IG carousel.", "BTS / SEO (10%)"],
                   ]}
                 />
                 <p className="mt-3 text-sm text-[#6b6762]">Seasonal adjustment: during hunting season (Sept-Jan), shift 1-2 weekly posts from printing process to field-test content shot in realistic hunting scenarios. Bowhunting content gets 3-5x more engagement Sept-Nov than off-season.</p>
@@ -1528,7 +1528,7 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Archery Email Sequences" defaultOpen={false}>
-                <p className="mb-4">Three automated email flows for archery customers. Same Resend infrastructure as watches — just different templates:</p>
+                <p className="mb-4">Three automated email flows for archery customers. Same Resend infrastructure as watches - just different templates:</p>
                 <div className="space-y-5">
                   <div className="bg-[#1c1c2e] rounded-xl p-5 border border-white/[0.06]">
                     <div className="flex items-center gap-2 mb-3">
@@ -1536,17 +1536,17 @@ export default function OwenPlaybook() {
                       <span className="text-base font-semibold text-white">Welcome Email (triggers on first purchase)</span>
                     </div>
                     <div className="bg-[#0e0e18] rounded-lg p-4 text-sm font-mono leading-relaxed">
-                      <div className="text-[#34d399] mb-1">Subject: Your order is printing — here&apos;s what to expect</div>
+                      <div className="text-[#34d399] mb-1">Subject: Your order is printing - here&apos;s what to expect</div>
                       <div className="text-[#948f8a] mt-3">
                         Hey {`{first_name}`},<br /><br />
-                        Thanks for the order. I&apos;m Owen — I design and print every part myself using engineering-grade materials (carbon fiber, PETG, not the cheap PLA you see on Etsy).<br /><br />
+                        Thanks for the order. I&apos;m Owen - I design and print every part myself using engineering-grade materials (carbon fiber, PETG, not the cheap PLA you see on Etsy).<br /><br />
                         Your {`{product_name}`} is printing now and will ship within 3-5 business days. You&apos;ll get a tracking email when it does.<br /><br />
                         <strong className="text-white">A few things:</strong><br />
-                        → Inspect the part before first use — check for any print defects<br />
+                        → Inspect the part before first use - check for any print defects<br />
                         → If anything doesn&apos;t look right, reply to this email and I&apos;ll make it right<br />
                         → I test every design at the range myself before listing it<br /><br />
-                        Questions? Just reply — it comes straight to me.<br /><br />
-                        — Owen
+                        Questions? Just reply - it comes straight to me.<br /><br />
+                        - Owen
                       </div>
                     </div>
                   </div>
@@ -1561,11 +1561,11 @@ export default function OwenPlaybook() {
                       <div className="text-[#948f8a] mt-3">
                         Hey {`{first_name}`},<br /><br />
                         You&apos;ve had your {`{product_name}`} for about two weeks now. Have you had a chance to test it?<br /><br />
-                        I&apos;d really appreciate a quick review — it helps other archers decide if these parts are worth it.<br /><br />
+                        I&apos;d really appreciate a quick review - it helps other archers decide if these parts are worth it.<br /><br />
                         → Leave a review here (takes 30 seconds)<br /><br />
                         Bonus: if you snapped any photos at the range with the part in action, I&apos;d love to feature them on the site and social media (with credit, obviously).<br /><br />
                         Thanks for the support.<br /><br />
-                        — Owen
+                        - Owen
                       </div>
                     </div>
                   </div>
@@ -1575,7 +1575,7 @@ export default function OwenPlaybook() {
                       <span className="text-sm font-bold text-[#34d399]">3.</span>
                       <span className="text-base font-semibold text-white">New Product Drop (manual trigger)</span>
                     </div>
-                    <p className="text-sm text-[#b0aca7]">Blast to archery email list when new parts launch. Subject: &quot;New drop: {`{product_name}`} — now available.&quot; Body: hero photo, 2-sentence description, price, materials used, direct buy link. Include &quot;Designed by Owen, printed in carbon fiber, tested at the range.&quot; Keep it short — drops are about excitement, not education.</p>
+                    <p className="text-sm text-[#b0aca7]">Blast to archery email list when new parts launch. Subject: &quot;New drop: {`{product_name}`} - now available.&quot; Body: hero photo, 2-sentence description, price, materials used, direct buy link. Include &quot;Designed by Owen, printed in carbon fiber, tested at the range.&quot; Keep it short - drops are about excitement, not education.</p>
                   </div>
                 </div>
               </Card>
@@ -1583,11 +1583,11 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Cross-Selling: Two Businesses, One Customer Base">
-                <p className="mb-4">Owen has two businesses targeting overlapping demographics — men, 25-45, hands-on hobbies. Cross-selling is the most capital-efficient growth lever available and costs $0 in CAC.</p>
-                <NumberedStep n={1} title="Survey the 700 Watch Customers">Email the existing customer base: &quot;Owen here — I&apos;m launching a second brand. Do you shoot archery? Quick 2-question survey.&quot; Even 5% crossover = 35 archery customers on day 1 with zero acquisition cost.</NumberedStep>
-                <NumberedStep n={2} title="Packaging Cross-Promotion Inserts">Every watch shipment includes a card: &quot;Owen also makes 3D-printed archery accessories — [archerybrand].com&quot; and vice versa. Cost: $0.10 per insert. Expected: 2-5% conversion on inserts.</NumberedStep>
+                <p className="mb-4">Owen has two businesses targeting overlapping demographics - men, 25-45, hands-on hobbies. Cross-selling is the most capital-efficient growth lever available and costs $0 in CAC.</p>
+                <NumberedStep n={1} title="Survey the 700 Watch Customers">Email the existing customer base: &quot;Owen here - I&apos;m launching a second brand. Do you shoot archery? Quick 2-question survey.&quot; Even 5% crossover = 35 archery customers on day 1 with zero acquisition cost.</NumberedStep>
+                <NumberedStep n={2} title="Packaging Cross-Promotion Inserts">Every watch shipment includes a card: &quot;Owen also makes 3D-printed archery accessories - [archerybrand].com&quot; and vice versa. Cost: $0.10 per insert. Expected: 2-5% conversion on inserts.</NumberedStep>
                 <NumberedStep n={3} title="Unified Email List with Segmentation">One email platform (Resend), two segments: watch buyers and archery buyers. Customers in both segments get both product drops. New product announcements go to the relevant segment + a &quot;from Owen&apos;s other brand&quot; teaser to the other.</NumberedStep>
-                <NumberedStep n={4} title="Combined Retargeting Audiences">Upload both customer lists to Meta. Build a combined Lookalike audience — the overlap between &quot;guys who buy custom watches&quot; and &quot;guys who buy archery gear&quot; is likely high (EDC, outdoor, maker hobbyists). Test this against separate audiences.</NumberedStep>
+                <NumberedStep n={4} title="Combined Retargeting Audiences">Upload both customer lists to Meta. Build a combined Lookalike audience - the overlap between &quot;guys who buy custom watches&quot; and &quot;guys who buy archery gear&quot; is likely high (EDC, outdoor, maker hobbyists). Test this against separate audiences.</NumberedStep>
                 <AlertBox type="info" title="Expected Impact">
                   Conservative estimate: 5% cross-sell rate from 700 watch customers = 35 archery sales at $50 avg = <strong className="text-white">$1,750 in revenue with $0 CAC</strong>. Combined Lookalike audiences typically outperform single-source by 15-25% on Meta. The &quot;two businesses, one strategy&quot; promise only delivers if the businesses actually talk to each other.
                 </AlertBox>
@@ -1607,44 +1607,44 @@ export default function OwenPlaybook() {
             </FadeIn>
 
             <FadeIn>
-              <Card title="5 Ad Creative Briefs — Ready to Produce">
+              <Card title="5 Ad Creative Briefs - Ready to Produce">
                 <p className="mb-4">Ranked by ease of production. Owen can film briefs 1-3 with his phone this week:</p>
                 <div className="space-y-4">
                   {[
                     {
-                      num: "01", title: "The Build Process (UGC Video)", type: "15-30 sec Reel/TikTok", priority: "HIGH — Film this week",
+                      num: "01", title: "The Build Process (UGC Video)", type: "15-30 sec Reel/TikTok", priority: "HIGH - Film this week",
                       hook: "\"Most people don't know what goes into a $500 custom watch\"",
                       visual: "Phone on tripod, overhead shot of Owen's workbench. Time-lapse of a complete build: movement installation → dial → hands → case assembly → final wrist shot.",
-                      cta: "\"Design yours at [site]\" — link to configurator",
+                      cta: "\"Design yours at [site]\" - link to configurator",
                       why: "UGC-style phone content outperforms polished studio content 4x on Meta. This is the #1 performing format for watch brands."
                     },
                     {
-                      num: "02", title: "Before/After Transformation", type: "15 sec Reel/TikTok", priority: "HIGH — Film this week",
+                      num: "02", title: "Before/After Transformation", type: "15 sec Reel/TikTok", priority: "HIGH - Film this week",
                       hook: "\"$80 Seiko → $500 custom watch in 60 minutes\"",
                       visual: "Hold up a bare Seiko SKX case. Cut to finished watch. Simple, dramatic, satisfying.",
-                      cta: "\"See what's possible\" — link to gallery",
+                      cta: "\"See what's possible\" - link to gallery",
                       why: "Transformation content drives the highest comment engagement, which fuels the algorithm. \"Drip or skip?\" hooks get 3-5x normal comments."
                     },
                     {
-                      num: "03", title: "Social Proof Compilation", type: "20 sec Carousel or Video", priority: "HIGH — Can make from existing reviews",
+                      num: "03", title: "Social Proof Compilation", type: "20 sec Carousel or Video", priority: "HIGH - Can make from existing reviews",
                       hook: "\"700+ watches built. 50+ five-star reviews. Here's what they say:\"",
-                      visual: "Screenshots of actual Facebook reviews, customer wrist shots, star ratings. No production needed — just compile existing assets.",
-                      cta: "\"Join 700+ happy customers\" — link to shop",
+                      visual: "Screenshots of actual Facebook reviews, customer wrist shots, star ratings. No production needed - just compile existing assets.",
+                      cta: "\"Join 700+ happy customers\" - link to shop",
                       why: "Testimonial ads convert 30-50% better than product-only ads (Nielsen). Owen has 50+ reviews sitting unused."
                     },
                     {
-                      num: "04", title: "The Configurator Demo", type: "20-30 sec Screen Recording", priority: "MEDIUM — After site launch",
+                      num: "04", title: "The Configurator Demo", type: "20-30 sec Screen Recording", priority: "MEDIUM - After site launch",
                       hook: "\"Design your own watch in 60 seconds\"",
                       visual: "Screen recording of the watch configurator in action. Select case → dial → hands → bezel → crystal → strap. Price updates live. \"Your watch, your way.\"",
-                      cta: "\"Try the configurator\" — direct link",
+                      cta: "\"Try the configurator\" - direct link",
                       why: "Interactive product experiences have 2x higher conversion. Showing the configurator as an ad drives high-intent clicks."
                     },
                     {
-                      num: "05", title: "Click-to-Messenger Ad", type: "Static Image + CTA", priority: "MEDIUM — After ManyChat is live",
+                      num: "05", title: "Click-to-Messenger Ad", type: "Static Image + CTA", priority: "MEDIUM - After ManyChat is live",
                       hook: "\"Want a custom watch? Message us and we'll help you design it\"",
                       visual: "Hero shot of a finished watch. CTA button opens Messenger → ManyChat qualification flow fires automatically.",
                       cta: "\"Send Message\" button (Meta Click-to-Messenger format)",
-                      why: "This ties directly into the ManyChat automation. Lead is qualified, email captured, and routed to configurator — all without Owen lifting a finger."
+                      why: "This ties directly into the ManyChat automation. Lead is qualified, email captured, and routed to configurator - all without Owen lifting a finger."
                     },
                   ].map((brief, i) => (
                     <div key={i} className="bg-[#1c1c2e] rounded-xl border border-white/[0.06] p-5">
@@ -1668,51 +1668,51 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Week 1-4 Content Calendar (Watches)">
-                <p className="mb-4">Specific daily posts for the first month. Owen films in batches — 2 hours on Sunday produces a week of content:</p>
+                <p className="mb-4">Specific daily posts for the first month. Owen films in batches - 2 hours on Sunday produces a week of content:</p>
                 <DataTable
                   headers={["Day", "Platform", "Content", "Pillar"]}
                   rows={[
                     ["**Week 1**", "", "", ""],
                     ["Mon", "IG Reel + TikTok", "Build process time-lapse: SKX diver mod start to finish (30 sec)", "Build Process (40%)"],
-                    ["Tue", "IG Carousel", "\"5 most popular builds this month\" — 5 slides with close-up shots", "Finished Reveals (20%)"],
-                    ["Wed", "IG Story + TikTok", "\"What movement should I put in this?\" — poll between NH35 and NH36", "Education (15%)"],
+                    ["Tue", "IG Carousel", "\"5 most popular builds this month\" - 5 slides with close-up shots", "Finished Reveals (20%)"],
+                    ["Wed", "IG Story + TikTok", "\"What movement should I put in this?\" - poll between NH35 and NH36", "Education (15%)"],
                     ["Thu", "IG Reel", "ASMR hand-setting close-up with satisfying click sounds (15 sec)", "Build Process (40%)"],
                     ["Fri", "IG Feed + Story", "Customer wrist shot repost + review quote overlay", "Social Proof (10%)"],
                     ["**Week 2**", "", "", ""],
                     ["Mon", "IG Reel + TikTok", "Before/after transformation: \"$80 → $500\" (15 sec)", "Build Process"],
-                    ["Tue", "IG Story", "Workbench tour — show tools, parts bins, current builds in progress", "Behind the Scenes (15%)"],
-                    ["Wed", "IG Carousel + TikTok", "\"Sapphire vs mineral crystal — here's why it matters\" with macro shots", "Education"],
-                    ["Thu", "IG Reel", "Component unboxing — new dials and bezels arrived", "Behind the Scenes"],
+                    ["Tue", "IG Story", "Workbench tour - show tools, parts bins, current builds in progress", "Behind the Scenes (15%)"],
+                    ["Wed", "IG Carousel + TikTok", "\"Sapphire vs mineral crystal - here's why it matters\" with macro shots", "Education"],
+                    ["Thu", "IG Reel", "Component unboxing - new dials and bezels arrived", "Behind the Scenes"],
                     ["Fri", "IG Feed", "Finished watch hero shot with specs in caption. \"DM to order or visit [site]\"", "Finished Reveals"],
                     ["**Week 3**", "", "", ""],
-                    ["Mon", "IG Reel + TikTok", "\"Rolex Submariner vs my $350 build — spot the difference\" (controversial hook)", "Build Process"],
-                    ["Tue", "IG Story", "\"Pick the dial for tomorrow's build\" — 2-option poll", "Education"],
-                    ["Wed", "IG Carousel", "Customer review compilation — 3 reviews with wrist shots", "Social Proof"],
+                    ["Mon", "IG Reel + TikTok", "\"Rolex Submariner vs my $350 build - spot the difference\" (controversial hook)", "Build Process"],
+                    ["Tue", "IG Story", "\"Pick the dial for tomorrow's build\" - 2-option poll", "Education"],
+                    ["Wed", "IG Carousel", "Customer review compilation - 3 reviews with wrist shots", "Social Proof"],
                     ["Thu", "IG Reel + TikTok", "Real-time bezel press + crystal installation (satisfying)", "Build Process"],
-                    ["Fri", "IG Feed + Story", "\"This week's completed builds\" — gallery of 3-4 watches", "Finished Reveals"],
+                    ["Fri", "IG Feed + Story", "\"This week's completed builds\" - gallery of 3-4 watches", "Finished Reveals"],
                     ["**Week 4**", "", "", ""],
-                    ["Mon", "IG Reel + TikTok", "\"How I design a custom watch from scratch\" — configurator walkthrough", "Build Process"],
+                    ["Mon", "IG Reel + TikTok", "\"How I design a custom watch from scratch\" - configurator walkthrough", "Build Process"],
                     ["Tue", "IG Story", "Day-in-the-life Story: morning routine → builds → shipping → done", "Behind the Scenes"],
-                    ["Wed", "IG Carousel", "\"NH35 vs NH36 vs VK63 — which movement is right for you?\"", "Education"],
-                    ["Thu", "IG Reel", "Lume shot photography — dark room, UV charge, slow reveal", "Finished Reveals"],
+                    ["Wed", "IG Carousel", "\"NH35 vs NH36 vs VK63 - which movement is right for you?\"", "Education"],
+                    ["Thu", "IG Reel", "Lume shot photography - dark room, UV charge, slow reveal", "Finished Reveals"],
                     ["Fri", "IG Feed", "\"Monthly recap: X watches built, X shipped, X reviews\" + CTA", "Social Proof"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]"><strong className="text-white">Realistic time commitment:</strong> 4-5 hours/week total for watch content — filming (2 hrs on Sunday), editing and captioning (1.5 hrs), and scheduling (30 min). Buffer ($12/mo) handles scheduling. Daily Stories are quick phone snaps during the workday and don&apos;t count toward this total.</p>
+                <p className="mt-3 text-sm text-[#948f8a]"><strong className="text-white">Realistic time commitment:</strong> 4-5 hours/week total for watch content - filming (2 hrs on Sunday), editing and captioning (1.5 hrs), and scheduling (30 min). Buffer ($12/mo) handles scheduling. Daily Stories are quick phone snaps during the workday and don&apos;t count toward this total.</p>
 
                 <div className="text-xs font-semibold text-[#5b8def] mb-3 mt-6 tracking-widest">WEEKS 5-12: REPEATING TEMPLATE</div>
-                <p className="mb-3 text-sm text-[#b0aca7]">After Month 1, the calendar shifts from scripted posts to a <strong className="text-white">repeating weekly formula</strong> that Owen adapts based on what performed best in Weeks 1-4. Check Instagram Insights every Sunday — double down on formats with &gt;5% engagement, drop anything below 2%.</p>
+                <p className="mb-3 text-sm text-[#b0aca7]">After Month 1, the calendar shifts from scripted posts to a <strong className="text-white">repeating weekly formula</strong> that Owen adapts based on what performed best in Weeks 1-4. Check Instagram Insights every Sunday - double down on formats with &gt;5% engagement, drop anything below 2%.</p>
                 <DataTable
                   headers={["Day", "Platform", "Repeating Formula", "Pillar"]}
                   rows={[
-                    ["Mon", "IG Reel + TikTok", "Build process video — rotate between time-lapse, ASMR close-up, and before/after. Use the top hook from Weeks 1-4.", "Build Process (40%)"],
-                    ["Tue", "IG Carousel or Story", "Education post — rotate: movement guide, crystal comparison, mod terminology, \"what's in a $500 watch\". Reuse top-performing topics with new angles.", "Education (15%)"],
-                    ["Wed", "IG Story", "Engagement driver — poll, quiz, or \"pick the dial\" interactive. Low effort, high engagement. Feeds the algorithm.", "Behind the Scenes (15%)"],
+                    ["Mon", "IG Reel + TikTok", "Build process video - rotate between time-lapse, ASMR close-up, and before/after. Use the top hook from Weeks 1-4.", "Build Process (40%)"],
+                    ["Tue", "IG Carousel or Story", "Education post - rotate: movement guide, crystal comparison, mod terminology, \"what's in a $500 watch\". Reuse top-performing topics with new angles.", "Education (15%)"],
+                    ["Wed", "IG Story", "Engagement driver - poll, quiz, or \"pick the dial\" interactive. Low effort, high engagement. Feeds the algorithm.", "Behind the Scenes (15%)"],
                     ["Thu", "IG Reel", "Finished reveal OR customer wrist shot repost. Alternate weekly. These drive saves and shares.", "Reveals / Social Proof (30%)"],
-                    ["Fri", "IG Feed + Blog", "**Week 5, 7, 9, 11:** Hero product shot with buy CTA. **Week 6, 8, 10, 12:** Blog post from the SEO calendar above — cross-post to IG carousel.", "Social Proof / SEO"],
+                    ["Fri", "IG Feed + Blog", "**Week 5, 7, 9, 11:** Hero product shot with buy CTA. **Week 6, 8, 10, 12:** Blog post from the SEO calendar above - cross-post to IG carousel.", "Social Proof / SEO"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#6b6762]">By Week 5, Owen should have enough performance data to know: which hooks get the most views (reuse them), which formats get the most saves (prioritize them), and which posts get zero engagement (kill them). The formula stays the same — the content inside evolves based on data.</p>
+                <p className="mt-3 text-sm text-[#6b6762]">By Week 5, Owen should have enough performance data to know: which hooks get the most views (reuse them), which formats get the most saves (prioritize them), and which posts get zero engagement (kill them). The formula stays the same - the content inside evolves based on data.</p>
               </Card>
             </FadeIn>
 
@@ -1733,15 +1733,15 @@ export default function OwenPlaybook() {
                     ["**Reviews collected**", "5 (seed)", "20", "50+"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]">Engagement rate declines as followers grow — that&apos;s normal. The target is to maintain above-average rates for the niche (watch brands average 2-3%, archery brands 3-5%). Email list size is the most important metric — it&apos;s the only audience Owen fully owns.</p>
+                <p className="mt-3 text-sm text-[#948f8a]">Engagement rate declines as followers grow - that&apos;s normal. The target is to maintain above-average rates for the niche (watch brands average 2-3%, archery brands 3-5%). Email list size is the most important metric - it&apos;s the only audience Owen fully owns.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="SEO Strategy — Free Traffic That Compounds">
-                <p className="mb-4">Paid ads are a faucet — turn them off and traffic stops. SEO compounds over time. For two niche e-commerce businesses, the keyword landscape is low-competition and high-intent. Here&apos;s the research:</p>
+              <Card title="SEO Strategy - Free Traffic That Compounds">
+                <p className="mb-4">Paid ads are a faucet - turn them off and traffic stops. SEO compounds over time. For two niche e-commerce businesses, the keyword landscape is low-competition and high-intent. Here&apos;s the research:</p>
 
-                <div className="text-xs font-semibold text-[#5b8def] mb-3 tracking-widest">WATCH BRAND — TARGET KEYWORDS</div>
+                <div className="text-xs font-semibold text-[#5b8def] mb-3 tracking-widest">WATCH BRAND - TARGET KEYWORDS</div>
                 <DataTable
                   headers={["Keyword", "Monthly Volume", "Difficulty", "Intent", "Target Page"]}
                   accent
@@ -1760,7 +1760,7 @@ export default function OwenPlaybook() {
                 />
                 <p className="mt-2 mb-6 text-xs text-[#6b6762]">Volumes from Ubersuggest / Ahrefs estimates, March 2026. &quot;Low&quot; difficulty = fewer than 20 domains ranking with DA &gt; 40. Owen&apos;s site can rank page 1 within 3-6 months for low-difficulty terms with proper on-page SEO and 5+ backlinks.</p>
 
-                <div className="text-xs font-semibold text-[#34d399] mb-3 tracking-widest">ARCHERY BRAND — TARGET KEYWORDS</div>
+                <div className="text-xs font-semibold text-[#34d399] mb-3 tracking-widest">ARCHERY BRAND - TARGET KEYWORDS</div>
                 <DataTable
                   headers={["Keyword", "Monthly Volume", "Difficulty", "Intent", "Target Page"]}
                   accent
@@ -1777,37 +1777,37 @@ export default function OwenPlaybook() {
                     ["3d printed hunting accessories", "390", "Low", "Commercial", "Category page"],
                   ]}
                 />
-                <p className="mt-2 mb-6 text-xs text-[#6b6762]">The archery 3D printing niche is drastically underserved in SEO — most competitors have zero on-page optimization. Owen can own this space with basic product page SEO and 2-3 blog posts per month targeting informational keywords.</p>
+                <p className="mt-2 mb-6 text-xs text-[#6b6762]">The archery 3D printing niche is drastically underserved in SEO - most competitors have zero on-page optimization. Owen can own this space with basic product page SEO and 2-3 blog posts per month targeting informational keywords.</p>
 
                 <div className="text-xs font-semibold text-[#5b8def] mb-3 tracking-widest">PRODUCT PAGE SEO CHECKLIST</div>
                 <div className="space-y-1">
-                  <Bullet><strong className="text-white">Title tag:</strong> [Product Name] — [Primary Keyword] | [Brand Name]. Keep under 60 characters. Example: &quot;Carbon Fiber Arrow Rest — 3D Printed Archery Parts | [Brand]&quot;</Bullet>
+                  <Bullet><strong className="text-white">Title tag:</strong> [Product Name] - [Primary Keyword] | [Brand Name]. Keep under 60 characters. Example: &quot;Carbon Fiber Arrow Rest - 3D Printed Archery Parts | [Brand]&quot;</Bullet>
                   <Bullet><strong className="text-white">Meta description:</strong> 150-160 characters. Include price, key material, and CTA. Example: &quot;Precision 3D-printed arrow rest in carbon fiber PETG. $45 with free shipping over $75. Designed and tested by a competitive archer.&quot;</Bullet>
-                  <Bullet><strong className="text-white">Image alt text:</strong> Every product image gets descriptive alt text. Not &quot;IMG_4523&quot; — instead &quot;carbon fiber 3D printed arrow rest mounted on compound bow.&quot;</Bullet>
-                  <Bullet><strong className="text-white">Schema markup:</strong> Product schema on every product page (name, price, availability, reviews, images). This enables Google rich snippets — star ratings and prices appear in search results.</Bullet>
+                  <Bullet><strong className="text-white">Image alt text:</strong> Every product image gets descriptive alt text. Not &quot;IMG_4523&quot; - instead &quot;carbon fiber 3D printed arrow rest mounted on compound bow.&quot;</Bullet>
+                  <Bullet><strong className="text-white">Schema markup:</strong> Product schema on every product page (name, price, availability, reviews, images). This enables Google rich snippets - star ratings and prices appear in search results.</Bullet>
                   <Bullet><strong className="text-white">Internal linking:</strong> Every product page links to 2-3 related products. Every blog post links to relevant product pages. Build a web, not a list.</Bullet>
                 </div>
 
-                <div className="text-xs font-semibold text-[#5b8def] mb-3 mt-6 tracking-widest">CONTENT SEO PLAN — BLOG POSTS THAT RANK</div>
+                <div className="text-xs font-semibold text-[#5b8def] mb-3 mt-6 tracking-widest">CONTENT SEO PLAN - BLOG POSTS THAT RANK</div>
                 <p className="mb-3 text-sm text-[#b0aca7]">2 blog posts per month per brand, targeting informational keywords that lead to product pages. Each post: 800-1,200 words, 2-3 product images, internal links to relevant product pages.</p>
                 <DataTable
                   headers={["Month", "Watch Blog Post", "Archery Blog Post"]}
                   rows={[
-                    ["1", "\"Best Seiko Mods in 2026 — A Builder's Guide\" (targets 1.6K/mo keyword)", "\"Can You 3D Print Archery Accessories? A Competitive Archer's Take\" (targets 590/mo)"],
-                    ["2", "\"NH35 vs NH36 vs 4R36 — Which Movement for Your Custom Watch?\" (targets 1.1K/mo)", "\"Best Arrow Rests for Compound Bows — 2026 Guide\" (targets 2.1K/mo)"],
-                    ["3", "\"Sapphire vs Mineral Crystal — Is It Worth the Upgrade?\" (targets 880/mo)", "\"Carbon Fiber vs PLA for Archery Parts — Strength Test Results\" (targets 210/mo)"],
+                    ["1", "\"Best Seiko Mods in 2026 - A Builder's Guide\" (targets 1.6K/mo keyword)", "\"Can You 3D Print Archery Accessories? A Competitive Archer's Take\" (targets 590/mo)"],
+                    ["2", "\"NH35 vs NH36 vs 4R36 - Which Movement for Your Custom Watch?\" (targets 1.1K/mo)", "\"Best Arrow Rests for Compound Bows - 2026 Guide\" (targets 2.1K/mo)"],
+                    ["3", "\"Sapphire vs Mineral Crystal - Is It Worth the Upgrade?\" (targets 880/mo)", "\"Carbon Fiber vs PLA for Archery Parts - Strength Test Results\" (targets 210/mo)"],
                     ["4", "\"How Much Does a Custom Watch Cost? A Transparent Breakdown\" (targets 720/mo)", "\"5 Bow Accessories You Didn't Know You Could 3D Print\" (targets 390/mo)"],
-                    ["5", "\"Seiko Mod Parts List — Everything You Need for Your First Build\" (targets 1.1K/mo)", "\"How to Choose the Right Stabilizer for Your Bow\" (targets 3.6K/mo)"],
-                    ["6", "\"Custom Watch Care Guide — How to Maintain Your Build\" (targets 480/mo)", "\"3D Printed vs Factory Archery Parts — Honest Comparison\" (targets 170/mo)"],
+                    ["5", "\"Seiko Mod Parts List - Everything You Need for Your First Build\" (targets 1.1K/mo)", "\"How to Choose the Right Stabilizer for Your Bow\" (targets 3.6K/mo)"],
+                    ["6", "\"Custom Watch Care Guide - How to Maintain Your Build\" (targets 480/mo)", "\"3D Printed vs Factory Archery Parts - Honest Comparison\" (targets 170/mo)"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]">These posts serve double duty: they rank for organic search AND become content assets for email, social, and ad creative. A post like &quot;Best Seiko Mods in 2026&quot; that ranks page 1 can drive 500-1,000 visitors/month indefinitely — that&apos;s $0 CAC traffic.</p>
+                <p className="mt-3 text-sm text-[#948f8a]">These posts serve double duty: they rank for organic search AND become content assets for email, social, and ad creative. A post like &quot;Best Seiko Mods in 2026&quot; that ranks page 1 can drive 500-1,000 visitors/month indefinitely - that&apos;s $0 CAC traffic.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Email Flows — Actual Copy, Ready to Send">
-                <p className="mb-4">These run on Resend (free for 100 emails/day) or Klaviyo (free up to 500 contacts). Copy is written — just plug it in:</p>
+              <Card title="Email Flows - Actual Copy, Ready to Send">
+                <p className="mb-4">These run on Resend (free for 100 emails/day) or Klaviyo (free up to 500 contacts). Copy is written - just plug it in:</p>
 
                 <div className="space-y-5">
                   <div className="bg-[#1c1c2e] rounded-xl p-5 border border-white/[0.06]">
@@ -1816,17 +1816,17 @@ export default function OwenPlaybook() {
                       <span className="text-base font-semibold text-white">Welcome Email (triggers on signup)</span>
                     </div>
                     <div className="bg-[#0e0e18] rounded-lg p-4 text-sm font-mono leading-relaxed">
-                      <div className="text-[#5b8def] mb-1">Subject: Welcome to [Brand] — here&apos;s what we build</div>
+                      <div className="text-[#5b8def] mb-1">Subject: Welcome to [Brand] - here&apos;s what we build</div>
                       <div className="text-[#948f8a] mt-3">
                         Hey {`{first_name}`},<br /><br />
-                        Welcome. I&apos;m Owen — I&apos;ve built over 700 custom watches by hand, one at a time, from my workshop.<br /><br />
-                        Every watch starts with a genuine Seiko NH35 automatic movement and gets built to your exact specs — dial, hands, bezel, crystal, strap. Your design, my craftsmanship.<br /><br />
+                        Welcome. I&apos;m Owen - I&apos;ve built over 700 custom watches by hand, one at a time, from my workshop.<br /><br />
+                        Every watch starts with a genuine Seiko NH35 automatic movement and gets built to your exact specs - dial, hands, bezel, crystal, strap. Your design, my craftsmanship.<br /><br />
                         <strong className="text-white">Here&apos;s what to check out:</strong><br />
                         → Browse the ready-to-ship collection ($299)<br />
                         → Design your own with the configurator ($549+)<br />
                         → Read what 50+ customers have to say<br /><br />
-                        Questions? Just reply to this email — it comes straight to me.<br /><br />
-                        — Owen
+                        Questions? Just reply to this email - it comes straight to me.<br /><br />
+                        - Owen
                       </div>
                     </div>
                   </div>
@@ -1834,21 +1834,21 @@ export default function OwenPlaybook() {
                   <div className="bg-[#1c1c2e] rounded-xl p-5 border border-white/[0.06]">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="text-sm font-bold text-[#5b8def]">2.</span>
-                      <span className="text-base font-semibold text-white">Abandoned Cart — 1 Hour (triggers on cart abandonment)</span>
+                      <span className="text-base font-semibold text-white">Abandoned Cart - 1 Hour (triggers on cart abandonment)</span>
                     </div>
                     <div className="bg-[#0e0e18] rounded-lg p-4 text-sm font-mono leading-relaxed">
                       <div className="text-[#5b8def] mb-1">Subject: Your watch is still waiting</div>
                       <div className="text-[#948f8a] mt-3">
                         Hey {`{first_name}`},<br /><br />
-                        You were designing something great — looks like you didn&apos;t finish checking out.<br /><br />
+                        You were designing something great - looks like you didn&apos;t finish checking out.<br /><br />
                         Your build: {`{product_name}`}<br />
                         Your total: {`{cart_total}`}<br /><br />
                         → Complete your order here<br /><br />
                         Every watch is hand-assembled and takes 7-14 days. The sooner you order, the sooner it&apos;s on your wrist.<br /><br />
-                        — Owen
+                        - Owen
                       </div>
                     </div>
-                    <div className="mt-3 text-xs text-[#8a8580]">Follow-up at 24hr adds social proof: &quot;700+ watches built, 50+ five-star reviews.&quot; Final at 72hr adds soft urgency: &quot;Parts for this build are limited — just checking if you still want me to hold them.&quot;</div>
+                    <div className="mt-3 text-xs text-[#8a8580]">Follow-up at 24hr adds social proof: &quot;700+ watches built, 50+ five-star reviews.&quot; Final at 72hr adds soft urgency: &quot;Parts for this build are limited - just checking if you still want me to hold them.&quot;</div>
                   </div>
 
                   <div className="bg-[#1c1c2e] rounded-xl p-5 border border-white/[0.06]">
@@ -1861,11 +1861,11 @@ export default function OwenPlaybook() {
                       <div className="text-[#948f8a] mt-3">
                         Hey {`{first_name}`},<br /><br />
                         You&apos;ve had your {`{product_name}`} for about two weeks now. How&apos;s it wearing?<br /><br />
-                        I&apos;d really appreciate a quick review — it helps other people find my work and decide if a custom build is right for them.<br /><br />
+                        I&apos;d really appreciate a quick review - it helps other people find my work and decide if a custom build is right for them.<br /><br />
                         → Leave a review here (takes 30 seconds)<br /><br />
-                        Bonus: snap a wrist shot and tag @[brand] on Instagram — I&apos;ll repost the best ones every week.<br /><br />
+                        Bonus: snap a wrist shot and tag @[brand] on Instagram - I&apos;ll repost the best ones every week.<br /><br />
                         Thanks for the support.<br /><br />
-                        — Owen
+                        - Owen
                       </div>
                     </div>
                     <div className="mt-3 text-xs text-[#8a8580]">Day 30 follow-up: referral ask. &quot;Know someone who&apos;d love a custom watch? Send them our way and I&apos;ll give you $25 off your next build.&quot;</div>
@@ -1876,14 +1876,14 @@ export default function OwenPlaybook() {
                       <span className="text-sm font-bold text-[#5b8def]">4.</span>
                       <span className="text-base font-semibold text-white">New Product Drop (manual trigger)</span>
                     </div>
-                    <p className="text-sm text-[#b0aca7]">Email + SMS blast when new watch designs or archery parts launch. Subject line formula: &quot;New drop: [Product Name] — [quantity] available&quot;. Body: hero photo, 2-sentence description, price, direct buy link. Keep it short — drops are about urgency, not education.</p>
+                    <p className="text-sm text-[#b0aca7]">Email + SMS blast when new watch designs or archery parts launch. Subject line formula: &quot;New drop: [Product Name] - [quantity] available&quot;. Body: hero photo, 2-sentence description, price, direct buy link. Keep it short - drops are about urgency, not education.</p>
                   </div>
                 </div>
 
                 <div className="mt-4 p-4 rounded-lg bg-[#5b8def]/5 border border-[#5b8def]/10">
                   <div className="text-xs font-semibold text-[#5b8def] mb-2">EMAIL ROI BENCHMARK</div>
                   <p className="text-sm text-[#b0aca7]">Email marketing returns <strong className="text-white">$36-$42 for every $1 spent</strong><SourceTag source="Litmus 2024" /> for DTC brands. Automated flows generate <strong className="text-white">30x more revenue per recipient</strong><SourceTag source="Klaviyo 2024 Benchmark" /> than standard campaigns. With Owen&apos;s 700 existing customers, even a basic welcome + abandoned cart flow could generate $500-$2,000/month in recovered revenue.</p>
-                  <p className="text-sm text-[#8a8580] mt-2">Note: These benchmarks are for established brands with 10K+ subscriber lists. Owen&apos;s early-stage value is abandoned cart recovery (recovering 10-15% of abandoned carts per Klaviyo) and automated review requests — not broadcast campaigns. As the email list grows past 500+ subscribers, these macro benchmarks become realistic targets.</p>
+                  <p className="text-sm text-[#8a8580] mt-2">Note: These benchmarks are for established brands with 10K+ subscriber lists. Owen&apos;s early-stage value is abandoned cart recovery (recovering 10-15% of abandoned carts per Klaviyo) and automated review requests - not broadcast campaigns. As the email list grows past 500+ subscribers, these macro benchmarks become realistic targets.</p>
                 </div>
               </Card>
             </FadeIn>
@@ -1898,7 +1898,7 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Fulfillment Workflow">
-                <p className="mb-4">Two different pipelines for two different products. Both are automated from payment to notification — Owen&apos;s only manual steps are making the product and handing it to USPS.</p>
+                <p className="mb-4">Two different pipelines for two different products. Both are automated from payment to notification - Owen&apos;s only manual steps are making the product and handing it to USPS.</p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="p-5 rounded-xl bg-[#161625] border border-white/[0.08]">
                     <Watch size={18} className="text-[#5b8def] mb-2" />
@@ -1950,16 +1950,16 @@ export default function OwenPlaybook() {
                 <p className="mb-4">Clear policies set expectations and prevent disputes. Put this on the site footer and in the checkout flow:</p>
                 <div className="space-y-3">
                   <div className="p-4 rounded-lg bg-[#1c1c2e] border-l-4 border-l-[#5b8def]">
-                    <div className="text-white font-semibold text-sm mb-1">Stock Watches — 30-Day Returns</div>
+                    <div className="text-white font-semibold text-sm mb-1">Stock Watches - 30-Day Returns</div>
                     <div className="text-[#b0aca7] text-sm">Unused, unworn stock watches can be returned within 30 days for a full refund. Customer pays return shipping. Watch must be in original condition with all packaging.</div>
                   </div>
                   <div className="p-4 rounded-lg bg-[#1c1c2e] border-l-4 border-l-[#facc15]">
-                    <div className="text-white font-semibold text-sm mb-1">Custom Watches — No Returns (Defects Covered)</div>
-                    <div className="text-[#b0aca7] text-sm">Custom builds are made to order and are non-returnable. Manufacturing defects (movement failure, misaligned components, water ingress within warranty) are covered for 6 months — Owen repairs or replaces free of charge.</div>
+                    <div className="text-white font-semibold text-sm mb-1">Custom Watches - No Returns (Defects Covered)</div>
+                    <div className="text-[#b0aca7] text-sm">Custom builds are made to order and are non-returnable. Manufacturing defects (movement failure, misaligned components, water ingress within warranty) are covered for 6 months - Owen repairs or replaces free of charge.</div>
                   </div>
                   <div className="p-4 rounded-lg bg-[#1c1c2e] border-l-4 border-l-[#34d399]">
-                    <div className="text-white font-semibold text-sm mb-1">Archery Parts — 14-Day Satisfaction Guarantee</div>
-                    <div className="text-[#b0aca7] text-sm">If the part doesn&apos;t fit or doesn&apos;t meet expectations, return it within 14 days for a full refund or replacement. Defective parts are replaced immediately at no cost — just email a photo of the defect.</div>
+                    <div className="text-white font-semibold text-sm mb-1">Archery Parts - 14-Day Satisfaction Guarantee</div>
+                    <div className="text-[#b0aca7] text-sm">If the part doesn&apos;t fit or doesn&apos;t meet expectations, return it within 14 days for a full refund or replacement. Defective parts are replaced immediately at no cost - just email a photo of the defect.</div>
                   </div>
                 </div>
                 <AlertBox type="info">
@@ -1970,27 +1970,27 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Customer Service Response Templates" defaultOpen={false}>
-                <p className="mb-4">Copy-paste responses for the 5 most common inquiries. Owen customizes the brackets and sends — 30 seconds per reply instead of 5 minutes:</p>
+                <p className="mb-4">Copy-paste responses for the 5 most common inquiries. Owen customizes the brackets and sends - 30 seconds per reply instead of 5 minutes:</p>
                 <div className="space-y-4">
                   <div className="bg-[#0e0e18] rounded-lg p-4 text-sm font-mono leading-relaxed">
                     <div className="text-[#5b8def] mb-1">Order Status Inquiry</div>
-                    <div className="text-[#948f8a]">Hey {`{name}`} — your order is currently {`{status}`}. {`{if building: \"I'm working on it now and expect to ship by {date}.\"}`} {`{if shipped: \"Tracking: {tracking_link}. Should arrive by {date}.\"}`} Let me know if you need anything else!</div>
+                    <div className="text-[#948f8a]">Hey {`{name}`} - your order is currently {`{status}`}. {`{if building: \"I'm working on it now and expect to ship by {date}.\"}`} {`{if shipped: \"Tracking: {tracking_link}. Should arrive by {date}.\"}`} Let me know if you need anything else!</div>
                   </div>
                   <div className="bg-[#0e0e18] rounded-lg p-4 text-sm font-mono leading-relaxed">
                     <div className="text-[#5b8def] mb-1">Custom Watch Quote</div>
-                    <div className="text-[#948f8a]">Hey {`{name}`} — thanks for reaching out about a custom build! Based on what you described, I&apos;d recommend {`{case + dial + movement combo}`}. That would run {`{price}`} with a {`{timeline}`} build time. You can see similar builds in my portfolio at {`{site_link}`}, or try the configurator to play with options. Want me to put together a detailed quote?</div>
+                    <div className="text-[#948f8a]">Hey {`{name}`} - thanks for reaching out about a custom build! Based on what you described, I&apos;d recommend {`{case + dial + movement combo}`}. That would run {`{price}`} with a {`{timeline}`} build time. You can see similar builds in my portfolio at {`{site_link}`}, or try the configurator to play with options. Want me to put together a detailed quote?</div>
                   </div>
                   <div className="bg-[#0e0e18] rounded-lg p-4 text-sm font-mono leading-relaxed">
                     <div className="text-[#5b8def] mb-1">Shipping Delay</div>
-                    <div className="text-[#948f8a]">Hey {`{name}`} — heads up, your order is running a few days behind schedule. {`{reason: parts delay / printer queue / QC redo}`}. New estimated ship date: {`{date}`}. I want to make sure everything is perfect before it goes out. Sorry for the wait — I&apos;ll send tracking as soon as it ships.</div>
+                    <div className="text-[#948f8a]">Hey {`{name}`} - heads up, your order is running a few days behind schedule. {`{reason: parts delay / printer queue / QC redo}`}. New estimated ship date: {`{date}`}. I want to make sure everything is perfect before it goes out. Sorry for the wait - I&apos;ll send tracking as soon as it ships.</div>
                   </div>
                   <div className="bg-[#0e0e18] rounded-lg p-4 text-sm font-mono leading-relaxed">
                     <div className="text-[#5b8def] mb-1">Return / Exchange</div>
-                    <div className="text-[#948f8a]">Hey {`{name}`} — sorry to hear that. {`{if defect: \"That shouldn't have passed QC — I'll send a replacement right away. No need to return the original.\"}`} {`{if return: \"No problem. Ship it back to [address] and I'll issue a full refund within 5 business days of receiving it.\"}`} Let me know how you&apos;d like to proceed.</div>
+                    <div className="text-[#948f8a]">Hey {`{name}`} - sorry to hear that. {`{if defect: \"That shouldn't have passed QC - I'll send a replacement right away. No need to return the original.\"}`} {`{if return: \"No problem. Ship it back to [address] and I'll issue a full refund within 5 business days of receiving it.\"}`} Let me know how you&apos;d like to proceed.</div>
                   </div>
                   <div className="bg-[#0e0e18] rounded-lg p-4 text-sm font-mono leading-relaxed">
                     <div className="text-[#5b8def] mb-1">Post-Delivery Check-In</div>
-                    <div className="text-[#948f8a]">Hey {`{name}`} — just checking in. How&apos;s the {`{product}`} working out? If you have a sec, a quick review would really help out — {`{review_link}`}. And if you snap any photos, tag me on Instagram @{`{handle}`}. Thanks again for the support!</div>
+                    <div className="text-[#948f8a]">Hey {`{name}`} - just checking in. How&apos;s the {`{product}`} working out? If you have a sec, a quick review would really help out - {`{review_link}`}. And if you snap any photos, tag me on Instagram @{`{handle}`}. Thanks again for the support!</div>
                   </div>
                 </div>
               </Card>
@@ -2005,18 +2005,18 @@ export default function OwenPlaybook() {
                     ["Email / site contact form", "Within 24 hours (weekday)", "Auto-acknowledge immediately, Owen follows up"],
                     ["Facebook Messenger", "<60 seconds (ManyChat)", "Automated first response, Owen follows up within 24 hrs"],
                     ["Weekend inquiries", "Within 48 hours", "Set expectations in auto-reply: \"Back on Monday\""],
-                    ["Urgent (defect/safety)", "Same day", "Prioritize over everything — ship replacement immediately"],
+                    ["Urgent (defect/safety)", "Same day", "Prioritize over everything - ship replacement immediately"],
                   ]}
                 />
 
                 <div className="text-xs font-semibold text-[#fb7185] mb-3 mt-6 tracking-widest">DEFECT & REPLACEMENT POLICY</div>
-                <Bullet><strong className="text-white">Ship the replacement immediately</strong> — don&apos;t wait for the return. At $2-4 archery COGS or ~$115-190 watch parts cost, a replacement is always cheaper than a negative review or chargeback.</Bullet>
+                <Bullet><strong className="text-white">Ship the replacement immediately</strong> - don&apos;t wait for the return. At $2-4 archery COGS or ~$115-190 watch parts cost, a replacement is always cheaper than a negative review or chargeback.</Bullet>
                 <Bullet><strong className="text-white">Don&apos;t argue with customers.</strong> If they say it&apos;s defective, it&apos;s defective. Replace it. The customer lifetime value far exceeds the cost of one replacement part.</Bullet>
 
                 <div className="text-xs font-semibold text-[#facc15] mb-3 mt-6 tracking-widest">STRIPE CHARGEBACK PROCESS</div>
-                <NumberedStep n={1} title="Respond Within 7 Days">Stripe emails Owen when a chargeback is filed. Owen has 7 days to submit evidence. Do not ignore this — ignored chargebacks are auto-lost.</NumberedStep>
+                <NumberedStep n={1} title="Respond Within 7 Days">Stripe emails Owen when a chargeback is filed. Owen has 7 days to submit evidence. Do not ignore this - ignored chargebacks are auto-lost.</NumberedStep>
                 <NumberedStep n={2} title="Submit Evidence">Upload: order confirmation email, shipping tracking showing delivery, any customer communication, product photos. Stripe provides a submission form.</NumberedStep>
-                <NumberedStep n={3} title="Prevention Is Better">Most chargebacks come from: (a) customer doesn&apos;t recognize the charge — use a clear statement descriptor in Stripe, (b) product never arrived — always use tracking, (c) product was defective — handle defect reports fast before they escalate.</NumberedStep>
+                <NumberedStep n={3} title="Prevention Is Better">Most chargebacks come from: (a) customer doesn&apos;t recognize the charge - use a clear statement descriptor in Stripe, (b) product never arrived - always use tracking, (c) product was defective - handle defect reports fast before they escalate.</NumberedStep>
 
                 <div className="text-xs font-semibold text-[#5b8def] mb-3 mt-6 tracking-widest">MONTHLY CS METRICS TO TRACK</div>
                 <DataTable
@@ -2033,10 +2033,10 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Shipping Setup Checklist">
-                <Bullet><strong className="text-white">Pirate Ship (free):</strong> Connects to USPS and UPS at commercial rates. Saves 20-40% vs retail postage. Print labels from any computer — no special hardware needed to start.</Bullet>
+                <Bullet><strong className="text-white">Pirate Ship (free):</strong> Connects to USPS and UPS at commercial rates. Saves 20-40% vs retail postage. Print labels from any computer - no special hardware needed to start.</Bullet>
                 <Bullet><strong className="text-white">USPS First Class (archery):</strong> $4-$8 for packages under 1 lb. Most archery parts qualify. 3-5 business day delivery.</Bullet>
-                <Bullet><strong className="text-white">USPS Priority (watches):</strong> $8-$15 for small flat rate boxes. 1-3 business day delivery. Includes $100 insurance — add extra coverage for watches over $300 (~$2-3 per package).</Bullet>
-                <Bullet><strong className="text-white">Label printer (optional):</strong> Rollo or MUNBYN (~$150-$200). Not needed at low volume — print labels on regular paper. Buy when doing 5+ shipments/day.</Bullet>
+                <Bullet><strong className="text-white">USPS Priority (watches):</strong> $8-$15 for small flat rate boxes. 1-3 business day delivery. Includes $100 insurance - add extra coverage for watches over $300 (~$2-3 per package).</Bullet>
+                <Bullet><strong className="text-white">Label printer (optional):</strong> Rollo or MUNBYN (~$150-$200). Not needed at low volume - print labels on regular paper. Buy when doing 5+ shipments/day.</Bullet>
                 <Bullet><strong className="text-white">Packaging supplies:</strong> Poly mailers for archery ($0.15-$0.30 each in bulk). Small branded boxes for watches ($1.50-$3.00 each). Branded stickers ($50 for 500). Tissue paper + thank-you card inserts.</Bullet>
                 <Bullet><strong className="text-white">Free shipping threshold:</strong> Offer free shipping on archery orders over $75 to increase average order value. Watches always charge actual shipping (customer expects it for a $300+ item).</Bullet>
               </Card>
@@ -2053,7 +2053,7 @@ export default function OwenPlaybook() {
                       <div>NH35 movements: order in batches of 10-25 ($35-50 each)</div>
                       <div>Standardize on 2-3 case types to reduce SKU complexity</div>
                       <div>Reorder when stock drops below 5 units of any component</div>
-                      <div>Track in admin portal — auto-deduct on order creation</div>
+                      <div>Track in admin portal - auto-deduct on order creation</div>
                     </div>
                   </div>
                   <div className="p-4 rounded-xl bg-[#161625] border border-white/[0.08]">
@@ -2064,7 +2064,7 @@ export default function OwenPlaybook() {
                       <div>Total buffer inventory cost: ~$50-$100</div>
                       <div>Filament: keep 2 spare spools minimum ($20-$35 each)</div>
                       <div>Restock when buffer drops below 5 units per SKU</div>
-                      <div>Track in admin portal — print-on-demand for non-buffer SKUs</div>
+                      <div>Track in admin portal - print-on-demand for non-buffer SKUs</div>
                     </div>
                   </div>
                 </div>
@@ -2088,27 +2088,27 @@ export default function OwenPlaybook() {
                   ]}
                 />
                 <AlertBox type="warning" title="Month 6 Warning: Approaching 60-Hour Weeks">
-                  At Month 6 volumes, Owen is at 44-59 hours/week with no buffer for unexpected issues. This is the trigger point for hiring a part-time assistant ($15-20/hr, 15-20 hrs/week) to handle packaging, shipping, and basic customer messages. The Phase 4 roadmap flags this at the $15K/month revenue mark. Until then, the priority is automation — every hour saved through software is an hour Owen keeps for building and designing.
+                  At Month 6 volumes, Owen is at 44-59 hours/week with no buffer for unexpected issues. This is the trigger point for hiring a part-time assistant ($15-20/hr, 15-20 hrs/week) to handle packaging, shipping, and basic customer messages. The Phase 4 roadmap flags this at the $15K/month revenue mark. Until then, the priority is automation - every hour saved through software is an hour Owen keeps for building and designing.
                 </AlertBox>
-                <p className="mt-3 text-sm text-[#948f8a]">These estimates assume current automation (admin portal, auto-emails, order tracking). Without automation, add 10-15 hours/week of manual admin. The systems we&apos;re building aren&apos;t nice-to-have — they&apos;re the difference between a sustainable business and burnout.</p>
+                <p className="mt-3 text-sm text-[#948f8a]">These estimates assume current automation (admin portal, auto-emails, order tracking). Without automation, add 10-15 hours/week of manual admin. The systems we&apos;re building aren&apos;t nice-to-have - they&apos;re the difference between a sustainable business and burnout.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
               <Card title="Contingency: Owen Is Down for a Week">
-                <p className="mb-4">If Owen gets sick, goes on vacation, or has an emergency — the business needs to keep running for at least 7 days without him.</p>
+                <p className="mb-4">If Owen gets sick, goes on vacation, or has an emergency - the business needs to keep running for at least 7 days without him.</p>
                 <NumberedStep n={1} title="Pre-Print Buffer Stock">Maintain 1-2 weeks of top 5 archery SKUs pre-printed (25-50 units total, ~$50-$100 investment). Pre-build 2-3 stock watches if inventory allows. These ship without Owen needing to produce anything new.</NumberedStep>
-                <NumberedStep n={2} title="Auto-Reply on All Channels">Activate auto-replies: &quot;Owen is currently away — all orders will ship within 7-10 business days. For urgent issues, email [support email].&quot; Set this in ManyChat, email auto-responder, and Facebook Messenger.</NumberedStep>
+                <NumberedStep n={2} title="Auto-Reply on All Channels">Activate auto-replies: &quot;Owen is currently away - all orders will ship within 7-10 business days. For urgent issues, email [support email].&quot; Set this in ManyChat, email auto-responder, and Facebook Messenger.</NumberedStep>
                 <NumberedStep n={3} title="Pause Paid Ads Immediately">No point paying for traffic if orders can&apos;t be fulfilled quickly. One-click pause in Meta Ads Manager. Resume when Owen is back.</NumberedStep>
-                <NumberedStep n={4} title="Site Stays Live">The sites keep accepting orders — they just ship slower. Update shipping estimates on the site to &quot;7-10 business days&quot; temporarily. Stripe still collects payments.</NumberedStep>
-                <p className="mt-3 text-sm text-[#948f8a]">At Month 6+ volumes, this contingency becomes inadequate — a part-time assistant (Phase 4B hire) can handle packaging, shipping, and basic CS while Owen is away. Until then, the buffer stock + auto-replies + ad pause protocol covers a 1-week absence.</p>
+                <NumberedStep n={4} title="Site Stays Live">The sites keep accepting orders - they just ship slower. Update shipping estimates on the site to &quot;7-10 business days&quot; temporarily. Stripe still collects payments.</NumberedStep>
+                <p className="mt-3 text-sm text-[#948f8a]">At Month 6+ volumes, this contingency becomes inadequate - a part-time assistant (Phase 4B hire) can handle packaging, shipping, and basic CS while Owen is away. Until then, the buffer stock + auto-replies + ad pause protocol covers a 1-week absence.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
               <Card title="QC Checklists">
                 <p className="mb-4">Every product gets inspected before shipping. These checklists are built into the admin portal as a required step before marking an order as &quot;Ready to Ship.&quot;</p>
-                <div className="text-xs font-semibold text-[#5b8def] mb-3 tracking-widest">WATCH QC — EVERY UNIT</div>
+                <div className="text-xs font-semibold text-[#5b8def] mb-3 tracking-widest">WATCH QC - EVERY UNIT</div>
                 <DataTable
                   headers={["Check", "Method", "Pass Criteria"]}
                   rows={[
@@ -2122,7 +2122,7 @@ export default function OwenPlaybook() {
                     ["Strap/bracelet", "Clasp test", "Secure closure, no scratches, correct size"],
                   ]}
                 />
-                <div className="text-xs font-semibold text-[#34d399] mb-3 mt-6 tracking-widest">ARCHERY QC — EVERY UNIT</div>
+                <div className="text-xs font-semibold text-[#34d399] mb-3 mt-6 tracking-widest">ARCHERY QC - EVERY UNIT</div>
                 <DataTable
                   headers={["Check", "Method", "Pass Criteria"]}
                   rows={[
@@ -2134,13 +2134,13 @@ export default function OwenPlaybook() {
                     ["Threading (if applicable)", "Thread fastener", "Smooth engagement, no cross-threading"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]">If any check fails, the part is rejected. Watches get reworked. Archery parts get reprinted — at $2-4 COGS, it&apos;s cheaper to reprint than to risk a negative review.</p>
+                <p className="mt-3 text-sm text-[#948f8a]">If any check fails, the part is rejected. Watches get reworked. Archery parts get reprinted - at $2-4 COGS, it&apos;s cheaper to reprint than to risk a negative review.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
               <Card title="Warranty & Care Inserts" defaultOpen={false}>
-                <p className="mb-4">These go in the box with every order. Print on card stock — professional packaging builds trust and reduces &quot;is this legit?&quot; support requests.</p>
+                <p className="mb-4">These go in the box with every order. Print on card stock - professional packaging builds trust and reduces &quot;is this legit?&quot; support requests.</p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="p-5 rounded-xl bg-[#161625] border border-white/[0.08]">
                     <Watch size={18} className="text-[#5b8def] mb-2" />
@@ -2149,7 +2149,7 @@ export default function OwenPlaybook() {
                       <div><strong className="text-white">6-Month Warranty</strong> against manufacturing defects.</div>
                       <div><strong className="text-white">Covers:</strong> Movement failure, water ingress (if rated), misaligned components, defective crown/stem.</div>
                       <div><strong className="text-white">Does NOT cover:</strong> Physical damage, scratches, battery replacement (automatic movements don&apos;t use batteries), normal wear on straps/bezels.</div>
-                      <div className="pt-2 border-t border-white/[0.06] mt-2"><strong className="text-white">Care:</strong> Avoid extreme temperatures. Hand-wash only — do not submerge beyond rated depth. Store flat or on a watch stand. If unworn for 48+ hours, hand-wind 20-30 turns to restart the movement.</div>
+                      <div className="pt-2 border-t border-white/[0.06] mt-2"><strong className="text-white">Care:</strong> Avoid extreme temperatures. Hand-wash only - do not submerge beyond rated depth. Store flat or on a watch stand. If unworn for 48+ hours, hand-wind 20-30 turns to restart the movement.</div>
                     </div>
                   </div>
                   <div className="p-5 rounded-xl bg-[#161625] border border-white/[0.08]">
@@ -2158,10 +2158,10 @@ export default function OwenPlaybook() {
                     <div className="space-y-2 text-sm text-[#b0aca7]">
                       <div><strong className="text-white">Inspect before EVERY use.</strong></div>
                       <div>Check for cracks, layer separation, warping, or any visible deformation.</div>
-                      <div><strong className="text-white">Do NOT use</strong> if any damage is visible — contact us for a free replacement.</div>
+                      <div><strong className="text-white">Do NOT use</strong> if any damage is visible - contact us for a free replacement.</div>
                       <div>Replace after significant impact or if exposed to temperatures above 80&deg;C / 176&deg;F.</div>
                       <div>This product is an accessory. Always follow your bow manufacturer&apos;s safety guidelines.</div>
-                      <div className="pt-2 border-t border-white/[0.06] mt-2"><strong className="text-white">Material:</strong> Carbon fiber PETG / NylonX — engineered for strength and UV resistance. Not PLA.</div>
+                      <div className="pt-2 border-t border-white/[0.06] mt-2"><strong className="text-white">Material:</strong> Carbon fiber PETG / NylonX - engineered for strength and UV resistance. Not PLA.</div>
                     </div>
                   </div>
                 </div>
@@ -2170,7 +2170,7 @@ export default function OwenPlaybook() {
 
             <FadeIn>
               <Card title="Business Setup: Legal, Tax & Entity">
-                <p className="mb-4">Not glamorous, but essential. Owen needs to do these <strong className="text-white">before taking the first archery order</strong> — or at minimum, before running paid ads:</p>
+                <p className="mb-4">Not glamorous, but essential. Owen needs to do these <strong className="text-white">before taking the first archery order</strong> - or at minimum, before running paid ads:</p>
                 <NumberedStep n={1} title="Form an LLC (~$50-$200)">File in Owen&apos;s state. Protects personal assets from business liability. If a 3D-printed part fails and someone sues, they sue the LLC, not Owen personally. Takes 15 minutes online.</NumberedStep>
                 <NumberedStep n={2} title="Get an EIN (free)">IRS.gov, takes 5 minutes. Needed for the business bank account and tax filing. It&apos;s a business Social Security number.</NumberedStep>
                 <NumberedStep n={3} title="Open a Business Bank Account">Keep business money separate from personal. Chase, Mercury, or Relay all offer free business checking. All Stripe payouts go here.</NumberedStep>
@@ -2192,7 +2192,7 @@ export default function OwenPlaybook() {
                   ]}
                 />
                 <AlertBox type="warning" title="This Is the Cost of Being a Legitimate, Insured Business">
-                  Total annual cost: ~$2,570-$8,300, with insurance being the largest line item. That&apos;s 5-15 custom watch sales per year — significant but non-negotiable. Product liability insurance is what protects Owen personally if a 3D-printed archery part fails. The LLC + insurance combination is the foundation everything else builds on.
+                  Total annual cost: ~$2,570-$8,300, with insurance being the largest line item. That&apos;s 5-15 custom watch sales per year - significant but non-negotiable. Product liability insurance is what protects Owen personally if a 3D-printed archery part fails. The LLC + insurance combination is the foundation everything else builds on.
                 </AlertBox>
               </Card>
             </FadeIn>
@@ -2279,7 +2279,7 @@ export default function OwenPlaybook() {
                     <span className="text-xs font-bold tracking-widest text-[#b0aca7]">PHASE 0</span>
                     <span className="text-sm text-[#6b6762]">Before anything else</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white">Prerequisites — Owen&apos;s Checklist</h3>
+                  <h3 className="text-xl font-bold text-white">Prerequisites - Owen&apos;s Checklist</h3>
                   <div className="flex flex-wrap gap-4 mt-3 text-sm">
                     <div><span className="text-[#8a8580]">Investment: </span><span className="text-white font-medium">~$50-$200 (LLC filing)</span></div>
                     <div><span className="text-[#8a8580]">Expected: </span><span className="font-medium text-[#b0aca7]">Foundation set for both businesses</span></div>
@@ -2291,11 +2291,11 @@ export default function OwenPlaybook() {
                     {[
                       "Form an LLC (or confirm existing one covers both businesses)",
                       "Get an EIN from IRS.gov (free, 5 minutes)",
-                      "Open a business bank account (Chase, Mercury, or Relay — free)",
+                      "Open a business bank account (Chase, Mercury, or Relay - free)",
                       "Register a domain for the archery brand (Namecheap or Cloudflare, $10-15)",
                       "Set up business email (Google Workspace $6/mo or Zoho free tier)",
-                      "Start product liability insurance application (Veracity or Sadler — takes 1-2 weeks to finalize)",
-                      "Photograph first 5 archery SKUs — white background, multiple angles, one 'in use' shot each",
+                      "Start product liability insurance application (Veracity or Sadler - takes 1-2 weeks to finalize)",
+                      "Photograph first 5 archery SKUs - white background, multiple angles, one 'in use' shot each",
                       "Write 2-3 sentence product descriptions for each SKU",
                       "Pre-print 5 units of each of the first 5 SKUs (25 total) as buffer stock",
                     ].map((item, i) => (
@@ -2331,11 +2331,11 @@ export default function OwenPlaybook() {
                   <div className="text-xs font-semibold text-[#34d399] mb-4 tracking-widest">DAY-BY-DAY EXECUTION PLAN</div>
                   <div className="space-y-3">
                     {[
-                      { day: "Day 1-2", hamza: "Scaffold archery site: Next.js project, Supabase DB schema (products, orders, customers), Stripe integration, Vercel deployment.", owen: "Finalize first 5 SKUs. Start photographing parts — white background, multiple angles, one \"in use\" shot each. Write 2-3 sentence descriptions per part.", dep: "" },
+                      { day: "Day 1-2", hamza: "Scaffold archery site: Next.js project, Supabase DB schema (products, orders, customers), Stripe integration, Vercel deployment.", owen: "Finalize first 5 SKUs. Start photographing parts - white background, multiple angles, one \"in use\" shot each. Write 2-3 sentence descriptions per part.", dep: "" },
                       { day: "Day 3-4", hamza: "Build product catalog pages with search/filter. Build cart + Stripe checkout flow. Set up admin portal (order list, status updates, fulfillment tracking).", owen: "Deliver all 5 product photos + descriptions to Hamza. Register domain. Set up business email.", dep: "Owen's photos needed by end of Day 4" },
                       { day: "Day 5-6", hamza: "Integrate product data. Build order confirmation emails (Resend). Add review/testimonial display. QA and bug fixes across devices.", owen: "Test checkout flow with a real $1 test purchase. Review all product pages for accuracy. Prep 10-20 units of each SKU.", dep: "Site ready for Owen to test by Day 5" },
                       { day: "Day 7", hamza: "Deploy to production. Set up Vercel Analytics. Connect domain. Final QA pass.", owen: "Send site link to 5-10 people in dad's archery network for soft launch feedback.", dep: "Both review together before going live" },
-                      { day: "Day 8-10", hamza: "Fix any issues from soft launch feedback. Add Meta Pixel. Set up Google Analytics. Build basic SEO (meta tags, product schema).", owen: "Post in 2-3 archery communities (Reddit, ArcheryTalk, Facebook Group). Share product, ask for honest feedback. NOT a sales pitch — genuine community engagement.", dep: "" },
+                      { day: "Day 8-10", hamza: "Fix any issues from soft launch feedback. Add Meta Pixel. Set up Google Analytics. Build basic SEO (meta tags, product schema).", owen: "Post in 2-3 archery communities (Reddit, ArcheryTalk, Facebook Group). Share product, ask for honest feedback. NOT a sales pitch - genuine community engagement.", dep: "" },
                       { day: "Day 11-14", hamza: "Iterate based on first-week data. Start watch site planning/wireframes. Set up order notification system (email to Owen when order comes in).", owen: "Fulfill first orders. Document the print → package → ship process (take photos for future content). Collect first reviews.", dep: "First real orders expected this week" },
                     ].map((row, i) => (
                       <div key={i} className="bg-[#1c1c2e] rounded-lg p-4 border border-white/[0.06]">
@@ -2380,7 +2380,7 @@ export default function OwenPlaybook() {
                   <div className="text-xs font-semibold text-[#5b8def] mb-4 tracking-widest">WEEK-BY-WEEK EXECUTION PLAN</div>
                   <div className="space-y-3">
                     {[
-                      { week: "Week 3", hamza: "Scaffold watch site: product catalog pages, stock collection with hero images and pricing. Set up Supabase schema for watch products, customer accounts, orders.", owen: "Photograph ALL component inventory — every dial, case, bezel, crystal, strap. White background, multiple angles. This is the configurator's raw material.", dep: "Owen's photos needed by end of Week 3 — this blocks the configurator" },
+                      { week: "Week 3", hamza: "Scaffold watch site: product catalog pages, stock collection with hero images and pricing. Set up Supabase schema for watch products, customer accounts, orders.", owen: "Photograph ALL component inventory - every dial, case, bezel, crystal, strap. White background, multiple angles. This is the configurator's raw material.", dep: "Owen's photos needed by end of Week 3 - this blocks the configurator" },
                       { week: "Week 4", hamza: "Build watch configurator MVP: option selectors for each component (case, dial, hands, bezel, crystal, strap) with reference photos. Price updates dynamically. Stripe checkout integration.", owen: "Identify 5-10 best-selling designs for the stock collection. Write product descriptions. Provide parts list + pricing for each stock watch and all configurator options.", dep: "Parts list needed by mid-week to finalize configurator pricing" },
                       { week: "Week 5", hamza: "Set up ManyChat Pro + AI ($44/mo). Build qualification flow using the script from Growth section. Configure webhook to admin portal. Install Meta Pixel + Conversions API on watch site.", owen: "Create Facebook Business Page for the watch brand. Switch Marketplace listings from personal profile to Business Page. Test ManyChat flow with a friend's account.", dep: "Business Page must be created before ManyChat can connect" },
                       { week: "Week 6", hamza: "Build Resend email flows (Welcome, Abandoned Cart, Post-Purchase) using the copy from Growth section. Import Facebook reviews as site testimonials. Full QA pass across devices.", owen: "Screenshot and export all 50+ Facebook reviews. Test checkout flow with a real $1 purchase. Review every product page for accuracy. Share site with 5-10 existing customers for feedback.", dep: "Both review site together before public launch" },
@@ -2424,11 +2424,11 @@ export default function OwenPlaybook() {
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
-                  <div className="text-xs font-semibold text-[#818cf8] mb-4 tracking-widest">FIRST 30 DAYS OF ADS — EXECUTION PLAN</div>
+                  <div className="text-xs font-semibold text-[#818cf8] mb-4 tracking-widest">FIRST 30 DAYS OF ADS - EXECUTION PLAN</div>
                   <NumberedStep n={1} title="Days 1-3: Infrastructure">Install Meta Pixel + Conversions API (if not done in Phase 2). Set up Events Manager. Create ad account. Upload customer email list (700 watch customers) for Lookalike audiences. Configure standard events: ViewContent, AddToCart, InitiateCheckout, Purchase.</NumberedStep>
-                  <NumberedStep n={2} title="Days 4-7: Launch Test Campaigns">Create 3 initial campaigns per the First-Week Ad Spend Plan above. $500 total first week. 3 creatives per ad set. Start with UGC build video, testimonial compilation, and configurator demo. <strong className="text-white">Do NOT touch anything for the first 48 hours</strong> — let the algorithm learn.</NumberedStep>
-                  <NumberedStep n={3} title="Days 8-14: Learning Phase">Monitor daily: CTR, CPM, CPC, ROAS. Kill any individual creative with CTR &lt; 0.8% after $30 spend. Kill any ad set with zero purchases after $75 spend. The algorithm needs ~50 events to exit learning phase — be patient.</NumberedStep>
-                  <NumberedStep n={4} title="Days 15-21: Scale Winners">Increase daily budget by 20% on any ad set with ROAS &gt; 2.5x. Pause underperformers. Create 1% Lookalike audience from the customer email list — this becomes the primary scaling audience. Launch archery ads if validation sprint was successful.</NumberedStep>
+                  <NumberedStep n={2} title="Days 4-7: Launch Test Campaigns">Create 3 initial campaigns per the First-Week Ad Spend Plan above. $500 total first week. 3 creatives per ad set. Start with UGC build video, testimonial compilation, and configurator demo. <strong className="text-white">Do NOT touch anything for the first 48 hours</strong> - let the algorithm learn.</NumberedStep>
+                  <NumberedStep n={3} title="Days 8-14: Learning Phase">Monitor daily: CTR, CPM, CPC, ROAS. Kill any individual creative with CTR &lt; 0.8% after $30 spend. Kill any ad set with zero purchases after $75 spend. The algorithm needs ~50 events to exit learning phase - be patient.</NumberedStep>
+                  <NumberedStep n={4} title="Days 15-21: Scale Winners">Increase daily budget by 20% on any ad set with ROAS &gt; 2.5x. Pause underperformers. Create 1% Lookalike audience from the customer email list - this becomes the primary scaling audience. Launch archery ads if validation sprint was successful.</NumberedStep>
                   <NumberedStep n={5} title="Days 22-30: Retargeting + Assessment">Launch retargeting campaigns: cart abandoners (7-day window), product page viewers (14-day window). First month assessment: total spend, total revenue, blended ROAS, CAC by channel. If blended ROAS &gt; 2x, increase Month 2 budget by 50%. If &lt; 1.5x, diagnose before scaling.</NumberedStep>
 
                   <div className="p-4 rounded-lg bg-[#1c1c2e] text-sm mt-4">
@@ -2449,14 +2449,14 @@ export default function OwenPlaybook() {
                   </div>
                   <h3 className="text-xl font-bold text-white">Consolidate & Optimize</h3>
                   <div className="flex flex-wrap gap-4 mt-3 text-sm">
-                    <div><span className="text-[#8a8580]">Investment: </span><span className="text-white font-medium">Revenue-funded — optimize existing spend</span></div>
+                    <div><span className="text-[#8a8580]">Investment: </span><span className="text-white font-medium">Revenue-funded - optimize existing spend</span></div>
                     <div><span className="text-[#8a8580]">Expected: </span><span className="font-medium text-[#34d399]">$8-10K/month combined net profit</span></div>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
                   <div className="space-y-3">
                     {[
-                      { period: "Month 5", hamza: "Deep-dive analytics review: which products sell best, which ads convert, which email flows drive revenue. A/B test landing pages. Optimize site speed. Build Lookalike audiences from the now 100+ customer list.", owen: "Audit time budget — is he under 50 hrs/week? Review which archery SKUs sell vs. collect dust. Retire slow movers, double down on winners. Film 3 new ad creatives based on top-performing formats." },
+                      { period: "Month 5", hamza: "Deep-dive analytics review: which products sell best, which ads convert, which email flows drive revenue. A/B test landing pages. Optimize site speed. Build Lookalike audiences from the now 100+ customer list.", owen: "Audit time budget - is he under 50 hrs/week? Review which archery SKUs sell vs. collect dust. Retire slow movers, double down on winners. Film 3 new ad creatives based on top-performing formats." },
                       { period: "Month 6", hamza: "Implement findings from Month 5 analytics. Upgrade watch configurator if conversion data supports it. Build referral program infrastructure ($25 credit per referral). Set up affiliate/creator tracking.", owen: "Consider second 3D printer if archery demand justifies it ($300-$800). Test 2-3 new archery SKUs based on customer feedback. Start YouTube channel (even 1 video/week builds long-term organic traffic)." },
                     ].map((row, i) => (
                       <div key={i} className="bg-[#1c1c2e] rounded-lg p-4 border border-white/[0.06]">
@@ -2505,7 +2505,7 @@ export default function OwenPlaybook() {
                   />
                   <div className="space-y-3 mt-4">
                     {[
-                      { period: "Months 7-9", hamza: "Scale winning ad campaigns (increase budget 20%/week on ROAS > 3x). Explore Google Shopping ads for archery (high-intent buyer traffic). Build wholesale inquiry form for pro shops. Validate LTV assumptions with real data.", owen: "Onboard part-time assistant (if $15K trigger hit). Delegate packaging, shipping, and basic CS. Owen focuses on: watch builds, archery design, and content creation. Expand archery catalog based on sales data — target 20+ SKUs." },
+                      { period: "Months 7-9", hamza: "Scale winning ad campaigns (increase budget 20%/week on ROAS > 3x). Explore Google Shopping ads for archery (high-intent buyer traffic). Build wholesale inquiry form for pro shops. Validate LTV assumptions with real data.", owen: "Onboard part-time assistant (if $15K trigger hit). Delegate packaging, shipping, and basic CS. Owen focuses on: watch builds, archery design, and content creation. Expand archery catalog based on sales data - target 20+ SKUs." },
                     ].map((row, i) => (
                       <div key={i} className="bg-[#1c1c2e] rounded-lg p-4 border border-white/[0.06]">
                         <div className="text-sm font-bold text-[#818cf8] mb-2">{row.period}</div>
@@ -2537,7 +2537,7 @@ export default function OwenPlaybook() {
                   <h3 className="text-xl font-bold text-white">C8 Assessment & Final Push</h3>
                   <div className="flex flex-wrap gap-4 mt-3 text-sm">
                     <div><span className="text-[#8a8580]">Target: </span><span className="text-white font-medium">$68K+ annual net profit locked in</span></div>
-                    <div><span className="text-[#8a8580]">Expected: </span><span className="font-medium text-[#facc15]">C8 territory — $20K+/month combined net</span></div>
+                    <div><span className="text-[#8a8580]">Expected: </span><span className="font-medium text-[#facc15]">C8 territory - $20K+/month combined net</span></div>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
@@ -2551,7 +2551,7 @@ export default function OwenPlaybook() {
                   />
                   <div className="space-y-3 mt-4">
                     {[
-                      { period: "Months 10-12", hamza: "Full business review: LTV validation (do the 1.2x/2.0x assumptions hold?), CAC trends, channel profitability. Build 2027 scaling plan. Consider V3 features (AI previews, international shipping support).", owen: "Focus on what's working. If C8 is within reach, push volume on the highest-margin products. If not, diagnose the gap — is it volume, pricing, or CAC? Plan for Year 2: multiple printers, assistant team, expanded catalog." },
+                      { period: "Months 10-12", hamza: "Full business review: LTV validation (do the 1.2x/2.0x assumptions hold?), CAC trends, channel profitability. Build 2027 scaling plan. Consider V3 features (AI previews, international shipping support).", owen: "Focus on what's working. If C8 is within reach, push volume on the highest-margin products. If not, diagnose the gap - is it volume, pricing, or CAC? Plan for Year 2: multiple printers, assistant team, expanded catalog." },
                     ].map((row, i) => (
                       <div key={i} className="bg-[#1c1c2e] rounded-lg p-4 border border-white/[0.06]">
                         <div className="text-sm font-bold text-[#facc15] mb-2">{row.period}</div>
@@ -2584,7 +2584,7 @@ export default function OwenPlaybook() {
           <FadeIn><SectionHeader icon={Shield} label="Section 9" title="Risks & Kill Switches" /></FadeIn>
           <div className="max-w-3xl space-y-4">
             <FadeIn>
-              <Card title="What Could Go Wrong — And What We Do About It">
+              <Card title="What Could Go Wrong - And What We Do About It">
                 <p className="mb-4">Every plan has failure modes. Here&apos;s what we&apos;ve identified and the specific response for each:</p>
                 <div className="space-y-4">
                   {[
@@ -2595,7 +2595,7 @@ export default function OwenPlaybook() {
                       impact: "High",
                       impactColor: "#fb7185",
                       trigger: "Fewer than 20 archery orders in the first 60 days after site launch, despite community posting and the $50 test ad.",
-                      response: "This is why the validation sprint exists BEFORE building the site. If the sprint fails (fewer than 50 email signups or fewer than 3 positive reviews), pivot the archery product catalog based on survey feedback before investing further. If the site launches and demand is weak: (1) survey the first buyers on what they actually want, (2) test different price points, (3) expand to adjacent niches (fishing, camping, tactical). Worst case: pause archery, double down on watches — the archery site cost nearly nothing to build.",
+                      response: "This is why the validation sprint exists BEFORE building the site. If the sprint fails (fewer than 50 email signups or fewer than 3 positive reviews), pivot the archery product catalog based on survey feedback before investing further. If the site launches and demand is weak: (1) survey the first buyers on what they actually want, (2) test different price points, (3) expand to adjacent niches (fishing, camping, tactical). Worst case: pause archery, double down on watches - the archery site cost nearly nothing to build.",
                       status: "Validation sprint designed to catch this early"
                     },
                     {
@@ -2605,8 +2605,8 @@ export default function OwenPlaybook() {
                       impact: "High",
                       impactColor: "#fb7185",
                       trigger: "Seiko (or their lawyers) sends a cease-and-desist to Owen's current brand or social accounts.",
-                      response: "This is why we're rebranding NOW, before scaling. The new brand uses \"Powered by Seiko NH35 movement\" language — which is factual and legal (like saying \"Intel Inside\"). No Seiko logos, no Seiko in the brand name. If a C&D arrives for the old brand, we've already moved. Legal consultation cost: $500-$1,000 for a one-time IP review.",
-                      status: "Actively mitigating — rebrand is Phase 2"
+                      response: "This is why we're rebranding NOW, before scaling. The new brand uses \"Powered by Seiko NH35 movement\" language - which is factual and legal (like saying \"Intel Inside\"). No Seiko logos, no Seiko in the brand name. If a C&D arrives for the old brand, we've already moved. Legal consultation cost: $500-$1,000 for a one-time IP review.",
+                      status: "Actively mitigating - rebrand is Phase 2"
                     },
                     {
                       risk: "Ad Spend Doesn't Convert",
@@ -2615,8 +2615,8 @@ export default function OwenPlaybook() {
                       impact: "Medium",
                       impactColor: "#facc15",
                       trigger: "ROAS drops below 2x for 2+ consecutive weeks after the initial learning period (first 2 weeks).",
-                      response: "KILL SWITCH: Pause all ad spend immediately. Diagnose: creative fatigue? (swap creatives), audience wrong? (test new targeting), landing page issue? (check session recordings, A/B test). Do NOT keep spending hoping it improves. Fallback: Owen's organic Facebook Marketplace channel still works — ads are additive, not a replacement.",
-                      status: "Kill switch defined — monitor weekly"
+                      response: "KILL SWITCH: Pause all ad spend immediately. Diagnose: creative fatigue? (swap creatives), audience wrong? (test new targeting), landing page issue? (check session recordings, A/B test). Do NOT keep spending hoping it improves. Fallback: Owen's organic Facebook Marketplace channel still works - ads are additive, not a replacement.",
+                      status: "Kill switch defined - monitor weekly"
                     },
                     {
                       risk: "Cash Flow Crunch",
@@ -2625,7 +2625,7 @@ export default function OwenPlaybook() {
                       impact: "High",
                       impactColor: "#fb7185",
                       trigger: "Owen spending $1-3K/month on ads + $44/mo ManyChat + $100/mo software before new revenue catches up. Watch parts require upfront purchase.",
-                      response: "Phase ads in slowly: start at $500/month (not $2,000). Only increase when ROAS is proven positive. Keep 2 months of ad spend as cash reserve before starting. The archery business is nearly zero upfront cost (filament only) — launch it first to generate cash flow before scaling watch ads.",
+                      response: "Phase ads in slowly: start at $500/month (not $2,000). Only increase when ROAS is proven positive. Keep 2 months of ad spend as cash reserve before starting. The archery business is nearly zero upfront cost (filament only) - launch it first to generate cash flow before scaling watch ads.",
                       status: "Addressed by phased roadmap"
                     },
                     {
@@ -2645,7 +2645,7 @@ export default function OwenPlaybook() {
                       impact: "Medium",
                       impactColor: "#facc15",
                       trigger: "Printer breaks down, needs parts, or produces a run of failed prints. Archery orders can't be fulfilled for days/weeks.",
-                      response: "Keep 1-2 weeks of popular SKUs pre-printed as buffer stock. At $2-4 COGS per part, holding 50 units = $100-$200 in inventory. If demand justifies it (Phase 4), buy a second printer ($300-$800) — doubles capacity and eliminates single-point-of-failure. Set order page to show \"ships in 5-7 days\" not \"ships tomorrow\" to build in buffer.",
+                      response: "Keep 1-2 weeks of popular SKUs pre-printed as buffer stock. At $2-4 COGS per part, holding 50 units = $100-$200 in inventory. If demand justifies it (Phase 4), buy a second printer ($300-$800) - doubles capacity and eliminates single-point-of-failure. Set order page to show \"ships in 5-7 days\" not \"ships tomorrow\" to build in buffer.",
                       status: "Buffer stock strategy in Phase 1"
                     },
                     {
@@ -2655,7 +2655,7 @@ export default function OwenPlaybook() {
                       impact: "High",
                       impactColor: "#fb7185",
                       trigger: "Facebook restricts reselling, bans Owen's account, or changes Marketplace algorithm to deprioritize his listings.",
-                      response: "This is exactly why we're building owned channels (website, email list). The site + email list can't be taken away. Every Marketplace customer should be captured into the email list ASAP. Target: 300+ email subscribers by Month 3 — enough to sustain revenue independent of Facebook.",
+                      response: "This is exactly why we're building owned channels (website, email list). The site + email list can't be taken away. Every Marketplace customer should be captured into the email list ASAP. Target: 300+ email subscribers by Month 3 - enough to sustain revenue independent of Facebook.",
                       status: "Owned channel strategy mitigates this"
                     },
                     {
@@ -2664,8 +2664,8 @@ export default function OwenPlaybook() {
                       probColor: "#34d399",
                       impact: "High",
                       impactColor: "#fb7185",
-                      trigger: "Rushing to fill more orders leads to QC failures — misaligned dials, gasket leaks, movement issues. Negative reviews start appearing.",
-                      response: "Never sacrifice QC for volume. Owen does final QC on every watch, even when an assistant handles assembly. Invest in a pressure tester ($200-$500) by Phase 3 — it's a quality differentiator most modders skip. If reviews dip below 4.5 stars, pause volume growth and fix root cause.",
+                      trigger: "Rushing to fill more orders leads to QC failures - misaligned dials, gasket leaks, movement issues. Negative reviews start appearing.",
+                      response: "Never sacrifice QC for volume. Owen does final QC on every watch, even when an assistant handles assembly. Invest in a pressure tester ($200-$500) by Phase 3 - it's a quality differentiator most modders skip. If reviews dip below 4.5 stars, pause volume growth and fix root cause.",
                       status: "QC checkpoint in every phase"
                     },
                     {
@@ -2685,7 +2685,7 @@ export default function OwenPlaybook() {
                       impact: "Medium",
                       impactColor: "#facc15",
                       trigger: "Hamza's availability changes, Zapp Studios pivots, or the zero-cost development model ends.",
-                      response: "Owen retains full ownership of all code, domains, and accounts. The sites run on Vercel/Supabase free tiers — they'll keep working without developer intervention. For changes, Owen can use Claude Code directly or hire a freelance Next.js developer (~$50-100/hr). The admin portal and automation (ManyChat, Stripe webhooks, email flows) continue running independently in Owen's own accounts.",
+                      response: "Owen retains full ownership of all code, domains, and accounts. The sites run on Vercel/Supabase free tiers - they'll keep working without developer intervention. For changes, Owen can use Claude Code directly or hire a freelance Next.js developer (~$50-100/hr). The admin portal and automation (ManyChat, Stripe webhooks, email flows) continue running independently in Owen's own accounts.",
                       status: "Ownership structure ensures continuity"
                     },
                   ].map((risk, i) => (
@@ -2707,7 +2707,7 @@ export default function OwenPlaybook() {
             </FadeIn>
 
             <FadeIn>
-              <Card title="Maximum Downside — What Owen Risks">
+              <Card title="Maximum Downside - What Owen Risks">
                 <p className="mb-4">If both businesses completely fail and every kill switch fires, here&apos;s Owen&apos;s total out-of-pocket loss:</p>
                 <DataTable
                   headers={["Expense", "Amount", "When It's Spent"]}
@@ -2719,26 +2719,26 @@ export default function OwenPlaybook() {
                     ["Validation sprint ($50 ad + $30 samples)", "$80", "Pre-Phase 1 (non-recoverable)"],
                     ["Ad spend before kill switch fires (max 2 months)", "$1,000–$2,000", "Phase 3 (kill switch fires at ROAS <2x for 2 weeks)"],
                     ["ManyChat (max 2 months before kill)", "$88", "Phase 2–3"],
-                    ["Watch parts inventory (existing — not new spend)", "$0", "Already owned"],
+                    ["Watch parts inventory (existing - not new spend)", "$0", "Already owned"],
                     ["Archery filament (buffer stock)", "$50–$100", "Phase 1"],
                     ["**Total maximum loss**", "**$1,913–$4,498**", "**Over 6 months if everything fails**"],
                   ]}
                 />
-                <p className="mt-3 text-sm text-[#948f8a]">This is the absolute worst case — both businesses fail, all kill switches fire, and Owen walks away. It&apos;s the cost of 4-8 custom watches at current pricing. The risk is asymmetric: downside is capped at ~$2-4.5K, upside is $68K+/year.</p>
+                <p className="mt-3 text-sm text-[#948f8a]">This is the absolute worst case - both businesses fail, all kill switches fire, and Owen walks away. It&apos;s the cost of 4-8 custom watches at current pricing. The risk is asymmetric: downside is capped at ~$2-4.5K, upside is $68K+/year.</p>
               </Card>
             </FadeIn>
 
             <FadeIn>
-              <Card title="Exit Criteria — When to Walk Away">
+              <Card title="Exit Criteria - When to Walk Away">
                 <p className="mb-4">Specific conditions under which the entire strategy is abandoned, not just individual campaigns:</p>
                 <div className="space-y-3">
                   <div className="p-4 rounded-lg bg-[#fb7185]/5 border-l-4 border-l-[#fb7185]">
                     <div className="text-white font-semibold text-sm mb-1">Exit Trigger 1: Zero Traction After 90 Days</div>
-                    <div className="text-[#b0aca7] text-sm">If combined revenue from both sites (excluding Facebook Marketplace legacy sales) is below $2,000/month after 90 days of both sites being live — the strategy isn&apos;t working. Revert to Marketplace-only watch sales, sunset archery.</div>
+                    <div className="text-[#b0aca7] text-sm">If combined revenue from both sites (excluding Facebook Marketplace legacy sales) is below $2,000/month after 90 days of both sites being live - the strategy isn&apos;t working. Revert to Marketplace-only watch sales, sunset archery.</div>
                   </div>
                   <div className="p-4 rounded-lg bg-[#fb7185]/5 border-l-4 border-l-[#fb7185]">
                     <div className="text-white font-semibold text-sm mb-1">Exit Trigger 2: Negative Cash Flow for 3 Consecutive Months</div>
-                    <div className="text-[#b0aca7] text-sm">If Owen is spending more than he&apos;s making for 3 straight months after the initial ramp period (Months 1-3), cut all expenses: cancel ManyChat, pause ads, stop insurance. The sites continue running on free tiers — zero ongoing cost.</div>
+                    <div className="text-[#b0aca7] text-sm">If Owen is spending more than he&apos;s making for 3 straight months after the initial ramp period (Months 1-3), cut all expenses: cancel ManyChat, pause ads, stop insurance. The sites continue running on free tiers - zero ongoing cost.</div>
                   </div>
                   <div className="p-4 rounded-lg bg-[#fb7185]/5 border-l-4 border-l-[#fb7185]">
                     <div className="text-white font-semibold text-sm mb-1">Exit Trigger 3: Archery Safety Incident</div>
@@ -2750,7 +2750,7 @@ export default function OwenPlaybook() {
             </FadeIn>
 
             <FadeIn>
-              <Card title="Monthly Health Check — The Dashboard We'll Watch" defaultOpen={false}>
+              <Card title="Monthly Health Check - The Dashboard We'll Watch" defaultOpen={false}>
                 <p className="mb-4">Every month, Hamza and Owen review these metrics together. If any metric is in the red zone for 2+ months, we trigger the kill switch or pivot.</p>
                 <DataTable
                   headers={["Metric", "Green (On Track)", "Yellow (Watch)", "Red (Act Now)"]}
@@ -2794,14 +2794,14 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08] bg-[#fb7185]/5">
                   <div className="flex items-center gap-2">
                     <AlertTriangle size={16} className="text-[#fb7185]" />
-                    <span className="text-xs font-bold tracking-widest text-[#fb7185]">BLOCKERS — DO THESE FIRST</span>
+                    <span className="text-xs font-bold tracking-widest text-[#fb7185]">BLOCKERS - DO THESE FIRST</span>
                   </div>
                   <p className="text-sm text-[#b0aca7] mt-2">Everything else is blocked until these are done.</p>
                 </div>
                 <div className="p-5 sm:p-6 space-y-3">
                   {[
-                    { task: "Pick watch brand name", owner: "Owen", color: "#facc15", dep: "—", note: "Blocks domain, email, social, ManyChat, entire site" },
-                    { task: "Pick archery brand name", owner: "Owen", color: "#facc15", dep: "—", note: "Same — blocks everything in Phase 1" },
+                    { task: "Pick watch brand name", owner: "Owen", color: "#facc15", dep: "-", note: "Blocks domain, email, social, ManyChat, entire site" },
+                    { task: "Pick archery brand name", owner: "Owen", color: "#facc15", dep: "-", note: "Same - blocks everything in Phase 1" },
                     { task: "Check .com + IG handle + USPTO for both names", owner: "Hamza", color: "#5b8def", dep: "Names chosen", note: "30 min once names are decided" },
                     { task: "Register both domains (Namecheap / Cloudflare)", owner: "Hamza", color: "#5b8def", dep: "Names confirmed", note: "$10-15 each" },
                   ].map((item, i) => (
@@ -2812,7 +2812,7 @@ export default function OwenPlaybook() {
                           <span className="text-sm font-medium text-white">{item.task}</span>
                           <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ backgroundColor: `${item.color}15`, color: item.color }}>{item.owner}</span>
                         </div>
-                        <div className="text-xs text-[#6b6762]">{item.note}{item.dep !== "—" && <> &middot; <span className="text-[#fb7185]">Dep: {item.dep}</span></>}</div>
+                        <div className="text-xs text-[#6b6762]">{item.note}{item.dep !== "-" && <> &middot; <span className="text-[#fb7185]">Dep: {item.dep}</span></>}</div>
                       </div>
                     </div>
                   ))}
@@ -2826,7 +2826,7 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08]" style={{ borderLeftWidth: 4, borderLeftColor: "#b0aca7" }}>
                   <div className="flex flex-wrap items-center gap-3 mb-1">
                     <span className="text-xs font-bold tracking-widest text-[#b0aca7]">PHASE 0</span>
-                    <span className="text-sm text-[#6b6762]">Prerequisites — Before anything else</span>
+                    <span className="text-sm text-[#6b6762]">Prerequisites - Before anything else</span>
                   </div>
                   <p className="text-sm text-[#8a8580]">Most take 15-30 min each. Goal: unblock Phase 1 on Day 1.</p>
                 </div>
@@ -2837,7 +2837,7 @@ export default function OwenPlaybook() {
                     { task: "Open business bank account (Chase / Mercury / Relay)", owner: "Owen", color: "#facc15", note: "Free. Needs EIN" },
                     { task: "Start product liability insurance application (Veracity or Sadler)", owner: "Owen", color: "#facc15", note: "Takes 1-2 weeks to finalize. $2,500-8,000/yr" },
                     { task: "Set up business email (Google Workspace $6/mo or Zoho free)", owner: "Hamza", color: "#5b8def", note: "owen@[watchbrand].com + owen@[archerybrand].com. Needs domains" },
-                    { task: "Photograph first 5 archery SKUs — white bg, multiple angles, 1 \"in use\" shot each", owner: "Owen", color: "#facc15", note: "Start ASAP — blocks Phase 1 site build" },
+                    { task: "Photograph first 5 archery SKUs - white bg, multiple angles, 1 \"in use\" shot each", owner: "Owen", color: "#facc15", note: "Start ASAP - blocks Phase 1 site build" },
                     { task: "Write 2-3 sentence product descriptions for each archery SKU", owner: "Owen", color: "#facc15", note: "" },
                     { task: "Pre-print 5 units of each of first 5 archery SKUs (25 total buffer)", owner: "Owen", color: "#facc15", note: "~$50-100 in filament" },
                     { task: "Test $549 custom pricing: list 3 customs at $549 on FB Marketplace", owner: "Owen", color: "#facc15", note: "If 2+ sell in 2 weeks, price confirmed" },
@@ -2867,7 +2867,7 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08]" style={{ borderLeftWidth: 4, borderLeftColor: "#34d399" }}>
                   <div className="flex flex-wrap items-center gap-3 mb-1">
                     <span className="text-xs font-bold tracking-widest text-[#34d399]">PHASE 1</span>
-                    <span className="text-sm text-[#6b6762]">Mar 17-30 — Archery Site Live</span>
+                    <span className="text-sm text-[#6b6762]">Mar 17-30 - Archery Site Live</span>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
@@ -2939,7 +2939,7 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08]" style={{ borderLeftWidth: 4, borderLeftColor: "#5b8def" }}>
                   <div className="flex flex-wrap items-center gap-3 mb-1">
                     <span className="text-xs font-bold tracking-widest text-[#5b8def]">PHASE 2</span>
-                    <span className="text-sm text-[#6b6762]">Mar 31 – Apr 27 — Watch Site + ManyChat</span>
+                    <span className="text-sm text-[#6b6762]">Mar 31 – Apr 27 - Watch Site + ManyChat</span>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
@@ -2972,7 +2972,7 @@ export default function OwenPlaybook() {
                   <div className="text-[10px] font-semibold text-[#facc15] mb-3 tracking-widest">OWEN</div>
                   <div className="space-y-2.5">
                     {[
-                      { task: "Photograph ALL component inventory — every dial, case, bezel, crystal, strap", week: "Week 3", dep: "Blocks configurator — needed by end of Week 3" },
+                      { task: "Photograph ALL component inventory - every dial, case, bezel, crystal, strap", week: "Week 3", dep: "Blocks configurator - needed by end of Week 3" },
                       { task: "Identify 5-10 best-selling designs for stock collection", week: "Week 4" },
                       { task: "Write product descriptions for stock watches + all configurator options", week: "Week 4" },
                       { task: "Provide parts list + pricing for each stock watch and configurator options", week: "Week 4", dep: "Blocks configurator pricing" },
@@ -3010,7 +3010,7 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08]" style={{ borderLeftWidth: 4, borderLeftColor: "#818cf8" }}>
                   <div className="flex flex-wrap items-center gap-3 mb-1">
                     <span className="text-xs font-bold tracking-widest text-[#818cf8]">PHASE 3</span>
-                    <span className="text-sm text-[#6b6762]">May – July — Launch Ads &amp; Scale</span>
+                    <span className="text-sm text-[#6b6762]">May – July - Launch Ads &amp; Scale</span>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
@@ -3022,7 +3022,7 @@ export default function OwenPlaybook() {
                       { task: "Upload 700-customer email list for Lookalike audiences", day: "Days 1-3" },
                       { task: "Configure standard events: ViewContent, AddToCart, InitiateCheckout, Purchase", day: "Days 1-3" },
                       { task: "Create 3 initial campaigns per first-week ad plan ($500 total, 3 creatives each)", day: "Days 4-7" },
-                      { task: "DO NOT touch for first 48 hours — let algorithm learn", day: "Days 4-7" },
+                      { task: "DO NOT touch for first 48 hours - let algorithm learn", day: "Days 4-7" },
                       { task: "Monitor daily: CTR, CPM, CPC, ROAS. Kill creative if CTR <0.8% after $30", day: "Days 8-14" },
                       { task: "Kill any ad set with zero purchases after $75 spend", day: "Days 8-14" },
                       { task: "Increase budget 20% on ad sets with ROAS >2.5x", day: "Days 15-21" },
@@ -3075,7 +3075,7 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08]" style={{ borderLeftWidth: 4, borderLeftColor: "#34d399" }}>
                   <div className="flex flex-wrap items-center gap-3 mb-1">
                     <span className="text-xs font-bold tracking-widest text-[#34d399]">PHASE 4A</span>
-                    <span className="text-sm text-[#6b6762]">Aug – Sep — Consolidate &amp; Optimize</span>
+                    <span className="text-sm text-[#6b6762]">Aug – Sep - Consolidate &amp; Optimize</span>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6">
@@ -3090,7 +3090,7 @@ export default function OwenPlaybook() {
                       "Upgrade watch configurator to V2 (layered compositing) if data supports",
                       "Build referral program ($25 credit per referral)",
                       "Set up affiliate/creator tracking",
-                      "Validate LTV assumptions with real 90-day cohort data — recalculate unit economics",
+                      "Validate LTV assumptions with real 90-day cohort data - recalculate unit economics",
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3 p-2.5 rounded-lg bg-[#1c1c2e]">
                         <Circle size={15} className="text-[#6b6762] mt-0.5 flex-shrink-0" />
@@ -3101,8 +3101,8 @@ export default function OwenPlaybook() {
                   <div className="text-[10px] font-semibold text-[#facc15] mb-3 tracking-widest">OWEN</div>
                   <div className="space-y-2.5">
                     {[
-                      "Audit time budget — is he under 50 hrs/week?",
-                      "Review which archery SKUs sell vs. collect dust — retire slow movers",
+                      "Audit time budget - is he under 50 hrs/week?",
+                      "Review which archery SKUs sell vs. collect dust - retire slow movers",
                       "Film 3 new ad creatives based on top-performing formats",
                       "Consider second 3D printer if demand justifies ($300-800)",
                       "Test 2-3 new archery SKUs based on customer feedback",
@@ -3124,9 +3124,9 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08]" style={{ borderLeftWidth: 4, borderLeftColor: "#818cf8" }}>
                   <div className="flex flex-wrap items-center gap-3 mb-1">
                     <span className="text-xs font-bold tracking-widest text-[#818cf8]">PHASE 4B</span>
-                    <span className="text-sm text-[#6b6762]">Oct – Dec — Scale &amp; Diversify</span>
+                    <span className="text-sm text-[#6b6762]">Oct – Dec - Scale &amp; Diversify</span>
                   </div>
-                  <p className="text-sm text-[#8a8580] mt-1">Revenue-triggered milestones — each action unlocks at a specific revenue level.</p>
+                  <p className="text-sm text-[#8a8580] mt-1">Revenue-triggered milestones - each action unlocks at a specific revenue level.</p>
                 </div>
                 <div className="p-5 sm:p-6 space-y-3">
                   {[
@@ -3149,7 +3149,7 @@ export default function OwenPlaybook() {
                       </div>
                     </div>
                   ))}
-                  <div className="text-[10px] font-semibold text-[#5b8def] mb-2 mt-4 tracking-widest">ADDITIONAL — HAMZA</div>
+                  <div className="text-[10px] font-semibold text-[#5b8def] mb-2 mt-4 tracking-widest">ADDITIONAL - HAMZA</div>
                   <div className="space-y-2.5">
                     {[
                       "Scale winning ad campaigns (increase 20%/week on ROAS >3x)",
@@ -3163,11 +3163,11 @@ export default function OwenPlaybook() {
                       </div>
                     ))}
                   </div>
-                  <div className="text-[10px] font-semibold text-[#facc15] mb-2 mt-4 tracking-widest">ADDITIONAL — OWEN</div>
+                  <div className="text-[10px] font-semibold text-[#facc15] mb-2 mt-4 tracking-widest">ADDITIONAL - OWEN</div>
                   <div className="space-y-2.5">
                     {[
-                      "Onboard part-time assistant (if $15K trigger hit) — delegate packaging, shipping, basic CS",
-                      "Expand archery catalog based on sales data — target 20+ SKUs",
+                      "Onboard part-time assistant (if $15K trigger hit) - delegate packaging, shipping, basic CS",
+                      "Expand archery catalog based on sales data - target 20+ SKUs",
                       "Focus on: watch builds, archery design, content creation",
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3 p-2.5 rounded-lg bg-[#1c1c2e]">
@@ -3186,7 +3186,7 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08]" style={{ borderLeftWidth: 4, borderLeftColor: "#facc15" }}>
                   <div className="flex flex-wrap items-center gap-3 mb-1">
                     <span className="text-xs font-bold tracking-widest text-[#facc15]">PHASE 4C</span>
-                    <span className="text-sm text-[#6b6762]">Jan – Mar 2027 — C8 Assessment</span>
+                    <span className="text-sm text-[#6b6762]">Jan – Mar 2027 - C8 Assessment</span>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6 space-y-3">
@@ -3225,7 +3225,7 @@ export default function OwenPlaybook() {
                   <div className="space-y-2.5">
                     {[
                       "Push volume on highest-margin products",
-                      "If C8 not in reach — diagnose gap: volume, pricing, or CAC?",
+                      "If C8 not in reach - diagnose gap: volume, pricing, or CAC?",
                       "Plan Year 2: multiple printers, assistant team, expanded catalog",
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3 p-2.5 rounded-lg bg-[#1c1c2e]">
@@ -3244,7 +3244,7 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08]" style={{ borderLeftWidth: 4, borderLeftColor: "#34d399" }}>
                   <div className="flex flex-wrap items-center gap-3 mb-1">
                     <span className="text-xs font-bold tracking-widest text-[#34d399]">ONGOING</span>
-                    <span className="text-sm text-[#6b6762]">Content, SEO &amp; Operations — Every Week</span>
+                    <span className="text-sm text-[#6b6762]">Content, SEO &amp; Operations - Every Week</span>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6 space-y-2.5">
@@ -3252,8 +3252,8 @@ export default function OwenPlaybook() {
                     { task: "Watch Instagram/TikTok content (follow calendar)", owner: "Owen", color: "#facc15", cadence: "5 posts/week", note: "4-5 hrs/week" },
                     { task: "Archery Instagram/TikTok content (follow calendar)", owner: "Owen", color: "#facc15", cadence: "5 posts/week", note: "2-3 hrs/week" },
                     { task: "Reddit / ArcheryTalk community engagement", owner: "Owen", color: "#facc15", cadence: "2x/week", note: "Contribute, don't sell" },
-                    { task: "Blog posts — watch brand (from SEO plan)", owner: "Hamza", color: "#5b8def", cadence: "2/month", note: "Target informational keywords" },
-                    { task: "Blog posts — archery brand (from SEO plan)", owner: "Hamza", color: "#5b8def", cadence: "2/month", note: "Target informational keywords" },
+                    { task: "Blog posts - watch brand (from SEO plan)", owner: "Hamza", color: "#5b8def", cadence: "2/month", note: "Target informational keywords" },
+                    { task: "Blog posts - archery brand (from SEO plan)", owner: "Hamza", color: "#5b8def", cadence: "2/month", note: "Target informational keywords" },
                     { task: "Film ad creatives (both brands)", owner: "Owen", color: "#facc15", cadence: "3/week", note: "Phone, 15-30 sec each" },
                     { task: "Monthly health check review", owner: "Both", color: "#34d399", cadence: "Monthly", note: "Green/yellow/red dashboard from Risks section" },
                   ].map((item, i) => (
@@ -3279,14 +3279,14 @@ export default function OwenPlaybook() {
                 <div className="p-5 sm:p-6 border-b border-white/[0.08] bg-[#fb7185]/5">
                   <div className="flex items-center gap-2">
                     <Shield size={16} className="text-[#fb7185]" />
-                    <span className="text-xs font-bold tracking-widest text-[#fb7185]">EXIT CRITERIA — WHEN TO WALK AWAY</span>
+                    <span className="text-xs font-bold tracking-widest text-[#fb7185]">EXIT CRITERIA - WHEN TO WALK AWAY</span>
                   </div>
                 </div>
                 <div className="p-5 sm:p-6 space-y-3">
                   {[
                     { trigger: "Zero traction after 90 days", desc: "Combined site revenue (excluding legacy Marketplace) below $2,000/mo after 90 days of both sites live. Revert to Marketplace-only, sunset archery." },
-                    { trigger: "Negative cash flow for 3 consecutive months", desc: "After the initial ramp (Months 1-3), if Owen is spending more than making for 3 straight months — cancel ManyChat, pause ads, stop insurance. Sites stay on free tiers." },
-                    { trigger: "Archery safety incident", desc: "If a part causes injury or credible near-miss — pull all archery products immediately, file insurance claim, do not resume until root cause fixed and independently tested." },
+                    { trigger: "Negative cash flow for 3 consecutive months", desc: "After the initial ramp (Months 1-3), if Owen is spending more than making for 3 straight months - cancel ManyChat, pause ads, stop insurance. Sites stay on free tiers." },
+                    { trigger: "Archery safety incident", desc: "If a part causes injury or credible near-miss - pull all archery products immediately, file insurance claim, do not resume until root cause fixed and independently tested." },
                   ].map((item, i) => (
                     <div key={i} className="p-4 rounded-lg bg-[#fb7185]/5 border-l-4 border-l-[#fb7185]">
                       <div className="text-white font-semibold text-sm mb-1">{item.trigger}</div>
@@ -3304,7 +3304,7 @@ export default function OwenPlaybook() {
         {/* ═══ FOOTER ═══ */}
         <footer className="px-5 sm:px-10 lg:px-16 py-16 text-center">
           <div className="text-[10px] font-bold tracking-[3px] text-[#5b8def] mb-2">ZAPP STUDIOS</div>
-          <div className="text-sm text-[#6b6762] mb-1">Revenue Engineering</div>
+          <div className="text-sm text-[#6b6762] mb-1">Growth Systems</div>
           <div className="text-xs text-[#302d2a] mb-6">zappstudios.us</div>
           <div className="text-xs text-[#302d2a] max-w-md mx-auto leading-relaxed">
             This playbook is a living document. Updated after every call as we execute and learn.

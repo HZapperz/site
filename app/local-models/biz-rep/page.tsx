@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Zapp Studios — AI Infrastructure Investment',
+  title: 'Zapp Studios - AI Infrastructure Investment',
   description: 'DGX Spark + Mac Studio M4 Ultra infrastructure proposal for Zapp Studios.',
 }
 

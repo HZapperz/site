@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description: 'Revenue engineering playbook for Modded Seiko. Strategy, automation, and scaling plan prepared by Hamza at Zapp Studios.',
   openGraph: {
     title: 'Modded Seiko × Zapp Studios | Revenue Engineering Playbook',
-    description: 'Revenue engineering playbook for Modded Seiko — from 1-2 watches/day to 7-8 with automation, paid ads, and operational scaling.',
+    description: 'Revenue engineering playbook for Modded Seiko - from 1-2 watches/day to 7-8 with automation, paid ads, and operational scaling.',
     type: 'website',
   },
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowLeft, Brain, Sparkles, Lightbulb, Wrench, Zap, CheckCircle, Check } from "lucide-react"
+import { ArrowLeft, ArrowRight, Brain, Sparkles, Lightbulb, Wrench, Zap, CheckCircle, Check, Mail } from "lucide-react"
 
 /* ─── DESIGN TOKENS ─── */
 const DISPLAY: React.CSSProperties = { fontFamily: "'Space Grotesk', 'Inter', sans-serif" }
@@ -12,7 +12,7 @@ const topics = [
   {
     icon: Brain,
     title: "Claude for Business",
-    desc: "Not \"how to write a prompt\" — how to use Claude as a thinking partner, code reviewer, strategist, and force multiplier across your entire operation.",
+    desc: "Not \"how to write a prompt\" - how to use Claude as a thinking partner, code reviewer, strategist, and force multiplier across your entire operation.",
   },
   {
     icon: Wrench,
@@ -22,12 +22,12 @@ const topics = [
   {
     icon: Zap,
     title: "AI-First Operations",
-    desc: "How to restructure your workflows around AI from the ground up. Not bolting AI onto broken processes — rebuilding the process with AI at the center.",
+    desc: "How to restructure your workflows around AI from the ground up. Not bolting AI onto broken processes - rebuilding the process with AI at the center.",
   },
   {
     icon: Sparkles,
     title: "Hands-On Projects",
-    desc: "Every session includes a real project you walk away with. Not theory slides — actual tools and workflows you can use Monday morning.",
+    desc: "Every session includes a real project you walk away with. Not theory slides - actual tools and workflows you can use Monday morning.",
   },
 ]
 
@@ -43,6 +43,8 @@ const whoItsFor = [
   "Founders who want to ship faster by building with AI instead of around it",
   "Anyone tired of surface-level \"AI for beginners\" content that doesn't go anywhere",
 ]
+
+const MAILTO_LINK = `mailto:hamzazulquernain1@gmail.com?subject=${encodeURIComponent("AI Learning - Let's Talk")}&body=${encodeURIComponent("Hey Hamza,\n\nI'm interested in learning how to use AI in my business.\n\n1. My business: \n\n2. What I'd like to learn about AI: \n\n3. Biggest challenge right now: \n\n4. My experience with AI so far (beginner / some / advanced): \n")}`
 
 /* ─── REUSABLE PRIMITIVES ─── */
 
@@ -109,7 +111,14 @@ export default function LearnPage() {
         <Link href="/" className="flex items-center">
           <span className="text-xl font-bold tracking-tight text-[#F5EFE0]">Zapp Studios</span>
         </Link>
-        <div className="w-[72px]" />
+        <a
+          href={MAILTO_LINK}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#0C0C0C] bg-[#4ADE80] px-4 py-2 rounded-lg
+                     transition-all duration-200 hover:bg-[#4ADE80]/90 hover:shadow-[0_0_16px_rgba(74,222,128,0.3)]"
+        >
+          <Mail size={14} />
+          Get Started
+        </a>
       </nav>
 
       <div className="max-w-4xl mx-auto px-6">
@@ -146,9 +155,88 @@ export default function LearnPage() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.24 }}
             className="text-lg text-[#A09A8E] leading-relaxed max-w-2xl mx-auto"
           >
-            Practical, hands-on AI sessions taught by someone who builds with AI every day. Not theory — real tools, real
+            Practical, hands-on AI sessions taught by someone who builds with AI every day. Not theory - real tools, real
             workflows, real results you can apply immediately.
           </motion.p>
+        </section>
+
+        <SectionDivider />
+
+        {/* ─── THE SHIFT ─── */}
+        <section className="py-16">
+          <FadeIn>
+            <h2 className="text-2xl font-bold mb-3" style={DISPLAY}>
+              We never got flying cars.
+              <span className="text-[#4ADE80]"> But we just got AGI.</span>
+            </h2>
+            <p className="text-[#6B6560] text-sm mb-10">
+              From a recent piece by Hamza Zulquernain
+            </p>
+          </FadeIn>
+
+          <div className="space-y-6">
+            <FadeIn delay={0.1}>
+              <div className="bg-[#141414] rounded-xl border border-white/[0.06] p-6">
+                <p className="text-[15px] text-[#A09A8E] leading-relaxed">
+                  In the early 1900s, people dreamed about flying cars. A vehicle that could drive on roads and take off into the sky. We never got that. But we got planes, helicopters, and commercial airliners. Flying vehicles that changed civilization, just not in the shape anyone imagined.
+                </p>
+                <p className="text-[15px] text-white leading-relaxed mt-4 font-medium">
+                  The exact same thing is happening with AI right now.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="bg-[#141414] rounded-xl border border-white/[0.06] p-6">
+                <h3 className="text-base font-semibold text-white mb-3">You don&apos;t need expensive software anymore</h3>
+                <p className="text-[15px] text-[#A09A8E] leading-relaxed">
+                  Most people still don&apos;t realize you no longer need to pay for expensive SaaS platforms or even use the free ones. Need data analysis? AI handles it. Need a pitch deck or proposal? AI builds it. Practically every software tool businesses use for internal processes can now be replaced or massively improved by simply using AI.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.3}>
+              <div className="bg-[#141414] rounded-xl border border-white/[0.06] p-6">
+                <h3 className="text-base font-semibold text-white mb-3">The biggest companies already know this</h3>
+                <div className="space-y-4">
+                  <div className="border-l-2 border-l-[#4ADE80]/40 pl-4">
+                    <p className="text-[15px] text-[#A09A8E] leading-relaxed">
+                      At GTC 2026, NVIDIA CEO Jensen Huang called agentic AI <span className="text-white font-medium">&quot;the new inflection&quot;</span> - not a new feature, but a fundamental shift. He said 100% of NVIDIA&apos;s engineers are already using these tools.
+                    </p>
+                  </div>
+                  <div className="border-l-2 border-l-[#4ADE80]/40 pl-4">
+                    <p className="text-[15px] text-[#A09A8E] leading-relaxed">
+                      Michael Dell said it plainly on the All-In Podcast: <span className="text-white font-medium">&quot;It feels like we hit a threshold. What teams accomplish in a day or two weeks used to take months.&quot;</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <div className="bg-[#4ADE80]/[0.05] border border-[#4ADE80]/20 rounded-xl p-6 text-center">
+                <p className="text-[17px] text-white leading-relaxed font-medium">
+                  AGI isn&apos;t a singular superintelligent being. It&apos;s an unlimited army of genius-level intelligence available on demand, right now, today.
+                </p>
+                <p className="text-[15px] text-[#4ADE80] mt-4 font-medium">
+                  The flying cars are here. They just look different than we expected.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.5}>
+              <div className="text-center pt-4">
+                <a
+                  href={MAILTO_LINK}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#4ADE80] hover:text-white transition-colors"
+                >
+                  <Mail size={16} />
+                  Ready to learn what you can build with this? Let&apos;s talk
+                  <ArrowRight size={14} />
+                </a>
+              </div>
+            </FadeIn>
+          </div>
         </section>
 
         <SectionDivider />
@@ -176,7 +264,7 @@ export default function LearnPage() {
                              transition-colors duration-200
                              hover:border-[#4ADE80]/30 hover:shadow-[0_0_24px_rgba(74,222,128,0.07)]"
                 >
-                  {/* Icon container — larger with glow */}
+                  {/* Icon container - larger with glow */}
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center mb-5
                                bg-[#4ADE80]/10 border border-[#4ADE80]/20
@@ -193,6 +281,19 @@ export default function LearnPage() {
             })}
           </div>
         </section>
+
+        <FadeIn>
+          <div className="text-center py-6">
+            <a
+              href={MAILTO_LINK}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#4ADE80] hover:text-white transition-colors"
+            >
+              <Mail size={16} />
+              Want to learn this stuff? Let&apos;s talk
+              <ArrowRight size={14} />
+            </a>
+          </div>
+        </FadeIn>
 
         <SectionDivider />
 
@@ -221,6 +322,19 @@ export default function LearnPage() {
             ))}
           </div>
         </section>
+
+        <FadeIn>
+          <div className="text-center py-6">
+            <a
+              href={MAILTO_LINK}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#4ADE80] hover:text-white transition-colors"
+            >
+              <Mail size={16} />
+              Interested? Let&apos;s figure out where AI fits in your business
+              <ArrowRight size={14} />
+            </a>
+          </div>
+        </FadeIn>
 
         <SectionDivider />
 
@@ -271,7 +385,6 @@ export default function LearnPage() {
 
         {/* ─── CTA ─── */}
         <section className="py-20 text-center">
-          {/* Gradient background layer */}
           <FadeIn>
             <div
               className="relative rounded-2xl overflow-hidden px-6 sm:px-10 py-12"
@@ -282,32 +395,23 @@ export default function LearnPage() {
               }}
             >
               <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={DISPLAY}>
-                Next session coming soon.
+                Ready to learn AI?
               </h2>
               <p className="text-[#A09A8E] mb-8 max-w-lg mx-auto">
-                Drop your email and I&apos;ll let you know when the next class opens up. No spam, just one email when
-                it&apos;s time.
+                Send me a message with what you&apos;re working on. I&apos;ll get back to you
+                with how AI can fit into your workflow.
               </p>
 
-              {/* Input + Button */}
-              <div className="max-w-md mx-auto flex gap-3">
-                <input
-                  type="email"
-                  placeholder="you@company.com"
-                  className="flex-1 bg-[#0C0C0C] border border-white/[0.08] rounded-xl px-4 py-3 text-sm
-                             text-white placeholder:text-[#6B6560]
-                             focus:outline-none focus:border-[#4ADE80]/40 focus:ring-2 focus:ring-[#4ADE80]/20
-                             transition-all duration-200"
-                />
-                <button
-                  className="text-sm font-semibold text-[#0C0C0C] bg-[#4ADE80] px-6 py-3 rounded-xl
-                             flex-shrink-0 transition-all duration-200
-                             hover:bg-[#4ADE80]/90 hover:shadow-[0_0_20px_rgba(74,222,128,0.35)]
-                             active:scale-[0.97]"
-                >
-                  Notify Me
-                </button>
-              </div>
+              <a
+                href={MAILTO_LINK}
+                className="inline-flex items-center gap-2 text-base font-semibold text-[#0C0C0C] bg-[#4ADE80] px-8 py-3.5 rounded-xl
+                           transition-all duration-200
+                           hover:bg-[#4ADE80]/90 hover:shadow-[0_0_20px_rgba(74,222,128,0.35)]
+                           active:scale-[0.97]"
+              >
+                <Mail size={18} />
+                Send Me a Message
+              </a>
             </div>
           </FadeIn>
         </section>

@@ -200,7 +200,7 @@ export default function CustomerFunnel() {
       {/* Feedback loop indicator */}
       <div className="mt-4 flex items-center justify-center gap-2 text-[10px] text-[#6b6762]">
         <div className="h-px w-8 bg-[#302d2a]" />
-        <span>Reviews feed back into Discovery — the flywheel compounds</span>
+        <span>Reviews feed back into Discovery - the flywheel compounds</span>
         <div className="h-px w-8 bg-[#302d2a]" />
       </div>
     </div>

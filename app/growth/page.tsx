@@ -1254,13 +1254,13 @@ function FooterCTA() {
           <p className="mt-6 text-xs" style={{ ...MONO, color: '#6B6560' }}>
             Or email me directly:{' '}
             <Link
-              href="mailto:hello@zappstudios.us"
+              href="mailto:hamzazulquernain1@gmail.com"
               className="transition-colors"
               style={{ color: '#E8903A' }}
               onMouseEnter={e => (e.currentTarget.style.color = '#F0A855')}
               onMouseLeave={e => (e.currentTarget.style.color = '#E8903A')}
             >
-              hello@zappstudios.us
+              hamzazulquernain1@gmail.com
             </Link>
           </p>
 
@@ -1301,7 +1301,7 @@ function Footer() {
             <Linkedin size={17} />
           </Link>
           <Link
-            href="mailto:hello@zappstudios.us"
+            href="mailto:hamzazulquernain1@gmail.com"
             aria-label="Email"
             style={{ color: '#6B6560' }}
             onMouseEnter={e => (e.currentTarget.style.color = '#F5EFE0')}

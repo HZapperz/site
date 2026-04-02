@@ -140,15 +140,15 @@ function FadeIn({ children, className = "" }: { children: React.ReactNode; class
 
 /* ─── ACRONYM DEFINITIONS ─── */
 const acronyms: Record<string, string> = {
-  CPA: "Cost Per Acquisition — how much it costs to acquire one new customer",
-  LTV: "Lifetime Value — total revenue a customer generates over their entire relationship",
-  CAC: "Customer Acquisition Cost — total cost to acquire a new customer (same as CPA)",
-  ROAS: "Return On Ad Spend — revenue generated per dollar spent on advertising",
-  AOV: "Average Order Value — average revenue per booking/transaction",
-  CPC: "Cost Per Click — how much each ad click costs",
-  CPL: "Cost Per Lead — how much it costs to generate one lead",
-  WOM: "Word of Mouth — customers acquired through referrals, not paid ads",
-  CTR: "Click-Through Rate — percentage of people who click an ad after seeing it",
+  CPA: "Cost Per Acquisition - how much it costs to acquire one new customer",
+  LTV: "Lifetime Value - total revenue a customer generates over their entire relationship",
+  CAC: "Customer Acquisition Cost - total cost to acquire a new customer (same as CPA)",
+  ROAS: "Return On Ad Spend - revenue generated per dollar spent on advertising",
+  AOV: "Average Order Value - average revenue per booking/transaction",
+  CPC: "Cost Per Click - how much each ad click costs",
+  CPL: "Cost Per Lead - how much it costs to generate one lead",
+  WOM: "Word of Mouth - customers acquired through referrals, not paid ads",
+  CTR: "Click-Through Rate - percentage of people who click an ad after seeing it",
 }
 
 function Term({ children }: { children: string }) {
@@ -319,7 +319,7 @@ export default function RoyalPawzCaseStudy() {
                 Half Left. Now 1 in 3<br />Book and Pay.
               </h1>
               <p className="text-lg sm:text-xl text-[#94A3B8] leading-relaxed max-w-3xl mb-6">
-                We launched Royal Pawz in late November with a booking funnel that hemorrhaged visitors. Four months and two controlled A/B tests later, 1 in 3 visitors who enter the booking flow complete a paid appointment — and monthly revenue grew 8x. This is that story.
+                We launched Royal Pawz in late November with a booking funnel that hemorrhaged visitors. Four months and two controlled A/B tests later, 1 in 3 visitors who enter the booking flow complete a paid appointment - and monthly revenue grew 8x. This is that story.
               </p>
               <div className="flex flex-wrap gap-4 text-sm text-[#64748B]">
                 <span>Prepared by Hamza</span>
@@ -344,7 +344,7 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn><SectionHeader icon={BookOpen} label="Introduction" title="The Story" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed max-w-4xl mb-8">
-              Royal Pawz is a mobile dog grooming company in Houston. We built their full-stack platform — client booking app, groomer operations app, admin dashboard, AI-powered SMS service — and launched it in late November 2025. What happened next is a case study in why building the product is only half the job. The other half is engineering the growth.
+              Royal Pawz is a mobile dog grooming company in Houston. We built their full-stack platform - client booking app, groomer operations app, admin dashboard, AI-powered SMS service - and launched it in late November 2025. What happened next is a case study in why building the product is only half the job. The other half is engineering the growth.
             </p>
             <div className="flex flex-wrap gap-1 mb-8">
               {["Observe", "Hypothesize", "Test", "Measure", "Scale"].map((step, i) => (
@@ -382,15 +382,15 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn><SectionHeader icon={Layers} label="The Platform" title="What We Built" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed max-w-4xl mb-8">
-              Before optimizing the funnel, we built the entire platform from scratch. Royal Pawz isn&apos;t running on Squarespace with a Calendly embed — it&apos;s a fully custom system designed to give us total control over every step of the customer experience.
+              Before optimizing the funnel, we built the entire platform from scratch. Royal Pawz isn&apos;t running on Squarespace with a Calendly embed - it&apos;s a fully custom system designed to give us total control over every step of the customer experience.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { title: "Client Booking App", desc: "Multi-step booking flow with ZIP-based service area validation, real-time groomer availability, pet profiles, service customization, and integrated Stripe payments. Fully responsive — 80%+ of traffic is mobile.", color: "text-[#60A5FA]" },
+                { title: "Client Booking App", desc: "Multi-step booking flow with ZIP-based service area validation, real-time groomer availability, pet profiles, service customization, and integrated Stripe payments. Fully responsive - 80%+ of traffic is mobile.", color: "text-[#60A5FA]" },
                 { title: "Groomer Operations App", desc: "Mobile-first dashboard for groomers to manage their daily schedule, view upcoming appointments with pet details and special instructions, navigate to addresses, and update job status in real-time.", color: "text-emerald-400" },
-                { title: "Admin Dashboard", desc: "Complete business control panel — customer management, booking oversight, earnings reporting, groomer scheduling, service/pricing configuration, and real-time analytics across the entire platform.", color: "text-cyan-400" },
+                { title: "Admin Dashboard", desc: "Complete business control panel - customer management, booking oversight, earnings reporting, groomer scheduling, service/pricing configuration, and real-time analytics across the entire platform.", color: "text-cyan-400" },
                 { title: "AI-Powered SMS Service", desc: "Automated appointment confirmations, reminders, and follow-ups via SMS. Conversational AI handles rebooking requests and common questions. Abandoned cart recovery reaches users who dropped off before completing a booking.", color: "text-amber-400" },
-                { title: "Session Recording & Analytics", desc: "Custom rrweb integration recording every user session across the platform. Rage click detection, funnel drop-off tracking, and heatmap data — the system that made every optimization in this case study possible.", color: "text-red-400" },
+                { title: "Session Recording & Analytics", desc: "Custom rrweb integration recording every user session across the platform. Rage click detection, funnel drop-off tracking, and heatmap data - the system that made every optimization in this case study possible.", color: "text-red-400" },
                 { title: "A/B Testing Framework", desc: "Built-in split testing infrastructure with event-level tracking, variant assignment, and conversion attribution. Each experiment in this case study ran through this system with randomized traffic splits.", color: "text-[#60A5FA]" },
               ].map((item, i) => (
                 <div key={i} className="bg-[#1E293B] rounded-xl p-5 sm:p-6 border border-white/[0.06]">
@@ -400,7 +400,7 @@ export default function RoyalPawzCaseStudy() {
               ))}
             </div>
             <AlertBox type="info" title="Why Custom Matters">
-              <p>Every optimization in this case study was possible because we own the entire stack. When we identified the auth wall problem, we didn&apos;t submit a support ticket — we redesigned the flow and shipped it the same week. When we needed A/B testing, we didn&apos;t pay for a plugin — we built it into the platform. When we needed session recordings, we integrated rrweb directly. <strong className="text-white">Full-stack ownership means zero waiting, zero dependencies, and changes deployed daily if needed.</strong></p>
+              <p>Every optimization in this case study was possible because we own the entire stack. When we identified the auth wall problem, we didn&apos;t submit a support ticket - we redesigned the flow and shipped it the same week. When we needed A/B testing, we didn&apos;t pay for a plugin - we built it into the platform. When we needed session recordings, we integrated rrweb directly. <strong className="text-white">Full-stack ownership means zero waiting, zero dependencies, and changes deployed daily if needed.</strong></p>
             </AlertBox>
           </FadeIn>
         </section>
@@ -414,7 +414,7 @@ export default function RoyalPawzCaseStudy() {
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Nov 25, 2025 – Jan 18, 2026 (tracking from Dec 26)</p>
             <Card title="What Happened" defaultOpen>
               <p className="mb-4">Royal Pawz went live in late November. The app worked, the groomers were ready, the Google Ads were running. November saw 13 signups, 5 bookings. Small numbers, but it was working. By December that grew to 50 signups. By January, 78. <strong className="text-white">Growth was working. Conversion was the bottleneck.</strong></p>
-              <p className="mb-4">For the first month we were flying blind — no session tracking, no funnel analytics. On December 26th, we installed rrweb session recording across the entire platform. The data hit immediately, and it wasn&apos;t pretty.</p>
+              <p className="mb-4">For the first month we were flying blind - no session tracking, no funnel analytics. On December 26th, we installed rrweb session recording across the entire platform. The data hit immediately, and it wasn&apos;t pretty.</p>
               <p>The flow was straightforward: a Google ad sends you to <strong className="text-white">/auth/sign-up</strong>. Create an account. Verify your email. Complete onboarding. Then you can explore services and book.</p>
               <FlowSteps steps={[
                 { label: "Google Ad" },
@@ -427,11 +427,11 @@ export default function RoyalPawzCaseStudy() {
             </Card>
             <Card title="What the Data Showed" defaultOpen>
               <Observation>
-                Session recordings told the story: users landed on a sign-up form with zero context. No services listed, no pricing visible, no photos of the vans. Some tried scrolling — nothing below the fold. Some clicked the logo hoping for a homepage. <strong className="text-white">Most just closed the tab.</strong>
+                Session recordings told the story: users landed on a sign-up form with zero context. No services listed, no pricing visible, no photos of the vans. Some tried scrolling - nothing below the fold. Some clicked the logo hoping for a homepage. <strong className="text-white">Most just closed the tab.</strong>
               </Observation>
-              <p className="mb-4">The numbers were brutal. <strong className="text-white">61.4% of visitors dropped at the sign-up page alone</strong> — of 665 sessions that reached /auth/sign-up, only 257 made it through. Users were averaging <strong className="text-white">14.7 rage clicks</strong> on the sign-up form, a frustration signal 3x higher than any other page. And 80.6% of our traffic was mobile, where the experience was worst — mobile users rage-clicked 5x more than desktop.</p>
-              <p className="mb-4">Google Ads — our biggest traffic source at 391 sessions — was converting at <strong className="text-white">just 2.8%</strong> to even reaching signup. The landing page had accidentally hidden the &quot;Book Now&quot; button on mobile behind a hamburger menu, and loaded <strong className="text-white">9.8MB of unoptimized images</strong> — a 16-second load on 4G.</p>
-              <p>Even users who made it past signup weren&apos;t safe. Of 338 total signups across this period, <strong className="text-white">231 never booked — a 68.3% drop-off rate.</strong> The booking flow itself had a 31.7% drop at the address step and 16.1% at payment. But the biggest problem was upstream. The auth wall was killing us before users ever saw what Royal Pawz offered.</p>
+              <p className="mb-4">The numbers were brutal. <strong className="text-white">61.4% of visitors dropped at the sign-up page alone</strong> - of 665 sessions that reached /auth/sign-up, only 257 made it through. Users were averaging <strong className="text-white">14.7 rage clicks</strong> on the sign-up form, a frustration signal 3x higher than any other page. And 80.6% of our traffic was mobile, where the experience was worst - mobile users rage-clicked 5x more than desktop.</p>
+              <p className="mb-4">Google Ads - our biggest traffic source at 391 sessions - was converting at <strong className="text-white">just 2.8%</strong> to even reaching signup. The landing page had accidentally hidden the &quot;Book Now&quot; button on mobile behind a hamburger menu, and loaded <strong className="text-white">9.8MB of unoptimized images</strong> - a 16-second load on 4G.</p>
+              <p>Even users who made it past signup weren&apos;t safe. Of 338 total signups across this period, <strong className="text-white">231 never booked - a 68.3% drop-off rate.</strong> The booking flow itself had a 31.7% drop at the address step and 16.1% at payment. But the biggest problem was upstream. The auth wall was killing us before users ever saw what Royal Pawz offered.</p>
             </Card>
             <ResultBox variant="negative" metrics={[
               { value: "61.4%", label: "Signup Page Drop", color: "text-red-400" },
@@ -451,12 +451,12 @@ export default function RoyalPawzCaseStudy() {
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Jan 19 – Mar 8, 2026</p>
             <Card title="What We Changed" defaultOpen>
               <p className="mb-4">The diagnosis from Phase 1 pointed to one root cause: <strong className="text-white">the auth wall had to go.</strong> Users shouldn&apos;t need to create an account, verify an email, and complete onboarding before they can even see what Royal Pawz offers. The entire entry point needed to change.</p>
-              <p className="mb-4">On January 19th, we replaced <strong className="text-white">/auth/sign-up</strong> with a new <strong className="text-white">/book</strong> flow. No account required. Google Ads now sent users directly into the booking experience — enter your ZIP code, add your pets, pick a service, choose a time. Account creation moved to the very end, right before payment, after users had already built their appointment.</p>
+              <p className="mb-4">On January 19th, we replaced <strong className="text-white">/auth/sign-up</strong> with a new <strong className="text-white">/book</strong> flow. No account required. Google Ads now sent users directly into the booking experience - enter your ZIP code, add your pets, pick a service, choose a time. Account creation moved to the very end, right before payment, after users had already built their appointment.</p>
               <p className="mb-4">Phase 2 involved two major changes working together:</p>
               <div className="space-y-3 mb-4">
                 <div className="flex gap-3 p-3 bg-white/[0.02] rounded-lg">
                   <span className="text-[#60A5FA] font-bold text-lg flex-shrink-0">1</span>
-                  <div><strong className="text-white">Google Ads landing page fix.</strong> We changed the ad destination from the old homepage to <span className="font-mono text-[#60A5FA]">/landing</span> — a purpose-built page with clear CTAs, optimized images, and a visible &quot;Book Now&quot; button on mobile. <strong className="text-white">This immediately improved engagement — users clicked through to the booking flow instead of bouncing.</strong></div>
+                  <div><strong className="text-white">Google Ads landing page fix.</strong> We changed the ad destination from the old homepage to <span className="font-mono text-[#60A5FA]">/landing</span> - a purpose-built page with clear CTAs, optimized images, and a visible &quot;Book Now&quot; button on mobile. <strong className="text-white">This immediately improved engagement - users clicked through to the booking flow instead of bouncing.</strong></div>
                 </div>
                 <div className="flex gap-3 p-3 bg-white/[0.02] rounded-lg">
                   <span className="text-[#60A5FA] font-bold text-lg flex-shrink-0">2</span>
@@ -464,7 +464,7 @@ export default function RoyalPawzCaseStudy() {
                 </div>
               </div>
               <AlertBox type="info" title="Attribution Note">
-                <p>Multiple variables changed during Phase 2 — we can&apos;t cleanly isolate the landing page fix from the /book migration. The bounce rate improvement is likely driven primarily by the landing page fix, while the conversion improvement comes from the /book flow. <strong className="text-white">The clean, single-variable attribution comes in Phases 3 and 4</strong> where we ran controlled A/B tests.</p>
+                <p>Multiple variables changed during Phase 2 - we can&apos;t cleanly isolate the landing page fix from the /book migration. The bounce rate improvement is likely driven primarily by the landing page fix, while the conversion improvement comes from the /book flow. <strong className="text-white">The clean, single-variable attribution comes in Phases 3 and 4</strong> where we ran controlled A/B tests.</p>
               </AlertBox>
               <FlowSteps steps={[
                 { label: "Google Ad" },
@@ -480,12 +480,12 @@ export default function RoyalPawzCaseStudy() {
             </Card>
             <Card title="What Happened" defaultOpen>
               <Observation>
-                The difference was immediate. Session recordings showed users engaging with the booking flow within seconds of landing — entering their ZIP, browsing services, adding their dog. <strong className="text-white">No more rage clicks. No more confused scrolling. They were booking — not bouncing.</strong>
+                The difference was immediate. Session recordings showed users engaging with the booking flow within seconds of landing - entering their ZIP, browsing services, adding their dog. <strong className="text-white">No more rage clicks. No more confused scrolling. They were booking - not bouncing.</strong>
               </Observation>
               <p className="mb-4">The impact was immediate. <strong className="text-white">Revenue nearly 4x&apos;d in a single month.</strong> New customer acquisition tripled. The auth wall had been the single biggest obstacle between Royal Pawz and its customers.</p>
-              <p>But the /book flow was brand new, and we knew there was room to optimize within it. <strong className="text-white">The funnel was working — now it was time to tune it.</strong></p>
+              <p>But the /book flow was brand new, and we knew there was room to optimize within it. <strong className="text-white">The funnel was working - now it was time to tune it.</strong></p>
             </Card>
-            <p className="text-[13px] text-[#64748B] mt-2 mb-2 italic">Note: two changes shipped simultaneously — the landing page fix and the /book flow rebuild. The revenue jump reflects both, not either alone. Clean single-variable results come in Phases 3 and 4.</p>
+            <p className="text-[13px] text-[#64748B] mt-2 mb-2 italic">Note: two changes shipped simultaneously - the landing page fix and the /book flow rebuild. The revenue jump reflects both, not either alone. Clean single-variable results come in Phases 3 and 4.</p>
             <ResultBox variant="improved" metrics={[
               { value: "~4x", label: "Revenue Growth", color: "text-cyan-400" },
               { value: "3x", label: "New Customers", color: "text-cyan-400" },
@@ -502,11 +502,11 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn>
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Mar 9 – 14, 2026 · A/B Test · 43 sessions</p>
             <Card title="The Hypothesis" defaultOpen>
-              <p className="mb-4">By early March, Phase 2 had been running for seven weeks. Bounce was consistently low. But we had a new observation: most drop-offs in the booking flow happened at the very first step — <strong className="text-white">the ZIP code entry</strong>.</p>
-              <p className="mb-4">Session recordings told the story: users clicked &quot;Book Now&quot; and immediately hit a form field asking for their ZIP code. No transition, no context about what they were signing up for. They hadn&apos;t mentally committed to booking — they were still deciding. Asking for personal info at that moment felt like a cold ask, and most just left.</p>
-              <p className="mb-4">We had a hypothesis that went against every conversion playbook: <em className="text-white">what if we added a step?</em> A simple <strong className="text-white">intro screen</strong> — &quot;Here&apos;s how booking works: enter your ZIP, add your pets, pick a time&quot; — before the ZIP code field. The logic: if someone reads how the process works and clicks &quot;Let&apos;s go,&quot; they&apos;ve already decided to engage. The ZIP code field stops feeling like a barrier and starts feeling like step one of something they chose.</p>
+              <p className="mb-4">By early March, Phase 2 had been running for seven weeks. Bounce was consistently low. But we had a new observation: most drop-offs in the booking flow happened at the very first step - <strong className="text-white">the ZIP code entry</strong>.</p>
+              <p className="mb-4">Session recordings told the story: users clicked &quot;Book Now&quot; and immediately hit a form field asking for their ZIP code. No transition, no context about what they were signing up for. They hadn&apos;t mentally committed to booking - they were still deciding. Asking for personal info at that moment felt like a cold ask, and most just left.</p>
+              <p className="mb-4">We had a hypothesis that went against every conversion playbook: <em className="text-white">what if we added a step?</em> A simple <strong className="text-white">intro screen</strong> - &quot;Here&apos;s how booking works: enter your ZIP, add your pets, pick a time&quot; - before the ZIP code field. The logic: if someone reads how the process works and clicks &quot;Let&apos;s go,&quot; they&apos;ve already decided to engage. The ZIP code field stops feeling like a barrier and starts feeling like step one of something they chose.</p>
               <div className="mt-4">
-                <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-1">✓ Variant A — Intro Screen (Winner)</div>
+                <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-1">✓ Variant A - Intro Screen (Winner)</div>
                 <FlowSteps steps={[
                   { label: "Intro Screen", type: "highlight" },
                   { label: "ZIP Code" },
@@ -514,7 +514,7 @@ export default function RoyalPawzCaseStudy() {
                   { label: "Contact Info" },
                   { label: "Book" },
                 ]} />
-                <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-1 mt-2">Variant B — Direct ZIP (Control)</div>
+                <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-1 mt-2">Variant B - Direct ZIP (Control)</div>
                 <FlowSteps steps={[
                   { label: "ZIP Code" },
                   { label: "Add Pets" },
@@ -525,11 +525,11 @@ export default function RoyalPawzCaseStudy() {
             </Card>
             <Card title="The Result" defaultOpen>
               <Observation>
-                Despite adding friction, the intro screen <strong className="text-white">doubled the conversion rate</strong>. Users who read the intro and chose to continue were self-selecting for intent. The extra step acted as a commitment micro-filter — those who clicked through were telling us &quot;yes, I actually want to book.&quot;
+                Despite adding friction, the intro screen <strong className="text-white">doubled the conversion rate</strong>. Users who read the intro and chose to continue were self-selecting for intent. The extra step acted as a commitment micro-filter - those who clicked through were telling us &quot;yes, I actually want to book.&quot;
               </Observation>
               <p className="mb-4">43 sessions. 5 days. A strong directional signal. We shipped the intro screen as default and turned our attention to the next opportunity.</p>
               <AlertBox type="warning" title="On Sample Size">
-                <p>At n=43 (21 vs 22), this result is directionally strong but below traditional statistical significance thresholds. We shipped based on the quantitative signal combined with qualitative evidence from session recordings — users in the intro variant showed markedly more purposeful behavior.</p>
+                <p>At n=43 (21 vs 22), this result is directionally strong but below traditional statistical significance thresholds. We shipped based on the quantitative signal combined with qualitative evidence from session recordings - users in the intro variant showed markedly more purposeful behavior.</p>
               </AlertBox>
             </Card>
             <ResultBox variant="positive" metrics={[
@@ -549,11 +549,11 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn>
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Mar 14 – 18, 2026 · A/B Test · 54 sessions</p>
             <Card title="The Hypothesis" defaultOpen>
-              <p className="mb-4">Fresh off the intro screen win, we dug into the remaining drop-off data. A pattern emerged: users were adding pets, customizing services, choosing times — investing 5–10 minutes of effort — then <strong className="text-white">abandoning at the contact info step.</strong></p>
+              <p className="mb-4">Fresh off the intro screen win, we dug into the remaining drop-off data. A pattern emerged: users were adding pets, customizing services, choosing times - investing 5–10 minutes of effort - then <strong className="text-white">abandoning at the contact info step.</strong></p>
               <p className="mb-4">They&apos;d done all the work. They just wouldn&apos;t give us their name.</p>
-              <p className="mb-4">The insight: once someone types in their real name and email, they&apos;ve made a micro-commitment. Psychologically, they&apos;re now &quot;in&quot; — abandoning the booking feels like walking out of a restaurant after they&apos;ve taken your order. The remaining steps feel like finishing something, not deciding whether to start. We tested moving the contact info step from <strong className="text-white">late</strong> in the funnel (after scheduling) to <strong className="text-white">early</strong> (right after adding pets, before customization).</p>
+              <p className="mb-4">The insight: once someone types in their real name and email, they&apos;ve made a micro-commitment. Psychologically, they&apos;re now &quot;in&quot; - abandoning the booking feels like walking out of a restaurant after they&apos;ve taken your order. The remaining steps feel like finishing something, not deciding whether to start. We tested moving the contact info step from <strong className="text-white">late</strong> in the funnel (after scheduling) to <strong className="text-white">early</strong> (right after adding pets, before customization).</p>
               <div>
-                <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-1">Variant A — Info Late (Control)</div>
+                <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-1">Variant A - Info Late (Control)</div>
                 <FlowSteps steps={[
                   { label: "ZIP" },
                   { label: "Pets" },
@@ -562,7 +562,7 @@ export default function RoyalPawzCaseStudy() {
                   { label: "Contact Info", type: "friction" },
                   { label: "Checkout" },
                 ]} />
-                <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-1 mt-2">✓ Variant B — Info Early (Winner)</div>
+                <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-1 mt-2">✓ Variant B - Info Early (Winner)</div>
                 <FlowSteps steps={[
                   { label: "ZIP" },
                   { label: "Pets" },
@@ -575,7 +575,7 @@ export default function RoyalPawzCaseStudy() {
             </Card>
             <Card title="The Result" defaultOpen>
               <Observation>
-                Users who provided contact info early didn&apos;t just convert more — <strong className="text-white">they spent more.</strong> AOV jumped 21.6%. Once committed, users were more likely to add premium services and add-ons. The customization step became about enhancing their appointment, not deciding whether to have one. And early account creation meant we could follow up on abandoned carts via SMS.
+                Users who provided contact info early didn&apos;t just convert more - <strong className="text-white">they spent more.</strong> AOV jumped 21.6%. Once committed, users were more likely to add premium services and add-ons. The customization step became about enhancing their appointment, not deciding whether to have one. And early account creation meant we could follow up on abandoned carts via SMS.
               </Observation>
               <p className="mb-4">54 sessions. 4 days. <strong className="text-white">334% conversion lift and 21.6% higher <Term>AOV</Term>.</strong> The winning variant went live as the default. In four months, we&apos;d gone from a broken auth wall to a controlled test showing nearly 1 in 3 visitors who enter the booking flow completing a paid appointment.</p>
               <AlertBox type="warning" title="On Sample Size">
@@ -598,7 +598,7 @@ export default function RoyalPawzCaseStudy() {
         <section id="evidence" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={BarChart3} label="Data" title="The Bigger Picture" /></FadeIn>
           <FadeIn>
-            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Five months of performance across all four phases — growth indexed against month one as baseline.</p>
+            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Five months of performance across all four phases - growth indexed against month one as baseline.</p>
             <Card title="Monthly Performance" defaultOpen>
               <DataTable
                 headers={["Month", "Sessions", "Revenue Index", "Repeat Share", "Ad Spend"]}
@@ -620,12 +620,12 @@ export default function RoyalPawzCaseStudy() {
         <section id="experiments" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={Target} label="A/B Tests" title="The Experiments, In Detail" /></FadeIn>
           <FadeIn>
-            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Randomized traffic, tracked events, single-variable tests — the cleanest numbers in this report.</p>
+            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Randomized traffic, tracked events, single-variable tests - the cleanest numbers in this report.</p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <Card title="Test 1: Intro Screen vs Direct ZIP" defaultOpen>
                 <p className="text-[13px] font-mono text-[#64748B] mb-4">Mar 9–14 · 43 sessions</p>
                 <div className="mb-4">
-                  <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">✓ Variant A — Intro Screen · 19.0%</div>
+                  <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">✓ Variant A - Intro Screen · 19.0%</div>
                   <FunnelBar label="Entered" count={21} total={21} variant="winner" />
                   <FunnelBar label="Intro" count={16} total={21} variant="winner" />
                   <FunnelBar label="ZIP" count={12} total={21} variant="winner" />
@@ -634,7 +634,7 @@ export default function RoyalPawzCaseStudy() {
                   <FunnelBar label="Booked" count={4} total={21} variant="winner" />
                 </div>
                 <div className="mb-4">
-                  <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-2">Variant B — Direct ZIP · 9.1%</div>
+                  <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-2">Variant B - Direct ZIP · 9.1%</div>
                   <FunnelBar label="Entered" count={22} total={22} variant="control" />
                   <FunnelBar label="ZIP" count={20} total={22} variant="control" />
                   <FunnelBar label="Pets" count={20} total={22} variant="control" />
@@ -650,14 +650,14 @@ export default function RoyalPawzCaseStudy() {
               <Card title="Test 2: Info Step Placement" defaultOpen>
                 <p className="text-[13px] font-mono text-[#64748B] mb-4">Mar 14–18 · 54 sessions</p>
                 <div className="mb-4">
-                  <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">✓ Variant B — Info Early · 33%</div>
+                  <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">✓ Variant B - Info Early · 33%</div>
                   <FunnelBar label="Entered" count={26} total={26} variant="winner" />
                   <FunnelBar label="Info" count={14} total={26} variant="winner" />
                   <FunnelBar label="Checkout" count={10} total={26} variant="winner" />
                   <FunnelBar label="Booked" count={8} total={26} variant="winner" />
                 </div>
                 <div className="mb-4">
-                  <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-2">Variant A — Info Late · 7.1%</div>
+                  <div className="text-[11px] font-semibold text-[#64748B] uppercase tracking-wider mb-2">Variant A - Info Late · 7.1%</div>
                   <FunnelBar label="Entered" count={28} total={28} variant="control" />
                   <FunnelBar label="Info" count={3} total={28} variant="control" />
                   <FunnelBar label="Checkout" count={3} total={28} variant="control" />
@@ -684,7 +684,7 @@ export default function RoyalPawzCaseStudy() {
         <section id="economics" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={DollarSign} label="Unit Economics" title="The Honest Math" /></FadeIn>
           <FadeIn>
-            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Separating what the funnel creates from what retention compounds — because the only numbers worth sharing are the ones pulled straight from the database.</p>
+            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Separating what the funnel creates from what retention compounds - because the only numbers worth sharing are the ones pulled straight from the database.</p>
             <div className="flex flex-wrap gap-3 mb-6">
               <MetricCard label="LTV : CPA" value="9x" sub="Lifetime value vs acquisition cost" color="text-[#34D399]" />
               <MetricCard label="Repeat Rate" value="34.3%" sub="Rebook within 5 months" color="text-[#60A5FA]" />
@@ -693,7 +693,7 @@ export default function RoyalPawzCaseStudy() {
             </div>
 
             <Card title="Acquisition Cost Trend" defaultOpen>
-              <p className="mb-4"><Term>CPA</Term> is a trailing indicator of funnel quality. Here&apos;s how the cost to acquire a new customer evolved across each phase — estimated by dividing total Google Ads spend by all-source first-time bookings.</p>
+              <p className="mb-4"><Term>CPA</Term> is a trailing indicator of funnel quality. Here&apos;s how the cost to acquire a new customer evolved across each phase - estimated by dividing total Google Ads spend by all-source first-time bookings.</p>
               <DataTable
                 headers={["Phase", "Period", "Avg Est. CPA", "vs Phase 1"]}
                 rows={[
@@ -703,9 +703,9 @@ export default function RoyalPawzCaseStudy() {
                 ]}
               />
               <AlertBox type="warning" title="Phase 3–4 CPA Spike Explained">
-                <p>The Phase 3–4 average (~$29) was inflated by a mid-March Google Ads campaign restructure that temporarily disrupted delivery — bookings dropped during the transition. By March 27, the campaign had stabilized: 42 clicks at $2.74 <Term>CPC</Term>, with CPA back in the ~$20 range. The elevated phase average reflects the disruption, not the steady-state funnel performance.</p>
+                <p>The Phase 3–4 average (~$29) was inflated by a mid-March Google Ads campaign restructure that temporarily disrupted delivery - bookings dropped during the transition. By March 27, the campaign had stabilized: 42 clicks at $2.74 <Term>CPC</Term>, with CPA back in the ~$20 range. The elevated phase average reflects the disruption, not the steady-state funnel performance.</p>
               </AlertBox>
-              <p className="text-[13px] text-[#64748B] mt-3">Estimated CPA divides total Google Ads spend by all-source first bookings — the real Google-only CPA is lower since roughly half of new customers come from direct/word-of-mouth.</p>
+              <p className="text-[13px] text-[#64748B] mt-3">Estimated CPA divides total Google Ads spend by all-source first bookings - the real Google-only CPA is lower since roughly half of new customers come from direct/word-of-mouth.</p>
               <div className="flex flex-wrap gap-3 mt-4">
                 <MetricCard label="Phase 1 CPA" value="~$30" sub="Auth wall era" color="text-red-400" />
                 <MetricCard label="Phase 2 CPA" value="~$20" sub="Post-landing page" color="text-emerald-400" />
@@ -718,43 +718,43 @@ export default function RoyalPawzCaseStudy() {
               <DataTable
                 headers={["Month", "Google Ads (est.)", "Direct / WOM", "Ad Spend"]}
                 rows={[
-                  [{ text: "Dec '25", color: "text-white font-semibold" }, "—", "100%", "$451"],
+                  [{ text: "Dec '25", color: "text-white font-semibold" }, "-", "100%", "$451"],
                   [{ text: "Jan '26", color: "text-white font-semibold" }, "~38%", "~62%", "$856"],
                   [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "~50%", color: "text-emerald-400" }, "~50%", "$896"],
                   [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "~51%", color: "text-emerald-400" }, "~49%", "$1,369"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">Channel attribution estimated from UTM and session referrer data. Direct/WOM customers cost $0 to acquire. The funnel optimization benefits all traffic sources equally — roughly half of new customers arrive organically.</p>
+              <p className="text-[13px] text-[#64748B] mt-3">Channel attribution estimated from UTM and session referrer data. Direct/WOM customers cost $0 to acquire. The funnel optimization benefits all traffic sources equally - roughly half of new customers arrive organically.</p>
             </Card>
 
             <Card title="Customer Cohort Retention" defaultOpen>
-              <p className="mb-4"><Term>LTV</Term> is a function of how often customers come back. Here&apos;s how each monthly cohort is retaining — the percentage of customers who rebook in subsequent months.</p>
+              <p className="mb-4"><Term>LTV</Term> is a function of how often customers come back. Here&apos;s how each monthly cohort is retaining - the percentage of customers who rebook in subsequent months.</p>
               <DataTable
                 headers={["Cohort", "M2 Retention", "M3 Active", "M4 Active", "Status"]}
                 rows={[
                   [{ text: "Dec '25", color: "text-white font-semibold" }, { text: "50.0%", color: "text-emerald-400" }, { text: "✓", color: "text-emerald-400" }, { text: "✓", color: "text-emerald-400" }, { text: "Mature benchmark", color: "text-emerald-400" }],
-                  [{ text: "Jan '26", color: "text-white font-semibold" }, { text: "14.3%", color: "text-amber-400" }, { text: "✓ (spike)", color: "text-emerald-400" }, "—", "6–8 wk cycle skip"],
-                  [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "43.2%", color: "text-emerald-400" }, "—", "—", { text: "Strong early signal", color: "text-emerald-400" }],
-                  [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "9.1%", color: "text-[#64748B]" }, "—", "—", "Too early"],
+                  [{ text: "Jan '26", color: "text-white font-semibold" }, { text: "14.3%", color: "text-amber-400" }, { text: "✓ (spike)", color: "text-emerald-400" }, "-", "6–8 wk cycle skip"],
+                  [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "43.2%", color: "text-emerald-400" }, "-", "-", { text: "Strong early signal", color: "text-emerald-400" }],
+                  [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "9.1%", color: "text-[#64748B]" }, "-", "-", "Too early"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">M2 Retention = % of cohort that booked again in month 2. &quot;Active&quot; = cohort still generating bookings in that month. December is the standout at <strong className="text-white">50% retention</strong> — still active in month 4.</p>
+              <p className="text-[13px] text-[#64748B] mt-3">M2 Retention = % of cohort that booked again in month 2. &quot;Active&quot; = cohort still generating bookings in that month. December is the standout at <strong className="text-white">50% retention</strong> - still active in month 4.</p>
               <AlertBox type="info" title="Why Recent Cohorts Look Low">
-                <p className="mb-2">Dog grooming is a <strong className="text-white">6–8 week repeat cycle</strong> — most pet owners rebook every 1.5–2 months, not every 30 days. That means the rebooking window for recent cohorts hasn&apos;t opened yet:</p>
+                <p className="mb-2">Dog grooming is a <strong className="text-white">6–8 week repeat cycle</strong> - most pet owners rebook every 1.5–2 months, not every 30 days. That means the rebooking window for recent cohorts hasn&apos;t opened yet:</p>
                 <div className="space-y-1.5 mt-3 text-[15px]">
                   <div className="flex gap-2"><span className="text-emerald-400 font-semibold flex-shrink-0">Dec cohort →</span> <span>Had 4+ months to rebook. 50% retention, still active in month 4. This is the mature benchmark.</span></div>
-                  <div className="flex gap-2"><span className="text-amber-400 font-semibold flex-shrink-0">Jan cohort →</span> <span>Had 3 months. Retention appears low at 14.3% in M2 — but activity spiked in M3. The 6–8 week grooming cycle means many Jan customers rebooked in March, skipping M2 entirely.</span></div>
-                  <div className="flex gap-2"><span className="text-[#60A5FA] font-semibold flex-shrink-0">Feb cohort →</span> <span>Strong early signal — 43.2% already rebooked in month 2. On pace to match or beat December.</span></div>
-                  <div className="flex gap-2"><span className="text-cyan-400 font-semibold flex-shrink-0">Mar cohort →</span> <span>Won&apos;t start rebooking until late April–May. 9.1% have already returned — the rest are within their normal grooming cycle.</span></div>
+                  <div className="flex gap-2"><span className="text-amber-400 font-semibold flex-shrink-0">Jan cohort →</span> <span>Had 3 months. Retention appears low at 14.3% in M2 - but activity spiked in M3. The 6–8 week grooming cycle means many Jan customers rebooked in March, skipping M2 entirely.</span></div>
+                  <div className="flex gap-2"><span className="text-[#60A5FA] font-semibold flex-shrink-0">Feb cohort →</span> <span>Strong early signal - 43.2% already rebooked in month 2. On pace to match or beat December.</span></div>
+                  <div className="flex gap-2"><span className="text-cyan-400 font-semibold flex-shrink-0">Mar cohort →</span> <span>Won&apos;t start rebooking until late April–May. 9.1% have already returned - the rest are within their normal grooming cycle.</span></div>
                 </div>
-                <p className="mt-3"><strong className="text-white">The December cohort is the leading indicator.</strong> A customer who rebooks every 6–8 weeks generates significant compounding value — and the early cohort data shows this cycle is real. As recent cohorts mature into their first rebooking window, we expect the platform-wide retention rate to climb.</p>
+                <p className="mt-3"><strong className="text-white">The December cohort is the leading indicator.</strong> A customer who rebooks every 6–8 weeks generates significant compounding value - and the early cohort data shows this cycle is real. As recent cohorts mature into their first rebooking window, we expect the platform-wide retention rate to climb.</p>
               </AlertBox>
             </Card>
 
             <AlertBox type="info" title="How to Read These Numbers">
-              <p className="mb-2"><strong className="text-white">The funnel optimization directly impacts new customer acquisition</strong> — conversion rate and <Term>AOV</Term> are under its control. The A/B test results (33% booking flow conversion, +21% AOV lift) are clean, controlled experiments that prove this.</p>
-              <p className="mb-2"><strong className="text-white">Repeat bookings is a separate value driver.</strong> By March, 40% of revenue came from returning customers. The 34.3% repeat rate is supported by the AI-powered SMS reminders, automated rebooking prompts, and the groomer ops app built into the same platform — the funnel brought them in, the system keeps them.</p>
-              <p><strong className="text-white">Not all new customers come from ads.</strong> Roughly half come through direct/word-of-mouth. The funnel benefits all traffic equally — but ad spend only deserves credit for the customers it brought in.</p>
+              <p className="mb-2"><strong className="text-white">The funnel optimization directly impacts new customer acquisition</strong> - conversion rate and <Term>AOV</Term> are under its control. The A/B test results (33% booking flow conversion, +21% AOV lift) are clean, controlled experiments that prove this.</p>
+              <p className="mb-2"><strong className="text-white">Repeat bookings is a separate value driver.</strong> By March, 40% of revenue came from returning customers. The 34.3% repeat rate is supported by the AI-powered SMS reminders, automated rebooking prompts, and the groomer ops app built into the same platform - the funnel brought them in, the system keeps them.</p>
+              <p><strong className="text-white">Not all new customers come from ads.</strong> Roughly half come through direct/word-of-mouth. The funnel benefits all traffic equally - but ad spend only deserves credit for the customers it brought in.</p>
             </AlertBox>
 
             {/* Economics flywheel */}
@@ -779,7 +779,7 @@ export default function RoyalPawzCaseStudy() {
                   <div className="text-[13px] text-[#64748B] mt-1">retained customer, 6–8 wk cycle</div>
                 </div>
               </div>
-              <p className="text-center text-[#94A3B8] text-[14px] mt-3">The first booking alone pays back acquisition cost 6x. Current LTV at 5 months is 9x CPA — and most customers haven&apos;t had time to rebook yet. The Dec cohort (50% retention, still active in month 4) shows what happens when cohorts mature into their full rebooking cycle.</p>
+              <p className="text-center text-[#94A3B8] text-[14px] mt-3">The first booking alone pays back acquisition cost 6x. Current LTV at 5 months is 9x CPA - and most customers haven&apos;t had time to rebook yet. The Dec cohort (50% retention, still active in month 4) shows what happens when cohorts mature into their full rebooking cycle.</p>
             </div>
           </FadeIn>
         </section>
@@ -794,7 +794,7 @@ export default function RoyalPawzCaseStudy() {
               These numbers don&apos;t exist in a vacuum. Here&apos;s how Royal Pawz compares to the Houston mobile grooming market and industry benchmarks.
             </p>
             <Card title="Houston Mobile Grooming Landscape" defaultOpen>
-              <p className="mb-4">Houston has <strong className="text-white">952,400 dog-owning households</strong> — 37% of the metro&apos;s 2.6 million households, ranking 4th among all U.S. metros for dog ownership. It&apos;s a massive market, and Houston&apos;s sprawling geography (665 sq mi) makes mobile grooming especially attractive.</p>
+              <p className="mb-4">Houston has <strong className="text-white">952,400 dog-owning households</strong> - 37% of the metro&apos;s 2.6 million households, ranking 4th among all U.S. metros for dog ownership. It&apos;s a massive market, and Houston&apos;s sprawling geography (665 sq mi) makes mobile grooming especially attractive.</p>
               <DataTable
                 headers={["Competitor", "Online Booking", "Pricing Range", "Booking Flow", "Notes"]}
                 rows={[
@@ -806,7 +806,7 @@ export default function RoyalPawzCaseStudy() {
                   [{ text: "Heather's Mobile", color: "text-white font-semibold" }, "Member booking", "Member pricing", "Book via portal", "Boutique, cage-free"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">Pricing varies by dog size. Houston standard full groom ranges: small dogs $75–$110, medium $90–$130, large $110–$160+. Most competitors use third-party booking platforms (MoeGo) or phone/form — Royal Pawz is one of the only Houston mobile groomers with a fully custom booking flow optimized through A/B testing.</p>
+              <p className="text-[13px] text-[#64748B] mt-3">Pricing varies by dog size. Houston standard full groom ranges: small dogs $75–$110, medium $90–$130, large $110–$160+. Most competitors use third-party booking platforms (MoeGo) or phone/form - Royal Pawz is one of the only Houston mobile groomers with a fully custom booking flow optimized through A/B testing.</p>
             </Card>
             <Card title="Industry Benchmarks vs Royal Pawz" defaultOpen>
               <p className="mb-4">How our metrics stack up against published industry averages:</p>
@@ -865,12 +865,12 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn>
             <div className="space-y-3">
               {[
-                { icon: "$", color: "bg-emerald-500/10 text-emerald-400", text: "9x LTV-to-CPA. Each new customer generates 9x their acquisition cost in lifetime value so far — and that number is still climbing as cohorts mature. Since roughly half of new customers come from word-of-mouth (free), the true blended CPA is even lower." },
-                { icon: "A", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "A/B testing produced a 334% conversion lift. The second test took booking-flow conversion from 7.1% to 33% — confirmed by post-test live traffic. This is the cleanest, most defensible number in the report." },
+                { icon: "$", color: "bg-emerald-500/10 text-emerald-400", text: "9x LTV-to-CPA. Each new customer generates 9x their acquisition cost in lifetime value so far - and that number is still climbing as cohorts mature. Since roughly half of new customers come from word-of-mouth (free), the true blended CPA is even lower." },
+                { icon: "A", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "A/B testing produced a 334% conversion lift. The second test took booking-flow conversion from 7.1% to 33% - confirmed by post-test live traffic. This is the cleanest, most defensible number in the report." },
                 { icon: "↑", color: "bg-cyan-400/10 text-cyan-400", text: "8x revenue growth in 4 months. Driven by the combination of funnel optimization (more new customers converting) and retention (40% of March revenue from repeat bookings)." },
-                { icon: "♻", color: "bg-amber-400/10 text-amber-400", text: "Repeat bookings grew to 40% of revenue by month 5. Returning customers — built on service quality, AI-powered SMS reminders, and automated rebooking — compound the value of every new customer acquired." },
+                { icon: "♻", color: "bg-amber-400/10 text-amber-400", text: "Repeat bookings grew to 40% of revenue by month 5. Returning customers - built on service quality, AI-powered SMS reminders, and automated rebooking - compound the value of every new customer acquired." },
                 { icon: "⚡", color: "bg-emerald-500/10 text-emerald-400", text: "Counter-intuitive wins. Adding more steps (intro screen) increased conversion. Asking for info earlier increased both conversion and AOV. Testing beat assumptions every time." },
-                { icon: "∞", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "Organic growth compounds. Roughly half of new customers come from direct/word-of-mouth — zero acquisition cost. The funnel optimization benefits these free customers equally, and repeat bookings create a revenue floor that grows every month." },
+                { icon: "∞", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "Organic growth compounds. Roughly half of new customers come from direct/word-of-mouth - zero acquisition cost. The funnel optimization benefits these free customers equally, and repeat bookings create a revenue floor that grows every month." },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 p-5 bg-[#1E293B] border border-white/[0.06] rounded-xl">
                   <div className={`w-9 h-9 rounded-lg ${item.color} flex items-center justify-center text-sm font-bold flex-shrink-0`}>{item.icon}</div>
@@ -888,7 +888,7 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn><SectionHeader icon={Compass} label="Forward" title="What&apos;s Next" /></FadeIn>
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed max-w-4xl mb-8">
-              The funnel is in a strong state. Rather than chase marginal gains with more split tests, we&apos;re shifting to a monitoring phase — letting data accumulate and watching for new patterns before making changes.
+              The funnel is in a strong state. Rather than chase marginal gains with more split tests, we&apos;re shifting to a monitoring phase - letting data accumulate and watching for new patterns before making changes.
             </p>
             <div className="space-y-4">
               <div className="bg-[#1E293B] rounded-xl p-6 border border-white/[0.06]">
@@ -905,7 +905,7 @@ export default function RoyalPawzCaseStudy() {
                   <span className="text-[12px] font-semibold text-[#60A5FA] uppercase tracking-wider">Queued</span>
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">Next Analysis Pass</h3>
-                <p className="text-[16px] text-[#94A3B8] leading-relaxed">Once we have 200+ sessions on the current funnel, we&apos;ll do a deep-dive into the new drop-off points. Where are users leaving now? Is there another counter-intuitive optimization hiding in the data? The session recording infrastructure captures everything — we just need volume.</p>
+                <p className="text-[16px] text-[#94A3B8] leading-relaxed">Once we have 200+ sessions on the current funnel, we&apos;ll do a deep-dive into the new drop-off points. Where are users leaving now? Is there another counter-intuitive optimization hiding in the data? The session recording infrastructure captures everything - we just need volume.</p>
               </div>
               <div className="bg-[#1E293B] rounded-xl p-6 border border-white/[0.06]">
                 <div className="flex items-center gap-2 mb-3">
@@ -913,7 +913,7 @@ export default function RoyalPawzCaseStudy() {
                   <span className="text-[12px] font-semibold text-cyan-400 uppercase tracking-wider">Advantage</span>
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">The Custom Platform Edge</h3>
-                <p className="text-[16px] text-[#94A3B8] leading-relaxed">Because we built the entire stack, we have access to data that wouldn&apos;t be possible with off-the-shelf tools — full session recordings, custom event tracking, real-time funnel analytics, and the ability to ship changes daily. No waiting for 1-week turnaround times. No paying for expensive plugins. We identify a problem, build the fix, push the code, and measure the result — often within 24 hours.</p>
+                <p className="text-[16px] text-[#94A3B8] leading-relaxed">Because we built the entire stack, we have access to data that wouldn&apos;t be possible with off-the-shelf tools - full session recordings, custom event tracking, real-time funnel analytics, and the ability to ship changes daily. No waiting for 1-week turnaround times. No paying for expensive plugins. We identify a problem, build the fix, push the code, and measure the result - often within 24 hours.</p>
               </div>
             </div>
           </FadeIn>
@@ -927,9 +927,9 @@ export default function RoyalPawzCaseStudy() {
             <div className="max-w-3xl mx-auto text-center">
               <Quote size={32} className="text-[#60A5FA]/30 mx-auto mb-6" />
               <blockquote className="text-xl sm:text-2xl text-white font-medium leading-relaxed mb-6 italic">
-                &ldquo;Working with Zapp Studios completely transformed our business. The booking system they built and the way they optimized our funnel — we went from barely getting customers online to having a system that just works.&rdquo;
+                &ldquo;Working with Zapp Studios completely transformed our business. The booking system they built and the way they optimized our funnel - we went from barely getting customers online to having a system that just works.&rdquo;
               </blockquote>
-              <div className="text-[15px] text-[#94A3B8]">— Royal Pawz USA, Houston TX</div>
+              <div className="text-[15px] text-[#94A3B8]">- Royal Pawz USA, Houston TX</div>
               <div className="text-[12px] text-[#64748B] mt-1">Mobile Dog Grooming</div>
             </div>
           </FadeIn>
@@ -940,7 +940,7 @@ export default function RoyalPawzCaseStudy() {
         {/* ═══ GLOSSARY ═══ */}
         <section className="px-5 sm:px-10 lg:px-16 py-12">
           <FadeIn>
-            <Card title="Glossary — Terms Used in This Report" defaultOpen={false}>
+            <Card title="Glossary - Terms Used in This Report" defaultOpen={false}>
               <p className="mb-4 text-[#94A3B8]">Hover over dotted-underlined terms throughout the report for quick definitions. Full glossary below.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                 {Object.entries(acronyms).map(([term, def]) => (
@@ -962,12 +962,12 @@ export default function RoyalPawzCaseStudy() {
             <Card title="Methodology & Data Sources" defaultOpen={false}>
               <div className="space-y-3 text-[15px] text-[#94A3B8]">
                 <p><strong className="text-white">Data sources:</strong> Supabase (recording_sessions, bookings, ab_test_events, users tables), Google Ads daily budget history.</p>
-                <p><strong className="text-white">Revenue:</strong> Growth indices are based on net service revenue (service price minus discounts, excluding tips and tax). Specific revenue figures are not disclosed — all revenue is shown as multiples relative to the December baseline.</p>
+                <p><strong className="text-white">Revenue:</strong> Growth indices are based on net service revenue (service price minus discounts, excluding tips and tax). Specific revenue figures are not disclosed - all revenue is shown as multiples relative to the December baseline.</p>
                 <p><strong className="text-white">Ad spend:</strong> Based on Google Ads daily budget: $50/day through March 23, increased to $83/day starting March 24.</p>
-                <p><strong className="text-white">Customer attribution:</strong> New vs repeat split based on first-booking detection per client_id using scheduled_date. Source attribution via session referrer and UTM tracking — not all sessions are attributable, so channel numbers are estimates.</p>
+                <p><strong className="text-white">Customer attribution:</strong> New vs repeat split based on first-booking detection per client_id using scheduled_date. Source attribution via session referrer and UTM tracking - not all sessions are attributable, so channel numbers are estimates.</p>
                 <p><strong className="text-white">A/B testing:</strong> Randomized variant assignment at session start, tracked via custom ab_test_events table. Single-variable tests with concurrent control and treatment groups. Results verified directly against Supabase event data.</p>
-                <p><strong className="text-white">Sessions &amp; bounce:</strong> From rrweb recording_sessions (bot-filtered). Sessions = unique recording sessions per visitor. Bounce is not reported in this version — conversion rate and revenue per session are more meaningful metrics for this business.</p>
-                <p><strong className="text-white">LTV calculation:</strong> Expressed as a ratio to CPA (9x). LTV is still maturing — early cohorts show increasing value over time, so current figures likely understate true lifetime value.</p>
+                <p><strong className="text-white">Sessions &amp; bounce:</strong> From rrweb recording_sessions (bot-filtered). Sessions = unique recording sessions per visitor. Bounce is not reported in this version - conversion rate and revenue per session are more meaningful metrics for this business.</p>
+                <p><strong className="text-white">LTV calculation:</strong> Expressed as a ratio to CPA (9x). LTV is still maturing - early cohorts show increasing value over time, so current figures likely understate true lifetime value.</p>
                 <p><strong className="text-white">Timeline:</strong> Platform launched ~November 25, 2025. Session tracking installed December 26, 2025. Report period: Nov 2025 – Mar 28, 2026.</p>
               </div>
             </Card>

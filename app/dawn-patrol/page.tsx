@@ -11,7 +11,7 @@ const gameFormats = [
   { name: "Stableford", emoji: "📊", desc: "Points-based scoring. Chase birdies, survive bogeys." },
   { name: "Best Net", emoji: "🎯", desc: "Handicap-adjusted net scores. Everyone has a shot." },
   { name: "Football", emoji: "🏈", desc: "Score like a football game. Touchdowns for eagles." },
-  { name: "Nassau", emoji: "💰", desc: "Three bets in one — front, back, overall." },
+  { name: "Nassau", emoji: "💰", desc: "Three bets in one - front, back, overall." },
   { name: "Bingo Bango Bongo", emoji: "🎲", desc: "Three ways to score every hole. Always competitive." },
   { name: "String", emoji: "🧵", desc: "Use your string wisely. Every inch is precious." },
   { name: "Scramble", emoji: "🔄", desc: "Best ball, team format. Carry each other to glory." },
@@ -27,7 +27,7 @@ const steps = [
   {
     num: "02",
     title: "Score as you play",
-    desc: "Enter scores hole by hole. Net scores auto-calculate from handicaps — no math, no arguments.",
+    desc: "Enter scores hole by hole. Net scores auto-calculate from handicaps - no math, no arguments.",
   },
   {
     num: "03",
@@ -86,7 +86,7 @@ export default function DawnPatrolLanding() {
               <span style={{ color: LIME }}>finally sorted.</span>
             </h1>
             <p style={{ color: "rgba(217,217,217,0.7)" }} className="text-lg lg:text-xl mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Score any format, run a league, settle debates with automatic net scoring. Built for golfers who care about the game — just not enough to do math on the course.
+              Score any format, run a league, settle debates with automatic net scoring. Built for golfers who care about the game - just not enough to do math on the course.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
@@ -319,7 +319,7 @@ export default function DawnPatrolLanding() {
                 <span style={{ color: LIME }}>Not a group chat.</span>
               </h2>
               <p style={{ color: "rgba(217,217,217,0.65)" }} className="text-lg mb-10 leading-relaxed">
-                Everything you need to run a competitive season — from the first round invite to the final standings. No spreadsheets. No drama. Just golf.
+                Everything you need to run a competitive season - from the first round invite to the final standings. No spreadsheets. No drama. Just golf.
               </p>
               <div className="grid sm:grid-cols-2 gap-6">
                 {leagueFeatures.map((f, i) => (
@@ -372,7 +372,7 @@ export default function DawnPatrolLanding() {
                 <div className="flex flex-col gap-2 mb-5">
                   {[
                     { pos: 1, name: "Dawson K.", pts: 142, trend: "↑" },
-                    { pos: 2, name: "You", pts: 138, trend: "—" },
+                    { pos: 2, name: "You", pts: 138, trend: "-" },
                     { pos: 3, name: "T. Morrison", pts: 121, trend: "↓" },
                     { pos: 4, name: "Gus W.", pts: 114, trend: "↑" },
                   ].map((p, i) => (

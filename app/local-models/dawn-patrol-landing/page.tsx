@@ -68,7 +68,7 @@ const staggerItem = {
 }
 
 // ─── Prompt Content ───────────────────────────────────────────────
-const PROMPT = `Build a complete landing page in TSX for Dawn Patrol — a mobile golf app for iOS that makes scoring rounds and running leagues effortless. 10+ game formats including Skins, Wolf, Stableford, Best Net, and Football. Auto-calculates net scores and points from handicaps. League management with standings, invites, and commissioner tools. Friend system with social invites.
+const PROMPT = `Build a complete landing page in TSX for Dawn Patrol - a mobile golf app for iOS that makes scoring rounds and running leagues effortless. 10+ game formats including Skins, Wolf, Stableford, Best Net, and Football. Auto-calculates net scores and points from handicaps. League management with standings, invites, and commissioner tools. Friend system with social invites.
 
 Design spec:
 - Primary/bg: #1A2A27 (dark green), accent: #D4FF00 (lime), secondary: #D9D9D9 (gray)
@@ -120,11 +120,11 @@ function HeroSection() {
         >
           <Zap size={12} style={{ color: COLORS.accent }} />
           <span style={{ ...MONO, fontSize: '11px', fontWeight: 700, color: COLORS.accent, letterSpacing: '0.1em' }}>
-            EXPERIMENT #001 — LOCAL VS CLOUD
+            EXPERIMENT #001 - LOCAL VS CLOUD
           </span>
         </motion.div>
 
-        {/* Headline — leads immediately */}
+        {/* Headline - leads immediately */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -191,7 +191,7 @@ function SetupSection() {
     {
       label: 'THE QUESTION',
       color: COLORS.accent,
-      text: 'Open-source models are getting uncomfortably good. Qwen, Llama, Mistral — on your own hardware, for free. But is the output actually production-ready?',
+      text: 'Open-source models are getting uncomfortably good. Qwen, Llama, Mistral - on your own hardware, for free. But is the output actually production-ready?',
     },
     {
       label: 'THE EXPERIMENT',
@@ -211,7 +211,7 @@ function SetupSection() {
       <div className="max-w-4xl mx-auto">
         <div style={{ display: 'grid', gap: '48px' }} className="grid-cols-1 lg:grid-cols-2">
 
-          {/* Left — Story timeline */}
+          {/* Left - Story timeline */}
           <motion.div
             initial={{ opacity: 0, x: -16 }}
             animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
@@ -249,7 +249,7 @@ function SetupSection() {
             </div>
           </motion.div>
 
-          {/* Right — Premise cards */}
+          {/* Right - Premise cards */}
           <motion.div
             initial={{ opacity: 0, x: 16 }}
             animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 16 }}
@@ -333,7 +333,7 @@ function PromptAccordion() {
           >
             <div style={{ textAlign: 'left' }}>
               <p style={{ ...MONO, fontSize: '13px', color: COLORS.textSecondary, margin: 0 }}>
-                "Build a complete landing page in TSX for Dawn Patrol — a mobile golf app..."
+                "Build a complete landing page in TSX for Dawn Patrol - a mobile golf app..."
               </p>
               <p style={{ fontSize: '12px', color: COLORS.textMuted, marginTop: '8px' }}>
                 Click to {expanded ? 'collapse' : 'see full prompt'}
@@ -654,7 +654,7 @@ function IframeCard({ type }: { type: 'qwen' | 'claude' }) {
           background: isQwen ? COLORS.accent : COLORS.cloudAccent
         }} />
         <span style={{ fontWeight: 600, fontSize: '13px', color: isQwen ? COLORS.textPrimary : '#d0e4ff' }}>
-          {isQwen ? 'Qwen3.5-27B — Local' : 'Claude Sonnet 4.6 — Cloud'}
+          {isQwen ? 'Qwen3.5-27B - Local' : 'Claude Sonnet 4.6 - Cloud'}
         </span>
         <span style={{ fontSize: '11px', color: COLORS.textMuted, marginLeft: 'auto' }}>
           {isQwen ? '9m 10s · <$0.01' : '3m 10s · $0.2325'}
@@ -684,7 +684,7 @@ function FindingsSection() {
       title: 'QUALITY',
       winner: 'claude',
       summary: 'Claude edges out on refinement',
-      detail: 'Both followed the spec — same sections, colors, structure. But neither was 100% out of the box.',
+      detail: 'Both followed the spec - same sections, colors, structure. But neither was 100% out of the box.',
       note: 'The remaining 15% (Claude) and 25% (Qwen) require further prompting or human intervention to reach production quality.',
       bars: [
         { label: 'Qwen', value: 75, display: '75% refined', color: COLORS.accent, dimColor: '#2a5035' },
@@ -874,7 +874,7 @@ function BiggerPictureSection() {
                 <span style={{ fontSize: '20px' }}>{emoji}</span>
                 <div>
                   <span style={{ fontWeight: 600, color: COLORS.textPrimary, fontSize: '14px' }}>{title}</span>
-                  <span style={{ color: COLORS.textMuted, fontSize: '13px' }}> — {reason}</span>
+                  <span style={{ color: COLORS.textMuted, fontSize: '13px' }}> - {reason}</span>
                 </div>
               </motion.div>
             ))}

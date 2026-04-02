@@ -68,19 +68,19 @@ const steps = [
   {
     step: "01",
     label: "Diagnose",
-    desc: "We tear apart your idea — market, competition, unit economics. If it doesn't work on paper, we find out now, not after you've spent $50K.",
+    desc: "We tear apart your idea - market, competition, unit economics. If it doesn't work on paper, we find out now, not after you've spent $50K.",
     icon: Target,
   },
   {
     step: "02",
     label: "Validate",
-    desc: "Build the smallest possible version that proves demand. Landing page, waitlist, MVP — whatever gets real signal from real people fastest.",
+    desc: "Build the smallest possible version that proves demand. Landing page, waitlist, MVP - whatever gets real signal from real people fastest.",
     icon: BarChart3,
   },
   {
     step: "03",
     label: "Build",
-    desc: "Full-stack product engineering. Not a Squarespace site — a real platform with the infrastructure to scale. We own the code, you own the business.",
+    desc: "Full-stack product engineering. Not a Squarespace site - a real platform with the infrastructure to scale. We own the code, you own the business.",
     icon: Wrench,
   },
   {
@@ -200,7 +200,7 @@ export default function FoundersPage() {
                 return (
                   <FadeIn key={p.step} delay={i * 0.1}>
                     <div className="flex gap-5 sm:gap-6">
-                      {/* Step number circle — prominent, accent background */}
+                      {/* Step number circle - prominent, accent background */}
                       <div className="flex-shrink-0 flex flex-col items-center">
                         <div
                           className="w-10 h-10 rounded-full flex items-center justify-center font-mono text-[11px] font-bold text-[#60A5FA] border border-[#60A5FA]/30 relative z-10"
@@ -233,7 +233,7 @@ export default function FoundersPage() {
           <FadeIn delay={0.1}>
             <AlertBox title="Validation-first, always.">
               Every engagement starts with validation. If the data says your idea won&apos;t
-              work, we&apos;ll tell you — and save you months.
+              work, we&apos;ll tell you - and save you months.
             </AlertBox>
           </FadeIn>
         </section>
@@ -268,7 +268,7 @@ export default function FoundersPage() {
                 Owen&apos;s Modded Seiko
               </h3>
               <p className="text-[15px] text-[#A09A8E] leading-relaxed mb-4">
-                A watch modding hobby turned into a full business plan — complete with financial
+                A watch modding hobby turned into a full business plan - complete with financial
                 models, customer funnel analysis, competitive positioning, and a phased launch
                 roadmap. The playbook covers everything from unit economics to operational scaling.
               </p>

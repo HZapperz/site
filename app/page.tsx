@@ -27,18 +27,6 @@ function FadeIn({
   )
 }
 
-function SectionDivider() {
-  return (
-    <div
-      className="h-[2px] w-full max-w-6xl mx-auto"
-      style={{
-        background:
-          "linear-gradient(to right, transparent, rgba(232,144,58,0.2) 30%, rgba(232,144,58,0.4) 50%, rgba(232,144,58,0.2) 70%, transparent)",
-      }}
-    />
-  )
-}
-
 /* ─── DATA ─── */
 
 const audiences = [
@@ -46,7 +34,7 @@ const audiences = [
     icon: TrendingUp,
     headline: "I run a service business and want to scale",
     description:
-      "You have customers and revenue. You need systems — booking funnels, retention automation, data-driven optimization. We build the machine.",
+      "You have customers and revenue. You need systems - booking funnels, retention automation, data-driven optimization. We build the machine.",
     cta: "Growth Engineering",
     href: "/growth",
     accent: "#E8903A",
@@ -74,24 +62,6 @@ const audiences = [
   },
 ]
 
-const proofPoints = [
-  {
-    label: "Royal Pawz",
-    stat: "33%",
-    sub: "booking conversion rate",
-    detail: "8x revenue growth",
-    accent: "#E8903A",
-    accentRgb: "232,144,58",
-  },
-  {
-    label: "DietAI",
-    stat: "7-fig",
-    sub: "exit achieved",
-    detail: "full product build",
-    accent: "#60A5FA",
-    accentRgb: "96,165,250",
-  },
-]
 
 /* ─── MAIN PAGE ─── */
 
@@ -113,59 +83,55 @@ export default function HomePage() {
       <section className="flex-1 flex flex-col items-center justify-center px-6 pt-8 pb-16">
         <div className="max-w-4xl w-full text-center">
 
-          {/* Video placeholder */}
-          <FadeIn delay={0.05}>
-            <div
-              className="relative w-full max-w-2xl mx-auto aspect-video rounded-2xl overflow-hidden bg-[#141414] border border-[#E8903A]/20 mb-12"
-              style={{ animation: "pulse-glow 3.5s ease-in-out infinite" }}
-            >
-              {/* Inner gradient overlay */}
-              <div
-                className="absolute inset-0 rounded-2xl pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at 50% 60%, rgba(232,144,58,0.05) 0%, transparent 70%)",
-                }}
-              />
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center"
-                  style={{
-                    background: "rgba(232,144,58,0.12)",
-                    border: "1px solid rgba(232,144,58,0.35)",
-                    boxShadow: "0 0 24px rgba(232,144,58,0.15)",
-                  }}
-                >
-                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[16px] border-l-[#E8903A] border-b-[10px] border-b-transparent ml-1" />
-                </div>
-                <span className="text-[13px] text-[#6B6560]">Video coming soon</span>
-              </div>
-            </div>
-          </FadeIn>
-
           {/* Intro */}
-          <FadeIn delay={0.15}>
+          <FadeIn delay={0.05}>
             <h1
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3"
               style={{ fontFamily: "'Space Grotesk', 'Inter', sans-serif" }}
             >
-              I&apos;m Hamza Zulquernain.
+              We build systems that
               <br />
               <span
                 className="text-[#E8903A]"
                 style={{ textShadow: "0 0 32px rgba(232,144,58,0.35)" }}
               >
-                I build systems that make businesses work.
+                make businesses work.
               </span>
             </h1>
+            <p className="text-[13px] text-[#6B6560] tracking-widest uppercase font-medium mb-6">
+              Founded by Hamza Zulquernain
+            </p>
           </FadeIn>
 
-          <FadeIn delay={0.25}>
-            <p className="text-lg text-[#A09A8E] leading-relaxed max-w-2xl mx-auto mb-16">
-              Full-stack engineering meets growth strategy. I don&apos;t give advice — I build the
+          <FadeIn delay={0.15}>
+            <p className="text-lg text-[#A09A8E] leading-relaxed max-w-2xl mx-auto mb-8">
+              Full-stack engineering meets growth strategy. We don&apos;t give advice - we build the
               product, wire the funnel, run the experiments, and hand you a business that runs on
               data instead of guesswork.
             </p>
+          </FadeIn>
+
+          {/* Stats */}
+          <FadeIn delay={0.2}>
+            <div className="flex flex-wrap justify-center gap-3 mb-14">
+              {[
+                { text: "Royal Pawz: $0 → 5 figures in 4 months", accent: "#E8903A", accentRgb: "232,144,58" },
+                { text: "Part of a 7-figure exit - DietAI", accent: "#60A5FA", accentRgb: "96,165,250" },
+                { text: "1,500+ hours building with AI", accent: "#4ADE80", accentRgb: "74,222,128" },
+              ].map((s) => (
+                <span
+                  key={s.text}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-medium"
+                  style={{
+                    color: s.accent,
+                    background: `rgba(${s.accentRgb}, 0.08)`,
+                    border: `1px solid rgba(${s.accentRgb}, 0.2)`,
+                  }}
+                >
+                  {s.text}
+                </span>
+              ))}
+            </div>
           </FadeIn>
 
           {/* ─── AUDIENCE ROUTER ─── */}
@@ -173,7 +139,7 @@ export default function HomePage() {
             {audiences.map((a, i) => {
               const Icon = a.icon
               return (
-                <FadeIn key={a.href} delay={0.35 + i * 0.1}>
+                <FadeIn key={a.href} delay={0.25 + i * 0.1}>
                   <Link
                     href={a.href}
                     className="group relative flex flex-col bg-[#141414] rounded-2xl border border-white/[0.06] p-6 sm:p-8 text-left h-full transition-all duration-300"
@@ -235,47 +201,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── SECTION DIVIDER ─── */}
-      <div className="px-6">
-        <SectionDivider />
-      </div>
-
-      {/* ─── SOCIAL PROOF ─── */}
-      <section className="py-12 px-6">
-        <FadeIn delay={0}>
-          <p className="text-center text-[11px] text-[#6B6560] tracking-[3px] uppercase font-medium mb-8">
-            Client Results
-          </p>
-        </FadeIn>
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {proofPoints.map((p, i) => (
-            <FadeIn key={p.label} delay={0.1 + i * 0.08}>
-              <div
-                className="bg-[#141414] rounded-xl border border-white/[0.06] p-5 border-t-2 transition-all duration-200 hover:bg-[#1A1A1A]"
-                style={{ borderTopColor: p.accent }}
-              >
-                <div
-                  className="text-[11px] font-semibold uppercase tracking-widest mb-2"
-                  style={{ color: p.accent }}
-                >
-                  {p.label}
-                </div>
-                <div className="text-2xl font-bold text-white tracking-tight mb-1">
-                  {p.stat}
-                </div>
-                <div className="text-[12px] text-[#A09A8E]">{p.sub}</div>
-                <div
-                  className="text-[11px] mt-2 font-medium"
-                  style={{ color: `rgba(${p.accentRgb}, 0.7)` }}
-                >
-                  {p.detail}
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
-
       {/* ─── FOOTER ─── */}
       <footer className="py-8 px-6 text-center">
         {/* Gradient top border */}
@@ -299,7 +224,7 @@ export default function HomePage() {
             LinkedIn
           </a>
           <a
-            href="mailto:hamza@zappstudios.us"
+            href="mailto:hamzazulquernain1@gmail.com"
             className="text-[12px] text-[#A09A8E] hover:text-[#E8903A] transition-colors"
           >
             Email
