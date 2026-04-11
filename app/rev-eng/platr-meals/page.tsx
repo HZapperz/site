@@ -212,6 +212,7 @@ export default function PlatrMealsPortal() {
       alignItems: "center",
       justifyContent: "center",
     }}>
+      <style>{`@media(max-width:500px){.doc-grid{grid-template-columns:1fr !important;}}`}</style>
       <div style={{ maxWidth: 640, width: "100%", padding: "0 24px" }}>
         <div style={{ textAlign: "center", marginBottom: 40 }}>
           <div style={{
@@ -238,7 +239,7 @@ export default function PlatrMealsPortal() {
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: 16,
-        }}>
+        }} className="doc-grid">
           <button
             onClick={() => setActiveDoc("quote")}
             style={{
