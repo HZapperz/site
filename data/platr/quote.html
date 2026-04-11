@@ -877,61 +877,23 @@
         </div>
       </div>
       <div class="phase-items">
-        <div class="items-label" style="color:var(--wine);">Landing Page &rarr; Add to Cart &nbsp;&middot;&nbsp; Currently 89% drop-off</div>
-        <ul class="item-list">
-          <li><strong>Delay popup trigger</strong> &mdash; SMS popup fires immediately on page load, blocking the hero before visitors see the food. Delay 30s or trigger on scroll depth <span class="tag tag-config">Config</span></li>
-          <li><strong>Clarify hero CTAs</strong> &mdash; rename "View Menu" vs "Shop Plans" so first-time visitors understand the difference <span class="tag tag-copy">Copy</span></li>
-          <li><strong>Surface differentiators</strong> &mdash; add "Seed Oil Free / Grass-Fed / Halal" to homepage (real attributes not currently shown) <span class="tag tag-copy">Copy</span></li>
-          <li><strong>Replace announcement bar</strong> &mdash; swap "NOW OPEN 7 DAYS" with conversion copy + Friday 12PM deadline <span class="tag tag-copy">Copy</span></li>
-          <li><strong>Hero social proof badge</strong> &mdash; show review count + star rating above the fold (currently hidden via CSS) <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Hero price anchor</strong> &mdash; add "Chef-crafted meals from $8.95" so visitors know cost immediately <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Expand navigation</strong> &mdash; add Blog, Menu, About links (currently only 2 links in nav) <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Fix "Menu is Closed"</strong> &mdash; replace dead-end with explanation, next open date, and email capture CTA <span class="tag tag-tmpl">Template</span></li>
-        </ul>
+        <div class="items-label" style="color:var(--wine);">Landing Page &rarr; Add to Cart &nbsp;&middot;&nbsp; 8 fixes</div>
+        <p style="font-size:13.5px;color:var(--ink-60);line-height:1.65;padding:4px 0 6px;">89% of visitors leave without adding a single item. We fix hero messaging, social proof visibility, pricing transparency, popup timing, navigation, and dead-end states. Every improvement here compounds through the entire funnel.</p>
 
-        <div class="items-label" style="margin-top:18px;color:var(--ember);">Menu &amp; Product Pages &rarr; Add to Cart</div>
-        <ul class="item-list">
-          <li><strong>Context above product grid</strong> &mdash; value prop banner for ad traffic landing on menu pages with zero context <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>AJAX add-to-cart</strong> &mdash; replace full page reload with async cart update on homepage + collection pages (biggest menu friction) <span class="tag tag-css">JS</span></li>
-          <li><strong>Remove "Flexible returns"</strong> &mdash; misleading trust badge on perishable food undermines credibility <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Fix macro accordion</strong> &mdash; open nutrition info by default on product pages (currently collapsed despite code setting) <span class="tag tag-css">CSS</span></li>
-          <li><strong>Remove duplicate ingredients</strong> &mdash; ingredients appear twice on every product page <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Rename "Add-ons" label</strong> &mdash; currently sits above the buy button with no actual add-ons, confusing users <span class="tag tag-copy">Copy</span></li>
-          <li><strong>Back comparison table claims</strong> &mdash; add math behind "Save $60/week" and "Save 10 hours" <span class="tag tag-copy">Copy</span></li>
-          <li><strong>Auto-select single variant</strong> &mdash; every product forces a "Select Size" dropdown to pick "Regular" (the only option) before Add to Cart enables. Remove the gate entirely <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Product page social proof</strong> &mdash; every product shows "Be the first to write a review." Import Google reviews to products, add "Popular" badges to top sellers <span class="tag tag-tmpl">Template</span></li>
-        </ul>
+        <div class="items-label" style="margin-top:18px;color:var(--ember);">Menu &amp; Product Pages &rarr; Add to Cart &nbsp;&middot;&nbsp; 9 fixes</div>
+        <p style="font-size:13.5px;color:var(--ink-60);line-height:1.65;padding:4px 0 6px;">Remove friction from the browsing-to-cart journey: eliminate unnecessary clicks, fix page reloads on add-to-cart, surface nutrition data and social proof, and clean up misleading or duplicate content across product pages.</p>
 
-        <div class="items-label" style="margin-top:18px;color:var(--jade);">Menu Page &rarr; MFF-Style Refresh</div>
-        <ul class="item-list">
-          <li><strong>Product card redesign</strong> &mdash; restructure card layout: macros visible on card face, price prominent, better image-to-content ratio, improved grid spacing. Modeled on My Fit Foods menu <span class="tag tag-css">CSS</span></li>
-          <li><strong>"New" / "Popular" badges</strong> &mdash; visual indicators on product cards for new and bestselling items, similar to MFF&rsquo;s "NEW RECIPE!" banners <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Free delivery progress bar</strong> &mdash; persistent bar at top of menu showing progress toward free delivery threshold, updates on add-to-cart <span class="tag tag-css">JS</span></li>
-          <li><strong>Floating "View Cart" CTA</strong> &mdash; sticky bottom bar showing cart count + subtotal with checkout shortcut. Appears after first add-to-cart, keeps shoppers in flow <span class="tag tag-css">JS</span></li>
-        </ul>
+        <div class="items-label" style="margin-top:18px;color:var(--jade);">Menu Page &rarr; MFF-Style Refresh &nbsp;&middot;&nbsp; 4 fixes</div>
+        <p style="font-size:13.5px;color:var(--ink-60);line-height:1.65;padding:4px 0 6px;">Visual refresh of the menu page modeled on My Fit Foods: redesigned product cards with macros visible, bestseller/new badges, free delivery progress bar, and a floating cart CTA that keeps shoppers in flow.</p>
 
-        <div class="items-label" style="margin-top:18px;color:var(--wine);">Cart &rarr; Checkout &nbsp;&middot;&nbsp; Dropped from 72.5% to 37.8% &mdash; #1 revenue leak</div>
-        <ul class="item-list">
-          <li><strong>Streamline Zapiet delivery flow</strong> &mdash; restyle the 3-step gate (type &rarr; postal code &rarr; calendar) with auto-defaults, confidence messaging ("You're eligible!"), and Sunday-highlighted calendar. This is the single biggest Cart&rarr;Checkout friction point <span class="tag tag-css">JS + CSS</span></li>
-          <li><strong>Cart trust signals</strong> &mdash; add halal badge, freshness guarantee, and delivery promise to cart summary <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Cart urgency timer</strong> &mdash; visual countdown to Friday 12PM order deadline (resets weekly) <span class="tag tag-css">JS</span></li>
-          <li><strong>Deadline urgency copy</strong> &mdash; surface "Order by Friday 12PM" throughout the site <span class="tag tag-copy">Copy</span></li>
-          <li><strong>Fix cart upsell section</strong> &mdash; "Add More Meals" shows products that link away instead of adding to cart. Add inline AJAX add-to-cart buttons <span class="tag tag-css">JS</span></li>
-        </ul>
+        <div class="items-label" style="margin-top:18px;color:var(--wine);">Cart &rarr; Checkout &nbsp;&middot;&nbsp; 5 fixes &nbsp;&middot;&nbsp; #1 revenue leak</div>
+        <p style="font-size:13.5px;color:var(--ink-60);line-height:1.65;padding:4px 0 6px;">Cart&rarr;Checkout dropped from 72.5% to 37.8% post-store. We streamline the delivery scheduling flow (the single biggest friction point), add trust signals and urgency mechanisms, and fix the broken upsell section.</p>
 
-        <div class="items-label" style="margin-top:18px;color:var(--wine);">Checkout &rarr; Purchase &nbsp;&middot;&nbsp; 55 of 125 checkout sessions abandon (44% drop-off)</div>
-        <ul class="item-list">
-          <li><strong>Enable express checkout</strong> &mdash; activate Shop Pay, Apple Pay, and Google Pay on the cart page (currently disabled &mdash; free, instant impact). Shop Pay alone converts 91% higher on mobile <span class="tag tag-config">Config</span></li>
-          <li><strong>Checkout trust + urgency</strong> &mdash; add Friday 12PM deadline reminder, halal badge, and freshness guarantee to checkout via Shopify Checkout Extensibility <span class="tag tag-css">JS</span></li>
-          <li><strong>Reduce checkout friction</strong> &mdash; audit and minimize required form fields, auto-fill where possible, streamline mobile checkout layout <span class="tag tag-tmpl">Template</span></li>
-          <li><strong>Abandoned checkout recovery</strong> &mdash; Klaviyo email + SMS triggered within 1 hour of checkout abandonment (bridges to Phase 2 flows) <span class="tag tag-config">Config</span></li>
-          <li><strong>Auto-apply first-order discount</strong> &mdash; floating $10 badge is easy to miss. Auto-apply via Shopify automatic discounts so every first-time buyer gets it <span class="tag tag-config">Config</span></li>
-        </ul>
+        <div class="items-label" style="margin-top:18px;color:var(--wine);">Checkout &rarr; Purchase &nbsp;&middot;&nbsp; 5 fixes</div>
+        <p style="font-size:13.5px;color:var(--ink-60);line-height:1.65;padding:4px 0 6px;">44% of checkout sessions abandon. We activate express checkout (free, instant impact), reduce form friction, add trust + urgency to the checkout page, set up abandoned checkout recovery, and fix the first-order discount flow.</p>
 
-        <div class="items-label" style="margin-top:18px;color:var(--indigo);">Site-Wide</div>
-        <ul class="item-list">
-          <li><strong>Page speed audit + quick wins</strong> &mdash; Lighthouse audit, convert images to WebP, enable lazy loading, remove leftover app code. Every 100ms = 6.4% better checkout completion <span class="tag tag-config">Config</span></li>
-        </ul>
+        <div class="items-label" style="margin-top:18px;color:var(--indigo);">Site-Wide &nbsp;&middot;&nbsp; 1 fix</div>
+        <p style="font-size:13.5px;color:var(--ink-60);line-height:1.65;padding:4px 0 6px;">Page speed audit and quick-win optimizations. Every 100ms of improvement = 6.4% better checkout completion.</p>
       </div>
       <div class="phase-strip">
         <div class="strip-item"><div class="strip-val">32</div><div class="strip-lbl">Items</div></div>
@@ -1000,22 +962,14 @@
         <strong style="color:var(--ink-80);">Why not keep patching Shopify?</strong> Every JS script injected into a Liquid theme loads on <em>every</em> page &mdash; no code splitting, no lazy loading. Zapiet, Loox, Klaviyo, and PageFly already inject their own scripts; adding AJAX cart, timers, and checkout extensions on top makes the site slower, not faster. In Next.js, code splitting is automatic &mdash; each page loads only what it needs. Features that take hours to hack into Liquid take minutes in React. And there&rsquo;s no ceiling: session recording, A/B testing, multi-store, referral programs, real-time dashboards &mdash; it&rsquo;s all just code you own.
       </div>
       <div class="phase-items">
-        <div class="items-label">What gets built &mdash; 14 workstreams</div>
+        <div class="items-label">What gets built</div>
         <ul class="item-list">
-          <li><strong>Infrastructure</strong> &mdash; Next.js 14 App Router, Shopify Storefront API (products, cart, customers), Vercel deployment + DNS <span class="tag tag-config">5 hrs</span></li>
-          <li><strong>Design system</strong> &mdash; Component library built from Platr brand: buttons, cards, badges, inputs, modals, responsive grid <span class="tag tag-config">3 hrs</span></li>
-          <li><strong>Landing page (MFF-style redesign)</strong> &mdash; Video hero, rich 5+ link nav, How It Works, differentiators, meal showcase, social proof with transformation stories, comparison table w/ real math, loyalty CTA architecture, FAQ, footer, full SEO. Modeled on the My Fit Foods analysis <span class="tag tag-config">10 hrs</span></li>
-          <li><strong>Meal selection / shop (MFF-style)</strong> &mdash; Responsive product grid, live search + filter sidebar, macro pills, dual pricing, size badges, reviews, "New Recipe" indicators. Inline quantity stepper (no reload). Real-time free delivery progress bar. Floating "View Cart" CTA <span class="tag tag-config">10 hrs</span></li>
-          <li><strong>Cart drawer + custom delivery picker (MFF-style)</strong> &mdash; Slide-out drawer (not a separate page) with qty steppers, subtotal, delivery progress bar, loyalty savings prompt, upsell with AJAX add-to-cart, trust signals. <strong>Full Zapiet replacement</strong> &mdash; custom Sunday-only date picker, zero friction, $0/mo. Checkout CTA with price <span class="tag tag-config">13 hrs</span></li>
-          <li><strong>Product pages</strong> &mdash; Clean layout, macros above fold, single ingredients section, smart size selector, review widget via Loox API, related products, breadcrumbs + SEO <span class="tag tag-config">5 hrs</span></li>
-          <li><strong>Marketing layer</strong> &mdash; Klaviyo API integration (custom events &rarr; flows), exit-intent popup, weekly countdown timer (resets Fri 12PM), dynamic announcement bar, SMS popup redesign <span class="tag tag-config">5 hrs</span></li>
-          <li><strong>Streamlined checkout</strong> &mdash; Reduced form fields, express checkout (Shop Pay / Apple Pay / Google Pay), trust signals, deadline reminder, optimized for mobile completion <span class="tag tag-config">5 hrs</span></li>
-          <li><strong>Post-purchase + retention</strong> &mdash; Account page with order history + one-click reorder, post-purchase thank-you upsell, Smile.io loyalty embed via API, referral program (give/get offers via post-purchase email) <span class="tag tag-config">5 hrs</span></li>
-          <li><strong>Session recording (rrweb)</strong> &mdash; Built-in session capture: every click, scroll, rage click, and drop-off point. Full data ownership, $0/mo. No Shopify equivalent <span class="tag tag-config">3 hrs</span></li>
-          <li><strong>A/B testing infrastructure</strong> &mdash; Feature flag system to test any component, headline, layout, or flow without third-party tools. Foundation for ongoing CRO retainer <span class="tag tag-config">3 hrs</span></li>
-          <li><strong>Mobile + QA</strong> &mdash; Full-screen mobile nav, touch targets, mobile cart drawer, iOS/Android testing, cross-browser (Chrome, Safari, Firefox), Shopify checkout end-to-end, Core Web Vitals audit <span class="tag tag-config">9 hrs</span></li>
-          <li><strong>Multi-store architecture</strong> &mdash; Codebase structured to support additional stores &mdash; same platform, different Shopify backends. Ready when Platr expands <span class="tag tag-config">2 hrs</span></li>
-          <li><strong>PM + client handoff</strong> &mdash; Feedback round, revisions, documentation, live deployment <span class="tag tag-config">5 hrs</span></li>
+          <li><strong>Full MFF-style visual redesign</strong> &mdash; Landing page, menu/shop, product pages, and cart experience rebuilt from scratch. Modeled on the My Fit Foods competitive analysis</li>
+          <li><strong>Custom delivery scheduling</strong> &mdash; Full replacement of the current delivery flow with a zero-friction, purpose-built solution. $0/mo ongoing</li>
+          <li><strong>Marketing + retention layer</strong> &mdash; Email/SMS integration, exit-intent capture, urgency mechanisms, loyalty architecture, referral program, and streamlined checkout</li>
+          <li><strong>Session recording + A/B testing</strong> &mdash; Built-in session capture and feature flag system. Full data ownership, no third-party tools, $0/mo. Foundation for ongoing CRO</li>
+          <li><strong>Performance + infrastructure</strong> &mdash; Automatic code splitting (faster than Liquid), mobile-first responsive design, multi-store ready architecture, SEO optimized</li>
+          <li><strong>All 41 conversion findings</strong> &mdash; Every issue from the audit gets resolved properly in the new platform, not patched onto the old one</li>
         </ul>
       </div>
       <div class="phase-strip">
