@@ -710,17 +710,69 @@
        RESPONSIVE
        ════════════════════════════════════════════ */
     @media (max-width: 800px) {
-      .page { padding: 0 24px 48px; }
-      .masthead { padding: 32px 24px; flex-direction: column; gap: 12px; }
-      .masthead h1 { font-size: 28px; }
+      .page { padding: 0 20px 48px; }
+      .masthead { padding: 28px 20px; flex-direction: column; gap: 12px; }
+      .masthead h1 { font-size: 26px; }
       .masthead-right { text-align: left; }
-      .kpi-grid { grid-template-columns: 1fr 1fr; }
-      .slider-row { grid-template-columns: 1fr 1fr; }
+      .kpi-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .kpi-number { font-size: 22px; }
+      .kpi-card { padding: 14px 16px; }
+      .leak-strip { gap: 6px; }
+      .leak { font-size: 11px; padding: 4px 10px; }
+      .slider-row { grid-template-columns: 1fr 1fr; gap: 16px; }
       .callout-grid { grid-template-columns: 1fr; }
-      .steps-row { grid-template-columns: 1fr; }
+      .steps-row { grid-template-columns: 1fr !important; }
       .result-bar { grid-template-columns: 1fr; }
       .result-arrow { display: none; }
       .phase-head { flex-direction: column; gap: 12px; }
+      .phase-pricing { gap: 14px; }
+      .price-val { font-size: 20px; }
+      .phase-items { padding: 14px 20px 20px; }
+      .phase-strip { flex-wrap: wrap; }
+      .strip-item { min-width: 33%; flex: 1 1 auto; padding: 10px 12px; }
+      .section h2 { font-size: 22px; }
+      .section-lead { font-size: 14px; }
+      .calculator { padding: 20px; }
+      .calc-top { flex-direction: column; gap: 4px; }
+      .rc-val { font-size: 22px; }
+      .annual-amount { font-size: 32px; }
+      .annual-suffix { font-size: 18px; }
+      .total-amount { font-size: 40px; }
+      .total-breakdown { font-size: 12px; }
+      .step-card { padding: 16px; }
+      .foot { flex-direction: column; gap: 16px; }
+      .foot-right { text-align: left; }
+      .lift-compare { grid-template-columns: 1fr !important; gap: 10px !important; }
+      .lift-compare > div:nth-child(2) { display: none; }
+      .pathb-grid { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 500px) {
+      .page { padding: 0 14px 36px; }
+      .masthead { padding: 24px 14px; }
+      .masthead h1 { font-size: 22px; }
+      .kpi-grid { grid-template-columns: 1fr; }
+      .kpi-card { padding: 12px 14px; }
+      .slider-row { grid-template-columns: 1fr !important; gap: 14px; }
+      .phase-head { padding: 18px 16px 0; }
+      .phase-items { padding: 12px 16px 18px; }
+      .phase-strip { flex-wrap: wrap; }
+      .strip-item { min-width: 45%; padding: 8px 10px; }
+      .strip-val { font-size: 13px; }
+      .strip-lbl { font-size: 9px; }
+      .price-val { font-size: 18px; }
+      .phase-title { font-size: 19px; }
+      .section h2 { font-size: 20px; }
+      .result-cell { padding: 12px 14px; }
+      .rc-val { font-size: 20px; }
+      .annual-amount { font-size: 28px; }
+      .annual-suffix { font-size: 16px; display: block; margin-left: 0; margin-top: 4px; }
+      .total-amount { font-size: 32px; }
+      .total-bar { padding: 24px 16px; }
+      .cg-card { padding: 12px 14px; font-size: 12px; }
+      .item-list li { font-size: 12.5px; gap: 8px; padding: 6px 0; }
+      .items-label { font-size: 9px; }
+      .calc-formula { display: none; }
+      .meta-line { font-size: 12px; }
     }
 
     /* ════════════════════════════════════════════
@@ -1105,7 +1157,7 @@
       </div>
 
       <!-- ── PHASE 1 vs PHASE 3 LIFT ── -->
-      <div style="display:grid;grid-template-columns:1fr 16px 1fr;gap:0;margin-top:20px;">
+      <div class="lift-compare" style="display:grid;grid-template-columns:1fr 16px 1fr;gap:0;margin-top:20px;">
         <div style="background:var(--paper);border:1px solid var(--ink-12);border-radius:12px;padding:20px 22px;text-align:center;">
           <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2563eb;margin-bottom:8px;">Phase 1 &mdash; Patches</div>
           <div style="font-family:var(--display);font-size:32px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-1px;">+$81K</div>
@@ -1180,7 +1232,7 @@
     <!-- ── PATH B: ALL-IN ── -->
     <div style="margin-top:28px;">
       <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--jade);margin-bottom:12px;">Path B &mdash; All-In (faster, cheaper)</div>
-      <div class="steps-row" style="grid-template-columns:1fr 1fr;">
+      <div class="steps-row pathb-grid" style="grid-template-columns:1fr 1fr;">
         <div class="step-card" style="border-color:var(--jade-mid);box-shadow:0 0 0 1px var(--jade-mid);">
           <div class="step-num" style="color:var(--jade-light);">01</div>
           <h4>Full custom build &mdash; start now</h4>
