@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ad {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* Left side - Problem */
+  .left {
+    width: 50%;
+    background: #1a1a1a;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, transparent 10%, #d4af37 50%, transparent 90%);
+  }
+
+  /* Right side - Solution */
+  .right {
+    width: 50%;
+    background: linear-gradient(170deg, #0f1d35, #162544);
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    padding: 10px 22px;
+    border-radius: 6px;
+    width: fit-content;
+  }
+
+  .section-label.problem {
+    color: #f87171;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+
+  .section-label.solution {
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .pain-points {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .pain {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .pain-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .pain-text {
+    font-size: 22px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .pain-text strong {
+    color: #f87171;
+    font-weight: 700;
+  }
+
+  .benefits {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .benefit {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .benefit-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .benefit-text {
+    font-size: 22px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .benefit-text strong {
+    color: #d4af37;
+    font-weight: 700;
+  }
+
+  .big-x {
+    font-size: 200px;
+    color: rgba(239, 68, 68, 0.04);
+    font-weight: 900;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    line-height: 1;
+  }
+
+  .big-check {
+    font-size: 200px;
+    color: rgba(212, 175, 55, 0.04);
+    font-weight: 900;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    line-height: 1;
+  }
+
+  /* Center CTA strip */
+  .center-cta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(135deg, #d4af37, #c4a030);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+  }
+
+  .cta-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .cta-brand-icon {
+    width: 46px;
+    height: 46px;
+    background: rgba(10, 22, 40, 0.9);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+
+  .cta-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #0a1628;
+  }
+
+  .cta-divider {
+    width: 2px;
+    height: 36px;
+    background: rgba(10, 22, 40, 0.2);
+    margin: 0 10px;
+  }
+
+  .cta-text {
+    font-size: 24px;
+    font-weight: 800;
+    color: #0a1628;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+  <!-- LEFT: Problem -->
+  <div class="left">
+    <div class="section-label problem">The Old Way</div>
+    <div class="pain-points">
+      <div class="pain">
+        <div class="pain-icon">&#128531;</div>
+        <div class="pain-text"><strong>Stressful car rides</strong> your dog dreads every time</div>
+      </div>
+      <div class="pain">
+        <div class="pain-icon">&#9201;</div>
+        <div class="pain-text"><strong>Hours of waiting</strong> in a loud, crowded shop</div>
+      </div>
+      <div class="pain">
+        <div class="pain-icon">&#128148;</div>
+        <div class="pain-text"><strong>Anxious pup</strong> around unfamiliar dogs</div>
+      </div>
+      <div class="pain">
+        <div class="pain-icon">&#128176;</div>
+        <div class="pain-text"><strong>Hidden fees</strong> you only see at checkout</div>
+      </div>
+      <div class="pain">
+        <div class="pain-icon">&#128222;</div>
+        <div class="pain-text"><strong>Phone tag</strong> just to book an appointment</div>
+      </div>
+    </div>
+    <div class="big-x">&#10005;</div>
+  </div>
+
+  <!-- RIGHT: Solution -->
+  <div class="right">
+    <div class="section-label solution">The Royal Pawz Way</div>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-icon">&#127968;</div>
+        <div class="benefit-text"><strong>We come to you</strong> &mdash; grooming at your doorstep</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#128150;</div>
+        <div class="benefit-text"><strong>1-on-1 attention</strong> in a calm, private space</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#128062;</div>
+        <div class="benefit-text"><strong>Zero stress</strong> &mdash; just your dog &amp; the groomer</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#128178;</div>
+        <div class="benefit-text"><strong>Transparent pricing</strong> starting at $75</div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">&#128241;</div>
+        <div class="benefit-text"><strong>Book online</strong> in 60 seconds, anytime</div>
+      </div>
+    </div>
+    <div class="big-check">&#10003;</div>
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="center-cta">
+    <div class="cta-brand">
+      <div class="cta-brand-icon">&#128054;</div>
+      <div class="cta-brand-name">Royal Pawz USA</div>
+    </div>
+    <div class="cta-divider"></div>
+    <div class="cta-text">Book Your First Groom &rarr;</div>
+  </div>
+</div>
+</body>
+</html>

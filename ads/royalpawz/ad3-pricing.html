@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ad {
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(170deg, #d4af37 0%, #c4a030 30%, #b8942a 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .ad::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(255,255,255,0.12) 0%, transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(0,0,0,0.08) 0%, transparent 40%);
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 55px 65px;
+  }
+
+  .top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(10, 22, 40, 0.9);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+
+  .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #0a1628;
+  }
+
+  .location-tag {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(10, 22, 40, 0.6);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 68px;
+    line-height: 1.1;
+    color: #0a1628;
+    margin-bottom: 8px;
+  }
+
+  .sub {
+    font-size: 24px;
+    color: rgba(10, 22, 40, 0.55);
+    font-weight: 500;
+    margin-bottom: 40px;
+  }
+
+  /* Pricing cards */
+  .pricing {
+    display: flex;
+    gap: 22px;
+    margin-bottom: auto;
+  }
+
+  .price-card {
+    flex: 1;
+    background: rgba(10, 22, 40, 0.9);
+    border-radius: 24px;
+    padding: 34px 26px 30px;
+    text-align: center;
+    position: relative;
+  }
+
+  .price-card.popular {
+    background: #0a1628;
+    transform: scale(1.03);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .popular-tag {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d4af37;
+    color: #0a1628;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .package-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #d4af37;
+    margin-bottom: 18px;
+  }
+
+  .price-range {
+    font-size: 15px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .price {
+    font-size: 52px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price sup {
+    font-size: 26px;
+    vertical-align: super;
+    color: #d4af37;
+  }
+
+  .price-plus {
+    font-size: 14px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .includes {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+    text-align: left;
+    padding: 0 4px;
+  }
+
+  .includes span {
+    color: #d4af37;
+    margin-right: 6px;
+  }
+
+  .bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  .guarantee {
+    font-size: 19px;
+    color: rgba(10, 22, 40, 0.65);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .guarantee-icon {
+    font-size: 22px;
+  }
+
+  .cta {
+    background: #0a1628;
+    color: #f5d76e;
+    font-size: 23px;
+    font-weight: 700;
+    padding: 22px 48px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+  <div class="content">
+    <div class="top-row">
+      <div class="brand">
+        <div class="brand-icon">&#128054;</div>
+        <div class="brand-name">Royal Pawz USA</div>
+      </div>
+      <div class="location-tag">&#128205; Houston, TX</div>
+    </div>
+
+    <div class="headline">Three Packages.<br>One Royal Experience.</div>
+    <div class="sub">Full-service mobile grooming &mdash; we come to your door</div>
+
+    <div class="pricing">
+      <div class="price-card">
+        <div class="package-name">Royal Bath</div>
+        <div class="price-range">Starting at</div>
+        <div class="price"><sup>$</sup>59</div>
+        <div class="price-plus">Small dogs &middot; Up to $119</div>
+        <div class="includes">
+          <span>&#10003;</span> Shampoo & conditioner<br>
+          <span>&#10003;</span> Blow dry & brush<br>
+          <span>&#10003;</span> Nail trim<br>
+          <span>&#10003;</span> Ear cleaning
+        </div>
+      </div>
+
+      <div class="price-card popular">
+        <div class="popular-tag">Most Popular</div>
+        <div class="package-name">Royal Groom</div>
+        <div class="price-range">Starting at</div>
+        <div class="price"><sup>$</sup>95</div>
+        <div class="price-plus">Small dogs &middot; Up to $175</div>
+        <div class="includes">
+          <span>&#10003;</span> Everything in Bath<br>
+          <span>&#10003;</span> Full breed haircut<br>
+          <span>&#10003;</span> Sanitary trim<br>
+          <span>&#10003;</span> Paw pad trim
+        </div>
+      </div>
+
+      <div class="price-card">
+        <div class="package-name">Royal Spa</div>
+        <div class="price-range">Starting at</div>
+        <div class="price"><sup>$</sup>115</div>
+        <div class="price-plus">Small dogs &middot; Up to $205</div>
+        <div class="includes">
+          <span>&#10003;</span> Everything in Groom<br>
+          <span>&#10003;</span> Teeth brushing<br>
+          <span>&#10003;</span> De-shedding treatment<br>
+          <span>&#10003;</span> Paw balm
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="guarantee">
+        <span class="guarantee-icon">&#128150;</span>
+        Trusted by 138+ Houston families
+      </div>
+      <div class="cta">Book Online &rarr;</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

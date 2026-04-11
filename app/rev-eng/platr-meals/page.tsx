@@ -2,32 +2,63 @@
 
 import { useState, useEffect } from "react"
 
-const PASSWORD = "platr2026"
-
 export default function PlatrMealsPortal() {
-  const [authenticated, setAuthenticated] = useState(false)
+  const [authenticated, setAuthenticated] = useState<boolean | null>(null)
   const [input, setInput] = useState("")
   const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [activeDoc, setActiveDoc] = useState<"quote" | "scope" | null>(null)
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const stored = sessionStorage.getItem("platr-auth")
-      if (stored === "true") setAuthenticated(true)
-    }
+    fetch("/api/platr/auth")
+      .then(r => r.json())
+      .then(d => setAuthenticated(d.authenticated))
+      .catch(() => setAuthenticated(false))
   }, [])
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (input === PASSWORD) {
-      setAuthenticated(true)
-      setError(false)
-      sessionStorage.setItem("platr-auth", "true")
-    } else {
+    setLoading(true)
+    setError(false)
+
+    try {
+      const res = await fetch("/api/platr/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: input }),
+      })
+
+      if (res.ok) {
+        setAuthenticated(true)
+      } else {
+        setError(true)
+      }
+    } catch {
       setError(true)
     }
+
+    setLoading(false)
   }
 
+  // Loading state
+  if (authenticated === null) {
+    return (
+      <div style={{
+        minHeight: "100vh",
+        background: "#0d0d0b",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "#6b6759",
+        fontSize: 14,
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      }}>
+        Loading...
+      </div>
+    )
+  }
+
+  // Login
   if (!authenticated) {
     return (
       <div style={{
@@ -92,19 +123,20 @@ export default function PlatrMealsPortal() {
             )}
             <button
               type="submit"
+              disabled={loading}
               style={{
                 width: "100%",
                 padding: "12px 0",
                 fontSize: 14,
                 fontWeight: 700,
-                background: "#f97316",
+                background: loading ? "#b45309" : "#f97316",
                 color: "#fff",
                 border: "none",
                 borderRadius: 8,
-                cursor: "pointer",
+                cursor: loading ? "wait" : "pointer",
               }}
             >
-              View Proposal
+              {loading ? "Verifying..." : "View Proposal"}
             </button>
           </form>
         </div>
@@ -112,6 +144,7 @@ export default function PlatrMealsPortal() {
     )
   }
 
+  // Document viewer
   if (activeDoc) {
     return (
       <div style={{
@@ -158,7 +191,7 @@ export default function PlatrMealsPortal() {
           }}>Zapp Studios</div>
         </div>
         <iframe
-          src={activeDoc === "quote" ? "/_docs/pm/q.html" : "/_docs/pm/s.html"}
+          src={`/api/platr/doc/${activeDoc}`}
           style={{
             flex: 1,
             border: "none",
@@ -169,6 +202,7 @@ export default function PlatrMealsPortal() {
     )
   }
 
+  // Document selector
   return (
     <div style={{
       minHeight: "100vh",

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ad {
+    width: 1080px;
+    height: 1080px;
+    background: #0a1628;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Large glow */
+  .glow {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 80px;
+  }
+
+  .urgency-badge {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1.5px solid rgba(239, 68, 68, 0.4);
+    color: #f87171;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 55px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pulse-dot {
+    width: 10px;
+    height: 10px;
+    background: #ef4444;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 1.05;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+
+  .headline .gold {
+    color: #d4af37;
+  }
+
+  .divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+    margin-bottom: 30px;
+  }
+
+  .subtext {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 640px;
+    margin-bottom: 60px;
+  }
+
+  .slots {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 55px;
+  }
+
+  .slot {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .slot.filled {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1.5px solid rgba(239, 68, 68, 0.3);
+    color: rgba(239, 68, 68, 0.5);
+    text-decoration: line-through;
+  }
+
+  .slot.filled::after {
+    content: '';
+  }
+
+  .slot.open {
+    background: rgba(212, 175, 55, 0.15);
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    color: #d4af37;
+  }
+
+  .slot-label {
+    font-size: 16px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .slot-row-label {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  .slot-day {
+    width: 72px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .cta {
+    background: linear-gradient(135deg, #d4af37, #c4a030);
+    color: #0a1628;
+    font-size: 26px;
+    font-weight: 800;
+    padding: 26px 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .sub-cta {
+    font-size: 17px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 500;
+  }
+
+  .brand-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37);
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+  <div class="glow"></div>
+  <div class="content">
+    <div class="urgency-badge">
+      <div class="pulse-dot"></div>
+      This Week's Availability
+    </div>
+
+    <div class="headline">
+      Only <span class="gold">3</span> Spots<br>Left This Week
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="subtext">
+      Our groomers book up fast in Houston.<br>
+      Don't wait until next week.
+    </div>
+
+    <div class="slot-row-label">
+      <div class="slot-day">Mon</div>
+      <div class="slot-day">Tue</div>
+      <div class="slot-day">Wed</div>
+      <div class="slot-day">Thu</div>
+      <div class="slot-day">Fri</div>
+      <div class="slot-day">Sat</div>
+      <div class="slot-day">Sun</div>
+    </div>
+    <div class="slots">
+      <div class="slot filled">&#10005;</div>
+      <div class="slot filled">&#10005;</div>
+      <div class="slot open">&#10003;</div>
+      <div class="slot filled">&#10005;</div>
+      <div class="slot open">&#10003;</div>
+      <div class="slot filled">&#10005;</div>
+      <div class="slot open">&#10003;</div>
+    </div>
+
+    <div class="cta">Grab Your Spot &rarr;</div>
+    <div class="sub-cta">royalpawzusa.com &middot; Book in 60 seconds</div>
+  </div>
+  <div class="brand-bar"></div>
+</div>
+</body>
+</html>
