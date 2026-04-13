@@ -7,6 +7,7 @@ export default function PlatrMealsPortal() {
   const [input, setInput] = useState("")
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [activeDoc, setActiveDoc] = useState<string | null>(null)
 
   useEffect(() => {
     fetch("/api/platr/auth")
@@ -144,8 +145,6 @@ export default function PlatrMealsPortal() {
   }
 
   // Authenticated — show document picker or document
-  const [activeDoc, setActiveDoc] = useState<string | null>(null)
-
   if (activeDoc) {
     return (
       <div style={{
