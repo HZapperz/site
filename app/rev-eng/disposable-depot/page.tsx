@@ -147,6 +147,9 @@ export default function DisposableDepotPortal() {
       display: "flex",
       flexDirection: "column",
       background: "#0d0d0b",
+      overflow: "hidden",
+      position: "fixed",
+      inset: 0,
     }}>
       <div style={{
         display: "flex",
@@ -174,6 +177,7 @@ export default function DisposableDepotPortal() {
           flex: 1,
           border: "none",
           width: "100%",
+          minHeight: 0,
         }}
       />
     </div>
