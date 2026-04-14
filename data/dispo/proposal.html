@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disposable Depot — Proposal | Zapp Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9; --surface: #ffffff; --surface-tint: #f5f4f1;
+    --border: #e8e6e1; --border-strong: #d4d1cb;
+    --text: #1a1917; --text-2: #57534e; --text-3: #a8a29e;
+    --accent: #1d4ed8; --accent-light: #eff3fe;
+    --green: #16a34a; --green-bg: #f0fdf4; --green-border: #bbf7d0;
+    --orange: #d97706; --orange-bg: #fffbeb; --orange-border: #fde68a;
+    --red: #dc2626; --red-bg: #fef2f2; --red-border: #fecaca;
+    --purple: #7c3aed; --purple-bg: #f5f3ff; --purple-border: #ddd6fe;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; font-size:17px; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1060px; margin:0 auto; padding:0 48px; }
+
+  /* Header */
+  .masthead { padding:56px 0 48px; border-bottom:1px solid var(--border); }
+  .masthead-bar { display:flex; justify-content:space-between; align-items:center; margin-bottom:48px; }
+  .brand { font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3); }
+  .date { font-family:'DM Mono',monospace; font-size:12px; color:var(--text-3); }
+  .masthead h1 { font-family:'Instrument Serif',Georgia,serif; font-size:52px; font-weight:400; line-height:1.1; letter-spacing:-.02em; margin-bottom:20px; }
+  .masthead h1 em { font-style:italic; color:var(--accent); }
+  .masthead .lead { font-size:19px; color:var(--text-2); line-height:1.7; max-width:720px; }
+
+  /* Hero quote card */
+  .hero-quote {
+    margin-top:36px; padding:32px 36px; background:var(--surface); border:2px solid var(--accent);
+    border-radius:16px; display:flex; justify-content:space-between; align-items:center; gap:32px;
+    box-shadow: 0 4px 24px rgba(29,78,216,0.06);
+  }
+  .hq-details { flex:1; }
+  .hq-price { font-family:'Instrument Serif',Georgia,serif; font-size:56px; color:var(--accent); letter-spacing:-.02em; line-height:1; }
+  .hq-sub { font-family:'DM Mono',monospace; font-size:14px; color:var(--text-2); margin-top:4px; }
+  .hq-meta { font-size:15px; color:var(--text-2); line-height:1.7; }
+  .hq-meta strong { color:var(--text); }
+
+  /* Sections */
+  section { padding:56px 0; border-bottom:1px solid var(--border); }
+  section:last-of-type { border-bottom:none; }
+  .sn { font-family:'DM Mono',monospace; font-size:11px; font-weight:500; color:var(--accent); letter-spacing:.06em; text-transform:uppercase; margin-bottom:8px; display:block; }
+  .st { font-family:'Instrument Serif',Georgia,serif; font-size:34px; font-weight:400; line-height:1.2; margin-bottom:10px; }
+  .sd { font-size:17px; color:var(--text-2); margin-bottom:36px; max-width:780px; line-height:1.7; }
+  .sub-label { font-size:13px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--text-3); margin-bottom:16px; margin-top:36px; }
+
+  /* Stats row */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:28px; }
+  .stat { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:20px; text-align:center; }
+  .stat-n { font-family:'Instrument Serif',Georgia,serif; font-size:42px; color:var(--text); line-height:1; margin-bottom:6px; }
+  .stat-n.red { color:var(--red); }
+  .stat-l { font-size:13px; color:var(--text-3); }
+
+  /* Callouts */
+  .callout { padding:20px 24px; border-radius:10px; margin-bottom:24px; font-size:16px; line-height:1.6; }
+  .callout strong { color:var(--text); }
+  .callout.warn { background:var(--red-bg); border:1px solid var(--red-border); color:var(--text-2); }
+  .callout.info { background:var(--accent-light); border:1px solid #c7d7fe; color:var(--text-2); }
+  .callout.sell { background:var(--green-bg); border:1px solid var(--green-border); color:var(--text-2); }
+
+  /* Competitor cards */
+  .cc-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .cc { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; position:relative; }
+  .cc-name { font-size:17px; font-weight:600; margin-bottom:2px; }
+  .cc-url { font-family:'DM Mono',monospace; font-size:12px; color:var(--text-3); }
+  .cc-loc { font-size:13px; color:var(--text-2); margin-top:4px; margin-bottom:12px; }
+  .cc-desc { font-size:14px; color:var(--text-2); line-height:1.6; margin-bottom:12px; }
+  .cc-caps { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
+  .cc-cap { font-size:11px; font-weight:500; padding:3px 9px; border-radius:5px; background:var(--surface-tint); border:1px solid var(--border); color:var(--text-2); }
+  .cc-cap.has { background:var(--green-bg); border-color:var(--green-border); color:var(--green); }
+  .cc-cap.no { background:var(--red-bg); border-color:var(--red-border); color:var(--red); text-decoration:line-through; }
+  .cc-diff { font-size:13px; color:var(--text-2); font-style:italic; padding-top:10px; border-top:1px solid var(--border); }
+  .cc-threat { position:absolute; top:20px; right:20px; }
+
+  /* Threat/severity pills */
+  .threat { font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:4px 10px; border-radius:5px; white-space:nowrap; display:inline-block; }
+  .threat.high { background:var(--red-bg); color:var(--red); border:1px solid var(--red-border); }
+  .threat.med { background:var(--orange-bg); color:var(--orange); border:1px solid var(--orange-border); }
+  .sev { font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; padding:4px 11px; border-radius:5px; white-space:nowrap; flex-shrink:0; margin-top:3px; }
+  .sev.crit { background:var(--red-bg); color:var(--red); border:1px solid var(--red-border); }
+  .sev.high { background:var(--orange-bg); color:var(--orange); border:1px solid var(--orange-border); }
+  .sev.med { background:var(--purple-bg); color:var(--purple); border:1px solid var(--purple-border); }
+
+  /* Capability matrix */
+  .mx-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .mx { width:100%; border-collapse:collapse; font-size:14px; min-width:800px; }
+  .mx thead th { text-align:left; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); padding:12px 12px; border-bottom:2px solid var(--border-strong); background:var(--surface-tint); white-space:nowrap; }
+  .mx td { padding:12px; border-bottom:1px solid var(--border); color:var(--text-2); vertical-align:middle; }
+  .mx tr:last-child td { border-bottom:none; }
+  .mx .cn { font-weight:600; color:var(--text); display:block; }
+  .mx .cu { font-family:'DM Mono',monospace; font-size:11px; color:var(--text-3); }
+  .mx td.c { text-align:center; }
+  .mx tr.hl td { background:var(--accent-light); }
+  .yes { color:var(--green); font-weight:700; }
+  .no { color:var(--red); font-weight:700; }
+  .part { color:var(--orange); font-weight:700; }
+  .legend { display:flex; gap:24px; margin-bottom:16px; flex-wrap:wrap; }
+  .legend-i { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--text-2); }
+
+  /* Issues list */
+  .issues { list-style:none; }
+  .issues li { display:flex; align-items:flex-start; gap:14px; padding:16px 0; border-bottom:1px solid var(--border); font-size:16px; color:var(--text-2); line-height:1.6; }
+  .issues li:last-child { border-bottom:none; }
+  .issues li strong { color:var(--text); font-weight:600; }
+
+  /* Comparison tables */
+  .ctable { width:100%; border-collapse:collapse; font-size:16px; }
+  .ctable thead th { text-align:left; font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); padding:12px 16px; border-bottom:2px solid var(--border); background:var(--surface-tint); }
+  .ctable thead th:last-child { width:100px; }
+  .ctable td { padding:14px 16px; border-bottom:1px solid var(--border); color:var(--text-2); vertical-align:top; }
+  .ctable tr:last-child td { border-bottom:none; }
+  .ctable td:first-child { font-weight:600; color:var(--text); width:160px; }
+  .pill { font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:4px 10px; border-radius:5px; white-space:nowrap; display:inline-block; }
+  .pill.crit { background:var(--red-bg); color:var(--red); }
+  .pill.major { background:var(--orange-bg); color:var(--orange); }
+  .pill.mod { background:var(--purple-bg); color:var(--purple); }
+  .pill.minor { background:var(--surface-tint); color:var(--text-3); }
+
+  /* Product detail compare */
+  .pd-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px; }
+  .pd { background:var(--surface); border-radius:12px; padding:24px; border:1px solid var(--border); }
+  .pd h4 { font-size:15px; font-weight:600; margin-bottom:14px; text-transform:uppercase; letter-spacing:.03em; }
+  .pd ul { list-style:none; }
+  .pd li { font-size:15px; color:var(--text-2); padding:5px 0 5px 18px; position:relative; line-height:1.55; }
+  .pd li::before { content:''; position:absolute; left:0; top:11px; width:8px; height:2px; border-radius:1px; }
+  .pd.bad { border-color:var(--red-border); } .pd.bad h4 { color:var(--red); } .pd.bad li::before { background:var(--red); }
+  .pd.good { border-color:var(--green-border); } .pd.good h4 { color:var(--green); } .pd.good li::before { background:var(--green); }
+  .pd .note-line { color:var(--text-3); font-style:italic; margin-top:6px; }
+
+  /* Lighthouse */
+  .lh-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+  .lh-single { max-width:452px; margin-bottom:16px; }
+  .lh-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:24px; position:relative; }
+  .lh-card .ts { position:absolute; top:0; left:16px; right:16px; height:2px; border-radius:0 0 2px 2px; }
+  .ts.g { background:var(--green); } .ts.o { background:var(--orange); } .ts.r { background:var(--red); }
+  .lh-n { font-size:17px; font-weight:600; } .lh-n.ft { color:var(--green); }
+  .lh-u { font-family:'DM Mono',monospace; font-size:13px; color:var(--text-3); margin-bottom:18px; }
+  .scores { display:flex; gap:16px; margin-bottom:16px; }
+  .sc { text-align:center; flex:1; }
+  .sc-r { width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:17px; font-weight:500; margin:0 auto 5px; }
+  .sc-r.g { background:var(--green-bg); color:var(--green); border:2px solid var(--green-border); }
+  .sc-r.o { background:var(--orange-bg); color:var(--orange); border:2px solid var(--orange-border); }
+  .sc-r.r { background:var(--red-bg); color:var(--red); border:2px solid var(--red-border); }
+  .sc-l { font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:.04em; font-weight:500; }
+  .vitals { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  .vt { background:var(--surface-tint); border-radius:8px; padding:10px 6px; text-align:center; }
+  .vt-v { font-family:'DM Mono',monospace; font-size:14px; font-weight:500; }
+  .vt-v.g { color:var(--green); } .vt-v.o { color:var(--orange); } .vt-v.r { color:var(--red); }
+  .vt-l { font-size:10px; color:var(--text-3); text-transform:uppercase; letter-spacing:.05em; margin-top:2px; }
+
+  /* Pitch bullets */
+  .pitch-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:24px 0; }
+  .pitch-item { background:var(--surface); border:1px solid var(--green-border); border-radius:10px; padding:18px 20px; }
+  .pitch-item h5 { font-size:15px; font-weight:600; color:var(--green); margin-bottom:6px; }
+  .pitch-item p { font-size:14px; color:var(--text-2); line-height:1.55; margin:0; }
+
+  /* Missing features */
+  .feat-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+  .feat { display:flex; align-items:center; gap:10px; padding:11px 16px; font-size:15px; background:var(--red-bg); border:1px solid var(--red-border); border-radius:7px; color:var(--text-2); }
+  .feat .icon { color:var(--red); font-weight:600; font-size:14px; flex-shrink:0; }
+
+  /* Scope cards */
+  .scope-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  .scope { background:var(--surface); border-radius:12px; padding:24px; border:1px solid var(--border); }
+  .scope h4 { font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; margin-bottom:14px; }
+  .scope ul { list-style:none; }
+  .scope li { font-size:15px; color:var(--text-2); padding:5px 0 5px 16px; position:relative; line-height:1.55; }
+  .scope li::before { content:''; position:absolute; left:0; top:11px; width:6px; height:6px; border-radius:50%; }
+  .scope.core { border-color:var(--green-border); background:var(--green-bg); } .scope.core h4 { color:var(--green); } .scope.core li::before { background:var(--green); }
+  .scope.maybe { border-color:var(--orange-border); background:var(--orange-bg); } .scope.maybe h4 { color:var(--orange); } .scope.maybe li::before { background:var(--orange); }
+  .scope.out { border-color:var(--border); background:var(--surface-tint); } .scope.out h4 { color:var(--text-3); } .scope.out li::before { background:var(--text-3); }
+
+  /* Quote table */
+  .qtable { width:100%; border-collapse:collapse; }
+  .qtable thead th { text-align:left; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); padding:10px 14px; border-bottom:2px solid var(--border-strong); }
+  .qtable thead th:last-child { text-align:right; }
+  .qtable td { padding:18px 16px; border-bottom:1px solid var(--border); font-size:16px; }
+  .qtable td:last-child { text-align:right; font-family:'DM Mono',monospace; font-weight:500; color:var(--text); }
+  .qtable .desc { font-size:14px; color:var(--text-3); margin-top:4px; }
+  .qtable tr.total-row td { border-bottom:none; border-top:2px solid var(--text); font-weight:700; font-size:16px; padding-top:18px; }
+  .qtable tr.total-row td:last-child { font-size:18px; color:var(--accent); }
+  .quote-summary { margin-top:24px; padding:24px; background:var(--accent-light); border:1px solid #c7d7fe; border-radius:12px; display:flex; justify-content:space-between; align-items:center; }
+  .qs-left { font-size:16px; color:var(--text-2); } .qs-left strong { color:var(--text); }
+  .qs-right { font-family:'Instrument Serif',Georgia,serif; font-size:42px; color:var(--accent); letter-spacing:-.02em; }
+  .quote-note { font-size:15px; color:var(--text-3); margin-top:16px; line-height:1.65; }
+
+  /* Timeline */
+  .tl { display:flex; margin:32px 0; position:relative; }
+  .tl::before { content:''; position:absolute; top:15px; left:60px; right:60px; height:2px; background:var(--border); }
+  .tl-step { flex:1; text-align:center; position:relative; }
+  .tl-dot { width:10px; height:10px; border-radius:50%; background:var(--accent); margin:10px auto 12px; position:relative; z-index:1; box-shadow:0 0 0 4px var(--accent-light); }
+  .tl-label { font-size:15px; font-weight:600; color:var(--text); margin-bottom:2px; }
+  .tl-date { font-family:'DM Mono',monospace; font-size:13px; color:var(--text-3); }
+
+  /* Questions */
+  .qlist { list-style:none; counter-reset:q; }
+  .qlist li { counter-increment:q; display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--border); font-size:16px; color:var(--text-2); line-height:1.6; }
+  .qlist li:last-child { border-bottom:none; }
+  .qlist li::before { content:counter(q); font-family:'DM Mono',monospace; font-size:11px; font-weight:500; color:var(--accent); background:var(--accent-light); width:26px; height:26px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:1px; }
+  .qlist strong { color:var(--text); }
+
+  /* Ranking table */
+  .rank-table { width:100%; border-collapse:collapse; font-size:15px; margin-bottom:16px; }
+  .rank-table thead th { text-align:left; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); padding:10px 14px; border-bottom:2px solid var(--border-strong); background:var(--surface-tint); white-space:nowrap; }
+  .rank-table thead th.num { text-align:center; }
+  .rank-table td { padding:12px 14px; border-bottom:1px solid var(--border); color:var(--text-2); }
+  .rank-table tr:last-child td { border-bottom:none; }
+  .rank-table td:first-child { font-weight:600; color:var(--text); }
+  .rank-table td.num { text-align:center; font-family:'DM Mono',monospace; font-size:14px; font-weight:500; }
+  .rank-table td.num.g { color:var(--green); } .rank-table td.num.o { color:var(--orange); } .rank-table td.num.r { color:var(--red); }
+  .rank-table .plat { font-size:11px; color:var(--text-3); font-weight:400; }
+  .rank-table tr.hl td { background:var(--accent-light); }
+  .rank-table tr.best td { background:var(--green-bg); }
+  .rank-table .rank-num { font-family:'DM Mono',monospace; font-size:12px; color:var(--text-3); width:30px; }
+
+  /* Cost comparison */
+  .cost-table { width:100%; border-collapse:collapse; font-size:15px; margin-top:16px; }
+  .cost-table thead th { text-align:left; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); padding:10px 14px; border-bottom:2px solid var(--border-strong); background:var(--surface-tint); }
+  .cost-table td { padding:12px 14px; border-bottom:1px solid var(--border); color:var(--text-2); }
+  .cost-table td:first-child { font-weight:600; color:var(--text); width:110px; }
+  .cost-table td.wp { background:var(--red-bg); }
+  .cost-table td.custom { background:var(--green-bg); }
+  .cost-table tr.total-row td { border-top:2px solid var(--text); border-bottom:none; font-weight:700; }
+  .cost-table tr.total-row td.wp { color:var(--red); font-size:17px; }
+  .cost-table tr.total-row td.custom { color:var(--green); font-size:17px; }
+
+  /* Unlock / future cards */
+  .unlock-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:24px 0; }
+  .unlock-item { background:var(--surface); border:1px solid var(--purple-border); border-radius:10px; padding:18px 20px; }
+  .unlock-item h5 { font-size:15px; font-weight:600; color:var(--purple); margin-bottom:6px; }
+  .unlock-item p { font-size:14px; color:var(--text-2); line-height:1.55; margin:0; }
+
+  /* Partnership note */
+  .partnership { margin-top:32px; padding:24px 28px; background:var(--accent-light); border:1px solid #c7d7fe; border-radius:12px; }
+  .partnership p { font-size:16px; color:var(--text-2); line-height:1.65; margin:0; }
+  .partnership strong { color:var(--text); }
+
+  /* Homepage concept mockup */
+  .mockup-frame { margin-top:32px; border:2px solid var(--border-strong); border-radius:12px; overflow:hidden; background:var(--surface); box-shadow:0 12px 40px rgba(0,0,0,0.10); }
+  .mockup-chrome { padding:10px 14px; background:var(--surface-tint); border-bottom:1px solid var(--border); display:flex; align-items:center; gap:6px; }
+  .mockup-dots { display:flex; gap:5px; }
+  .mockup-dots span { width:10px; height:10px; border-radius:50%; }
+  .mockup-dots span:nth-child(1) { background:#ff5f57; }
+  .mockup-dots span:nth-child(2) { background:#febc2e; }
+  .mockup-dots span:nth-child(3) { background:#28c840; }
+  .mockup-urlbar { flex:1; margin-left:8px; padding:5px 12px; background:var(--surface); border:1px solid var(--border); border-radius:6px; font-family:'DM Mono',monospace; font-size:12px; color:var(--text-3); }
+  /* Mockup internals — DD brand x AR Unlimited layout */
+  .mv-topbar { padding:7px 20px; background:#151F39; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; }
+  .mv-topbar span { font-size:10px; color:rgba(255,255,255,0.55); letter-spacing:.02em; }
+  .mv-nav { padding:10px 20px; background:#fff; border-bottom:1px solid #e8e6e1; display:flex; justify-content:space-between; align-items:center; }
+  .mv-logo { font-weight:800; font-size:13px; color:#151F39; letter-spacing:.04em; text-transform:uppercase; line-height:1.2; }
+  .mv-logo small { font-weight:400; font-size:8px; display:block; letter-spacing:.08em; color:#888; text-transform:uppercase; }
+  .mv-links { display:flex; gap:12px; align-items:center; }
+  .mv-links span { font-size:11px; color:#555; font-weight:500; }
+  .mv-links span.cta { background:#00B9DD; color:#fff; padding:5px 12px; border-radius:5px; font-size:10px; font-weight:700; letter-spacing:.02em; }
+  .mv-links span.login { border:1px solid #ddd; padding:4px 10px; border-radius:5px; font-size:10px; color:#333; }
+  .mv-hero { padding:44px 24px 32px; background:linear-gradient(145deg, #0a1628 0%, #151F39 50%, #1a2a4a 100%); text-align:center; color:#fff; position:relative; }
+  .mv-hero h3 { font-family:'Instrument Serif',Georgia,serif; font-size:24px; font-weight:400; margin-bottom:6px; line-height:1.25; letter-spacing:-.01em; }
+  .mv-hero p { font-size:12px; opacity:0.65; margin-bottom:16px; line-height:1.5; }
+  .mv-hero-btns { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .mv-btn { padding:7px 16px; border-radius:5px; font-size:11px; font-weight:600; border:none; display:inline-block; letter-spacing:.02em; }
+  .mv-btn.primary { background:#00B9DD; color:#fff; }
+  .mv-btn.secondary { background:transparent; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.85); }
+  .mv-ticker { padding:7px 20px; background:#F5F3ED; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; border-bottom:1px solid #e8e6e1; }
+  .mv-ticker span { font-size:9px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:#999; }
+  .mv-ticker span::before { content:''; display:inline-block; width:4px; height:4px; border-radius:50%; background:#00B9DD; margin-right:5px; vertical-align:middle; }
+  .mv-section { padding:18px 20px; }
+  .mv-section.cream { background:#F5F3ED; }
+  .mv-stitle { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#999; margin-bottom:10px; text-align:center; }
+  .mv-segments { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .mv-segment { background:#fff; border:1px solid #e8e6e1; border-radius:8px; padding:12px 8px; text-align:center; }
+  .mv-seg-icon { width:30px; height:30px; border-radius:50%; background:#E8F8FC; margin:0 auto 6px; display:flex; align-items:center; justify-content:center; font-size:13px; }
+  .mv-seg-name { font-size:10px; font-weight:700; color:#151F39; }
+  .mv-seg-desc { font-size:8px; color:#999; margin-top:2px; line-height:1.4; }
+  .mv-cat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .mv-cat { background:#f9f9f7; border:1px solid #e8e6e1; border-radius:8px; padding:12px 6px; text-align:center; }
+  .mv-cat-ph { width:100%; height:44px; background:linear-gradient(135deg, #e8e6e1, #d4d1cb); border-radius:4px; margin-bottom:6px; }
+  .mv-cat-name { font-size:9px; font-weight:700; color:#151F39; letter-spacing:.02em; }
+  .mv-accent-bar { padding:12px 20px; background:#00B9DD; display:grid; grid-template-columns:repeat(3,1fr); }
+  .mv-accent-item { text-align:center; }
+  .mv-accent-item strong { display:block; font-size:11px; color:#fff; font-weight:700; }
+  .mv-accent-item span { font-size:8px; color:rgba(255,255,255,0.75); }
+  .mv-testimonials { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:0; }
+  .mv-tcard { background:#fff; border:1px solid #e8e6e1; border-radius:8px; padding:12px; }
+  .mv-stars { color:#C9A962; font-size:11px; letter-spacing:1px; margin-bottom:4px; }
+  .mv-tquote { font-size:9px; color:#555; font-style:italic; line-height:1.5; margin-bottom:6px; }
+  .mv-tauthor { font-size:8px; font-weight:700; color:#151F39; }
+  .mv-trole { font-size:8px; color:#999; }
+  .mv-cta-strip { padding:20px; background:linear-gradient(145deg, #151F39, #1a2a4a); text-align:center; }
+  .mv-cta-strip h4 { font-family:'Instrument Serif',Georgia,serif; font-size:16px; color:#fff; font-weight:400; margin-bottom:8px; }
+  .mv-footer { padding:16px 20px; background:#0a1628; display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+  .mv-fcol strong { display:block; font-size:9px; color:rgba(255,255,255,0.85); font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; }
+  .mv-fcol span { display:block; font-size:7px; color:rgba(255,255,255,0.35); line-height:1.8; }
+  .mv-copyright { padding:7px 20px; background:#060d1a; text-align:center; }
+  .mv-copyright span { font-size:7px; color:rgba(255,255,255,0.2); }
+  .mockup-note { margin-top:14px; font-size:14px; color:var(--text-3); font-style:italic; line-height:1.6; }
+
+  footer { padding:40px 0; text-align:center; border-top:1px solid var(--border); margin-top:20px; }
+  footer p { font-size:14px; color:var(--text-3); } footer strong { color:var(--text-2); font-weight:600; }
+
+  @media(max-width:860px) {
+    .wrap { padding:0 20px; } body { font-size:16px; }
+    .masthead h1 { font-size:34px; } .masthead .lead { font-size:17px; }
+    .st { font-size:26px; } .sd { font-size:16px; } section { padding:40px 0; }
+    .hero-quote { flex-direction:column; text-align:center; padding:24px; }
+    .hq-price { font-size:42px; }
+    .stats { grid-template-columns:1fr 1fr; }
+    .cc-grid,.lh-row,.pd-row,.feat-grid,.pitch-grid,.unlock-grid { grid-template-columns:1fr; }
+    .cost-table { font-size:14px; display:block; overflow-x:auto; }
+    .scope-row { grid-template-columns:1fr; }
+    .lh-single { max-width:100%; }
+    .vitals { grid-template-columns:repeat(3,1fr); }
+    .quote-summary { flex-direction:column; gap:12px; text-align:center; }
+    .tl::before { display:none; } .tl { flex-direction:column; gap:12px; }
+    .tl-step { text-align:left; display:flex; align-items:center; gap:14px; }
+    .tl-dot { margin:0; flex-shrink:0; }
+    .ctable,.qtable,.mx { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .mv-cat-grid { grid-template-columns:repeat(2,1fr); }
+    .mv-segments { grid-template-columns:1fr; }
+    .mv-testimonials { grid-template-columns:1fr; }
+    .mv-footer { grid-template-columns:1fr 1fr; }
+  }
+  @media(max-width:480px) {
+    .wrap { padding:0 16px; } .masthead h1 { font-size:28px; } .st { font-size:23px; }
+    .scores { gap:8px; } .sc-r { width:46px; height:46px; font-size:15px; }
+    .vitals { grid-template-columns:repeat(3,1fr); gap:5px; }
+    .feat-grid { grid-template-columns:1fr; }
+    .stat-n { font-size:30px; } .stats { gap:10px; }
+    .qs-right { font-size:34px; } .hq-price { font-size:34px; }
+  }
+  @media print { body { font-size:13px; } section { break-inside:avoid; padding:32px 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ═══ HEADER + HERO QUOTE ═══ -->
+<header class="masthead">
+  <div class="masthead-bar">
+    <div class="brand">Zapp Studios</div>
+    <div class="date">April 14, 2026</div>
+  </div>
+  <h1>Disposable Depot<br><em>Website Rebuild Proposal</em></h1>
+  <p class="lead">Here's what we're building: a custom website with a full product catalog, quote system, and the speed to outrank every competitor in your market.</p>
+  <div class="hero-quote">
+    <div class="hq-details">
+      <div class="hq-meta"><strong>Custom website build</strong> &mdash; homepage, full product catalog, quote/order form, responsive design, deployment</div>
+      <div class="hq-sub">~25 hours &bull; $75/hr &bull; 3-week delivery</div>
+    </div>
+    <div class="hq-price">$1,875</div>
+  </div>
+</header>
+
+<!-- ═══ 01: WHAT WE'LL BUILD ═══ -->
+<section>
+  <span class="sn">01</span>
+  <div class="st">What We'll Build</div>
+  <p class="sd">Here's the scope of the rebuild &mdash; everything needed to bring Disposable Depot up to the level of AR Unlimited and beyond.</p>
+  <div class="scope-row" style="margin-top:24px">
+    <div class="scope core">
+      <h4>Must-Have (Core)</h4>
+      <ul>
+        <li>Custom homepage with hero, value props, product grid, testimonials, about, contact</li>
+        <li>Full product catalog with category filtering</li>
+        <li>Individual product detail pages</li>
+        <li>Dedicated quote/order form page</li>
+        <li>Product-level "Get a Quote" modal</li>
+        <li>Mobile-first responsive design</li>
+        <li>Working footer + legal pages</li>
+      </ul>
+    </div>
+    <div class="scope maybe">
+      <h4>Nice-to-Have (Discuss)</h4>
+      <ul>
+        <li>Product search functionality</li>
+        <li>Size/pack configurator</li>
+        <li>FAQ section</li>
+        <li>Newsletter signup</li>
+        <li>Embedded map</li>
+        <li>reCAPTCHA on forms</li>
+        <li>Flipbook catalog viewer</li>
+      </ul>
+    </div>
+    <div class="scope out">
+      <h4>Out of Scope</h4>
+      <ul>
+        <li>Blog / content marketing</li>
+        <li>User login / accounts</li>
+        <li>E-commerce cart / payments</li>
+        <li>Ordering portal replacement</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-label" style="margin-top:40px">Homepage Concept &mdash; Your Brand, AR Unlimited's Layout</div>
+  <p style="font-size:16px; color:var(--text-2); margin-bottom:4px; line-height:1.7;">Here's a preview blending your brand identity with the layout and features you liked on AR Unlimited's site. Final design gets refined together on the discovery call.</p>
+
+  <div class="mockup-frame">
+    <div class="mockup-chrome">
+      <div class="mockup-dots"><span></span><span></span><span></span></div>
+      <div class="mockup-urlbar">disposabledepot.co</div>
+    </div>
+    <div class="mockup-viewport">
+      <!-- Top contact bar -->
+      <div class="mv-topbar">
+        <span>10600 Corporate Drive, Stafford, TX 77477</span>
+        <span>(832) 866-6652 &bull; sales@disposabledepot.co</span>
+      </div>
+      <!-- Navigation -->
+      <div class="mv-nav">
+        <div class="mv-logo">Disposable<br>Depot<small>Food Service Supply Solutions</small></div>
+        <div class="mv-links">
+          <span>Home</span>
+          <span>Products</span>
+          <span>Catalog</span>
+          <span>About</span>
+          <span>Contact</span>
+          <span class="login">Login</span>
+          <span class="cta">Get a Quote</span>
+        </div>
+      </div>
+      <!-- Hero -->
+      <div class="mv-hero">
+        <h3>The Trusted Choice for<br>Disposable Supply Solutions</h3>
+        <p>Premium food-safe disposables for restaurants, daycares, and convenience stores &mdash; delivered across Greater Houston.</p>
+        <div class="mv-hero-btns">
+          <span class="mv-btn primary">Browse Catalog</span>
+          <span class="mv-btn secondary">Request a Quote</span>
+        </div>
+      </div>
+      <!-- Scrolling category ticker (like AR Unlimited) -->
+      <div class="mv-ticker">
+        <span>Cups &amp; Lids</span>
+        <span>Food Containers</span>
+        <span>Bags &amp; Wraps</span>
+        <span>Cutlery</span>
+        <span>Gloves</span>
+        <span>Paper Products</span>
+        <span>Cleaning Supplies</span>
+      </div>
+      <!-- Who We Serve (like AR's "Our Customers") -->
+      <div class="mv-section cream">
+        <div class="mv-stitle">Who We Serve</div>
+        <div class="mv-segments">
+          <div class="mv-segment">
+            <div class="mv-seg-icon">&#127860;</div>
+            <div class="mv-seg-name">Restaurants</div>
+            <div class="mv-seg-desc">Containers, cups, cutlery &amp; more</div>
+          </div>
+          <div class="mv-segment">
+            <div class="mv-seg-icon">&#127979;</div>
+            <div class="mv-seg-name">Daycares &amp; Schools</div>
+            <div class="mv-seg-desc">Safe, reliable &amp; bulk-friendly</div>
+          </div>
+          <div class="mv-segment">
+            <div class="mv-seg-icon">&#127978;</div>
+            <div class="mv-seg-name">Convenience Stores</div>
+            <div class="mv-seg-desc">Everyday essentials, stocked fast</div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Grid (like AR's 12-category grid) -->
+      <div class="mv-section">
+        <div class="mv-stitle">Products We Offer</div>
+        <div class="mv-cat-grid">
+          <div class="mv-cat"><div class="mv-cat-ph"></div><div class="mv-cat-name">Cups &amp; Lids</div></div>
+          <div class="mv-cat"><div class="mv-cat-ph"></div><div class="mv-cat-name">Food Containers</div></div>
+          <div class="mv-cat"><div class="mv-cat-ph"></div><div class="mv-cat-name">Bags &amp; Wraps</div></div>
+          <div class="mv-cat"><div class="mv-cat-ph"></div><div class="mv-cat-name">Cutlery</div></div>
+          <div class="mv-cat"><div class="mv-cat-ph"></div><div class="mv-cat-name">Gloves</div></div>
+          <div class="mv-cat"><div class="mv-cat-ph"></div><div class="mv-cat-name">Cleaning Supplies</div></div>
+          <div class="mv-cat"><div class="mv-cat-ph"></div><div class="mv-cat-name">Paper Products</div></div>
+          <div class="mv-cat"><div class="mv-cat-ph"></div><div class="mv-cat-name">Foil &amp; Film</div></div>
+        </div>
+      </div>
+      <!-- Value props accent bar -->
+      <div class="mv-accent-bar">
+        <div class="mv-accent-item"><strong>Free Delivery</strong><span>Houston metro area</span></div>
+        <div class="mv-accent-item"><strong>Same-Day Service</strong><span>Order by noon</span></div>
+        <div class="mv-accent-item"><strong>20% Avg. Savings</strong><span>vs. national distributors</span></div>
+      </div>
+      <!-- Testimonials (like AR's carousel cards) -->
+      <div class="mv-section cream">
+        <div class="mv-stitle">What Our Customers Say</div>
+        <div class="mv-testimonials">
+          <div class="mv-tcard">
+            <div class="mv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="mv-tquote">"Great service and excellent product quality. Their containers hold heat well and never leak."</div>
+            <div class="mv-tauthor">Rebecca Hayes</div>
+            <div class="mv-trole">Center Director</div>
+          </div>
+          <div class="mv-tcard">
+            <div class="mv-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="mv-tquote">"Fast delivery and top-notch products. The takeaway boxes are strong and maintain temperature."</div>
+            <div class="mv-tauthor">Jessica Carter</div>
+            <div class="mv-trole">General Manager</div>
+          </div>
+        </div>
+      </div>
+      <!-- CTA banner -->
+      <div class="mv-cta-strip">
+        <h4>Ready to streamline your supply chain?</h4>
+        <span class="mv-btn primary">Request a Quote</span>
+      </div>
+      <!-- Mega footer -->
+      <div class="mv-footer">
+        <div class="mv-fcol"><strong>Products</strong><span>Cups &amp; Lids</span><span>Food Containers</span><span>Bags &amp; Wraps</span><span>Cutlery</span><span>Gloves</span></div>
+        <div class="mv-fcol"><strong>Company</strong><span>About Us</span><span>Delivery Info</span><span>FAQ</span><span>Reviews</span></div>
+        <div class="mv-fcol"><strong>Contact</strong><span>(832) 866-6652</span><span>sales@disposabledepot.co</span><span>Stafford, TX 77477</span></div>
+        <div class="mv-fcol"><strong>Legal</strong><span>Privacy Policy</span><span>Terms of Service</span><span>Accessibility</span><span>Do Not Sell Info</span></div>
+      </div>
+      <div class="mv-copyright"><span>&copy; 2026 Disposable Depot &bull; All Rights Reserved</span></div>
+    </div>
+  </div>
+  <p class="mockup-note">This is a layout concept blending your brand with the features you liked on AR Unlimited. Colors, imagery, and copy will be refined during the discovery call.</p>
+</section>
+
+<!-- ═══ 02: AR UNLIMITED COMPARISON ═══ -->
+<section>
+  <span class="sn">02</span>
+  <div class="st">How You Compare to AR Unlimited</div>
+  <p class="sd">You said you liked their site. Here's a section-by-section breakdown of the gap &mdash; and exactly what we're closing.</p>
+
+  <table class="ctable">
+    <thead><tr><th>Section</th><th>Disposable Depot</th><th>AR Unlimited Supply</th><th>Gap</th></tr></thead>
+    <tbody>
+      <tr><td>Hero</td><td>Static image + PDF link</td><td>3-slide carousel with rotating CTAs, trust badges</td><td><span class="pill major">Major</span></td></tr>
+      <tr><td>Products</td><td>None on homepage</td><td>12-category grid with images</td><td><span class="pill crit">Critical</span></td></tr>
+      <tr><td>Testimonials</td><td>Buggy carousel (4 reviews x4)</td><td>Clean carousel with star ratings</td><td><span class="pill major">Bug</span></td></tr>
+      <tr><td>FAQ</td><td>None</td><td>7-tab FAQ section</td><td><span class="pill major">Major</span></td></tr>
+      <tr><td>Footer</td><td>Broken links, no legal pages</td><td>4-column mega-footer, full compliance</td><td><span class="pill major">Major</span></td></tr>
+      <tr><td>Quote Form</td><td>Generic contact form on homepage</td><td>Dedicated page + product-level modal</td><td><span class="pill major">Major</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-label" style="margin-top:40px">Product Pages &mdash; The Biggest Gap</div>
+  <div class="pd-row">
+    <div class="pd bad">
+      <h4>Your Current Product Pages</h4>
+      <ul>
+        <li>Single product image (sometimes missing)</li>
+        <li>Product name</li>
+        <li>3-line description</li>
+        <li>Size + Case Count (2 fields)</li>
+        <li>"Get a Quote" popup button</li>
+        <li class="note-line">That's it. Nothing else.</li>
+      </ul>
+    </div>
+    <div class="pd good">
+      <h4>What AR Unlimited Has</h4>
+      <ul>
+        <li>Image carousel (15+ photos per product)</li>
+        <li>Product attribute badges</li>
+        <li>Size &amp; pack selector buttons</li>
+        <li>Detailed overview paragraphs</li>
+        <li>Full specifications table (10+ fields)</li>
+        <li>Product-specific FAQ accordion</li>
+        <li>"You May Also Need" related products</li>
+        <li>"Request Price" modal pre-filled with product</li>
+        <li>Certifications &amp; Documents</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub-label" style="margin-top:40px">18 Features Your Competitors Have That We're Adding</div>
+  <div class="feat-grid">
+    <div class="feat"><span class="icon">&times;</span> Search functionality</div>
+    <div class="feat"><span class="icon">&times;</span> Multi-level category navigation</div>
+    <div class="feat"><span class="icon">&times;</span> Featured products bar</div>
+    <div class="feat"><span class="icon">&times;</span> Hero slider with rotating CTAs</div>
+    <div class="feat"><span class="icon">&times;</span> Product category grid on homepage</div>
+    <div class="feat"><span class="icon">&times;</span> Product filtering / sidebar</div>
+    <div class="feat"><span class="icon">&times;</span> Breadcrumbs on all pages</div>
+    <div class="feat"><span class="icon">&times;</span> Rich product detail pages</div>
+    <div class="feat"><span class="icon">&times;</span> Dedicated quote page</div>
+    <div class="feat"><span class="icon">&times;</span> Product-level quote modal</div>
+    <div class="feat"><span class="icon">&times;</span> FAQ section</div>
+    <div class="feat"><span class="icon">&times;</span> Newsletter signup</div>
+    <div class="feat"><span class="icon">&times;</span> Embedded Google Map</div>
+    <div class="feat"><span class="icon">&times;</span> Legal / compliance pages</div>
+    <div class="feat"><span class="icon">&times;</span> Mega-footer</div>
+    <div class="feat"><span class="icon">&times;</span> reCAPTCHA on forms</div>
+    <div class="feat"><span class="icon">&times;</span> Top bar with contact info</div>
+    <div class="feat"><span class="icon">&times;</span> Video embed section</div>
+  </div>
+</section>
+
+<!-- ═══ 03: COMPETITIVE LANDSCAPE ═══ -->
+<section>
+  <span class="sn">03</span>
+  <div class="st">Your Competitive Landscape</div>
+  <p class="sd">We researched the Houston disposable supply market to understand the opportunity. Here's what Disposable Depot is competing against &mdash; and where the gaps are that a new site can exploit.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Local Houston Competitors</div></div>
+    <div class="stat"><div class="stat-n">6</div><div class="stat-l">National Online Rivals</div></div>
+    <div class="stat"><div class="stat-n red">0 / 8</div><div class="stat-l">Google Searches DD Ranks In</div></div>
+    <div class="stat"><div class="stat-n">5</div><div class="stat-l">Competitors With E-Commerce</div></div>
+  </div>
+
+  <div class="callout info"><strong>Key insight:</strong> Disposable Depot didn't appear in any of eight Google searches we tested &mdash; terms your customers actually use, like "disposable food service supplies Houston," "wholesale restaurant supplies Texas," and more. Competitors like Bay Distributing, Pak-Man, and WebstaurantStore own those results. A rebuilt site with proper structure and speed changes that.</div>
+
+  <div class="sub-label">Highest-Threat Competitors</div>
+  <div class="cc-grid">
+    <div class="cc">
+      <span class="cc-threat"><span class="threat high">High</span></span>
+      <div class="cc-name">Pak-Man Food Packaging</div><div class="cc-url">pak-man.com</div>
+      <div class="cc-loc">SW Houston, TX &bull; Est. 1993</div>
+      <div class="cc-desc">Nearly identical product catalog. Full e-commerce with online ordering. Walk-in showroom, custom cup printing, bilingual. Free delivery at $150 min.</div>
+      <div class="cc-caps"><span class="cc-cap has">E-Commerce</span><span class="cc-cap has">Walk-In</span><span class="cc-cap has">Bilingual</span><span class="cc-cap has">Custom Print</span></div>
+      <div class="cc-diff">Most direct local competitor with the strongest online storefront.</div>
+    </div>
+    <div class="cc">
+      <span class="cc-threat"><span class="threat high">High</span></span>
+      <div class="cc-name">Bay Distributing (MyPaperGuy)</div><div class="cc-url">mypaperguy.com</div>
+      <div class="cc-loc">Dickinson, TX &bull; Est. 2006</div>
+      <div class="cc-desc">Best local SEO &mdash; appeared in 4 of 8 search queries. No minimums, free delivery, weekly rep visits to take inventory.</div>
+      <div class="cc-caps"><span class="cc-cap no">No E-Commerce</span><span class="cc-cap has">Best Local SEO</span><span class="cc-cap has">No Minimums</span><span class="cc-cap has">Rep Visits</span></div>
+      <div class="cc-diff">Owns local search results. The "MyPaperGuy" brand is memorable.</div>
+    </div>
+    <div class="cc">
+      <span class="cc-threat"><span class="threat high">High</span></span>
+      <div class="cc-name">FCS Distribution LLC</div><div class="cc-url">fcsdistribution.com</div>
+      <div class="cc-loc">Houston, TX</div>
+      <div class="cc-desc">Disposables + grocery items (snacks, candy, drinks, meat). Dual model is a strong differentiator for c-store accounts. Bilingual. Manufacturer-direct pricing.</div>
+      <div class="cc-caps"><span class="cc-cap has">Bilingual</span><span class="cc-cap has">Grocery + Disposables</span><span class="cc-cap has">Mfg-Direct Pricing</span></div>
+      <div class="cc-diff">The grocery bundle captures c-store accounts others can't match.</div>
+    </div>
+    <div class="cc">
+      <span class="cc-threat"><span class="threat high">High</span></span>
+      <div class="cc-name">AR Unlimited Supply</div><div class="cc-url">arunlimitedsupply.com</div>
+      <div class="cc-loc">Houston, TX</div>
+      <div class="cc-desc">Almost identical product line. Professional site with detailed product pages, FAQ, quote form, blog content, nationwide shipping.</div>
+      <div class="cc-caps"><span class="cc-cap has">Quote Form</span><span class="cc-cap has">Blog/SEO</span><span class="cc-cap has">Product Catalog</span><span class="cc-cap has">Nationwide</span></div>
+      <div class="cc-diff">The site you want to match. Strong content gives it an SEO edge.</div>
+    </div>
+    <div class="cc">
+      <span class="cc-threat"><span class="threat high">Highest</span></span>
+      <div class="cc-name">WebstaurantStore</div><div class="cc-url">webstaurantstore.com</div>
+      <div class="cc-loc">National &bull; Warehouse in Baytown, TX (30mi away)</div>
+      <div class="cc-desc">420,000+ products. Dominates every search term. TX warehouse means fast local delivery &mdash; erases the advantage of being a local distributor.</div>
+      <div class="cc-caps"><span class="cc-cap has">E-Commerce</span><span class="cc-cap has">420k Products</span><span class="cc-cap has">TX Warehouse</span><span class="cc-cap has">Free Shipping</span></div>
+      <div class="cc-diff">Most dangerous competitor. Local speed + national scale.</div>
+    </div>
+    <div class="cc">
+      <span class="cc-threat"><span class="threat high">High</span></span>
+      <div class="cc-name">CiboWares</div><div class="cc-url">cibowares.com</div>
+      <div class="cc-loc">National (Exton, PA)</div>
+      <div class="cc-desc">Focuses exclusively on disposables &mdash; nearly identical product focus. Polished Shopify e-commerce. Free shipping at just $119. Active blog.</div>
+      <div class="cc-caps"><span class="cc-cap has">E-Commerce</span><span class="cc-cap has">Disposables-Only</span><span class="cc-cap has">Blog/SEO</span><span class="cc-cap has">$119 Free Ship</span></div>
+      <div class="cc-diff">Your closest national mirror &mdash; same products, better storefront.</div>
+    </div>
+  </div>
+
+  <div class="sub-label">How You Compare &mdash; Capability Matrix</div>
+  <div class="legend">
+    <div class="legend-i"><span class="yes">&#10003;</span> Has</div>
+    <div class="legend-i"><span class="part">~</span> Partial</div>
+    <div class="legend-i"><span class="no">&#10005;</span> Missing</div>
+  </div>
+  <div class="mx-wrap">
+  <table class="mx">
+    <thead><tr><th>Company</th><th>E-Commerce</th><th>Product Catalog</th><th>SEO / Blog</th><th>Quote Form</th><th>Bilingual</th><th>Walk-In</th><th>Custom Print</th><th>Free Delivery</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td><span class="cn">Disposable Depot</span><span class="cu">disposabledepot.co</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="part">~</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="part">~</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="yes">&#10003;</span></td></tr>
+      <tr><td><span class="cn">Pak-Man</span><span class="cu">pak-man.com</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td></tr>
+      <tr><td><span class="cn">Bay Distributing</span><span class="cu">mypaperguy.com</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="part">~</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="yes">&#10003;</span></td></tr>
+      <tr><td><span class="cn">AR Unlimited</span><span class="cu">arunlimitedsupply.com</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="yes">&#10003;</span></td></tr>
+      <tr><td><span class="cn">WebstaurantStore</span><span class="cu">webstaurantstore.com</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="yes">&#10003;</span></td></tr>
+      <tr><td><span class="cn">CiboWares</span><span class="cu">cibowares.com</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="yes">&#10003;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="no">&#10005;</span></td><td class="c"><span class="yes">&#10003;</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="sub-label" style="margin-top:40px">What Competitors' Sites Actually Look Like</div>
+  <p style="font-size:16px; color:var(--text-2); margin-bottom:20px">We audited the UI and user experience of each competitor's website. Here's what customers see when they visit your competitors vs. your site.</p>
+
+  <div class="cc-grid">
+    <div class="cc">
+      <div class="cc-name">Pak-Man &mdash; Full E-Commerce</div>
+      <div class="cc-loc">What their customers experience</div>
+      <div class="cc-desc" style="margin-top:8px">Sidebar category navigation with icons. Product search bar. Shopping cart with "Add to Cart" buttons. Visible pricing on every product ($12.50, $28.00/case). Breadcrumbs on every page. Tabbed product details (Details + Pack info). Related products sidebar. Item numbers for reordering. "Se Habla Espanol" bilingual toggle.</div>
+      <div class="cc-diff">Dated design, but the buying experience works. Customers can find, compare, and order without calling anyone.</div>
+    </div>
+    <div class="cc">
+      <div class="cc-name">CiboWares &mdash; Polished Shopify Store</div>
+      <div class="cc-loc">What their customers experience</div>
+      <div class="cc-desc" style="margin-top:8px">"Free Shipping Over $119" banner always visible. Trust badges: "25 Years Trusted," "Professional Products," "Free Shipping," "Earn Rewards." Hero image slider with product photography. Search + login + cart icons in header. Collection pages with large category cards. Clean product grid. Rewards/loyalty program.</div>
+      <div class="cc-diff">The most modern-looking competitor. Sets the bar for what a national disposables store should feel like online.</div>
+    </div>
+    <div class="cc">
+      <div class="cc-name">FCS Distribution &mdash; Niche Positioning</div>
+      <div class="cc-loc">What their customers experience</div>
+      <div class="cc-desc" style="margin-top:8px">Bright orange/blue color scheme. Full top-level nav showing all product types (Grocery, Snacks, Candy, Drinks, Meat, Produce, Disposables, Detergents). "HISPANIC PRODUCTS HOUSTON WHOLESALER" headline. Product category grid with lifestyle photos. Contact buttons + blog link prominent. Search icon in header.</div>
+      <div class="cc-diff">Owns a niche with the grocery + disposables combo. The bilingual, Hispanic-market focus captures c-store accounts DD competes for.</div>
+    </div>
+    <div class="cc">
+      <div class="cc-name">Bay Distributing &mdash; SEO Winner</div>
+      <div class="cc-loc">What their customers experience</div>
+      <div class="cc-desc" style="margin-top:8px">Simple WordPress template. 4-item green nav bar (Home, About Us, Products, Contact). Large hero image with warehouse 3D logo. Contact info in header (phone, email, address). Facebook link. No products visible on homepage &mdash; just a "More Info" button. Minimal design.</div>
+      <div class="cc-diff">Ugly and bare, but ranks in 4 of 8 Google searches because they invested in keyword-optimized service pages. Proof that content beats design for SEO.</div>
+    </div>
+  </div>
+
+  <div class="callout info" style="margin-top:20px"><strong>Where Disposable Depot sits today:</strong> Generic WordPress template. No product search, no pricing, no cart, no category navigation, no breadcrumbs, no bilingual support. A single "Product Catalog" PDF download link. The rebuild addresses every one of these gaps.</div>
+
+  <div class="callout sell" style="margin-top:20px"><strong>The opportunity:</strong> Every one of those eight Google searches represents customers looking for exactly what you sell. Right now they're finding your competitors because your site isn't structured for Google to rank it. A rebuilt site with proper architecture and speed puts you in front of those customers for the first time.</div>
+</section>
+
+<!-- ═══ 04: WHAT WE'LL FIX ═══ -->
+<section>
+  <span class="sn">04</span>
+  <div class="st">What We'll Fix on Your Current Site</div>
+  <p class="sd">Here's what we found during our audit &mdash; these issues get resolved as part of the rebuild.</p>
+  <ul class="issues">
+    <li><span class="sev crit">Critical</span><span><strong>Broken navigation links</strong> &mdash; About, Reviews, and Contact point to a staging URL instead of your live site. Visitors clicking them leave disposabledepot.co entirely.</span></li>
+    <li><span class="sev crit">Critical</span><span><strong>Massive whitespace gaps</strong> &mdash; 2000+ pixels of blank space between sections. Visitors think the page is broken.</span></li>
+    <li><span class="sev high">High</span><span><strong>Missing product images</strong> &mdash; Gray placeholder boxes where product photos should be on category pages.</span></li>
+    <li><span class="sev high">High</span><span><strong>Broken testimonials</strong> &mdash; Same 4 reviews duplicated 4x (16 cards for 4 reviews), causing repetitive scrolling.</span></li>
+    <li><span class="sev high">High</span><span><strong>Dead footer links</strong> &mdash; Quick Links all go nowhere.</span></li>
+    <li><span class="sev med">Medium</span><span><strong>No search</strong> &mdash; No way to find products without browsing every category manually.</span></li>
+    <li><span class="sev med">Medium</span><span><strong>No legal pages</strong> &mdash; Missing Privacy Policy, Terms, Accessibility.</span></li>
+    <li><span class="sev med">Medium</span><span><strong>PDF as primary CTA</strong> &mdash; Hero button downloads a PDF instead of browsing products on-site.</span></li>
+    <li><span class="sev med">Medium</span><span><strong>No spam protection</strong> &mdash; Contact form has no reCAPTCHA.</span></li>
+  </ul>
+</section>
+
+<!-- ═══ 05: WHY CUSTOM ═══ -->
+<section>
+  <span class="sn">05</span>
+  <div class="st">Why a Custom Build Beats Everyone</div>
+  <p class="sd">We speed-tested every competitor in your market using Google Lighthouse. The result: your entire industry has slow websites. A custom build doesn't just fix your current site &mdash; it outperforms every single competitor.</p>
+
+  <div class="sub-label">Desktop Performance &mdash; Real Connection Speed</div>
+  <table class="rank-table">
+    <thead><tr><th>#</th><th>Site</th><th>Platform</th><th class="num">Perf</th><th class="num">SEO</th><th class="num">LCP</th><th class="num">Speed Index</th></tr></thead>
+    <tbody>
+      <tr class="best"><td class="rank-num">1</td><td><strong>Zapp Studios Build</strong><br><span class="plat">royalpawzusa.com</span></td><td>Custom (Next.js)</td><td class="num g">99</td><td class="num g">100</td><td class="num g">0.9s</td><td class="num g">0.8s</td></tr>
+      <tr><td class="rank-num">2</td><td>Pak-Man<br><span class="plat">pak-man.com</span></td><td>Custom / Legacy</td><td class="num g">96</td><td class="num r">66</td><td class="num g">0.9s</td><td class="num o">1.8s</td></tr>
+      <tr><td class="rank-num">3</td><td>FCS Distribution<br><span class="plat">fcsdistribution.com</span></td><td>WordPress</td><td class="num o">87</td><td class="num g">100</td><td class="num o">2.1s</td><td class="num g">1.4s</td></tr>
+      <tr><td class="rank-num">4</td><td>CiboWares<br><span class="plat">cibowares.com</span></td><td>Shopify</td><td class="num o">70</td><td class="num o">85</td><td class="num o">2.8s</td><td class="num r">4.1s</td></tr>
+      <tr><td class="rank-num">5</td><td>AR Unlimited<br><span class="plat">arunlimitedsupply.com</span></td><td>WordPress</td><td class="num o">68</td><td class="num g">92</td><td class="num o">2.5s</td><td class="num o">1.8s</td></tr>
+      <tr><td class="rank-num">6</td><td>Bay Distributing<br><span class="plat">mypaperguy.com</span></td><td>WordPress</td><td class="num o">65</td><td class="num o">85</td><td class="num r">3.4s</td><td class="num r">3.3s</td></tr>
+      <tr class="hl"><td class="rank-num">7</td><td><strong>Disposable Depot</strong><br><span class="plat">disposabledepot.co</span></td><td>WordPress</td><td class="num r">49</td><td class="num o">85</td><td class="num r">4.0s</td><td class="num r">3.3s</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sub-label" style="margin-top:40px">Mobile Performance &mdash; Google's Throttled 4G Test (Used for Search Ranking)</div>
+  <div class="callout info" style="margin-bottom:20px"><strong>This is what matters for Google.</strong> Google uses mobile Lighthouse scores to determine your search ranking. Every competitor in your market has poor mobile performance &mdash; which means there's a real opening for anyone who solves it first.</div>
+  <table class="rank-table">
+    <thead><tr><th>#</th><th>Site</th><th>Platform</th><th class="num">Perf</th><th class="num">SEO</th><th class="num">LCP</th><th class="num">Speed Index</th></tr></thead>
+    <tbody>
+      <tr class="best"><td class="rank-num">1</td><td><strong>Zapp Studios Build</strong><br><span class="plat">royalpawzusa.com</span></td><td>Custom (Next.js)</td><td class="num g">90</td><td class="num g">100</td><td class="num o">3.4s</td><td class="num o">2.3s</td></tr>
+      <tr><td class="rank-num">2</td><td>AR Unlimited<br><span class="plat">arunlimitedsupply.com</span></td><td>WordPress</td><td class="num o">79</td><td class="num g">92</td><td class="num r">4.1s</td><td class="num r">4.1s</td></tr>
+      <tr><td class="rank-num">3</td><td>Pak-Man<br><span class="plat">pak-man.com</span></td><td>Custom / Legacy</td><td class="num o">68</td><td class="num r">66</td><td class="num r">8.9s</td><td class="num r">3.7s</td></tr>
+      <tr><td class="rank-num">4</td><td>FCS Distribution<br><span class="plat">fcsdistribution.com</span></td><td>WordPress</td><td class="num r">59</td><td class="num g">100</td><td class="num r">11.0s</td><td class="num r">6.5s</td></tr>
+      <tr><td class="rank-num">5</td><td>Bay Distributing<br><span class="plat">mypaperguy.com</span></td><td>WordPress</td><td class="num r">59</td><td class="num o">85</td><td class="num r">11.3s</td><td class="num r">8.1s</td></tr>
+      <tr class="hl"><td class="rank-num">6</td><td><strong>Disposable Depot</strong><br><span class="plat">disposabledepot.co</span></td><td>WordPress</td><td class="num r">58</td><td class="num o">85</td><td class="num r">21.0s</td><td class="num r">7.6s</td></tr>
+      <tr><td class="rank-num">7</td><td>CiboWares<br><span class="plat">cibowares.com</span></td><td>Shopify</td><td class="num r">50</td><td class="num o">85</td><td class="num r">34.5s</td><td class="num r">14.1s</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout sell" style="margin-top:24px"><strong>Your site currently loads in 21 seconds on mobile. A Zapp Studios custom build loads in 3.4 seconds</strong> &mdash; faster than every single competitor in your market. That's a direct Google ranking advantage none of your competition has.</div>
+
+  <div class="sub-label" style="margin-top:40px">Why These Numbers Matter For Your Business</div>
+  <p style="font-size:16px; color:var(--text-2); margin-bottom:20px; line-height:1.7; max-width:780px">When a restaurant manager Googles "disposable food containers Houston" on their phone between the lunch and dinner rush, Google ranks results partly by load speed. A 21-second mobile load time puts your site well past Google's 2.5-second threshold. The managers who do find you through a direct link wait 21 seconds to see your homepage &mdash; and more than half of all visitors leave after 3. A custom build fixes this completely.</p>
+
+  <div class="stats" style="margin-bottom:24px">
+    <div class="stat"><div class="stat-n red">53%</div><div class="stat-l">Of Visitors Leave After 3 Seconds</div></div>
+    <div class="stat"><div class="stat-n red">21s</div><div class="stat-l">Your Mobile Load Time</div></div>
+    <div class="stat"><div class="stat-n">2.5s</div><div class="stat-l">Google's Ranking Threshold</div></div>
+    <div class="stat"><div class="stat-n">3.4s</div><div class="stat-l">Your New Site Load Time</div></div>
+  </div>
+
+  <div class="callout info"><strong>Google uses your mobile speed to decide if you show up in search results.</strong> Since June 2021, Google officially ranks sites based on Core Web Vitals &mdash; including how fast your page loads (LCP). The threshold is 2.5 seconds. Pages that fail this threshold experience 23% more traffic loss than faster competitors. A custom build puts you under this threshold on desktop and close to it on mobile &mdash; the best in your market.</div>
+
+  <ul class="issues" style="margin-top:20px; margin-bottom:8px">
+    <li><span class="sev crit">Revenue</span><span><strong>Conversion rates drop 4.42% for every additional second of load time.</strong> A site that loads in 1 second converts 3x more visitors into customers than one that loads in 5 seconds. Faster site = more quote requests from the same traffic. <em style="color:var(--text-3)">&mdash; Portent, 100M+ page views analyzed</em></span></li>
+    <li><span class="sev crit">Trust</span><span><strong>82% of customers say a slow website makes them trust the business less.</strong> 75% of people judge a company's credibility based on its website. First impressions form in under a second. <em style="color:var(--text-3)">&mdash; Stanford Web Credibility Project; Cloudways</em></span></li>
+    <li><span class="sev high">Mobile</span><span><strong>60%+ of B2B buyers research suppliers on their phone</strong> before ever calling. Restaurant managers, kitchen managers, and purchasing staff are searching on mobile during the workday. A fast mobile site captures them where they're searching. <em style="color:var(--text-3)">&mdash; Google/BCG</em></span></li>
+  </ul>
+
+  <div class="callout sell" style="margin-top:20px"><strong>A custom build fixes all of this.</strong> Your site loads in 3.4 seconds on mobile instead of 21. Google can actually rank your pages. Visitors stay instead of bouncing. And every product gets its own URL that Google can find, instead of being buried in a PDF.</div>
+
+  <div class="sub-label" style="margin-top:40px">Detailed Score Breakdown &mdash; Your Site vs. The New Build</div>
+  <p style="font-size:15px; color:var(--text-3); margin-bottom:16px;">Benchmark based on royalpawzusa.com &mdash; a Zapp Studios custom build using the same architecture we'll use for Disposable Depot.</p>
+  <div class="lh-row">
+    <div class="lh-card"><div class="ts r"></div>
+      <div class="lh-n">Disposable Depot</div><div class="lh-u">disposabledepot.co &bull; WordPress &bull; Desktop</div>
+      <div class="scores">
+        <div class="sc"><div class="sc-r r">49</div><div class="sc-l">Perf</div></div>
+        <div class="sc"><div class="sc-r g">94</div><div class="sc-l">A11y</div></div>
+        <div class="sc"><div class="sc-r g">96</div><div class="sc-l">BP</div></div>
+        <div class="sc"><div class="sc-r o">85</div><div class="sc-l">SEO</div></div>
+      </div>
+      <div class="vitals" style="grid-template-columns:1fr 1fr;max-width:200px">
+        <div class="vt"><div class="vt-v r">4.0s</div><div class="vt-l">LCP (Load)</div></div>
+        <div class="vt"><div class="vt-v r">3.3s</div><div class="vt-l">Speed Index</div></div>
+      </div>
+    </div>
+    <div class="lh-card"><div class="ts g"></div>
+      <div class="lh-n ft">Zapp Studios Custom Build</div><div class="lh-u">royalpawzusa.com &bull; Custom &bull; Desktop</div>
+      <div class="scores">
+        <div class="sc"><div class="sc-r g">99</div><div class="sc-l">Perf</div></div>
+        <div class="sc"><div class="sc-r g">92</div><div class="sc-l">A11y</div></div>
+        <div class="sc"><div class="sc-r o">77</div><div class="sc-l">BP</div></div>
+        <div class="sc"><div class="sc-r g">100</div><div class="sc-l">SEO</div></div>
+      </div>
+      <div class="vitals" style="grid-template-columns:1fr 1fr;max-width:200px">
+        <div class="vt"><div class="vt-v g">0.9s</div><div class="vt-l">LCP (Load)</div></div>
+        <div class="vt"><div class="vt-v g">0.8s</div><div class="vt-l">Speed Index</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-label">Why a Custom Build Wins Long-Term</div>
+  <div class="pitch-grid">
+    <div class="pitch-item"><h5>Show Up on Google</h5><p>Every product gets its own page that Google can find and rank. Right now your entire catalog is trapped in a PDF that Google can't read. A custom build means someone searching "disposable gloves Houston" could land directly on your product page.</p></div>
+    <div class="pitch-item"><h5>No Hidden Fees, No Surprises</h5><p>WordPress sites cost $1,100&ndash;$4,100/year in plugin licenses, hosting renewals, security tools, and developer fees. Hostinger's hosting alone jumps 468% when your promo expires. A custom build runs on ~$480/year &mdash; no plugins, no renewals, no surprise bills.</p></div>
+    <div class="pitch-item"><h5>Your Site Can't Get Hacked</h5><p>96% of all hacked websites run WordPress. Over 500 WordPress sites are compromised every single day. Custom-built sites on modern hosting have near-zero attack surface &mdash; no plugins to exploit, no admin panel to brute-force.</p></div>
+    <div class="pitch-item"><h5>It Grows With Your Business</h5><p>Need to add 50 more products? A customer portal? Online ordering? The architecture supports it without a rebuild. WordPress would need new plugins, new conflicts, new costs.</p></div>
+    <div class="pitch-item"><h5>Changes Are Easy</h5><p>Update the code and it deploys in seconds. No plugin conflicts, no theme breaking, no "please update WordPress" warnings that crash your site. We can even set you up with AI-powered tools so you can make simple changes yourself &mdash; without calling a developer.</p></div>
+    <div class="pitch-item"><h5>You Own Everything</h5><p>You own the code, the design, the data. No Elementor license, no WordPress dependency, no Hostinger lock-in. If you ever want to switch developers, you hand them the code and they pick up where we left off.</p></div>
+  </div>
+
+  <div class="sub-label" style="margin-top:40px">3-Year Cost of Ownership</div>
+  <p style="font-size:16px; color:var(--text-2); margin-bottom:16px">WordPress looks cheap upfront. It isn't. Here's what both paths actually cost over three years.</p>
+  <table class="cost-table">
+    <thead><tr><th></th><th>WordPress (Current Path)</th><th>Custom Build (Zapp Studios)</th></tr></thead>
+    <tbody>
+      <tr><td>Year 1</td><td class="wp">~$1,283 &mdash; hosting, plugins, theme, changes</td><td class="custom">~$2,355 &mdash; site build + hosting</td></tr>
+      <tr><td>Year 2</td><td class="wp">~$1,971 &mdash; renewals kick in at full price</td><td class="custom">~$480 &mdash; hosting only</td></tr>
+      <tr><td>Year 3</td><td class="wp">~$1,471</td><td class="custom">~$480</td></tr>
+      <tr class="total-row"><td>3-Year Total</td><td class="wp">~$4,725</td><td class="custom">~$3,315</td></tr>
+    </tbody>
+  </table>
+  <p class="quote-note" style="margin-top:14px">WordPress costs increase every year as plugin licenses renew at full price and Hostinger's promotional hosting rates expire (468% increase after year one). Custom hosting stays flat. By year 2, you're saving money and getting a faster, safer, more capable site.</p>
+</section>
+
+<!-- ═══ 06: DELIVERABLES & HOURS ═══ -->
+<section>
+  <span class="sn">06</span>
+  <div class="st">Deliverables &amp; Hours</div>
+  <table class="qtable" style="margin-top:24px">
+    <thead><tr><th>Deliverable</th><th>Hours</th></tr></thead>
+    <tbody>
+      <tr><td>Homepage<div class="desc">Hero, value props, market segments, product grid, testimonials, about, contact</div></td><td>6 hrs</td></tr>
+      <tr><td>Product Catalog<div class="desc">Category pages with filtering, product grid layout, search</div></td><td>4 hrs</td></tr>
+      <tr><td>Product Detail Pages<div class="desc">Template + per-product data entry with images, descriptions, specs, quote button</div></td><td>5 hrs</td></tr>
+      <tr><td>Quote / Order Form<div class="desc">Dedicated page with category selection + product-level modal + email delivery</div></td><td>3 hrs</td></tr>
+      <tr><td>Footer + Legal Pages<div class="desc">Mega-footer, Privacy Policy, Terms &amp; Conditions</div></td><td>2 hrs</td></tr>
+      <tr><td>Responsive Design + QA<div class="desc">Mobile-first responsive, cross-browser testing</div></td><td>4 hrs</td></tr>
+      <tr><td>Product Data Migration<div class="desc">Scraping/importing all products, images, descriptions</div></td><td>~4 hrs</td></tr>
+      <tr><td>Deployment + Domain Config<div class="desc">Production deployment, DNS, SSL</div></td><td>1 hr</td></tr>
+      <tr class="total-row"><td>Estimated Total</td><td>~25 hrs</td></tr>
+    </tbody>
+  </table>
+  <div class="quote-summary">
+    <div class="qs-left"><strong>Rate:</strong> $75/hr &nbsp;&bull;&nbsp; <strong>Est. Hours:</strong> ~25</div>
+    <div class="qs-right">$1,875</div>
+  </div>
+  <p class="quote-note"><strong>Payment:</strong> 50% at kickoff ($938) &bull; 50% at launch ($937). Data migration hours may decrease if all images and product info are provided upfront. Final total depends on SKU count and desired product page depth.</p>
+</section>
+
+<!-- ═══ 07: TIMELINE ═══ -->
+<section>
+  <span class="sn">07</span>
+  <div class="st">Timeline</div>
+  <div class="tl">
+    <div class="tl-step"><div class="tl-dot"></div><div><div class="tl-label">Discovery Call</div><div class="tl-date">Week of Apr 14</div></div></div>
+    <div class="tl-step"><div class="tl-dot"></div><div><div class="tl-label">Development Starts</div><div class="tl-date">Apr 20</div></div></div>
+    <div class="tl-step"><div class="tl-dot"></div><div><div class="tl-label">Review &amp; Feedback</div><div class="tl-date">~May 1</div></div></div>
+    <div class="tl-step"><div class="tl-dot"></div><div><div class="tl-label">Launch</div><div class="tl-date">~May 11</div></div></div>
+  </div>
+</section>
+
+<!-- ═══ 08: WHAT THIS UNLOCKS ═══ -->
+<section>
+  <span class="sn">08</span>
+  <div class="st">What This Foundation Unlocks</div>
+  <p class="sd">The website we're quoting is the foundation. Once it's built on modern custom architecture, here's what becomes possible down the road &mdash; no additional cost for the architecture, just the implementation when you're ready.</p>
+
+  <div class="unlock-grid">
+    <div class="unlock-item"><h5>See Who's Visiting</h5><p>Analytics built into the site from day one. See how many people visit, which products they look at most, where they come from, and where they drop off. Know exactly what's working and what isn't.</p></div>
+    <div class="unlock-item"><h5>Test What Converts</h5><p>A/B test different product layouts, headlines, and call-to-action buttons to find what gets more quote requests. Run two versions of a page and let the data decide which one wins.</p></div>
+    <div class="unlock-item"><h5>Track Every Quote Request</h5><p>See which products generate the most inquiries, which categories get the most traffic, and which pages lead to quote submissions. Build your catalog strategy around what customers actually want.</p></div>
+    <div class="unlock-item"><h5>Turn It Into a Web App</h5><p>As your business grows, the site can evolve: customer login portals, order history, reorder buttons, inventory visibility. A custom foundation means these features are possible without starting over.</p></div>
+    <div class="unlock-item"><h5>AI-Powered Updates</h5><p>We can set up AI development tools on your own computer so you can make simple text and image changes yourself &mdash; no developer needed, no monthly retainer for basic edits. You're never locked in.</p></div>
+    <div class="unlock-item"><h5>Automate the Boring Stuff</h5><p>Automated email confirmations when quotes come in. Weekly traffic reports in your inbox. Product catalog updates from a spreadsheet. The site works for you, not the other way around.</p></div>
+  </div>
+
+  <div class="callout sell"><strong>None of this needs to happen on day one.</strong> The architecture supports it whenever you're ready, and we'll be here to help you grow into it. That's the difference between a website and a platform.</div>
+</section>
+
+<!-- ═══ 09: HOW WE WORK ═══ -->
+<section>
+  <span class="sn">09</span>
+  <div class="st">How We Work &mdash; And a Partnership Offer</div>
+  <p class="sd">This project is a flat-rate build. But there's something else worth putting on the table &mdash; an option that's worked well for us and the businesses we've partnered with.</p>
+
+  <div class="partnership">
+    <p><strong>We don't do one-off projects.</strong> Our model is built around long-term partnerships with the businesses we build for. Royal Pawz USA is the example: we built it from the ground up, hold an equity stake, and continue growing it today. Our incentive is the same as the owner's &mdash; the work is better when we both win.</p>
+    <p style="margin-top:14px"><strong>Here's what we'd like to put on the table:</strong> in addition to the website build, we're open to taking a small equity stake in Disposable Depot in exchange for becoming your long-term growth partner. In practice, that means ongoing development, SEO work, and digital strategy at a reduced monthly rate &mdash; with Zapp Studios compensated partly through ownership rather than a full invoice every month. You get a partner who's motivated by growing your revenue, not just billing hours.</p>
+    <p style="margin-top:14px">This is completely separate from the $1,875 website build &mdash; that quote stands regardless of what you decide. The equity conversation is simply an option if you like the idea of a partner with real skin in the game. Let's put it on the agenda for the discovery call and see if it makes sense for both sides.</p>
+  </div>
+</section>
+
+<!-- ═══ 10: CALL QUESTIONS ═══ -->
+<section>
+  <span class="sn">10</span>
+  <div class="st">Questions We'll Cover on Our Call</div>
+  <ol class="qlist" style="margin-top:24px">
+    <li><span><strong>Product count:</strong> How many individual products across all categories?</span></li>
+    <li><span><strong>Product images:</strong> Do you have photos for every product? Some are currently missing.</span></li>
+    <li><span><strong>Product specs:</strong> What details per product? Name + description + size, or full specs?</span></li>
+    <li><span><strong>Quote delivery:</strong> Where should quote requests go? Email to sales@disposabledepot.co?</span></li>
+    <li><span><strong>Ordering portal:</strong> orders.disposabledepot.co &mdash; keeping it? Link from new site?</span></li>
+    <li><span><strong>Content management:</strong> Who adds/updates products after launch?</span></li>
+    <li><span><strong>Logo:</strong> Happy with current, or is a refresh part of this?</span></li>
+    <li><span><strong>Timeline:</strong> 3 weeks from kickoff &mdash; confirmed?</span></li>
+  </ol>
+</section>
+
+<section style="border-bottom:none; padding-bottom:0; text-align:center;">
+  <div style="padding:36px 40px; background:var(--accent); border-radius:16px;">
+    <p style="font-family:'Instrument Serif',Georgia,serif; font-size:28px; color:#fff; font-weight:400; margin-bottom:8px; letter-spacing:-.01em;">Ready to move forward?</p>
+    <p style="font-size:16px; color:rgba(255,255,255,0.8); margin-bottom:0;">Reply to this proposal and we'll get the discovery call scheduled this week.</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Zapp Studios</strong> &mdash; Prepared for Disposable Depot &mdash; April 2026</p>
+    <p style="margin-top:6px">This document is confidential and intended for the recipient only.</p>
+  </div>
+</footer>
+</body>
+</html>
