@@ -226,6 +226,94 @@ function Observation({ children }: { children: React.ReactNode }) {
   )
 }
 
+/* ─── DAILY CONVERSION TREND ─── */
+// [sessions, bookings] per day: Dec 26 '25 → Apr 23 '26 (119 days)
+const dailyRaw: [number, number][] = [
+  [8,0],[24,0],[70,1],[59,0],[28,0],[10,0],[24,0],[35,3],[25,0],[24,0],
+  [27,3],[88,0],[27,1],[81,0],[112,0],[81,0],[31,0],[28,0],[88,1],[58,3],
+  [138,2],[208,2],[56,1],[45,0],[39,3],[45,0],[51,1],[33,4],[21,2],[31,0],
+  [20,0],[31,1],[33,0],[51,3],[45,2],[40,1],[43,1],[32,1],[24,2],[43,1],
+  [53,2],[48,3],[39,1],[42,3],[42,2],[51,5],[44,3],[46,3],[57,4],[44,0],
+  [45,1],[31,1],[221,1],[19,1],[41,3],[54,5],[31,1],[43,2],[41,3],[36,3],
+  [43,6],[66,3],[63,2],[66,1],[89,2],[64,1],[63,3],[74,3],[80,1],[185,2],
+  [59,3],[28,2],[61,4],[101,6],[70,6],[53,2],[58,3],[63,6],[74,1],[46,6],
+  [43,3],[49,4],[67,4],[61,2],[64,3],[75,3],[59,1],[31,6],[39,1],[85,2],
+  [66,2],[133,10],[112,6],[33,5],[44,15],[36,3],[26,9],[50,9],[44,5],[25,4],
+  [24,2],[25,4],[17,4],[20,3],[19,2],[22,3],[10,3],[17,2],[24,5],[17,3],
+  [18,8],[17,4],[22,4],[20,3],[16,5],[16,2],[9,2],[21,3],[18,7],
+]
+const dailyRates = dailyRaw.map(([s, b]) => s > 0 ? (b / s) * 100 : 0)
+const dailyMa7 = dailyRates.map((_, i) => i < 6 ? null : dailyRates.slice(i - 6, i + 1).reduce((a, b) => a + b, 0) / 7)
+const dailySess = dailyRaw.map(([s]) => s)
+
+function ConversionTrend() {
+  const N = dailyRaw.length
+  const W = 960, ML = 38, MR = 8, MT = 14, cH = 185, sH = 50, gap = 14
+  const H = MT + cH + gap + sH + 18
+  const bW = (W - ML - MR) / N, MAX_R = 36, MAX_S = 230
+
+  const px = (i: number) => ML + (i + 0.5) * bW
+  const ry = (v: number) => MT + cH * (1 - Math.min(v, MAX_R) / MAX_R)
+  const sBase = MT + cH + gap + sH
+  const sy = (v: number) => sBase - (Math.min(v, MAX_S) / MAX_S) * sH
+
+  const maPts = dailyMa7.reduce<string[]>((a, v, i) => { if (v !== null) a.push(`${px(i)},${ry(v)}`); return a }, [])
+  const sPts = dailySess.map((s, i) => `${px(i)},${sy(s)}`)
+
+  return (
+    <div className="overflow-x-auto -mx-1">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full min-w-[640px]">
+        {/* Y grid */}
+        {[0, 10, 20, 30].map(p => (
+          <g key={p}>
+            <line x1={ML} x2={W - MR} y1={ry(p)} y2={ry(p)} stroke="white" strokeOpacity={0.05} />
+            <text x={ML - 4} y={ry(p) + 3} textAnchor="end" fill="#64748B" fontSize={9} fontFamily="ui-monospace, monospace">{p}%</text>
+          </g>
+        ))}
+        {/* Phase markers */}
+        {[
+          { i: 24, l: "Phase 2", c: "#22D3EE" },
+          { i: 73, l: "A/B Tests", c: "#60A5FA" },
+          { i: 82, l: "Winner Live", c: "#34D399" },
+        ].map(p => (
+          <g key={p.i}>
+            <line x1={px(p.i)} x2={px(p.i)} y1={MT} y2={sBase} stroke={p.c} strokeOpacity={0.2} strokeDasharray="4 3" />
+            <text x={px(p.i) + 3} y={MT + 9} fill={p.c} fontSize={8} fontWeight={600} fontFamily="ui-monospace, monospace">{p.l}</text>
+          </g>
+        ))}
+        {/* Daily conv bars */}
+        {dailyRates.map((r, i) => {
+          const h = (Math.min(r, MAX_R) / MAX_R) * cH
+          return h > 1 ? <rect key={i} x={ML + i * bW + bW * 0.1} width={bW * 0.8} y={ry(r)} height={h} fill="#60A5FA" fillOpacity={0.2} rx={0.5} /> : null
+        })}
+        {/* MA area fill */}
+        {maPts.length > 1 && (
+          <path d={`M${maPts[0].split(",")[0]},${MT + cH} L${maPts.join(" L")} L${maPts[maPts.length - 1].split(",")[0]},${MT + cH} Z`} fill="#34D399" fillOpacity={0.04} />
+        )}
+        {/* MA line */}
+        <path d={`M${maPts.join(" L")}`} fill="none" stroke="#34D399" strokeWidth={2} strokeLinejoin="round" />
+        {/* Session volume */}
+        <path d={`M${px(0)},${sBase} L${sPts.join(" L")} L${px(N - 1)},${sBase} Z`} fill="#60A5FA" fillOpacity={0.08} />
+        <path d={`M${sPts.join(" L")}`} fill="none" stroke="#60A5FA" strokeWidth={1} strokeOpacity={0.3} />
+        {/* Session Y labels */}
+        <text x={ML - 4} y={sy(MAX_S) + 3} textAnchor="end" fill="#64748B" fontSize={8} fontFamily="ui-monospace, monospace">{MAX_S}</text>
+        <text x={ML - 4} y={sBase + 3} textAnchor="end" fill="#64748B" fontSize={8} fontFamily="ui-monospace, monospace">0</text>
+        {/* X month labels */}
+        {[{ i: 6, l: "Jan" }, { i: 37, l: "Feb" }, { i: 65, l: "Mar" }, { i: 96, l: "Apr" }].map(m => (
+          <text key={m.i} x={px(m.i)} y={sBase + 13} textAnchor="middle" fill="#64748B" fontSize={9} fontFamily="ui-monospace, monospace">{m.l}</text>
+        ))}
+        {/* Legend */}
+        <rect x={W - 155} y={MT} width={8} height={8} fill="#60A5FA" fillOpacity={0.3} rx={1} />
+        <text x={W - 143} y={MT + 8} fill="#94A3B8" fontSize={9}>Daily rate</text>
+        <line x1={W - 155} x2={W - 147} y1={MT + 19} y2={MT + 19} stroke="#34D399" strokeWidth={2} />
+        <text x={W - 143} y={MT + 22} fill="#94A3B8" fontSize={9}>7-day avg</text>
+        <rect x={W - 155} y={MT + 31} width={8} height={8} fill="#60A5FA" fillOpacity={0.12} rx={1} />
+        <text x={W - 143} y={MT + 39} fill="#94A3B8" fontSize={9}>Sessions/day</text>
+      </svg>
+    </div>
+  )
+}
+
 /* ─── MAIN PAGE ─── */
 
 export default function RoyalPawzCaseStudy() {
@@ -268,7 +356,7 @@ export default function RoyalPawzCaseStudy() {
           })}
         </nav>
         <div className="p-5 border-t border-white/[0.06]">
-          <div className="text-[10px] text-[#475569] leading-relaxed">Prepared by Hamza<br />zappstudios.us<br />March 2026</div>
+          <div className="text-[10px] text-[#475569] leading-relaxed">Prepared by Hamza<br />zappstudios.us<br />April 2026</div>
         </div>
       </aside>
 
@@ -319,21 +407,21 @@ export default function RoyalPawzCaseStudy() {
                 Half Left. Now 1 in 3<br />Book and Pay.
               </h1>
               <p className="text-lg sm:text-xl text-[#94A3B8] leading-relaxed max-w-3xl mb-6">
-                We launched Royal Pawz in late November with a booking funnel that hemorrhaged visitors. Four months and two controlled A/B tests later, 1 in 3 visitors who enter the booking flow complete a paid appointment - and monthly revenue grew 8x. This is that story.
+                We launched Royal Pawz in late November with a booking funnel that hemorrhaged visitors. Five months and two controlled A/B tests later, 1 in 3 visitors who enter the booking flow complete a paid appointment - and monthly revenue grew 8x. This is that story.
               </p>
               <div className="flex flex-wrap gap-4 text-sm text-[#64748B]">
                 <span>Prepared by Hamza</span>
                 <span className="text-[#475569]">|</span>
                 <span>zappstudios.us/revenue</span>
                 <span className="text-[#475569]">|</span>
-                <span>March 2026</span>
+                <span>April 2026</span>
               </div>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-wrap gap-3 mt-10">
-              <MetricCard label="Booking Flow Conv." value="33%" sub="Live rate, post-optimization" color="text-[#60A5FA]" />
+              <MetricCard label="Booking Flow Conv." value="30.8%" sub="A/B test winner (n=26)" color="text-[#60A5FA]" />
               <MetricCard label="Revenue Growth" value="8x" sub="Month 1 → Month 5" color="text-[#f97316]" />
-              <MetricCard label="LTV : CPA Ratio" value="9x" sub="Lifetime return per acquisition $" color="text-[#34D399]" />
-              <MetricCard label="Repeat Rate" value="34.3%" sub="Rebook within 5 months" color="text-[#60A5FA]" />
+              <MetricCard label="LTV : CPA Ratio" value="7.8x" sub="$195 avg LTV / $25 blended CPA" color="text-[#34D399]" />
+              <MetricCard label="Repeat Rate" value="29%" sub="Jannet cohort, 5 months" color="text-[#60A5FA]" />
             </motion.div>
           </div>
         </section>
@@ -413,7 +501,7 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn>
             <p className="text-[12px] font-mono text-[#64748B] mb-6">Nov 25, 2025 – Jan 18, 2026 (tracking from Dec 26)</p>
             <Card title="What Happened" defaultOpen>
-              <p className="mb-4">Royal Pawz went live in late November. The app worked, the groomers were ready, the Google Ads were running. November saw 13 signups, 5 bookings. Small numbers, but it was working. By December that grew to 50 signups. By January, 78. <strong className="text-white">Growth was working. Conversion was the bottleneck.</strong></p>
+              <p className="mb-4">Royal Pawz went live in late November. The app worked, the groomers were ready, the Google Ads were running. November saw 13 signups, 5 bookings. Small numbers, but it was working. By December that grew to 49 signups. By January, 77. <strong className="text-white">Growth was working. Conversion was the bottleneck.</strong></p>
               <p className="mb-4">For the first month we were flying blind - no session tracking, no funnel analytics. On December 26th, we installed rrweb session recording across the entire platform. The data hit immediately, and it wasn&apos;t pretty.</p>
               <p>The flow was straightforward: a Google ad sends you to <strong className="text-white">/auth/sign-up</strong>. Create an account. Verify your email. Complete onboarding. Then you can explore services and book.</p>
               <FlowSteps steps={[
@@ -482,14 +570,14 @@ export default function RoyalPawzCaseStudy() {
               <Observation>
                 The difference was immediate. Session recordings showed users engaging with the booking flow within seconds of landing - entering their ZIP, browsing services, adding their dog. <strong className="text-white">No more rage clicks. No more confused scrolling. They were booking - not bouncing.</strong>
               </Observation>
-              <p className="mb-4">The impact was immediate. <strong className="text-white">Revenue nearly 4x&apos;d in a single month.</strong> New customer acquisition tripled. The auth wall had been the single biggest obstacle between Royal Pawz and its customers.</p>
+              <p className="mb-4">The impact was immediate. <strong className="text-white">Revenue nearly 4x&apos;d in a single month.</strong> New customer acquisition more than doubled. The auth wall had been the single biggest obstacle between Royal Pawz and its customers.</p>
               <p>But the /book flow was brand new, and we knew there was room to optimize within it. <strong className="text-white">The funnel was working - now it was time to tune it.</strong></p>
             </Card>
             <p className="text-[13px] text-[#64748B] mt-2 mb-2 italic">Note: two changes shipped simultaneously - the landing page fix and the /book flow rebuild. The revenue jump reflects both, not either alone. Clean single-variable results come in Phases 3 and 4.</p>
             <ResultBox variant="improved" metrics={[
               { value: "~4x", label: "Revenue Growth", color: "text-cyan-400" },
-              { value: "3x", label: "New Customers", color: "text-cyan-400" },
-              { value: "1,436", label: "Feb Sessions" },
+              { value: "2x", label: "New Customers", color: "text-cyan-400" },
+              { value: "1,454", label: "Feb Sessions" },
             ]} />
           </FadeIn>
         </section>
@@ -577,15 +665,15 @@ export default function RoyalPawzCaseStudy() {
               <Observation>
                 Users who provided contact info early didn&apos;t just convert more - <strong className="text-white">they spent more.</strong> AOV jumped 21.6%. Once committed, users were more likely to add premium services and add-ons. The customization step became about enhancing their appointment, not deciding whether to have one. And early account creation meant we could follow up on abandoned carts via SMS.
               </Observation>
-              <p className="mb-4">54 sessions. 4 days. <strong className="text-white">334% conversion lift and 21.6% higher <Term>AOV</Term>.</strong> The winning variant went live as the default. In four months, we&apos;d gone from a broken auth wall to a controlled test showing nearly 1 in 3 visitors who enter the booking flow completing a paid appointment.</p>
+              <p className="mb-4">54 sessions. 4 days. <strong className="text-white">331% conversion lift and 21.6% higher <Term>AOV</Term>.</strong> The winning variant went live as the default. In four months, we&apos;d gone from a broken auth wall to a controlled test showing nearly 1 in 3 visitors who enter the booking flow completing a paid appointment.</p>
               <AlertBox type="warning" title="On Sample Size">
-                <p>At n=54 (26 vs 28), this is a larger signal than Test 1 but still below traditional statistical significance for a 4-day window. The magnitude of the lift (334%) and the dual improvement (conversion + AOV) give us high confidence in the direction.</p>
+                <p>At n=54 (26 vs 28), this is a larger signal than Test 1 but still below traditional statistical significance for a 4-day window. The magnitude of the lift (331%) and the dual improvement (conversion + AOV) give us high confidence in the direction.</p>
               </AlertBox>
             </Card>
             <ResultBox variant="positive" metrics={[
-              { value: "33%", label: "Winner Conv.", color: "text-emerald-400" },
+              { value: "30.8%", label: "Winner Conv.", color: "text-emerald-400" },
               { value: "7.1%", label: "Control Conv.", color: "text-[#64748B]" },
-              { value: "+334%", label: "Conv. Lift", color: "text-emerald-400" },
+              { value: "+331%", label: "Conv. Lift", color: "text-emerald-400" },
               { value: "+21.6%", label: "AOV Lift", color: "text-emerald-400" },
               { value: "54", label: "Sessions" },
             ]} />
@@ -598,18 +686,27 @@ export default function RoyalPawzCaseStudy() {
         <section id="evidence" className="px-5 sm:px-10 lg:px-16 py-16 scroll-mt-16 lg:scroll-mt-0">
           <FadeIn><SectionHeader icon={BarChart3} label="Data" title="The Bigger Picture" /></FadeIn>
           <FadeIn>
-            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Five months of performance across all four phases - growth indexed against month one as baseline.</p>
+            <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Six months of performance across all four phases - growth indexed against month one as baseline.</p>
             <Card title="Monthly Performance" defaultOpen>
               <DataTable
                 headers={["Month", "Sessions", "Revenue Index", "Repeat Share", "Ad Spend"]}
                 rows={[
-                  [{ text: "Dec '25", color: "text-white font-semibold" }, "199", "1.0x (baseline)", "13%", "$451"],
-                  [{ text: "Jan '26", color: "text-white font-semibold" }, "1,645", "1.9x", "34%", "$856"],
-                  [{ text: "Feb '26", color: "text-white font-semibold" }, "1,436", { text: "4.0x", color: "text-emerald-400 font-semibold" }, "16%", "$896"],
-                  [{ text: "Mar '26", color: "text-white font-semibold" }, "1,935", { text: "7.7x", color: "text-emerald-400 font-semibold" }, { text: "40%", color: "text-emerald-400" }, "$1,369"],
+                  [{ text: "Dec '25", color: "text-white font-semibold" }, "199", "1.0x (baseline)", "13%", "$402"],
+                  [{ text: "Jan '26", color: "text-white font-semibold" }, "1,659", "1.9x", "34%", "$735"],
+                  [{ text: "Feb '26", color: "text-white font-semibold" }, "1,454", { text: "4.0x", color: "text-emerald-400 font-semibold" }, "16%", "$886"],
+                  [{ text: "Mar '26", color: "text-white font-semibold" }, "2,076", { text: "7.7x", color: "text-emerald-400 font-semibold" }, { text: "40%", color: "text-emerald-400" }, "$1,788"],
+                  [{ text: "Apr '26*", color: "text-white font-semibold" }, "497*", { text: "7.9x*", color: "text-emerald-400 font-semibold" }, { text: "35%*", color: "text-emerald-400" }, "$1,594*"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">Revenue Index = net service revenue relative to December baseline. Repeat Share = % of monthly revenue from returning customers. Sessions from rrweb recording (non-bot). Ad spend from Google Ads ($50/day, increased to $83/day Mar 24).</p>
+              <p className="text-[13px] text-[#64748B] mt-3">Revenue Index = net service revenue relative to December baseline. Repeat Share = % of monthly revenue from returning customers. Sessions from rrweb recording (non-bot). Ad spend from Google Ads (actual monthly spend from Ads dashboard). *April is partial through Apr 22 - sessions are partial; revenue includes forward-scheduled bookings.</p>
+            </Card>
+            <Card title="Daily Conversion Trend" defaultOpen>
+              <p className="mb-4">Day-by-day site-wide conversion rate (all sessions → completed bookings) with 7-day moving average. Session volume shown below.</p>
+              <ConversionTrend />
+              <p className="text-[13px] text-[#64748B] mt-3">Top chart: daily booking conversion rate (bars) with 7-day moving average (line). Bottom: daily session volume. The 30.8% A/B test rate measured booking-flow entrants specifically; the site-wide rate shown here includes all sessions (landing page, return visits, admin, etc.).</p>
+              <AlertBox type="info" title="Conversion Up, Volume Down">
+                <p>The 7-day average conversion rate climbed from ~3% during the auth-wall era to ~20% in April — the funnel is performing better than it ever has. But daily session volume dropped from 50–190/day in March to ~10–50/day in April. <strong className="text-white">Fewer total bookings despite a better funnel — this is a traffic problem, not a conversion problem.</strong></p>
+              </AlertBox>
             </Card>
           </FadeIn>
         </section>
@@ -650,7 +747,7 @@ export default function RoyalPawzCaseStudy() {
               <Card title="Test 2: Info Step Placement" defaultOpen>
                 <p className="text-[13px] font-mono text-[#64748B] mb-4">Mar 14–18 · 54 sessions</p>
                 <div className="mb-4">
-                  <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">✓ Variant B - Info Early · 33%</div>
+                  <div className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider mb-2">✓ Variant B - Info Early · 30.8%</div>
                   <FunnelBar label="Entered" count={26} total={26} variant="winner" />
                   <FunnelBar label="Info" count={14} total={26} variant="winner" />
                   <FunnelBar label="Checkout" count={10} total={26} variant="winner" />
@@ -665,7 +762,7 @@ export default function RoyalPawzCaseStudy() {
                 </div>
                 <div className="bg-emerald-500/[0.06] border border-emerald-500/15 rounded-lg p-4 flex gap-6 justify-center">
                   <div className="text-center">
-                    <div className="text-2xl font-bold font-mono text-emerald-400">+334%</div>
+                    <div className="text-2xl font-bold font-mono text-emerald-400">+331%</div>
                     <div className="text-[11px] text-[#94A3B8]">conversion lift</div>
                   </div>
                   <div className="text-center">
@@ -686,45 +783,49 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn>
             <p className="text-[#94A3B8] text-[17px] leading-relaxed mb-6">Separating what the funnel creates from what retention compounds - because the only numbers worth sharing are the ones pulled straight from the database.</p>
             <div className="flex flex-wrap gap-3 mb-6">
-              <MetricCard label="LTV : CPA" value="9x" sub="Lifetime value vs acquisition cost" color="text-[#34D399]" />
-              <MetricCard label="Repeat Rate" value="34.3%" sub="Rebook within 5 months" color="text-[#60A5FA]" />
-              <MetricCard label="Repeat Avg Bookings" value="2.49" sub="Among clients who return" color="text-[#60A5FA]" />
-              <MetricCard label="Repeat Rev Share (Mar)" value="40%" sub="Of March revenue from repeats" color="text-amber-400" />
+              <MetricCard label="LTV : CPA" value="7.8x" sub="$195 avg LTV / $25 blended CPA" color="text-[#34D399]" />
+              <MetricCard label="Repeat Rate" value="25.7%" sub="57 of 222 clients rebooked" color="text-[#60A5FA]" />
+              <MetricCard label="Repeat Avg Bookings" value="2.93" sub="Among clients who return" color="text-[#60A5FA]" />
+              <MetricCard label="Repeat Rev Share" value="35%" sub="Of April revenue from repeats" color="text-amber-400" />
             </div>
 
             <Card title="Acquisition Cost Trend" defaultOpen>
-              <p className="mb-4"><Term>CPA</Term> is a trailing indicator of funnel quality. Here&apos;s how the cost to acquire a new customer evolved across each phase - estimated by dividing total Google Ads spend by all-source first-time bookings.</p>
+              <p className="mb-4"><Term>CPA</Term> is a trailing indicator of funnel quality. Estimated by dividing actual Google Ads spend by all-source first-time bookings each month.</p>
               <DataTable
-                headers={["Phase", "Period", "Avg Est. CPA", "vs Phase 1"]}
+                headers={["Month", "Ad Spend", "Clicks", "CPC", "New Clients", "Est. CPA"]}
                 rows={[
-                  [{ text: "Phase 1", color: "text-red-400 font-semibold" }, "Dec – Jan 18", { text: "~$30", color: "text-red-400" }, "Baseline"],
-                  [{ text: "Phase 2", color: "text-cyan-400 font-semibold" }, "Jan 19 – Mar 8", { text: "~$20", color: "text-emerald-400" }, { text: "-33%", color: "text-emerald-400" }],
-                  [{ text: "Phase 3–4", color: "text-emerald-400 font-semibold" }, "Mar 9 – 28", { text: "~$29", color: "text-cyan-400" }, { text: "-3% (scaling)", color: "text-cyan-400" }],
+                  [{ text: "Dec '25", color: "text-white font-semibold" }, "$402", "407", "$0.99", "14", { text: "$28.73", color: "text-red-400" }],
+                  [{ text: "Jan '26", color: "text-white font-semibold" }, "$735", "1,157", "$0.64", "21", { text: "$35.00", color: "text-red-400" }],
+                  [{ text: "Feb '26", color: "text-white font-semibold" }, "$886", "863", "$1.03", "44", { text: "$20.13", color: "text-emerald-400" }],
+                  [{ text: "Mar '26", color: "text-white font-semibold" }, "$1,788", "1,550", "$1.15", "60", { text: "$29.79", color: "text-cyan-400" }],
+                  [{ text: "Apr '26*", color: "text-white font-semibold" }, "$1,594*", "—", "—", "77", { text: "$20.70", color: "text-emerald-400" }],
                 ]}
               />
-              <AlertBox type="warning" title="Phase 3–4 CPA Spike Explained">
-                <p>The Phase 3–4 average (~$29) was inflated by a mid-March Google Ads campaign restructure that temporarily disrupted delivery - bookings dropped during the transition. By March 27, the campaign had stabilized: 42 clicks at $2.74 <Term>CPC</Term>, with CPA back in the ~$20 range. The elevated phase average reflects the disruption, not the steady-state funnel performance.</p>
+              <AlertBox type="warning" title="March CPA Spike + April Campaign Changes">
+                <p className="mb-2">March&apos;s higher CPA (~$30) was inflated by a mid-month Google Ads campaign restructure that temporarily disrupted delivery. On March 28, conversion goals were updated to prioritize &quot;Purchases (Website)&quot; and 29 broad match keywords were removed.</p>
+                <p>In April, the daily budget was reduced from $83 → $58.74 (Apr 5) → $50 (Apr 11), and the Focused Zip Codes campaign was paused (Apr 10). Spend became more targeted and CPA improved to $20.70.</p>
               </AlertBox>
-              <p className="text-[13px] text-[#64748B] mt-3">Estimated CPA divides total Google Ads spend by all-source first bookings - the real Google-only CPA is lower since roughly half of new customers come from direct/word-of-mouth.</p>
+              <p className="text-[13px] text-[#64748B] mt-3">Estimated CPA divides total Google Ads spend by all-source first bookings - the real Google-only CPA is higher since roughly half of new customers come from direct/word-of-mouth (free acquisition).</p>
               <div className="flex flex-wrap gap-3 mt-4">
-                <MetricCard label="Phase 1 CPA" value="~$30" sub="Auth wall era" color="text-red-400" />
-                <MetricCard label="Phase 2 CPA" value="~$20" sub="Post-landing page" color="text-emerald-400" />
-                <MetricCard label="Best Week" value="$14.25" sub="Feb 16–22" color="text-[#60A5FA]" />
+                <MetricCard label="Total Ad Spend" value="$5,405" sub="Dec '25 – Apr 22 '26" color="text-[#64748B]" />
+                <MetricCard label="Blended CPA" value="$25.02" sub="$5,405 / 216 new clients" color="text-emerald-400" />
+                <MetricCard label="Best Month" value="$20.13" sub="February 2026" color="text-[#60A5FA]" />
               </div>
             </Card>
 
             <Card title="Customer Acquisition Mix" defaultOpen>
               <p className="mb-4">Not all new customers come from ads. The split between paid and organic acquisition shifted as the platform matured.</p>
               <DataTable
-                headers={["Month", "Google Ads (est.)", "Direct / WOM", "Ad Spend"]}
+                headers={["Month", "Google Ads (est.)", "Direct / WOM", "Ad Spend (actual)"]}
                 rows={[
-                  [{ text: "Dec '25", color: "text-white font-semibold" }, "-", "100%", "$451"],
-                  [{ text: "Jan '26", color: "text-white font-semibold" }, "~38%", "~62%", "$856"],
-                  [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "~50%", color: "text-emerald-400" }, "~50%", "$896"],
-                  [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "~51%", color: "text-emerald-400" }, "~49%", "$1,369"],
+                  [{ text: "Dec '25", color: "text-white font-semibold" }, "-", "100%", "$402"],
+                  [{ text: "Jan '26", color: "text-white font-semibold" }, "~38%", "~62%", "$735"],
+                  [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "~50%", color: "text-emerald-400" }, "~50%", "$886"],
+                  [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "~51%", color: "text-emerald-400" }, "~49%", "$1,788"],
+                  [{ text: "Apr '26*", color: "text-white font-semibold" }, "~50%", "~50%", "$1,594*"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">Channel attribution estimated from UTM and session referrer data. Direct/WOM customers cost $0 to acquire. The funnel optimization benefits all traffic sources equally - roughly half of new customers arrive organically.</p>
+              <p className="text-[13px] text-[#64748B] mt-3">Channel attribution estimated from UTM and session referrer data. Direct/WOM customers cost $0 to acquire. The funnel optimization benefits all traffic sources equally - roughly half of new customers arrive organically. *April spend through Apr 15.</p>
             </Card>
 
             <Card title="Customer Cohort Retention" defaultOpen>
@@ -732,28 +833,42 @@ export default function RoyalPawzCaseStudy() {
               <DataTable
                 headers={["Cohort", "M2 Retention", "M3 Active", "M4 Active", "Status"]}
                 rows={[
-                  [{ text: "Dec '25", color: "text-white font-semibold" }, { text: "50.0%", color: "text-emerald-400" }, { text: "✓", color: "text-emerald-400" }, { text: "✓", color: "text-emerald-400" }, { text: "Mature benchmark", color: "text-emerald-400" }],
-                  [{ text: "Jan '26", color: "text-white font-semibold" }, { text: "14.3%", color: "text-amber-400" }, { text: "✓ (spike)", color: "text-emerald-400" }, "-", "6–8 wk cycle skip"],
-                  [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "43.2%", color: "text-emerald-400" }, "-", "-", { text: "Strong early signal", color: "text-emerald-400" }],
-                  [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "9.1%", color: "text-[#64748B]" }, "-", "-", "Too early"],
+                  [{ text: "Dec '25", color: "text-white font-semibold" }, { text: "50.0%", color: "text-emerald-400" }, { text: "35.7%", color: "text-emerald-400" }, { text: "50.0%", color: "text-emerald-400" }, { text: "Mature benchmark", color: "text-emerald-400" }],
+                  [{ text: "Jan '26", color: "text-white font-semibold" }, { text: "14.3%", color: "text-emerald-400" }, { text: "47.6%", color: "text-emerald-400" }, { text: "28.6%", color: "text-emerald-400" }, { text: "Maturing", color: "text-emerald-400" }],
+                  [{ text: "Feb '26", color: "text-white font-semibold" }, { text: "43.2%", color: "text-emerald-400" }, { text: "25.0%", color: "text-emerald-400" }, "-", { text: "Strong signal", color: "text-emerald-400" }],
+                  [{ text: "Mar '26", color: "text-white font-semibold" }, { text: "16.7%", color: "text-emerald-400" }, "-", "-", { text: "Maturing", color: "text-emerald-400" }],
+                  [{ text: "Apr '26", color: "text-white font-semibold" }, { text: "1.3%", color: "text-[#64748B]" }, "-", "-", "Too early"],
                 ]}
               />
-              <p className="text-[13px] text-[#64748B] mt-3">M2 Retention = % of cohort that booked again in month 2. &quot;Active&quot; = cohort still generating bookings in that month. December is the standout at <strong className="text-white">50% retention</strong> - still active in month 4.</p>
-              <AlertBox type="info" title="Why Recent Cohorts Look Low">
-                <p className="mb-2">Dog grooming is a <strong className="text-white">6–8 week repeat cycle</strong> - most pet owners rebook every 1.5–2 months, not every 30 days. That means the rebooking window for recent cohorts hasn&apos;t opened yet:</p>
+              <p className="text-[13px] text-[#64748B] mt-3">M2 Retention = % of cohort that booked again in month 2. December is the standout at <strong className="text-white">50% retention</strong> - still generating bookings in month 5+. January cohort matured with <strong className="text-white">47.6% active in M3</strong> and 28.6% still active in M4.</p>
+              <AlertBox type="info" title="The 4–9 Week Rebooking Window">
+                <p className="mb-2">Dog grooming follows a <strong className="text-white">4–9 week rebooking cycle</strong>. Clients who haven&apos;t rebooked within 9 weeks of their last appointment are &quot;at risk.&quot; Here&apos;s where the full client base stands today:</p>
                 <div className="space-y-1.5 mt-3 text-[15px]">
-                  <div className="flex gap-2"><span className="text-emerald-400 font-semibold flex-shrink-0">Dec cohort →</span> <span>Had 4+ months to rebook. 50% retention, still active in month 4. This is the mature benchmark.</span></div>
-                  <div className="flex gap-2"><span className="text-amber-400 font-semibold flex-shrink-0">Jan cohort →</span> <span>Had 3 months. Retention appears low at 14.3% in M2 - but activity spiked in M3. The 6–8 week grooming cycle means many Jan customers rebooked in March, skipping M2 entirely.</span></div>
-                  <div className="flex gap-2"><span className="text-[#60A5FA] font-semibold flex-shrink-0">Feb cohort →</span> <span>Strong early signal - 43.2% already rebooked in month 2. On pace to match or beat December.</span></div>
-                  <div className="flex gap-2"><span className="text-cyan-400 font-semibold flex-shrink-0">Mar cohort →</span> <span>Won&apos;t start rebooking until late April–May. 9.1% have already returned - the rest are within their normal grooming cycle.</span></div>
+                  <div className="flex gap-2"><span className="text-emerald-400 font-semibold flex-shrink-0">59% recent →</span> <span>131 clients booked within the last 4 weeks. Active and healthy.</span></div>
+                  <div className="flex gap-2"><span className="text-amber-400 font-semibold flex-shrink-0">29% due soon →</span> <span>65 clients are 4–9 weeks out - entering their rebooking window now. SMS reminders and rebooking prompts target this group.</span></div>
+                  <div className="flex gap-2"><span className="text-red-400 font-semibold flex-shrink-0">12% at risk →</span> <span>26 clients are 9+ weeks past their last booking. These are the only clients we consider at risk of churning.</span></div>
                 </div>
-                <p className="mt-3"><strong className="text-white">The December cohort is the leading indicator.</strong> A customer who rebooks every 6–8 weeks generates significant compounding value - and the early cohort data shows this cycle is real. As recent cohorts mature into their first rebooking window, we expect the platform-wide retention rate to climb.</p>
+                <p className="mt-3"><strong className="text-white">Only 12% of all clients are truly at risk.</strong> The raw repeat rate is diluted by rapid growth - 137 new clients joined in March and April alone, and most haven&apos;t entered their rebooking window yet. The mature cohorts (Dec–Feb) show strong return behavior.</p>
               </AlertBox>
             </Card>
 
+            <Card title="Groomer-Level Retention" defaultOpen>
+              <p className="mb-4">Retention varies by groomer. Jannet has been with Royal Pawz since launch; Kris joined in March; Nelcy and Natalia joined in April. Most of Kris&apos;s, Nelcy&apos;s, and Natalia&apos;s clients haven&apos;t entered the 4–9 week rebooking window yet.</p>
+              <DataTable
+                headers={["Groomer", "Clients", "Repeat Rate", "Avg Bookings", "Since"]}
+                rows={[
+                  [{ text: "Jannet", color: "text-white font-semibold" }, "147", { text: "28.6%", color: "text-emerald-400 font-semibold" }, "1.54", "Nov '25"],
+                  [{ text: "Kris", color: "text-white font-semibold" }, "49", "8.2%", "1.08", "Mar '26"],
+                  [{ text: "Nelcy", color: "text-white font-semibold" }, "13", "-", "1.00", "Apr '26"],
+                  [{ text: "Natalia", color: "text-white font-semibold" }, "9", "-", "1.00", "Apr '26"],
+                ]}
+              />
+              <p className="text-[13px] text-[#64748B] mt-3">Jannet&apos;s 28.6% is the mature benchmark - down from 36% as ~14 new clients joined her book in April who haven&apos;t entered the rebooking window yet. Kris&apos;s 8.2% reflects his start date, not service quality. We expect his rate to climb as clients enter their rebooking window in May–June.</p>
+            </Card>
+
             <AlertBox type="info" title="How to Read These Numbers">
-              <p className="mb-2"><strong className="text-white">The funnel optimization directly impacts new customer acquisition</strong> - conversion rate and <Term>AOV</Term> are under its control. The A/B test results (33% booking flow conversion, +21% AOV lift) are clean, controlled experiments that prove this.</p>
-              <p className="mb-2"><strong className="text-white">Repeat bookings is a separate value driver.</strong> By March, 40% of revenue came from returning customers. The 34.3% repeat rate is supported by the AI-powered SMS reminders, automated rebooking prompts, and the groomer ops app built into the same platform - the funnel brought them in, the system keeps them.</p>
+              <p className="mb-2"><strong className="text-white">The funnel optimization directly impacts new customer acquisition</strong> - conversion rate and <Term>AOV</Term> are under its control. The A/B test results (30.8% booking flow conversion, +21% AOV lift) are clean, controlled experiments that prove this.</p>
+              <p className="mb-2"><strong className="text-white">Repeat bookings is a separate value driver.</strong> 35% of April revenue came from returning customers (40% in March). Overall, 57 of 222 clients (25.7%) have rebooked. Jannet&apos;s mature cohort shows 29% - the rest haven&apos;t had time. Retention is supported by AI-powered SMS reminders, automated rebooking prompts, and the groomer ops app.</p>
               <p><strong className="text-white">Not all new customers come from ads.</strong> Roughly half come through direct/word-of-mouth. The funnel benefits all traffic equally - but ad spend only deserves credit for the customers it brought in.</p>
             </AlertBox>
 
@@ -763,23 +878,23 @@ export default function RoyalPawzCaseStudy() {
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <div className="flex-1 bg-[#1E293B] border border-blue-400/15 rounded-xl p-6 text-center w-full">
                   <div className="text-[12px] text-blue-400 uppercase tracking-wider font-semibold mb-2">First Booking Return</div>
-                  <div className="text-4xl font-bold font-mono text-blue-400">6x</div>
-                  <div className="text-[13px] text-[#64748B] mt-1">revenue vs acquisition cost</div>
+                  <div className="text-4xl font-bold font-mono text-blue-400">5x</div>
+                  <div className="text-[13px] text-[#64748B] mt-1">$126 avg first-booking / $25 CPA</div>
                 </div>
                 <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
                 <div className="flex-1 bg-[#1E293B] border border-emerald-500/15 rounded-xl p-6 text-center w-full">
                   <div className="text-[12px] text-emerald-400 uppercase tracking-wider font-semibold mb-2">Current LTV : CPA</div>
-                  <div className="text-4xl font-bold font-mono text-emerald-400">9x</div>
-                  <div className="text-[13px] text-[#64748B] mt-1">lifetime return (5 months)</div>
+                  <div className="text-4xl font-bold font-mono text-emerald-400">8x</div>
+                  <div className="text-[13px] text-[#64748B] mt-1">$195 avg LTV / $25 CPA (5 months)</div>
                 </div>
                 <ArrowRight size={24} className="text-[#475569] rotate-90 sm:rotate-0 flex-shrink-0" />
                 <div className="flex-1 bg-[#1E293B] border border-amber-400/15 rounded-xl p-6 text-center w-full">
                   <div className="text-[12px] text-amber-400 uppercase tracking-wider font-semibold mb-2">Projected Annual</div>
-                  <div className="text-4xl font-bold font-mono text-amber-400">50x+</div>
+                  <div className="text-4xl font-bold font-mono text-amber-400">30x+</div>
                   <div className="text-[13px] text-[#64748B] mt-1">retained customer, 6–8 wk cycle</div>
                 </div>
               </div>
-              <p className="text-center text-[#94A3B8] text-[14px] mt-3">The first booking alone pays back acquisition cost 6x. Current LTV at 5 months is 9x CPA - and most customers haven&apos;t had time to rebook yet. The Dec cohort (50% retention, still active in month 4) shows what happens when cohorts mature into their full rebooking cycle.</p>
+              <p className="text-center text-[#94A3B8] text-[14px] mt-3">The first month of revenue alone pays back acquisition cost 5x. Current LTV at 5 months is 8x CPA - and most customers haven&apos;t had time to rebook yet. The Dec cohort (50% retention, still active in month 5+) shows what happens when cohorts mature into their full rebooking cycle.</p>
             </div>
           </FadeIn>
         </section>
@@ -798,7 +913,7 @@ export default function RoyalPawzCaseStudy() {
               <DataTable
                 headers={["Competitor", "Online Booking", "Pricing Range", "Booking Flow", "Notes"]}
                 rows={[
-                  [{ text: "Royal Pawz USA", color: "text-[#60A5FA] font-semibold" }, { text: "Full custom app", color: "text-emerald-400" }, "$75–$150+", { text: "4-step, no auth", color: "text-emerald-400" }, "A/B tested, 33% conv"],
+                  [{ text: "Royal Pawz USA", color: "text-[#60A5FA] font-semibold" }, { text: "Full custom app", color: "text-emerald-400" }, "$75–$150+", { text: "4-step, no auth", color: "text-emerald-400" }, "A/B tested, ~20% site-wide"],
                   [{ text: "Kontota", color: "text-white font-semibold" }, "MoeGo platform", "$50–$225", "Book via MoeGo", "Franchise, 5.0★ / 3,700+ reviews"],
                   [{ text: "Groomit", color: "text-white font-semibold" }, "App + website", "$80–$319", "National platform", "Tech platform, 4.8★ / 44K+ reviews"],
                   [{ text: "Furry Land", color: "text-white font-semibold" }, "MoeGo + phone", "$165+ (XL)", "Book via MoeGo", "100+ locations, franchise"],
@@ -817,8 +932,8 @@ export default function RoyalPawzCaseStudy() {
                     <div className="text-[15px] text-[#94A3B8]">Animals &amp; Pets Google Ads avg: 13.07% (WordStream). Home services: 7.33% (LocaliQ, 3,211 campaigns). General website avg: 2–5%.</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-2xl font-bold font-mono text-emerald-400">33%</div>
-                    <div className="text-[12px] text-emerald-400">2.4x pet industry avg</div>
+                    <div className="text-2xl font-bold font-mono text-emerald-400">~20%</div>
+                    <div className="text-[12px] text-emerald-400">site-wide, Apr 7d avg</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 p-4 bg-white/[0.02] rounded-lg">
@@ -847,8 +962,8 @@ export default function RoyalPawzCaseStudy() {
                     <div className="text-[15px] text-[#94A3B8]">Local service businesses avg: 20–25% return rate within 6 months.</div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="text-2xl font-bold font-mono text-emerald-400">34.3%</div>
-                    <div className="text-[12px] text-emerald-400">Above avg at 5 months</div>
+                    <div className="text-2xl font-bold font-mono text-emerald-400">29%</div>
+                    <div className="text-[12px] text-emerald-400">Jannet cohort, 5 months</div>
                   </div>
                 </div>
               </div>
@@ -865,10 +980,10 @@ export default function RoyalPawzCaseStudy() {
           <FadeIn>
             <div className="space-y-3">
               {[
-                { icon: "$", color: "bg-emerald-500/10 text-emerald-400", text: "9x LTV-to-CPA. Each new customer generates 9x their acquisition cost in lifetime value so far - and that number is still climbing as cohorts mature. Since roughly half of new customers come from word-of-mouth (free), the true blended CPA is even lower." },
-                { icon: "A", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "A/B testing produced a 334% conversion lift. The second test took booking-flow conversion from 7.1% to 33% - confirmed by post-test live traffic. This is the cleanest, most defensible number in the report." },
-                { icon: "↑", color: "bg-cyan-400/10 text-cyan-400", text: "8x revenue growth in 4 months. Driven by the combination of funnel optimization (more new customers converting) and retention (40% of March revenue from repeat bookings)." },
-                { icon: "♻", color: "bg-amber-400/10 text-amber-400", text: "Repeat bookings grew to 40% of revenue by month 5. Returning customers - built on service quality, AI-powered SMS reminders, and automated rebooking - compound the value of every new customer acquired." },
+                { icon: "$", color: "bg-emerald-500/10 text-emerald-400", text: "8x LTV-to-CPA. Each new customer generates ~8x their acquisition cost in lifetime value so far ($195 avg LTV vs $25 blended CPA) - and that number is still climbing as cohorts mature. Since roughly half of new customers come from word-of-mouth (free), the true ad-only ROI is even higher." },
+                { icon: "A", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "A/B testing produced a 331% conversion lift. The second test took booking-flow conversion from 7.1% to 30.8% (n=26). Site-wide conversion climbed from ~3% to ~20% over the same period. These are the cleanest numbers in the report." },
+                { icon: "↑", color: "bg-cyan-400/10 text-cyan-400", text: "8x revenue growth in 5 months. Driven by the combination of funnel optimization (more new customers converting) and retention (35–40% of monthly revenue from repeat bookings)." },
+                { icon: "♻", color: "bg-amber-400/10 text-amber-400", text: "25.7% of all clients have rebooked (57 of 222). Jannet's mature cohort shows 29% - most clients are too new to have entered the 4–9 week rebooking window. Built on service quality, AI-powered SMS reminders, and automated rebooking." },
                 { icon: "⚡", color: "bg-emerald-500/10 text-emerald-400", text: "Counter-intuitive wins. Adding more steps (intro screen) increased conversion. Asking for info earlier increased both conversion and AOV. Testing beat assumptions every time." },
                 { icon: "∞", color: "bg-[#60A5FA]/10 text-[#60A5FA]", text: "Organic growth compounds. Roughly half of new customers come from direct/word-of-mouth - zero acquisition cost. The funnel optimization benefits these free customers equally, and repeat bookings create a revenue floor that grows every month." },
               ].map((item, i) => (
@@ -963,12 +1078,12 @@ export default function RoyalPawzCaseStudy() {
               <div className="space-y-3 text-[15px] text-[#94A3B8]">
                 <p><strong className="text-white">Data sources:</strong> Supabase (recording_sessions, bookings, ab_test_events, users tables), Google Ads daily budget history.</p>
                 <p><strong className="text-white">Revenue:</strong> Growth indices are based on net service revenue (service price minus discounts, excluding tips and tax). Specific revenue figures are not disclosed - all revenue is shown as multiples relative to the December baseline.</p>
-                <p><strong className="text-white">Ad spend:</strong> Based on Google Ads daily budget: $50/day through March 23, increased to $83/day starting March 24.</p>
+                <p><strong className="text-white">Ad spend:</strong> Actual monthly spend from Google Ads dashboard. Budget changed from $50/day → $83/day (Mar 24) → $58.74/day (Apr 5) → $50/day (Apr 11). Total spend Dec–Apr 22: $5,405.</p>
                 <p><strong className="text-white">Customer attribution:</strong> New vs repeat split based on first-booking detection per client_id using scheduled_date. Source attribution via session referrer and UTM tracking - not all sessions are attributable, so channel numbers are estimates.</p>
                 <p><strong className="text-white">A/B testing:</strong> Randomized variant assignment at session start, tracked via custom ab_test_events table. Single-variable tests with concurrent control and treatment groups. Results verified directly against Supabase event data.</p>
                 <p><strong className="text-white">Sessions &amp; bounce:</strong> From rrweb recording_sessions (bot-filtered). Sessions = unique recording sessions per visitor. Bounce is not reported in this version - conversion rate and revenue per session are more meaningful metrics for this business.</p>
-                <p><strong className="text-white">LTV calculation:</strong> Expressed as a ratio to CPA (9x). LTV is still maturing - early cohorts show increasing value over time, so current figures likely understate true lifetime value.</p>
-                <p><strong className="text-white">Timeline:</strong> Platform launched ~November 25, 2025. Session tracking installed December 26, 2025. Report period: Nov 2025 – Mar 28, 2026.</p>
+                <p><strong className="text-white">LTV calculation:</strong> Avg LTV = $195.02 across 195 paying clients. Blended CPA = $5,405 total ad spend / 216 new clients (all sources) = $25.02. LTV:CPA = 7.8x. LTV is still maturing - early cohorts show increasing value over time.</p>
+                <p><strong className="text-white">Timeline:</strong> Platform launched ~November 25, 2025. Session tracking installed December 26, 2025. Report period: Nov 2025 – Apr 22, 2026.</p>
               </div>
             </Card>
           </FadeIn>
@@ -981,7 +1096,7 @@ export default function RoyalPawzCaseStudy() {
           <div className="text-[14px] text-[#94A3B8] mb-1">Growth Engineering</div>
           <a href="https://www.zappstudios.us/revenue" className="text-[14px] text-[#60A5FA] hover:underline">zappstudios.us/revenue</a>
           <div className="text-[13px] text-[#64748B] mt-6 max-w-2xl mx-auto leading-relaxed">
-            Prepared by Hamza, Founder · Zapp Studios · March 2026
+            Prepared by Hamza, Founder · Zapp Studios · April 2026
           </div>
         </footer>
 
