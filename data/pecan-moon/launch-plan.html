@@ -1,0 +1,2853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pecan Moon — 90-Day Launch Plan</title>
+<style>
+  :root {
+    --cream: #faf6f0;
+    --paper: #f5efe6;
+    --ink: #2a1f15;
+    --muted: #6b5b4a;
+    --accent: #8b6f47;
+    --accent-dark: #5c4a30;
+    --highlight: #d4a574;
+    --soft: #e8dcc8;
+    --border: #d9cdb8;
+    --green: #6b7d5a;
+    --rust: #a85c3d;
+    --crisis: #b85a3a;
+    --shadow: 0 1px 3px rgba(60,40,20,0.06), 0 4px 12px rgba(60,40,20,0.04);
+    --shadow-lg: 0 4px 20px rgba(60,40,20,0.08), 0 12px 40px rgba(60,40,20,0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  ::selection { background: var(--highlight); color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(180deg, #ede2cf 0%, #f5efe6 100%);
+    padding: 80px 24px 64px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .prep-by {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  .prep-by strong { color: var(--accent-dark); font-weight: 700; }
+  .hero .eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 4.8vw, 50px);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--ink);
+    max-width: 920px;
+    margin: 0 auto 22px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent-dark); }
+  .hero .subtitle {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 auto 30px;
+    font-style: italic;
+    line-height: 1.65;
+  }
+  .hero .meta {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .hero .meta span { display: flex; align-items: center; gap: 6px; }
+  .hero .meta span::before { content: '◆'; color: var(--accent); font-size: 7px; }
+
+  /* TOC */
+  .toc-wrap {
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 47px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .toc {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    gap: 26px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a {
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s;
+  }
+  .toc a:hover, .toc a.active {
+    color: var(--accent-dark);
+    border-bottom-color: var(--accent);
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 64px 24px; }
+  section { margin-bottom: 80px; scroll-margin-top: 100px; }
+
+  .section-num {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  h2 em { font-style: italic; color: var(--accent-dark); }
+  h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin: 44px 0 14px;
+    color: var(--accent-dark);
+    letter-spacing: -0.005em;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 26px 0 10px;
+    color: var(--ink);
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+  .section-intro {
+    font-size: 18px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 32px;
+    max-width: 820px;
+    line-height: 1.65;
+  }
+  p { margin-bottom: 14px; color: var(--ink); }
+  p strong { color: var(--accent-dark); font-weight: 600; }
+  p em.q { font-style: italic; color: var(--accent-dark); }
+
+  /* PULL QUOTE — for the spine moments */
+  .pull {
+    background: linear-gradient(135deg, var(--paper) 0%, #ede2cf 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 32px 0 40px;
+    font-family: 'Georgia', serif;
+    font-size: 21px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-style: italic;
+    letter-spacing: -0.005em;
+  }
+  .pull strong { color: var(--accent-dark); font-style: normal; font-weight: 600; }
+
+  /* FUNNEL */
+  .funnel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 28px 0;
+  }
+  .funnel-step {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .funnel-step.crisis {
+    border: 2px solid var(--crisis);
+    background: #faeae0;
+  }
+  .funnel-step .stage {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .funnel-step .number {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--accent-dark);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .funnel-step.crisis .number { color: var(--crisis); }
+  .funnel-step .pct {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .funnel-step.crisis .pct {
+    color: var(--crisis);
+    font-weight: 600;
+    font-style: normal;
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* DIAGNOSIS BOX */
+  .diagnosis-card {
+    background: linear-gradient(135deg, #faeae0 0%, #f5e0d0 100%);
+    border: 1px solid #e0c5b0;
+    border-left: 4px solid var(--crisis);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 24px 0 36px;
+    box-shadow: var(--shadow);
+  }
+  .diagnosis-card h4 {
+    color: var(--crisis);
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-family: 'Georgia', serif;
+    font-size: 19px;
+    letter-spacing: normal;
+    font-weight: 500;
+  }
+  .diagnosis-card p { font-size: 15.5px; margin-bottom: 12px; line-height: 1.7; }
+  .diagnosis-card p:last-child { margin-bottom: 0; }
+  .diagnosis-card p strong { color: var(--crisis); }
+
+  /* INSIGHT — the warm "here's what it means" boxes */
+  .insight {
+    background: linear-gradient(135deg, #f0e9d8 0%, #e8dcc8 100%);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 26px 30px;
+    margin: 28px 0;
+  }
+  .insight h4 {
+    color: var(--accent-dark);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    letter-spacing: normal;
+    font-weight: 500;
+  }
+  .insight p { font-size: 15px; margin-bottom: 12px; }
+  .insight p:last-child { margin-bottom: 0; }
+  .insight p strong { color: var(--accent-dark); }
+
+  /* EVIDENCE — small inline citations */
+  .evidence-box {
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 16px 22px;
+    margin: 16px 0;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .evidence-box strong { color: var(--accent-dark); font-weight: 600; }
+  .evidence-box .label {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  /* SCOPE TABLE */
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 28px 0;
+  }
+  @media (max-width: 720px) { .scope-grid { grid-template-columns: 1fr; } }
+  .scope-col {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 26px;
+    box-shadow: var(--shadow);
+  }
+  .scope-col.zapp { border-left: 3px solid var(--accent); }
+  .scope-col.team { border-left: 3px solid var(--green); }
+  .scope-col h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: var(--ink);
+    letter-spacing: normal;
+    font-weight: 500;
+  }
+  .scope-col .who {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .scope-col.zapp .who { color: var(--accent); }
+  .scope-col.team .who { color: var(--green); }
+  .scope-col ul { list-style: none; padding: 0; margin: 14px 0 0; }
+  .scope-col li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--soft);
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .scope-col li:last-child { border-bottom: none; }
+  .scope-col li strong { color: var(--accent-dark); }
+
+  .hours-band {
+    background: var(--accent-dark);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 22px 28px;
+    margin: 24px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hours-band .h-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--highlight);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .hours-band .h-num {
+    font-family: 'Georgia', serif;
+    font-size: 28px;
+    color: var(--cream);
+    font-style: italic;
+    line-height: 1;
+  }
+  .hours-band .h-note {
+    font-size: 13px;
+    color: rgba(245,239,230,0.75);
+    font-style: italic;
+    flex: 1 1 280px;
+    line-height: 1.5;
+  }
+
+  /* PHASES */
+  .phase {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .phase-header {
+    padding: 24px 30px;
+    background: var(--accent-dark);
+    color: var(--cream);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .phase-header:hover { background: #4a3a26; }
+  .phase-header .phase-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--highlight);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .phase-header h3 {
+    margin: 0;
+    color: var(--cream);
+    font-family: 'Georgia', serif;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+  .phase-header em { color: var(--highlight); font-style: italic; }
+  .phase-header .phase-summary {
+    font-size: 14px;
+    color: rgba(245,239,230,0.78);
+    font-style: italic;
+    flex-basis: 100%;
+    margin-top: 6px;
+    line-height: 1.55;
+  }
+  .toggle-icon {
+    font-size: 22px;
+    color: var(--highlight);
+    transition: transform 0.3s;
+  }
+  .phase.open .toggle-icon { transform: rotate(45deg); }
+  .phase-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+  }
+  .phase.open .phase-body { max-height: 5500px; }
+  .phase-body-inner { padding: 30px 32px; }
+
+  .phase-narrative {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--soft);
+  }
+  .phase-narrative strong { color: var(--accent-dark); }
+  .phase-narrative em.q { font-style: italic; color: var(--accent-dark); }
+
+  .workstream {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--soft);
+    counter-increment: ws;
+    position: relative;
+    padding-left: 50px;
+  }
+  .workstream:last-child { border-bottom: none; padding-bottom: 0; }
+  .workstream:first-of-type { padding-top: 0; }
+  .workstream::before {
+    content: counter(ws, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 18px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--highlight);
+    line-height: 1;
+  }
+  .workstream:first-of-type::before { top: 0; }
+  .workstream h4 {
+    margin: 0 0 8px;
+    color: var(--accent-dark);
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: normal;
+  }
+  .workstream p {
+    font-size: 14.5px;
+    color: var(--ink);
+    margin-bottom: 0;
+    line-height: 1.65;
+  }
+  .workstream p strong { color: var(--accent-dark); }
+
+  .ws-meta {
+    display: inline-block;
+    background: var(--soft);
+    color: var(--accent-dark);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-right: 6px;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  .ws-meta.zapp { background: var(--accent-dark); color: var(--highlight); }
+  .ws-meta.team { background: var(--green); color: white; }
+  .ws-meta.hours { background: var(--paper); color: var(--accent); }
+
+  .phase-outcome {
+    background: var(--paper);
+    border-left: 3px solid var(--green);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin-top: 24px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .phase-outcome .label {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-style: normal;
+  }
+  .phase-outcome strong { color: var(--accent-dark); font-style: normal; }
+
+  .ws-wrap { counter-reset: ws; }
+
+  /* TARGETS TABLE */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 22px 0;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 14px;
+  }
+  thead { background: var(--accent-dark); color: var(--cream); }
+  th {
+    padding: 14px 13px;
+    text-align: left;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  td {
+    padding: 13px;
+    border-bottom: 1px solid var(--soft);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(245,239,230,0.4); }
+  tr:hover td { background: var(--soft); }
+  td strong { color: var(--accent-dark); }
+
+  /* LIFECYCLE FLOW CARDS */
+  .flow {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .flow-header {
+    padding: 18px 24px;
+    background: linear-gradient(90deg, var(--paper) 0%, white 65%);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--soft);
+  }
+  .flow-header:hover { background: var(--soft); }
+  .flow-num {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--highlight);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .flow-title {
+    flex: 1;
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .flow-meta {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .flow-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  .flow.open .flow-body { max-height: 1500px; }
+  .flow-body-inner { padding: 22px 26px; }
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 16px;
+  }
+  .flow-block h5 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .flow-block p, .flow-block ul {
+    font-size: 13.5px;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .flow-block ul { padding-left: 16px; }
+  .flow-block li { margin-bottom: 4px; }
+  .flow-block strong { color: var(--accent-dark); }
+
+  .subjects {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    font-style: italic;
+    color: var(--accent-dark);
+    font-size: 13.5px;
+    line-height: 1.95;
+  }
+  .subjects .label {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .subjects div::before { content: '› '; color: var(--accent); }
+
+  /* VOICE BOX */
+  .voice-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--highlight);
+    border-radius: 4px;
+    padding: 26px 30px;
+    margin: 28px 0;
+  }
+  .voice-box h4 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: var(--accent-dark);
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    letter-spacing: normal;
+    font-weight: 500;
+  }
+  .voice-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
+  }
+  .voice-box li {
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+    border-bottom: 1px solid var(--soft);
+  }
+  .voice-box li strong { color: var(--accent-dark); }
+  .voice-box li::before { content: '— '; color: var(--accent); }
+
+  /* STOP DOING */
+  .stop-list { counter-reset: stop; margin-top: 20px; }
+  .stop-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--rust);
+    border-radius: 4px;
+    padding: 22px 28px 22px 78px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    position: relative;
+    counter-increment: stop;
+  }
+  .stop-item::before {
+    content: counter(stop, decimal-leading-zero);
+    position: absolute;
+    left: 26px;
+    top: 22px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--rust);
+  }
+  .stop-item h4 {
+    margin: 0 0 6px;
+    color: var(--rust);
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: normal;
+  }
+  .stop-item p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+  .stop-item p strong { color: var(--accent-dark); }
+  .stop-item.urgent { border-left-color: var(--crisis); }
+  .stop-item.urgent h4 { color: var(--crisis); }
+  .stop-item.urgent::before { color: var(--crisis); }
+
+  /* SOFT ASKS */
+  .ask {
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--highlight);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+  }
+  .ask .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--highlight);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .ask h4 {
+    margin: 0 0 8px;
+    color: var(--accent-dark);
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    letter-spacing: normal;
+    font-weight: 500;
+  }
+  .ask p { font-size: 14.5px; color: var(--ink); line-height: 1.65; margin: 0; }
+  .ask p strong { color: var(--accent-dark); }
+
+  /* RECS TO INTERNAL TEAM */
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .rec {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .rec h4 {
+    margin: 0 0 8px;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    color: var(--accent-dark);
+    letter-spacing: normal;
+    font-weight: 600;
+  }
+  .rec p { font-size: 13.5px; color: var(--muted); margin: 0; line-height: 1.55; }
+
+  /* CLOSING */
+  .closing {
+    background: linear-gradient(180deg, var(--accent-dark) 0%, #3a2e1e 100%);
+    color: var(--cream);
+    margin: 80px -24px 0;
+    padding: 88px 24px;
+  }
+  .closing .container { padding: 0 24px; }
+  .closing .section-num { color: var(--highlight); }
+  .closing h2 { color: var(--cream); }
+  .closing h2 em { color: var(--highlight); }
+  .closing p { color: rgba(245,239,230,0.88); font-size: 16px; line-height: 1.78; }
+  .closing p strong { color: var(--highlight); font-weight: 500; }
+  .closing .pull {
+    background: rgba(255,255,255,0.05);
+    border-color: var(--highlight);
+    color: var(--cream);
+  }
+  .closing .pull strong { color: var(--highlight); }
+
+  /* FOOTER */
+  footer {
+    background: #2a1f15;
+    color: rgba(245,239,230,0.5);
+    padding: 36px 24px;
+    text-align: center;
+    font-size: 13px;
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  footer p { margin: 0; color: inherit; }
+  footer .accent { color: var(--highlight); }
+
+  /* CAPTURE-POPUP SPEC BLOCK */
+  .spec-block {
+    background: linear-gradient(135deg, var(--paper) 0%, #ede2cf 100%);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--highlight);
+    border-radius: 4px;
+    padding: 36px 40px;
+    margin: 40px 0 60px;
+    box-shadow: var(--shadow-lg);
+  }
+  .spec-block .spec-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .spec-block h3 {
+    margin: 0 0 8px;
+    color: var(--accent-dark);
+    font-family: 'Georgia', serif;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+  .spec-block h3 em { font-style: italic; color: var(--accent-dark); }
+  .spec-block .spec-intro {
+    font-size: 15px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+  .spec-block h4.spec-heading {
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: normal;
+    margin: 32px 0 14px;
+  }
+
+  .voice-options { display: grid; gap: 10px; margin-bottom: 8px; }
+  .voice-option {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 22px;
+    box-shadow: var(--shadow);
+  }
+  .voice-option.recommended { border-left: 3px solid var(--highlight); }
+  .voice-option .voice-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .voice-option.recommended .voice-label { color: var(--accent); }
+  .voice-option .voice-headline {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin: 0 0 6px;
+    font-style: italic;
+    line-height: 1.3;
+  }
+  .voice-option .voice-subhead {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .mockups-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 14px 0 8px;
+  }
+  .popup-mockup .mockup-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .popup-frame {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 30px 30px 26px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .popup-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: var(--muted);
+    line-height: 1;
+    cursor: default;
+    font-family: inherit;
+  }
+  .popup-eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+  .popup-headline {
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+    color: var(--ink);
+    font-style: italic;
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+  .popup-subhead {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0 0 22px;
+  }
+  .dest-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .dest-chips span {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .dest-chips span.selected {
+    background: var(--accent-dark);
+    color: var(--cream);
+    border-color: var(--accent-dark);
+  }
+  .form-field {
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0 8px;
+    margin-bottom: 6px;
+  }
+  .form-field span {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .popup-cta {
+    background: var(--accent-dark);
+    color: var(--cream);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 14px 0;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    margin-top: 18px;
+    cursor: default;
+  }
+  .popup-fineprint {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 14px 0 0;
+    font-style: italic;
+    line-height: 1.55;
+  }
+
+  .confirmation-row {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+  }
+  .confirmation-row .conf-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .confirmation-row .conf-text {
+    font-family: 'Georgia', serif;
+    font-size: 14.5px;
+    color: var(--accent-dark);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .confirmation-row .conf-text.plain {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .build-note {
+    background: var(--accent-dark);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 20px 26px;
+    margin-top: 22px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .build-note .bn-label {
+    color: var(--highlight);
+    text-transform: uppercase;
+    font-size: 10px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+  }
+  .build-note em { color: var(--highlight); font-style: italic; }
+
+  /* MOBILE */
+  @media (max-width: 720px) {
+    .hero { padding: 56px 20px 44px; }
+    .container { padding: 44px 20px; }
+    h2 { font-size: 26px; }
+    h3 { font-size: 19px; }
+    section { margin-bottom: 60px; }
+    .pull { font-size: 17px; padding: 22px 24px; }
+    .phase-header { padding: 22px 24px; }
+    .phase-body-inner { padding: 24px 22px; }
+    .workstream { padding-left: 42px; }
+    .workstream::before { font-size: 18px; }
+    .hours-band { padding: 20px 22px; }
+    .closing { margin: 60px -20px 0; padding: 60px 20px; }
+    .stop-item { padding: 22px 22px 22px 60px; }
+    .stop-item::before { left: 18px; }
+    .spec-block { padding: 26px 24px; }
+    .spec-block h3 { font-size: 22px; }
+    .mockups-row { grid-template-columns: 1fr; }
+    .popup-frame { padding: 24px 22px 22px; }
+    .popup-headline { font-size: 19px; }
+  }
+
+  /* ============================================================
+     ONE-PAGER VIEW
+     ============================================================ */
+  .view-toggle {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  .view-toggle button {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 9px 22px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .view-toggle button:hover { color: var(--accent-dark); }
+  .view-toggle button.active {
+    background: var(--accent-dark);
+    color: var(--cream);
+    border-color: var(--accent-dark);
+  }
+
+  .one-pager { display: none; }
+  .one-pager.active { display: block; }
+  .full-plan { display: none; }
+  .full-plan.active { display: block; }
+
+  .op-hero {
+    background: linear-gradient(180deg, #ede2cf 0%, #f5efe6 100%);
+    padding: 64px 24px 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .op-hero .prep-by {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .op-hero .prep-by strong { color: var(--accent-dark); font-weight: 700; }
+  .op-hero h1 {
+    font-size: clamp(30px, 4.4vw, 46px);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .op-hero h1 em { font-style: italic; color: var(--accent-dark); }
+  .op-hero .op-meta {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 14px;
+  }
+
+  .op-container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+  .op-block { margin-bottom: 56px; }
+  .op-block:last-child { margin-bottom: 0; }
+  .op-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .op-block h2 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(24px, 2.8vw, 30px);
+    font-weight: 400;
+    line-height: 1.28;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  .op-block h2 em { font-style: italic; color: var(--accent-dark); }
+  .op-block > p {
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .op-block > p strong { color: var(--accent-dark); font-weight: 600; }
+  .op-block > p em { font-style: italic; color: var(--accent-dark); }
+
+  .op-cost {
+    background: var(--accent-dark);
+    color: var(--cream);
+    border-radius: 4px;
+    padding: 36px 32px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .op-cost .cost-eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--highlight);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .op-cost .cost-number {
+    font-family: 'Georgia', serif;
+    font-size: clamp(34px, 5.2vw, 50px);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--cream);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .op-cost .cost-number em { font-style: italic; color: var(--highlight); }
+  .op-cost .cost-note {
+    font-size: 14.5px;
+    color: rgba(245, 239, 230, 0.82);
+    line-height: 1.65;
+    font-style: italic;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .op-cost .cost-note strong { color: var(--highlight); font-style: normal; font-weight: 600; }
+
+  /* 3-MONTH TIMELINE */
+  .op-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+  }
+  @media (max-width: 720px) { .op-timeline { grid-template-columns: 1fr; } }
+  .op-month {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .op-month.peak { border-left: 3px solid var(--accent); }
+  .op-month .month-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .op-month .month-theme {
+    font-family: 'Georgia', serif;
+    font-size: 19px;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+  }
+  .op-month .month-theme em { font-style: italic; color: var(--accent-dark); }
+  .op-month .month-cost {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--soft);
+  }
+  .op-month .month-cost strong {
+    color: var(--accent-dark);
+    font-weight: 600;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+  }
+  .op-month ul { list-style: none; padding: 0; margin: 0; }
+  .op-month li {
+    padding: 7px 0 7px 16px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink);
+    position: relative;
+  }
+  .op-month li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .op-month li strong { color: var(--accent-dark); }
+
+  /* COMPRESS NOTE */
+  .op-compress {
+    background: linear-gradient(135deg, #f0e9d8 0%, #e8dcc8 100%);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--highlight);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-top: 14px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .op-compress .compress-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.25em;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    font-weight: 700;
+    flex-shrink: 0;
+    padding-top: 3px;
+    white-space: nowrap;
+  }
+  .op-compress p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--ink);
+  }
+  .op-compress p strong { color: var(--accent-dark); font-weight: 600; }
+  @media (max-width: 720px) {
+    .op-compress { flex-direction: column; gap: 8px; padding: 18px 20px; }
+  }
+
+  .op-scope {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 18px;
+  }
+  @media (max-width: 720px) { .op-scope { grid-template-columns: 1fr; } }
+  .op-col {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .op-col.zapp { border-left: 3px solid var(--accent); }
+  .op-col.team { border-left: 3px solid var(--green); }
+  .op-col .who {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .op-col.zapp .who { color: var(--accent); }
+  .op-col.team .who { color: var(--green); }
+  .op-col ul { list-style: none; padding: 0; margin: 0; }
+  .op-col li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--soft);
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .op-col li:last-child { border-bottom: none; }
+  .op-col li strong { color: var(--accent-dark); }
+
+  .op-asks {
+    background: linear-gradient(135deg, #f0e9d8 0%, #e8dcc8 100%);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 28px 32px;
+  }
+  .op-asks .asks-intro {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 15px;
+    margin: 0 0 22px;
+    line-height: 1.6;
+  }
+  .op-asks .asks-intro strong { color: var(--accent-dark); font-style: normal; font-weight: 600; }
+  .op-asks ol {
+    list-style: none;
+    counter-reset: ask-counter;
+    padding: 0;
+    margin: 0;
+  }
+  .op-asks li {
+    counter-increment: ask-counter;
+    padding: 14px 0 14px 48px;
+    position: relative;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(140, 110, 70, 0.15);
+  }
+  .op-asks li:last-child { border-bottom: none; padding-bottom: 0; }
+  .op-asks li:first-child { padding-top: 0; }
+  .op-asks li:first-child::before { top: -2px; }
+  .op-asks li::before {
+    content: counter(ask-counter);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--accent-dark);
+    line-height: 1;
+  }
+  .op-asks li strong { color: var(--accent-dark); font-weight: 600; }
+  .op-asks li em { font-style: italic; color: var(--accent-dark); }
+
+  .op-day90 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .op-stat {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 18px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .op-stat .stat-num {
+    font-family: 'Georgia', serif;
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--accent-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .op-stat .stat-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .op-day90-note {
+    margin-top: 22px;
+    font-size: 15.5px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.65;
+  }
+  .op-day90-note strong { color: var(--accent-dark); font-style: normal; font-weight: 600; }
+
+  .op-quote {
+    background: linear-gradient(135deg, var(--paper) 0%, #ede2cf 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 30px 34px;
+    font-family: 'Georgia', serif;
+    font-size: 21px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-style: italic;
+    letter-spacing: -0.005em;
+  }
+  .op-quote strong { color: var(--accent-dark); font-style: normal; font-weight: 600; }
+  .op-quote .attribution {
+    display: block;
+    margin-top: 16px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    color: var(--accent);
+    font-style: normal;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .op-cta {
+    text-align: center;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+  .op-cta .cta-eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .op-cta button {
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    font-style: italic;
+    background: var(--accent-dark);
+    color: var(--cream);
+    border: none;
+    padding: 16px 36px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+    letter-spacing: -0.005em;
+  }
+  .op-cta button:hover { background: #4a3a26; }
+  .op-cta button .arrow { margin-left: 10px; color: var(--highlight); font-style: normal; }
+
+  @media (max-width: 720px) {
+    .op-hero { padding: 48px 20px 36px; }
+    .op-container { padding: 40px 20px 60px; }
+    .op-block { margin-bottom: 44px; }
+    .op-cost { padding: 28px 22px; }
+    .op-asks { padding: 24px 22px; }
+    .op-asks li { padding-left: 40px; font-size: 15px; }
+    .op-quote { padding: 24px 22px; font-size: 18px; }
+    .view-toggle { padding: 10px 16px; }
+    .view-toggle button { padding: 8px 16px; font-size: 10.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="view-toggle">
+  <button class="active" data-view="summary">Summary</button>
+  <button data-view="full">Full plan</button>
+</div>
+
+<!-- ============================================================
+     ONE-PAGER (default view)
+     ============================================================ -->
+<div class="one-pager active">
+
+  <header class="op-hero">
+    <p class="prep-by">Prepared by <strong>Zapp Studios</strong> · For Pecan Moon, Inc.</p>
+    <h1>The plan, <em>on one page.</em></h1>
+    <div class="op-meta">90-day engagement · April 2026</div>
+  </header>
+
+  <div class="op-container">
+
+    <!-- The read -->
+    <div class="op-block">
+      <div class="op-label">The read</div>
+      <h2>3,000 visits last month. <em>One sale.</em></h2>
+      <p>The funnel from your Shopify dashboard: <strong>28 women added something to cart. 25 walked all the way to the checkout page. One actually paid.</strong> The product isn't the problem — they wanted it.</p>
+      <p>The problem is the gap between <em>interest</em> and <em>purchase</em>. At Pecan Moon's price tier ($300–$1,500 per piece), the research is consistent: a luxury buyer needs to see a brand <strong>15–20 times</strong> — across emails, social, photographs, conversations — before she's ready to commit. Right now the site has no way to reach her after she leaves. Every visit is <strong>one-and-done</strong>. The 24 women who almost bought last month? Gone. No email, no phone, no way back to them.</p>
+      <p><strong>What we build is the part that catches them.</strong> An email + SMS engine running underneath the website that captures her contact on the way in, follows up with thoughtful notes signed by you over the days and weeks after — and turns every visit into a list, the list into a ritual buyers anticipate on a Tuesday morning, and the ritual into a brand that grows on its own.</p>
+    </div>
+
+    <!-- What it costs -->
+    <div class="op-block">
+      <div class="op-label">What it costs</div>
+      <div class="op-cost">
+        <div class="cost-eyebrow">90-day build</div>
+        <div class="cost-number"><em>~$4,275</em> total</div>
+        <div class="cost-note">$75/hour × ~57 hours, spread across three phases. After the build: <strong>$750–$1,500/month</strong> for the bi-weekly optimization rhythm. Cancel any time.</div>
+      </div>
+
+      <div class="op-timeline">
+        <div class="op-month">
+          <div class="month-label">Month 1 · Days 1–30</div>
+          <div class="month-theme">Stop <em>the leak.</em></div>
+          <div class="month-cost">~18 hrs · <strong>$1,350</strong></div>
+          <ul>
+            <li>Email-capture <strong>destination quiz</strong> installed (Klaviyo wired up to Shopify)</li>
+            <li>About page extended to a <strong>founder letter</strong> in Mary's voice</li>
+            <li>Order-confirmation email rewritten as a signed founder note</li>
+            <li>Site fixes: homepage categories, mobile hero video, free-shipping threshold dropped to $395</li>
+            <li>Knitwear price ladder re-anchored — Angela ($1,550) shows first</li>
+          </ul>
+        </div>
+        <div class="op-month peak">
+          <div class="month-label">Month 2 · Days 31–60</div>
+          <div class="month-theme">Turn on <em>the engine.</em></div>
+          <div class="month-cost">~22 hrs · <strong>$1,650</strong></div>
+          <ul>
+            <li><strong>Five lifecycle flows live</strong> — Welcome, Cart-Abandon, Browse-Abandon, Post-Purchase, Win-Back</li>
+            <li><strong>First Tuesday Edit</strong> in inboxes — founder cadence begins</li>
+            <li>Reviews infrastructure (Okendo) installed, building the pipeline quietly</li>
+          </ul>
+        </div>
+        <div class="op-month">
+          <div class="month-label">Month 3 · Days 61–90</div>
+          <div class="month-theme">Layer + <em>compound.</em></div>
+          <div class="month-cost">~17 hrs · <strong>$1,275</strong></div>
+          <ul>
+            <li><strong>SMS soft-launch</strong> (cart-abandon + drop alerts) once list crosses 250</li>
+            <li><strong>Trip-planning flow</strong> keyed to destination — Tulum, Capri, Round Top, Hamptons</li>
+            <li><strong>VIP / Founding-100</strong> sequence for first-100 customers</li>
+            <li>Drop-launch template + first optimization round on the original five flows</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="op-compress">
+        <div class="compress-label">Need it faster?</div>
+        <p>The full 90-day build can be compressed into a <strong>single month at ~57 hours</strong> if your launch calendar requires it — same scope, same total price ($4,275). Requires a written scope change and confirmed availability on our side.</p>
+      </div>
+    </div>
+
+    <!-- Who does what -->
+    <div class="op-block">
+      <div class="op-label">Who does what</div>
+      <h2>What we do, <em>what your team does.</em></h2>
+      <div class="op-scope">
+        <div class="op-col zapp">
+          <div class="who">Zapp Studios</div>
+          <ul>
+            <li><strong>Shopify</strong> — maintenance, theme, drops, app stack</li>
+            <li><strong>Email</strong> — 2 campaigns/month + Tuesday Edit</li>
+            <li><strong>SMS</strong> — full management, soft-launch at 250+ opt-ins</li>
+            <li><strong>Lifecycle flows</strong> — built, written, segmented, A/B tested</li>
+            <li><strong>Bi-weekly</strong> performance review + ad recommendations</li>
+            <li><strong>Competitor + market research</strong>, ongoing</li>
+            <li><strong>Monthly strategy call</strong></li>
+          </ul>
+        </div>
+        <div class="op-col team">
+          <div class="who">Pecan Moon team</div>
+          <ul>
+            <li><strong>Paid ads</strong> — Meta, Pinterest, Google, TikTok</li>
+            <li><strong>Social</strong> — IG, TikTok, FB content + cadence</li>
+            <li><strong>Photo + creative</strong> — shoots, lookbooks, product</li>
+            <li><strong>Trunk shows + live events</strong></li>
+            <li><strong>Press</strong> — Garden &amp; Gun, Tribeza, Texas Monthly</li>
+            <li><strong>Wholesale</strong> — MARKET, By George, Hampden, Marina</li>
+            <li><strong>Retail + pop-ups</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Five things only Mary can do -->
+    <div class="op-block">
+      <div class="op-label">For Mary, specifically</div>
+      <h2>Five things <em>only you can do.</em></h2>
+      <div class="op-asks">
+        <p class="asks-intro">~3 hours per month, total. Each one is genuinely optional — the plan works without them. <strong>Each one is also more leverage than any paid channel for the same dollar.</strong></p>
+        <ol>
+          <li><strong>One real photograph of you</strong> — Austin atelier or at home. Not a glossy shoot. One image we use everywhere.</li>
+          <li><strong>One 60-second voice note</strong> on why Pecan Moon exists. We transcribe it into Welcome Email #2 — the most-read piece of mail the brand will send anyone for the next year.</li>
+          <li><strong>Sign ~5 reply emails per month</strong> on $500+ abandoned carts. <em>"Mary here. Saw you saved the Maria. Anything I can help with on fit?"</em> Founder concierge — operationally feasible, impossible at scale.</li>
+          <li><strong>200 words once a month</strong> in your voice for the Tuesday Edit. What you're wearing or where you're going. We ghostwrite the other Tuesday.</li>
+          <li><strong>~30 handwritten birthday cards in Year 1</strong> — the Cucinelli ritual at founder scale. ~100 in Year 2, ~300 by Year 3.</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- What Day 90 looks like -->
+    <div class="op-block">
+      <div class="op-label">What Day 90 looks like</div>
+      <div class="op-day90">
+        <div class="op-stat">
+          <div class="stat-num">2,500</div>
+          <div class="stat-label">emails on the list</div>
+        </div>
+        <div class="op-stat">
+          <div class="stat-num">~80</div>
+          <div class="stat-label">orders</div>
+        </div>
+        <div class="op-stat">
+          <div class="stat-num">$25–35K</div>
+          <div class="stat-label">revenue (floor)</div>
+        </div>
+        <div class="op-stat">
+          <div class="stat-num">5</div>
+          <div class="stat-label">flows live, 24/7</div>
+        </div>
+      </div>
+      <p class="op-day90-note">By Day 90 the Tuesday Edit ritual has started. Mary's voice is in inboxes. Reviews infrastructure is wired up, ready to surface once 10+ reviews come in. <strong>By Month 6, the same site that converted 1 in 2,800 visits this month should convert 30–40 — with no additional traffic. That's the slope we're underwriting.</strong></p>
+    </div>
+
+    <!-- The moat -->
+    <div class="op-block">
+      <div class="op-quote">
+        At the bottom of the luxury market, scale wins by spending more. <strong>At the top of emerging luxury, scale wins by doing the things physically impossible to do at scale.</strong>
+        <span class="attribution">The moat</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="op-cta">
+      <p class="cta-eyebrow">For the team building it</p>
+      <button onclick="switchView('full')">See the full 90-day plan <span class="arrow">&rarr;</span></button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     FULL PLAN (technical execution document)
+     ============================================================ -->
+<div class="full-plan">
+
+<header class="hero">
+  <p class="prep-by">Prepared by <strong>Zapp Studios</strong> · For Pecan Moon, Inc.</p>
+  <div class="eyebrow">90-Day Launch Plan · April 2026</div>
+  <h1>Pecan Moon has demand. <em>The machinery to convert it doesn't exist yet.</em></h1>
+  <p class="subtitle">A 90-day plan to build the email + SMS engine that turns 3,000 monthly visits into a list, a ritual, and a brand that compounds.</p>
+  <div class="meta">
+    <span>The read</span>
+    <span>What we build</span>
+    <span>30 / 60 / 90</span>
+    <span>Lifecycle map</span>
+  </div>
+</header>
+
+<nav class="toc-wrap">
+  <div class="toc">
+    <a href="#read">The Read</a>
+    <a href="#scope">Scope</a>
+    <a href="#build">90-Day Build</a>
+    <a href="#targets">Targets</a>
+    <a href="#lifecycle">Lifecycle</a>
+    <a href="#team">For The Team</a>
+    <a href="#stop">Stop Doing</a>
+    <a href="#asks">Mary's Moves</a>
+    <a href="#vision">The Moat</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- 01 — THE READ -->
+  <section id="read">
+    <div class="section-num">Section 01 · The Read</div>
+    <h2>What the Shopify says, <em>and what to do about it.</em></h2>
+    <p class="section-intro">Pulled directly from your Shopify dashboard. Last reporting window: ~3,000 sessions (≈1,650 of those warm visits from Instagram and Facebook). 28 add-to-carts. 25 reached checkout. <strong>1 purchased.</strong></p>
+
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="stage">Sessions</div>
+        <div class="number">3,000</div>
+        <div class="pct">~55% warm social</div>
+      </div>
+      <div class="funnel-step">
+        <div class="stage">Add to Cart</div>
+        <div class="number">28</div>
+        <div class="pct">0.93% — on luxury pace</div>
+      </div>
+      <div class="funnel-step">
+        <div class="stage">Reached Checkout</div>
+        <div class="number">25</div>
+        <div class="pct">89% — strong intent</div>
+      </div>
+      <div class="funnel-step crisis">
+        <div class="stage">Purchased</div>
+        <div class="number">1</div>
+        <div class="pct">4% completion</div>
+      </div>
+    </div>
+
+    <div class="diagnosis-card">
+      <h4>The honest read.</h4>
+      <p>Demand is real. <strong>25 women walked all the way to the price reveal.</strong> The funnel wasn't broken — <strong>it was never built.</strong></p>
+      <p>0.93% add-to-cart is on pace for luxury launch (Statista 2025: 0.7–0.94%). The 4% checkout completion is off, but fixing checkout alone won't compound. Three things are leaking at once.</p>
+    </div>
+
+    <h3>Three leaks, stacked.</h3>
+
+    <h4>1 · No email or SMS capture exists.</h4>
+    <p>No welcome popup. No quiz. No newsletter form above the fold. Just a passive form in the footer that most visitors never see. <strong>Of the ~2,975 visits last month that left without buying, essentially zero gave permission to be contacted again.</strong> Every dollar of traffic — paid, organic, Instagram — is one-and-done. At Pecan Moon's price point ($300–$1,500+ per piece), the typical luxury buyer needs 15–20+ touchpoints across emails, ads, content, and brand exposure before they commit. Without an owned email list, none of those touchpoints can come from us after they leave the site.</p>
+
+    <h4>2 · The site under-sells itself at every touchpoint.</h4>
+    <p>Generic SEO tagline ("Luxury Resort Wear" — the line every competitor in the category could use verbatim). Free shipping at $1,000 (only triggers for buyers of the Angela poncho — invisible to anyone else). About page names Mary but doesn't yet hand her the microphone — no founder portrait, no signed letter, no Mediterranean-to-Austin origin on the page. <strong>Already working — don't touch:</strong> Shop Pay Installments render correctly on every product page ($495 Maria shows as <em>"$123.75 × 4"</em>) — that four-payment option at the price-reveal moment is doing real work, and it's the one piece of the funnel that's already wired correctly.</p>
+
+    <h4>3 · The category's biggest unclaimed opening is a founder-voice editorial — and that's where Mary fits.</h4>
+    <p>Before writing this plan, we mapped twelve direct competitors in luxury resort wear at Pecan Moon's price tier — Zimmermann, Ulla Johnson, La DoubleJ, Cuyana, Khaite, Sézane, and others — looking specifically at how each one speaks to its customer through email and on-site copy.</p>
+    <p>The pattern that jumped out: <strong>only one of the twelve runs a true first-person founder voice.</strong> La DoubleJ's bi-weekly editorial — written by JJ Martin in her own voice, signed by her, opinionated, personal — is the only place in the entire category where the customer hears the founder directly. Zimmermann uses an anonymous brand voice. Ulla Johnson sends product drops with no editorial. The rest sit somewhere in the middle: clean, polished, and faceless.</p>
+    <p>That's the structural opening. <strong>Mary's Mediterranean-to-Austin story is a ready-made template for the same lane</strong> — and the Texan-Mediterranean register specifically isn't being occupied by anyone in the category. The 90-day plan that follows is, at its core, the system for putting Mary's voice into the buyer's inbox at the moments that matter.</p>
+
+    <div class="pull">
+      The thesis: <strong>Mary's voice is the moat. Our job is the machinery that lets it scale.</strong> A "flow" is an automated email or SMS sequence triggered by a specific customer action — landing on the site, abandoning a cart, finishing a purchase. Klaviyo (the email/SMS platform we'll build on) tracks this across the entire apparel industry: flows generate <strong>41% of total email revenue while making up only 5.3% of total sends.</strong> For a brand at Pecan Moon's stage — short list, high price point, scarce attention — that ratio is the most important number in the entire engagement. It's the lever we exist to pull.
+    </div>
+  </section>
+
+  <!-- 02 — SCOPE -->
+  <section id="scope">
+    <div class="section-num">Section 02 · Scope</div>
+    <h2>What we do, what your team does, <em>where the hours go.</em></h2>
+    <p class="section-intro">Per consulting agreement signed April 27, 2026.</p>
+
+    <div class="scope-grid">
+      <div class="scope-col zapp">
+        <div class="who">Zapp Studios — In Scope</div>
+        <h4>The lifecycle, the storefront, the data.</h4>
+        <ul>
+          <li><strong>Shopify:</strong> ongoing maintenance, theme edits, surfacing the Shop Pay four-payment option, re-merchandising the price ladder so it anchors correctly, app-stack hygiene, new product drops.</li>
+          <li><strong>Email:</strong> 2 campaigns/month — Tuesday Edit cadence + 1 editorial moment.</li>
+          <li><strong>SMS:</strong> full management; soft-launch when list crosses ~250 opt-ins.</li>
+          <li><strong>Lifecycle flows:</strong> built, written, segmented, A/B tested. Five live by Day 60.</li>
+          <li><strong>Bi-weekly optimization:</strong> ad/SMS performance review; recommendations to internal ad team.</li>
+          <li><strong>Competitor &amp; market research:</strong> ongoing scan with delivered insights.</li>
+          <li><strong>Monthly strategy call:</strong> 1/month with design + marketing.</li>
+        </ul>
+      </div>
+      <div class="scope-col team">
+        <div class="who">Pecan Moon Internal — Out of Scope</div>
+        <h4>The brand, the buyers, the cameras.</h4>
+        <ul>
+          <li><strong>Paid ads:</strong> Meta, Pinterest, Google, TikTok creation/management. We optimize bi-weekly; you run.</li>
+          <li><strong>Social:</strong> IG, TikTok, FB content + cadence.</li>
+          <li><strong>Photo &amp; creative:</strong> shoots, lookbooks, product photography.</li>
+          <li><strong>Trunk shows &amp; events:</strong> Round Top, F1 COTA, Nashville Symphony, Iroquois Steeplechase, Junior League.</li>
+          <li><strong>Press:</strong> Garden &amp; Gun, Tribeza, Texas Monthly, Air Mail.</li>
+          <li><strong>Wholesale:</strong> MARKET Highland Park, By George, Hampden, Marina St Barth.</li>
+          <li><strong>Retail / pop-ups:</strong> physical activation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hours-band">
+      <div>
+        <div class="h-label">Hour budget</div>
+        <div class="h-num">10–20 <span style="font-size: 14px; font-style: normal; opacity: 0.7;">hrs / month</span></div>
+      </div>
+      <div>
+        <div class="h-label">Rate</div>
+        <div class="h-num">$75 <span style="font-size: 14px; font-style: normal; opacity: 0.7;">/ hour</span></div>
+      </div>
+      <div>
+        <div class="h-label">Subcontractor</div>
+        <div class="h-num">Zena <span style="font-size: 14px; font-style: normal; opacity: 0.7;">— platform access</span></div>
+      </div>
+      <div class="h-note">~18 Month 1 (build) · ~22 Month 2 (five flows go live — right at the ceiling) · ~17 Month 3 (optimize). 90-day total ~57 hrs. Compressing into a single month = ~50–60 hrs that month and requires a written scope change.</div>
+    </div>
+  </section>
+
+  <!-- 03 — THE BUILD -->
+  <section id="build">
+    <div class="section-num">Section 03 · The 90-Day Build</div>
+    <h2>Three phases. <em>Each one earns the next.</em></h2>
+    <p class="section-intro">Phase 1 stops the bleed. Phase 2 turns on the engine. Phase 3 makes it compound.</p>
+
+    <div class="insight">
+      <h4>Site audit — first read from the build team.</h4>
+      <p style="font-size: 14px; color: var(--muted); font-style: italic; margin-bottom: 16px;">Zena, our build lead, will be the day-to-day executor on this engagement. Below is what she flagged on her first pass through the live site, before any of the workstreams below were drafted. Each is folded into Phase 1.</p>
+      <p><strong>Homepage category mix.</strong> Swimwear, coverups, and dresses currently live on one page — visitors arriving from Instagram can't tell at a glance what they're shopping. Phase 1 includes clearer category separation.</p>
+      <p><strong>Hero video on iPhone.</strong> The video currently fills the entire mobile screen — visitors can't tell what the site is about without scrolling. We'll test a smaller crop or a static image fallback so the brand identity lands above the fold.</p>
+      <p><strong>Instagram bio link.</strong> Most of the warm traffic comes from Instagram, where visitors arrive in shopping mode, not brand-discovery mode. Right now the IG bio sends them to the homepage; we'll repoint it to the catalog page so the path to a product is one tap shorter.</p>
+      <p style="margin-top: 14px; font-size: 13.5px; color: var(--muted);"><strong>Already in place:</strong> Instagram Shop is on (no work needed). <strong>Two design dependencies on you:</strong> the welcome popup and the order-confirmation email both need Figma layouts before we can build them.</p>
+    </div>
+
+    <div class="phase open">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div>
+          <div class="phase-label">Phase 01 · Days 1–30</div>
+          <h3>Stop the leak. <em>Capture every visit.</em></h3>
+          <div class="phase-summary">By Day 30: nothing on the site is hurting trust, the four-payment Shop Pay option is surfaced where it counts, every visit has a way to opt into the email list, and the founder is named and faced.</div>
+        </div>
+        <span class="toggle-icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="phase-body-inner">
+          <div class="phase-narrative">
+            <p><strong>Highest-impact action: install the destination quiz.</strong> ~3,000 visits/month with zero captured emails is the leak that costs us most. An email captured Week 2 is in the welcome flow by Week 5.</p>
+          </div>
+
+          <div class="ws-wrap">
+
+            <div class="workstream">
+              <h4>Lock Vitals' Live View / Sales Pop OFF</h4>
+              <p>Currently off (correct). At 1 verified sale, any "someone just bought" toast reads as fabricated. Audit Vitals admin and document live features.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~0.5 hr</span>
+              <span class="ws-meta">Week 1</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Reorder the Knitwear collection so Angela ($1,550) shows first</h4>
+              <p>Pecan Moon's knitwear has a textbook three-tier price ladder — Bella at $295, Maria at $495, Angela at $1,550 — but it currently displays alphabetically, which means the highest-priced piece is buried at the end. <strong>Showing Angela first makes Maria read as the comfortable middle</strong>, which is the same anchoring move Hermès and Williams-Sonoma use deliberately. It shifts what people end up buying without changing any prices. 30-minute Shopify drag-and-drop.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~0.5 hr</span>
+              <span class="ws-meta">Week 1</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Drop free-shipping threshold from $1,000 to $395</h4>
+              <p>The current $1,000 threshold only triggers for someone buying the Angela poncho — every other buyer sees a free-shipping promise that doesn't apply to them, which reads worse than no promise at all. Setting it at $395 means the Maria, Olivia, Bella + accessories tier all qualify, and that's the price band we actually want to be growing into. No discount, no compromise to the brand register.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~0.25 hr</span>
+              <span class="ws-meta">Week 1</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Replace SEO meta tagline with named-provenance copy</h4>
+              <p>Current: "Luxury Resort Wear" (generic). New: <em class="q">"Hand-finished knitwear, designed in Austin, made for the way you travel."</em> Promo bar + footer.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~1 hr</span>
+              <span class="ws-meta">Week 1–2</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Homepage category separation</h4>
+              <p>Swim, coverups, dresses currently mixed on one page. Restructure so visitors can tell at a glance what they're shopping. Split into clear category tiles.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~2 hrs</span>
+              <span class="ws-meta">Week 2</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Hero video mobile fix</h4>
+              <p>Hero takes the full screen on iPhone — brand identity is invisible without scroll. Test smaller crop or static image so the value prop is above the fold on mobile.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~1 hr</span>
+              <span class="ws-meta">Week 2</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Repoint Instagram bio link to the catalog page</h4>
+              <p>Most traffic is warm Instagram traffic, and those visitors arrive ready to shop, not to discover the brand. Sending them straight to the full catalog instead of the homepage takes one tap of friction out of the path to purchase. Five-minute change on Pecan Moon's side.</p>
+              <span class="ws-meta team">Team</span>
+              <span class="ws-meta hours">~5 min</span>
+              <span class="ws-meta">Week 1</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Install Klaviyo + the destination-quiz email capture</h4>
+              <p>Klaviyo is the email and SMS platform the rest of the lifecycle work runs on — used by Sézane, Cuyana, M.M.LaFleur, and most of the comparable luxury cohort. We connect it to Shopify so revenue attribution is honest from Day 1.</p>
+              <p><strong>The capture itself is a destination quiz, not a discount popup.</strong> Quizzes outperform discount popups at every list size we found (Sleeknote: 8.65% vs 4.13%; Riddle: a ~11× lift). And critically, a quiz never trains the buyer to wait for a sale — which at this price point matters more than any single optimization. Each subscriber gets tagged by destination, which becomes the trigger for the personalized trip-planning flow we'll build in Phase 3.</p>
+              <p><strong>Full mockup + voice options below this phase</strong> (the design spec Mary signs off on before Zena builds).</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs</span>
+              <span class="ws-meta">Week 2 — needs Figma</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Extend About page from brand-voice to founder-voice</h4>
+              <p>Current page is third-person. Draft first-person founder note: Mediterranean-to-Austin origin, why the name. Stage for design review. Photography sits in Mary's Moves (Section 08).</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs</span>
+              <span class="ws-meta">Week 2–3</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Rewrite the order-confirmation email as a founder letter</h4>
+              <p>Order confirmations open at 60%+ — the highest open rate of any email a brand will ever send. They're the most-read piece of mail you'll ever put in front of someone who just spent $495 with you. The current Shopify default reads like a receipt; we replace the body with a short founder-signed thank-you and a one-line preview of what's coming next ("It's hand-finished. It ships tomorrow. Here's how to receive it"). <strong>This is the very first piece of Mary's voice the customer ever hears in their inbox.</strong> <em>Needs a Figma layout from your side.</em></p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~2 hrs</span>
+              <span class="ws-meta">Week 3 — needs Figma</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Klaviyo audience setup — five core segments</h4>
+              <p>Inside Klaviyo we set up the five segments we'll need throughout the rest of the build: <em>engaged in the last 30 days, past purchasers, browsed-but-didn't-buy, destination-tagged from the quiz, and VIP candidates.</em> At a list this size, five is the right number — anything more is premature optimization. Then we connect Shopify properly so revenue attribution is honest from Day 1.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs</span>
+              <span class="ws-meta">Week 3–4</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Tech-stack audit + one-page memo</h4>
+              <p>Confirm Klaviyo, Vitals, Shop Pay Installments, any Postscript/Attentive trial, any review app. Document what to keep / disable / add.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~2 hrs</span>
+              <span class="ws-meta">Week 4</span>
+            </div>
+
+          </div>
+
+          <div class="phase-outcome">
+            <span class="label">By the end of Phase 01</span>
+            Nothing on the site hurts trust anymore. <strong>Every visit has a way to opt in to the email list.</strong> The price ladder anchors itself toward the middle tier. The Shop Pay four-payment option is visible at the moment of commitment. The free-shipping threshold actually applies to real buyers. The About page names and faces Mary. The order-confirmation email is the first piece of Mary's voice in the inbox.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAPTURE-POPUP SPEC -->
+    <div class="spec-block">
+      <div class="spec-label">Spec · Phase 1 · Email-capture popup</div>
+      <h3>The destination quiz, <em>designed.</em></h3>
+      <p class="spec-intro">The most consequential single piece of design work in the first thirty days is the email-capture popup. Below is the spec we propose Zena builds against. Mary picks the voice; everything else stays as drawn.</p>
+
+      <h4 class="spec-heading">Voice options for the headline · pick one</h4>
+      <div class="voice-options">
+        <div class="voice-option recommended">
+          <div class="voice-label">Option A · Quiet founder · Recommended</div>
+          <p class="voice-headline">Where are you going next?</p>
+          <p class="voice-subhead">We'll send you the pieces we'd pack ourselves — no discounts, no blasts, just the trip you were already planning, made easier.</p>
+        </div>
+        <div class="voice-option">
+          <div class="voice-label">Option B · Direct invitation</div>
+          <p class="voice-headline">Tell us where, and we'll pack the edit.</p>
+          <p class="voice-subhead">A five-piece capsule, sent the week before you go. Nothing on sale, nothing on autoplay.</p>
+        </div>
+        <div class="voice-option">
+          <div class="voice-label">Option C · First-person Mary</div>
+          <p class="voice-headline">A note from Mary —</p>
+          <p class="voice-subhead">If you tell me where you're going, I'll send you the pieces I'd pack for it myself.</p>
+        </div>
+      </div>
+
+      <h4 class="spec-heading">The two-step flow</h4>
+      <div class="mockups-row">
+        <div class="popup-mockup">
+          <div class="mockup-label">Step 1 — Destination</div>
+          <div class="popup-frame">
+            <button class="popup-close" aria-hidden="true">×</button>
+            <p class="popup-headline">Where are you going next?</p>
+            <p class="popup-subhead">We'll send you the pieces we'd pack ourselves — no discounts, no blasts.</p>
+            <div class="dest-chips">
+              <span>Tulum</span>
+              <span class="selected">Capri</span>
+              <span>Round Top</span>
+              <span>The Hamptons</span>
+              <span>Aspen</span>
+              <span>I'm just dreaming</span>
+            </div>
+          </div>
+        </div>
+        <div class="popup-mockup">
+          <div class="mockup-label">Step 2 — Email</div>
+          <div class="popup-frame">
+            <button class="popup-close" aria-hidden="true">×</button>
+            <p class="popup-eyebrow">Capri · selected</p>
+            <p class="popup-headline">Where should we send it?</p>
+            <div class="form-field"><span>Email</span></div>
+            <div class="form-field"><span>Phone (optional, for early drop access)</span></div>
+            <button class="popup-cta">Pack me for Capri</button>
+            <p class="popup-fineprint">A curated capsule, sent the week before each trip. Plus the occasional letter from the studio. Never a discount. Never a blast.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="confirmation-row">
+        <div>
+          <div class="conf-label">Confirmation — destination chosen</div>
+          <div class="conf-text">"It's coming. We'll see you in Capri. — M"</div>
+        </div>
+        <div>
+          <div class="conf-label">Confirmation — "I'm dreaming" path</div>
+          <div class="conf-text">"We'll send the next edit your way. — M"</div>
+        </div>
+        <div>
+          <div class="conf-label">Exit / dismiss copy</div>
+          <div class="conf-text plain">Plain × in the corner, or a small "Maybe later" link below the form. Never a guilt-trip line.</div>
+        </div>
+      </div>
+
+      <div class="build-note">
+        <span class="bn-label">For the build · note to Zena</span>
+        Destination must be saved to Klaviyo as a <em>profile property</em>, not just as a list signup. The trip-planning flow in Phase 3 fires on this property — if it's set up as list-only, we redo the segmentation in two months. Time-trigger the popup at 6 seconds (Sleeknote's tested optimum: 4.42% conversion vs. 2.64% for scroll-trigger).
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div>
+          <div class="phase-label">Phase 02 · Days 31–60</div>
+          <h3>Turn on the machine. <em>Five flows live.</em></h3>
+          <div class="phase-summary">By Day 60: every visitor flows through a sequence. Mary's first editorial is in inboxes.</div>
+        </div>
+        <span class="toggle-icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="phase-body-inner">
+          <div class="phase-narrative">
+            <p>Phase 1 captured permission. Phase 2 builds what uses it. Five flows do the heavy lifting — full architecture in Section 05.</p>
+          </div>
+
+          <div class="ws-wrap">
+
+            <div class="workstream">
+              <h4>Welcome flow — 5 emails over 10 days, no discount</h4>
+              <p>Welcome → founder letter (Day 2) → atelier story (Day 5) → curated capsule (Day 7) → soft invitation (Day 10). Email 2 = Mary's voice (see Mary's Moves Ask 02).</p>
+              <p>Apparel benchmark: 51% open, 2.32% placed-order. <strong>Pecan Moon target: 5–8% placed-order.</strong></p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~5 hrs</span>
+              <span class="ws-meta">Week 5</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Cart-abandon flow — 3 emails + optional SMS</h4>
+              <p>Triggers when someone fills a cart and leaves without buying. The standard ecommerce cadence is 1hr / 24hr / 72hr; for a $300+ cart that's too aggressive — luxury buyers research and consult before committing. We slow it to <strong>4hr / 36hr / 84hr</strong> instead. Email 1 is a quiet reminder. Email 2 adds styling context — what trip the piece is for, what climate it works in. Email 3 is the founder concierge: <em class="q">"Reply if Mary can help on fit."</em> <strong>No discount in any of the three emails — at this price point a discount-led recovery permanently dilutes pricing power.</strong></p>
+              <p>Industry average for apparel cart-abandon: 3.42% of recipients place an order, generating about $3.65 per recipient. The top 10% of brands hit 7.69%, generating $28.89 per recipient. <strong>Our target: 6–8% — meaning this single flow recovers 3–6 of the 24 near-buyers walking away every month.</strong></p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~4 hrs</span>
+              <span class="ws-meta">Week 5–6</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Browse-abandon flow — 2 emails, 60–90 min after view</h4>
+              <p>E1: hero of viewed product + 2 cross-sells. E2 (24hr): the world the piece lives in. <strong>Sell the daydream, not the SKU.</strong> Target: 1% conversion at 55%+ open.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~2.5 hrs</span>
+              <span class="ws-meta">Week 6</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Post-purchase flow — 5 emails over 30 days</h4>
+              <p>Pre-arrival anticipation email → care guide at +3 days → review and customer-photo ask at +14 days (the data-validated sweet spot for review submissions) → cross-sell + Founding-100 hint at +30 days. Post-purchase emails open at <strong>~217% above the average campaign open rate</strong> per Klaviyo's 2025 data — they're the cheapest place to manufacture the review pipeline.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~4 hrs</span>
+              <span class="ws-meta">Week 7</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Win-back flow — 3 emails, 120-day inactivity trigger</h4>
+              <p>Resort wear is seasonal — 120-day threshold (240-day follow-up). E1 newness ("while you've been away…"). E2 founder note. E3 permission-respecting opt-out. <strong>No discount.</strong></p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~2 hrs</span>
+              <span class="ws-meta">Week 7</span>
+            </div>
+
+            <div class="workstream">
+              <h4>First Tuesday Edit — founder-voice editorial cadence begins</h4>
+              <p><strong>1st-Tuesday + 3rd-Tuesday Edit, 10:00 AM CT.</strong> Founder-signed sender (<em class="q">Mary at Pecan Moon</em>). Mary writes/voice-notes the body; we build layout, curation, segmentation. Tuesday 10am CT owns a less-crowded inbox window — same logic that made Sézane's Wednesday/Sunday Paris drops a ritual.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs / campaign</span>
+              <span class="ws-meta">Week 6 ongoing</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Install reviews infrastructure (Okendo) — but don't surface yet</h4>
+              <p>Okendo (luxury-coded UI; Sézane, Cuyana, Mejuri use it). Post-purchase Day 14 email feeds the pipeline. <strong>Don't display until 10+ verified, photo-included reviews exist</strong> — below threshold, on-site display actively hurts.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~2 hrs</span>
+              <span class="ws-meta">Week 8</span>
+            </div>
+
+          </div>
+
+          <div class="phase-outcome">
+            <span class="label">By the end of Phase 02</span>
+            Five flows are live and firing. Every site visit now moves through a sequence the buyer can't see but feels. <strong>Mary's voice is in inboxes on a Tuesday cadence.</strong> The reviews infrastructure is wired up in the background, ready to display once enough reviews come in. We have ~30 days of real performance data to begin Phase 3 optimization. <strong>The 41%-of-email-revenue-from-flows benchmark stops being a target and starts being a number we measure.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div>
+          <div class="phase-label">Phase 03 · Days 61–90</div>
+          <h3>Layer, segment, <em>compound.</em></h3>
+          <div class="phase-summary">By Day 90: SMS is live for the moments where it outperforms email. Trip-planning flow keyed to destination. Drop-launch sequence templatized.</div>
+        </div>
+        <span class="toggle-icon">+</span>
+      </div>
+      <div class="phase-body">
+        <div class="phase-body-inner">
+          <div class="phase-narrative">
+            <p>Phase 1 = construction. Phase 2 = activation. Phase 3 = layering. Lighter hour budget (~14 hrs); most of it is flow optimization, not new build.</p>
+          </div>
+
+          <div class="ws-wrap">
+
+            <div class="workstream">
+              <h4>SMS soft-launch at 250+ opt-ins — cart abandon + drops only</h4>
+              <p>Industry benchmark from Klaviyo and Postscript (the two biggest SMS platforms): SMS becomes worth the ramp-up effort at ~250 opt-ins. We don't push SMS to the welcome flow or browse abandon — too pushy for an early list. We deploy it only in the two places where SMS materially outperforms email at this price point — <strong>cart abandon (where SMS recovers buyers at 2–3× the rate of email) and drop alerts</strong> (the Hill House Home model, where SMS subscribers get the link before public sites go live).</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs</span>
+              <span class="ws-meta">Week 9–10</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Trip-planning flow keyed to destination quiz tag</h4>
+              <p>3 emails per destination: <strong>T-30 days before trip (5-piece packing capsule) / T-14 (restock + accessories) / T-7 (founder's insider note for that specific destination).</strong> Once seeded, this is the highest lifetime-value flow in the entire architecture — buyers who pre-commit to a trip and pre-buy the wardrobe convert at far higher rates than browsers. <strong>And no direct-to-consumer luxury brand we studied has fully productized this — there's a moat available here that maps directly to the destination quiz from Phase 1.</strong></p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs</span>
+              <span class="ws-meta">Week 10–11</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Drop-launch sequence template — 5 emails + 2 SMS</h4>
+              <p>Reusable template for any new capsule or restock. T-14 mood / T-7 lookbook / T-3 waitlist (+SMS) / T-1 founder letter / T-0 live (+SMS) / T+24h sold-out honesty.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs</span>
+              <span class="ws-meta">Week 11</span>
+            </div>
+
+            <div class="workstream">
+              <h4>VIP / Founding-100 entry sequence</h4>
+              <p>Trigger: a customer hits any one of three thresholds — first 100 customers ever, lifetime spend over $500, or 2+ orders in a single season. Tag them <code>vip_founding_100</code>. They drop into a 3-email entry sequence: Day 0 ("you're one of the first 100"), Day 7 (atelier behind-the-scenes — fabric source, founder studio, video), Day 14 (personal SMS opt-in for early drop access). <strong>The reward is early access, not points or discount tiers.</strong> This is the model Tuckernuck VIP, M.M.LaFleur Members, Cuyana Lifestyle, and Louis Vuitton's invisible-VIP playbook all share.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs</span>
+              <span class="ws-meta">Week 11–12</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Birthday flow — 1 email + handwritten card</h4>
+              <p>T-7 days before birthday. Gift, not discount (Cucinelli template). Handwritten card from Mary is Ask 05.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~1 hr</span>
+              <span class="ws-meta">Week 12</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Optimization pass on the first five flows</h4>
+              <p>By Week 11 we have roughly 45 days of real performance data on the original five flows — opens, clicks, conversions, unsubscribes. <strong>This is where the bi-weekly optimization clauses in the contract earn their hours.</strong> A/B test subject lines on Welcome Email 1 and Cart-Abandon Email 2 (the two highest-impact open moments), revisit the timing if the third cart-abandon email is dropping unsubscribes, and tighten any segment that's underperforming. Every flow has its first optimization round behind it by end of Month 3.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~3 hrs</span>
+              <span class="ws-meta">Week 11–12</span>
+            </div>
+
+            <div class="workstream">
+              <h4>Surface reviews on product pages once 10+ verified reviews exist</h4>
+              <p>Turn on the Okendo review widget on every product page and on collection pages. Below ~10 reviews the on-site display actively hurts buyer trust at this price point — research from Spiegel and Han/Nunes/Drèze (2010) is unambiguous on this. <strong>This is the moment Pecan Moon crosses from "no social proof" to "compounding social proof"</strong> — the asset that quietly builds month after month and is the slope that compounds into Year 2.</p>
+              <span class="ws-meta zapp">Zapp</span>
+              <span class="ws-meta hours">~1 hr</span>
+              <span class="ws-meta">Week 12 — if threshold hit</span>
+            </div>
+
+          </div>
+
+          <div class="phase-outcome">
+            <span class="label">By the end of Phase 03</span>
+            <strong>Eight flows are live and triggering. SMS is running for the moments where it materially outperforms email. The trip-planning flow is converting destination-tagged buyers. The drop-launch sequence is templatized and ready to fire on the next collection. The first reviews are starting to surface on product pages.</strong> The system runs without us touching it day-to-day. The bi-weekly optimization rhythm is the work. <strong>Pecan Moon ends Phase 3 with a self-running lifecycle engine and a founder-voice ritual that exists nowhere else in the category.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 — TARGETS -->
+  <section id="targets">
+    <div class="section-num">Section 04 · Targets</div>
+    <h2>Floor numbers — <em>set to be hit.</em></h2>
+    <p class="section-intro">Compounding starts Month 4, not Month 3. Anything above is upside.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Metric</th><th>Day 30</th><th>Day 60</th><th>Day 90</th><th>Why this number</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Email list</strong></td>
+            <td>400</td>
+            <td>1,200</td>
+            <td>2,500</td>
+            <td>From 0. Realistic on ~3K monthly visits + quiz at 6%+.</td>
+          </tr>
+          <tr>
+            <td><strong>SMS list</strong></td>
+            <td>—</td>
+            <td>—</td>
+            <td>250–400</td>
+            <td>15–25% email→SMS carry-over. Soft-launch at 250+.</td>
+          </tr>
+          <tr>
+            <td><strong>Checkout completion</strong></td>
+            <td>12%</td>
+            <td>22%</td>
+            <td>35%</td>
+            <td>From 4% baseline. Luxury floor ~17%; 35% puts us above floor with cart-abandon as upside.</td>
+          </tr>
+          <tr>
+            <td><strong>Cart-abandon recovery</strong></td>
+            <td>—</td>
+            <td>3%</td>
+            <td>6%</td>
+            <td>Apparel industry average 3.42%; top 10% of brands hit 7.69%. Founder voice + the slowed cadence we use for high-priced carts should put us in the top quartile.</td>
+          </tr>
+          <tr>
+            <td><strong>Verified reviews</strong></td>
+            <td>0</td>
+            <td>5</td>
+            <td>15</td>
+            <td>Pipeline comes from the post-purchase Day 14 review ask. We don't display reviews on product pages until 10+ are in. <strong>This is the slope that compounds into Year 2.</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Average order value</strong></td>
+            <td>~$325</td>
+            <td>~$365</td>
+            <td>~$425</td>
+            <td>Re-merchandising the price ladder lifts the mix toward Maria ($495) without raising any prices.</td>
+          </tr>
+          <tr>
+            <td><strong>90-day revenue (floor)</strong></td>
+            <td>$4K</td>
+            <td>$12K</td>
+            <td>$25–35K</td>
+            <td>~80 orders × ~$425. Floor = no breakout campaign, no celebrity moment.</td>
+          </tr>
+          <tr>
+            <td><strong>Flow share of email revenue</strong></td>
+            <td>—</td>
+            <td>30%</td>
+            <td>45%+</td>
+            <td>Klaviyo's industry benchmark is 41%. Small lists at high price points typically over-index on flows because they're working harder per send.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="insight">
+      <h4>The compounding bet, in one paragraph.</h4>
+      <p>Year 1 from a brand-new luxury list disappoints when measured against paid acquisition. <strong>That isn't what this engagement is for.</strong> The bet: by Day 90, Pecan Moon owns a working email/SMS engine, ~15 reviews on the slope to 50, a Tuesday cadence buyers anticipate, and a founder voice structurally differentiated in the category. <strong>By Month 6, the same site that converted 1 in 2,800 visits this month should convert 30–40 with no additional traffic.</strong> That's the slope we're underwriting.</p>
+    </div>
+  </section>
+
+  <!-- 05 — LIFECYCLE MAP -->
+  <section id="lifecycle">
+    <div class="section-num">Section 05 · Lifecycle Map</div>
+    <h2>Ten flows, <em>plain English.</em></h2>
+    <p class="section-intro">A "flow" is an automated email or SMS sequence that fires when a customer takes a specific action — landing on the site, leaving a cart behind, finishing a purchase. Once they're built, they run in the background forever. Five flows go live in Phase 2, three more layer in during Phase 3, and two run on the calendar (birthday, seasonal). Tap any one to expand.</p>
+
+    <div class="flow-list">
+
+      <div class="flow open">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">01</div>
+          <div class="flow-title">Welcome</div>
+          <div class="flow-meta">5 emails · 10 days · email only</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>Email signup via quiz or footer. <strong>E1 +5min · E2 +24hr · E3 +72hr · E4 +6d · E5 +10d</strong></p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme per email</h5>
+              <ul>
+                <li>E1: Welcome + brand promise</li>
+                <li>E2: Founder letter (Mary's voice)</li>
+                <li>E3: Atelier / sourcing story</li>
+                <li>E4: Curated "first piece" capsule</li>
+                <li>E5: Soft invitation, not a discount</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target</h5>
+              <p>Apparel avg 51% open / 2.32% placed-order. <strong>Pecan Moon target: 5–8% placed-order.</strong></p>
+            </div>
+          </div>
+          <div class="subjects">
+            <span class="label">Subject lines — direction</span>
+            <div>"A note from Mary —"</div>
+            <div>"How Pecan Moon began"</div>
+            <div>"The linen we hunted for"</div>
+            <div>"For the way you travel"</div>
+            <div>"An invitation, when you're ready"</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">02</div>
+          <div class="flow-title">Cart-Abandon</div>
+          <div class="flow-meta">3 emails + 1 SMS · 4 days · highest revenue</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>Cart created, no checkout completed. <strong>E1 +4hr · SMS +8hr · E2 +36hr · E3 +84hr</strong> — slowed deliberately because high-priced carts deserve more time to consider than the standard ecommerce cadence.</p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme per email</h5>
+              <ul>
+                <li>E1: Quiet reminder, single hero image</li>
+                <li>E2: Styling context — what trip, what climate</li>
+                <li>E3: <strong>Founder concierge</strong> — reply for Mary's fit advice</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target + anti-pattern</h5>
+              <p>6–8% placed-order. <strong>No discount. No countdown. No urgency manipulation.</strong> At Pecan Moon's price point, discount-led recovery permanently dilutes pricing power.</p>
+            </div>
+          </div>
+          <div class="subjects">
+            <span class="label">Subject lines — direction</span>
+            <div>"Still thinking about the Maria?"</div>
+            <div>"A note about your linen —"</div>
+            <div>"How it's meant to wear"</div>
+            <div>"Reply if I can help."</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">03</div>
+          <div class="flow-title">Browse-Abandon</div>
+          <div class="flow-meta">2 emails · 24 hours · highest volume</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>Visitor viewed a product page but didn't add to cart. Suppress 30 days post-purchase. <strong>E1 +60–90min · E2 +24hr</strong></p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme per email</h5>
+              <ul>
+                <li>E1: Hero of viewed product + 2 cross-sells</li>
+                <li>E2: <strong>Sell the world, not the SKU</strong> — location, styling, the trip</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target</h5>
+              <p>1% placed-order at 55%+ open. (Apparel avg 40% open, 0.96% placed-order.)</p>
+            </div>
+          </div>
+          <div class="subjects">
+            <span class="label">Subject lines — direction</span>
+            <div>"Caught your eye?"</div>
+            <div>"The piece you were looking at —"</div>
+            <div>"How it's being worn this season"</div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">04</div>
+          <div class="flow-title">Post-Purchase</div>
+          <div class="flow-meta">5 emails · 30 days · highest open rate</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>Order placed. <strong>E1 +0 · E2 pre-arrival · E3 +3d · E4 +14d · E5 +30d</strong></p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme per email</h5>
+              <ul>
+                <li>E1: Confirmation as a signed letter</li>
+                <li>E2: Pre-arrival anticipation</li>
+                <li>E3: Care guide + first-wear styling</li>
+                <li>E4: <strong>Review + customer photo ask</strong></li>
+                <li>E5: Cross-sell + Founding-100 hint</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target</h5>
+              <p>~217% above campaign-avg opens. <strong>25–35% review submission by Day 30.</strong></p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">05</div>
+          <div class="flow-title">Win-Back</div>
+          <div class="flow-meta">3 emails · 120-day trigger · seasonal</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>120 days inactivity. Resort wear is seasonal — 60–90 days too aggressive. <strong>Day 120 / 134 / 148</strong></p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme per email</h5>
+              <ul>
+                <li>E1: <strong>Newness, not nostalgia</strong> — "While you've been away…"</li>
+                <li>E2: Founder note, no CTA</li>
+                <li>E3: Permission-respecting opt-out</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target</h5>
+              <p>15–25% reactivation E1 open · 2–3% placed-order across the series.</p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">06</div>
+          <div class="flow-title">VIP / Founding-100</div>
+          <div class="flow-meta">3 entry emails + ongoing previews</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>One of three thresholds: first 100 customers ever, lifetime spend over $500, or 2+ orders in a single season. Tag them <code>vip_founding_100</code>. <strong>E1 Day 0 · E2 Day 7 · E3 Day 14</strong></p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme per email</h5>
+              <ul>
+                <li>E1: "You're in. Here's what that means."</li>
+                <li>E2: Atelier BTS — fabric source, founder studio</li>
+                <li>E3: Personal SMS opt-in for drop alerts</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target</h5>
+              <p>40%+ open · 8–12% placed-order · 3–4× higher lifetime value vs. non-VIP customers. <strong>The reward is early access, never points or discount tiers.</strong></p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">07</div>
+          <div class="flow-title">Drop-Launch</div>
+          <div class="flow-meta">5 emails + 2 SMS · reusable template</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>New capsule, restock, or limited edition. Manual fire. <strong>T-14 / T-7 / T-3 (+SMS) / T-1 / T-0 (+SMS) / T+24h</strong></p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme per email</h5>
+              <ul>
+                <li>T-14: Mood — place, season, palette</li>
+                <li>T-7: Lookbook as editorial</li>
+                <li>T-3: Waitlist (early access = reward)</li>
+                <li>T-1: Founder letter — why now</li>
+                <li>T-0: Sparse declarative — "It's live."</li>
+                <li>T+24h: Sold-out / restock honesty</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target</h5>
+              <p>Drop-day: 45–55% open, 5–8% placed-order. SMS: 35–45% CTR, 8–15% placed-order. <strong>Highest single-revenue moment.</strong></p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">08</div>
+          <div class="flow-title">Birthday / Anniversary</div>
+          <div class="flow-meta">1 email + physical card · annual</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>Birthday data (signup or post-purchase). 365-day order anniversary. <strong>T-7 days · card mailed week-of.</strong></p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme</h5>
+              <ul>
+                <li>Birthday: <strong>gift, not discount</strong> — monogramming, gift wrap, sun hat add-on at $500+</li>
+                <li>Anniversary: Mary's note + photo of what they bought a year ago + soft seasonal cross-sell</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target</h5>
+              <p>50%+ open · 6–10% placed-order in 14-day window post-birthday.</p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">09</div>
+          <div class="flow-title">Trip-Planning</div>
+          <div class="flow-meta">3 emails per destination · highest lifetime value once seeded</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>Destination quiz tag (Tulum / Capri / Round Top / Hamptons / Aspen / Marfa). Trip date self-reported. <strong>T-30 / T-14 / T-7 before trip</strong></p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme per email</h5>
+              <ul>
+                <li>T-30: 5-piece capsule for that destination</li>
+                <li>T-14: Restock check + accessories</li>
+                <li>T-7: Founder's insider note ("Capri dinner spot…")</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Why this matters</h5>
+              <p>55%+ open · 4–6% placed-order. <strong>No direct-to-consumer luxury brand we studied has fully productized this — there's a real moat available.</strong></p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-header" onclick="toggleFlow(this)">
+          <div class="flow-num">10</div>
+          <div class="flow-title">Replenishment / Seasonal</div>
+          <div class="flow-meta">4 emails per season · calendar</div>
+        </div>
+        <div class="flow-body"><div class="flow-body-inner">
+          <div class="flow-grid">
+            <div class="flow-block">
+              <h5>Trigger + cadence</h5>
+              <p>Calendar per season. Early tease · mid-season lookbook · end-season VIP-only sample · cross-season teaser.</p>
+            </div>
+            <div class="flow-block">
+              <h5>Theme</h5>
+              <ul>
+                <li>Early-season: "What's coming"</li>
+                <li>Mid-season: Lookbook + restock callouts</li>
+                <li>End-season: <strong>VIP-only "archive access"</strong> — the only place a discount lives, never public</li>
+                <li>Cross-season: "Texan-Mediterranean fall — first look"</li>
+              </ul>
+            </div>
+            <div class="flow-block">
+              <h5>Target</h5>
+              <p>45–55% seasonal opens. VIP "archive access": 65%+ open, 15–20% placed-order.</p>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+
+    <div class="voice-box">
+      <h4>The voice register, applied to all ten flows.</h4>
+      <ul>
+        <li><strong>Founder-signed, named, first-person.</strong> "From Mary —" not "the team."</li>
+        <li><strong>Italicized invitation.</strong> <em>"An invitation, when you're ready"</em> &gt; "Shop now."</li>
+        <li><strong>Lowercase, declarative, short.</strong> No exclamation points.</li>
+        <li><strong>Place &amp; seasonality, not product.</strong> "Capri in 30 days" &gt; "New linen — $295."</li>
+        <li><strong>No urgency manipulation.</strong> Real scarcity OK; fabricated scarcity is brand-poison.</li>
+        <li><strong>Reply-friendly.</strong> Email as private channel. "Reply if I can help."</li>
+        <li><strong>No emoji</strong> in subject lines. The 56% open-rate lift cited everywhere is mass-market data; at this price point it actively cheapens the brand.</li>
+        <li><strong>Use names.</strong> Marfa. Capri. Belgian linen. Como silk. The seamstress.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 06 — FOR THE INTERNAL TEAM -->
+  <section id="team">
+    <div class="section-num">Section 06 · For The Internal Team</div>
+    <h2>What's <em>not ours</em> to do — but materially shapes the next 90 days.</h2>
+    <p class="section-intro">Reflected in our bi-weekly optimization recs but executed by the internal team.</p>
+
+    <div class="rec-grid">
+      <div class="rec">
+        <h4>Pop-up at a beach club, resort, or members' club.</h4>
+        <p>Per Zena: target audience is best reached via magazines, influencers, live events. The product shines in person — letting buyers see and feel the pieces is the brand's strength. Highest-leverage live activation.</p>
+      </div>
+      <div class="rec">
+        <h4>Self-content before influencers.</h4>
+        <p>Per Zena: start with Mary's own unboxing / try-on content as the foundation, then layer influencer partnerships once a content base exists. Lower lift, builds the floor.</p>
+      </div>
+      <div class="rec">
+        <h4>Pinterest is the most under-invested channel in the category.</h4>
+        <p>7 of 12 competitor brands we studied have under 10,000 Pinterest followers; one (Hannah Artwear) has 23. The cost-per-click on Pinterest is roughly 2.3× lower than on Meta for this audience. Studio McGee and LoveShackFancy are the operative templates — themed boards organized by mood, not catalog dumps.</p>
+      </div>
+      <div class="rec">
+        <h4>Direct traffic — the visits that come from someone typing the URL or clicking a press link, not paid ads — is the brand's long-term moat.</h4>
+        <p>The cohort we studied sits at 46–52% direct traffic. That number is built by PR, editorial features, celebrity dressing, and event partnerships — not by ad spend. Every Garden &amp; Gun mention, every Tribeza placement, every Iroquois Steeplechase dressing compounds it. Ad spend doesn't.</p>
+      </div>
+      <div class="rec">
+        <h4>Wholesale at this stage = MARKET Highland Park.</h4>
+        <p>Dallas hometown, published buying email, formal incubator. Hampden Charleston, By George Austin, H. Audrey Nashville, Marina St Barth next. Defer Saks (Ch. 11).</p>
+      </div>
+      <div class="rec">
+        <h4>One celebrity dressing = 6–12 months of content.</h4>
+        <p>Texas-stylist seeding &gt; equivalent paid spend. Whitney Wolfe Herd, Kendra Scott, Capital Factory women-founders are warm leads.</p>
+      </div>
+      <div class="rec">
+        <h4>Hampton Classic vendor app closes April 1.</h4>
+        <p>Most time-sensitive 2026 item. Boutique Garden booth = equestrian-luxury Hamptons crowd at peak summer.</p>
+      </div>
+      <div class="rec">
+        <h4>Round Top (Mar + Oct) is hometown leverage.</h4>
+        <p>Texas pilgrimage of national decorators + Southern social set. Pop-up at The Compound / Marburger / Blue Hills.</p>
+      </div>
+      <div class="rec">
+        <h4>Garden &amp; Gun's Haskell Harris.</h4>
+        <p>Style Director since 2008; ongoing Southern designer coverage. LinkedIn / Substack ("Gander") / @haskellharris IG.</p>
+      </div>
+    </div>
+
+    <p style="font-size: 14px; color: var(--muted); font-style: italic; margin-top: 24px;">Full named contacts and the 28-event 2026 calendar live in the Working Appendix.</p>
+  </section>
+
+  <!-- 07 — STOP DOING -->
+  <section id="stop">
+    <div class="section-num">Section 07 · Stop Doing</div>
+    <h2>Five things to <em>turn off, not on.</em></h2>
+    <p class="section-intro">Most luxury direct-to-consumer playbooks recommend the inverse of what's below. The research is unambiguous that it's the wrong move at Pecan Moon's tier.</p>
+
+    <div class="stop-list">
+
+      <div class="stop-item">
+        <h4>No "someone in [city] just bought this" pop-up notifications — Vitals or any other app.</h4>
+        <p>The Vitals app is installed (and powering useful Wishlist + Smart Bar features). Its <em>Live View / Sales Pop</em> feature is currently off, which is the right setting. At one verified sale, any fake-name fake-city notification would read as fabricated — and that trick is associated with $19 dropshipping sites, not $325–$1,550 luxury. Lock it off and don't let any vendor or contractor turn it back on.</p>
+      </div>
+
+      <div class="stop-item">
+        <h4>Never run a 10%-off welcome popup, even if capture pressure mounts.</h4>
+        <p>The destination quiz outperforms a discount popup at every list size we found (Sleeknote: 8.65% vs 4.13%; Riddle: a ~11× lift). And at Pecan Moon's price point, a discount welcome permanently dilutes pricing power — the moment you train a buyer to wait for a sale, every full-price piece they consider becomes a question of how long before it goes on sale. Sézane's "no sales, no unsold stock" stance and Cucinelli's near-total absence of promotional codes both exist because the math at this tier is well-documented. Build the list with a quiz; never train the buyer to wait.</p>
+      </div>
+
+      <div class="stop-item">
+        <h4>Stop leading with "Luxury Resort Wear" anywhere on-site.</h4>
+        <p>It's the line currently set as your SEO meta description, and it's genuinely generic — every single competitor in the category could use the exact same line. Replace with named provenance: <em>"Hand-finished knitwear, designed in Austin, made for the way you travel."</em> Pair with Mary's voice rather than a category descriptor.</p>
+      </div>
+
+      <div class="stop-item">
+        <h4>Don't display customer reviews on product pages until you have 10+ verified, photo-included reviews.</h4>
+        <p>Below ~10 reviews, the on-site display actually hurts buyer trust at this price point — the research on this (Spiegel; Han/Nunes/Drèze 2010) is unambiguous. At zero reviews, it's worse. Until you cross the threshold, named-editor or stylist quotes do the work better than user reviews. The post-purchase Day 14 email manufactures the pipeline; we turn the widget on once you've got enough.</p>
+      </div>
+
+      <div class="stop-item">
+        <h4>Stop running the $1,000 free-shipping threshold on a catalog where most pieces sit between $295–$595.</h4>
+        <p>The current threshold only triggers for someone buying the Angela poncho. For everyone else, the promo bar advertises a benefit they can never actually access, which reads worse than no promo bar at all. Dropping it to $395 means the Maria, Olivia, Bella + accessories tier all qualify — exactly the price band we want to be growing into.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 08 — MARY'S MOVES -->
+  <section id="asks">
+    <div class="section-num">Section 08 · Mary's Moves</div>
+    <h2>Five soft asks. <em>Plan works without them — each one changes the trajectory.</em></h2>
+    <p class="section-intro">Each is genuinely optional. Each is also more leverage than any paid channel for the same dollar.</p>
+
+    <div class="ask">
+      <div class="label">Ask 01</div>
+      <h4>One hero portrait of Mary — Austin atelier or at home.</h4>
+      <p>Not a glossy shoot. One real photograph, used as hero on homepage or About. Every founder-led luxury brand in the cohort frames its founder this way.</p>
+    </div>
+
+    <div class="ask">
+      <div class="label">Ask 02</div>
+      <h4>A 60-second voice-note from Mary on why Pecan Moon exists.</h4>
+      <p>We transcribe into Welcome flow Email 2. Most-read piece of email the brand will send anyone for the next year.</p>
+    </div>
+
+    <div class="ask">
+      <div class="label">Ask 03</div>
+      <h4>Mary signs cart-abandon E3 replies on $500+ carts.</h4>
+      <p><em class="q">"Hi, Mary here. Saw you saved the Maria. Holding it 24 hours, no pressure. Anything I can help with on fit?"</em> Five replies a month, maybe ten by Day 90 — operationally feasible at this volume, and genuinely impossible to do at scale. Industry data from Postscript (one of the major SMS platforms) shows that two-way conversations with a sales associate see ~14× engagement and ~30% conversion lift over one-way blasts. The founder-as-associate version of that is the same mechanism with even more brand equity attached.</p>
+    </div>
+
+    <div class="ask">
+      <div class="label">Ask 04</div>
+      <h4>One Tuesday Edit per month written in Mary's voice.</h4>
+      <p>200 words about what she's wearing or where she's going. We ghostwrite the other. Subject line + curation = ours. Voice once a month is what makes the Tuesday Edit a brand asset, not a product blast.</p>
+    </div>
+
+    <div class="ask">
+      <div class="label">Ask 05</div>
+      <h4>A handwritten birthday card to every first-year customer.</h4>
+      <p>~30 cards Year 1, ~100 Year 2, ~300 Year 3. Cucinelli built a billion-dollar brand on this exact ritual. Pecan Moon at 30 cards is the original ritual.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- THE MOAT -->
+<section class="closing" id="vision">
+  <div class="container">
+    <div class="section-num">The Moat</div>
+    <h2>What we're <em>actually building.</em></h2>
+
+    <p>The 90 days end with: a list, a working machine, the start of a review base, a Tuesday cadence buyers anticipate, and a founder voice structurally differentiated in the category. Each is a compounding asset. None existed at the start.</p>
+
+    <p>The conservative case at Day 90: roughly 80 orders, $25–35K in revenue. The compounding case by Month 6: the same site converts 30–40 of the 2,800 monthly visits instead of 1, the email list crosses 5,000, the first reviews are surfacing on product pages, and the Tuesday Edit becomes a thing the right women in Austin and Charleston and Aspen wait for.</p>
+
+    <div class="pull">
+      At the bottom of the luxury market, scale wins by spending more. <strong>At the top of emerging luxury, scale wins by doing the things that are physically impossible to do at scale.</strong>
+    </div>
+
+    <p>Hand-finished knitwear in small runs. A founder named on every email. A signature reply on a $500 cart. A handwritten card on a birthday. A Tuesday at 10:00 AM that becomes a ritual. Each impossible at scale. <strong>That is the moat.</strong></p>
+
+    <p>The 90 days build it. The next ten years defend it.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Pecan Moon · 90-Day Launch Plan · Q2 2026 · <span class="accent">Prepared by Zapp Studios</span></p>
+  <p style="margin-top: 8px; font-size: 11px;">Companion documents: Strategic Brief · Working Appendix · Sources: Klaviyo 2025 Apparel Benchmark · Statista &amp; ConvertCart 2025 luxury · Sleeknote · Rejoiner · Postscript · TargetBay Q2 2025 · primary cohort analysis</p>
+</footer>
+
+</div>
+<!-- /.full-plan -->
+
+<script>
+  function switchView(view) {
+    document.querySelectorAll('.view-toggle button').forEach(b => {
+      b.classList.toggle('active', b.dataset.view === view);
+    });
+    document.querySelector('.one-pager').classList.toggle('active', view === 'summary');
+    document.querySelector('.full-plan').classList.toggle('active', view === 'full');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+  document.querySelectorAll('.view-toggle button').forEach(b => {
+    b.addEventListener('click', () => switchView(b.dataset.view));
+  });
+
+  function togglePhase(headerEl) {
+    const phase = headerEl.parentElement;
+    phase.classList.toggle('open');
+  }
+
+  function toggleFlow(headerEl) {
+    const flow = headerEl.parentElement;
+    flow.classList.toggle('open');
+  }
+
+  const sections = document.querySelectorAll('section[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

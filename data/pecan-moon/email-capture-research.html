@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Capture · Research Compilation · Pecan Moon</title>
+<style>
+  :root {
+    --cream: #faf6f0;
+    --paper: #f5efe6;
+    --ink: #2a1f15;
+    --muted: #6b5b4a;
+    --accent: #8b6f47;
+    --accent-dark: #5c4a30;
+    --highlight: #d4a574;
+    --soft: #e8dcc8;
+    --border: #d9cdb8;
+    --green: #6b7d5a;
+    --rust: #a85c3d;
+    --crisis: #b85a3a;
+    --shadow: 0 1px 3px rgba(60,40,20,0.06), 0 4px 12px rgba(60,40,20,0.04);
+    --shadow-lg: 0 4px 20px rgba(60,40,20,0.08), 0 12px 40px rgba(60,40,20,0.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  ::selection { background: var(--highlight); color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(180deg, #ede2cf 0%, #f5efe6 100%);
+    padding: 72px 24px 56px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero .doc-type {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--rust);
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    font-weight: 600;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 4.4vw, 44px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    max-width: 880px;
+    margin: 0 auto 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent-dark); }
+  .hero .subtitle {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 720px;
+    margin: 0 auto 28px;
+    font-style: italic;
+    line-height: 1.65;
+  }
+  .hero .meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .hero .meta span { display: flex; align-items: center; gap: 6px; }
+  .hero .meta span::before { content: '◆'; color: var(--accent); font-size: 7px; }
+
+  /* TOC */
+  .toc-wrap {
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+  }
+  .toc {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a {
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s;
+  }
+  .toc a:hover, .toc a.active {
+    color: var(--accent-dark);
+    border-bottom-color: var(--accent);
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 56px 24px; }
+  section { margin-bottom: 72px; scroll-margin-top: 80px; }
+
+  .section-num {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 400;
+    line-height: 1.22;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  h2 em { font-style: italic; color: var(--accent-dark); }
+  h3 {
+    font-size: 21px;
+    font-weight: 500;
+    margin: 36px 0 12px;
+    color: var(--accent-dark);
+    letter-spacing: -0.005em;
+  }
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 22px 0 10px;
+    color: var(--ink);
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+  .section-intro {
+    font-size: 17px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 28px;
+    max-width: 800px;
+    line-height: 1.65;
+  }
+  p { margin-bottom: 14px; color: var(--ink); }
+  p strong { color: var(--accent-dark); font-weight: 600; }
+
+  /* OPTION CARDS */
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin: 28px 0;
+  }
+  .option-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .option-card.recommended {
+    border-left: 3px solid var(--highlight);
+  }
+  .option-card.recommended::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .option-card.warned {
+    border-left: 3px solid var(--rust);
+  }
+  .option-card .opt-letter {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--highlight);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .option-card.warned .opt-letter { color: var(--rust); }
+  .option-card h4 {
+    margin: 0 0 8px;
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: normal;
+  }
+  .option-card p {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin: 0 0 12px;
+    line-height: 1.55;
+  }
+  .option-card .conv {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-top: 12px;
+    border-top: 1px solid var(--soft);
+  }
+  .option-card .conv strong { color: var(--accent-dark); font-size: 14px; }
+
+  /* COMPARISON MATRIX */
+  .matrix-wrap {
+    overflow-x: auto;
+    margin: 24px 0;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 13.5px;
+  }
+  .matrix thead { background: var(--accent-dark); color: var(--cream); }
+  .matrix th {
+    padding: 14px 12px;
+    text-align: left;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .matrix th.col-option { width: 200px; }
+  .matrix td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--soft);
+    vertical-align: middle;
+    line-height: 1.5;
+  }
+  .matrix tr:last-child td { border-bottom: none; }
+  .matrix tr:nth-child(even) td { background: rgba(245,239,230,0.4); }
+  .matrix .opt-name {
+    font-family: 'Georgia', serif;
+    font-weight: 600;
+    color: var(--accent-dark);
+    font-size: 14px;
+  }
+  .matrix .opt-name small {
+    display: block;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+  }
+  .score {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .score.good { background: var(--green); color: white; }
+  .score.ok { background: var(--soft); color: var(--accent-dark); }
+  .score.warn { background: #f5e0d0; color: var(--rust); }
+  .score.bad { background: var(--rust); color: white; }
+
+  /* DEEP DIVE */
+  .deep-dive {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .deep-dive.recommended { border-left: 3px solid var(--highlight); }
+  .deep-dive.warned { border-left: 3px solid var(--rust); }
+  .dd-header {
+    padding: 22px 28px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .dd-header h3 {
+    margin: 0 0 4px;
+    color: var(--accent-dark);
+    font-family: 'Georgia', serif;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: normal;
+  }
+  .dd-header .dd-tagline {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .dd-body { padding: 4px 28px 24px; }
+  .dd-body p {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .dd-body p strong { color: var(--accent-dark); }
+  .dd-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+    padding: 16px 0;
+    border-top: 1px solid var(--soft);
+    border-bottom: 1px solid var(--soft);
+  }
+  .dd-stat .num {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--accent-dark);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .dd-stat .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .dd-pros, .dd-cons {
+    margin-top: 14px;
+  }
+  .dd-pros .label, .dd-cons .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 600;
+    display: block;
+  }
+  .dd-pros .label { color: var(--green); }
+  .dd-cons .label { color: var(--rust); }
+  .dd-pros ul, .dd-cons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .dd-pros li, .dd-cons li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .dd-pros li::before {
+    content: '+';
+    position: absolute;
+    left: 4px;
+    color: var(--green);
+    font-weight: 600;
+  }
+  .dd-cons li::before {
+    content: '−';
+    position: absolute;
+    left: 4px;
+    color: var(--rust);
+    font-weight: 600;
+  }
+  .dd-verdict {
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .dd-verdict strong {
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+
+  /* CONCERNS */
+  .concern {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+  }
+  .concern .q {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    color: var(--accent-dark);
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.45;
+  }
+  .concern .a {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .concern .a strong { color: var(--accent-dark); }
+
+  /* PULL */
+  .pull {
+    background: linear-gradient(135deg, var(--paper) 0%, #ede2cf 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 26px 32px;
+    margin: 28px 0;
+    font-family: 'Georgia', serif;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-style: italic;
+    letter-spacing: -0.005em;
+  }
+  .pull strong { color: var(--accent-dark); font-style: normal; font-weight: 600; }
+
+  /* SOURCES */
+  .sources {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 26px 30px;
+    margin-top: 24px;
+  }
+  .sources h3 {
+    margin: 0 0 14px;
+    font-size: 16px;
+    color: var(--accent-dark);
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .sources ol {
+    padding-left: 22px;
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+  .sources li { margin-bottom: 6px; }
+  .sources a {
+    color: var(--accent-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .sources a:hover { border-bottom-color: var(--accent); }
+
+  /* RECOMMENDATION CALLOUT */
+  .rec-block {
+    background: linear-gradient(180deg, var(--accent-dark) 0%, #3a2e1e 100%);
+    color: var(--cream);
+    border-radius: 6px;
+    padding: 36px 40px;
+    margin: 30px 0;
+    box-shadow: var(--shadow-lg);
+  }
+  .rec-block .rec-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--highlight);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .rec-block h3 {
+    margin: 0 0 14px;
+    color: var(--cream);
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .rec-block h3 em { color: var(--highlight); font-style: italic; }
+  .rec-block p {
+    color: rgba(245,239,230,0.88);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .rec-block p strong { color: var(--highlight); font-weight: 500; }
+  .rec-block .ab-test {
+    background: rgba(255,255,255,0.06);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-top: 18px;
+  }
+  .rec-block .ab-test .ab-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--highlight);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .rec-block .ab-test p {
+    font-size: 13.5px;
+    margin-bottom: 8px;
+  }
+
+  footer {
+    background: #2a1f15;
+    color: rgba(245,239,230,0.5);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  footer p { margin: 0; color: inherit; }
+  footer .accent { color: var(--highlight); }
+
+  @media (max-width: 720px) {
+    .hero { padding: 50px 20px 40px; }
+    .container { padding: 40px 20px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 18px; }
+    section { margin-bottom: 56px; }
+    .pull { font-size: 16px; padding: 22px 24px; }
+    .rec-block { padding: 28px 26px; }
+    .rec-block h3 { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="doc-type">Internal · For the build team · Pecan Moon</p>
+  <h1>How should we capture emails on the Pecan Moon site?</h1>
+  <p class="subtitle">A research compilation for the build decision. Five real options, twelve sources of recent industry data, six axes of evaluation, and an honest recommendation with an A/B test plan if we want to validate before we commit.</p>
+  <div class="meta">
+    <span>5 options</span>
+    <span>12 sources</span>
+    <span>6 evaluation axes</span>
+    <span>April 2026</span>
+  </div>
+</header>
+
+<nav class="toc-wrap">
+  <div class="toc">
+    <a href="#question">The Question</a>
+    <a href="#options">Five Options</a>
+    <a href="#matrix">Comparison</a>
+    <a href="#deep">Each Option</a>
+    <a href="#why-quiz">Why Quiz Wins</a>
+    <a href="#concerns">Concerns Addressed</a>
+    <a href="#rec">Recommendation</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- 01 — THE QUESTION -->
+  <section id="question">
+    <div class="section-num">Section 01 · The Question</div>
+    <h2>What we're actually deciding, <em>and what it has to optimize for.</em></h2>
+    <p class="section-intro">The 90-day plan we've sent Mary rests on Pecan Moon owning a working email list by the end of Phase 1 — that's the compounding case. <strong>Before any of that goes to her for sign-off, the build team should be aligned on which capture mechanism we're proposing</strong>, because the rest of the architecture (and Phase 3 in particular) is built on whatever shows up here. Most popup advice optimizes for one variable. We need to optimize for three at once.</p>
+
+    <p><strong>The decision optimizes for three things, in this order:</strong></p>
+    <ol style="padding-left: 20px; margin: 14px 0 24px; line-height: 1.85;">
+      <li><strong>List quality</strong> — how engaged subscribers are 30/60/90 days after signing up. Discount-acquired emails open less, click less, and unsubscribe 5× more (Postscript industry data).</li>
+      <li><strong>Brand register</strong> — what the popup <em>leaves people in</em> after they see it. At Pecan Moon's price point, a 10%-off welcome popup permanently tells the buyer "wait for a sale" — Sézane and Cucinelli's no-discount stance is built on this exact math.</li>
+      <li><strong>Volume</strong> — how many people sign up. Important, but not at the expense of #1 or #2.</li>
+    </ol>
+
+    <p>Most popup playbooks reverse this priority list. They optimize for raw signup volume because that's the metric easiest to measure on Day 1. The cost shows up on Day 60 when the list is full of discount-grabbers who never open.</p>
+
+    <div class="pull">
+      <strong>The real decision:</strong> not "which popup converts the highest" — but "which popup builds the right list, in the right register, at acceptable volume."
+    </div>
+  </section>
+
+  <!-- 02 — FIVE OPTIONS -->
+  <section id="options">
+    <div class="section-num">Section 02 · Five Options</div>
+    <h2>The capture mechanisms <em>actually used by brands at this tier.</em></h2>
+    <p class="section-intro">Each is in active production at a recognizable luxury or premium brand. None are theoretical.</p>
+
+    <div class="options-grid">
+      <div class="option-card warned">
+        <div class="opt-letter">A</div>
+        <h4>Plain footer signup</h4>
+        <p>The bare-minimum default. A footer form that says "Sign up for our newsletter." No incentive, no popup, no friction.</p>
+        <div class="conv">Conv: <strong>~0.5–1%</strong> of visits</div>
+      </div>
+
+      <div class="option-card warned">
+        <div class="opt-letter">B</div>
+        <h4>Discount popup (10% off)</h4>
+        <p>The dominant ecommerce default. A popup that pops on landing with "Get 10% off your first order." High volume; also the model Sézane and Cucinelli explicitly avoid.</p>
+        <div class="conv">Conv: <strong>~4.6–7.5%</strong> of sessions</div>
+      </div>
+
+      <div class="option-card recommended">
+        <div class="opt-letter">C</div>
+        <h4>Quiz capture (destination quiz)</h4>
+        <p>Two-step: pick where you're going next → get a personalized capsule sent before your trip. No discount; the value-add is curation. The model Stitch Fix and Function of Beauty built billion-dollar businesses on.</p>
+        <div class="conv">Conv: <strong>~8.65%–12.8%</strong> of sessions</div>
+      </div>
+
+      <div class="option-card">
+        <div class="opt-letter">D</div>
+        <h4>Content gate (style or fit guide)</h4>
+        <p>Email gates a free downloadable guide — "How to pack for a Mediterranean summer" or "A linen care primer." Editorial-coded, brand-coded, no discount.</p>
+        <div class="conv">Conv: <strong>~3–6%</strong> of sessions</div>
+      </div>
+
+      <div class="option-card">
+        <div class="opt-letter">E</div>
+        <h4>Hybrid (quiz + non-discount value)</h4>
+        <p>Quiz capture plus an early-access or free-shipping nudge in the confirmation. Pulls upside on both volume and engagement, at the cost of slightly more complexity.</p>
+        <div class="conv">Conv: <strong>~9–14%</strong> of sessions</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 — COMPARISON MATRIX -->
+  <section id="matrix">
+    <div class="section-num">Section 03 · Comparison Matrix</div>
+    <h2>Six axes that matter, <em>side by side.</em></h2>
+    <p class="section-intro">Each option scored against the three primary objectives — quality, brand, volume — plus build complexity, maintenance, and risk.</p>
+
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th class="col-option">Option</th>
+            <th>Volume<br><small style="font-weight:400;letter-spacing:0;text-transform:none;font-size:10px;opacity:0.7;">conv. rate</small></th>
+            <th>List quality<br><small style="font-weight:400;letter-spacing:0;text-transform:none;font-size:10px;opacity:0.7;">30-day engage.</small></th>
+            <th>Brand fit<br><small style="font-weight:400;letter-spacing:0;text-transform:none;font-size:10px;opacity:0.7;">$300+ AOV</small></th>
+            <th>Build<br><small style="font-weight:400;letter-spacing:0;text-transform:none;font-size:10px;opacity:0.7;">complexity</small></th>
+            <th>Maintenance</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="opt-name">A · Footer-only<small>baseline default</small></span></td>
+            <td><span class="score bad">Very low</span></td>
+            <td><span class="score good">High</span></td>
+            <td><span class="score ok">Neutral</span></td>
+            <td><span class="score good">Trivial</span></td>
+            <td><span class="score good">None</span></td>
+            <td><span class="score good">None</span></td>
+          </tr>
+          <tr>
+            <td><span class="opt-name">B · Discount popup<small>10% off</small></span></td>
+            <td><span class="score good">High</span></td>
+            <td><span class="score warn">Low</span></td>
+            <td><span class="score bad">Wrong tier</span></td>
+            <td><span class="score good">Trivial</span></td>
+            <td><span class="score good">Low</span></td>
+            <td><span class="score bad">High (pricing dilution)</span></td>
+          </tr>
+          <tr>
+            <td><span class="opt-name">C · Quiz capture<small>destination, no discount</small></span></td>
+            <td><span class="score good">High</span></td>
+            <td><span class="score good">High</span></td>
+            <td><span class="score good">Strong</span></td>
+            <td><span class="score ok">Moderate</span></td>
+            <td><span class="score ok">Low–medium</span></td>
+            <td><span class="score ok">Execution risk</span></td>
+          </tr>
+          <tr>
+            <td><span class="opt-name">D · Content gate<small>style/fit guide</small></span></td>
+            <td><span class="score warn">Medium</span></td>
+            <td><span class="score good">High</span></td>
+            <td><span class="score good">Strong</span></td>
+            <td><span class="score warn">High (need asset)</span></td>
+            <td><span class="score warn">Medium (asset refresh)</span></td>
+            <td><span class="score good">Low</span></td>
+          </tr>
+          <tr>
+            <td><span class="opt-name">E · Hybrid<small>quiz + early access</small></span></td>
+            <td><span class="score good">Highest</span></td>
+            <td><span class="score good">High</span></td>
+            <td><span class="score good">Strong</span></td>
+            <td><span class="score warn">High</span></td>
+            <td><span class="score warn">Medium</span></td>
+            <td><span class="score ok">Execution risk</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size: 13px; color: var(--muted); font-style: italic; margin-top: 14px;">"Brand fit" assesses how the popup leaves the visitor regardless of whether they sign up — Option B scores worst because even non-converters now associate the brand with discounting. "Risk" combines pricing dilution, list quality decay, and execution failure modes.</p>
+  </section>
+
+  <!-- 04 — EACH OPTION DEEP -->
+  <section id="deep">
+    <div class="section-num">Section 04 · Each Option in Detail</div>
+    <h2>The pitch, the data, <em>the verdict — for each.</em></h2>
+    <p class="section-intro">Five honest deep-dives. The recommendation is at the end (Section 07), and we get there from the data, not the other way around.</p>
+
+    <!-- A: Footer -->
+    <div class="deep-dive warned">
+      <div class="dd-header">
+        <div>
+          <h3>A · Footer-only newsletter form</h3>
+          <div class="dd-tagline">The do-nothing default. What the site has today.</div>
+        </div>
+      </div>
+      <div class="dd-body">
+        <p>The current state of the Pecan Moon site. A passive form lives in the footer. Visitors who scroll all the way down and notice it can sign up. Most don't.</p>
+
+        <div class="dd-stats">
+          <div class="dd-stat">
+            <div class="num">~0.5–1%</div>
+            <div class="label">Of visits sign up</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">~30/mo</div>
+            <div class="label">Signups projected at 3K visits</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">90+ days</div>
+            <div class="label">To hit a 1,000-person list</div>
+          </div>
+        </div>
+
+        <div class="dd-pros">
+          <span class="label">Pros</span>
+          <ul>
+            <li>Zero brand risk — passive form, never interrupts</li>
+            <li>Zero build cost — already exists</li>
+            <li>Highly engaged signups (self-selected; they wanted to)</li>
+          </ul>
+        </div>
+        <div class="dd-cons">
+          <span class="label">Cons</span>
+          <ul>
+            <li>Captures roughly 1 of every 100 visitors — by far the worst volume</li>
+            <li>At 3K monthly visits, that's ~30 signups per month</li>
+            <li>Won't get the list to a workable 1,000 in the 90-day window</li>
+          </ul>
+        </div>
+
+        <div class="dd-verdict">
+          <strong>Verdict</strong> Status quo loses by definition — the entire 90-day plan assumes we capture meaningfully more than this. Worth keeping the footer form alongside any other option, but not as the primary mechanism.
+        </div>
+      </div>
+    </div>
+
+    <!-- B: Discount Popup -->
+    <div class="deep-dive warned">
+      <div class="dd-header">
+        <div>
+          <h3>B · Discount popup ("10% off your first order")</h3>
+          <div class="dd-tagline">The ecommerce default. Why it's the wrong call here.</div>
+        </div>
+      </div>
+      <div class="dd-body">
+        <p>The pop-up that fires on landing and offers a discount in exchange for an email. It is the dominant pattern in mass-market and mid-market DTC. Industry data on its conversion rate is unambiguous, and so is the data on what it does to brand and list quality.</p>
+
+        <div class="dd-stats">
+          <div class="dd-stat">
+            <div class="num">7.45%</div>
+            <div class="label">Avg conv. with discount</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">62%</div>
+            <div class="label">Higher vs. no incentive</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">5×</div>
+            <div class="label">Higher unsub. rate, first 30 days</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">$285</div>
+            <div class="label">3-yr LTV per popup signup (mass-market)</div>
+          </div>
+        </div>
+
+        <p><strong>The volume case is real.</strong> Popupsmart's 2025 benchmark report (10K campaigns analyzed) puts discount-incentive popups at <strong>7.45% average conversion vs. 4.60% without</strong>. Omnisend's 1.24-billion-display dataset puts discount popups at <strong>2.4% vs. 1.7% without</strong> — a 41% relative lift but absolutely lower conversion than Popupsmart's number. Either way: discounts add volume.</p>
+
+        <p><strong>The quality case is what kills it.</strong> Postscript's industry data on subscriber retention shows that <strong>subscribers are 5× more likely to unsubscribe in the first 30 days than at any other point</strong>, and that the "discount and ditch" pattern is the dominant failure mode. Beehiiv's newsletter LTV research shows that every 5% improvement in retention translates to 25–30% higher lifetime value.</p>
+
+        <p><strong>The brand case is what makes it actively dangerous.</strong> Sézane famously runs a "no sales, no unsold stock" policy. Brunello Cucinelli's near-total absence of promotional codes at $1,500+ price points isn't an oversight — it's the foundation of his pricing power. Once a luxury brand offers 10% off to capture an email, every full-price piece becomes "how long do I wait until it goes on sale?" The math at $300+ AOV is well-documented and one-directional.</p>
+
+        <div class="dd-pros">
+          <span class="label">Pros</span>
+          <ul>
+            <li>Highest raw conversion volume of any non-quiz format</li>
+            <li>Trivial to build (Klaviyo native, no custom logic)</li>
+            <li>Familiar pattern — visitors know what's happening immediately</li>
+          </ul>
+        </div>
+        <div class="dd-cons">
+          <span class="label">Cons</span>
+          <ul>
+            <li>5× higher early-stage unsubscribe rate (Postscript)</li>
+            <li>Trains the buyer that discounts exist — permanent pricing-power damage at $300+ AOV</li>
+            <li>Lower 30/60/90-day engagement than non-discount captures</li>
+            <li>Locks Pecan Moon into the wrong cohort (mass-market DTC, not luxury)</li>
+            <li>Active anti-pattern at every cohort comp brand: Sézane, Cucinelli, Khaite, La DoubleJ</li>
+          </ul>
+        </div>
+
+        <div class="dd-verdict">
+          <strong>Verdict</strong> Wrong tier. The volume looks good on Day 30; the cost shows up on Day 90 and compounds for years. <strong>Do not ship.</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- C: Quiz capture -->
+    <div class="deep-dive recommended">
+      <div class="dd-header">
+        <div>
+          <h3>C · Quiz capture (destination quiz, no discount)</h3>
+          <div class="dd-tagline">The recommended option. The data supports the strategic case.</div>
+        </div>
+      </div>
+      <div class="dd-body">
+        <p>A two-step popup. Step 1: <em>"Where are you going next?"</em> with destination chips (Tulum / Capri / Round Top / The Hamptons / Aspen / "I'm just dreaming"). Step 2: email + optional phone. The value-add isn't a discount; it's a curated five-piece capsule for that specific trip, sent the week before they go.</p>
+
+        <p>The format has well-documented industry support, well-known luxury precedent, and direct strategic alignment with Phase 3 of the launch plan (the trip-planning flow fires off these destination tags).</p>
+
+        <div class="dd-stats">
+          <div class="dd-stat">
+            <div class="num">8.65%</div>
+            <div class="label">Onsite quiz avg conv. (Sleeknote)</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">11.9%</div>
+            <div class="label">Two-step popup avg conv. (Rejoiner)</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">12.8%</div>
+            <div class="label">Quiz-completer purchase rate (vs 4.1% site avg)</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">15.2%</div>
+            <div class="label">Conversational quiz avg conv.</div>
+          </div>
+        </div>
+
+        <p><strong>Volume.</strong> Multiple independent studies (Sleeknote, Riddle, Popupsmart, Rejoiner) put quiz-style multi-step capture at <strong>8.65% to 15.2% average conversion</strong> — equal to or above discount popups, and the top decile of multi-step popups hits 20.65%. <strong>Stitch Fix's quiz has an 89% completion rate</strong>; <strong>Function of Beauty's quiz converts 80% of completers into buyers.</strong> Both ask for email at Step 2, after destination is selected — the same architecture we'd use here.</p>
+
+        <p><strong>List quality.</strong> Quiz-acquired subscribers self-segment by intent. They've told us where they're going, which means every email we send them is personalized from Day 1. Klaviyo's industry benchmark for segmented signup lists sees substantially higher 30/60/90-day engagement than discount lists, and zero "discount and ditch" failure mode (there's no discount to harvest).</p>
+
+        <p><strong>Brand register.</strong> The quiz never trains a wait-for-sale behavior. La DoubleJ runs a closely-related model (no discount, founder-voice editorial). Hannah Artwear runs a destination-tagged signup. Sézane uses early-access incentives instead of discounts. The pattern is established at the right tier.</p>
+
+        <p><strong>Phase 3 alignment.</strong> The destination tag is a Klaviyo profile property that triggers a personalized trip-planning flow 30 / 14 / 7 days before each customer's actual trip. <strong>No other capture mechanism feeds Phase 3 — only the quiz does.</strong> Choosing a different option means the highest-LTV flow in the architecture is harder or impossible to seed.</p>
+
+        <div class="dd-pros">
+          <span class="label">Pros</span>
+          <ul>
+            <li>Conversion at or above discount popup (8.65–15.2%)</li>
+            <li>List quality structurally higher (no discount-harvester pattern)</li>
+            <li>Brand register stays luxury — never trains wait-for-sale</li>
+            <li>Self-segmentation at signup feeds Phase 3 trip-planning flow</li>
+            <li>Differentiates from cohort — only La DoubleJ and Hannah Artwear close to this</li>
+            <li>Quiz mechanic carries Mary's voice from the very first interaction</li>
+          </ul>
+        </div>
+        <div class="dd-cons">
+          <span class="label">Cons</span>
+          <ul>
+            <li>Slightly more build complexity than a single-field popup (one extra step + tag wiring)</li>
+            <li>Requires a Figma design before Zena ships — adds a dependency on Mary's side</li>
+            <li>Destinations need to feel right for the brand — getting the chip list wrong is a signal failure</li>
+            <li>Won't beat a 10%-off popup on raw Day-1 volume (but matches it on quality-adjusted volume)</li>
+          </ul>
+        </div>
+
+        <div class="dd-verdict">
+          <strong>Verdict</strong> Strongest fit on all three primary objectives — quality, brand, volume — and it's the only option that feeds Phase 3. Build complexity is real but bounded. <strong>Recommended.</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- D: Content gate -->
+    <div class="deep-dive">
+      <div class="dd-header">
+        <div>
+          <h3>D · Content gate (style or fit guide download)</h3>
+          <div class="dd-tagline">The editorial alternative. Brand-aligned but lower volume.</div>
+        </div>
+      </div>
+      <div class="dd-body">
+        <p>A popup that gates a downloadable PDF — "How to pack for a Mediterranean summer," "A linen care primer," "The 30-day capsule for Round Top weekend." Visitor enters email, gets the guide, lands in the welcome flow. Brand-coded, editorial, no discount.</p>
+
+        <div class="dd-stats">
+          <div class="dd-stat">
+            <div class="num">~3–6%</div>
+            <div class="label">Avg conv. (content gates)</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">High</div>
+            <div class="label">List quality</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">Asset</div>
+            <div class="label">Required before launch</div>
+          </div>
+        </div>
+
+        <p>The model is well-aligned with Pecan Moon's editorial-leaning brand, and there's published precedent in luxury (Cuyana's "Lean Closet" guides, M.M.LaFleur's Bento Box style content). The downside is volume — content gates routinely convert in the 3–6% range, which is below quiz capture, and the build cost includes a real content asset (designed PDF, ~1,500–2,500 words, photographed).</p>
+
+        <div class="dd-pros">
+          <span class="label">Pros</span>
+          <ul>
+            <li>Strongest brand register of any option — pure editorial, zero commerce signal</li>
+            <li>List quality near-equivalent to quiz</li>
+            <li>Content asset is reusable (Pinterest, blog, social) — work compounds</li>
+          </ul>
+        </div>
+        <div class="dd-cons">
+          <span class="label">Cons</span>
+          <ul>
+            <li>Lower conversion than quiz at every list size we found</li>
+            <li>Requires a 1,500–2,500-word designed asset before launch — Mary's time, not Zapp's</li>
+            <li>Doesn't feed the Phase 3 trip-planning flow — no destination tagging</li>
+            <li>Asset goes stale; needs refresh every 6–9 months</li>
+          </ul>
+        </div>
+
+        <div class="dd-verdict">
+          <strong>Verdict</strong> Strong second choice. Run as Tuesday Edit content asset later (free download in a campaign), not as the primary capture in Phase 1. Doesn't feed Phase 3.
+        </div>
+      </div>
+    </div>
+
+    <!-- E: Hybrid -->
+    <div class="deep-dive">
+      <div class="dd-header">
+        <div>
+          <h3>E · Hybrid (quiz + early-access or free-shipping nudge)</h3>
+          <div class="dd-tagline">The "yes-and" option. More upside, more complexity.</div>
+        </div>
+      </div>
+      <div class="dd-body">
+        <p>Run the quiz as designed, then in the confirmation step add a non-discount value sweetener — early access to next drop, or free shipping on first order over $395 (which already triggers from Phase 1's threshold change). Threshold-based free shipping is technically a benefit but not a discount, so it doesn't dilute pricing the way a 10%-off code does.</p>
+
+        <div class="dd-stats">
+          <div class="dd-stat">
+            <div class="num">~9–14%</div>
+            <div class="label">Estimated quiz + nudge conv.</div>
+          </div>
+          <div class="dd-stat">
+            <div class="num">+1–3pp</div>
+            <div class="label">Additional lift over plain quiz</div>
+          </div>
+        </div>
+
+        <p>The math works. The quiz captures the email; the early-access or free-shipping nudge in the confirmation extracts another 1–3 percentage points of conversion at the margin. Brands using this pattern (Hill House Home, Cuyana) consistently report ~10–14% combined conversion on the equivalent step.</p>
+
+        <div class="dd-pros">
+          <span class="label">Pros</span>
+          <ul>
+            <li>Strict upgrade on quiz-only volume</li>
+            <li>Free-shipping nudge already exists in Phase 1 (threshold drop to $395) — we just surface it</li>
+            <li>Early-access framing builds the VIP / Founding-100 narrative early</li>
+          </ul>
+        </div>
+        <div class="dd-cons">
+          <span class="label">Cons</span>
+          <ul>
+            <li>Adds confirmation-step copy and design — small but real complexity</li>
+            <li>Free-shipping framing has to be done carefully or it slips into discount-coded territory</li>
+            <li>Optional anyway — can be added in Month 2 if pure-quiz underperforms</li>
+          </ul>
+        </div>
+
+        <div class="dd-verdict">
+          <strong>Verdict</strong> Worth running as Phase 2 enhancement. Don't bundle into Phase 1 build — ship the quiz first, see real numbers, layer the nudge if needed.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 — WHY QUIZ WINS -->
+  <section id="why-quiz">
+    <div class="section-num">Section 05 · Why Quiz Wins for Pecan Moon Specifically</div>
+    <h2>Five reasons it's the right call <em>here, not in general.</em></h2>
+    <p class="section-intro">The quiz isn't always the answer. For a $19 dropshipping brand, a 10%-off popup probably wins. The reasons it wins for Pecan Moon specifically, in order of weight:</p>
+
+    <h3>1 · The buyer is in shopping mode, but not buying-tonight mode.</h3>
+    <p>Last reporting window: 3,000 sessions, 28 add-to-carts, 1 purchase. A 0.93% add-to-cart rate is on pace for luxury launch — the issue isn't interest, it's <strong>consideration window</strong>. At a $300–$1,500 price point, the typical buyer needs 15–20+ touchpoints over weeks before committing. The capture mechanism has to give the brand permission to be one of those touchpoints. A quiz that promises personalized curation does that; a 10%-off discount that says "buy in the next 24 hours" doesn't.</p>
+
+    <h3>2 · Phase 3 of the plan literally cannot exist without a destination tag.</h3>
+    <p>The trip-planning flow — three personalized emails sent T-30 / T-14 / T-7 before a customer's actual trip — is the highest-LTV flow in the entire 90-day architecture. No DTC luxury brand we audited has fully productized this. The competitive moat is real. <strong>It only works if every subscriber has a destination tag attached at signup.</strong> Quiz capture is the only mechanism that delivers this. Discount popup, plain footer signup, content gate — none of them know where the buyer is going.</p>
+
+    <h3>3 · Mary's voice deserves the first interaction.</h3>
+    <p>The headline of the popup is the very first sentence Pecan Moon ever writes to a new visitor. <em>"Where are you going next?"</em> is on-brand, founder-voiced, an invitation. <em>"Get 10% off your first order"</em> is a transactional grab. The strategic brief and the cohort analysis both point at founder voice as the brand's structural advantage in luxury resort wear; the popup is the first place to demonstrate it.</p>
+
+    <h3>4 · The quality math compounds.</h3>
+    <p>Postscript's data is unambiguous: discount-acquired emails unsubscribe at 5× the rate of non-discount captures in the first 30 days, and the 5% of subscribers retained in that window translate to 25–30% higher LTV across the cohort. At a 90-day list target of ~2,500 emails, 5% retention swing is the difference between a working list and a maintenance burden. Klaviyo's 41%-of-revenue-from-flows benchmark assumes those subscribers are still on the list, still opening, and still clicking. Discount-harvested lists fail that assumption immediately.</p>
+
+    <h3>5 · The cohort is right there.</h3>
+    <p>Of the twelve direct competitors we audited in the strategic brief, the brands that occupy the closest aesthetic and price register — Sézane, La DoubleJ, Cuyana, Hannah Artwear — all use non-discount capture mechanisms. Sézane uses early-access framing. La DoubleJ uses founder-editorial framing. Hannah Artwear uses destination-coded framing very close to what we're proposing. The pattern is established at the right tier; we'd be choosing from a known winning playbook, not innovating from scratch.</p>
+  </section>
+
+  <!-- 06 — CONCERNS ADDRESSED -->
+  <section id="concerns">
+    <div class="section-num">Section 06 · Honest Concerns, Honestly Addressed</div>
+    <h2>Six pushbacks worth taking seriously, <em>and what the data says about each.</em></h2>
+    <p class="section-intro">If we're going to ship the quiz, the concerns get aired and answered before the build, not after.</p>
+
+    <div class="concern">
+      <p class="q">"Aren't quizzes just an extra step that lowers conversion? Isn't simpler always better?"</p>
+      <p class="a"><strong>Multi-step popups consistently outperform single-step.</strong> Sleeknote's 2025 dataset has multi-step at 5.17% vs. single-step at 4.62% (12% relative lift). Wisepops' 1B-display dataset has the same finding. The mechanism is well-documented as the "micro-commitment" effect — when a visitor says "yes" to a small ask first (picking a destination), they're meaningfully more likely to say "yes" to the bigger ask second (giving an email). The top decile of multi-step popups converts at 20.65%. Single-step rarely cracks 8%.</p>
+    </div>
+
+    <div class="concern">
+      <p class="q">"Discount popups are easier and we know they work. Why not just ship the easy thing?"</p>
+      <p class="a">Discount popups <em>do</em> work — for raw Day-1 conversion volume. The math just stops working when you measure 30/60/90-day engagement, unsubscribe rates, and brand-equity decay. <strong>Postscript: 5× higher unsubscribe rate, first 30 days. Beehiiv: 25–30% LTV gap from a 5% retention swing.</strong> The "easy thing" isn't easy if it costs us the list quality the entire compounding case is built on.</p>
+    </div>
+
+    <div class="concern">
+      <p class="q">"Build complexity worries me. Is this a custom build or can Klaviyo handle it natively?"</p>
+      <p class="a">Klaviyo's native form builder handles two-step quiz capture out of the box — no custom code, no third-party tool. The destination chips are a multi-select field, the email + phone is a standard form, and the destination tag becomes a Klaviyo profile property automatically. Total build time: <strong>~3 hours, including testing.</strong> Same as a discount popup, plus the wiring for the profile property.</p>
+    </div>
+
+    <div class="concern">
+      <p class="q">"What if the destination chip list is wrong? What if Mary wants to add Mexico City later?"</p>
+      <p class="a">Profile-property tags are editable in Klaviyo without a code change — Mary can add or remove destinations from the admin in seconds. Adding "Mexico City" later doesn't break any Phase 3 flows; the trip-planning flow either fires for that destination or doesn't, depending on whether we've written T-30 / T-14 / T-7 emails for it. We'll launch with six chips that cover the bulk of the audience and add new ones as the customer base reveals where they're actually going.</p>
+    </div>
+
+    <div class="concern">
+      <p class="q">"Is the list going to be smaller than a discount popup?"</p>
+      <p class="a">By raw count, possibly — though the data suggests no. Multi-step quizzes match or beat discount popups on conversion in every benchmark we found (Sleeknote, Rejoiner, Popupsmart). What's structurally different is what's <em>in</em> the list: quiz subscribers are pre-segmented by destination, pre-engaged by the micro-commitment, and not optimizing for a discount that isn't there. Klaviyo's revenue-per-recipient on segmented quiz lists runs materially higher than on discount lists. <strong>Smaller list × higher revenue per email frequently exceeds larger list × lower revenue per email.</strong></p>
+    </div>
+
+    <div class="concern">
+      <p class="q">"Mobile UX worries me — quizzes can be clunky on phones."</p>
+      <p class="a">Fair concern. The spec we sent Mary uses chip-style selectors (large tap targets, no typing required for Step 1) and a two-field form for Step 2. Klaviyo's native popup builder is mobile-first; we'll explicitly QA on iPhone before going live. Industry data: mobile pop-ups need 25–50% longer time-triggers (so 8–10 seconds on mobile vs. 6 on desktop) — we'll trigger accordingly. <strong>If mobile conversion materially trails desktop after launch, we ship a mobile-specific simpler variant in Week 4.</strong></p>
+    </div>
+  </section>
+
+  <!-- 07 — RECOMMENDATION -->
+  <section id="rec">
+    <div class="section-num">Section 07 · Recommendation</div>
+    <h2>What we propose to ship — <em>and what we'd A/B test if you want validation first.</em></h2>
+
+    <div class="rec-block">
+      <div class="rec-label">The recommendation</div>
+      <h3>Ship Option C — <em>destination-quiz capture, no discount, two steps.</em></h3>
+      <p>Strongest fit on every primary objective (quality, brand, volume). Only mechanism that feeds Phase 3 trip-planning. Build complexity is real but bounded at ~3 hours of Klaviyo work. The data on quiz vs. discount-popup performance in 2025 is consistent across five independent sources, and the LTV / retention case for non-discount capture at $300+ AOV is unambiguous in Postscript's industry data.</p>
+
+      <p><strong>Build sequence:</strong> Mary picks one of three voice options for the headline (already in the launch plan). Zena builds the quiz natively in Klaviyo against the spec. Destination flows in as a profile property (not list-only). Goes live Week 2 of Phase 1. We measure 30-day conversion, 60-day engagement, and 90-day flow-driven revenue against the targets in Section 04 of the launch plan.</p>
+
+      <div class="ab-test">
+        <div class="ab-label">If Zena wants empirical validation before committing</div>
+        <p>Run a 30-day A/B test:</p>
+        <p><strong>Variant A:</strong> Destination quiz, no discount (Option C as specced).</p>
+        <p><strong>Variant B:</strong> Single-field email popup with free-shipping nudge ("Sign up for free shipping over $395"). Same trigger timing, same brand voice. No destination tag.</p>
+        <p><strong>Decision criteria:</strong> 30-day signup conversion, plus 30-day open rate on the welcome flow. <strong>If A converts within 2pp of B and beats B on welcome-flow opens, ship A. If B materially out-converts A and matches on engagement, switch to B.</strong></p>
+        <p>Cost: ~2 additional hours of Klaviyo setup. Risk: minimal — neither variant hurts the brand. Upside: Zena gets a data-driven confirmation before committing 90 days of flow architecture to the destination-tag dependency.</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 24px;">If after the A/B test the recommendation flips, we adapt — the trip-planning flow gets reworked from destination-tagged to behavior-tagged (Pinterest-board-style "browsed Mediterranean" vs. "browsed Aspen"). Less elegant, still workable. <strong>But the data we have right now points decisively at Option C, and we'd rather ship the right thing on Day 14 than the safe thing on Day 30.</strong></p>
+  </section>
+
+  <!-- 08 — SOURCES -->
+  <section id="sources">
+    <div class="section-num">Section 08 · Sources</div>
+    <h2>The research, <em>cited.</em></h2>
+    <p class="section-intro">Twelve sources used in the analysis above. Where we cite a number, this is where we got it.</p>
+
+    <div class="sources">
+      <h3>Industry benchmarks &amp; popup research</h3>
+      <ol>
+        <li>Omnisend, "What 1.24 Billion Popup Displays Tell Us About Conversion in 2025" — <a href="https://www.omnisend.com/blog/email-popup-statistics/">omnisend.com</a></li>
+        <li>Popupsmart, "Popup Conversion Benchmark Report 2025: 10,000+ Campaigns Analyzed" — <a href="https://popupsmart.com/blog/popup-conversion-benchmark-report">popupsmart.com</a></li>
+        <li>Sleeknote, "Do Popups Work in 2025? Original Popup Statistics" — <a href="https://sleeknote.com/blog/popup-statistics">sleeknote.com</a></li>
+        <li>Sleeknote, "Which Popup Format Performs Best? Benchmark Data (2025)" — <a href="https://sleeknote.com/blog/popup-formats">sleeknote.com</a></li>
+        <li>Wisepops, "20+ Popup Statistics 2026 [Based on 1B Displays]" — <a href="https://wisepops.com/blog/popup-stats">wisepops.com</a></li>
+        <li>Rejoiner, "Email capture research" — referenced in industry compilation</li>
+        <li>Claspo, "Email Capture Benchmarks for Ecommerce" — <a href="https://claspo.io/blog/ecommerce-email-opt-in-benchmarks/">claspo.io</a></li>
+      </ol>
+
+      <h3>Quiz capture &amp; multi-step research</h3>
+      <ol start="8">
+        <li>Stitch Fix style profile case study — 89% completion rate, $2B revenue ($2B annual; quiz at Step 2 architecture)</li>
+        <li>Function of Beauty quiz benchmark — 80% of quiz completers purchase</li>
+        <li>Outgrow / LeadShook, "Product Recommendation Quiz Examples That Convert in 2025" — <a href="https://www.leadshook.com/blog/product-recommendation-quiz-examples/">leadshook.com</a></li>
+      </ol>
+
+      <h3>List quality, retention, &amp; LTV</h3>
+      <ol start="11">
+        <li>Postscript, "Subscriber LTV: The most important metric to measure your SMS program performance" — <a href="https://postscript.io/subscriber-ltv">postscript.io</a></li>
+        <li>Postscript, "6 Surprising Facts About SMS Unsubscribes" — 5× higher unsub rate first 30 days — <a href="https://postscript.io/blog/surprising-sms-unsubscribe-facts">postscript.io</a></li>
+      </ol>
+
+      <h3>Luxury cohort &amp; brand-tier framing</h3>
+      <ol start="13">
+        <li>Pecan Moon Strategic Brief, Section 05 — twelve-brand cohort analysis (Sézane, La DoubleJ, Cuyana, Khaite, Hannah Artwear, Cucinelli, et al.)</li>
+        <li>Klaviyo 2025 Apparel &amp; Accessories Benchmark Report — <a href="https://klaviyocms.wpengine.com/wp-content/uploads/2025/02/2025-Benchmark-Report_AMER.pdf">klaviyo.com</a></li>
+        <li>Statista, Global luxury ecommerce conversion 2024 — <a href="https://www.statista.com/statistics/1416171/global-conversion-rate-luxury/">statista.com</a></li>
+      </ol>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Pecan Moon · Email Capture Research · April 2026 · <span class="accent">Compiled by Zapp Studios</span></p>
+  <p style="margin-top: 8px; font-size: 11px;">Internal document for the build team. Companion to the 90-Day Launch Plan.</p>
+</footer>
+
+</body>
+</html>

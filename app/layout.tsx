@@ -3,11 +3,11 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Zapp Studios - Business Engineering, Founder-Operated',
-  description: "I diagnose the bottlenecks in your business, design the right solutions, and build the systems that enable you to scale. Founder-operated. Hamza Zulquernain.",
+  title: 'Zapp Studios — AI-Native Revenue Engineering',
+  description: "High-converting landing pages and revenue systems, shipped in days not months. $1,500 Landing Page Sprints, full Revenue System Builds, and equity partnerships. Founder-operated by Hamza Zulquernain.",
   openGraph: {
-    title: 'Zapp Studios - Business Engineering, Founder-Operated',
-    description: 'Business engineering for companies that are serious about scaling.',
+    title: 'Zapp Studios — AI-Native Revenue Engineering',
+    description: 'Ship high-converting sites and revenue systems in days, not months. Because Claude writes the code and Hamza QAs it.',
     type: 'website',
   },
 }

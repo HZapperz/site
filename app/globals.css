@@ -1,7 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
+  /* ── Cream palette (new default) ────────────────── */
+  --color-cream: #F5EFE0;
+  --color-cream-soft: #EEE7D3;
+  --color-cream-dim: #E2D9BD;
+  --color-ink: #0C0C0C;
+  --color-ink-soft: #3A3632;
+  --color-ink-muted: #7A756D;
+  --color-ink-faint: #B5AFA3;
+
+  /* ── Amber accent ───────────────────────────────── */
+  --color-amber: #E8903A;
+  --color-amber-light: #F0A855;
+  --color-amber-dark: #C97020;
+  --color-amber-glow: rgba(232, 144, 58, 0.12);
+
+  /* ── Dark palette (sprint + case studies) ───────── */
   --color-bg: #0C0C0C;
   --color-bg-elevated: #141414;
   --color-bg-card: #1C1C1C;
@@ -12,15 +28,16 @@
   --color-text-primary: #F5EFE0;
   --color-text-secondary: #A09A8E;
   --color-text-muted: #6B6560;
-  --color-amber: #E8903A;
-  --color-amber-light: #F0A855;
-  --color-amber-dark: #C97020;
-  --color-amber-glow: rgba(232, 144, 58, 0.12);
+
+  /* ── Utility ────────────────────────────────────── */
   --color-success: #4ADE80;
   --color-success-glow: rgba(74, 222, 128, 0.12);
+  --color-error: #EF4444;
+
   --font-display: 'Space Grotesk', 'Inter', sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Fraunces', Georgia, serif;
 }
 
 * {
@@ -33,39 +50,33 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
+  background-color: var(--color-cream);
+  color: var(--color-ink);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-bg-card-hover);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+body.dark-page {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
 }
 
-/* Animations */
+/* Scrollbar — cream mode */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-cream-dim); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-faint); }
+
+body.dark-page::-webkit-scrollbar-track { background: var(--color-bg); }
+body.dark-page::-webkit-scrollbar-thumb { background: var(--color-bg-card-hover); }
+body.dark-page::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+/* ── Animations ─────────────────────────────────── */
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fade-in {
@@ -74,12 +85,8 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(232, 144, 58, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(232, 144, 58, 0.2);
-  }
+  0%, 100% { box-shadow: 0 0 20px rgba(232, 144, 58, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(232, 144, 58, 0.2); }
 }
 
 @keyframes grid-scroll {
@@ -87,13 +94,14 @@ body {
   100% { transform: translateY(40px); }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.7s ease-out forwards;
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.7s ease-out forwards;
-}
+.animate-fade-in-up { animation: fade-in-up 0.7s ease-out forwards; }
+.animate-fade-in { animation: fade-in 0.7s ease-out forwards; }
+.animate-marquee { animation: marquee 40s linear infinite; }
 
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
@@ -104,8 +112,12 @@ body {
 
 /* Selection */
 ::selection {
+  background: rgba(232, 144, 58, 0.35);
+  color: var(--color-ink);
+}
+body.dark-page ::selection {
   background: rgba(232, 144, 58, 0.3);
-  color: #F5EFE0;
+  color: var(--color-text-primary);
 }
 
 /* Print styles for playbook */

@@ -42,6 +42,21 @@
   .hq-meta { font-size:15px; color:var(--text-2); line-height:1.7; }
   .hq-meta strong { color:var(--text); }
 
+  /* Agreement confirmed card */
+  .agreement-confirmed { margin-top:24px; padding:28px 32px; background:var(--green-bg); border:2px solid var(--green-border); border-radius:16px; }
+  .ac-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+  .ac-badge { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--green); }
+  .ac-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 3px rgba(22,163,74,0.15); }
+  .ac-date { font-family:'DM Mono',monospace; font-size:12px; color:var(--text-3); }
+  .ac-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:20px; }
+  .ac-item { background:var(--surface); border:1px solid var(--green-border); border-radius:10px; padding:16px 18px; }
+  .ac-label { font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--text-3); margin-bottom:6px; }
+  .ac-value { font-family:'Instrument Serif',Georgia,serif; font-size:24px; color:var(--text); line-height:1.2; }
+  .ac-value.price { color:var(--green); font-size:32px; }
+  .ac-sub { font-family:'DM Mono',monospace; font-size:12px; color:var(--text-3); margin-top:2px; }
+  .ac-note { font-size:15px; color:var(--text-2); line-height:1.65; padding-top:18px; border-top:1px solid var(--green-border); }
+  .ac-note strong { color:var(--text); }
+
   /* Sections */
   section { padding:56px 0; border-bottom:1px solid var(--border); }
   section:last-of-type { border-bottom:none; }
@@ -311,6 +326,10 @@
     .st { font-size:26px; } .sd { font-size:16px; } section { padding:40px 0; }
     .hero-quote { flex-direction:column; text-align:center; padding:24px; }
     .hq-price { font-size:42px; }
+    .agreement-confirmed { padding:22px; }
+    .ac-header { flex-direction:column; gap:8px; align-items:flex-start; }
+    .ac-grid { grid-template-columns:1fr; gap:10px; }
+    .ac-value.price { font-size:28px; }
     .stats { grid-template-columns:1fr 1fr; }
     .cc-grid,.lh-row,.pd-row,.feat-grid,.pitch-grid,.unlock-grid { grid-template-columns:1fr; }
     .cost-table { font-size:14px; display:block; overflow-x:auto; }
@@ -357,6 +376,32 @@
     <div class="hq-price">$2,400&ndash;$2,850</div>
   </div>
 </header>
+
+<!-- ═══ AGREEMENT CONFIRMED ═══ -->
+<div class="agreement-confirmed">
+  <div class="ac-header">
+    <span class="ac-badge">Agreement Confirmed &bull; Deposit Received</span>
+    <span class="ac-date">Recorded April 17, 2026</span>
+  </div>
+  <div class="ac-grid">
+    <div class="ac-item">
+      <div class="ac-label">Final Agreed Total</div>
+      <div class="ac-value price">$2,000 USD</div>
+      <div class="ac-sub">Flat rate &bull; supersedes range above</div>
+    </div>
+    <div class="ac-item">
+      <div class="ac-label">Agreement Reached</div>
+      <div class="ac-value">Wed, Apr 15</div>
+      <div class="ac-sub">6:33 PM</div>
+    </div>
+    <div class="ac-item">
+      <div class="ac-label">Deposit Received</div>
+      <div class="ac-value">Fri, Apr 17</div>
+      <div class="ac-sub">8:00 AM &bull; $1,000</div>
+    </div>
+  </div>
+  <p class="ac-note"><strong>QA arrangement:</strong> Client handles the majority of QA. Zapp Studios addresses items flagged by the client &mdash; keeping scope predictable and preventing hour overruns on open-ended revision cycles. Final $1,000 due at launch.</p>
+</div>
 
 <!-- ═══ 01: WHAT WE'LL BUILD ═══ -->
 <section>

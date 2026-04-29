@@ -2,7 +2,10 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowLeft, ArrowRight, Brain, Sparkles, Lightbulb, Wrench, Zap, CheckCircle, Check, Mail } from "lucide-react"
+import { ArrowRight, Brain, Sparkles, Wrench, Zap, CheckCircle, Check, Mail } from "lucide-react"
+import Nav from "../_components/Nav"
+import Footer from "../_components/Footer"
+import DarkPageBodyClass from "../_components/DarkPageBodyClass"
 
 /* ─── DESIGN TOKENS ─── */
 const DISPLAY: React.CSSProperties = { fontFamily: "'Space Grotesk', 'Inter', sans-serif" }
@@ -98,30 +101,10 @@ function AlertBox({ children }: { children: React.ReactNode }) {
 export default function LearnPage() {
   return (
     <main className="min-h-screen bg-[#0C0C0C] text-[#F5EFE0]">
+      <DarkPageBodyClass />
+      <Nav mode="dark" />
 
-      {/* ─── NAV ─── */}
-      <nav className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-[#A09A8E] hover:text-white transition-colors"
-        >
-          <ArrowLeft size={16} />
-          Back
-        </Link>
-        <Link href="/" className="flex items-center">
-          <span className="text-xl font-bold tracking-tight text-[#F5EFE0]">Zapp Studios</span>
-        </Link>
-        <a
-          href={MAILTO_LINK}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#0C0C0C] bg-[#4ADE80] px-4 py-2 rounded-lg
-                     transition-all duration-200 hover:bg-[#4ADE80]/90 hover:shadow-[0_0_16px_rgba(74,222,128,0.3)]"
-        >
-          <Mail size={14} />
-          Get Started
-        </a>
-      </nav>
-
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6 pt-16">
 
         {/* ─── HERO ─── */}
         <section className="py-20 text-center">
@@ -384,7 +367,7 @@ export default function LearnPage() {
         <SectionDivider />
 
         {/* ─── CTA ─── */}
-        <section className="py-20 text-center">
+        <section className="py-20">
           <FadeIn>
             <div
               className="relative rounded-2xl overflow-hidden px-6 sm:px-10 py-12"
@@ -394,35 +377,71 @@ export default function LearnPage() {
                 border: "1px solid rgba(74,222,128,0.12)",
               }}
             >
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4" style={DISPLAY}>
-                Ready to learn AI?
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center" style={DISPLAY}>
+                Two ways to get started
               </h2>
-              <p className="text-[#A09A8E] mb-8 max-w-lg mx-auto">
-                Send me a message with what you&apos;re working on. I&apos;ll get back to you
-                with how AI can fit into your workflow.
+              <p className="text-[#A09A8E] mb-10 max-w-lg mx-auto text-center">
+                Join the next cohort of the Monthly AI Class, or reach out directly to talk about
+                your business.
               </p>
 
-              <a
-                href={MAILTO_LINK}
-                className="inline-flex items-center gap-2 text-base font-semibold text-[#0C0C0C] bg-[#4ADE80] px-8 py-3.5 rounded-xl
-                           transition-all duration-200
-                           hover:bg-[#4ADE80]/90 hover:shadow-[0_0_20px_rgba(74,222,128,0.35)]
-                           active:scale-[0.97]"
-              >
-                <Mail size={18} />
-                Send Me a Message
-              </a>
+              <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                {/* Waitlist / cohort */}
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeCckl4XvgHeIAwdkL-dAKLwbRZNz-D1IBbKDV9zCT1tHQSkA/viewform?usp=header"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col justify-between p-5 rounded-xl bg-[#0C0C0C]/40 border border-[#4ADE80]/20 hover:border-[#4ADE80]/50 transition-all"
+                >
+                  <div>
+                    <p className="text-[10px] font-semibold tracking-widest text-[#4ADE80] mb-2 uppercase">
+                      Monthly AI Class
+                    </p>
+                    <p className="text-base font-semibold text-white mb-2" style={DISPLAY}>
+                      Join the waitlist
+                    </p>
+                    <p className="text-[13px] text-[#A09A8E] leading-relaxed mb-4">
+                      Small-group cohort. Monthly sessions. Ship something every time. Next
+                      cohort opens soon.
+                    </p>
+                  </div>
+                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-[#4ADE80]">
+                    Get on the list
+                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                  </div>
+                </a>
+
+                {/* Direct outreach */}
+                <a
+                  href={MAILTO_LINK}
+                  className="group flex flex-col justify-between p-5 rounded-xl bg-[#4ADE80] hover:bg-[#4ADE80]/90 transition-all"
+                >
+                  <div>
+                    <p className="text-[10px] font-semibold tracking-widest text-[#0C0C0C]/70 mb-2 uppercase">
+                      Direct
+                    </p>
+                    <p className="text-base font-semibold text-[#0C0C0C] mb-2" style={DISPLAY}>
+                      Send me a message
+                    </p>
+                    <p className="text-[13px] text-[#0C0C0C]/70 leading-relaxed mb-4">
+                      Tell me what you&apos;re working on and I&apos;ll share how AI can fit into
+                      your workflow.
+                    </p>
+                  </div>
+                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-[#0C0C0C]">
+                    <Mail size={14} />
+                    Email Hamza
+                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                  </div>
+                </a>
+              </div>
             </div>
           </FadeIn>
         </section>
 
       </div>
 
-      {/* ─── FOOTER ─── */}
-      <footer className="border-t border-white/[0.04] py-8 px-6 text-center">
-        <div className="text-[13px] text-[#6B6560]">Hamza Zulquernain · Zapp Studios · Houston, TX</div>
-      </footer>
-
+      <Footer mode="dark" />
     </main>
   )
 }
