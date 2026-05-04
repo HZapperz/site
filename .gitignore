@@ -27,3 +27,6 @@ coverage
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local-only working directory for the Owen / TCT project (research notes, scratch files, mini Next.js project)
+/owen

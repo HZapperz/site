@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modded Seiko — Built by hand. Shipped on time. Replied to in hours.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #F5F5F2;
+    --paper: #FAFAF7;
+    --carbon: #0A0A0A;
+    --carbon-soft: #1F1F1F;
+    --cobalt: #1F4DD2;
+    --cobalt-deep: #143399;
+    --stone: #6B6B6B;
+    --stone-light: #D6D6D2;
+    --rule: #E5E5E0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--carbon);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .display {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  .mono-label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0;
+    color: var(--stone);
+    font-weight: 400;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  @media (max-width: 800px) {
+    .container { padding: 0 20px; }
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(245, 245, 242, 0.85);
+    backdrop-filter: saturate(1.4) blur(20px);
+    -webkit-backdrop-filter: saturate(1.4) blur(20px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .wordmark {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: var(--carbon);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .wordmark .accent {
+    color: var(--cobalt);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--carbon);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover { color: var(--cobalt); }
+
+  .nav-cta {
+    padding: 10px 18px;
+    background: var(--carbon);
+    color: var(--white);
+    border: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+  }
+
+  .nav-cta:hover { background: var(--cobalt); transform: translateY(-1px); }
+
+  @media (max-width: 1000px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (max-width: 800px) {
+    .hero { padding: 100px 0 60px; min-height: auto; }
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--stone);
+    margin-bottom: 32px;
+    animation: fade-up 0.8s ease-out both;
+  }
+
+  .hero-eyebrow .dot {
+    color: var(--cobalt);
+    margin: 0 10px;
+  }
+
+  .hero-headline {
+    font-size: clamp(48px, 9vw, 130px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+    max-width: 16ch;
+    color: var(--carbon);
+    animation: fade-up 1s 0.1s ease-out both;
+  }
+
+  .hero-headline .accent {
+    color: var(--cobalt);
+  }
+
+  .hero-sub {
+    margin-top: 40px;
+    font-size: clamp(17px, 1.6vw, 22px);
+    line-height: 1.45;
+    max-width: 60ch;
+    color: var(--stone);
+    font-weight: 400;
+    animation: fade-up 1s 0.25s ease-out both;
+  }
+
+  .hero-cta-row {
+    margin-top: 56px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    animation: fade-up 1s 0.4s ease-out both;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+
+  .btn-primary {
+    background: var(--carbon);
+    color: var(--white);
+    border: 1px solid var(--carbon);
+  }
+
+  .btn-primary:hover {
+    background: var(--cobalt);
+    border-color: var(--cobalt);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--carbon);
+    border: 1px solid var(--rule);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--carbon);
+  }
+
+  /* HERO META */
+  .hero-meta {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    animation: fade-up 1s 0.55s ease-out both;
+  }
+
+  .meta-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .meta-stat-num {
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--carbon);
+    font-feature-settings: 'tnum' on;
+  }
+
+  .meta-stat-label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--stone);
+  }
+
+  @media (max-width: 800px) {
+    .hero-meta { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* HERO PRODUCT */
+  .hero-product {
+    margin-top: 80px;
+    aspect-ratio: 16/8;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-product svg {
+    width: 320px;
+    height: 320px;
+    color: var(--carbon);
+    opacity: 0.92;
+  }
+
+  .hero-product::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 60%, rgba(31, 77, 210, 0.06) 0%, transparent 50%);
+  }
+
+  .photo-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    color: var(--stone);
+    background: var(--white);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    z-index: 3;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 120px 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  @media (max-width: 800px) { .section { padding: 80px 0; } }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    margin-bottom: 64px;
+    align-items: baseline;
+  }
+
+  .section-tag {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--cobalt);
+    padding-top: 16px;
+  }
+
+  .section-tag .num {
+    color: var(--carbon);
+    margin-right: 12px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    max-width: 22ch;
+    color: var(--carbon);
+  }
+
+  .section-title .accent { color: var(--cobalt); }
+
+  @media (max-width: 800px) {
+    .section-header { grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
+  }
+
+  /* STORY */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .founder-portrait {
+    aspect-ratio: 4/5;
+    background: linear-gradient(180deg, var(--paper) 0%, #EBEBE6 100%);
+    border-radius: 16px;
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founder-mark {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: var(--cobalt);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .photo-caption-light {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    color: var(--stone);
+    background: rgba(245, 245, 242, 0.9);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+
+  .story-headline {
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.1;
+    margin-bottom: 28px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .story-body p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--stone);
+    margin-bottom: 16px;
+    max-width: 56ch;
+  }
+
+  .story-signature {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .signature-mark {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--cobalt);
+  }
+
+  .signature-meta {
+    font-size: 13px;
+    color: var(--stone);
+  }
+
+  .signature-meta strong {
+    color: var(--carbon);
+    font-weight: 600;
+  }
+
+  @media (max-width: 1000px) {
+    .story-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  /* PROMISES */
+  .promises {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .promise-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 32px;
+    border-radius: 12px;
+  }
+
+  .promise-icon-box {
+    width: 40px;
+    height: 40px;
+    background: var(--carbon);
+    color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .promise-title {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .promise-body {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--stone);
+  }
+
+  @media (max-width: 800px) {
+    .promises { grid-template-columns: 1fr; }
+  }
+
+  /* WATCHES GRID */
+  .watches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .watch-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .watch-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--carbon);
+    box-shadow: 0 12px 32px -16px rgba(10,10,10,0.18);
+  }
+
+  .watch-thumb {
+    aspect-ratio: 1/1;
+    background: linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+
+  .watch-thumb svg {
+    width: 100px;
+    height: 100px;
+    color: var(--carbon);
+    opacity: 0.85;
+  }
+
+  .watch-meta {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    color: var(--cobalt);
+    margin-bottom: 6px;
+  }
+
+  .watch-name {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .watch-spec {
+    font-size: 13px;
+    color: var(--stone);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .watch-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+
+  .watch-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--carbon);
+    font-feature-settings: 'tnum' on;
+  }
+
+  .watch-link {
+    font-size: 12px;
+    color: var(--cobalt);
+    font-weight: 500;
+  }
+
+  @media (max-width: 1000px) { .watches-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .watches-grid { grid-template-columns: 1fr; } }
+
+  /* THE BUILD */
+  .build-stages {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    counter-reset: stage;
+  }
+
+  .stage-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 200px;
+  }
+
+  .stage-num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--cobalt);
+  }
+
+  .stage-title {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .stage-body {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--stone);
+    margin-top: auto;
+  }
+
+  @media (max-width: 1000px) { .build-stages { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .build-stages { grid-template-columns: 1fr; } }
+
+  .build-promise {
+    margin-top: 56px;
+    padding: 40px;
+    background: var(--carbon);
+    color: var(--white);
+    border-radius: 16px;
+    text-align: center;
+    font-size: clamp(18px, 2.2vw, 28px);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.35;
+  }
+
+  .build-promise .accent { color: var(--cobalt); font-weight: 500; }
+
+  /* CONFIGURATOR MOCK */
+  .configurator-mock {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 580px;
+  }
+
+  .config-preview {
+    background: linear-gradient(180deg, var(--white) 0%, var(--paper) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .config-preview svg {
+    width: 240px;
+    height: 240px;
+    color: var(--carbon);
+    opacity: 0.92;
+  }
+
+  .config-preview-meta {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .config-preview-meta .build-num {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--cobalt);
+    margin-bottom: 8px;
+  }
+
+  .config-preview-meta .build-name {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin-bottom: 4px;
+  }
+
+  .config-preview-meta .build-spec {
+    font-size: 13px;
+    color: var(--stone);
+  }
+
+  .config-options {
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .config-progress {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .config-progress .step {
+    flex: 1;
+    height: 3px;
+    background: var(--stone-light);
+    border-radius: 2px;
+  }
+
+  .config-progress .step.active {
+    background: var(--cobalt);
+  }
+
+  .config-step-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    color: var(--stone);
+    margin-bottom: 4px;
+  }
+
+  .config-step-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--carbon);
+  }
+
+  .config-options-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .config-chip {
+    padding: 7px 12px;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--carbon);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .config-chip.active {
+    background: var(--carbon);
+    border-color: var(--carbon);
+    color: var(--white);
+  }
+
+  .config-chip:hover { border-color: var(--carbon); }
+
+  .config-running {
+    margin-top: auto;
+    padding: 20px;
+    background: var(--carbon);
+    color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .config-running .label {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    opacity: 0.7;
+  }
+
+  .config-running .price {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    font-feature-settings: 'tnum' on;
+  }
+
+  @media (max-width: 1000px) {
+    .configurator-mock { grid-template-columns: 1fr; }
+    .config-preview { border-right: none; border-bottom: 1px solid var(--rule); padding: 40px 24px; }
+  }
+
+  /* OWNER PORTAL */
+  .portal-callout {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 64px;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+
+  .portal-headline {
+    font-size: clamp(28px, 3.4vw, 44px);
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .portal-headline .accent { color: var(--cobalt); }
+
+  .portal-body p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--stone);
+    margin-bottom: 14px;
+    max-width: 56ch;
+  }
+
+  @media (max-width: 1000px) { .portal-callout { grid-template-columns: 1fr; gap: 24px; } }
+
+  .portal-mock {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .portal-tabs {
+    display: flex;
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .portal-tab {
+    padding: 14px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--stone);
+    border-right: 1px solid var(--rule);
+    cursor: pointer;
+  }
+
+  .portal-tab.active {
+    color: var(--carbon);
+    border-bottom: 2px solid var(--cobalt);
+  }
+
+  .portal-content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 0;
+  }
+
+  .portal-main {
+    padding: 32px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .portal-side {
+    padding: 32px;
+    background: var(--white);
+  }
+
+  .portal-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--cobalt);
+    margin-bottom: 6px;
+  }
+
+  .portal-build-name {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    margin-bottom: 4px;
+  }
+
+  .portal-build-sub {
+    font-size: 13px;
+    color: var(--stone);
+    margin-bottom: 28px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: center;
+  }
+
+  .timeline-row:last-child { border-bottom: none; }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--stone-light);
+  }
+
+  .timeline-row.done .timeline-dot { background: var(--cobalt); }
+  .timeline-row.current .timeline-dot {
+    background: var(--cobalt);
+    box-shadow: 0 0 0 4px rgba(31, 77, 210, 0.18);
+  }
+  .timeline-row.pending .timeline-dot { background: var(--stone-light); }
+
+  .timeline-label {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .timeline-row.pending .timeline-label { color: var(--stone); font-weight: 400; }
+
+  .timeline-meta {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--stone);
+  }
+
+  .timeline-row.current .timeline-meta { color: var(--cobalt); }
+
+  /* SPEC CARD */
+  .spec-card {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 16px;
+    background: var(--white);
+    margin-top: 8px;
+  }
+
+  .spec-card .spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 12px;
+  }
+
+  .spec-card .spec-label { color: var(--stone); }
+  .spec-card .spec-value { font-weight: 500; }
+
+  /* MESSAGE THREAD */
+  .message-thread { display: flex; flex-direction: column; gap: 10px; }
+
+  .message {
+    padding: 10px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 12px;
+  }
+
+  .message.from-owen {
+    background: var(--carbon);
+    color: var(--white);
+    align-self: flex-start;
+    max-width: 80%;
+    border-bottom-left-radius: 2px;
+  }
+
+  .message.from-you {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--carbon);
+    align-self: flex-end;
+    max-width: 80%;
+    border-bottom-right-radius: 2px;
+  }
+
+  .message-meta {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    color: var(--stone);
+    margin: 2px 0;
+  }
+
+  @media (max-width: 800px) {
+    .portal-content { grid-template-columns: 1fr; }
+    .portal-main { border-right: none; border-bottom: 1px solid var(--rule); }
+  }
+
+  /* PRICING TIERS */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .tier-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tier-card.featured {
+    background: var(--carbon);
+    color: var(--white);
+    border-color: var(--carbon);
+  }
+
+  .tier-card.featured .tier-meta { color: rgba(245,245,242,0.5); }
+  .tier-card.featured .tier-summary,
+  .tier-card.featured .tier-included li { color: rgba(245,245,242,0.85); }
+  .tier-card.featured .tier-included { border-color: rgba(245,245,242,0.15); }
+
+  .tier-meta {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--cobalt);
+  }
+
+  .tier-name {
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
+
+  .tier-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .tier-price .from {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    margin-right: 6px;
+    color: var(--stone);
+  }
+
+  .tier-card.featured .tier-price .from { color: rgba(245,245,242,0.6); }
+
+  .tier-price .amount {
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    font-feature-settings: 'tnum' on;
+  }
+
+  .tier-price .range {
+    font-size: 14px;
+    color: var(--stone);
+    margin-left: 4px;
+  }
+
+  .tier-card.featured .tier-price .range { color: rgba(245,245,242,0.6); }
+
+  .tier-summary {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--stone);
+  }
+
+  .tier-included {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .tier-included li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .tier-included li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--cobalt);
+    font-weight: 700;
+  }
+
+  .tier-cta {
+    padding: 12px 18px;
+    background: transparent;
+    border: 1px solid currentColor;
+    color: inherit;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  .tier-cta:hover { background: var(--carbon); color: var(--white); border-color: var(--carbon); }
+
+  .tier-card.featured .tier-cta { background: var(--cobalt); border-color: var(--cobalt); color: var(--white); }
+  .tier-card.featured .tier-cta:hover { background: var(--white); color: var(--carbon); border-color: var(--white); }
+
+  .pricing-foot {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--stone);
+  }
+
+  @media (max-width: 1000px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .tier-name { font-size: 30px; }
+  }
+
+  /* REVIEWS */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .review-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review-stars {
+    color: var(--cobalt);
+    font-size: 14px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+
+  .review-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    color: var(--carbon);
+  }
+
+  .review-byline {
+    font-size: 12px;
+    color: var(--stone);
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+  }
+
+  .review-byline strong { color: var(--carbon); font-weight: 600; }
+
+  @media (max-width: 1000px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+  /* FINAL CTA */
+  .final-cta {
+    padding: 140px 0;
+    background: var(--carbon);
+    color: var(--white);
+    border-top: 1px solid var(--carbon);
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(48px, 9vw, 130px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  .final-cta h2 .accent { color: var(--cobalt); }
+
+  .final-cta-sub {
+    max-width: 56ch;
+    margin: 0 auto 48px;
+    color: rgba(245,245,242,0.7);
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .big-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: var(--cobalt);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .big-button:hover { background: var(--white); color: var(--carbon); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--white);
+    color: var(--stone);
+    padding: 60px 0 40px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .footer-wordmark {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--carbon);
+  }
+
+  .footer-wordmark .accent { color: var(--cobalt); }
+
+  .footer-tagline {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 32ch;
+    color: var(--stone);
+  }
+
+  .footer-col h4 {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--carbon);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+
+  .footer-col a {
+    color: var(--stone);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover { color: var(--cobalt); }
+
+  .footer-fine {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--stone);
+  }
+
+  @media (max-width: 800px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .footer-fine { flex-direction: column; gap: 10px; }
+  }
+
+  /* Real photo handling */
+  .hero-product img,
+  .watch-thumb img,
+  .founder-portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+  }
+  .hero-product { background: var(--carbon); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="wordmark">Modded<span class="accent">Seiko</span></a>
+  <ul class="nav-links">
+    <li><a href="#watches">Watches</a></li>
+    <li><a href="#build">Build</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#owner">Dashboard</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <a href="#build" class="nav-cta">Build a watch</a>
+</nav>
+
+<header class="hero">
+  <div class="container">
+
+    <div class="hero-eyebrow">moddedseiko.com<span class="dot">·</span>by Owen Yohman<span class="dot">·</span>est. 2022<span class="dot">·</span>Texas</div>
+
+    <h1 class="display hero-headline">
+      Built by hand.<br>
+      Shipped on time.<br>
+      <span class="accent">Replied to in hours.</span>
+    </h1>
+
+    <p class="hero-sub">A real customer dashboard for a real custom watch. Choose a model. Lock the spec. Watch every build stage from your phone. Stop wondering where your watch is.</p>
+
+    <div class="hero-cta-row">
+      <a href="#build" class="btn btn-primary">Build a watch
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#watches" class="btn btn-ghost">Browse the drops</a>
+    </div>
+
+    <div class="hero-meta">
+      <div class="meta-stat">
+        <div class="meta-stat-num">700+</div>
+        <div class="meta-stat-label">watches built since 2022</div>
+      </div>
+      <div class="meta-stat">
+        <div class="meta-stat-num">±15s</div>
+        <div class="meta-stat-label">/day movement accuracy</div>
+      </div>
+      <div class="meta-stat">
+        <div class="meta-stat-num">3-5wk</div>
+        <div class="meta-stat-label">build time, on the date</div>
+      </div>
+      <div class="meta-stat">
+        <div class="meta-stat-num">4.9★</div>
+        <div class="meta-stat-label">from 50+ verified buyers</div>
+      </div>
+    </div>
+
+    <div class="hero-product">
+      <img src="https://drive.google.com/thumbnail?id=1qqg4EhRyj50lEQV15Nph0mBDR7Xm6WJa&sz=w1600" alt="Three custom watches: frosted Royal Oak, Tiffany Nautilus, Pepsi GMT" loading="eager"/>
+    </div>
+
+  </div>
+</header>
+
+<!-- 01 STORY -->
+<section class="section" id="story">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-tag"><span class="num">01</span>The Workshop</div>
+      <h2 class="display section-title">A one-builder operation. <span class="accent">Built around you knowing.</span></h2>
+    </div>
+
+    <div class="story-grid">
+      <div class="founder-portrait">
+        <div class="founder-mark">OY</div>
+        <div class="photo-caption-light">Owen at the bench — TBD</div>
+      </div>
+      <div>
+        <h3 class="story-headline">Texas. Two-room workshop. One builder.</h3>
+        <div class="story-body">
+          <p>I&apos;m Owen. I started Modded Seiko in 2022 because nobody was making the watch I wanted at a price I could afford. Seven hundred watches later, I still build every one of them myself — same Texas workshop, same hands.</p>
+          <p>Every dial reads SEIKO because every movement is a Seiko. Not a Rolex copy, not an AliExpress fake. The Japanese architecture you trust, finished in the silhouette you&apos;ve been pricing on Chrono24.</p>
+        </div>
+        <div class="story-signature">
+          <div class="signature-mark">// owen.yohman</div>
+          <div class="signature-meta"><strong>Owen Yohman</strong> · Founder · Texas</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="promises">
+      <div class="promise-card">
+        <div class="promise-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12l3 3 5-5M14 12h7M14 16h7M14 8h7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="promise-title">Built by hand</div>
+        <div class="promise-body">Every watch assembled by Owen, in our Texas workshop. No subcontractors, no overseas assembly, no AI-generated emails.</div>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="promise-title">Shipped on the date</div>
+        <div class="promise-body">3-5 week build window, stated upfront. If I miss the date, I tell you 14 days before — never after.</div>
+      </div>
+      <div class="promise-card">
+        <div class="promise-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 12c0 4.97-4.03 9-9 9-1.5 0-2.93-.37-4.18-1.02L3 21l1.02-4.82A8.96 8.96 0 0 1 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="promise-title">Replied to in hours</div>
+        <div class="promise-body">Help from the same person who builds your watch. Median reply time: 47 minutes. No forms, no scripts.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 02 WATCHES -->
+<section class="section" id="watches">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-tag"><span class="num">02</span>The Drops</div>
+      <h2 class="display section-title">Six silhouette families. <span class="accent">Built honestly.</span></h2>
+    </div>
+
+    <div class="watches-grid">
+
+      <div class="watch-card">
+        <div class="watch-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1OyjXseqX_8j43QQiqvpfroq2BTPNRrWu&sz=w800" alt="Explorer-style GMT" loading="lazy"/>
+        </div>
+        <div class="watch-meta">DIVER / GMT</div>
+        <div class="watch-name">Pepsi GMT</div>
+        <div class="watch-spec">NH35 · 40mm steel · ceramic Pepsi bezel · Jubilee bracelet</div>
+        <div class="watch-foot">
+          <div class="watch-price">$429</div>
+          <div class="watch-link">Build →</div>
+        </div>
+      </div>
+
+      <div class="watch-card">
+        <div class="watch-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1yk7DW6umuOFdyWJV6J76hXbcwRCM9Xb5&sz=w800" alt="Nautilus rose gold custom build" loading="lazy"/>
+        </div>
+        <div class="watch-meta">SPORT / BRACELET</div>
+        <div class="watch-name">Tiffany Nautilus</div>
+        <div class="watch-spec">NH35 · 40mm · Tiffany blue dial · integrated bracelet · sapphire</div>
+        <div class="watch-foot">
+          <div class="watch-price">$549</div>
+          <div class="watch-link">Build →</div>
+        </div>
+      </div>
+
+      <div class="watch-card">
+        <div class="watch-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1AndLmFtS3zXMPB09BkQS-mbXBRg0jh4c&sz=w800" alt="DateJust style blue dial" loading="lazy"/>
+        </div>
+        <div class="watch-meta">CHRONO / RACE</div>
+        <div class="watch-name">Daytona Panda</div>
+        <div class="watch-spec">VK63 meca-quartz · 39mm · panda dial · ceramic tachymeter · Oyster bracelet</div>
+        <div class="watch-foot">
+          <div class="watch-price">$489</div>
+          <div class="watch-link">Build →</div>
+        </div>
+      </div>
+
+      <div class="watch-card">
+        <div class="watch-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1sVixIdoTGGtYIN3QANHKhSS3AXNvqx49&sz=w800" alt="Aqua Terra-style white dial" loading="lazy"/>
+        </div>
+        <div class="watch-meta">CHRONO / HERITAGE</div>
+        <div class="watch-name">Moonwatch White</div>
+        <div class="watch-spec">VK64 · 42mm · white panda · tachymeter · vintage leather strap</div>
+        <div class="watch-foot">
+          <div class="watch-price">$469</div>
+          <div class="watch-link">Build →</div>
+        </div>
+      </div>
+
+      <div class="watch-card">
+        <div class="watch-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1YRSBFC5OxnICPKy-UnRqN3qaGvpHIVt7&sz=w800" alt="Aqua Terra-style blue rubber" loading="lazy"/>
+        </div>
+        <div class="watch-meta">DRESS / SQUARE</div>
+        <div class="watch-name">Santos Blue</div>
+        <div class="watch-spec">NH35 · 39mm square · blue sunray dial · sapphire · steel link bracelet</div>
+        <div class="watch-foot">
+          <div class="watch-price">$489</div>
+          <div class="watch-link">Build →</div>
+        </div>
+      </div>
+
+      <div class="watch-card">
+        <div class="watch-thumb">
+          <img src="https://drive.google.com/thumbnail?id=1HB-TUcLqR3Qi0ipqrAZkUYjwneTyKFtW&sz=w800" alt="Aqua Terra-style teal dial" loading="lazy"/>
+        </div>
+        <div class="watch-meta">DRESS / BRACELET</div>
+        <div class="watch-name">Aventurine 39</div>
+        <div class="watch-spec">NH35 · 39mm · aventurine starfield dial · fluted bezel · Jubilee bracelet</div>
+        <div class="watch-foot">
+          <div class="watch-price">$529</div>
+          <div class="watch-link">Build →</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 03 THE BUILD -->
+<section class="section" id="the-build">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-tag"><span class="num">03</span>The Process</div>
+      <h2 class="display section-title">5 stages. 1 dashboard. <span class="accent">0 wondering.</span></h2>
+    </div>
+
+    <div class="build-stages">
+      <div class="stage-card">
+        <div class="stage-num">// 01</div>
+        <div class="stage-title">Sourced</div>
+        <div class="stage-body">Your parts laid out, photographed with Build #N. You see what&apos;s about to be assembled.</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">// 02</div>
+        <div class="stage-title">Assembled</div>
+        <div class="stage-body">Movement seated, dial fitted, hands installed under microscope. Short video of the build.</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">// 03</div>
+        <div class="stage-title">Regulated</div>
+        <div class="stage-body">Movement on the timing machine. Adjusted to ±15 sec/day. The actual readout, photographed.</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">// 04</div>
+        <div class="stage-title">QC'd</div>
+        <div class="stage-body">Pressure tested. Hero photography of the finished watch with your build card.</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">// 05</div>
+        <div class="stage-title">Shipped</div>
+        <div class="stage-body">Tracking, setup video, handwritten note in box. Strap tools included for future swaps.</div>
+      </div>
+    </div>
+
+    <div class="build-promise">
+      Every stage hits your <span class="accent">email</span> and your <span class="accent">dashboard</span>. So you never have to ask &ldquo;where&apos;s my watch?&rdquo;
+    </div>
+
+  </div>
+</section>
+
+<!-- 04 CONFIGURATOR -->
+<section class="section" id="build">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-tag"><span class="num">04</span>The Build Tool</div>
+      <h2 class="display section-title">3 steps. Live preview. <span class="accent">Real price.</span></h2>
+    </div>
+
+    <div class="configurator-mock">
+
+      <div class="config-preview">
+        <svg viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="76" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="100" cy="100" r="64" stroke="currentColor" stroke-width="0.6" opacity="0.4"/>
+          <circle cx="100" cy="100" r="2.4" fill="currentColor"/>
+          <line x1="100" y1="100" x2="100" y2="56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <line x1="100" y1="100" x2="132" y2="100" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <text x="100" y="138" text-anchor="middle" fill="currentColor" font-family="Inter, sans-serif" font-size="6.5" letter-spacing="2.5" opacity="0.6" font-weight="600">SEIKO</text>
+        </svg>
+        <div class="config-preview-meta">
+          <div class="build-num">// LIVE PREVIEW · BUILD #748</div>
+          <div class="build-name">Tiffany Nautilus</div>
+          <div class="build-spec">40mm steel · Tiffany dial · sapphire · integrated bracelet</div>
+        </div>
+      </div>
+
+      <div class="config-options">
+        <div class="config-progress">
+          <div class="step active"></div>
+          <div class="step active"></div>
+          <div class="step"></div>
+        </div>
+
+        <div>
+          <div class="config-step-eyebrow">// step 1 — pick a watch</div>
+          <div class="config-step-name">Model</div>
+          <div class="config-options-row">
+            <div class="config-chip active">Nautilus</div>
+            <div class="config-chip">Sub</div>
+            <div class="config-chip">GMT</div>
+            <div class="config-chip">Daytona</div>
+            <div class="config-chip">Santos</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="config-step-eyebrow">// step 2 — choose your parts</div>
+          <div class="config-step-name">Dial</div>
+          <div class="config-options-row">
+            <div class="config-chip">Black</div>
+            <div class="config-chip active">Tiffany Blue</div>
+            <div class="config-chip">Salmon</div>
+            <div class="config-chip">Aventurine</div>
+            <div class="config-chip">+ Custom print</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="config-step-name" style="margin-top: 4px;">Hands</div>
+          <div class="config-options-row">
+            <div class="config-chip active">Stick · White</div>
+            <div class="config-chip">Stick · Lume</div>
+            <div class="config-chip">Snowflake</div>
+            <div class="config-chip">Mercedes</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="config-step-name" style="margin-top: 4px;">Bracelet</div>
+          <div class="config-options-row">
+            <div class="config-chip active">Integrated steel</div>
+            <div class="config-chip">Oyster</div>
+            <div class="config-chip">Tropic</div>
+            <div class="config-chip">Leather</div>
+          </div>
+        </div>
+
+        <div class="config-running">
+          <div>
+            <div class="label">// build cost · ships in 4 weeks</div>
+            <div style="font-size: 11px; opacity: 0.6; margin-top: 4px; font-family: 'JetBrains Mono', ui-monospace, monospace;">or 4 × $143.50 with Affirm</div>
+          </div>
+          <div class="price">$574</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top: 20px; text-align: center; font-size: 12px; color: var(--stone); font-family: 'JetBrains Mono', ui-monospace, monospace;">
+      // Configurator UI mocked for proposal — full image-swap configurator in SOW Phase 2
+    </p>
+
+  </div>
+</section>
+
+<!-- 05 OWNER PORTAL -->
+<section class="section" id="owner">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-tag"><span class="num">05</span>The Dashboard</div>
+      <h2 class="display section-title">Watch your watch <span class="accent">get built.</span></h2>
+    </div>
+
+    <div class="portal-callout">
+      <div>
+        <h3 class="portal-headline">No more &ldquo;where&apos;s my watch?&rdquo; <span class="accent">Ever.</span></h3>
+      </div>
+      <div class="portal-body">
+        <p>The single biggest complaint about every other custom watch maker is the same: <em>I don&apos;t know where my watch is, and they won&apos;t reply.</em></p>
+        <p>So we built a real customer dashboard. Order placed → spec locked → photo at every build stage → message thread with Owen directly → tracking when it ships. All in one place. <strong>No competitor has anything like this.</strong></p>
+      </div>
+    </div>
+
+    <div class="portal-mock">
+      <div class="portal-tabs">
+        <div class="portal-tab active">Order #748</div>
+        <div class="portal-tab">Messages</div>
+        <div class="portal-tab">Past Builds</div>
+        <div class="portal-tab">Service</div>
+      </div>
+      <div class="portal-content">
+
+        <div class="portal-main">
+          <div class="portal-eyebrow">// BUILD #748 · STARTED MAR 14</div>
+          <div class="portal-build-name">Tiffany Nautilus</div>
+          <div class="portal-build-sub">For Marcus L. · Houston, TX · 40mm · Tiffany · &ldquo;ML 03·26&rdquo; engraved</div>
+
+          <div class="timeline">
+            <div class="timeline-row done">
+              <div class="timeline-dot"></div>
+              <div class="timeline-label">Order confirmed</div>
+              <div class="timeline-meta">MAR 14</div>
+            </div>
+            <div class="timeline-row done">
+              <div class="timeline-dot"></div>
+              <div class="timeline-label">Parts sourced</div>
+              <div class="timeline-meta">MAR 17 · 📷</div>
+            </div>
+            <div class="timeline-row current">
+              <div class="timeline-dot"></div>
+              <div class="timeline-label">Assembly in progress</div>
+              <div class="timeline-meta">TODAY · 🎥</div>
+            </div>
+            <div class="timeline-row pending">
+              <div class="timeline-dot"></div>
+              <div class="timeline-label">Regulation + QC</div>
+              <div class="timeline-meta">APR 2</div>
+            </div>
+            <div class="timeline-row pending">
+              <div class="timeline-dot"></div>
+              <div class="timeline-label">Shipped</div>
+              <div class="timeline-meta">APR 5 (est)</div>
+            </div>
+          </div>
+
+          <div class="portal-eyebrow" style="margin-top: 28px;">// LOCKED SPEC</div>
+          <div class="spec-card">
+            <div class="spec-row"><span class="spec-label">Movement</span><span class="spec-value">Seiko NH35</span></div>
+            <div class="spec-row"><span class="spec-label">Case</span><span class="spec-value">40mm 316L · brushed</span></div>
+            <div class="spec-row"><span class="spec-label">Dial</span><span class="spec-value">Tiffany blue · applied</span></div>
+            <div class="spec-row"><span class="spec-label">Hands</span><span class="spec-value">Stick · white · lume</span></div>
+            <div class="spec-row"><span class="spec-label">Crystal</span><span class="spec-value">Sapphire · double-domed · AR</span></div>
+            <div class="spec-row"><span class="spec-label">Bracelet</span><span class="spec-value">Integrated steel</span></div>
+          </div>
+        </div>
+
+        <div class="portal-side">
+          <div class="portal-eyebrow">// CONVERSATION WITH OWEN</div>
+          <div class="message-thread">
+            <div>
+              <div class="message-meta">Owen · Mar 17, 11:14am</div>
+              <div class="message from-owen">Parts came in this morning — laid them out. Tiffany dial is in your batch. Should be on the bench Tuesday.</div>
+            </div>
+            <div>
+              <div class="message-meta">You · Mar 17, 6:02pm</div>
+              <div class="message from-you">Looks great. Can the date wheel be matched to the dial?</div>
+            </div>
+            <div>
+              <div class="message-meta">Owen · Mar 17, 6:11pm</div>
+              <div class="message from-owen">+$35 and 1 week. Worth it for this dial. Your call.</div>
+            </div>
+            <div>
+              <div class="message-meta">You · Mar 17, 6:15pm</div>
+              <div class="message from-you">Yes do it.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 06 PRICING -->
+<section class="section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-tag"><span class="num">06</span>Pricing</div>
+      <h2 class="display section-title">Three tiers. <span class="accent">Same hands.</span></h2>
+    </div>
+
+    <div class="pricing-grid">
+
+      <div class="tier-card">
+        <div class="tier-meta">// CURATED · BATCH 03</div>
+        <div class="tier-name">Collection</div>
+        <div class="tier-price">
+          <span class="from">FROM</span>
+          <span class="amount">$329</span>
+          <span class="range">– $499</span>
+        </div>
+        <div class="tier-summary">A signature build from a current monthly drop. Pre-spec&apos;d, batch-built, ships in 3 weeks.</div>
+        <ul class="tier-included">
+          <li>5 rotating signature designs</li>
+          <li>NH35 · sapphire crystal</li>
+          <li>2-yr movement warranty · lifetime service</li>
+          <li>Free shipping · 30-day return</li>
+        </ul>
+        <a href="#watches" class="tier-cta">Browse the drops</a>
+      </div>
+
+      <div class="tier-card featured">
+        <div class="tier-meta" style="color: white !important;">// MOST POPULAR · 60% OF BUILDS</div>
+        <div class="tier-name">Signature</div>
+        <div class="tier-price">
+          <span class="from">FROM</span>
+          <span class="amount">$499</span>
+          <span class="range">– $799</span>
+        </div>
+        <div class="tier-summary">Full configurator. Choose case, dial, hands, bezel, strap, engraving. Built to your spec, ships in 4 weeks.</div>
+        <ul class="tier-included">
+          <li>Full custom configurator (5 silhouette families)</li>
+          <li>Premium materials · ceramic · custom dial</li>
+          <li>Affirm · Klarna · Shop Pay</li>
+          <li>2-yr warranty · one free re-spec</li>
+        </ul>
+        <a href="#build" class="tier-cta">Start building</a>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-meta">// FOUNDER-BUILT</div>
+        <div class="tier-name">Bespoke</div>
+        <div class="tier-price">
+          <span class="from">FROM</span>
+          <span class="amount">$799</span>
+          <span class="range">– $1.5K</span>
+        </div>
+        <div class="tier-summary">30-min call with Owen. Fully sketched build, hand-engraved caseback. 6 weeks.</div>
+        <ul class="tier-included">
+          <li>30-min founder consult call</li>
+          <li>Custom dial print + hand-engraved caseback</li>
+          <li>Exotic dials · meteorite · aventurine · MOP</li>
+          <li>Numbered card · 5-year warranty</li>
+        </ul>
+        <a href="#contact" class="tier-cta">Request a build</a>
+      </div>
+
+    </div>
+
+    <div class="pricing-foot">// All builds shipped insured · BNPL on Signature + Bespoke · Texas residents add applicable sales tax</div>
+
+  </div>
+</section>
+
+<!-- 07 REVIEWS -->
+<section class="section" id="reviews">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-tag"><span class="num">07</span>The Receipts</div>
+      <h2 class="display section-title">700 watches. 50+ reviews. <span class="accent">Zero ghosting.</span></h2>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">&ldquo;Got more compliments than the Rolexes at the table. Owen replied within an hour every single time. First custom and definitely not the last.&rdquo;</div>
+        <div class="review-byline"><strong>Marcus L.</strong> · Houston, TX · Tiffany Nautilus · #422</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">&ldquo;Bought one as a 50th birthday gift for my dad. Built on time, signed the box, made me cry watching him open it.&rdquo;</div>
+        <div class="review-byline"><strong>Aubrey C.</strong> · Austin, TX · Pepsi GMT · #386</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">&ldquo;3rd watch from Owen. The dashboard with build photos is the thing nobody else has — I&apos;d pay him just for that.&rdquo;</div>
+        <div class="review-byline"><strong>Travis C.</strong> · Dallas, TX · Aventurine 39 · #501</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px; text-align: center;">
+      <a href="#" style="font-size: 13px; color: var(--cobalt); text-decoration: none; font-weight: 500;">Read 47 more reviews →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="display">Build the watch <span class="accent">you've been planning.</span></h2>
+    <p class="final-cta-sub">Take the 60-second quiz and we&apos;ll tell you exactly which silhouette to start with. Or jump straight into the configurator.</p>
+    <a href="#build" class="big-button">Start a build
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-wordmark">Modded<span class="accent">Seiko</span></div>
+        <p class="footer-tagline">Hand-built custom watches on Seiko movements, made in Texas. Since 2022. By Owen Yohman.</p>
+      </div>
+      <div class="footer-col">
+        <h4>// build</h4>
+        <ul>
+          <li><a href="#build">Configurator</a></li>
+          <li><a href="#watches">Drops</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#">Take the quiz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>// practice</h4>
+        <ul>
+          <li><a href="#story">Workshop</a></li>
+          <li><a href="#the-build">Process</a></li>
+          <li><a href="#owner">Dashboard</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>// fine print</h4>
+        <ul>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-fine">
+      <div>© 2026 Modded Seiko · Owen Yohman · Texas</div>
+      <div>moddedseiko.com · v1.0.0</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
