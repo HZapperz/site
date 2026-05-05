@@ -256,6 +256,97 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SCOPE LINK */}
+      <section className="px-5 sm:px-10 max-w-6xl mx-auto pb-12 sm:pb-16">
+        <Link
+          href="/rev-eng/owen/design/scope.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          prefetch={false}
+          className="group block rounded-2xl overflow-hidden transition-transform duration-500 hover:-translate-y-1"
+          style={{
+            border: "1px solid #2a2724",
+            background: "linear-gradient(135deg, #161616 0%, #1c1815 100%)",
+          }}
+        >
+          <div className="px-6 py-8 sm:px-12 sm:py-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-12">
+            <div className="flex-1">
+              <div
+                className="text-[11px] uppercase mb-3"
+                style={{
+                  letterSpacing: "0.22em",
+                  color: "#B8732A",
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
+                }}
+              >
+                Implementation document
+              </div>
+              <h3
+                style={{
+                  fontFamily: "var(--font-fraunces), serif",
+                  fontSize: "clamp(22px, 3vw, 34px)",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em",
+                  fontWeight: 380,
+                  fontVariationSettings: "'opsz' 144, 'SOFT' 0",
+                  color: "#f5f1ea",
+                  marginBottom: 8,
+                }}
+              >
+                Read the full scope of work →
+              </h3>
+              <p
+                className="text-[15px] max-w-[60ch]"
+                style={{
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
+                  color: "#b8b1a4",
+                  lineHeight: 1.55,
+                }}
+              >
+                Phase-by-phase build plan, complete feature list (including the
+                in-portal chat with customers), monthly cost breakdown, 10-week
+                timeline, and success metrics.
+              </p>
+            </div>
+            <div
+              className="flex items-center gap-3 text-[12px] uppercase whitespace-nowrap"
+              style={{
+                color: "#D9954A",
+                letterSpacing: "0.18em",
+                fontFamily: "var(--font-inter), system-ui, sans-serif",
+              }}
+            >
+              <span className="transition-transform duration-300 group-hover:translate-x-1">
+                Open
+              </span>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path
+                  d="M6 3h7v7"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M13 3L3 13"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </Link>
+      </section>
+
       {/* DECISION */}
       <section className="px-5 sm:px-10 max-w-6xl mx-auto pb-24 sm:pb-32">
         <div
@@ -300,7 +391,7 @@ export default function Home() {
           >
             Reply with your pick — a sentence on why is plenty. We&apos;ll then
             build the full clickable Next.js prototype on the chosen direction,
-            line up a photo refresh, and finalize the SOW.
+            line up a photo refresh, and kick off Phase 1.
           </p>
         </div>
       </section>
