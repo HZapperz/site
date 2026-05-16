@@ -9,6 +9,11 @@ const nextConfig = {
       { source: '/founders', destination: '/partnerships', permanent: true },
     ]
   },
+  async rewrites() {
+    return [
+      { source: '/apartment-locator/fae', destination: '/apartment-locator/fae.html' },
+    ]
+  },
 }
 
 module.exports = nextConfig
