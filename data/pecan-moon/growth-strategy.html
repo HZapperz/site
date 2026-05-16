@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pecan Moon — Growth Marketing: Findings &amp; 90-Day Plan</title>
+<style>
+:root{
+  --canvas:#F6F1E6; --paper:#FFFCF6; --paper-2:#FBF6EB;
+  --ink:#2B2620; --ink-soft:#6E6557; --ink-faint:#938A78;
+  --pecan:#6F4B2D; --pecan-deep:#4A331F;
+  --gold:#B5904A; --gold-soft:#E6D9B6; --gold-line:#D8C9A3;
+  --terracotta:#B5654A; --sage:#7E8767; --slate:#9E978A;
+  --positive:#5F7048; --alert:#A8533B;
+  --line:#E4DAC6; --line-strong:#D5C7A8;
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif;
+  --sans:'Helvetica Neue',Helvetica,Arial,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--canvas); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+
+/* ---------- layout ---------- */
+.shell{display:flex; gap:0; max-width:1200px; margin:0 auto}
+.toc{
+  width:262px; flex:none; background:var(--paper-2);
+  border-right:1px solid var(--line);
+  position:sticky; top:0; height:100vh; overflow-y:auto;
+  padding:30px 22px 60px;
+}
+.doc{flex:1; min-width:0; padding:0 0 90px}
+.wrap{max-width:760px; margin:0 auto; padding:0 38px}
+
+/* ---------- table of contents ---------- */
+.toc-brand{font-family:var(--serif); font-size:18px; color:var(--pecan-deep); letter-spacing:.02em; margin-bottom:2px}
+.toc-brand b{font-weight:600}
+.toc-sub{font-family:var(--sans); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:22px}
+.toc nav{font-family:var(--sans)}
+.toc-group{font-size:10px; letter-spacing:.17em; text-transform:uppercase; color:var(--gold); margin:20px 0 7px; font-weight:700}
+.toc-group:first-of-type{margin-top:0}
+.toc a{
+  display:block; font-size:12.7px; line-height:1.38; color:var(--ink-soft);
+  text-decoration:none; padding:5px 10px; border-left:2px solid transparent;
+  border-radius:0 3px 3px 0; transition:background .15s,color .15s;
+}
+.toc a:hover{background:var(--canvas); color:var(--pecan)}
+.toc a.active{background:var(--canvas); color:var(--pecan-deep); border-left-color:var(--gold); font-weight:600}
+.toc a .n{color:var(--gold); font-weight:700; margin-right:7px; font-size:11px}
+
+/* ---------- mobile topbar ---------- */
+.topbar{
+  display:none; position:fixed; top:0; left:0; right:0; height:54px; z-index:50;
+  background:var(--paper); border-bottom:1px solid var(--line-strong);
+  align-items:center; justify-content:space-between; padding:0 18px;
+}
+.topbar .tb-title{font-family:var(--serif); font-size:16px; color:var(--pecan-deep)}
+.topbar button{
+  font-family:var(--sans); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  background:var(--pecan); color:#fff; border:0; padding:9px 14px; border-radius:4px; cursor:pointer;
+}
+.backdrop{display:none}
+
+/* ---------- cover ---------- */
+.cover{
+  background:var(--pecan-deep); color:#F4ECDC;
+  padding:78px 38px 64px; position:relative; overflow:hidden;
+}
+.cover .moon{position:absolute; top:54px; right:48px; opacity:.5}
+.cover-kicker{
+  font-family:var(--sans); font-size:11px; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:26px;
+}
+.cover h1{
+  font-family:var(--serif); font-weight:600; font-size:54px; line-height:1.04;
+  letter-spacing:-.01em; color:#FBF4E4; max-width:560px;
+}
+.cover h1 .light{display:block; font-style:italic; font-weight:400; font-size:34px; color:var(--gold-soft); margin-top:14px; letter-spacing:0}
+.cover-rule{width:64px; height:2px; background:var(--gold); margin:34px 0 30px}
+.cover-meta{display:flex; flex-wrap:wrap; gap:34px 56px; font-family:var(--sans)}
+.cover-meta .lbl{font-size:10px; letter-spacing:.17em; text-transform:uppercase; color:var(--gold); margin-bottom:5px}
+.cover-meta .val{font-size:14.5px; color:#EFE6D2; font-family:var(--serif)}
+.cover-tag{
+  position:absolute; bottom:0; right:0;
+  font-family:var(--sans); font-size:9.5px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--pecan-deep); background:var(--gold); padding:7px 16px;
+}
+
+/* ---------- sections ---------- */
+.section{padding:54px 0 8px}
+.section.alt{background:var(--paper)}
+.part-head{padding:64px 0 10px}
+.part-head .wrap{border-top:1px solid var(--gold-line)}
+.part-label{
+  font-family:var(--sans); font-size:11px; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--gold); padding-top:24px; margin-bottom:10px;
+}
+.part-title{font-family:var(--serif); font-weight:600; font-size:33px; color:var(--pecan-deep); line-height:1.12; letter-spacing:-.01em}
+.part-intro{margin-top:14px; color:var(--ink-soft); font-size:17px}
+
+.kicker{
+  font-family:var(--sans); font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:9px; font-weight:700;
+}
+h2.sec{font-family:var(--serif); font-weight:600; font-size:26px; color:var(--pecan-deep); line-height:1.18; letter-spacing:-.005em}
+h3.sub{font-family:var(--serif); font-weight:600; font-size:19.5px; color:var(--pecan); margin:30px 0 4px}
+h4.mini{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--pecan); margin:24px 0 8px}
+.section p{margin:13px 0}
+.section p.lead{font-size:19px; line-height:1.55; color:var(--ink)}
+.section ul,.section ol{margin:13px 0 13px 4px; padding-left:22px}
+.section li{margin:7px 0}
+.section a{color:var(--pecan); text-decoration:underline; text-decoration-color:var(--gold-line)}
+strong{font-weight:600; color:var(--pecan-deep)}
+em{font-style:italic}
+.divider{height:1px; background:var(--line); margin:42px 0}
+
+/* ---------- callouts ---------- */
+.callout{
+  background:var(--paper-2); border-left:3px solid var(--gold);
+  padding:20px 24px; margin:26px 0; border-radius:0 5px 5px 0;
+}
+.callout.flag{border-left-color:var(--alert); background:#FBF0EC}
+.callout.good{border-left-color:var(--positive); background:#F2F4EC}
+.callout .co-label{
+  font-family:var(--sans); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:700; color:var(--gold); margin-bottom:7px;
+}
+.callout.flag .co-label{color:var(--alert)}
+.callout.good .co-label{color:var(--positive)}
+.callout p{margin:6px 0}
+.callout p:first-of-type{margin-top:0}
+
+/* ---------- stat grids ---------- */
+.stat-row{display:flex; flex-wrap:wrap; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; margin:24px 0}
+.stat{flex:1 1 0; min-width:128px; background:var(--paper); padding:18px 18px 16px}
+.stat .sv{font-family:var(--serif); font-weight:600; font-size:30px; color:var(--pecan-deep); line-height:1; letter-spacing:-.01em}
+.stat .sv.bad{color:var(--alert)}
+.stat .sv.ok{color:var(--positive)}
+.stat .sl{font-family:var(--sans); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); margin-top:9px; line-height:1.35}
+
+/* ---------- tables ---------- */
+.table-wrap{margin:24px 0; overflow-x:auto}
+table.data{width:100%; border-collapse:collapse; font-family:var(--sans); font-size:13px}
+table.data caption{
+  font-family:var(--sans); font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--gold); text-align:left; margin-bottom:9px; font-weight:700;
+}
+table.data th{
+  text-align:left; font-weight:700; color:var(--pecan-deep); font-size:11px;
+  letter-spacing:.04em; text-transform:uppercase; padding:9px 12px;
+  border-bottom:1.5px solid var(--gold-line); vertical-align:bottom;
+}
+table.data td{padding:9px 12px; border-bottom:1px solid var(--line); color:var(--ink-soft); vertical-align:top}
+table.data td.num,table.data th.num{text-align:right; font-variant-numeric:tabular-nums}
+table.data tr:last-child td{border-bottom:none}
+table.data tr.total td{font-weight:700; color:var(--pecan-deep); border-top:1.5px solid var(--gold-line); background:var(--paper-2)}
+table.data .hi{color:var(--pecan-deep); font-weight:600}
+table.data .bad{color:var(--alert); font-weight:600}
+table.data .good{color:var(--positive); font-weight:600}
+
+/* ---------- charts ---------- */
+.chart{margin:26px 0; background:var(--paper); border:1px solid var(--line); border-radius:6px; padding:22px 24px}
+.chart.bare{background:none; border:none; padding:0}
+.chart-title{font-family:var(--sans); font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:700; color:var(--pecan); margin-bottom:3px}
+.chart-note{font-family:var(--sans); font-size:11.5px; color:var(--ink-faint); margin-top:12px; line-height:1.45}
+.legend{display:flex; flex-wrap:wrap; gap:7px 18px; font-family:var(--sans); font-size:11px; color:var(--ink-soft); margin-top:13px}
+.legend span{display:flex; align-items:center; gap:6px}
+.legend i{width:11px; height:11px; border-radius:2px; flex:none}
+text{font-family:var(--sans)}
+
+/* ---------- finding header ---------- */
+.finding-no{
+  font-family:var(--serif); font-weight:600; font-size:13px; color:var(--gold);
+  letter-spacing:.04em; margin-bottom:4px;
+}
+
+/* ---------- pills + timeline ---------- */
+.pill{
+  display:inline-block; font-family:var(--sans); font-size:10px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; padding:3px 9px; border-radius:20px;
+  background:var(--gold-soft); color:var(--pecan-deep); margin-right:6px;
+}
+.pill.ph{background:var(--pecan); color:#fff}
+.playbook{border:1px solid var(--line); border-radius:6px; margin:20px 0; overflow:hidden}
+.playbook .pb-head{background:var(--pecan-deep); color:#F2E9D7; padding:14px 20px; display:flex; align-items:baseline; justify-content:space-between; gap:14px}
+.playbook .pb-head h3{font-family:var(--serif); font-weight:600; font-size:19px; color:#FBF4E4; margin:0}
+.playbook .pb-head .pb-budget{font-family:var(--sans); font-size:12px; color:var(--gold-soft); white-space:nowrap}
+.playbook .pb-body{padding:18px 22px}
+.playbook .pb-body h4.mini{margin-top:18px}
+.playbook .pb-body h4.mini:first-child{margin-top:0}
+
+/* ---------- week list ---------- */
+.weeks{margin:22px 0}
+.week{display:flex; gap:18px; padding:15px 0; border-bottom:1px solid var(--line)}
+.week:last-child{border-bottom:none}
+.week .wk-no{flex:none; width:96px; font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--gold); padding-top:2px}
+.week .wk-body h4{font-family:var(--serif); font-weight:600; font-size:16px; color:var(--pecan-deep); margin-bottom:3px}
+.week .wk-body p{margin:0; font-size:14.5px; color:var(--ink-soft)}
+
+/* ---------- next steps ---------- */
+ol.steps{counter-reset:s; list-style:none; padding:0; margin:22px 0}
+ol.steps li{position:relative; padding:0 0 18px 46px; margin:0}
+ol.steps li:before{
+  counter-increment:s; content:counter(s);
+  position:absolute; left:0; top:-2px; width:30px; height:30px;
+  background:var(--pecan); color:#fff; border-radius:50%;
+  font-family:var(--serif); font-weight:600; font-size:15px;
+  display:flex; align-items:center; justify-content:center;
+}
+ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top:30px; bottom:2px; width:1px; background:var(--line-strong)}
+
+/* ---------- appendix ---------- */
+.kw-block{margin:18px 0}
+.kw-list{font-family:var(--sans); font-size:12.5px; color:var(--ink-soft); line-height:1.7; background:var(--paper-2); border:1px solid var(--line); border-radius:5px; padding:13px 16px}
+.kw-list .kw-label{font-weight:700; color:var(--pecan); text-transform:uppercase; font-size:10px; letter-spacing:.1em; display:block; margin-bottom:5px}
+.chips{display:flex; flex-wrap:wrap; gap:6px; margin:9px 0}
+.chips span{font-family:var(--sans); font-size:11.5px; background:var(--paper-2); border:1px solid var(--line-strong); color:var(--ink-soft); padding:3px 9px; border-radius:3px}
+
+/* ---------- footer ---------- */
+.doc-footer{background:var(--pecan-deep); color:#C9BCA2; padding:40px 38px; margin-top:60px}
+.doc-footer .wrap{max-width:760px}
+.doc-footer .ff-name{font-family:var(--serif); font-size:20px; color:#FBF4E4}
+.doc-footer p{font-family:var(--sans); font-size:12.5px; margin:8px 0 0; color:#B4A78D}
+.doc-footer a{color:var(--gold-soft)}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .toc{
+    position:fixed; top:54px; bottom:0; left:0; width:282px; z-index:45;
+    transform:translateX(-100%); transition:transform .22s ease;
+    box-shadow:0 0 40px rgba(0,0,0,.16); height:auto;
+  }
+  body.toc-open .toc{transform:translateX(0)}
+  body.toc-open .backdrop{display:block; position:fixed; inset:54px 0 0 0; background:rgba(43,38,32,.4); z-index:44}
+  .topbar{display:flex}
+  .doc{padding-top:54px}
+  .shell{display:block}
+  .section,.part-head{scroll-margin-top:66px}
+  .cover{scroll-margin-top:66px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 22px}
+  .cover{padding:54px 22px 56px}
+  .cover h1{font-size:39px}
+  .cover h1 .light{font-size:26px}
+  .part-title{font-size:27px}
+  h2.sec{font-size:22px}
+  .stat{min-width:50%}
+  .week{flex-direction:column; gap:4px}
+}
+
+/* ---------- print ---------- */
+@media print{
+  body{background:#fff; font-size:11pt}
+  .toc,.topbar,.backdrop{display:none!important}
+  .shell{display:block; max-width:none}
+  .doc{padding:0}
+  .wrap{max-width:none; padding:0 14mm}
+  .cover{background:#fff; color:var(--ink); padding:0 14mm 24px}
+  .cover h1,.cover h1 .light,.cover-meta .val{color:var(--ink)}
+  .cover .moon,.cover-tag{display:none}
+  .cover-kicker,.cover-meta .lbl{color:var(--pecan)}
+  .section,.part-head{padding:14px 0}
+  .playbook .pb-head,.doc-footer{background:#fff; color:var(--ink)}
+  .playbook .pb-head h3,.doc-footer .ff-name{color:var(--ink)}
+  .chart,.callout,.stat-row,.table-wrap,.playbook,.week,.finding,svg{break-inside:avoid}
+  h2.sec,h3.sub,.part-title{break-after:avoid}
+  .doc-footer p,.doc-footer{color:var(--ink-soft)}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="tb-title">Pecan Moon × Zapp</span>
+  <button id="tocToggle" aria-label="Toggle contents">Contents</button>
+</header>
+<div class="backdrop" id="backdrop"></div>
+
+<div class="shell">
+
+  <!-- ================= TABLE OF CONTENTS ================= -->
+  <aside class="toc" id="toc">
+    <div class="toc-brand"><b>Pecan Moon</b> × Zapp Studios</div>
+    <div class="toc-sub">Findings &amp; 90-Day Plan</div>
+    <nav>
+      <a href="#summary"><span class="n">—</span>Executive Summary</a>
+
+      <div class="toc-group">Part I · The Diagnosis</div>
+      <a href="#methodology">How we read the data</a>
+      <a href="#finding-1"><span class="n">01</span>Non-human traffic</a>
+      <a href="#finding-2"><span class="n">02</span>Meta's real problem</a>
+      <a href="#finding-3"><span class="n">03</span>Direct is the engine</a>
+      <a href="#finding-4"><span class="n">04</span>The site converts</a>
+      <a href="#finding-5"><span class="n">05</span>Measurement gaps</a>
+
+      <div class="toc-group">Part II · The Strategy</div>
+      <a href="#opportunity">The opportunity</a>
+      <a href="#changes">What changes</a>
+      <a href="#category">What the category does</a>
+      <a href="#budget">Budget allocation</a>
+      <a href="#ceiling">The growth ceiling</a>
+
+      <div class="toc-group">Part III · The Plan</div>
+      <a href="#timeline">90-day timeline</a>
+      <a href="#google">Google build</a>
+      <a href="#pinterest">Pinterest build</a>
+      <a href="#meta">Meta retargeting</a>
+      <a href="#attribution">Attribution stack</a>
+      <a href="#klaviyo">Email &amp; SMS flows</a>
+      <a href="#creative">Creative engine</a>
+      <a href="#team">Who runs what</a>
+      <a href="#benchmarks">What success looks like</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#roadmap">Beyond paid — roadmap</a>
+
+      <div class="toc-group">Commercials</div>
+      <a href="#investment">Investment &amp; cost ramp</a>
+      <a href="#terms">Scope &amp; terms</a>
+      <a href="#next">What happens next</a>
+
+      <div class="toc-group">Appendix · Build Sheets</div>
+      <a href="#appendix-google"><span class="n">A1</span>Google keywords &amp; copy</a>
+      <a href="#appendix-negatives"><span class="n">A2</span>Negative keywords</a>
+      <a href="#appendix-pinterest"><span class="n">A3</span>Pinterest boards</a>
+      <a href="#appendix-feed"><span class="n">A4</span>Merchant Center feed</a>
+    </nav>
+  </aside>
+
+  <main class="doc">
+
+    <!-- ================= COVER ================= -->
+    <header class="cover">
+      <svg class="moon" width="86" height="86" viewBox="0 0 86 86" aria-hidden="true">
+        <path d="M58 8 a35 35 0 1 0 0 70 a44 44 0 0 1 0-70 z" fill="none" stroke="#B5904A" stroke-width="1.5"/>
+      </svg>
+      <div class="cover-kicker">Growth Marketing Partnership</div>
+      <h1>Pecan Moon<span class="light">Traffic Findings &amp; a 90-Day Growth Plan</span></h1>
+      <div class="cover-rule"></div>
+      <div class="cover-meta">
+        <div><div class="lbl">Prepared for</div><div class="val">Mary Radenkovic · Adam Milano</div></div>
+        <div><div class="lbl">Prepared by</div><div class="val">Hamza — Zapp Studios</div></div>
+        <div><div class="lbl">Date</div><div class="val">May 16, 2026</div></div>
+      </div>
+      <div class="cover-tag">Confidential</div>
+    </header>
+
+    <!-- ================= EXECUTIVE SUMMARY ================= -->
+    <section class="section" id="summary">
+      <div class="wrap">
+        <div class="kicker">Executive Summary</div>
+        <h2 class="sec">Half a million people saw the ads. Two of them bought.</h2>
+        <p class="lead">You asked us to take over growth marketing. Before proposing what to do
+        next, we ran a forensic analysis of the April program and the last 30 days of Shopify
+        data. This summary is the whole picture in one page; everything after it is the
+        evidence and the build plan behind it.</p>
+
+        <p>In April, the Meta program reached <strong>492,996 people</strong>, served
+        <strong>698,107 impressions</strong>, and drove <strong>605 link clicks</strong>.
+        On the store side, April produced 2,590 sessions, 23 add-to-carts, 18 reached
+        checkout — and zero completed orders.</p>
+
+        <div class="stat-row">
+          <div class="stat"><div class="sv">698,107</div><div class="sl">April impressions</div></div>
+          <div class="stat"><div class="sv">492,996</div><div class="sl">People reached</div></div>
+          <div class="stat"><div class="sv">605</div><div class="sl">Link clicks</div></div>
+          <div class="stat"><div class="sv bad">0</div><div class="sl">April orders</div></div>
+        </div>
+
+        <div class="chart">
+          <div class="chart-title">The April store funnel</div>
+          <svg viewBox="0 0 700 312" role="img" aria-label="April funnel: 2,590 sessions to 23 add-to-carts to 18 checkouts to 0 orders">
+            <!-- band 1 -->
+            <rect x="50" y="14" width="600" height="58" rx="5" fill="#6F4B2D"/>
+            <text x="350" y="39" text-anchor="middle" fill="#FBF4E4" font-size="13" font-weight="700" letter-spacing="1">SESSIONS</text>
+            <text x="350" y="60" text-anchor="middle" fill="#FBF4E4" font-size="20" font-weight="700">2,590</text>
+            <!-- drop -->
+            <text x="350" y="92" text-anchor="middle" fill="#A8533B" font-size="11.5" font-weight="700" font-family="Helvetica,Arial">▼  99.1% leave without adding to cart</text>
+            <!-- band 2 -->
+            <rect x="170" y="104" width="360" height="56" rx="5" fill="#9A6B40"/>
+            <text x="350" y="128" text-anchor="middle" fill="#FBF4E4" font-size="12" font-weight="700" letter-spacing="1">ADD TO CART</text>
+            <text x="350" y="148" text-anchor="middle" fill="#FBF4E4" font-size="17" font-weight="700">23 · 0.9%</text>
+            <!-- band 3 -->
+            <rect x="250" y="178" width="200" height="52" rx="5" fill="#B5904A"/>
+            <text x="350" y="200" text-anchor="middle" fill="#FBF4E4" font-size="11.5" font-weight="700" letter-spacing="1">REACHED CHECKOUT</text>
+            <text x="350" y="219" text-anchor="middle" fill="#FBF4E4" font-size="16" font-weight="700">18</text>
+            <!-- band 4 -->
+            <rect x="298" y="248" width="104" height="48" rx="5" fill="#A8533B"/>
+            <text x="350" y="268" text-anchor="middle" fill="#FBF4E4" font-size="11" font-weight="700" letter-spacing="1">ORDERS</text>
+            <text x="350" y="286" text-anchor="middle" fill="#FBF4E4" font-size="17" font-weight="700">0</text>
+          </svg>
+          <div class="chart-note">April 2026, Pecan Moon Shopify store. The funnel does not
+          break at the bottom — it never fills at the top.</div>
+        </div>
+
+        <h3 class="sub">What the data actually says</h3>
+        <p>It would be easy to read "zero orders" as a broken checkout or a brand nobody wants.
+        Neither is true. The forensic 30-day analysis (April 14 – May 14) found something more
+        useful — and more fixable:</p>
+        <ul>
+          <li><strong>19.3% of traffic is non-human</strong> — but these are passive crawlers,
+          not paid bots. They cost nothing and they are not the problem.</li>
+          <li><strong>Meta delivered 2,624 real human sessions that converted at 0.30%</strong>
+          — versus 1.23% on Direct traffic. The paid channel sent the wrong people, not bots.</li>
+          <li><strong>Direct / word-of-mouth traffic is the real engine</strong> — 6 of 8 orders
+          in 30 days — and nothing is built to capture or compound it.</li>
+          <li><strong>The site converts.</strong> 2 orders totalling $1,000 landed in the last
+          week. The funnel works; we are paying to send the wrong people into it.</li>
+          <li><strong>Measurement is incomplete</strong> — no GA4, no server-side tracking, and
+          Meta-reported numbers that do not reconcile with Shopify.</li>
+        </ul>
+
+        <div class="callout good">
+          <div class="co-label">The reframe</div>
+          <p>This is not a "nobody buys luxury online" problem and not a broken-store problem.
+          It is a <strong>channel and targeting problem</strong> — the most fixable kind. The
+          store can close; the traffic going into it has been wrong.</p>
+        </div>
+
+        <h3 class="sub">What we recommend</h3>
+        <p>Keep the same <strong>$3,000/month</strong> ad budget — but rebuild it around how
+        luxury resort wear is actually bought: planned, considered, and searched for. Move the
+        weight to intent channels (Google, Pinterest) and run Meta as a tight retargeting layer
+        only, not a prospecting engine.</p>
+
+        <div class="chart bare">
+          <div class="chart-title">Phase 1 budget — same $3,000, rebuilt</div>
+          <svg viewBox="0 0 700 96" role="img" aria-label="Budget allocation: Google 47%, Pinterest 30%, Creative 13%, Meta retargeting 10%">
+            <rect x="0"   y="20" width="329" height="40" fill="#6F4B2D"/>
+            <rect x="331" y="20" width="210" height="40" fill="#B5904A"/>
+            <rect x="543" y="20" width="91"  height="40" fill="#7E8767"/>
+            <rect x="636" y="20" width="64"  height="40" fill="#9E978A"/>
+            <text x="14"  y="45" fill="#FBF4E4" font-size="13" font-weight="700">Google · $1,400</text>
+            <text x="345" y="45" fill="#FBF4E4" font-size="13" font-weight="700">Pinterest · $900</text>
+            <text x="556" y="45" fill="#FBF4E4" font-size="11" font-weight="700">Creative</text>
+            <text x="556" y="79" fill="#7E8767" font-size="10.5" font-weight="700" font-family="Helvetica,Arial">$400</text>
+            <text x="643" y="79" fill="#9E978A" font-size="10.5" font-weight="700" font-family="Helvetica,Arial">$300</text>
+            <text x="14"  y="13" fill="#6F4B2D" font-size="10.5" font-weight="700" font-family="Helvetica,Arial" letter-spacing="1">47%</text>
+            <text x="345" y="13" fill="#B5904A" font-size="10.5" font-weight="700" font-family="Helvetica,Arial" letter-spacing="1">30%</text>
+          </svg>
+        </div>
+        <p>Ad spend then scales — to $5,000 and later $7,500/month — but only when the
+        performance math earns it. Nothing about the budget increases on faith.</p>
+
+        <h3 class="sub">What it costs</h3>
+        <div class="table-wrap">
+          <table class="data">
+            <caption>All-in monthly investment — Phase 1</caption>
+            <thead><tr><th>Line item</th><th>Monthly</th><th>Paid to</th></tr></thead>
+            <tbody>
+              <tr><td>Zapp growth-marketing hours (10–30 hrs @ $75)</td><td class="num">$750 – $2,250</td><td>Zapp Studios</td></tr>
+              <tr><td>Ad spend — Google, Pinterest, Meta</td><td class="num">$3,000</td><td>Platforms directly</td></tr>
+              <tr><td>Attribution software</td><td class="num">≈ $375</td><td>Vendors directly</td></tr>
+              <tr class="total"><td>All-in monthly</td><td class="num">≈ $4,125 – $5,625</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Fees follow the model already working on the Shopify side: <strong>$75/hour, a
+        10-hour monthly minimum and a 30-hour cap</strong> — you only pay for hours worked.
+        A <strong>60-day evaluation period</strong> lets either side step away cleanly; the
+        existing Shopify retainer continues separately, unchanged.</p>
+
+        <div class="callout">
+          <div class="co-label">In one line</div>
+          <p>Same budget, rebuilt around intent. A US-based team, real measurement, and a
+          90-day plan that earns each increase before it spends it.</p>
+        </div>
+
+        <p style="font-size:14.5px;color:var(--ink-faint);font-family:var(--sans);margin-top:22px">
+        Part I is the evidence. Part II is the strategy. Part III is the week-by-week build —
+        what we will do, and when. The appendix carries the full keyword and channel build
+        sheets.</p>
+      </div>
+    </section>
+
+    <!-- ================= PART I ================= -->
+    <div class="part-head" id="methodology">
+      <div class="wrap">
+        <div class="part-label">Part I</div>
+        <div class="part-title">The Diagnosis</div>
+        <p class="part-intro">What the April program and the last 30 days of Shopify data
+        actually show — and why the honest read is more hopeful than the headline number.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">Methodology</div>
+        <h2 class="sec">How we read the data</h2>
+        <p>We pulled six Shopify reports for the last 30 days (April 14 – May 14, 2026), each
+        filtered against Shopify's native human-or-bot session classifier:</p>
+        <ul>
+          <li>Sessions by location — country, region, city</li>
+          <li>Sessions by traffic source — Direct, Search, Social, Referral</li>
+          <li>Sessions by device, by landing page, and by referring URL</li>
+          <li>The conversion funnel by source — sessions → add-to-cart → checkout → order</li>
+        </ul>
+        <p>We chose the 30-day window over the full history deliberately: earlier sessions are
+        heavily contaminated by founder and team test orders and pre-launch QA traffic. Thirty
+        days gives the cleanest view of how the live program actually performs.</p>
+        <div class="callout">
+          <div class="co-label">One limitation, stated plainly</div>
+          <p>We did not have Meta Ads Manager access during this analysis — the previous agency
+          has not yet shared it. Several conclusions below are forensic inferences from funnel
+          signatures. They would be confirmed, or sharpened, with direct Meta access — which is
+          why requesting it is the first action in the plan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDING 1 -->
+    <section class="section alt" id="finding-1">
+      <div class="wrap">
+        <div class="finding-no">Finding 01</div>
+        <h2 class="sec">19.3% of traffic is non-human — and it is not the problem</h2>
+        <p>Of 5,545 raw sessions in the last 30 days, <strong>1,069 (19.3%) were non-human</strong>.
+        The instinct is to call this a bot problem. The data says otherwise — the signature is
+        unusually clean, and it points to passive crawlers, not paid junk traffic.</p>
+
+        <div class="table-wrap">
+          <table class="data">
+            <caption>Bot share by segment — last 30 days</caption>
+            <thead><tr><th>Segment</th><th class="num">Bot share</th><th>Read</th></tr></thead>
+            <tbody>
+              <tr><td>All sessions</td><td class="num hi">19.3%</td><td>1,069 of 5,545</td></tr>
+              <tr><td>Direct traffic</td><td class="num">27.2%</td><td>585 of 2,146 — highest rate</td></tr>
+              <tr><td>Search traffic</td><td class="num">18.9%</td><td>54 of 287</td></tr>
+              <tr><td>Social traffic</td><td class="num">14.0%</td><td>424 of 2,976 — lower rate, high volume</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>The clearest diagnostic is the device split. Real luxury-fashion shoppers are
+        overwhelmingly on mobile. The bot population is the mirror image:</p>
+
+        <div class="chart">
+          <div class="chart-title">Device split — bots vs. humans</div>
+          <svg viewBox="0 0 700 196" role="img" aria-label="Bot sessions are 81.5% desktop; human sessions are 68.6% mobile">
+            <text x="0" y="50" font-size="12" font-weight="700" fill="#6F4B2D">Bot</text>
+            <text x="0" y="64" font-size="12" font-weight="700" fill="#6F4B2D">sessions</text>
+            <rect x="118" y="30" width="456" height="44" fill="#9E978A"/>
+            <rect x="574" y="30" width="64"  height="44" fill="#6F4B2D"/>
+            <rect x="638" y="30" width="40"  height="44" fill="#D8C9A3"/>
+            <text x="346" y="57" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">81.5% desktop</text>
+            <text x="606" y="57" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">11.4%</text>
+
+            <text x="0" y="126" font-size="12" font-weight="700" fill="#6F4B2D">Human</text>
+            <text x="0" y="140" font-size="12" font-weight="700" fill="#6F4B2D">sessions</text>
+            <rect x="118" y="106" width="384" height="44" fill="#6F4B2D"/>
+            <rect x="502" y="106" width="157" height="44" fill="#9E978A"/>
+            <rect x="659" y="106" width="19"  height="44" fill="#D8C9A3"/>
+            <text x="310" y="133" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">68.6% mobile</text>
+            <text x="580" y="133" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">28% desktop</text>
+          </svg>
+          <div class="legend">
+            <span><i style="background:#6F4B2D"></i>Mobile</span>
+            <span><i style="background:#9E978A"></i>Desktop</span>
+            <span><i style="background:#D8C9A3"></i>Tablet / other</span>
+          </div>
+          <div class="chart-note">81.5% of bot sessions are desktop; 68.6% of human sessions
+          are mobile. That inversion is the signature of web scrapers, SEO tools, competitor
+          monitoring and AI training crawlers — Common Crawl, GPTBot, ClaudeBot, PerplexityBot,
+          Bytespider — none of which cost money to acquire.</div>
+        </div>
+
+        <p>These crawlers inflate the raw session count by roughly 19%, which artificially
+        depresses the headline conversion rate — but they are noise, not spend leakage. A few
+        location anomalies confirm Shopify's filter is working: Falkenstein, Germany (home of
+        the Hetzner server farm) shows a 50% add-to-cart rate; Montreal shows 5 sessions and
+        10 add-to-carts — bots re-adding to cart on loop. Shopify is correctly flagging them.</p>
+
+        <div class="callout">
+          <div class="co-label">Why this matters</div>
+          <p>The bot share is real but it is not where money is being lost. It depresses the
+          headline number; it is not the actionable problem. The actionable problem is the
+          next finding.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDING 2 -->
+    <section class="section" id="finding-2">
+      <div class="wrap">
+        <div class="finding-no">Finding 02</div>
+        <h2 class="sec">Meta paid traffic is real humans who don't convert</h2>
+        <p>This is the centre of the analysis. With bots filtered out, the conversion funnel
+        by source tells a single, clear story:</p>
+
+        <div class="table-wrap">
+          <table class="data">
+            <caption>Conversion funnel by source — last 30 days, bot-filtered</caption>
+            <thead><tr><th>Source</th><th class="num">Sessions</th><th class="num">ATC</th><th class="num">Checkout</th><th class="num">Orders</th><th class="num">ATC rate</th></tr></thead>
+            <tbody>
+              <tr><td class="hi">Direct / unattributed</td><td class="num">2,908</td><td class="num">57</td><td class="num">45</td><td class="num">6</td><td class="num good">1.23%</td></tr>
+              <tr><td>Facebook</td><td class="num">1,416</td><td class="num">4</td><td class="num">2</td><td class="num">2</td><td class="num bad">0.28%</td></tr>
+              <tr><td>Instagram</td><td class="num">1,054</td><td class="num">4</td><td class="num">2</td><td class="num">0</td><td class="num bad">0.38%</td></tr>
+              <tr><td>fb (shortened)</td><td class="num">154</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num bad">0.00%</td></tr>
+              <tr><td>IG Shopping</td><td class="num">12</td><td class="num">3</td><td class="num">2</td><td class="num">0</td><td class="num">25%*</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:13px;color:var(--ink-faint);font-family:var(--sans)">* IG Shopping's
+        25% rate is on 12 sessions — too small to read into.</p>
+
+        <p><strong>Meta combined (Facebook + Instagram + fb) delivered 2,624 human sessions, 8
+        add-to-carts and 2 orders — a 0.30% ATC rate.</strong> Direct traffic delivered a
+        comparable 2,908 sessions but 57 add-to-carts and 6 orders — <strong>four times the
+        rate</strong>. Meta carried 90% of Direct's volume and produced 14% of its add-to-carts.</p>
+
+        <div class="chart">
+          <div class="chart-title">Add-to-cart rate by source vs. category benchmark</div>
+          <svg viewBox="0 0 700 330" role="img" aria-label="ATC rate: Direct 1.23%, Instagram 0.38%, Facebook 0.28% — all far below the 4 to 7% luxury benchmark">
+            <rect x="70" y="56" width="610" height="96" fill="#EFE7D3"/>
+            <text x="675" y="78" text-anchor="end" font-size="11" font-weight="700" fill="#9c8a52">CATEGORY BENCHMARK · 4–7%</text>
+            <line x1="70" y1="280" x2="680" y2="280" stroke="#D5C7A8" stroke-width="1.5"/>
+            <line x1="70" y1="216" x2="680" y2="216" stroke="#E4DAC6"/>
+            <line x1="70" y1="152" x2="680" y2="152" stroke="#E4DAC6"/>
+            <line x1="70" y1="88"  x2="680" y2="88"  stroke="#E4DAC6"/>
+            <text x="60" y="284" text-anchor="end" font-size="10.5" fill="#938A78">0%</text>
+            <text x="60" y="220" text-anchor="end" font-size="10.5" fill="#938A78">2%</text>
+            <text x="60" y="156" text-anchor="end" font-size="10.5" fill="#938A78">4%</text>
+            <text x="60" y="92"  text-anchor="end" font-size="10.5" fill="#938A78">6%</text>
+            <!-- Direct 1.23% -->
+            <rect x="135" y="241" width="92" height="39" fill="#6F4B2D"/>
+            <text x="181" y="232" text-anchor="middle" font-size="13" font-weight="700" fill="#6F4B2D">1.23%</text>
+            <text x="181" y="300" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2B2620">Direct</text>
+            <!-- Instagram 0.38% -->
+            <rect x="315" y="268" width="92" height="12" fill="#A8533B"/>
+            <text x="361" y="259" text-anchor="middle" font-size="13" font-weight="700" fill="#A8533B">0.38%</text>
+            <text x="361" y="300" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2B2620">Instagram</text>
+            <!-- Facebook 0.28% -->
+            <rect x="495" y="271" width="92" height="9" fill="#A8533B"/>
+            <text x="541" y="262" text-anchor="middle" font-size="13" font-weight="700" fill="#A8533B">0.28%</text>
+            <text x="541" y="300" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2B2620">Facebook</text>
+          </svg>
+          <div class="chart-note">At 0.30% combined, Meta paid traffic runs at roughly
+          one-twentieth of the luxury-fashion add-to-cart benchmark. Direct, even carrying the
+          bot load, is four times stronger.</div>
+        </div>
+
+        <h3 class="sub">What this points to</h3>
+        <p>A 0.30% add-to-cart rate on 2,600 real human sessions has a short list of likely
+        causes — and Meta Ads Manager access would confirm which within 24 hours:</p>
+        <ul>
+          <li><strong>Loose audience targeting</strong> — interest stacks that aren't actually
+          shaped like luxury-fashion buyers.</li>
+          <li><strong>Worldwide or non-US-priority geo</strong> — international sessions on a
+          US-only fulfilment brand.</li>
+          <li><strong>A top-of-funnel optimisation event</strong> — Link Click, ViewContent or
+          Reach instead of Add-to-Cart or Purchase, so the algorithm chases volume, not intent.</li>
+          <li><strong>Audience Network placement</strong> — lower-quality humans from
+          mis-tapped mobile interstitials.</li>
+          <li><strong>Creative-audience mismatch</strong> — ads pitched casual, landing on a
+          luxury site, bouncing on arrival.</li>
+        </ul>
+        <div class="callout flag">
+          <div class="co-label">The implication</div>
+          <p>Meta, as currently configured, is structurally inefficient at this budget. It does
+          not need more spend — it needs to be rebuilt as a tight retargeting layer while the
+          budget moves to channels where the buyer's intent exists <em>before</em> the click.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDING 3 -->
+    <section class="section alt" id="finding-3">
+      <div class="wrap">
+        <div class="finding-no">Finding 03</div>
+        <h2 class="sec">Direct traffic is the real engine — and it's under-monetised</h2>
+        <p>Direct traffic produced <strong>6 of 8 orders</strong> in the last 30 days. These are
+        people who found Pecan Moon through word-of-mouth, organic Instagram, press, the
+        founder's presence at events, or by typing the URL. They are the highest-intent
+        audience the brand has — and almost nothing is built to capture or compound them.</p>
+        <h4 class="mini">What's missing on top of this audience</h4>
+        <ul>
+          <li>No abandoned-cart flow capturing the 45 checkouts that didn't convert</li>
+          <li>No browse-abandonment flow capturing 50+ add-to-carts that stalled</li>
+          <li>No retargeting layer — Meta catalog, Google, Pinterest — catching returning visitors</li>
+          <li>No email-capture optimised for Direct visitors, beyond a generic discount modal</li>
+          <li>No Branded Search campaign capturing the "Pecan Moon" queries these visitors generate</li>
+        </ul>
+        <div class="callout">
+          <div class="co-label">The opportunity hiding here</div>
+          <p>Pecan Moon's strongest channel is not instrumented to compound. Every dollar spent
+          sending a low-intent session into the funnel is a dollar not spent capturing,
+          retargeting and converting the high-intent audience that already arrives on its own.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDING 4 -->
+    <section class="section" id="finding-4">
+      <div class="wrap">
+        <div class="finding-no">Finding 04</div>
+        <h2 class="sec">The site itself converts</h2>
+        <p>Two orders totalling <strong>$1,000 landed in the last week</strong>, against a
+        prior baseline of zero completions. That matters more than it looks. It means the
+        funnel is not structurally broken — the product closes when the right person arrives.</p>
+        <p>It also retires the most convenient excuse for April's underperformance — the idea
+        that nobody buys luxury online without a long trust-building phase. The brand can
+        close. The channel mix simply hasn't been delivering the right traffic.</p>
+        <div class="callout good">
+          <div class="co-label">Why this is the most important finding</div>
+          <p>It narrows the whole diagnosis to one question: why does paid traffic convert at
+          a quarter the rate of organic? The answer isn't in the site. It's upstream — in who
+          is being sent, and why.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDING 5 -->
+    <section class="section alt" id="finding-5">
+      <div class="wrap">
+        <div class="finding-no">Finding 05</div>
+        <h2 class="sec">The measurement layer is incomplete</h2>
+        <p>Four gaps would have surfaced everything above far sooner. Closing them is a week-one
+        priority:</p>
+        <ol>
+          <li><strong>No GA4.</strong> The brand runs entirely on Shopify's native analytics —
+          one source of truth, but without the multi-channel attribution depth to compare paid
+          performance across platforms.</li>
+          <li><strong>No server-side tracking (CAPI).</strong> Post-iOS 14.5, the pixel alone
+          undercounts conversions by 20–40% and feeds the algorithm a degraded signal.</li>
+          <li><strong>No post-purchase attribution survey.</strong> Nothing asks customers "how
+          did you hear about us?" — the standard ground-truth check on paid attribution claims.</li>
+          <li><strong>No reconciliation between Meta and Shopify.</strong> The previous agency
+          reported figures on the order of 100+ add-to-carts and 40+ initiated checkouts; Shopify
+          recorded 23 and 18 for April. A gap that wide signals a pixel that is misfiring,
+          double-firing, or being read off the wrong events.</li>
+        </ol>
+        <p>The full attribution stack — server-side tracking, blended-ROAS reporting, a
+        post-purchase survey and GA4 — costs roughly <strong>$375/month</strong>, paid directly
+        to the vendors. It is inexpensive, and it is the infrastructure that lets us answer
+        "did this work?" with data instead of platform-reported numbers.</p>
+        <div class="callout">
+          <div class="co-label">First action — Meta Business Manager access</div>
+          <p>To turn the forensic inferences in Finding 02 into direct evidence, we need admin
+          access to Pecan Moon's Meta Business Manager — a five-minute action that confirms the
+          exact objectives, audiences, geo, placements, creative and spend behind April. We
+          recommend requesting it now, regardless of which direction this proposal takes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PART II ================= -->
+    <div class="part-head" id="opportunity">
+      <div class="wrap">
+        <div class="part-label">Part II</div>
+        <div class="part-title">The Strategy</div>
+        <p class="part-intro">The analysis points to one move: redirect budget away from Meta
+        prospecting toward channels where buyer intent already exists, instrument the funnel
+        properly, and run Meta as a focused retargeting layer.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">The opportunity</div>
+        <h2 class="sec">A category built for intent channels</h2>
+        <p class="lead">Pecan Moon sits in one of the cleanest categories in DTC for
+        intent-driven growth. Luxury resort wear is a planned, considered, visually-driven
+        purchase — exactly the behaviour Google and Pinterest were built to harvest.</p>
+        <p>A $400–$1,200 vacation dress for a Mediterranean honeymoon is researched for weeks.
+        Pinterest captures the planning phase, three to six months before the trip; Google
+        captures the purchase moment — <em>"Mykonos outfit," "Amalfi Coast dress."</em> Meta is
+        a scroll-interruption platform: best for scaling creative that is already proven, not
+        for discovering what works.</p>
+        <p>The playbook here is not more Meta budget. It is claiming the destination-keyword
+        whitespace on Google, owning Pinterest before competitors wake up to it, and running
+        Meta as a tight retargeting layer until the audience and creative are validated. The
+        rest of this section is the evidence for that call.</p>
+      </div>
+    </section>
+
+    <!-- WHAT CHANGES -->
+    <section class="section alt" id="changes">
+      <div class="wrap">
+        <div class="kicker">What changes</div>
+        <h2 class="sec">From the current setup to this one</h2>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Today</th><th>After we start</th></tr></thead>
+            <tbody>
+              <tr><td>Marketing run from outside the US, on non-US benchmarks</td><td class="hi">A Houston / Dallas-based team — plus your existing social manager continuing on Instagram</td></tr>
+              <tr><td>Meta paid traffic converting at 0.30%</td><td class="hi">Budget rebuilt across Google, Pinterest and a targeted Meta retargeting layer</td></tr>
+              <tr><td>Meta numbers that don't reconcile with Shopify</td><td class="hi">A real attribution stack — every dollar traceable to ground truth</td></tr>
+              <tr><td>A flat retainer regardless of work delivered</td><td class="hi">An hourly model — the same one already working on Shopify</td></tr>
+              <tr><td>Instagram operating in isolation from paid</td><td class="hi">Paid learnings feeding organic; organic insight feeding ad targeting</td></tr>
+              <tr><td>Opaque monthly slide-deck reporting</td><td class="hi">Weekly updates, a live dashboard, quarterly business review</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:14px;color:var(--ink-faint);font-family:var(--sans)">The existing
+        Shopify support agreement ($75/hr, 10–20 hrs/month) continues separately, unchanged.</p>
+      </div>
+    </section>
+
+    <!-- CATEGORY -->
+    <section class="section" id="category">
+      <div class="wrap">
+        <div class="kicker">What the category is doing</div>
+        <h2 class="sec">Where the competitive set spends — and where it doesn't</h2>
+        <p>We pulled data on the most relevant comp set — LoveShackFancy, Dôen, Hill House Home,
+        Cult Gaia, Reformation, Zimmermann, Cara Cara, Marysia, Faithfull, Hannah Artwear,
+        Mestiza, Mille. Two patterns matter.</p>
+
+        <h3 class="sub">On Google — the leaders defend, they don't discover</h3>
+        <div class="table-wrap">
+          <table class="data">
+            <caption>Comp set — paid Google posture</caption>
+            <thead><tr><th>Brand</th><th class="num">Paid % of search</th><th class="num">Est. monthly Google Ads spend</th></tr></thead>
+            <tbody>
+              <tr><td>Reformation</td><td class="num">52%</td><td class="num">$500K – $1.2M</td></tr>
+              <tr><td>Hill House Home</td><td class="num">52%</td><td class="num">$60K – $120K</td></tr>
+              <tr><td>Cult Gaia</td><td class="num">33%</td><td class="num">$40K – $80K</td></tr>
+              <tr><td>LoveShackFancy</td><td class="num">21%</td><td class="num">$30K – $70K</td></tr>
+              <tr><td>Zimmermann</td><td class="num">21%</td><td class="num">$40K – $90K</td></tr>
+              <tr><td>Dôen</td><td class="num">10–15%</td><td class="num">$15K – $30K</td></tr>
+              <tr><td>Cara Cara, Mille, Marysia, Hannah Artwear, Mestiza</td><td class="num">&lt;10%</td><td class="num">&lt;$10K each</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The leaders run heavy Google programs — but mostly defending their own brand terms.
+        The <strong>destination keywords</strong> — "Mykonos outfit," "Amalfi Coast dress,"
+        "Capri outfit," "Italian summer dress," "St. Barths outfit" — together draw an estimated
+        <strong>25,000–50,000 US searches a month at sub-$1.50 CPCs</strong>, and almost no one
+        in the comp set is bidding on them. That is the unclaimed lane Pecan Moon can occupy
+        first.</p>
+
+        <h3 class="sub">On Pinterest — the whole category is asleep</h3>
+        <div class="chart">
+          <div class="chart-title">Pinterest followers — brand-managed accounts</div>
+          <svg viewBox="0 0 700 430" role="img" aria-label="Pinterest follower counts: Reformation 225,000 leads; every other brand is small; Pecan Moon at zero">
+            <!-- gridlines -->
+            <line x1="140" y1="28" x2="140" y2="404" stroke="#D5C7A8"/>
+            <g font-size="13" font-family="Helvetica,Arial">
+              <!-- Reformation -->
+              <text x="132" y="55" text-anchor="end" font-weight="700" fill="#2B2620">Reformation</text>
+              <rect x="140" y="40" width="510" height="22" fill="#9E978A"/>
+              <text x="656" y="56" font-size="11.5" font-weight="700" fill="#6F4B2D">225,000</text>
+              <!-- Cult Gaia -->
+              <text x="132" y="93" text-anchor="end" fill="#6E6557">Cult Gaia</text>
+              <rect x="140" y="78" width="102" height="22" fill="#9E978A"/>
+              <text x="248" y="94" font-size="11.5" fill="#6E6557">45,000</text>
+              <!-- Doen -->
+              <text x="132" y="131" text-anchor="end" fill="#6E6557">Dôen</text>
+              <rect x="140" y="116" width="41" height="22" fill="#9E978A"/>
+              <text x="187" y="132" font-size="11.5" fill="#6E6557">18,100</text>
+              <!-- Faithfull -->
+              <text x="132" y="169" text-anchor="end" fill="#6E6557">Faithfull</text>
+              <rect x="140" y="154" width="34" height="22" fill="#9E978A"/>
+              <text x="180" y="170" font-size="11.5" fill="#6E6557">15,000</text>
+              <!-- Hill House -->
+              <text x="132" y="207" text-anchor="end" fill="#6E6557">Hill House Home</text>
+              <rect x="140" y="192" width="11" height="22" fill="#9E978A"/>
+              <text x="157" y="208" font-size="11.5" fill="#6E6557">4,600</text>
+              <!-- Mestiza -->
+              <text x="132" y="245" text-anchor="end" fill="#6E6557">Mestiza</text>
+              <rect x="140" y="230" width="7" height="22" fill="#9E978A"/>
+              <text x="153" y="246" font-size="11.5" fill="#6E6557">2,700</text>
+              <!-- Kemi Telford -->
+              <text x="132" y="283" text-anchor="end" fill="#6E6557">Kemi Telford</text>
+              <rect x="140" y="268" width="5" height="22" fill="#9E978A"/>
+              <text x="151" y="284" font-size="11.5" fill="#6E6557">1,600</text>
+              <!-- Cara Cara -->
+              <text x="132" y="321" text-anchor="end" fill="#6E6557">Cara Cara</text>
+              <rect x="140" y="306" width="4" height="22" fill="#9E978A"/>
+              <text x="150" y="322" font-size="11.5" fill="#6E6557">1,200</text>
+              <!-- Hannah Artwear -->
+              <text x="132" y="359" text-anchor="end" fill="#6E6557">Hannah Artwear</text>
+              <rect x="140" y="344" width="2" height="22" fill="#9E978A"/>
+              <text x="148" y="360" font-size="11.5" fill="#6E6557">23</text>
+              <!-- Pecan Moon -->
+              <text x="132" y="397" text-anchor="end" font-weight="700" fill="#A8533B">Pecan Moon</text>
+              <rect x="140" y="382" width="56" height="22" fill="none" stroke="#A8533B" stroke-width="1.4" stroke-dasharray="4 3"/>
+              <text x="150" y="398" font-size="11" font-weight="700" fill="#A8533B">0 — the whitespace</text>
+            </g>
+          </svg>
+          <div class="chart-note">Pinterest has 600M monthly users and 96M in the US; one in
+          three monthly US luxury Pinterest shoppers earns $100K+. That audience is
+          mathematically Pecan Moon's audience — and the category has built almost no
+          brand-owned equity on the platform.</div>
+        </div>
+        <div class="callout">
+          <div class="co-label">The pattern</div>
+          <p>Every durable brand in this category leans on intent channels — Google, Pinterest,
+          SEO, earned editorial. Heavy Meta prospecting is the exception, not the rule, at the
+          $1M–$30M revenue stage. The plan below follows the category's own evidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUDGET -->
+    <section class="section alt" id="budget">
+      <div class="wrap">
+        <div class="kicker">Phase 1 budget</div>
+        <h2 class="sec">$3,000/month — your existing spend, reallocated</h2>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Channel</th><th class="num">Allocation</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td class="hi">Google — PMax + Branded + High-Intent Search</td><td class="num">$1,400 · 47%</td><td>Bottom-funnel intent capture, brand defence, Shopping inventory</td></tr>
+              <tr><td class="hi">Pinterest — Catalog Sales + Conversions + Retargeting</td><td class="num">$900 · 30%</td><td>Top- and mid-funnel discovery, aligned to vacation planning</td></tr>
+              <tr><td class="hi">Meta — retargeting only</td><td class="num">$300 · 10%</td><td>Cheap warm-audience frequency on 90-day site visitors — no prospecting</td></tr>
+              <tr><td class="hi">Creative production reserve</td><td class="num">$400 · 13%</td><td>UGC commissions and ad-creative iteration — the rate-limiter on every channel</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The Meta retargeting layer is deliberate: it is how we capture the high-intent Direct
+        audience that Finding 03 showed is already producing most of the orders. We are not
+        "killing Meta" — we are right-sizing it to the job it should do.</p>
+      </div>
+    </section>
+
+    <!-- CEILING -->
+    <section class="section" id="ceiling">
+      <div class="wrap">
+        <div class="kicker">The growth ceiling</div>
+        <h2 class="sec">Why $3,000 is the right start — and not the finish</h2>
+        <p>You should know the honest math. For a brand at Pecan Moon's economics — roughly a
+        $400 average order value and ~60% gross margin:</p>
+        <div class="stat-row">
+          <div class="stat"><div class="sv">1.7×</div><div class="sl">Break-even ROAS</div></div>
+          <div class="stat"><div class="sv">3.0×</div><div class="sl">Healthy target ROAS</div></div>
+          <div class="stat"><div class="sv">≈ $120</div><div class="sl">Target cost per acquisition</div></div>
+          <div class="stat"><div class="sv">$10–15K</div><div class="sl">Realistic monthly revenue ceiling at $3K spend</div></div>
+        </div>
+        <p>That is a reasonable starting point — but it is not the brand you are building. To
+        reach $30K+/month in attributed revenue, the ad budget has to scale. So it scales — on
+        a <strong>performance gate</strong>, never on faith:</p>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Phase</th><th>Months</th><th class="num">Ad budget</th><th>Trigger to advance</th></tr></thead>
+            <tbody>
+              <tr><td><span class="pill ph">Phase 1</span> Foundation</td><td>1–2</td><td class="num">$3,000</td><td>Build the engine, prove baseline attribution</td></tr>
+              <tr><td><span class="pill">Phase 2</span> Validate</td><td>3–4</td><td class="num">$5,000</td><td>If the 60-day blended MER clears the threshold we set together at the 30-day review</td></tr>
+              <tr><td><span class="pill">Phase 3</span> Scale</td><td>5+</td><td class="num">$7,500</td><td>If the 90-day MER holds at $5K spend</td></tr>
+              <tr><td>Ceiling</td><td>—</td><td class="num">$10,000</td><td>Anything above this requires explicit approval</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <div class="co-label">The principle</div>
+          <p>You only ever spend more when the math is already working. The specific MER
+          thresholds are set together at the 30-day review, on real baseline data — not now,
+          when any number would be a guess.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PART III ================= -->
+    <div class="part-head" id="timeline">
+      <div class="wrap">
+        <div class="part-label">Part III</div>
+        <div class="part-title">The 90-Day Plan</div>
+        <p class="part-intro">This is the implementation guide — exactly what we will do, in
+        what order, and who owns it. It also serves as our own build reference, so nothing is
+        left vague.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">The timeline</div>
+        <h2 class="sec">Twelve weeks, in three phases</h2>
+        <p>Foundation builds the measurement and feeds. Build launches every channel. Scale
+        proves the math and earns the budget increase. New campaigns are live by the end of
+        week 2.</p>
+
+        <div class="chart">
+          <div class="chart-title">90-day workstream schedule</div>
+          <svg viewBox="0 0 700 372" role="img" aria-label="Gantt chart of seven workstreams across twelve weeks in three phases">
+            <!-- phase bands -->
+            <rect x="150" y="24" width="88"  height="22" fill="#6F4B2D"/>
+            <rect x="240" y="24" width="174" height="22" fill="#9A6B40"/>
+            <rect x="416" y="24" width="262" height="22" fill="#B5904A"/>
+            <text x="194" y="39" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" letter-spacing="1.5">FOUNDATION</text>
+            <text x="327" y="39" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" letter-spacing="1.5">BUILD</text>
+            <text x="547" y="39" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" letter-spacing="1.5">SCALE</text>
+            <!-- week numbers -->
+            <g font-size="9.5" fill="#938A78" text-anchor="middle" font-family="Helvetica,Arial">
+              <text x="172" y="60">W1</text><text x="216" y="60">W2</text><text x="260" y="60">W3</text>
+              <text x="304" y="60">W4</text><text x="348" y="60">W5</text><text x="392" y="60">W6</text>
+              <text x="436" y="60">W7</text><text x="480" y="60">W8</text><text x="524" y="60">W9</text>
+              <text x="568" y="60">W10</text><text x="612" y="60">W11</text><text x="656" y="60">W12</text>
+            </g>
+            <!-- gridlines -->
+            <g stroke="#EAE0CC">
+              <line x1="150" y1="68" x2="150" y2="344"/><line x1="238" y1="68" x2="238" y2="344"/>
+              <line x1="414" y1="68" x2="414" y2="344"/><line x1="678" y1="68" x2="678" y2="344"/>
+            </g>
+            <g font-size="11.5" font-family="Helvetica,Arial" text-anchor="end">
+              <!-- row 0 Tracking -->
+              <text x="140" y="92" fill="#2B2620">Tracking &amp; attribution</text>
+              <rect x="150" y="78" width="88"  height="16" rx="3" fill="#C7A45E"/>
+              <rect x="238" y="78" width="440" height="16" rx="3" fill="#6F4B2D"/>
+              <!-- row 1 Google -->
+              <text x="140" y="130" fill="#2B2620">Google Ads</text>
+              <rect x="194" y="116" width="44"  height="16" rx="3" fill="#C7A45E"/>
+              <rect x="238" y="116" width="440" height="16" rx="3" fill="#6F4B2D"/>
+              <!-- row 2 Pinterest -->
+              <text x="140" y="168" fill="#2B2620">Pinterest</text>
+              <rect x="194" y="154" width="88"  height="16" rx="3" fill="#C7A45E"/>
+              <rect x="282" y="154" width="396" height="16" rx="3" fill="#6F4B2D"/>
+              <!-- row 3 Meta -->
+              <text x="140" y="206" fill="#2B2620">Meta retargeting</text>
+              <rect x="282" y="192" width="44"  height="16" rx="3" fill="#C7A45E"/>
+              <rect x="326" y="192" width="352" height="16" rx="3" fill="#6F4B2D"/>
+              <!-- row 4 Email -->
+              <text x="140" y="244" fill="#2B2620">Email &amp; SMS flows</text>
+              <rect x="238" y="230" width="132" height="16" rx="3" fill="#C7A45E"/>
+              <rect x="370" y="230" width="308" height="16" rx="3" fill="#6F4B2D"/>
+              <!-- row 5 Creative -->
+              <text x="140" y="282" fill="#2B2620">Creative cycle</text>
+              <rect x="194" y="268" width="484" height="16" rx="3" fill="#6F4B2D"/>
+              <!-- row 6 Reporting -->
+              <text x="140" y="320" fill="#2B2620">Reporting &amp; reviews</text>
+              <rect x="194" y="306" width="484" height="16" rx="3" fill="#7E8767"/>
+            </g>
+            <!-- milestone diamonds -->
+            <g>
+              <path d="M294 304 l9 10 l-9 10 l-9 -10 z" fill="#4A331F"/>
+              <path d="M483 304 l9 10 l-9 10 l-9 -10 z" fill="#4A331F"/>
+              <path d="M672 304 l9 10 l-9 10 l-9 -10 z" fill="#4A331F"/>
+              <text x="294" y="342" text-anchor="middle" font-size="9" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">DAY 30</text>
+              <text x="483" y="342" text-anchor="middle" font-size="9" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">DAY 60</text>
+              <text x="666" y="342" text-anchor="middle" font-size="9" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">DAY 90</text>
+            </g>
+          </svg>
+          <div class="legend">
+            <span><i style="background:#C7A45E"></i>Build / setup</span>
+            <span><i style="background:#6F4B2D"></i>Live &amp; managed</span>
+            <span><i style="background:#7E8767"></i>Ongoing reporting</span>
+            <span><i style="background:#4A331F"></i>Review milestone</span>
+          </div>
+        </div>
+
+        <div class="weeks">
+          <div class="week"><div class="wk-no">Week 1</div><div class="wk-body">
+            <h4>Foundation — measurement &amp; feeds</h4>
+            <p>Request Meta Business Manager access. Install GA4, server-side tracking, Triple
+            Whale and KnoCommerce. Verify the domain in Google and Pinterest. Build the Google
+            Merchant Center feed. Document a clean 30-day baseline MER. Open direct comms with
+            your social media manager.</p></div></div>
+          <div class="week"><div class="wk-no">Week 2</div><div class="wk-body">
+            <h4>Google live · Pinterest organic stood up</h4>
+            <p>Build and launch all three Google campaigns — Branded Search, Performance Max
+            (five asset groups), High-Intent Search. Apply the negative-keyword list and push
+            Customer Match lists from Klaviyo. Create the 18 Pinterest boards and pre-load the
+            first 50 pins.</p></div></div>
+          <div class="week"><div class="wk-no">Week 3</div><div class="wk-body">
+            <h4>Pinterest paid live · email capture on</h4>
+            <p>Launch Pinterest Catalog Sales, Conversions and Retargeting campaigns. Deploy the
+            Klaviyo welcome flow and an optimised email-capture popup. Run the first creative
+            iteration cycle — four concepts briefed for the next shoot.</p></div></div>
+          <div class="week"><div class="wk-no">Week 4</div><div class="wk-body">
+            <h4>Meta rebuilt as retargeting · reporting cadence</h4>
+            <p>Wind down Meta prospecting. Rebuild Meta as a catalog-retargeting layer against
+            90-day site visitors. First weekly dashboard delivered; the Monday reporting rhythm
+            begins.</p></div></div>
+          <div class="week"><div class="wk-no">Weeks 5–6</div><div class="wk-body">
+            <h4>Hold the line · Day-30 review</h4>
+            <p>Let Google's learning phase run untouched. At Day 30, set the MER thresholds
+            together and apply PMax brand exclusions. Build the abandoned-cart and
+            browse-abandonment flows. Refresh creative on early signal.</p></div></div>
+          <div class="week"><div class="wk-no">Weeks 7–8</div><div class="wk-body">
+            <h4>Day-60 review · Phase 2 decision</h4>
+            <p>The 60-day evaluation review. If the MER gate is met, scale ad spend to $5,000
+            and tighten Google's bid strategy toward a target ROAS. The full Klaviyo flow stack
+            goes live.</p></div></div>
+          <div class="week"><div class="wk-no">Weeks 9–12</div><div class="wk-body">
+            <h4>Scale &amp; the quarterly review</h4>
+            <p>Scale Pinterest budget on positive signal and ratchet Google's target ROAS in
+            measured steps. Close with a Day-90 business review — full cohort analysis and the
+            Phase 3 recommendation.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="google">
+      <div class="wrap">
+        <div class="kicker">Channel build · 01</div>
+        <h2 class="sec">Google — the workhorse</h2>
+        <p>Google captures demand that already exists. The buyer has typed the query; we just
+        have to be the answer. At $1,400/month the right structure is three campaigns, not one.</p>
+
+        <div class="playbook">
+          <div class="pb-head"><h3>Google Ads</h3><span class="pb-budget">$1,400 / month</span></div>
+          <div class="pb-body">
+            <h4 class="mini">Campaign architecture</h4>
+            <div class="table-wrap" style="margin:8px 0 0">
+              <table class="data">
+                <thead><tr><th>Campaign</th><th class="num">Budget</th><th>Job</th></tr></thead>
+                <tbody>
+                  <tr><td class="hi">Branded Search</td><td class="num">$250</td><td>Defend the "Pecan Moon" query against competitors and aggregators</td></tr>
+                  <tr><td class="hi">Performance Max — Acquisition</td><td class="num">$950</td><td>The workhorse — five asset groups, Shopping inventory, AI Overviews eligibility</td></tr>
+                  <tr><td class="hi">High-Intent Search</td><td class="num">$200</td><td>Exact / phrase match on destination, occasion and conquest terms PMax under-values</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 class="mini">The five Performance Max asset groups</h4>
+            <p style="margin-top:6px">Each asset group targets one distinct buyer intent, with
+            its own listing filter, search themes, audience signals and creative direction.
+            Full keyword clusters and ad copy are in <a href="#appendix-google">Appendix A1</a>.</p>
+            <ol>
+              <li><strong>Mediterranean Summer</strong> — "Mykonos outfit," "Amalfi Coast
+              dress," "Capri outfit." The largest unclaimed keyword pool in the category.</li>
+              <li><strong>Beach Wedding &amp; Honeymoon</strong> — "beach wedding guest dress,"
+              "honeymoon outfits." The highest commercial intent of any cluster.</li>
+              <li><strong>Caribbean &amp; Mexico Resort</strong> — "Tulum outfit," "St. Barths
+              outfit," "designer cover-up." Carries the autumn / winter season.</li>
+              <li><strong>Quiet Luxury / Discovery</strong> — "quiet luxury vacation," "old
+              money summer," "investment dress." Aesthetic-led, full-catalog.</li>
+              <li><strong>Brand Discovery / Conquest</strong> — "brands like Dôen,"
+              "alternatives to LoveShackFancy." Captures comparison shoppers.</li>
+            </ol>
+
+            <h4 class="mini">Bid strategy</h4>
+            <p style="margin-top:6px">Days 0–30: Maximize Conversion Value, no target-ROAS cap
+            — let the algorithm find conversions. Days 30–60: add a target ROAS at 70–80% of
+            trailing actual. Days 60–90: ratchet the target up in 10–15% steps every two weeks.
+            Break-even ROAS at ~60% margin is 1.7×; the profitable floor is ~2.0–2.5×.</p>
+
+            <h4 class="mini">Brand exclusions &amp; negatives</h4>
+            <p style="margin-top:6px">PMax learns against branded conversions for 30 days, then
+            brand exclusions are applied. An account-level negative-keyword list goes on from
+            day one — bargain, counterfeit, resale, off-category and mass-market terms. Full
+            list in <a href="#appendix-negatives">Appendix A2</a>.</p>
+
+            <h4 class="mini">Merchant Center feed</h4>
+            <p style="margin-top:6px">The feed is rebuilt with a structured title formula,
+            five custom-label dimensions and full image slots — it is what makes PMax and
+            Shopping work. Detail in <a href="#appendix-feed">Appendix A4</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pinterest">
+      <div class="wrap">
+        <div class="kicker">Channel build · 02</div>
+        <h2 class="sec">Pinterest — the planning channel</h2>
+        <p>Pinterest catches the buyer six to ten weeks before the trip, while she is still
+        planning. Pins keep working for months — a pin's median half-life is 3.75 months — so
+        every dollar here builds a compounding asset rather than a depreciating one.</p>
+
+        <div class="playbook">
+          <div class="pb-head"><h3>Pinterest</h3><span class="pb-budget">$900 / month</span></div>
+          <div class="pb-body">
+            <h4 class="mini">Setup</h4>
+            <p style="margin-top:6px">Install the free Pinterest for Shopify app — it
+            auto-syncs the catalog daily, installs the Pinterest Tag and enables the
+            Conversions API. Verify pecanmoon.com to unlock Rich Pins on every pin.</p>
+
+            <h4 class="mini">Paid structure</h4>
+            <div class="table-wrap" style="margin:8px 0 0">
+              <table class="data">
+                <thead><tr><th>Campaign</th><th class="num">Budget</th><th>Job</th></tr></thead>
+                <tbody>
+                  <tr><td class="hi">Catalog Sales — Performance+</td><td class="num">$585 · 65%</td><td>The workhorse — AI-driven prospecting across the full catalog</td></tr>
+                  <tr><td class="hi">Conversions</td><td class="num">$180 · 20%</td><td>Two ad groups — Mediterranean keywords, and Bridal / Honeymoon</td></tr>
+                  <tr><td class="hi">Retargeting + Actalike</td><td class="num">$135 · 15%</td><td>30/60/90-day site visitors, pin engagers, Klaviyo lookalikes</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:10px">Bidding runs Automatic for the first four to six weeks —
+            Pinterest needs 50+ weekly conversions for stable optimisation. No changes during
+            the two-week learning phase.</p>
+
+            <h4 class="mini">Organic — an 18-board architecture</h4>
+            <p style="margin-top:6px">Organic and paid compound together. We build the board
+            structure; your social manager feeds it. Full board names and descriptions are in
+            <a href="#appendix-pinterest">Appendix A3</a>.</p>
+            <ul>
+              <li><strong>6 destination boards</strong> — Mykonos, Amalfi &amp; Capri, St.
+              Barths, Tulum, Hamptons, European Summer</li>
+              <li><strong>5 occasion boards</strong> — Beach Wedding Guest, Honeymoon, Rehearsal
+              Dinner, Bridal Welcome, Bridal Shower</li>
+              <li><strong>4 aesthetic boards</strong> — Quiet Luxury, Coastal Heirloom, Old
+              Money Summer, Italian Summer</li>
+              <li><strong>3 category boards</strong> — Linen Edit, Silk Edit, Cotton &amp; Crochet</li>
+            </ul>
+
+            <h4 class="mini">Pin cadence &amp; specs</h4>
+            <p style="margin-top:6px">8–12 fresh pins per day, scheduled through Tailwind. Pins
+            run 2:3 at 1000×1500, vertical lifestyle imagery preferred over flat product shots.
+            Format mix: 55% Product Pins, 25% lifestyle, 15% Idea Pins, 5% video.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="meta">
+      <div class="wrap">
+        <div class="kicker">Channel build · 03</div>
+        <h2 class="sec">Meta — a retargeting layer, not a prospecting engine</h2>
+        <p>Meta is not dead for Pecan Moon — it is mis-cast. Finding 02 showed prospecting at
+        0.30%. But the warm audience already arriving through Direct is exactly what Meta
+        retargeting does cheaply and well.</p>
+
+        <div class="playbook">
+          <div class="pb-head"><h3>Meta Retargeting</h3><span class="pb-budget">$300 / month</span></div>
+          <div class="pb-body">
+            <h4 class="mini">Scope</h4>
+            <p style="margin-top:6px">Catalog ads only, against 90-day site visitors, pin and
+            post engagers, and cart abandoners. No cold prospecting until creative is validated
+            on Pinterest and Google. Rebuilt in week 4 once the prospecting campaigns are wound
+            down.</p>
+            <h4 class="mini">Why this works at a small budget</h4>
+            <p style="margin-top:6px">Retargeting a warm audience needs frequency, not reach —
+            $300 buys plenty of it. This is the layer that catches the high-intent Direct
+            visitor when she comes back, which the current setup does not do at all.</p>
+            <h4 class="mini">When prospecting returns</h4>
+            <p style="margin-top:6px">Meta prospecting comes back in Phase 2 or 3 — once there
+            is a validated creative library worth scaling and the budget to exit the learning
+            phase honestly. Not before.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="attribution">
+      <div class="wrap">
+        <div class="kicker">Foundation</div>
+        <h2 class="sec">The attribution stack</h2>
+        <p>This is what closes the measurement gaps in Finding 05. It is installed in week 1,
+        on Pecan Moon's own accounts — your data, you keep it. Roughly $375/month, paid
+        directly to the vendors.</p>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Tool</th><th class="num">Monthly</th><th>What it does</th></tr></thead>
+            <tbody>
+              <tr><td class="hi">Elevar (server-side)</td><td class="num">$200</td><td>Server-side tracking — recovers 10–20% of conversions lost to iOS / Safari and powers proper CAPI</td></tr>
+              <tr><td class="hi">Triple Whale</td><td class="num">$149</td><td>Blended ROAS and MER across every channel — the honest cross-channel number</td></tr>
+              <tr><td class="hi">KnoCommerce</td><td class="num">Free tier</td><td>Post-purchase "how did you hear about us?" survey — ground truth on attribution</td></tr>
+              <tr><td class="hi">GA4</td><td class="num">Free</td><td>A second source of truth for multi-channel comparison</td></tr>
+              <tr class="total"><td>Total</td><td class="num">≈ $375</td><td>The infrastructure behind every "did this work?" answer</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Operational tools used to run the channels — a Merchant Center feed manager and
+        Tailwind for Pinterest scheduling — are modest add-ons folded into setup, not separate
+        line items.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="klaviyo">
+      <div class="wrap">
+        <div class="kicker">Lifecycle</div>
+        <h2 class="sec">Email &amp; SMS — capturing the audience you already have</h2>
+        <p>Finding 03 showed Direct traffic converting at 4× paid and producing most of the
+        orders — with nothing built to capture it. Klaviyo flows are how that audience stops
+        leaking away. We audit and rebuild four priority flows first:</p>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Flow</th><th>What it does</th><th>Built</th></tr></thead>
+            <tbody>
+              <tr><td class="hi">Welcome</td><td>Converts the email capture into a first order; sets the brand tone</td><td>Week 3</td></tr>
+              <tr><td class="hi">Abandoned cart</td><td>Recovers the 45 checkouts a month that stall before payment</td><td>Weeks 5–6</td></tr>
+              <tr><td class="hi">Browse abandonment</td><td>Re-engages the 50+ add-to-carts that never reach checkout</td><td>Weeks 5–6</td></tr>
+              <tr><td class="hi">Post-purchase</td><td>Drives the second order and the review; runs the attribution survey</td><td>Weeks 5–6</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>An optimised email-capture popup goes live in week 3. By the Day-60 review the stack
+        extends to five to seven flows — back-in-stock, win-back, VIP — and feeds Customer Match
+        and Pinterest lookalike audiences across every paid channel.</p>
+      </div>
+    </section>
+
+    <section class="section" id="creative">
+      <div class="wrap">
+        <div class="kicker">The rate-limiter</div>
+        <h2 class="sec">The creative engine</h2>
+        <p>No channel outperforms its creative. That is why $400/month of the budget is reserved
+        for creative production — it is the constraint on Google, Pinterest and Meta alike.</p>
+        <p>You already produce the photography, and it is genuinely strong — so the model is
+        simple: <strong>you produce, we direct what to test.</strong> Each week we brief four
+        ad concepts against the asset groups, and the iteration cycle keeps the channels fed
+        with fresh angles.</p>
+        <h4 class="mini">Asset types every channel needs</h4>
+        <ul>
+          <li>Clean product shots on white — for Shopping and catalog ads</li>
+          <li>Landscape lifestyle (1.91:1) — styled, on-location, for PMax and Pinterest</li>
+          <li>Portrait lifestyle (4:5) — the vacation scene, for feed and Pinterest pins</li>
+          <li>Short ambient video (16:9 and 9:16) — no voiceover required</li>
+        </ul>
+        <p>We will also surface brand cues that are currently invisible in the marketing — the
+        signature satin pouch packaging, for instance, is a real luxury signal that belongs in
+        ad creative and the post-purchase flow. Small things, but they are free perceived value.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="team">
+      <div class="wrap">
+        <div class="kicker">Who runs what</div>
+        <h2 class="sec">A US-based team, with clear ownership</h2>
+        <p>The work splits cleanly between two people, both based in Texas — close to your time
+        zone and to the US retail context that shapes every benchmark.</p>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Who</th><th>Based</th><th>Owns</th></tr></thead>
+            <tbody>
+              <tr><td class="hi">Hamza</td><td>Houston, TX</td><td>Google, overall strategy, the attribution stack, reporting and the client relationship</td></tr>
+              <tr><td class="hi">Zena</td><td>Dallas, TX</td><td>Meta retargeting, Pinterest, the creative iteration cycle and Klaviyo flows</td></tr>
+              <tr><td class="hi">Your social media manager</td><td>—</td><td>Instagram organic — unchanged. We coordinate; we do not replace.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Your existing social manager keeps Instagram. The handshake is the value: paid-side
+        performance data and ad-creative learnings flow to her content; her organic insight —
+        which posts resonate, which language lands — flows back into ad targeting and briefs.
+        No overlap, no replacement. We establish direct comms with her in week 1.</p>
+      </div>
+    </section>
+
+    <section class="section" id="benchmarks">
+      <div class="wrap">
+        <div class="kicker">What success looks like</div>
+        <h2 class="sec">Directional benchmarks</h2>
+        <p>These are the ranges the work should track toward, drawn from current industry data
+        for luxury fashion on these channels. They are <strong>expectations, not guarantees</strong>
+        — month one is an investment phase by design, and firm targets get set together at the
+        30-day review on real baseline data.</p>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>Window</th><th>Google PMax ROAS</th><th>Pinterest</th><th>Blended MER</th></tr></thead>
+            <tbody>
+              <tr><td class="hi">Days 1–30</td><td>1.5–2.2× — investment phase, below break-even is expected</td><td>Learning phase</td><td>Baseline documented</td></tr>
+              <tr><td class="hi">Days 31–60</td><td>2.5–3.5×</td><td>CPC $0.50–$0.83, exiting learning</td><td>Building toward 2.5×</td></tr>
+              <tr><td class="hi">Days 61–90</td><td>3.5–4.5×</td><td>2.5–4× new-customer · 5–8× retargeting</td><td>≥ 2.8×</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Supporting reference points: Branded Search typically returns 8–13× ROAS; Pinterest
+        CVR for luxury runs 5–8%; the luxury-fashion site conversion-rate baseline is roughly
+        0.7–0.9%. We report against these every week so there are no surprises in either
+        direction.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="milestones">
+      <div class="wrap">
+        <div class="kicker">Milestones</div>
+        <h2 class="sec">What we report against</h2>
+        <p>Process milestones, not vanity numbers — each one is a checkable, dated commitment.</p>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th>By</th><th>Milestone</th></tr></thead>
+            <tbody>
+              <tr><td class="hi">Day 14</td><td>Attribution stack live · baseline MER documented · Meta Business Manager access confirmed or formally requested</td></tr>
+              <tr><td class="hi">Day 30</td><td>Google PMax and Pinterest live · first Meta retargeting layer running · first weekly dashboard delivered · MER thresholds set together</td></tr>
+              <tr><td class="hi">Day 60</td><td>Evaluation review · Phase 2 scale decision against the documented MER threshold</td></tr>
+              <tr><td class="hi">Day 90</td><td>Quarterly business review · full cohort analysis · Phase 3 recommendation</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Reporting cadence: a weekly update every Monday, a monthly dashboard review, and a
+        quarterly business review.</p>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="wrap">
+        <div class="kicker">Beyond paid</div>
+        <h2 class="sec">Where this goes next</h2>
+        <p>The 90-day plan above is the committed scope — paid channels, attribution, lifecycle
+        and creative. But the most durable growth for a brand like Pecan Moon is earned, not
+        bought. This is the roadmap beyond Phase 1: <strong>not in the current budget or hours,
+        and noted here so the bigger picture is visible</strong> — we would scope it together
+        once the paid engine is proven.</p>
+
+        <h3 class="sub">AI-search visibility (AEO / GEO)</h3>
+        <p>When someone asks ChatGPT or Google's AI for "the best luxury resort wear brands,"
+        Pecan Moon currently has no presence in the answer. That is changeable: structured
+        Schema markup, a library of destination-guide content ("What to wear in Mykonos"), and
+        Pecan Moon's Shopify catalog surfacing in ChatGPT's organic shopping results. Unlike a
+        paid click, an AI citation compounds — it keeps recommending the brand for years.</p>
+
+        <h3 class="sub">Earned media</h3>
+        <p>The brands that win AI citations are the brands that win editorial citations. A
+        PR and gifting program — hero pieces to editors at Vogue, WWD, Harper's Bazaar and Town
+        &amp; Country — authentic presence in the Reddit communities where destination-wedding
+        and capsule-wardrobe buyers gather, a Wikipedia entity for the brand and founder, and
+        targeted Substack placements together build a citation moat the comp set would need
+        years to dismantle.</p>
+
+        <div class="callout">
+          <div class="co-label">How to think about it</div>
+          <p>Treat this as Phase 2+ upside. The paid engine is what we prove first; the earned
+          layer is the compounding bet we build once it is working — and it is a strong reason
+          this brand's ceiling is well above what $3,000 of paid media alone implies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMMERCIALS ================= -->
+    <div class="part-head" id="investment">
+      <div class="wrap">
+        <div class="part-label">Commercials</div>
+        <div class="part-title">Investment &amp; Terms</div>
+        <p class="part-intro">What it costs, how it scales, and the terms — structured so the
+        downside is small and every increase is earned.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">The investment</div>
+        <h2 class="sec">What Pecan Moon pays</h2>
+        <p>Three line items. Two of them — ad spend and software — Pecan Moon pays directly to
+        the platforms and vendors, so there is no markup and full visibility.</p>
+        <div class="table-wrap">
+          <table class="data">
+            <caption>All-in monthly investment — Phase 1</caption>
+            <thead><tr><th>Line item</th><th class="num">Monthly</th><th>Paid to</th></tr></thead>
+            <tbody>
+              <tr><td>Zapp growth-marketing hours — 10 (min) to 30 (cap) @ $75/hr</td><td class="num">$750 – $2,250</td><td>Zapp Studios</td></tr>
+              <tr><td>Ad spend — Google, Pinterest, Meta</td><td class="num">$3,000</td><td>Platforms directly</td></tr>
+              <tr><td>Attribution software — Elevar, Triple Whale, KnoCommerce, GA4</td><td class="num">≈ $375</td><td>Vendors directly</td></tr>
+              <tr class="total"><td>All-in monthly — Phase 1</td><td class="num">≈ $4,125 – $5,625</td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="sub">How the cost ramps</h3>
+        <p>The only line that grows is ad spend — and only when performance gates are met.
+        Zapp fees actually settle <em>down</em> after the build-heavy first two months.</p>
+        <div class="chart">
+          <div class="chart-title">Illustrative 6-month cost ramp</div>
+          <svg viewBox="0 0 700 348" role="img" aria-label="Stacked monthly cost: roughly $5,625 in months 1 to 2, $6,875 in months 3 to 4, $9,375 in months 5 to 6">
+            <!-- y grid -->
+            <g stroke="#E4DAC6"><line x1="70" y1="300" x2="680" y2="300"/><line x1="70" y1="235" x2="680" y2="235"/><line x1="70" y1="170" x2="680" y2="170"/><line x1="70" y1="105" x2="680" y2="105"/><line x1="70" y1="40" x2="680" y2="40"/></g>
+            <g font-size="10.5" fill="#938A78" text-anchor="end" font-family="Helvetica,Arial">
+              <text x="62" y="304">$0</text><text x="62" y="239">$2.5K</text><text x="62" y="174">$5K</text><text x="62" y="109">$7.5K</text><text x="62" y="44">$10K</text>
+            </g>
+            <!-- M1 -->
+            <rect x="78"  y="222"    width="64" height="78"   fill="#6F4B2D"/>
+            <rect x="78"  y="163.5"  width="64" height="58.5" fill="#B5904A"/>
+            <rect x="78"  y="153.75" width="64" height="9.75" fill="#7E8767"/>
+            <text x="110" y="146" text-anchor="middle" font-size="11" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">$5,625</text>
+            <!-- M2 -->
+            <rect x="179" y="222"    width="64" height="78"   fill="#6F4B2D"/>
+            <rect x="179" y="163.5"  width="64" height="58.5" fill="#B5904A"/>
+            <rect x="179" y="153.75" width="64" height="9.75" fill="#7E8767"/>
+            <text x="211" y="146" text-anchor="middle" font-size="11" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">$5,625</text>
+            <!-- M3 -->
+            <rect x="280" y="170"    width="64" height="130"  fill="#A98456"/>
+            <rect x="280" y="170"    width="64" height="130"  fill="none" stroke="#6F4B2D" stroke-width="1" stroke-dasharray="3 2.5"/>
+            <rect x="280" y="131"    width="64" height="39"   fill="#B5904A"/>
+            <rect x="280" y="121.25" width="64" height="9.75" fill="#7E8767"/>
+            <text x="312" y="114" text-anchor="middle" font-size="11" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">$6,875</text>
+            <!-- M4 -->
+            <rect x="381" y="170"    width="64" height="130"  fill="#A98456"/>
+            <rect x="381" y="170"    width="64" height="130"  fill="none" stroke="#6F4B2D" stroke-width="1" stroke-dasharray="3 2.5"/>
+            <rect x="381" y="131"    width="64" height="39"   fill="#B5904A"/>
+            <rect x="381" y="121.25" width="64" height="9.75" fill="#7E8767"/>
+            <text x="413" y="114" text-anchor="middle" font-size="11" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">$6,875</text>
+            <!-- M5 -->
+            <rect x="482" y="105"    width="64" height="195"  fill="#A98456"/>
+            <rect x="482" y="105"    width="64" height="195"  fill="none" stroke="#6F4B2D" stroke-width="1" stroke-dasharray="3 2.5"/>
+            <rect x="482" y="66"     width="64" height="39"   fill="#B5904A"/>
+            <rect x="482" y="56.25"  width="64" height="9.75" fill="#7E8767"/>
+            <text x="514" y="49" text-anchor="middle" font-size="11" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">$9,375</text>
+            <!-- M6 -->
+            <rect x="583" y="105"    width="64" height="195"  fill="#A98456"/>
+            <rect x="583" y="105"    width="64" height="195"  fill="none" stroke="#6F4B2D" stroke-width="1" stroke-dasharray="3 2.5"/>
+            <rect x="583" y="66"     width="64" height="39"   fill="#B5904A"/>
+            <rect x="583" y="56.25"  width="64" height="9.75" fill="#7E8767"/>
+            <text x="615" y="49" text-anchor="middle" font-size="11" font-weight="700" fill="#4A331F" font-family="Helvetica,Arial">$9,375</text>
+            <!-- baseline + month labels -->
+            <line x1="70" y1="300" x2="680" y2="300" stroke="#D5C7A8" stroke-width="1.5"/>
+            <g font-size="11" fill="#2B2620" text-anchor="middle" font-weight="700" font-family="Helvetica,Arial">
+              <text x="110" y="320">Month 1</text><text x="211" y="320">Month 2</text><text x="312" y="320">Month 3</text>
+              <text x="413" y="320">Month 4</text><text x="514" y="320">Month 5</text><text x="615" y="320">Month 6</text>
+            </g>
+          </svg>
+          <div class="legend">
+            <span><i style="background:#6F4B2D"></i>Ad spend — Phase 1</span>
+            <span><i style="background:#A98456;border:1px dashed #6F4B2D"></i>Ad spend — conditional (Phase 2 / 3)</span>
+            <span><i style="background:#B5904A"></i>Zapp fees</span>
+            <span><i style="background:#7E8767"></i>Attribution software</span>
+          </div>
+          <div class="chart-note">Illustrative. The month-3 and month-5 ad-spend increases
+          (shown dashed) happen only if the performance gates are met — they are triggered,
+          never automatic.</div>
+        </div>
+
+        <h3 class="sub">Fee structure</h3>
+        <p>We mirror the model already working on the Shopify side — an hourly rate with a
+        guaranteed floor and a capped ceiling, so the cost is predictable both ways.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="sv">$75</div><div class="sl">Per hour</div></div>
+          <div class="stat"><div class="sv">10 hrs</div><div class="sl">Guaranteed monthly minimum — $750 floor</div></div>
+          <div class="stat"><div class="sv">30 hrs</div><div class="sl">Monthly cap without approval — $2,250 ceiling</div></div>
+        </div>
+        <p>The first 60 days run closer to the cap — standing up Google, building Pinterest from
+        scratch, installing attribution and rebuilding Meta is front-loaded work. From around
+        month 3, most months settle into the 15–25 hour range. Hours split between Hamza and
+        Zena by the work.</p>
+        <div class="callout">
+          <div class="co-label">On the performance bonus</div>
+          <p>You raised the idea of a performance bonus, and we are glad to build one in. Rather
+          than pick a formula now, we would structure something simple at the 30-day review —
+          once there is 60 days of real baseline data to tie it to a metric that actually
+          means something for the business.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="terms">
+      <div class="wrap">
+        <div class="kicker">Scope &amp; terms</div>
+        <h2 class="sec">What's in, what's out, and how it's governed</h2>
+
+        <div style="display:flex;flex-wrap:wrap;gap:0 40px">
+          <div style="flex:1 1 280px">
+            <h4 class="mini">What we manage</h4>
+            <ul>
+              <li>Google — PMax, Branded Search, High-Intent Search</li>
+              <li>Pinterest — Catalog Sales, Conversions, Retargeting</li>
+              <li>Meta retargeting — catalog ads to warm audiences</li>
+              <li>Creative briefing and the iteration cycle</li>
+              <li>Klaviyo email &amp; SMS flow audit and optimisation</li>
+              <li>The attribution stack and monthly reconciliation</li>
+              <li>Reporting, dashboards and coordination with your SMM</li>
+            </ul>
+          </div>
+          <div style="flex:1 1 280px">
+            <h4 class="mini">What's not included</h4>
+            <ul>
+              <li>Photography and content production — you own this</li>
+              <li>The ad spend itself — paid by you, directly to platforms</li>
+              <li>Influencer or PR payments — pass-through costs we can advise on</li>
+              <li>TikTok management — revisit in month 4–5</li>
+              <li>Site CRO and Shopify development — covered under your existing Shopify agreement</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="sub">Site fixes — flagged, handled separately</h3>
+        <p>A few store issues will cap paid performance no matter how good the traffic is — the
+        privacy policy still states the brand does not process orders, the free-shipping banner
+        contradicts itself between two thresholds, reviews are not shown on product pages, and
+        out-of-stock products remain shoppable. These are <strong>covered under your existing
+        Shopify agreement, not this one</strong> — but they are blocking, and we will patch
+        them in week 1 alongside the channel build.</p>
+
+        <h3 class="sub">Account ownership</h3>
+        <p>Every account, asset and data set is Pecan Moon's property — Meta, Google Ads,
+        Merchant Center, Pinterest Business, Klaviyo, Elevar, Triple Whale, KnoCommerce, GA4.
+        Zapp Studios operates with admin access. All creative, ad copy, audiences and Klaviyo
+        flows transfer fully to Pecan Moon if the engagement ends.</p>
+
+        <h3 class="sub">Evaluation period &amp; termination</h3>
+        <ul>
+          <li><strong>60-day mutual evaluation.</strong> Either side can step away at the end
+          of day 60 with no further obligation. We use the window to document a clean baseline.</li>
+          <li><strong>After day 60</strong> — month-to-month, with 30-day mutual notice. No
+          long lock-ups.</li>
+          <li><strong>On termination</strong> — all accounts, creative, dashboards and data
+          transfer back to Pecan Moon in usable form.</li>
+        </ul>
+
+        <h3 class="sub">What you provide</h3>
+        <ul>
+          <li>$3,000/month ad budget, paid directly to the platforms — you control it</li>
+          <li>≈ $375/month in attribution software, on your own accounts</li>
+          <li>Continued photography and content production</li>
+          <li>Meta Business Manager admin access for our team (a five-minute action)</li>
+          <li>Brand guidelines and voice — we will help formalise what is not yet documented</li>
+          <li>Creative and copy approvals within 48 hours</li>
+          <li>A monthly 60-minute strategy call</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="next">
+      <div class="wrap">
+        <div class="kicker">What happens next</div>
+        <h2 class="sec">Four steps to live campaigns</h2>
+        <ol class="steps">
+          <li><strong>A short services agreement.</strong> Essentially a one-page extension of
+          the existing Shopify agreement, covering this new scope.</li>
+          <li><strong>A 60-minute kickoff call.</strong> Align on brand voice, the MER review
+          approach, and the handshake with your social media manager.</li>
+          <li><strong>Day 1 begins the first Monday after signing.</strong> Week 1 is audit,
+          access and setup.</li>
+          <li><strong>New campaigns live by the end of week 2.</strong> Google first, Pinterest
+          days later.</li>
+        </ol>
+        <p>Happy to talk through any of this, or adjust anything that does not fit. The
+        analysis stands on its own — but the recommendation is the part we are most confident
+        about: same budget, rebuilt around how this category actually buys.</p>
+        <p style="font-family:var(--serif);font-size:18px;color:var(--pecan);margin-top:18px">— Hamza, Zapp Studios</p>
+      </div>
+    </section>
+
+    <!-- ================= APPENDIX ================= -->
+    <div class="part-head" id="appendix-google">
+      <div class="wrap">
+        <div class="part-label">Appendix</div>
+        <div class="part-title">The Build Sheets</div>
+        <p class="part-intro">The complete, paste-ready build detail behind Part III — the
+        keyword clusters, ad copy, negative lists, board architecture and feed schema. This is
+        what we work from on day one.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="kicker">Appendix A1</div>
+        <h2 class="sec">Google — Performance Max asset groups</h2>
+        <p>Five asset groups, each a complete unit: listing filter, search themes, and ad copy
+        sized to Google's specs — 30-character headlines, 90-character long headlines and
+        descriptions.</p>
+
+        <h3 class="sub">1 · Mediterranean Summer</h3>
+        <p>The largest unclaimed keyword pool in the category. Listing filter:
+        <em>custom_label_4 in (eveningwear, weekend)</em> and product type containing dress /
+        kaftan / set, priced $295–$1,100.</p>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Search themes</span>
+        mykonos outfit · amalfi coast dress · capri outfit · italian summer dress · sicily outfit · greek islands outfit · mediterranean cruise outfit · european summer outfit · italian summer outfit luxury · designer mediterranean dress · positano dress · lake como dress · white linen dress luxury · silk midi dress vacation · designer kaftan · italian linen dress · mediterranean vacation outfit · capri pants luxury · white maxi dress vacation · ibiza outfit · mallorca outfit · french riviera outfit · designer cover up · luxury sundress · european vacation dress</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Headlines (30 char)</span>
+        Made for Mykonos · Capri-Ready Luxury · The Amalfi Edit · Italian Summer Dressing · European Heirloom Linen · Pecan Moon Resort 2026 · Designer Vacation Dresses · Quiet Luxury Resort Wear · Built for the Coast · Made in Limited Runs · Free U.S. Shipping $200+ · Effortless on Vacation · Heirloom-Quality Linen · Shop the Capri Edit · Luxury Without Logos</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Long headlines (90 char)</span>
+        Pecan Moon — Designed in Austin, Crafted for the Mediterranean Coast · Heirloom-Quality Linen, Silk and Cotton for the Italian Summer Ahead · Luxury Resort Wear for Mykonos, Capri, Positano &amp; the Amalfi Coast · The Quiet Luxury Vacation Wardrobe — Now Shipping for Resort 2026 · Mediterranean-Bound? Shop Designer Dresses Built for Travel &amp; Heat</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Descriptions (90 char)</span>
+        Designer linen dresses for the Mediterranean coast. · Heirloom-quality fabrics. Free U.S. shipping over $200. · Made in limited runs. Built for resort, weddings, escape. · From Austin with European fabrics — shop the Resort Edit. · Effortless silhouettes for Capri, Mykonos, Amalfi, Sicily.</div></div>
+
+        <h3 class="sub">2 · Beach Wedding &amp; Honeymoon</h3>
+        <p>The highest commercial intent of any cluster. Listing filter: dresses, gowns and sets
+        in white, ivory, champagne and blush.</p>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Search themes</span>
+        beach wedding guest dress · white linen rehearsal dinner dress · honeymoon outfits · destination wedding guest dress · rehearsal dinner dress beach · welcome dinner beach wedding outfit · tulum honeymoon dress · white maxi dress wedding · designer wedding guest dress · luxury beach wedding dress · white silk slip dress · ivory midi dress wedding · honeymoon white dress · bridal welcome party outfit · bachelorette dress luxury · white linen dress wedding · designer rehearsal dinner outfit · wedding weekend outfit · white kaftan luxury · bridal shower dress luxury · bridal brunch outfit · white midi dress luxury · garden wedding dress · italian wedding guest dress · mediterranean wedding outfit</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Headlines (30 char)</span>
+        The Honeymoon Edit · Beach Wedding Ready · White &amp; Worth It · For the Welcome Dinner · Made for the Aisle · Rehearsal Dinner Dress · Designer Bridal Style · Heirloom White Linen · Honeymoon Wardrobe · Pre-Wedding Edit · Made in Limited Runs · Free U.S. Shipping $200+ · Worn Beyond the Wedding · Bridal — Reimagined · From Austin, With Love</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Long headlines (90 char)</span>
+        Designer White Dresses for the Rehearsal, Welcome Dinner, Beach Wedding &amp; Honeymoon · The Honeymoon Wardrobe — Heirloom Linen and Silk in Ivory, White &amp; Champagne · Made for the Aisle, Worn for Years — Pecan Moon Bridal &amp; Honeymoon · Skip Generic Bridal — Designer White Dresses That Travel Beautifully · Beach Wedding &amp; Destination Bride Dressing, Crafted in Limited Runs</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Descriptions (90 char)</span>
+        White linen, silk, cotton — for every wedding moment. · From rehearsal to honeymoon. Free shipping $200+. · Heirloom-quality bridal pieces, made in limited runs. · Designer white dresses, made to travel and last. · The honeymoon wardrobe, crafted in Austin.</div></div>
+
+        <h3 class="sub">3 · Caribbean &amp; Mexico Resort</h3>
+        <p>Carries the autumn / winter season. Listing filter: weekend and gifting buckets —
+        kaftans, cover-ups, sundresses.</p>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Search themes</span>
+        tulum outfit · st barths outfit · st barts outfit · caribbean vacation outfit · mexico vacation dress · tropical resort wear · designer cover up · luxury beach cover up · caribbean cruise outfit · jamaica vacation outfit · bahamas vacation dress · turks and caicos outfit · anguilla outfit · cabo outfit · riviera maya outfit · designer kaftan · silk caftan luxury · luxury sundress · beach honeymoon dress · tropical honeymoon outfit · luxury crochet dress · beach club outfit · designer beach dress · tropical wedding guest dress · designer sundress</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Headlines (30 char)</span>
+        Made for Tulum · St. Barths Edit · The Caribbean Edit · Designer Cover-Ups · Tropical, Tailored · Luxury Beach Wear · Caribbean-Bound · Beach to Dinner · Heirloom Sun-Wear · Limited Resort Drops · Built for Heat · Made in Limited Runs · Free Shipping $200+ · Designer Sundresses · Effortless on Sand</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Long headlines (90 char)</span>
+        Pecan Moon Caribbean Edit — Designer Kaftans, Cover-Ups &amp; Sundresses · From Austin to St. Barths — Heirloom-Quality Tropical Resort Wear · Designer Beach-to-Dinner Pieces, Built for Tulum, Cabo &amp; Beyond · Luxury Cover-Ups &amp; Caftans for Caribbean Honeymoons · Made in Limited Runs — Tropical Resort Pieces You'll Travel With for Years</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Descriptions (90 char)</span>
+        Designer kaftans and cover-ups for the Caribbean. · Built for sun, sand, and dinner. Free shipping $200+. · Tropical resort wear, made in limited runs. · From Tulum to St. Barths — heirloom resort pieces. · Designer sundresses for the warm-weather wardrobe.</div></div>
+
+        <h3 class="sub">4 · Quiet Luxury &amp; Discovery</h3>
+        <p>Aesthetic-led, full-catalog, weighted to heroes and bestsellers.</p>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Search themes</span>
+        quiet luxury vacation · old money summer · coastal grandmother style · european summer outfit · italian summer aesthetic · hamptons summer outfit · the row alternative · toteme alternative · khaite alternative · brunello cucinelli alternative · designer minimalist dress · luxury minimalist resort wear · capsule resort wardrobe · investment dress · slow fashion luxury · sustainable luxury resort · made in limited runs · heirloom dress · white linen dress luxury · silk slip dress luxury · designer cotton dress · luxury everyday dress · luxury vacation capsule · designer linen luxury · austin luxury fashion</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Headlines (30 char)</span>
+        Made in Limited Runs · Quiet Luxury, Worn Often · Heirloom-Quality Pieces · Crafted, Not Mass-Made · Pecan Moon — Austin · Designer Without Logos · Built to Outlast Trends · Investment Wardrobe · Slow Fashion Luxury · European Fabrics Only · Made for Many Summers · Free Shipping $200+ · From Austin, Texas · Limited Drops · Luxury With No Logo</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Long headlines (90 char)</span>
+        Pecan Moon — Heirloom-Quality Dresses Designed in Austin, Made in Limited Runs · Quiet Luxury Resort Wear for Women Who Buy Once and Wear for Years · European Linen, Italian Silk, Designed in Texas — Logo-Free Luxury Fashion · The Investment Vacation Wardrobe — Made in Limited Runs, Built to Outlast Trends · Designer Resort Wear Without the Logos — Pecan Moon Resort 2026</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Descriptions (90 char)</span>
+        Heirloom-quality dresses designed in Austin. · Made in limited runs. Built to outlast trends. · European fabrics. Logo-free. From Austin, Texas. · The investment vacation wardrobe — Pecan Moon. · Quiet luxury resort wear. Free U.S. shipping $200+.</div></div>
+
+        <h3 class="sub">5 · Brand Discovery &amp; Conquest</h3>
+        <p>Captures comparison shoppers and branded demand. Full catalog, weighted to
+        bestsellers.</p>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Search themes</span>
+        alternatives to loveshackfancy · brands like doen · similar to cult gaia · brands like loveshackfancy · brands like zimmermann · brands like reformation luxury · indie luxury fashion brand · doen alternatives · hill house home alternative · dresses like loveshackfancy · designer dress brand austin · austin fashion designer · mary radenkovic · pecan moon · women-owned luxury brand · indie fashion designer · dtc luxury fashion · hannah artwear alternative · faithfull alternative · mestiza alternative · marysia alternative · cara cara alternative · mille alternative · kemi telford alternative · mirae alternative</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Headlines (30 char)</span>
+        Beyond the Usual Brands · Indie. Luxury. Austin. · Founder-Led Luxury · Discover Pecan Moon · Like LSF? Try This. · Like Dôen? Meet Us. · Limited Runs. No Logos. · Mary Radenkovic, Founder · From Austin With Care · Quiet Luxury Brand · Independent Designer · Free Shipping $200+ · Heirloom-Quality · Worth the Discovery · New to You. Made for You.</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Long headlines (90 char)</span>
+        Discover Pecan Moon — The Indie Luxury Resort Wear Brand from Austin, Texas · If You Love Dôen, LoveShackFancy or Faithfull — You'll Want to Meet Pecan Moon · Founded by Mary Radenkovic — Heirloom Resort Wear, Made in Limited Runs · Independent. Founder-Led. European Fabrics. Designed in Austin, Texas. · Quiet Luxury Resort Wear from a New Independent Designer — Pecan Moon</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Descriptions (90 char)</span>
+        If you love Dôen or LSF — meet Pecan Moon. · Indie luxury resort wear, designed in Austin. · Founder-led, made in limited runs, no logos. · Heirloom-quality dresses. Free shipping $200+. · The new indie luxury brand for resort dressing.</div></div>
+
+        <h4 class="mini">Audience signals (applied across asset groups)</h4>
+        <p>Customer Match from Klaviyo — purchasers, subscribers, high-AOV, abandoners.
+        In-Market — Designer Apparel, Luxury Goods, Travel to Europe / Caribbean / Mexico.
+        Affinity — Luxury Shoppers, Fashionistas, Travel Buffs. Life Events — Newly Engaged,
+        About to Get Married. Demographics — women 28–55, top 20% household income.</p>
+      </div>
+    </section>
+
+    <section class="section alt" id="appendix-negatives">
+      <div class="wrap">
+        <div class="kicker">Appendix A2</div>
+        <h2 class="sec">Google — account-level negative keywords</h2>
+        <p>Applied on day one across all campaigns. These strip out the searches that will never
+        become a luxury order — the single fastest way to stop wasting a small budget.</p>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Bargain &amp; discount intent</span>
+        free · cheap · discount · coupon · promo code · clearance · outlet · wholesale · bulk · under 100</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Counterfeit &amp; replica</span>
+        dupe · knockoff · replica · fake · imitation · look alike · inspired by</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Used &amp; resale</span>
+        used · secondhand · preowned · thrift · consignment · poshmark · mercari · depop · rental · rent</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Off-category</span>
+        men · mens · kids · girls · costume · cosplay · halloween · prom · quinceanera · sewing pattern · diy · tutorial · how to make</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Mass-market retailers</span>
+        amazon · shein · temu · zara · h&amp;m · old navy · boohoo · pretty little thing · fashion nova · nordstrom rack · tj maxx · marshalls · costco · target · walmart · alibaba</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Non-shopper intent</span>
+        jobs · careers · internship · manufacturer · supplier · china · dress up game</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Brand-leak list — added at day 30, alongside PMax brand exclusions</span>
+        pecan moon · pecanmoon · pekan moon · pecan moon dress · pecan moon kaftan · mary radenkovic</div></div>
+      </div>
+    </section>
+
+    <section class="section" id="appendix-pinterest">
+      <div class="wrap">
+        <div class="kicker">Appendix A3</div>
+        <h2 class="sec">Pinterest — the 18-board architecture</h2>
+        <p>Each board is named for how people actually search Pinterest, with a keyword-rich
+        description. Your social manager feeds them; paid catalog pins compound on top.</p>
+
+        <h4 class="mini">Destination boards (6)</h4>
+        <div class="table-wrap"><table class="data"><tbody>
+          <tr><td class="hi">Mykonos Outfits</td><td>Greek island outfit ideas — white dresses, linen kaftans, Cycladic summer style</td></tr>
+          <tr><td class="hi">Amalfi &amp; Capri</td><td>Amalfi Coast and Capri outfit inspiration — Positano dressing, Italian Riviera style</td></tr>
+          <tr><td class="hi">St. Barths Style</td><td>Caribbean luxury resort wear — beach-to-dinner looks, designer cover-ups</td></tr>
+          <tr><td class="hi">Tulum Outfit Ideas</td><td>Tulum vacation outfits — crochet, linen, tropical resort dressing</td></tr>
+          <tr><td class="hi">Hamptons Summer</td><td>Hamptons summer style — coastal, polished, weekend-house dressing</td></tr>
+          <tr><td class="hi">European Summer</td><td>European summer outfit ideas — the Mediterranean travel wardrobe</td></tr>
+        </tbody></table></div>
+
+        <h4 class="mini">Occasion boards (5)</h4>
+        <div class="table-wrap"><table class="data"><tbody>
+          <tr><td class="hi">Beach Wedding Guest</td><td>Beach wedding guest dresses — designer, destination-appropriate, packable</td></tr>
+          <tr><td class="hi">Honeymoon Outfits</td><td>The honeymoon wardrobe — white and ivory pieces, resort-ready</td></tr>
+          <tr><td class="hi">Rehearsal Dinner</td><td>Rehearsal and welcome-dinner dresses — luxury white and champagne</td></tr>
+          <tr><td class="hi">Bridal Welcome</td><td>Bridal welcome-party and pre-wedding-weekend outfit ideas</td></tr>
+          <tr><td class="hi">Bridal Shower</td><td>Bridal shower and brunch dresses — feminine, heirloom-quality</td></tr>
+        </tbody></table></div>
+
+        <h4 class="mini">Aesthetic boards (4)</h4>
+        <div class="table-wrap"><table class="data"><tbody>
+          <tr><td class="hi">Quiet Luxury Vacation</td><td>Quiet-luxury resort dressing — logo-free, investment pieces</td></tr>
+          <tr><td class="hi">Coastal Heirloom</td><td>Coastal grandmother style — timeless, heirloom-quality summer dressing</td></tr>
+          <tr><td class="hi">Old Money Summer</td><td>Old-money summer aesthetic — understated, polished, European</td></tr>
+          <tr><td class="hi">Italian Summer</td><td>Italian summer aesthetic — linen, silk, Riviera-coded styling</td></tr>
+        </tbody></table></div>
+
+        <h4 class="mini">Category boards (3)</h4>
+        <div class="table-wrap"><table class="data"><tbody>
+          <tr><td class="hi">The Linen Edit</td><td>White and natural linen dresses — the warm-weather staple</td></tr>
+          <tr><td class="hi">The Silk Edit</td><td>Silk slip and midi dresses — eveningwear and dinner dressing</td></tr>
+          <tr><td class="hi">Cotton &amp; Crochet</td><td>Cotton voile and crochet pieces — cover-ups and easy summer dressing</td></tr>
+        </tbody></table></div>
+
+        <h4 class="mini">Keyword tiers — for pins, board descriptions and paid targeting</h4>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Tier 1 — always-on, high volume</span>
+        resort wear · resort wear 2026 · vacation outfit · beach outfit · vacation dress · beach wedding guest dress · honeymoon outfit · white linen dress · kaftan dress · maxi dress vacation · linen dress · crochet dress</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Tier 2 — destination, higher intent</span>
+        Mykonos outfit · Greek island outfit · Santorini outfit · Amalfi Coast outfit · Positano outfit · Capri outfit · Italian summer outfit · St. Tropez outfit · Tulum outfit · St. Barths outfit · Ibiza outfit · Sicily outfit · Cabo outfit · Hamptons summer outfit</div></div>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Tier 3 — aesthetic, for organic reach</span>
+        coastal grandmother · old money summer · quiet luxury vacation · European summer aesthetic · Riviera aesthetic · coquette beach · Mediterranean aesthetic · yacht outfit · boat day outfit · bachelorette beach outfit</div></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="appendix-feed">
+      <div class="wrap">
+        <div class="kicker">Appendix A4</div>
+        <h2 class="sec">Google Merchant Center — feed schema</h2>
+        <p>The feed is what makes Performance Max and Shopping work. It is rebuilt to Google's
+        apparel spec in week 1.</p>
+
+        <h4 class="mini">Title formula</h4>
+        <p>Brand + Gender + Product Type + Key Attribute + Color + Size + Material — brand
+        front-loaded, because luxury buyers search by brand.</p>
+        <div class="kw-block"><div class="kw-list"><span class="kw-label">Example titles</span>
+        Pecan Moon Women's Tiered Linen Maxi Dress — Ivory, Size M, 100% European Linen<br>
+        Pecan Moon Women's Silk Slip Midi Dress — Champagne, Size S, 100% Mulberry Silk<br>
+        Pecan Moon Women's Embroidered Cotton Kaftan — White, One Size, Italian Cotton</div></div>
+
+        <h4 class="mini">Custom labels — five dimensions</h4>
+        <div class="table-wrap"><table class="data"><tbody>
+          <tr><td class="hi">custom_label_0</td><td>Price tier — entry $195–395 · mid $395–795 · premium $795–1,550</td></tr>
+          <tr><td class="hi">custom_label_1</td><td>Season / collection — resort_26 · ss26 · core · holiday26</td></tr>
+          <tr><td class="hi">custom_label_2</td><td>Margin band — high &gt;65% · mid 50–65% · low &lt;50%</td></tr>
+          <tr><td class="hi">custom_label_3</td><td>Performance flag — bestseller · hero · new_arrival · slow_mover</td></tr>
+          <tr><td class="hi">custom_label_4</td><td>Occasion bucket — eveningwear · weekend · bridal · honeymoon · mediterranean · caribbean</td></tr>
+        </tbody></table></div>
+
+        <h4 class="mini">Product identifiers &amp; images</h4>
+        <p>Pecan Moon is private-label: set <em>identifier_exists = no</em>, populate
+        <em>brand = Pecan Moon</em> and a unique MPN per variant — never invent GTINs. Main
+        image on a clean white background, product filling 75–90% of the frame, 1500×1500 or
+        larger. Use all additional-image slots — on-model front and back, a fabric close-up, a
+        styled flatlay, packaging, and lifestyle context. Products with both standard and
+        lifestyle imagery see roughly 27% higher click-through.</p>
+
+        <div class="callout">
+          <div class="co-label">End of build sheets</div>
+          <p>Everything above is paste-ready for day one. The strategy in Parts I–III explains
+          the why; this appendix is the how. We are glad to walk through any of it on the
+          kickoff call.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="doc-footer">
+      <div class="wrap">
+        <div class="ff-name">Zapp Studios</div>
+        <p>Prepared for Pecan Moon — Mary Radenkovic &amp; Adam Milano. Confidential.</p>
+        <p>Hamza · Zapp Studios · May 16, 2026</p>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.toc a'));
+  var secs=links.map(function(l){var e=document.getElementById(l.getAttribute('href').slice(1));return e?{l:l,e:e}:null;}).filter(Boolean);
+  function spy(){
+    var y=window.pageYOffset+130,cur=null;
+    secs.forEach(function(s){if(s.e.offsetTop<=y)cur=s;});
+    links.forEach(function(l){l.classList.remove('active');});
+    if(cur)cur.l.classList.add('active');
+  }
+  window.addEventListener('scroll',spy,{passive:true});
+  window.addEventListener('resize',spy);spy();
+  var btn=document.getElementById('tocToggle'),bd=document.getElementById('backdrop'),toc=document.getElementById('toc');
+  function close(){document.body.classList.remove('toc-open');}
+  if(btn){btn.addEventListener('click',function(){document.body.classList.toggle('toc-open');});}
+  if(bd){bd.addEventListener('click',close);}
+  if(toc){toc.addEventListener('click',function(e){if(e.target.tagName==='A')close();});}
+})();
+</script>
+
+</body>
+</html>
