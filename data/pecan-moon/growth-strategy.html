@@ -172,6 +172,39 @@ table.data .good{color:var(--positive); font-weight:600}
 .legend i{width:11px; height:11px; border-radius:2px; flex:none}
 text{font-family:var(--sans)}
 
+/* ---------- exec summary: finding cards ---------- */
+.xs-findings{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; margin:22px 0}
+.xs-finding{background:var(--paper); display:flex; gap:15px; padding:15px 19px; align-items:flex-start}
+.xs-finding .xf-no{flex:none; width:24px; font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--gold); padding-top:3px}
+.xs-finding .xf-body{flex:1; min-width:0}
+.xs-finding .xf-head{font-family:var(--serif); font-weight:600; font-size:16.5px; color:var(--pecan-deep); line-height:1.28; margin-bottom:3px}
+.xs-finding .xf-text{font-family:var(--sans); font-size:13px; line-height:1.5; color:var(--ink-soft)}
+.xs-finding.is-good{box-shadow:inset 3px 0 0 var(--positive)}
+.xs-finding.is-good .xf-no{color:var(--positive)}
+
+/* ---------- exec summary: intent spectrum ---------- */
+.xs-spectrum{margin:24px 0}
+.xs-spec-bar{
+  height:32px; border-radius:6px; padding:0 15px;
+  background:linear-gradient(90deg,#9E978A 0%,#B5904A 56%,#B5654A 100%);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.xs-spec-bar span{font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.2em; color:#FBF4E4}
+.xs-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:13px; margin-top:13px}
+.xs-card{
+  background:var(--paper); border:1px solid var(--line);
+  border-top:3px solid var(--slate); border-radius:6px; padding:15px 16px 16px;
+}
+.xs-card.warm{border-top-color:var(--gold)}
+.xs-card.hot{border-top-color:var(--terracotta)}
+.xs-card .xc-temp{font-family:var(--sans); font-size:9.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--slate)}
+.xs-card.warm .xc-temp{color:var(--gold)}
+.xs-card.hot .xc-temp{color:var(--terracotta)}
+.xs-card .xc-name{font-family:var(--serif); font-weight:600; font-size:20px; color:var(--pecan-deep); line-height:1.1; margin:5px 0 1px}
+.xs-card .xc-role{font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:9px}
+.xs-card p{font-family:var(--sans); font-size:12.7px; line-height:1.52; color:var(--ink-soft); margin:0}
+@media (max-width:620px){.xs-cards{grid-template-columns:1fr}}
+
 /* ---------- finding header ---------- */
 .finding-no{
   font-family:var(--serif); font-weight:600; font-size:13px; color:var(--gold);
@@ -269,6 +302,7 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
   .playbook .pb-head,.doc-footer{background:#fff; color:var(--ink)}
   .playbook .pb-head h3,.doc-footer .ff-name{color:var(--ink)}
   .chart,.callout,.stat-row,.table-wrap,.playbook,.week,.finding,svg{break-inside:avoid}
+  .xs-finding,.xs-card,.xs-spectrum{break-inside:avoid}
   h2.sec,h3.sub,.part-title{break-after:avoid}
   .doc-footer p,.doc-footer{color:var(--ink-soft)}
 }
@@ -402,18 +436,43 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         <p>It would be easy to read "zero orders" as a broken checkout or a brand nobody wants.
         Neither is true. The forensic 30-day analysis (April 14 – May 14) found something more
         useful — and more fixable:</p>
-        <ul>
-          <li><strong>19.3% of traffic is non-human</strong> — but these are passive crawlers,
-          not paid bots. They cost nothing and they are not the problem.</li>
-          <li><strong>Meta delivered 2,624 real human sessions that converted at 0.30%</strong>
-          — versus 1.23% on Direct traffic. The paid channel sent the wrong people, not bots.</li>
-          <li><strong>Direct / word-of-mouth traffic is the real engine</strong> — 6 of 8 orders
-          in 30 days — and nothing is built to capture or compound it.</li>
-          <li><strong>The site converts.</strong> 2 orders totalling $1,000 landed in the last
-          week. The funnel works; we are paying to send the wrong people into it.</li>
-          <li><strong>Measurement is incomplete</strong> — no GA4, no server-side tracking, and
-          Meta-reported numbers that do not reconcile with Shopify.</li>
-        </ul>
+        <div class="xs-findings">
+          <div class="xs-finding">
+            <div class="xf-no">01</div>
+            <div class="xf-body">
+              <div class="xf-head">19.3% of traffic is non-human — and it is not the problem</div>
+              <div class="xf-text">These are passive search-engine crawlers, not paid bots. They cost nothing and they did not cause the zero.</div>
+            </div>
+          </div>
+          <div class="xs-finding">
+            <div class="xf-no">02</div>
+            <div class="xf-body">
+              <div class="xf-head">Meta sent real humans who don't convert</div>
+              <div class="xf-text">2,624 genuine human sessions from Meta converted at just 0.30% — versus 1.23% on Direct traffic. The paid channel sent the wrong people, not bots.</div>
+            </div>
+          </div>
+          <div class="xs-finding">
+            <div class="xf-no">03</div>
+            <div class="xf-body">
+              <div class="xf-head">Direct &amp; word-of-mouth is the real engine</div>
+              <div class="xf-text">6 of 8 orders in 30 days came from Direct traffic — and nothing is currently built to capture or compound it.</div>
+            </div>
+          </div>
+          <div class="xs-finding is-good">
+            <div class="xf-no">04</div>
+            <div class="xf-body">
+              <div class="xf-head">The site itself converts</div>
+              <div class="xf-text">2 orders totalling $1,000 landed in the last week. The funnel works — we are simply paying to send the wrong people into it.</div>
+            </div>
+          </div>
+          <div class="xs-finding">
+            <div class="xf-no">05</div>
+            <div class="xf-body">
+              <div class="xf-head">The measurement layer is incomplete</div>
+              <div class="xf-text">No GA4, no server-side tracking, and Meta-reported numbers that do not reconcile with Shopify — no single source can yet be trusted.</div>
+            </div>
+          </div>
+        </div>
 
         <div class="callout good">
           <div class="co-label">The reframe</div>
@@ -428,60 +487,43 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         weight to intent channels (Google, Pinterest) and run Meta as a tight retargeting layer
         only, not a prospecting engine.</p>
 
-        <p>Here is why that matters — because the three channels are not interchangeable. Each
-        one reaches a shopper at a completely different moment, and that is the whole story of
-        why April failed. <strong>Meta is a scroll-interruption platform:</strong> it puts your
-        ad in front of someone mid-feed who never asked to see it, so you are paying to
-        interrupt a stranger and hope she happens to be in the market for a $600 dress. That is
-        <em>cold</em> traffic — and it is exactly what the April program bought half a million
-        times over. <strong>Google is the opposite:</strong> a woman typing
-        <em>"Amalfi Coast dress"</em> into Google has already decided to buy and is only
-        choosing where — that is <em>hot</em> intent, and you simply have to show up for it.
-        <strong>Pinterest sits in between:</strong> it catches her while she is planning the
-        trip, three to six months out, before she has settled on any brand. A $400–$1,200
-        vacation dress is researched for weeks — so the budget belongs where that research and
-        buying actually happen, not where we interrupt people who were not shopping at all.</p>
+        <p>Here is why that matters: the three channels are not interchangeable. Each one
+        catches a shopper at a completely different moment — and that gap is the whole story
+        of why April failed.</p>
 
-        <div class="chart bare">
-          <div class="chart-title">Why we move the budget — the intent spectrum</div>
-          <svg viewBox="0 0 700 170" role="img" aria-label="The intent spectrum from cold to hot: Meta is cold scroll-interruption, Pinterest catches trip planning three to six months out, Google catches the purchase moment">
-            <defs>
-              <linearGradient id="intentGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0" stop-color="#9E978A"/>
-                <stop offset="0.55" stop-color="#B5904A"/>
-                <stop offset="1" stop-color="#A8533B"/>
-              </linearGradient>
-            </defs>
-            <text x="8" y="32" font-size="11" font-weight="700" fill="#9E978A" font-family="Helvetica,Arial" letter-spacing="1.5">COLD</text>
-            <text x="640" y="32" text-anchor="end" font-size="11" font-weight="700" fill="#A8533B" font-family="Helvetica,Arial" letter-spacing="1.5">HOT</text>
-            <rect x="58" y="21" width="566" height="12" rx="6" fill="url(#intentGrad)"/>
-            <path d="M624 17 L650 27 L624 37 Z" fill="#A8533B"/>
-            <!-- Meta -->
-            <circle cx="130" cy="27" r="6" fill="#FBF4E4" stroke="#9E978A" stroke-width="2.5"/>
-            <line x1="130" y1="33" x2="130" y2="58" stroke="#9E978A" stroke-width="1.4"/>
-            <text x="130" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#2B2620">Meta</text>
-            <text x="130" y="99" text-anchor="middle" font-size="10" font-weight="700" fill="#9E978A" font-family="Helvetica,Arial" letter-spacing="0.8">SCROLL INTERRUPTION</text>
-            <text x="130" y="122" text-anchor="middle" font-size="11.5" fill="#6E6557" font-family="Helvetica,Arial">Shown to people mid-feed</text>
-            <text x="130" y="138" text-anchor="middle" font-size="11.5" fill="#6E6557" font-family="Helvetica,Arial">who weren't shopping</text>
-            <!-- Pinterest -->
-            <circle cx="350" cy="27" r="6" fill="#FBF4E4" stroke="#B5904A" stroke-width="2.5"/>
-            <line x1="350" y1="33" x2="350" y2="58" stroke="#B5904A" stroke-width="1.4"/>
-            <text x="350" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#2B2620">Pinterest</text>
-            <text x="350" y="99" text-anchor="middle" font-size="10" font-weight="700" fill="#B5904A" font-family="Helvetica,Arial" letter-spacing="0.8">TRIP PLANNING</text>
-            <text x="350" y="122" text-anchor="middle" font-size="11.5" fill="#6E6557" font-family="Helvetica,Arial">Planning the trip, 3–6 months</text>
-            <text x="350" y="138" text-anchor="middle" font-size="11.5" fill="#6E6557" font-family="Helvetica,Arial">out — before choosing a brand</text>
-            <!-- Google -->
-            <circle cx="560" cy="27" r="6" fill="#FBF4E4" stroke="#A8533B" stroke-width="2.5"/>
-            <line x1="560" y1="33" x2="560" y2="58" stroke="#A8533B" stroke-width="1.4"/>
-            <text x="560" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#2B2620">Google</text>
-            <text x="560" y="99" text-anchor="middle" font-size="10" font-weight="700" fill="#A8533B" font-family="Helvetica,Arial" letter-spacing="0.8">THE PURCHASE MOMENT</text>
-            <text x="560" y="122" text-anchor="middle" font-size="11.5" fill="#6E6557" font-family="Helvetica,Arial">Actively searching to buy</text>
-            <text x="560" y="138" text-anchor="middle" font-size="11.5" fill="#6E6557" font-family="Helvetica,Arial">— "Amalfi Coast dress"</text>
-          </svg>
-          <div class="chart-note">April spent the entire budget at the cold end of this
-          spectrum. The plan moves it toward the warm and hot end — where the shopper is
-          already looking for what Pecan Moon sells.</div>
+        <div class="xs-spectrum">
+          <div class="xs-spec-bar"><span>COLD INTENT</span><span>HOT INTENT</span></div>
+          <div class="xs-cards">
+            <div class="xs-card">
+              <div class="xc-temp">Cold · what April bought</div>
+              <div class="xc-name">Meta</div>
+              <div class="xc-role">Scroll interruption</div>
+              <p>Your ad lands mid-feed in front of someone who never asked to see it. You pay
+              to interrupt a stranger and hope she happens to want a $600 dress — half a
+              million times over.</p>
+            </div>
+            <div class="xs-card warm">
+              <div class="xc-temp">Warm · the planning window</div>
+              <div class="xc-name">Pinterest</div>
+              <div class="xc-role">Trip planning</div>
+              <p>She is saving ideas three to six months before the trip, before she has
+              chosen a brand. A $400–$1,200 vacation dress is researched for weeks — Pinterest
+              owns that window.</p>
+            </div>
+            <div class="xs-card hot">
+              <div class="xc-temp">Hot · the buying moment</div>
+              <div class="xc-name">Google</div>
+              <div class="xc-role">The purchase moment</div>
+              <p>She is typing <em>"Amalfi Coast dress"</em> — already decided to buy, only
+              choosing where. The highest-intent traffic there is; you simply have to show
+              up.</p>
+            </div>
+          </div>
         </div>
+
+        <p>April spent the entire budget at the cold end of that spectrum. The plan moves it
+        toward warm and hot — where the shopper is already looking for what Pecan Moon
+        sells.</p>
 
         <div class="callout good">
           <div class="co-label">Pinterest — the open lane</div>
