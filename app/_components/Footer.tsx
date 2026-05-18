@@ -33,7 +33,8 @@ export default function Footer({ mode = 'cream' }: { mode?: FooterMode }) {
               Zapp Studios
             </span>
             <p className="text-xs mt-2 max-w-xs leading-relaxed" style={{ color: mutedText }}>
-              AI-native revenue engineering. Built by Hamza Zulquernain in Houston, TX.
+              Growth marketing and software, built as one system — by Hamza Zulquernain in
+              Houston, TX.
             </p>
           </div>
 
@@ -47,9 +48,10 @@ export default function Footer({ mode = 'cream' }: { mode?: FooterMode }) {
                 Offer
               </p>
               {[
-                { href: '/sprint', label: 'Landing Page Sprint' },
+                { href: '/diagnostic', label: 'Revenue Diagnostic' },
                 { href: '/build', label: 'Revenue System Build' },
                 { href: '/partnerships', label: 'Equity Partnership' },
+                { href: '/startups', label: 'Startup Consulting' },
               ].map(l => (
                 <Link
                   key={l.href}
@@ -71,8 +73,7 @@ export default function Footer({ mode = 'cream' }: { mode?: FooterMode }) {
                 Company
               </p>
               {[
-                { href: '/work', label: 'Work' },
-                { href: '/learn', label: 'Learn AI' },
+                { href: '/rev-eng/royalpawzusa', label: 'Royal Pawz case study' },
                 { href: '/book', label: 'Book a call' },
               ].map(l => (
                 <Link

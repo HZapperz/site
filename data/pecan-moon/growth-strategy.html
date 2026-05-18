@@ -277,6 +277,14 @@ text{font-family:var(--sans)}
   .takeaway .tk-fig{font-size:36px}
 }
 
+/* ---------- read-time badge ---------- */
+.read-time{
+  display:inline-block; font-family:var(--sans); font-size:9.5px; font-weight:700;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--pecan-deep);
+  background:var(--gold-soft); padding:3px 9px 2px; border-radius:20px;
+  margin-left:9px; vertical-align:middle;
+}
+
 /* ---------- finding header ---------- */
 .finding-no{
   font-family:var(--serif); font-weight:600; font-size:13px; color:var(--gold);
@@ -458,15 +466,79 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="cover-tag">Confidential</div>
     </header>
 
+    <!-- ================= READING GUIDE ================= -->
+    <section class="section alt">
+      <div class="wrap">
+        <div class="kicker">How to read this</div>
+        <h2 class="sec">The Executive Summary is all you need to read</h2>
+        <p class="deck-sub">It carries the findings, the recommendation and the full cost —
+        everything required to make a decision on the partnership. Everything after it is
+        optional: the research behind the findings and the week-by-week build detail, kept
+        for whoever wants to see the work.</p>
+        <div class="gcards c2">
+          <div class="gcard good">
+            <div class="gc-tag">Start here · ~5 min</div>
+            <div class="gc-head">Executive Summary</div>
+            <div class="gc-text">The whole picture — what the data showed, what we recommend,
+            and exactly what it costs. If you read one thing, read this.</div>
+          </div>
+          <div class="gcard muted">
+            <div class="gc-tag">Optional · ~25 min</div>
+            <div class="gc-head">Parts I–III &amp; the Appendix</div>
+            <div class="gc-text">The forensic analysis behind every finding, and the
+            week-by-week plan for exactly how we execute. The depth — and our own build
+            reference.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= EXECUTIVE SUMMARY ================= -->
     <section class="section" id="summary">
       <div class="wrap">
-        <div class="kicker">Executive Summary</div>
+        <div class="kicker">Executive Summary<span class="read-time">~5 min</span></div>
         <h2 class="sec">Half a million people saw the ads. Two of them bought.</h2>
         <p class="lead">You asked us to take over growth marketing. Before proposing what to do
         next, we ran a forensic analysis of the April program and the last 30 days of Shopify
         data. This summary is the whole picture; everything after it is the
         evidence and the build plan behind it.</p>
+
+        <h3 class="sub">What we propose — and what it costs</h3>
+        <p class="deck-lead">Keep your existing <strong>$3,000/month</strong> ad budget, but
+        rebuild it around how luxury resort wear is actually bought. Here is the all-in monthly
+        cost to run that plan:</p>
+        <div class="gcards c3">
+          <div class="gcard">
+            <div class="gc-tag">Paid to Zapp Studios</div>
+            <div class="gc-head">$750 – $2,250</div>
+            <div class="gc-text"><strong>Growth-marketing hours.</strong> 10–30 hrs/month at
+            $75/hr — you only pay for hours actually worked.</div>
+          </div>
+          <div class="gcard">
+            <div class="gc-tag">Paid to the platforms</div>
+            <div class="gc-head">$3,000</div>
+            <div class="gc-text"><strong>Ad spend.</strong> Google, Pinterest and Meta — your
+            existing budget, and you control it directly.</div>
+          </div>
+          <div class="gcard">
+            <div class="gc-tag">Paid to the vendors</div>
+            <div class="gc-head">≈ $375</div>
+            <div class="gc-text"><strong>Attribution software.</strong> The measurement stack,
+            billed on your own accounts.</div>
+          </div>
+        </div>
+        <div class="takeaway">
+          <div class="tk-body">
+            <div class="tk-label">All-in monthly — Phase 1</div>
+            <div class="tk-text"><strong style="font-size:25px;color:#FBF4E4">≈ $4,125 – $5,625</strong>
+            a month, all in. Fees mirror the model already working on your Shopify side —
+            <strong>$75/hour, a 10-hour minimum, a 30-hour cap</strong> — and a 60-day
+            evaluation period lets either side step away cleanly. The Shopify retainer
+            continues separately, unchanged.</div>
+          </div>
+        </div>
+        <p class="deck-sub">The rest of this summary is the evidence for that recommendation —
+        what the data showed, and why this is the right move.</p>
 
         <p>In April, the Meta program reached <strong>492,996 people</strong>, served
         <strong>698,107 impressions</strong>, and drove <strong>605 link clicks</strong>.
@@ -666,41 +738,19 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         not guessed now, when any number would be a guess. Spend never rises until the math is
         already working.</p>
 
-        <h3 class="sub">What it costs</h3>
-        <div class="table-wrap">
-          <table class="data">
-            <caption>All-in monthly investment — Phase 1</caption>
-            <thead><tr><th>Line item</th><th>Monthly</th><th>Paid to</th></tr></thead>
-            <tbody>
-              <tr><td>Zapp growth-marketing hours (10–30 hrs @ $75)</td><td class="num">$750 – $2,250</td><td>Zapp Studios</td></tr>
-              <tr><td>Ad spend — Google, Pinterest, Meta</td><td class="num">$3,000</td><td>Platforms directly</td></tr>
-              <tr><td>Attribution software</td><td class="num">≈ $375</td><td>Vendors directly</td></tr>
-              <tr class="total"><td>All-in monthly</td><td class="num">≈ $4,125 – $5,625</td><td></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>Fees follow the model already working on the Shopify side: <strong>$75/hour, a
-        10-hour monthly minimum and a 30-hour cap</strong> — you only pay for hours worked.
-        A <strong>60-day evaluation period</strong> lets either side step away cleanly; the
-        existing Shopify retainer continues separately, unchanged.</p>
-
         <div class="callout">
           <div class="co-label">In one line</div>
           <p>Same budget, rebuilt around intent. A US-based team, real measurement, and a
           90-day plan that earns each increase before it spends it.</p>
         </div>
 
-        <p style="font-size:14.5px;color:var(--ink-faint);font-family:var(--sans);margin-top:22px">
-        Part I is the evidence. Part II is the strategy. Part III is the week-by-week build —
-        what we will do, and when. The appendix carries the full keyword and channel build
-        sheets.</p>
       </div>
     </section>
 
     <!-- ================= PART I ================= -->
     <div class="part-head" id="methodology">
       <div class="wrap">
-        <div class="part-label">Part I</div>
+        <div class="part-label">Part I<span class="read-time">~6 min</span></div>
         <div class="part-title">The Diagnosis</div>
         <p class="part-intro">What the April program and the last 30 days of Shopify data
         actually show — and why the honest read is more hopeful than the headline number.</p>
@@ -976,7 +1026,7 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
     <!-- ================= PART II ================= -->
     <div class="part-head" id="opportunity">
       <div class="wrap">
-        <div class="part-label">Part II</div>
+        <div class="part-label">Part II<span class="read-time">~5 min</span></div>
         <div class="part-title">The Strategy</div>
         <p class="part-intro">The analysis points to one move: redirect budget away from Meta
         prospecting toward channels where buyer intent already exists, instrument the funnel
@@ -1203,7 +1253,7 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
     <!-- ================= PART III ================= -->
     <div class="part-head" id="timeline">
       <div class="wrap">
-        <div class="part-label">Part III</div>
+        <div class="part-label">Part III<span class="read-time">~9 min</span></div>
         <div class="part-title">The 90-Day Plan</div>
         <p class="part-intro">This is the implementation guide — exactly what we will do, in
         what order, and who owns it. It also serves as our own build reference, so nothing is
@@ -1533,11 +1583,23 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         <div class="kicker">The rate-limiter</div>
         <h2 class="sec">The creative engine</h2>
         <p class="deck-lead">No channel outperforms its creative — which is why
-        <strong>$400/month</strong> is reserved for creative production. It is the rate-limiter
-        on Google, Pinterest and Meta alike.</p>
-        <p class="deck-sub">Your photography is genuinely strong, so the model is simple —
+        <strong>$400/month</strong> is set aside as a discretionary creative reserve. It is the
+        rate-limiter on Google, Pinterest and Meta alike.</p>
+        <p class="deck-sub">Your photography is genuinely strong, so the base model is simple —
         <strong>you produce, we direct what to test.</strong> Each week we brief four ad
-        concepts against the asset groups.</p>
+        concepts against the asset groups; the reserve fills whatever gap that briefing exposes.</p>
+
+        <h4 class="mini">How the $400 reserve gets spent</h4>
+        <p class="deck-sub">It is deliberately flexible — not locked to one platform or one
+        line item. Each month it goes wherever creative is the constraint:</p>
+        <div class="gcards c3">
+          <div class="gcard"><div class="gc-tag">Use</div><div class="gc-head">UGC creator content</div><div class="gc-text">Commissioning authentic, ad-native video — the format that often outperforms studio imagery as a paid ad.</div></div>
+          <div class="gcard"><div class="gc-tag">Use</div><div class="gc-head">Edits &amp; cutdowns</div><div class="gc-text">A freelance editor turning existing assets into video cutdowns, motion and the resized variants each placement needs.</div></div>
+          <div class="gcard"><div class="gc-tag">Use</div><div class="gc-head">A platform top-up</div><div class="gc-text">Extra creative weighted to whichever of Google, Pinterest or Meta is most creative-starved that month.</div></div>
+        </div>
+        <p class="deck-sub">Where it actually went is reported in the weekly update — the spend
+        stays visible, and always pointed at the channel that needs it most.</p>
+
         <h4 class="mini">Asset types every channel needs</h4>
         <div class="gcards c2">
           <div class="gcard"><div class="gc-tag">Format</div><div class="gc-head">Clean product on white</div><div class="gc-text">For Shopping and catalog ads.</div></div>
@@ -1667,7 +1729,7 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
     <!-- ================= COMMERCIALS ================= -->
     <div class="part-head" id="investment">
       <div class="wrap">
-        <div class="part-label">Commercials</div>
+        <div class="part-label">Commercials<span class="read-time">~4 min</span></div>
         <div class="part-title">Investment &amp; Terms</div>
         <p class="part-intro">What it costs, how it scales, and the terms — structured so the
         downside is small and every increase is earned.</p>
@@ -1870,7 +1932,7 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
     <!-- ================= APPENDIX ================= -->
     <div class="part-head" id="appendix-google">
       <div class="wrap">
-        <div class="part-label">Appendix</div>
+        <div class="part-label">Appendix<span class="read-time">Build reference</span></div>
         <div class="part-title">The Build Sheets</div>
         <p class="part-intro">The complete, paste-ready build detail behind Part III — the
         keyword clusters, ad copy, negative lists, board architecture and feed schema. This is

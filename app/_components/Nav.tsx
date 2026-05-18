@@ -9,10 +9,9 @@ const DISPLAY: React.CSSProperties = { fontFamily: "'Space Grotesk', 'Inter', sa
 export type NavMode = 'cream' | 'dark'
 
 const LINKS = [
-  { href: '/sprint', label: 'Sprint' },
   { href: '/build', label: 'Build' },
   { href: '/partnerships', label: 'Partnerships' },
-  { href: '/work', label: 'Work' },
+  { href: '/startups', label: 'Startups' },
 ]
 
 export default function Nav({ mode = 'cream' }: { mode?: NavMode }) {
@@ -72,13 +71,13 @@ export default function Nav({ mode = 'cream' }: { mode?: NavMode }) {
             </Link>
           ))}
           <Link
-            href="/sprint"
+            href="/book"
             className="text-sm font-semibold px-4 py-2 rounded transition-colors"
             style={{ backgroundColor: '#E8903A', color: '#0C0C0C' }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#F0A855')}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#E8903A')}
           >
-            Reserve a Sprint →
+            Book a call →
           </Link>
         </div>
 
@@ -116,12 +115,12 @@ export default function Nav({ mode = 'cream' }: { mode?: NavMode }) {
             </Link>
           ))}
           <Link
-            href="/sprint"
+            href="/book"
             onClick={() => setMenuOpen(false)}
             className="text-sm font-semibold px-4 py-2 rounded text-center"
             style={{ backgroundColor: '#E8903A', color: '#0C0C0C' }}
           >
-            Reserve a Sprint →
+            Book a call →
           </Link>
         </div>
       )}

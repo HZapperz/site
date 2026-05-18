@@ -14,7 +14,6 @@ import {
 } from 'lucide-react'
 import Nav from '../_components/Nav'
 import Footer from '../_components/Footer'
-import Placeholder from '../_components/Placeholder'
 import StickyCTA from '../_components/StickyCTA'
 
 const DISPLAY: React.CSSProperties = { fontFamily: "'Space Grotesk', 'Inter', sans-serif" }
@@ -110,7 +109,7 @@ function Hero() {
           className="animate-fade-in-up text-xs uppercase mb-6"
           style={{ ...MONO, letterSpacing: '0.25em', color: '#E8903A' }}
         >
-          Tier 3 · Equity Partnership
+          Equity Partnership
         </p>
 
         <div className="animate-fade-in-up delay-100 mb-10" style={{ opacity: 0 }}>
@@ -136,8 +135,9 @@ function Hero() {
           className="animate-fade-in-up delay-300 text-lg md:text-xl max-w-2xl mb-6 leading-relaxed"
           style={{ ...SERIF, color: '#3A3632', fontStyle: 'italic', opacity: 0 }}
         >
-          For businesses I genuinely believe in, I come on as a long-term revenue partner.
-          Reduced cash + equity, 6–24 month engagements, full end-to-end revenue engineering.
+          For established businesses I genuinely believe in, I come on as a long-term revenue
+          partner — diagnosing the funnel, building the software, and running the growth as one
+          system. Reduced cash + equity, 6–24 month engagements.
         </p>
 
         <p
@@ -174,7 +174,7 @@ function Hero() {
               e.currentTarget.style.color = '#3A3632'
             }}
           >
-            Not ready? See Tier 2 Build →
+            Not ready? See the Revenue System Build →
           </Link>
         </div>
       </div>
@@ -194,7 +194,7 @@ const PHASES = [
     num: '02',
     icon: Wrench,
     label: 'BUILD THE SYSTEM',
-    desc: 'Full-stack revenue engineering. Landing, funnel, CRM, product, automations, analytics — whatever the diagnostic says is the constraint. Shipped fast using AI-native development.',
+    desc: 'Full-stack revenue engineering. Landing, funnel, CRM, product, automations, analytics — whatever the diagnostic says is the constraint. Shipped as one system — funnel, product, and growth, by one operator.',
   },
   {
     num: '03',
@@ -468,7 +468,7 @@ const YES = [
   'You\'re honest about where the business really is, good and bad',
 ]
 const NO = [
-  'You\'re pre-product and just need validation — start with a Sprint',
+  'You\'re pre-product and still validating the idea — startup consulting is the better fit',
   'You want to keep 100% of equity and hire on retainer — start with a Build',
   'You\'re looking for a co-founder to start something from zero',
   'You want daily strategy calls and endless meetings — I stay in the weeds',

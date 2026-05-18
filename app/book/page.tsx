@@ -44,9 +44,9 @@ export default function BookPage() {
             className="text-lg max-w-xl mx-auto leading-relaxed"
             style={{ ...SERIF, color: '#3A3632', fontStyle: 'italic' }}
           >
-            15 minutes. I&apos;ll ask about your business. If it&apos;s a Sprint we&apos;ll scope
-            it right there. If it&apos;s a Build I&apos;ll send written scope within 24 hours.
-            Not a pitch call.
+            15 minutes. I&apos;ll ask about your business and where revenue is leaking. If
+            there&apos;s a clear path forward, I&apos;ll send written scope within a couple of
+            days. Not a pitch call.
           </p>
         </div>
 

@@ -6,17 +6,18 @@ import {
   ArrowRight,
   Check,
   X,
-  Zap,
+  Stethoscope,
   Wrench,
+  TrendingUp,
+  Sparkles,
+  Compass,
+  Layers,
   Handshake,
-  Bot,
-  Eye,
-  Target,
+  Rocket,
 } from 'lucide-react'
 import Nav from './_components/Nav'
 import Footer from './_components/Footer'
 import Placeholder from './_components/Placeholder'
-import Guarantee from './_components/Guarantee'
 import StickyCTA from './_components/StickyCTA'
 
 const DISPLAY: React.CSSProperties = { fontFamily: "'Space Grotesk', 'Inter', sans-serif" }
@@ -69,13 +70,13 @@ function Reveal({
 }
 
 // ── Section label ───────────────────────────────────────────────
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({ children, mode = 'cream' }: { children: React.ReactNode; mode?: 'cream' | 'dark' }) {
   return (
     <div className="flex items-center gap-3 mb-8">
       <span style={{ backgroundColor: '#E8903A' }} className="inline-block w-4 h-px" />
       <p
         className="text-xs uppercase"
-        style={{ ...MONO, letterSpacing: '0.22em', color: '#7A756D' }}
+        style={{ ...MONO, letterSpacing: '0.22em', color: mode === 'dark' ? '#6B6560' : '#7A756D' }}
       >
         {children}
       </p>
@@ -86,130 +87,75 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 // ── Hero ─────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="pt-28 pb-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-[1fr_340px] lg:grid-cols-[1fr_400px] gap-12 items-start">
-          {/* Left: copy */}
-          <div>
-            {/* The 3 numerals */}
-            <div
-              className="animate-fade-in-up mb-10 pb-10 flex flex-wrap gap-x-10 gap-y-6"
-              style={{ borderBottom: '1px solid rgba(12,12,12,0.1)' }}
-            >
-              {[
-                { v: '$1,500', l: 'flat fee' },
-                { v: '7 DAYS', l: 'kickoff to live' },
-                { v: '$0', l: 'if I miss the deadline' },
-              ].map(n => (
-                <div key={n.v}>
-                  <p
-                    className="font-bold leading-none"
-                    style={{
-                      ...MONO,
-                      fontSize: 'clamp(36px, 4.5vw, 56px)',
-                      color: '#0C0C0C',
-                      letterSpacing: '-0.02em',
-                    }}
-                  >
-                    {n.v}
-                  </p>
-                  <p className="text-xs mt-2" style={{ ...MONO, color: '#7A756D' }}>
-                    {n.l}
-                  </p>
-                </div>
-              ))}
-            </div>
+    <section className="pt-36 pb-20 px-6">
+      <div className="max-w-5xl mx-auto">
+        <p
+          className="animate-fade-in-up text-xs uppercase mb-8"
+          style={{ ...MONO, letterSpacing: '0.22em', color: '#E8903A' }}
+        >
+          Zapp Studios — Growth + Software for SMBs
+        </p>
 
-            {/* Eyebrow */}
-            <p
-              className="animate-fade-in-up delay-100 text-xs uppercase mb-6"
-              style={{ ...MONO, letterSpacing: '0.25em', color: '#E8903A', opacity: 0 }}
-            >
-              AI-Native Revenue Engineering
-            </p>
+        <h1
+          className="animate-fade-in-up delay-100 font-bold leading-[1.03] mb-8"
+          style={{
+            ...DISPLAY,
+            fontSize: 'clamp(44px, 7vw, 86px)',
+            color: '#0C0C0C',
+            letterSpacing: '-0.03em',
+            opacity: 0,
+          }}
+        >
+          Growth marketing and software,
+          <br />
+          <span style={{ color: '#E8903A' }}>built as one system.</span>
+        </h1>
 
-            {/* Headline */}
-            <h1
-              className="animate-fade-in-up delay-200 font-bold leading-[1.02] mb-8"
-              style={{
-                ...DISPLAY,
-                fontSize: 'clamp(42px, 6.5vw, 82px)',
-                color: '#0C0C0C',
-                letterSpacing: '-0.025em',
-                opacity: 0,
-              }}
-            >
-              Ship a high-converting
-              <br />
-              landing page in a week.
-              <br />
-              <span style={{ color: '#E8903A' }}>Or pay nothing.</span>
-            </h1>
+        <p
+          className="animate-fade-in-up delay-200 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed"
+          style={{ ...SERIF, color: '#3A3632', fontStyle: 'italic', opacity: 0 }}
+        >
+          Most SMBs bolt a marketing agency onto a dev shop — and lose months in the
+          translation. I&apos;m one operator who does both, so your funnel, your product, and
+          your revenue move together.
+        </p>
 
-            {/* Mechanism line — serif italic for voice */}
-            <p
-              className="animate-fade-in-up delay-300 text-lg md:text-xl max-w-xl mb-10 leading-relaxed"
-              style={{ ...SERIF, color: '#3A3632', fontStyle: 'italic', opacity: 0 }}
-            >
-              I use Claude to write the code at 10× speed. I personally QA every line. That&apos;s
-              why $1,500 is the real price — not $15,000.
-            </p>
-
-            {/* CTAs */}
-            <div
-              className="animate-fade-in-up delay-400 flex flex-col sm:flex-row gap-3 mb-4"
-              style={{ opacity: 0 }}
-            >
-              <Link
-                href="/sprint"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold rounded transition-colors"
-                style={{ backgroundColor: '#0C0C0C', color: '#F5EFE0' }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#3A3632')}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#0C0C0C')}
-              >
-                Reserve a Sprint slot <ArrowRight size={15} />
-              </Link>
-              <Link
-                href="#royalpawz"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm rounded transition-colors"
-                style={{
-                  border: '1px solid rgba(12,12,12,0.15)',
-                  color: '#3A3632',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = '#E8903A'
-                  e.currentTarget.style.color = '#0C0C0C'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(12,12,12,0.15)'
-                  e.currentTarget.style.color = '#3A3632'
-                }}
-              >
-                See the Royal Pawz teardown →
-              </Link>
-            </div>
-
-            <p
-              className="animate-fade-in-up delay-500 text-xs"
-              style={{ ...MONO, color: '#7A756D', opacity: 0 }}
-            >
-              Flat fee. No retainer. 3 Sprint slots open this month.
-            </p>
-          </div>
-
-          {/* Right: founder photo */}
-          <div className="animate-fade-in-up delay-300" style={{ opacity: 0 }}>
-            <Placeholder
-              kind="FOUNDER PHOTO"
-              label="Hamza at work"
-              aspect="4/5"
-              mode="cream"
-            />
-            <p className="text-xs mt-3" style={{ ...MONO, color: '#7A756D' }}>
-              Hamza Zulquernain · Founder
-            </p>
-          </div>
+        <div
+          className="animate-fade-in-up delay-300 flex flex-col sm:flex-row gap-3 mb-5"
+          style={{ opacity: 0 }}
+        >
+          <Link
+            href="/book"
+            className="inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-semibold rounded transition-colors"
+            style={{ backgroundColor: '#0C0C0C', color: '#F5EFE0' }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#3A3632')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#0C0C0C')}
+          >
+            Book a call <ArrowRight size={15} />
+          </Link>
+          <Link
+            href="#royalpawz"
+            className="inline-flex items-center justify-center gap-2 px-7 py-4 text-sm rounded transition-colors"
+            style={{ border: '1px solid rgba(12,12,12,0.15)', color: '#3A3632' }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = '#E8903A'
+              e.currentTarget.style.color = '#0C0C0C'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'rgba(12,12,12,0.15)'
+              e.currentTarget.style.color = '#3A3632'
+            }}
+          >
+            See the Royal Pawz teardown →
+          </Link>
         </div>
+
+        <p
+          className="animate-fade-in-up delay-400 text-xs"
+          style={{ ...MONO, color: '#7A756D', opacity: 0 }}
+        >
+          A working call, not a pitch — 15 minutes.
+        </p>
       </div>
     </section>
   )
@@ -218,21 +164,13 @@ function Hero() {
 // ── Proof strip ─────────────────────────────────────────────────
 function ProofStrip() {
   const items = [
-    'Royal Pawz: $200 → $10K MRR in 4 months',
-    '334% conversion lift (90 days)',
+    'Royal Pawz — $200 to $10K MRR in 4 months',
+    '334% conversion lift, A/B tested',
     'Founding engineer at DietAI — 7-figure exit',
-    '1,500+ hours shipping alongside Claude',
+    'One operator: growth + engineering',
   ]
-
   return (
-    <section
-      className="py-5 px-6"
-      style={{
-        backgroundColor: '#0C0C0C',
-        color: '#F5EFE0',
-        borderTop: '1px solid rgba(12,12,12,0.1)',
-      }}
-    >
+    <section className="py-5 px-6" style={{ backgroundColor: '#0C0C0C', color: '#F5EFE0' }}>
       <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center md:justify-between gap-x-8 gap-y-2">
         {items.map((it, i) => (
           <span
@@ -248,13 +186,23 @@ function ProofStrip() {
   )
 }
 
-// ── Mechanism video + unpacked ───────────────────────────────────
-function Mechanism() {
+// ── The gap ──────────────────────────────────────────────────────
+function Gap() {
+  const cards = [
+    {
+      title: "What the agency can't reach",
+      desc: "A growth agency will sharpen your ads and your copy. Then it hits a wall — the real fix needs a faster page, a new booking flow, a change to the product itself. That's outside their scope. So the leak stays.",
+    },
+    {
+      title: "What the dev shop can't see",
+      desc: "A dev shop ships whatever's on the ticket. But it has no view of CAC, conversion, or retention — so it builds features that don't move revenue, and the roadmap quietly drifts away from the numbers.",
+    },
+  ]
   return (
-    <section className="py-24 px-6" style={{ backgroundColor: '#F5EFE0' }}>
+    <section className="py-24 px-6" style={{ backgroundColor: '#EEE7D3' }}>
       <div className="max-w-6xl mx-auto">
         <Reveal>
-          <SectionLabel>The Mechanism</SectionLabel>
+          <SectionLabel>Why Growth Stalls</SectionLabel>
           <h2
             className="font-bold mb-6 leading-tight max-w-3xl"
             style={{
@@ -264,53 +212,102 @@ function Mechanism() {
               letterSpacing: '-0.02em',
             }}
           >
-            Watch me build a landing page in 90 seconds.
+            Your marketing problem is usually a software problem.
           </h2>
-          <p
-            className="text-lg max-w-2xl mb-12 leading-relaxed"
-            style={{ color: '#3A3632' }}
-          >
-            This is the entire reason the economics work. Claude writes the code at a pace no
-            human can match. I QA every line before it ships. You get the speed of AI and the
-            judgment of a senior engineer — for a fraction of agency prices.
+          <p className="text-lg max-w-2xl mb-12 leading-relaxed" style={{ color: '#3A3632' }}>
+            You don&apos;t have a marketing problem and a separate engineering problem. You have
+            one revenue system — and it breaks at the seam between the two.
           </p>
         </Reveal>
 
-        {/* Loom placeholder */}
-        <Reveal delay={120}>
-          <Placeholder
-            kind="FOUNDER LOOM"
-            label="60–90s mechanism explainer — Hamza on camera + IDE visible"
-            aspect="16/9"
-            mode="cream"
-          />
+        <div className="grid md:grid-cols-2 gap-4">
+          {cards.map((c, i) => (
+            <Reveal key={c.title} delay={100 + i * 90}>
+              <div
+                className="p-7 h-full rounded"
+                style={{
+                  backgroundColor: '#F5EFE0',
+                  border: '1px solid rgba(12,12,12,0.08)',
+                }}
+              >
+                <h3 className="text-lg font-semibold mb-3" style={{ ...DISPLAY, color: '#0C0C0C' }}>
+                  {c.title}
+                </h3>
+                <p className="text-[15px] leading-relaxed" style={{ color: '#3A3632' }}>
+                  {c.desc}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={250}>
+          <p
+            className="text-lg leading-relaxed mt-8 max-w-3xl"
+            style={{ ...SERIF, color: '#0C0C0C', fontStyle: 'italic' }}
+          >
+            Either way, you become the integration layer — briefing both sides, translating
+            between them, waiting. Months pass. The number doesn&apos;t move.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+// ── The approach ─────────────────────────────────────────────────
+const APPROACH = [
+  {
+    icon: Stethoscope,
+    title: 'Diagnose',
+    desc: "Find the real constraint. I audit the funnel end to end and let the data say whether it's the messaging, the product, or the distribution — so we fix what's actually broken, not what's easy to bill for.",
+  },
+  {
+    icon: Wrench,
+    title: 'Build',
+    desc: 'Ship the software that fixes it. Landing pages, apps, checkout flows, CRM, automations, analytics — real working software in weeks, not a slide deck for someone else to execute.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Grow',
+    desc: 'Run it and compound it. A/B tests, retention flows, new channels. The system keeps improving while it runs — because the person measuring it is the person who can change it.',
+  },
+  {
+    icon: Sparkles,
+    title: 'Innovate',
+    desc: "Build in the leverage. AI and automation wired into the parts of your business that should run themselves — so your team's hours go to the work that actually grows the company.",
+  },
+]
+
+function Approach() {
+  return (
+    <section className="py-24 px-6" style={{ backgroundColor: '#F5EFE0' }}>
+      <div className="max-w-6xl mx-auto">
+        <Reveal>
+          <SectionLabel>How I Work</SectionLabel>
+          <h2
+            className="font-bold mb-6 leading-tight max-w-3xl"
+            style={{
+              ...DISPLAY,
+              fontSize: 'clamp(34px, 5vw, 56px)',
+              color: '#0C0C0C',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            One operator. The whole revenue system.
+          </h2>
+          <p className="text-lg max-w-2xl mb-12 leading-relaxed" style={{ color: '#3A3632' }}>
+            I diagnose the funnel, build the software, and run the growth as one continuous loop.
+            When the data says the bottleneck is the checkout, I rebuild the checkout — not a
+            ticket, not a handoff, not next quarter.
+          </p>
         </Reveal>
 
-        {/* 3-block unpack */}
-        <div className="grid md:grid-cols-3 gap-4 mt-12">
-          {[
-            {
-              icon: Bot,
-              title: 'Claude writes it',
-              desc: 'I use Claude (Anthropic\'s best-in-class model) to generate production code at roughly 10× human speed. A landing page section that would take a day takes an hour.',
-              stat: '10× faster',
-            },
-            {
-              icon: Eye,
-              title: 'I QA every line',
-              desc: 'Claude is fast but not infallible. I read every component, catch every edge case, test every breakpoint. You get speed without the AI-slop tax.',
-              stat: '1,500+ hrs shipping with Claude',
-            },
-            {
-              icon: Target,
-              title: 'Tight scope, no drift',
-              desc: 'One page. Seven days. $1,500. No open-ended discovery phase, no scope creep, no retainer. The constraint is the feature — it\'s what makes the price work.',
-              stat: 'Fixed fee, fixed deadline',
-            },
-          ].map((m, i) => {
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {APPROACH.map((m, i) => {
             const Icon = m.icon
             return (
-              <Reveal key={m.title} delay={100 + i * 80}>
+              <Reveal key={m.title} delay={100 + i * 70}>
                 <div
                   className="p-7 h-full rounded"
                   style={{
@@ -330,11 +327,8 @@ function Mechanism() {
                   <h3 className="text-lg font-semibold mb-3" style={{ ...DISPLAY, color: '#0C0C0C' }}>
                     {m.title}
                   </h3>
-                  <p className="text-sm leading-relaxed mb-4" style={{ color: '#3A3632' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: '#3A3632' }}>
                     {m.desc}
-                  </p>
-                  <p className="text-xs pt-4" style={{ ...MONO, color: '#E8903A', borderTop: '1px solid rgba(12,12,12,0.08)' }}>
-                    {m.stat}
                   </p>
                 </div>
               </Reveal>
@@ -346,7 +340,7 @@ function Mechanism() {
   )
 }
 
-// ── Royal Pawz teardown ──────────────────────────────────────────
+// ── Royal Pawz proof ─────────────────────────────────────────────
 function RoyalPawz() {
   return (
     <section id="royalpawz" className="py-24 px-6" style={{ backgroundColor: '#EEE7D3' }}>
@@ -364,18 +358,15 @@ function RoyalPawz() {
           >
             $200 MRR to $10K MRR.
             <br />
-            <span style={{ color: '#E8903A' }}>In 4 months. Not 4 years.</span>
+            <span style={{ color: '#E8903A' }}>In four months.</span>
           </h2>
-          <p
-            className="text-lg max-w-2xl mb-12 leading-relaxed"
-            style={{ color: '#3A3632' }}
-          >
-            A mobile dog grooming company in Houston. I came on as equity partner, rebuilt the
-            entire revenue stack, ran weekly A/B tests. Here are the actual numbers.
+          <p className="text-lg max-w-2xl mb-12 leading-relaxed" style={{ color: '#3A3632' }}>
+            A mobile dog-grooming company in Houston. I joined as equity partner and rebuilt the
+            whole revenue system — the booking app, the CRM, the ad infrastructure, and the weekly
+            A/B testing loop. Growth and engineering were never two workstreams. They were one.
           </p>
         </Reveal>
 
-        {/* Metrics grid */}
         <Reveal delay={100}>
           <div
             className="grid grid-cols-2 md:grid-cols-4 gap-0 mb-10 rounded overflow-hidden"
@@ -384,7 +375,7 @@ function RoyalPawz() {
             {[
               { v: '50×', l: 'MRR growth', s: 'in 4 months' },
               { v: '334%', l: 'conversion lift', s: '90-day window' },
-              { v: '30.8%', l: 'booking conversion', s: 'A/B tested' },
+              { v: '30.8%', l: 'booking conversion', s: 'vs 1.8% baseline' },
               { v: '5×', l: 'ROAS', s: 'from 2× at launch' },
             ].map((m, i) => (
               <div
@@ -400,7 +391,7 @@ function RoyalPawz() {
                   className="font-bold leading-none mb-2"
                   style={{
                     ...MONO,
-                    fontSize: 'clamp(36px, 4vw, 48px)',
+                    fontSize: 'clamp(34px, 4vw, 48px)',
                     color: '#0C0C0C',
                     letterSpacing: '-0.02em',
                   }}
@@ -418,35 +409,15 @@ function RoyalPawz() {
           </div>
         </Reveal>
 
-        {/* Dashboard + creative placeholders */}
-        <div className="grid md:grid-cols-2 gap-4 mb-10">
-          <Reveal delay={150}>
-            <Placeholder
-              kind="STRIPE DASHBOARD"
-              label="Royal Pawz MRR chart — $200 → $10K with timestamps"
-              aspect="4/3"
-              mode="cream"
-            />
-          </Reveal>
-          <Reveal delay={200}>
-            <Placeholder
-              kind="BEFORE / AFTER"
-              label="Winning landing page A/B variant"
-              aspect="4/3"
-              mode="cream"
-            />
-          </Reveal>
-        </div>
-
-        <Reveal delay={250}>
+        <Reveal delay={200}>
           <Link
-            href="/work"
+            href="/rev-eng/royalpawzusa"
             className="inline-flex items-center gap-2 text-sm font-semibold transition-colors"
             style={{ color: '#0C0C0C' }}
             onMouseEnter={e => (e.currentTarget.style.color = '#E8903A')}
             onMouseLeave={e => (e.currentTarget.style.color = '#0C0C0C')}
           >
-            Read the full case study + receipts
+            Read the full case study
             <ArrowRight size={14} />
           </Link>
         </Reveal>
@@ -455,41 +426,32 @@ function RoyalPawz() {
   )
 }
 
-// ── Offer ladder ─────────────────────────────────────────────────
+// ── The ladder ───────────────────────────────────────────────────
 const TIERS = [
   {
-    icon: Zap,
-    tag: 'Tier 1 · Start here',
-    name: 'Landing Page Sprint',
-    price: '$1,500',
-    time: '7 days',
-    slots: '3 slots open',
-    pitch: 'One high-intent page, rebuilt from scratch. Ship-on-time guarantee.',
-    cta: 'See the Sprint',
-    href: '/sprint',
-    featured: true,
-  },
-  {
-    icon: Wrench,
-    tag: 'Tier 2',
-    name: 'Revenue System Build',
-    price: '$5K–$25K',
-    time: '2–6 wks',
-    slots: 'Scoped on intake',
-    pitch: 'Full-funnel engineering — landing + CRM + automations + analytics.',
-    cta: 'See the scope',
-    href: '/build',
+    icon: Compass,
+    name: 'Revenue Diagnostic',
+    forWho: 'You know growth is leaking — not where.',
+    pitch: 'A paid, deep audit of your funnel and product. You leave with a prioritized plan you can act on — with me or without me.',
+    cta: 'How the diagnostic works',
+    href: '/diagnostic',
     featured: false,
   },
   {
+    icon: Layers,
+    name: 'Revenue System Build',
+    forWho: 'The system needs rebuilding, not patching.',
+    pitch: 'The core engagement. Funnel, software, and growth — designed, built, and run as one system, shipped in weeks.',
+    cta: 'See the Build',
+    href: '/build',
+    featured: true,
+  },
+  {
     icon: Handshake,
-    tag: 'Tier 3',
     name: 'Equity Partnership',
-    price: 'Cash + equity',
-    time: '6–24 mo',
-    slots: '3–4 slots · by application',
-    pitch: 'Long-term revenue engineering for businesses I believe in.',
-    cta: 'See how it works',
+    forWho: 'You want a partner with skin in the game.',
+    pitch: 'Reduced cash, shared equity, a long horizon. Reserved for a few businesses I believe I can compound.',
+    cta: 'How partnerships work',
     href: '/partnerships',
     featured: false,
   },
@@ -500,7 +462,7 @@ function Ladder() {
     <section className="py-24 px-6" style={{ backgroundColor: '#F5EFE0' }}>
       <div className="max-w-6xl mx-auto">
         <Reveal>
-          <SectionLabel>The Ladder</SectionLabel>
+          <SectionLabel>Ways to Work Together</SectionLabel>
           <h2
             className="font-bold mb-6 leading-tight max-w-3xl"
             style={{
@@ -510,11 +472,11 @@ function Ladder() {
               letterSpacing: '-0.02em',
             }}
           >
-            Start small. Scale only when the numbers justify it.
+            Start with a diagnosis. Scale only when the numbers justify it.
           </h2>
           <p className="text-lg max-w-2xl mb-16 leading-relaxed" style={{ color: '#3A3632' }}>
-            Most engagements begin with a Sprint. If the lift is real and we work well together,
-            we move up the ladder — only as far as the business needs.
+            Most engagements start small — a clear-eyed look at where revenue is leaking. We go
+            deeper only when the data says it&apos;s worth it.
           </p>
         </Reveal>
 
@@ -547,63 +509,30 @@ function Ladder() {
                   <div
                     className="w-10 h-10 rounded flex items-center justify-center mb-5"
                     style={{
-                      backgroundColor: t.featured
-                        ? 'rgba(232,144,58,0.2)'
-                        : 'rgba(232,144,58,0.15)',
+                      backgroundColor: t.featured ? 'rgba(232,144,58,0.2)' : 'rgba(232,144,58,0.15)',
                       border: '1px solid rgba(232,144,58,0.3)',
                     }}
                   >
                     <Icon size={18} color="#E8903A" />
                   </div>
 
-                  <p
-                    className="text-xs uppercase mb-3"
-                    style={{
-                      ...MONO,
-                      letterSpacing: '0.15em',
-                      color: t.featured ? '#E8903A' : '#7A756D',
-                    }}
-                  >
-                    {t.tag}
-                  </p>
-
-                  <h3 className="text-xl font-bold mb-4" style={{ ...DISPLAY }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ ...DISPLAY }}>
                     {t.name}
                   </h3>
 
-                  <div
-                    className="pb-4 mb-4 flex flex-col gap-1"
+                  <p
+                    className="text-xs uppercase mb-4 pb-4"
                     style={{
+                      ...MONO,
+                      letterSpacing: '0.04em',
+                      color: t.featured ? '#E8903A' : '#C97020',
                       borderBottom: t.featured
                         ? '1px solid rgba(245,239,224,0.12)'
                         : '1px solid rgba(12,12,12,0.08)',
                     }}
                   >
-                    <div className="flex items-baseline justify-between">
-                      <span
-                        className="text-2xl font-bold"
-                        style={{ ...MONO, letterSpacing: '-0.02em' }}
-                      >
-                        {t.price}
-                      </span>
-                      <span
-                        className="text-xs"
-                        style={{ ...MONO, color: t.featured ? '#A09A8E' : '#7A756D' }}
-                      >
-                        {t.time}
-                      </span>
-                    </div>
-                    <p
-                      className="text-[11px] uppercase"
-                      style={{
-                        ...MONO,
-                        letterSpacing: '0.15em',
-                        color: t.featured ? '#4ADE80' : '#4a8d5f',
-                      }}
-                    >
-                      {t.slots}
-                    </p>
-                  </div>
+                    {t.forWho}
+                  </p>
 
                   <p
                     className="text-sm mb-6 flex-1 leading-relaxed"
@@ -632,29 +561,143 @@ function Ladder() {
   )
 }
 
-// ── Self-qualify ─────────────────────────────────────────────────
+// ── Startup consulting — parallel track ──────────────────────────
+function StartupConsulting() {
+  return (
+    <section className="py-24 px-6" style={{ backgroundColor: '#0C0C0C', color: '#F5EFE0' }}>
+      <div className="max-w-4xl mx-auto">
+        <Reveal>
+          <div
+            className="p-9 md:p-12 rounded"
+            style={{
+              backgroundColor: '#141414',
+              border: '1px solid rgba(232,144,58,0.25)',
+            }}
+          >
+            <div
+              className="w-11 h-11 rounded flex items-center justify-center mb-6"
+              style={{
+                backgroundColor: 'rgba(232,144,58,0.15)',
+                border: '1px solid rgba(232,144,58,0.3)',
+              }}
+            >
+              <Rocket size={20} color="#E8903A" />
+            </div>
+            <p
+              className="text-xs uppercase mb-4"
+              style={{ ...MONO, letterSpacing: '0.22em', color: '#E8903A' }}
+            >
+              Earlier Stage?
+            </p>
+            <h2
+              className="font-bold mb-5 leading-tight"
+              style={{
+                ...DISPLAY,
+                fontSize: 'clamp(28px, 4vw, 44px)',
+                color: '#F5EFE0',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              Building something new? I work with founders too.
+            </h2>
+            <p className="text-lg leading-relaxed mb-8 max-w-2xl" style={{ color: '#A09A8E' }}>
+              From raw idea to first real traction — positioning and strategy, building the MVP,
+              acting as your fractional CTO or growth lead, and getting you ready to launch or
+              raise. It starts with a free intro call, then we scope to what you actually need.
+            </p>
+            <Link
+              href="/startups"
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold rounded transition-colors"
+              style={{ backgroundColor: '#E8903A', color: '#0C0C0C' }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#F0A855')}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#E8903A')}
+            >
+              See startup consulting <ArrowRight size={15} />
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+// ── Founder ──────────────────────────────────────────────────────
+function Founder() {
+  return (
+    <section className="py-24 px-6" style={{ backgroundColor: '#F5EFE0' }}>
+      <div className="max-w-6xl mx-auto">
+        <Reveal>
+          <SectionLabel>The Operator</SectionLabel>
+        </Reveal>
+
+        <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[340px_1fr] gap-12">
+          <Reveal>
+            <Placeholder kind="FOUNDER PORTRAIT" label="Hamza, close portrait" aspect="4/5" mode="cream" />
+            <p className="text-xs mt-3" style={{ ...MONO, color: '#7A756D' }}>
+              Hamza Zulquernain · Founder, Zapp Studios
+            </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <h2
+              className="font-bold mb-8 leading-tight"
+              style={{
+                ...DISPLAY,
+                fontSize: 'clamp(28px, 4vw, 42px)',
+                color: '#0C0C0C',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              The person who diagnoses it is the person who builds it.
+            </h2>
+
+            <div className="flex flex-col gap-5 text-[16px] leading-relaxed" style={{ color: '#3A3632' }}>
+              <p>
+                I&apos;m Hamza. I was the founding engineer at{' '}
+                <span style={{ color: '#0C0C0C', fontWeight: 600 }}>DietAI</span>, where I built
+                the product, the funnel, and the growth systems that carried it to a{' '}
+                <span style={{ color: '#0C0C0C', fontWeight: 600 }}>7-figure exit</span>. I&apos;ve
+                seen a revenue system from the inside — built, measured, and sold.
+              </p>
+              <p>
+                Everything since has run the same way: one operator who owns both the diagnosis
+                and the build, so the strategy and the execution never drift apart. No briefs lost
+                in translation. No roadmap that ignores the funnel.
+              </p>
+              <p style={{ ...SERIF, fontStyle: 'italic', color: '#0C0C0C', fontSize: '18px' }}>
+                &ldquo;Most teams split the people who decide what to do from the people who do it.
+                That seam is where revenue leaks. I close it.&rdquo;
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ── Fit check ────────────────────────────────────────────────────
 const YES_ITEMS = [
-  'You have real traffic (paid or organic) and want more of it to convert',
-  'You\'ve been quoted 8+ weeks and $10K+ by an agency for a landing page',
-  'You can hand off analytics, brand assets, and a decision-maker in 48 hours',
-  'You want a fixed fee, fixed deadline, and a builder who actually builds',
+  'You have real revenue and want to compound it — not just patch one leak',
+  'Your growth keeps stalling on something only an engineer can fix',
+  'You want one accountable operator, not an agency and a dev shop',
+  'You can give a decision-maker and real access to your data',
 ]
-
 const NO_ITEMS = [
-  'You\'re pre-revenue and still looking for product-market fit',
-  'You need a 30-page site with CMS, blog, and user portal',
-  'You want unlimited revisions and endless strategy calls',
-  'You\'re shopping on price alone without caring about outcome',
+  "You're pre-revenue or still finding product–market fit — startup consulting may fit better",
+  'You want a strategy deck and recommendations, not someone who ships the fix',
+  'You want daily meetings and status calls — I stay in the build',
+  "You're choosing on lowest price alone",
 ]
 
-function Qualify() {
+function FitCheck() {
   return (
     <section className="py-24 px-6" style={{ backgroundColor: '#EEE7D3' }}>
       <div className="max-w-6xl mx-auto">
         <Reveal>
           <SectionLabel>Is This For You?</SectionLabel>
           <h2
-            className="font-bold mb-6 leading-tight max-w-3xl"
+            className="font-bold mb-12 leading-tight max-w-3xl"
             style={{
               ...DISPLAY,
               fontSize: 'clamp(34px, 5vw, 56px)',
@@ -662,14 +705,8 @@ function Qualify() {
               letterSpacing: '-0.02em',
             }}
           >
-            I turn away 80% of inquiries.
-            <br />
-            <span style={{ color: '#7A756D' }}>Here&apos;s why you might be one of them.</span>
+            Straight about fit — both directions.
           </h2>
-          <p className="text-lg max-w-2xl mb-16 leading-relaxed" style={{ color: '#3A3632' }}>
-            Honest disqualification upfront saves both of us time. If you&apos;re not a fit, I&apos;ll
-            tell you within 15 minutes and point you to what to do instead.
-          </p>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-4">
@@ -678,7 +715,6 @@ function Qualify() {
               className="p-7 h-full rounded"
               style={{
                 backgroundColor: '#F5EFE0',
-                borderLeft: '3px solid #4ADE80',
                 border: '1px solid rgba(12,12,12,0.08)',
                 borderLeftWidth: '3px',
                 borderLeftColor: '#4a8d5f',
@@ -688,7 +724,7 @@ function Qualify() {
                 className="text-xs uppercase mb-5"
                 style={{ ...MONO, letterSpacing: '0.2em', color: '#4a8d5f' }}
               >
-                You&apos;re a fit if —
+                A fit if —
               </p>
               <ul className="flex flex-col gap-4">
                 {YES_ITEMS.map(item => (
@@ -725,7 +761,7 @@ function Qualify() {
                 className="text-xs uppercase mb-5"
                 style={{ ...MONO, letterSpacing: '0.2em', color: '#C14444' }}
               >
-                Not a fit if —
+                Not yet if —
               </p>
               <ul className="flex flex-col gap-4">
                 {NO_ITEMS.map(item => (
@@ -753,163 +789,6 @@ function Qualify() {
   )
 }
 
-// ── Founder block ────────────────────────────────────────────────
-function Founder() {
-  return (
-    <section className="py-24 px-6" style={{ backgroundColor: '#F5EFE0' }}>
-      <div className="max-w-6xl mx-auto">
-        <Reveal>
-          <SectionLabel>The Operator</SectionLabel>
-        </Reveal>
-
-        <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[340px_1fr] gap-12">
-          <Reveal>
-            <Placeholder kind="FOUNDER PORTRAIT" label="Hamza, close portrait" aspect="4/5" mode="cream" />
-          </Reveal>
-
-          <Reveal delay={120}>
-            <h2
-              className="font-bold mb-8 leading-tight"
-              style={{
-                ...DISPLAY,
-                fontSize: 'clamp(28px, 4vw, 42px)',
-                color: '#0C0C0C',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              I was the engineer who actually shipped it.
-            </h2>
-
-            <div className="flex flex-col gap-5 text-[16px] leading-relaxed" style={{ color: '#3A3632' }}>
-              <p>
-                I was the founding engineer at{' '}
-                <span style={{ color: '#0C0C0C', fontWeight: 600 }}>DietAI</span> — built the
-                product, the funnel, and the growth systems that carried it to a{' '}
-                <span style={{ color: '#0C0C0C', fontWeight: 600 }}>7-figure exit</span>. I saw
-                what a revenue system looks like from inside: built, shipped, measured, sold.
-              </p>
-              <p>
-                Since then I&apos;ve spent{' '}
-                <span style={{ color: '#0C0C0C', fontWeight: 600 }}>1,500+ hours shipping alongside Claude</span>.
-                I don&apos;t sell strategy decks — I know what happens when execution fails. I&apos;ve been the
-                guy watching agencies deliver reports while the business bleeds.
-              </p>
-              <p style={{ ...SERIF, fontStyle: 'italic', color: '#0C0C0C', fontSize: '18px' }}>
-                &ldquo;When you work with me, the person who diagnosed your problem is the same
-                person building the solution. That&apos;s the point.&rdquo;
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ── Guarantee block wrapper ──────────────────────────────────────
-function GuaranteeSection() {
-  return (
-    <section className="py-24 px-6" style={{ backgroundColor: '#EEE7D3' }}>
-      <div className="max-w-4xl mx-auto">
-        <Reveal>
-          <Guarantee mode="cream" />
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-// ── Free teardown reciprocity ────────────────────────────────────
-function Teardown() {
-  const [url, setUrl] = useState('')
-  const [sent, setSent] = useState(false)
-
-  return (
-    <section className="py-24 px-6" style={{ backgroundColor: '#F5EFE0' }}>
-      <div className="max-w-4xl mx-auto text-center">
-        <Reveal>
-          <p
-            className="text-xs uppercase mb-6"
-            style={{ ...MONO, letterSpacing: '0.25em', color: '#E8903A' }}
-          >
-            Not Ready to Book? — Free
-          </p>
-          <h2
-            className="font-bold mb-6 leading-tight"
-            style={{
-              ...DISPLAY,
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              color: '#0C0C0C',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Send me your homepage URL.
-            <br />
-            <span style={{ color: '#E8903A' }}>I&apos;ll Loom you a 5-min teardown.</span>
-          </h2>
-          <p className="text-lg max-w-xl mx-auto mb-10 leading-relaxed" style={{ color: '#3A3632' }}>
-            No pitch, no form funnel, no automation. Just me, watching your page, telling you
-            what I&apos;d change first. A sample of how I actually work.
-          </p>
-        </Reveal>
-
-        <Reveal delay={100}>
-          {!sent ? (
-            <form
-              onSubmit={e => {
-                e.preventDefault()
-                if (!url) return
-                const mailto = `mailto:hamzazulquernain1@gmail.com?subject=${encodeURIComponent('Free teardown request')}&body=${encodeURIComponent(`Hey Hamza,\n\nMy homepage: ${url}\n\nWhat I'd most like your eyes on:\n`)}`
-                window.location.href = mailto
-                setSent(true)
-              }}
-              className="flex flex-col sm:flex-row gap-2 max-w-md mx-auto"
-            >
-              <input
-                type="url"
-                value={url}
-                onChange={e => setUrl(e.target.value)}
-                required
-                placeholder="https://yourbusiness.com"
-                className="flex-1 px-4 py-3 text-sm rounded outline-none"
-                style={{
-                  ...MONO,
-                  backgroundColor: '#EEE7D3',
-                  border: '1px solid rgba(12,12,12,0.15)',
-                  color: '#0C0C0C',
-                }}
-                onFocus={e => (e.currentTarget.style.borderColor = '#E8903A')}
-                onBlur={e => (e.currentTarget.style.borderColor = 'rgba(12,12,12,0.15)')}
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 text-sm font-semibold rounded transition-colors whitespace-nowrap"
-                style={{ backgroundColor: '#0C0C0C', color: '#F5EFE0' }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#3A3632')}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#0C0C0C')}
-              >
-                Send for teardown →
-              </button>
-            </form>
-          ) : (
-            <p
-              className="text-sm p-4 rounded inline-block"
-              style={{
-                ...MONO,
-                color: '#4a8d5f',
-                backgroundColor: 'rgba(74,141,95,0.08)',
-                border: '1px solid rgba(74,141,95,0.25)',
-              }}
-            >
-              Email composed. Hit send in your mail app — I&apos;ll Loom you back within 48 hours.
-            </p>
-          )}
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
 // ── Final CTA ────────────────────────────────────────────────────
 function FinalCTA() {
   return (
@@ -925,23 +804,25 @@ function FinalCTA() {
               letterSpacing: '-0.025em',
             }}
           >
-            Reserve your Sprint slot.
+            Let&apos;s find your real constraint.
           </h2>
           <p
             className="text-lg md:text-xl max-w-xl mx-auto mb-12 leading-relaxed"
             style={{ color: '#A09A8E' }}
           >
-            $1,500 flat. Seven days. Pay nothing if I miss the deadline. 3 slots open this month.
+            A call, not a pitch. Fifteen minutes on where revenue is leaking and whether I&apos;m
+            the right person to fix it. If I&apos;m not, I&apos;ll tell you — and point you to who
+            is.
           </p>
 
           <Link
-            href="/sprint"
+            href="/book"
             className="inline-flex items-center gap-2 px-10 py-5 font-bold rounded transition-colors text-base"
             style={{ backgroundColor: '#E8903A', color: '#0C0C0C' }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#F0A855')}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#E8903A')}
           >
-            See the Sprint
+            Book a call
             <ArrowRight size={17} />
           </Link>
         </Reveal>
@@ -957,16 +838,16 @@ export default function HomePage() {
       <Nav mode="cream" />
       <Hero />
       <ProofStrip />
-      <Mechanism />
+      <Gap />
+      <Approach />
       <RoyalPawz />
       <Ladder />
-      <Qualify />
+      <StartupConsulting />
       <Founder />
-      <GuaranteeSection />
-      <Teardown />
+      <FitCheck />
       <FinalCTA />
       <Footer mode="cream" />
-      <StickyCTA href="/sprint" label="Reserve a Sprint" />
+      <StickyCTA href="/book" label="Book a call" />
     </main>
   )
 }

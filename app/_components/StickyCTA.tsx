@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
-export default function StickyCTA({ href = '/sprint', label = 'Reserve a Sprint' }: { href?: string; label?: string }) {
+export default function StickyCTA({ href = '/book', label = 'Book a call' }: { href?: string; label?: string }) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
