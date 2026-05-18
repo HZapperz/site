@@ -205,6 +205,78 @@ text{font-family:var(--sans)}
 .xs-card p{font-family:var(--sans); font-size:12.7px; line-height:1.52; color:var(--ink-soft); margin:0}
 @media (max-width:620px){.xs-cards{grid-template-columns:1fr}}
 
+/* ---------- deck components ---------- */
+.deck-lead{font-family:var(--serif); font-size:22px; line-height:1.42; color:var(--ink); margin:14px 0 6px; letter-spacing:-.005em}
+.deck-lead strong{color:var(--pecan-deep)}
+.deck-sub{font-family:var(--sans); font-size:13.5px; line-height:1.55; color:var(--ink-soft); margin:10px 0}
+
+/* big takeaway band */
+.takeaway{
+  background:var(--pecan-deep); color:#F4ECDC; border-radius:8px;
+  padding:20px 24px; margin:24px 0; display:flex; gap:22px; align-items:center;
+}
+.takeaway .tk-fig{font-family:var(--serif); font-weight:600; font-size:42px; line-height:.95; color:var(--gold-soft); flex:none; letter-spacing:-.02em}
+.takeaway .tk-body{flex:1; min-width:0}
+.takeaway .tk-label{font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:5px}
+.takeaway .tk-text{font-family:var(--serif); font-size:16.5px; line-height:1.4; color:#F4ECDC}
+.takeaway .tk-text strong{color:#FBF4E4}
+.takeaway.alert{background:#5A2E22}
+.takeaway.alert .tk-fig{color:#E8B59E}
+.takeaway.good{background:#3E4632}
+.takeaway.good .tk-fig{color:#CBD6B0}
+
+/* card grid */
+.gcards{display:grid; gap:13px; margin:22px 0}
+.gcards.c2{grid-template-columns:repeat(2,1fr)}
+.gcards.c3{grid-template-columns:repeat(3,1fr)}
+.gcard{
+  background:var(--paper); border:1px solid var(--line);
+  border-top:3px solid var(--gold); border-radius:6px; padding:15px 17px;
+}
+.gcard.alert{border-top-color:var(--alert)}
+.gcard.good{border-top-color:var(--positive)}
+.gcard.muted{border-top-color:var(--slate)}
+.gcard .gc-tag{display:flex; gap:8px; align-items:baseline; font-family:var(--sans); font-size:9.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--gold); margin-bottom:6px}
+.gcard.alert .gc-tag{color:var(--alert)}
+.gcard.good .gc-tag{color:var(--positive)}
+.gcard.muted .gc-tag{color:var(--slate)}
+.gcard .gc-no{font-family:var(--sans); font-size:11px; font-weight:700; color:inherit}
+.gcard .gc-head{font-family:var(--serif); font-weight:600; font-size:16.5px; color:var(--pecan-deep); line-height:1.26; margin-bottom:5px}
+.gcard .gc-text{font-family:var(--sans); font-size:12.7px; line-height:1.5; color:var(--ink-soft)}
+.gcard .gc-text strong{color:var(--pecan-deep)}
+.gcard .gc-fig{font-family:var(--serif); font-weight:600; font-size:29px; color:var(--pecan-deep); line-height:1; margin-bottom:6px; letter-spacing:-.01em}
+.gcard.alert .gc-fig{color:var(--alert)}
+.gcard.good .gc-fig{color:var(--positive)}
+
+/* horizontal flow / phased steps */
+.flow{display:flex; gap:9px; margin:22px 0; flex-wrap:wrap}
+.flow .fl-step{
+  flex:1 1 0; min-width:150px; background:var(--paper); border:1px solid var(--line);
+  border-top:3px solid var(--gold-line); border-radius:6px; padding:13px 15px;
+}
+.flow .fl-when{font-family:var(--sans); font-size:9.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:4px}
+.flow .fl-head{font-family:var(--serif); font-weight:600; font-size:15.5px; color:var(--pecan-deep); line-height:1.2; margin-bottom:4px}
+.flow .fl-text{font-family:var(--sans); font-size:12px; line-height:1.46; color:var(--ink-soft)}
+
+/* before / after panels */
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:6px; overflow:hidden; margin:22px 0}
+.vs .vs-col{background:var(--paper); padding:15px 18px}
+.vs .vs-col.now{background:var(--paper-2)}
+.vs .vs-h{font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px}
+.vs .vs-col.now .vs-h{color:var(--ink-faint)}
+.vs .vs-col.next .vs-h{color:var(--positive)}
+.vs .vs-list{list-style:none; margin:0; padding:0}
+.vs .vs-list li{font-family:var(--sans); font-size:12.7px; line-height:1.42; color:var(--ink-soft); padding:8px 0; border-bottom:1px solid var(--line)}
+.vs .vs-list li:last-child{border-bottom:none}
+.vs .vs-col.next li{color:var(--pecan-deep)}
+
+@media (max-width:620px){
+  .gcards.c2,.gcards.c3{grid-template-columns:1fr}
+  .vs{grid-template-columns:1fr}
+  .takeaway{flex-direction:column; align-items:flex-start; gap:10px}
+  .takeaway .tk-fig{font-size:36px}
+}
+
 /* ---------- finding header ---------- */
 .finding-no{
   font-family:var(--serif); font-weight:600; font-size:13px; color:var(--gold);
@@ -302,7 +374,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
   .playbook .pb-head,.doc-footer{background:#fff; color:var(--ink)}
   .playbook .pb-head h3,.doc-footer .ff-name{color:var(--ink)}
   .chart,.callout,.stat-row,.table-wrap,.playbook,.week,.finding,svg{break-inside:avoid}
-  .xs-finding,.xs-card,.xs-spectrum{break-inside:avoid}
+  .xs-finding,.xs-card,.xs-spectrum,.gcard,.takeaway,.fl-step,.vs{break-inside:avoid}
+  .takeaway{background:#fff;color:var(--ink);border:1px solid var(--line-strong)}
+  .takeaway .tk-fig,.takeaway .tk-text,.takeaway .tk-text strong{color:var(--pecan-deep)}
   h2.sec,h3.sub,.part-title{break-after:avoid}
   .doc-footer p,.doc-footer{color:var(--ink-soft)}
 }
@@ -637,17 +711,23 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">Methodology</div>
         <h2 class="sec">How we read the data</h2>
-        <p>We pulled six Shopify reports for the last 30 days (April 14 – May 14, 2026), each
-        filtered against Shopify's native human-or-bot session classifier:</p>
-        <ul>
-          <li>Sessions by location — country, region, city</li>
-          <li>Sessions by traffic source — Direct, Search, Social, Referral</li>
-          <li>Sessions by device, by landing page, and by referring URL</li>
-          <li>The conversion funnel by source — sessions → add-to-cart → checkout → order</li>
-        </ul>
-        <p>We chose the 30-day window over the full history deliberately: earlier sessions are
-        heavily contaminated by founder and team test orders and pre-launch QA traffic. Thirty
-        days gives the cleanest view of how the live program actually performs.</p>
+        <p class="deck-lead">Six Shopify reports, a clean <strong>30-day window</strong>
+        (Apr 14 – May 14, 2026), every session filtered through Shopify's native
+        human-or-bot classifier.</p>
+        <div class="gcards c2">
+          <div class="gcard muted">
+            <div class="gc-tag">What we pulled</div>
+            <div class="gc-text">Sessions by location, traffic source, device, landing page
+            and referring URL — plus the full conversion funnel by source, from session to
+            add-to-cart to checkout to order.</div>
+          </div>
+          <div class="gcard muted">
+            <div class="gc-tag">Why a 30-day window</div>
+            <div class="gc-text">Earlier history is heavily contaminated by founder and team
+            test orders and pre-launch QA traffic. Thirty days is the cleanest read of how the
+            live program actually performs.</div>
+          </div>
+        </div>
         <div class="callout">
           <div class="co-label">One limitation, stated plainly</div>
           <p>We did not have Meta Ads Manager access during this analysis — the previous agency
@@ -663,9 +743,8 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="finding-no">Finding 01</div>
         <h2 class="sec">19.3% of traffic is non-human — and it is not the problem</h2>
-        <p>Of 5,545 raw sessions in the last 30 days, <strong>1,069 (19.3%) were non-human</strong>.
-        The instinct is to call this a bot problem. The data says otherwise — the signature is
-        unusually clean, and it points to passive crawlers, not paid junk traffic.</p>
+        <p class="deck-lead">Of 5,545 raw sessions, <strong>1,069 (19.3%) were non-human</strong> —
+        but the signature is unusually clean. This is passive crawler traffic, not paid junk.</p>
 
         <div class="table-wrap">
           <table class="data">
@@ -680,8 +759,8 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
           </table>
         </div>
 
-        <p>The clearest diagnostic is the device split. Real luxury-fashion shoppers are
-        overwhelmingly on mobile. The bot population is the mirror image:</p>
+        <p class="deck-sub">The clearest tell is the device split — real shoppers are
+        overwhelmingly mobile, and the bot population is the exact mirror image.</p>
 
         <div class="chart">
           <div class="chart-title">Device split — bots vs. humans</div>
@@ -713,17 +792,15 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
           Bytespider — none of which cost money to acquire.</div>
         </div>
 
-        <p>These crawlers inflate the raw session count by roughly 19%, which artificially
-        depresses the headline conversion rate — but they are noise, not spend leakage. A few
-        location anomalies confirm Shopify's filter is working: Falkenstein, Germany (home of
-        the Hetzner server farm) shows a 50% add-to-cart rate; Montreal shows 5 sessions and
-        10 add-to-carts — bots re-adding to cart on loop. Shopify is correctly flagging them.</p>
-
-        <div class="callout">
-          <div class="co-label">Why this matters</div>
-          <p>The bot share is real but it is not where money is being lost. It depresses the
-          headline number; it is not the actionable problem. The actionable problem is the
-          next finding.</p>
+        <div class="takeaway">
+          <div class="tk-fig">19%</div>
+          <div class="tk-body">
+            <div class="tk-label">Why this matters</div>
+            <div class="tk-text">Crawlers inflate the session count and depress the headline
+            conversion rate — but they cost nothing and leak no spend. Real, and confirmed
+            (Falkenstein and Montreal show bot carts looping), but <strong>not the actionable
+            problem.</strong> That is the next finding.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -733,8 +810,8 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="finding-no">Finding 02</div>
         <h2 class="sec">Meta paid traffic is real humans who don't convert</h2>
-        <p>This is the centre of the analysis. With bots filtered out, the conversion funnel
-        by source tells a single, clear story:</p>
+        <p class="deck-lead">This is the centre of the analysis. With bots filtered out, the
+        funnel by source tells a single, clear story.</p>
 
         <div class="table-wrap">
           <table class="data">
@@ -752,10 +829,16 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         <p style="font-size:13px;color:var(--ink-faint);font-family:var(--sans)">* IG Shopping's
         25% rate is on 12 sessions — too small to read into.</p>
 
-        <p><strong>Meta combined (Facebook + Instagram + fb) delivered 2,624 human sessions, 8
-        add-to-carts and 2 orders — a 0.30% ATC rate.</strong> Direct traffic delivered a
-        comparable 2,908 sessions but 57 add-to-carts and 6 orders — <strong>four times the
-        rate</strong>. Meta carried 90% of Direct's volume and produced 14% of its add-to-carts.</p>
+        <div class="takeaway alert">
+          <div class="tk-fig">4×</div>
+          <div class="tk-body">
+            <div class="tk-label">Meta vs. Direct — same volume, different worlds</div>
+            <div class="tk-text">Meta delivered 2,624 real human sessions at a
+            <strong>0.30% add-to-cart rate</strong>. Direct delivered comparable volume at
+            <strong>1.23%</strong> — four times stronger. Meta carried 90% of Direct's traffic
+            and produced 14% of its add-to-carts.</div>
+          </div>
+        </div>
 
         <div class="chart">
           <div class="chart-title">Add-to-cart rate by source vs. category benchmark</div>
@@ -789,20 +872,25 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         </div>
 
         <h3 class="sub">What this points to</h3>
-        <p>A 0.30% add-to-cart rate on 2,600 real human sessions has a short list of likely
-        causes — and Meta Ads Manager access would confirm which within 24 hours:</p>
-        <ul>
-          <li><strong>Loose audience targeting</strong> — interest stacks that aren't actually
-          shaped like luxury-fashion buyers.</li>
-          <li><strong>Worldwide or non-US-priority geo</strong> — international sessions on a
-          US-only fulfilment brand.</li>
-          <li><strong>A top-of-funnel optimisation event</strong> — Link Click, ViewContent or
-          Reach instead of Add-to-Cart or Purchase, so the algorithm chases volume, not intent.</li>
-          <li><strong>Audience Network placement</strong> — lower-quality humans from
-          mis-tapped mobile interstitials.</li>
-          <li><strong>Creative-audience mismatch</strong> — ads pitched casual, landing on a
-          luxury site, bouncing on arrival.</li>
-        </ul>
+        <p class="deck-sub">A 0.30% rate on 2,600 real humans has a short list of likely causes —
+        Meta Ads Manager access would confirm which within 24 hours.</p>
+        <div class="gcards c2">
+          <div class="gcard"><div class="gc-tag"><span class="gc-no">01</span> Targeting</div>
+            <div class="gc-head">Loose audience targeting</div>
+            <div class="gc-text">Interest stacks that aren't actually shaped like luxury-fashion buyers.</div></div>
+          <div class="gcard"><div class="gc-tag"><span class="gc-no">02</span> Geography</div>
+            <div class="gc-head">Worldwide / non-US geo</div>
+            <div class="gc-text">International sessions on a US-only fulfilment brand.</div></div>
+          <div class="gcard"><div class="gc-tag"><span class="gc-no">03</span> Optimisation</div>
+            <div class="gc-head">Top-of-funnel event</div>
+            <div class="gc-text">Optimised for Link Click or Reach, not Add-to-Cart — so the algorithm chases volume, not intent.</div></div>
+          <div class="gcard"><div class="gc-tag"><span class="gc-no">04</span> Placement</div>
+            <div class="gc-head">Audience Network</div>
+            <div class="gc-text">Lower-quality humans from mis-tapped mobile interstitials.</div></div>
+          <div class="gcard"><div class="gc-tag"><span class="gc-no">05</span> Creative</div>
+            <div class="gc-head">Creative–audience mismatch</div>
+            <div class="gc-text">Ads pitched casual, landing on a luxury site, bouncing on arrival.</div></div>
+        </div>
         <div class="callout flag">
           <div class="co-label">The implication</div>
           <p>Meta, as currently configured, is structurally inefficient at this budget. It does
@@ -817,18 +905,17 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="finding-no">Finding 03</div>
         <h2 class="sec">Direct traffic is the real engine — and it's under-monetised</h2>
-        <p>Direct traffic produced <strong>6 of 8 orders</strong> in the last 30 days. These are
-        people who found Pecan Moon through word-of-mouth, organic Instagram, press, the
-        founder's presence at events, or by typing the URL. They are the highest-intent
-        audience the brand has — and almost nothing is built to capture or compound them.</p>
-        <h4 class="mini">What's missing on top of this audience</h4>
-        <ul>
-          <li>No abandoned-cart flow capturing the 45 checkouts that didn't convert</li>
-          <li>No browse-abandonment flow capturing 50+ add-to-carts that stalled</li>
-          <li>No retargeting layer — Meta catalog, Google, Pinterest — catching returning visitors</li>
-          <li>No email-capture optimised for Direct visitors, beyond a generic discount modal</li>
-          <li>No Branded Search campaign capturing the "Pecan Moon" queries these visitors generate</li>
-        </ul>
+        <p class="deck-lead">Direct traffic produced <strong>6 of 8 orders</strong> in the last
+        30 days — word-of-mouth, organic Instagram, press, the founder. The highest-intent
+        audience the brand has, and almost nothing is built to capture or compound it.</p>
+        <h4 class="mini">Five things missing on top of this audience</h4>
+        <div class="gcards c2">
+          <div class="gcard alert"><div class="gc-tag">Missing</div><div class="gc-head">No abandoned-cart flow</div><div class="gc-text">45 checkouts a month stall before payment, uncaptured.</div></div>
+          <div class="gcard alert"><div class="gc-tag">Missing</div><div class="gc-head">No browse-abandonment flow</div><div class="gc-text">50+ add-to-carts a month stall and are never re-engaged.</div></div>
+          <div class="gcard alert"><div class="gc-tag">Missing</div><div class="gc-head">No retargeting layer</div><div class="gc-text">Nothing on Meta, Google or Pinterest catches returning visitors.</div></div>
+          <div class="gcard alert"><div class="gc-tag">Missing</div><div class="gc-head">No real email capture</div><div class="gc-text">Only a generic discount modal — nothing optimised for Direct visitors.</div></div>
+          <div class="gcard alert"><div class="gc-tag">Missing</div><div class="gc-head">No Branded Search</div><div class="gc-text">The "Pecan Moon" queries these visitors generate go undefended.</div></div>
+        </div>
         <div class="callout">
           <div class="co-label">The opportunity hiding here</div>
           <p>Pecan Moon's strongest channel is not instrumented to compound. Every dollar spent
@@ -843,12 +930,15 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="finding-no">Finding 04</div>
         <h2 class="sec">The site itself converts</h2>
-        <p>Two orders totalling <strong>$1,000 landed in the last week</strong>, against a
-        prior baseline of zero completions. That matters more than it looks. It means the
-        funnel is not structurally broken — the product closes when the right person arrives.</p>
-        <p>It also retires the most convenient excuse for April's underperformance — the idea
-        that nobody buys luxury online without a long trust-building phase. The brand can
-        close. The channel mix simply hasn't been delivering the right traffic.</p>
+        <div class="takeaway good">
+          <div class="tk-fig">$1,000</div>
+          <div class="tk-body">
+            <div class="tk-label">Two orders, last week — against a baseline of zero</div>
+            <div class="tk-text">The funnel is not structurally broken. <strong>The product
+            closes when the right person arrives</strong> — which retires the easy excuse that
+            nobody buys luxury online without a long trust-building phase.</div>
+          </div>
+        </div>
         <div class="callout good">
           <div class="co-label">Why this is the most important finding</div>
           <p>It narrows the whole diagnosis to one question: why does paid traffic convert at
@@ -863,25 +953,16 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="finding-no">Finding 05</div>
         <h2 class="sec">The measurement layer is incomplete</h2>
-        <p>Four gaps would have surfaced everything above far sooner. Closing them is a week-one
-        priority:</p>
-        <ol>
-          <li><strong>No GA4.</strong> The brand runs entirely on Shopify's native analytics —
-          one source of truth, but without the multi-channel attribution depth to compare paid
-          performance across platforms.</li>
-          <li><strong>No server-side tracking (CAPI).</strong> Post-iOS 14.5, the pixel alone
-          undercounts conversions by 20–40% and feeds the algorithm a degraded signal.</li>
-          <li><strong>No post-purchase attribution survey.</strong> Nothing asks customers "how
-          did you hear about us?" — the standard ground-truth check on paid attribution claims.</li>
-          <li><strong>No reconciliation between Meta and Shopify.</strong> The previous agency
-          reported figures on the order of 100+ add-to-carts and 40+ initiated checkouts; Shopify
-          recorded 23 and 18 for April. A gap that wide signals a pixel that is misfiring,
-          double-firing, or being read off the wrong events.</li>
-        </ol>
-        <p>The full attribution stack — server-side tracking, blended-ROAS reporting, a
-        post-purchase survey and GA4 — costs roughly <strong>$375/month</strong>, paid directly
-        to the vendors. It is inexpensive, and it is the infrastructure that lets us answer
-        "did this work?" with data instead of platform-reported numbers.</p>
+        <p class="deck-lead">Four measurement gaps would have surfaced everything above far
+        sooner. Closing them is a <strong>week-one priority</strong>.</p>
+        <div class="gcards c2">
+          <div class="gcard alert"><div class="gc-tag"><span class="gc-no">Gap 01</span></div><div class="gc-head">No GA4</div><div class="gc-text">The brand runs entirely on Shopify's native analytics — no multi-channel attribution depth to compare paid platforms.</div></div>
+          <div class="gcard alert"><div class="gc-tag"><span class="gc-no">Gap 02</span></div><div class="gc-head">No server-side tracking</div><div class="gc-text">Post-iOS 14.5, the pixel alone undercounts conversions 20–40% and feeds the algorithm a degraded signal.</div></div>
+          <div class="gcard alert"><div class="gc-tag"><span class="gc-no">Gap 03</span></div><div class="gc-head">No post-purchase survey</div><div class="gc-text">Nothing asks customers "how did you hear about us?" — the standard ground-truth check on attribution.</div></div>
+          <div class="gcard alert"><div class="gc-tag"><span class="gc-no">Gap 04</span></div><div class="gc-head">No Meta–Shopify reconciliation</div><div class="gc-text">The prior agency reported 100+ add-to-carts; Shopify recorded 23 for April. A gap that wide signals a misfiring pixel.</div></div>
+        </div>
+        <p class="deck-sub">The full attribution stack that closes these gaps costs roughly
+        <strong>$375/month</strong>, paid directly to the vendors — detailed later in the plan.</p>
         <div class="callout">
           <div class="co-label">First action — Meta Business Manager access</div>
           <p>To turn the forensic inferences in Finding 02 into direct evidence, we need admin
@@ -907,18 +988,24 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">The opportunity</div>
         <h2 class="sec">A category built for intent channels</h2>
-        <p class="lead">Pecan Moon sits in one of the cleanest categories in DTC for
-        intent-driven growth. Luxury resort wear is a planned, considered, visually-driven
-        purchase — exactly the behaviour Google and Pinterest were built to harvest.</p>
-        <p>A $400–$1,200 vacation dress for a Mediterranean honeymoon is researched for weeks.
-        Pinterest captures the planning phase, three to six months before the trip; Google
-        captures the purchase moment — <em>"Mykonos outfit," "Amalfi Coast dress."</em> Meta is
-        a scroll-interruption platform: best for scaling creative that is already proven, not
-        for discovering what works.</p>
-        <p>The playbook here is not more Meta budget. It is claiming the destination-keyword
-        whitespace on Google, owning Pinterest before competitors wake up to it, and running
-        Meta as a tight retargeting layer until the audience and creative are validated. The
-        rest of this section is the evidence for that call.</p>
+        <p class="deck-lead">Pecan Moon sits in one of the cleanest categories in DTC for
+        intent-driven growth — <strong>a planned, considered, visually-driven purchase</strong>,
+        exactly the behaviour Google and Pinterest were built to harvest.</p>
+        <p class="deck-sub">A $400–$1,200 vacation dress is researched for weeks. Each channel
+        catches the buyer at a different point in that journey:</p>
+        <div class="flow">
+          <div class="fl-step"><div class="fl-when">3–6 months out</div><div class="fl-head">Pinterest</div><div class="fl-text">The planning phase — she is building the trip and the wardrobe in her head.</div></div>
+          <div class="fl-step"><div class="fl-when">The purchase moment</div><div class="fl-head">Google</div><div class="fl-text">She types "Mykonos outfit," "Amalfi Coast dress." The demand already exists.</div></div>
+          <div class="fl-step"><div class="fl-when">After the visit</div><div class="fl-head">Meta</div><div class="fl-text">A scroll-interruption layer — best for retargeting a warm audience, not cold discovery.</div></div>
+        </div>
+        <div class="takeaway">
+          <div class="tk-body">
+            <div class="tk-label">The playbook</div>
+            <div class="tk-text">Claim the destination-keyword whitespace on Google, own
+            Pinterest before the category wakes up to it, and run Meta as a tight retargeting
+            layer. <strong>The rest of this section is the evidence.</strong></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -927,18 +1014,29 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">What changes</div>
         <h2 class="sec">From the current setup to this one</h2>
-        <div class="table-wrap">
-          <table class="data">
-            <thead><tr><th>Today</th><th>After we start</th></tr></thead>
-            <tbody>
-              <tr><td>Marketing run from outside the US, on non-US benchmarks</td><td class="hi">A Houston / Dallas-based team — plus your existing social manager continuing on Instagram</td></tr>
-              <tr><td>Meta paid traffic converting at 0.30%</td><td class="hi">Budget rebuilt across Google, Pinterest and a targeted Meta retargeting layer</td></tr>
-              <tr><td>Meta numbers that don't reconcile with Shopify</td><td class="hi">A real attribution stack — every dollar traceable to ground truth</td></tr>
-              <tr><td>A flat retainer regardless of work delivered</td><td class="hi">An hourly model — the same one already working on Shopify</td></tr>
-              <tr><td>Instagram operating in isolation from paid</td><td class="hi">Paid learnings feeding organic; organic insight feeding ad targeting</td></tr>
-              <tr><td>Opaque monthly slide-deck reporting</td><td class="hi">Weekly updates, a live dashboard, quarterly business review</td></tr>
-            </tbody>
-          </table>
+        <div class="vs">
+          <div class="vs-col now">
+            <div class="vs-h">Today</div>
+            <ul class="vs-list">
+              <li>Marketing run from outside the US, on non-US benchmarks</li>
+              <li>Meta paid traffic converting at 0.30%</li>
+              <li>Meta numbers that don't reconcile with Shopify</li>
+              <li>A flat retainer regardless of work delivered</li>
+              <li>Instagram operating in isolation from paid</li>
+              <li>Opaque monthly slide-deck reporting</li>
+            </ul>
+          </div>
+          <div class="vs-col next">
+            <div class="vs-h">After we start</div>
+            <ul class="vs-list">
+              <li>A Houston / Dallas-based team — your social manager continues on Instagram</li>
+              <li>Budget rebuilt across Google, Pinterest and a targeted Meta retargeting layer</li>
+              <li>A real attribution stack — every dollar traceable to ground truth</li>
+              <li>An hourly model — the same one already working on Shopify</li>
+              <li>Paid learnings feeding organic; organic insight feeding ad targeting</li>
+              <li>Weekly updates, a live dashboard, a quarterly business review</li>
+            </ul>
+          </div>
         </div>
         <p style="font-size:14px;color:var(--ink-faint);font-family:var(--sans)">The existing
         Shopify support agreement ($75/hr, 10–20 hrs/month) continues separately, unchanged.</p>
@@ -950,9 +1048,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">What the category is doing</div>
         <h2 class="sec">Where the competitive set spends — and where it doesn't</h2>
-        <p>We pulled data on the most relevant comp set — LoveShackFancy, Dôen, Hill House Home,
-        Cult Gaia, Reformation, Zimmermann, Cara Cara, Marysia, Faithfull, Hannah Artwear,
-        Mestiza, Mille. Two patterns matter.</p>
+        <p class="deck-lead">We pulled paid data on the comp set — LoveShackFancy, Dôen, Hill
+        House, Cult Gaia, Reformation, Zimmermann, Cara Cara, Marysia, Faithfull, Hannah Artwear,
+        Mestiza, Mille. <strong>Two patterns matter.</strong></p>
 
         <h3 class="sub">On Google — the leaders defend, they don't discover</h3>
         <div class="table-wrap">
@@ -970,12 +1068,16 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
             </tbody>
           </table>
         </div>
-        <p>The leaders run heavy Google programs — but mostly defending their own brand terms.
-        The <strong>destination keywords</strong> — "Mykonos outfit," "Amalfi Coast dress,"
-        "Capri outfit," "Italian summer dress," "St. Barths outfit" — together draw an estimated
-        <strong>25,000–50,000 US searches a month at sub-$1.50 CPCs</strong>, and almost no one
-        in the comp set is bidding on them. That is the unclaimed lane Pecan Moon can occupy
-        first.</p>
+        <div class="takeaway">
+          <div class="tk-fig">25–50K</div>
+          <div class="tk-body">
+            <div class="tk-label">The unclaimed lane on Google</div>
+            <div class="tk-text">The leaders run heavy Google programs — but mostly defending
+            their own brand terms. The <strong>destination keywords</strong> — "Mykonos outfit,"
+            "Amalfi Coast dress," "Capri outfit" — draw 25,000–50,000 US searches a month at
+            sub-$1.50 CPCs, and almost no one in the comp set is bidding on them.</div>
+          </div>
+        </div>
 
         <h3 class="sub">On Pinterest — the whole category is asleep</h3>
         <div class="chart">
@@ -1056,9 +1158,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
             </tbody>
           </table>
         </div>
-        <p>The Meta retargeting layer is deliberate: it is how we capture the high-intent Direct
-        audience that Finding 03 showed is already producing most of the orders. We are not
-        "killing Meta" — we are right-sizing it to the job it should do.</p>
+        <p class="deck-sub">The Meta retargeting layer is deliberate — it captures the
+        high-intent Direct audience from Finding 03. We are not "killing Meta," we are
+        right-sizing it to the job it should do.</p>
       </div>
     </section>
 
@@ -1067,17 +1169,17 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">The growth ceiling</div>
         <h2 class="sec">Why $3,000 is the right start — and not the finish</h2>
-        <p>You should know the honest math. For a brand at Pecan Moon's economics — roughly a
-        $400 average order value and ~60% gross margin:</p>
+        <p class="deck-lead">Here is the honest math. For a brand at Pecan Moon's economics —
+        roughly a $400 average order value and ~60% gross margin:</p>
         <div class="stat-row">
           <div class="stat"><div class="sv">1.7×</div><div class="sl">Break-even ROAS</div></div>
           <div class="stat"><div class="sv">3.0×</div><div class="sl">Healthy target ROAS</div></div>
           <div class="stat"><div class="sv">≈ $120</div><div class="sl">Target cost per acquisition</div></div>
           <div class="stat"><div class="sv">$10–15K</div><div class="sl">Realistic monthly revenue ceiling at $3K spend</div></div>
         </div>
-        <p>That is a reasonable starting point — but it is not the brand you are building. To
-        reach $30K+/month in attributed revenue, the ad budget has to scale. So it scales — on
-        a <strong>performance gate</strong>, never on faith:</p>
+        <p class="deck-sub">A reasonable start — but not the brand you are building. Reaching
+        $30K+/month in attributed revenue means the ad budget must scale. So it does — on a
+        <strong>performance gate</strong>, never on faith:</p>
         <div class="table-wrap">
           <table class="data">
             <thead><tr><th>Phase</th><th>Months</th><th class="num">Ad budget</th><th>Trigger to advance</th></tr></thead>
@@ -1113,9 +1215,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">The timeline</div>
         <h2 class="sec">Twelve weeks, in three phases</h2>
-        <p>Foundation builds the measurement and feeds. Build launches every channel. Scale
-        proves the math and earns the budget increase. New campaigns are live by the end of
-        week 2.</p>
+        <p class="deck-lead">Foundation builds measurement and feeds. Build launches every
+        channel. Scale proves the math and earns the budget increase — and new campaigns are
+        live by the <strong>end of week 2</strong>.</p>
 
         <div class="chart">
           <div class="chart-title">90-day workstream schedule</div>
@@ -1231,8 +1333,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">Channel build · 01</div>
         <h2 class="sec">Google — the workhorse</h2>
-        <p>Google captures demand that already exists. The buyer has typed the query; we just
-        have to be the answer. At $1,400/month the right structure is three campaigns, not one.</p>
+        <p class="deck-lead">Google captures demand that already exists — the buyer has typed
+        the query; we just have to be the answer. At $1,400/month, the right structure is three
+        campaigns, not one.</p>
 
         <div class="playbook">
           <div class="pb-head"><h3>Google Ads</h3><span class="pb-budget">$1,400 / month</span></div>
@@ -1267,10 +1370,11 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
             </ol>
 
             <h4 class="mini">Bid strategy</h4>
-            <p style="margin-top:6px">Days 0–30: Maximize Conversion Value, no target-ROAS cap
-            — let the algorithm find conversions. Days 30–60: add a target ROAS at 70–80% of
-            trailing actual. Days 60–90: ratchet the target up in 10–15% steps every two weeks.
-            Break-even ROAS at ~60% margin is 1.7×; the profitable floor is ~2.0–2.5×.</p>
+            <div class="flow">
+              <div class="fl-step"><div class="fl-when">Days 0–30</div><div class="fl-head">Find conversions</div><div class="fl-text">Maximize Conversion Value, no target-ROAS cap — let the algorithm learn.</div></div>
+              <div class="fl-step"><div class="fl-when">Days 30–60</div><div class="fl-head">Add a target</div><div class="fl-text">Target ROAS set at 70–80% of trailing actual.</div></div>
+              <div class="fl-step"><div class="fl-when">Days 60–90</div><div class="fl-head">Ratchet up</div><div class="fl-text">Raise the target in 10–15% steps every two weeks. Profitable floor ~2.0–2.5×.</div></div>
+            </div>
 
             <h4 class="mini">Brand exclusions &amp; negatives</h4>
             <p style="margin-top:6px">PMax learns against branded conversions for 30 days, then
@@ -1291,13 +1395,18 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">Channel build · 02</div>
         <h2 class="sec">Pinterest — the planning channel</h2>
-        <p>Pinterest catches the buyer six to ten weeks before the trip, while she is still
-        planning. Pins keep working for months — a pin's median half-life is 3.75 months — so
-        every dollar here builds a compounding asset rather than a depreciating one.</p>
+        <p class="deck-lead">Pinterest catches the buyer six to ten weeks before the trip, while
+        she is still planning. A pin's median half-life is 3.75 months — so every dollar here
+        builds a <strong>compounding asset</strong>, not a depreciating one.</p>
 
         <div class="playbook">
           <div class="pb-head"><h3>Pinterest</h3><span class="pb-budget">$900 / month</span></div>
           <div class="pb-body">
+            <h4 class="mini">First — competitor content research</h4>
+            <p style="margin-top:6px">Before a single pin goes live, we audit the comp set on
+            Pinterest — board structures, and the pin formats, imagery and copy actually
+            earning saves and clicks. That research briefs Pecan Moon's own pins, so the
+            channel launches against proven patterns instead of guesswork.</p>
             <h4 class="mini">Setup</h4>
             <p style="margin-top:6px">Install the free Pinterest for Shopify app — it
             auto-syncs the catalog daily, installs the Pinterest Tag and enables the
@@ -1345,9 +1454,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">Channel build · 03</div>
         <h2 class="sec">Meta — a retargeting layer, not a prospecting engine</h2>
-        <p>Meta is not dead for Pecan Moon — it is mis-cast. Finding 02 showed prospecting at
-        0.30%. But the warm audience already arriving through Direct is exactly what Meta
-        retargeting does cheaply and well.</p>
+        <p class="deck-lead">Meta is not dead for Pecan Moon — it is <strong>mis-cast</strong>.
+        Prospecting ran at 0.30%; but retargeting the warm audience already arriving through
+        Direct is exactly what Meta does cheaply and well.</p>
 
         <div class="playbook">
           <div class="pb-head"><h3>Meta Retargeting</h3><span class="pb-budget">$300 / month</span></div>
@@ -1374,9 +1483,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">Foundation</div>
         <h2 class="sec">The attribution stack</h2>
-        <p>This is what closes the measurement gaps in Finding 05. It is installed in week 1,
-        on Pecan Moon's own accounts — your data, you keep it. Roughly $375/month, paid
-        directly to the vendors.</p>
+        <p class="deck-lead">This closes the measurement gaps in Finding 05 — installed in
+        week 1, on Pecan Moon's own accounts. Your data, you keep it. Roughly
+        <strong>$375/month</strong>, paid directly to the vendors.</p>
         <div class="table-wrap">
           <table class="data">
             <thead><tr><th>Tool</th><th class="num">Monthly</th><th>What it does</th></tr></thead>
@@ -1399,9 +1508,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">Lifecycle</div>
         <h2 class="sec">Email &amp; SMS — capturing the audience you already have</h2>
-        <p>Finding 03 showed Direct traffic converting at 4× paid and producing most of the
-        orders — with nothing built to capture it. Klaviyo flows are how that audience stops
-        leaking away. We audit and rebuild four priority flows first:</p>
+        <p class="deck-lead">Finding 03 showed Direct traffic converting at 4× paid — with
+        nothing built to capture it. Klaviyo flows are how that audience stops leaking away.
+        Four priority flows first:</p>
         <div class="table-wrap">
           <table class="data">
             <thead><tr><th>Flow</th><th>What it does</th><th>Built</th></tr></thead>
@@ -1423,22 +1532,25 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">The rate-limiter</div>
         <h2 class="sec">The creative engine</h2>
-        <p>No channel outperforms its creative. That is why $400/month of the budget is reserved
-        for creative production — it is the constraint on Google, Pinterest and Meta alike.</p>
-        <p>You already produce the photography, and it is genuinely strong — so the model is
-        simple: <strong>you produce, we direct what to test.</strong> Each week we brief four
-        ad concepts against the asset groups, and the iteration cycle keeps the channels fed
-        with fresh angles.</p>
+        <p class="deck-lead">No channel outperforms its creative — which is why
+        <strong>$400/month</strong> is reserved for creative production. It is the rate-limiter
+        on Google, Pinterest and Meta alike.</p>
+        <p class="deck-sub">Your photography is genuinely strong, so the model is simple —
+        <strong>you produce, we direct what to test.</strong> Each week we brief four ad
+        concepts against the asset groups.</p>
         <h4 class="mini">Asset types every channel needs</h4>
-        <ul>
-          <li>Clean product shots on white — for Shopping and catalog ads</li>
-          <li>Landscape lifestyle (1.91:1) — styled, on-location, for PMax and Pinterest</li>
-          <li>Portrait lifestyle (4:5) — the vacation scene, for feed and Pinterest pins</li>
-          <li>Short ambient video (16:9 and 9:16) — no voiceover required</li>
-        </ul>
-        <p>We will also surface brand cues that are currently invisible in the marketing — the
-        signature satin pouch packaging, for instance, is a real luxury signal that belongs in
-        ad creative and the post-purchase flow. Small things, but they are free perceived value.</p>
+        <div class="gcards c2">
+          <div class="gcard"><div class="gc-tag">Format</div><div class="gc-head">Clean product on white</div><div class="gc-text">For Shopping and catalog ads.</div></div>
+          <div class="gcard"><div class="gc-tag">Format</div><div class="gc-head">Landscape lifestyle · 1.91:1</div><div class="gc-text">Styled, on-location — for PMax and Pinterest.</div></div>
+          <div class="gcard"><div class="gc-tag">Format</div><div class="gc-head">Portrait lifestyle · 4:5</div><div class="gc-text">The vacation scene — for feed and Pinterest pins.</div></div>
+          <div class="gcard"><div class="gc-tag">Format</div><div class="gc-head">Short ambient video</div><div class="gc-text">16:9 and 9:16 — no voiceover required.</div></div>
+        </div>
+        <div class="callout">
+          <div class="co-label">Free perceived value</div>
+          <p>We will also surface brand cues currently invisible in the marketing — the
+          signature satin pouch packaging is a real luxury signal that belongs in ad creative
+          and the post-purchase flow.</p>
+        </div>
       </div>
     </section>
 
@@ -1446,8 +1558,8 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">Who runs what</div>
         <h2 class="sec">A US-based team, with clear ownership</h2>
-        <p>The work splits cleanly between two people, both based in Texas — close to your time
-        zone and to the US retail context that shapes every benchmark.</p>
+        <p class="deck-lead">The work splits cleanly between two people, both based in Texas —
+        close to your time zone and to the US retail context that shapes every benchmark.</p>
         <div class="table-wrap">
           <table class="data">
             <thead><tr><th>Who</th><th>Based</th><th>Owns</th></tr></thead>
@@ -1458,10 +1570,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
             </tbody>
           </table>
         </div>
-        <p>Your existing social manager keeps Instagram. The handshake is the value: paid-side
-        performance data and ad-creative learnings flow to her content; her organic insight —
-        which posts resonate, which language lands — flows back into ad targeting and briefs.
-        No overlap, no replacement. We establish direct comms with her in week 1.</p>
+        <p class="deck-sub">Your social manager keeps Instagram — no overlap, no replacement.
+        The handshake is the value: paid learnings flow into her content; her organic insight
+        on what resonates flows back into ad targeting. We open direct comms with her in week 1.</p>
       </div>
     </section>
 
@@ -1469,10 +1580,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">What success looks like</div>
         <h2 class="sec">Directional benchmarks</h2>
-        <p>These are the ranges the work should track toward, drawn from current industry data
-        for luxury fashion on these channels. They are <strong>expectations, not guarantees</strong>
-        — month one is an investment phase by design, and firm targets get set together at the
-        30-day review on real baseline data.</p>
+        <p class="deck-lead">These are the ranges the work should track toward, drawn from
+        current industry data — <strong>expectations, not guarantees</strong>. Month one is an
+        investment phase by design; firm targets are set together at the 30-day review.</p>
         <div class="table-wrap">
           <table class="data">
             <thead><tr><th>Window</th><th>Google PMax ROAS</th><th>Pinterest</th><th>Blended MER</th></tr></thead>
@@ -1483,10 +1593,17 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
             </tbody>
           </table>
         </div>
-        <p>Supporting reference points: Branded Search typically returns 8–13× ROAS; Pinterest
-        CVR for luxury runs 5–8%; the luxury-fashion site conversion-rate baseline is roughly
-        0.7–0.9%. We report against these every week so there are no surprises in either
-        direction.</p>
+        <p class="deck-sub">Supporting reference points: Branded Search typically returns 8–13×
+        ROAS; Pinterest CVR for luxury runs 5–8%; the luxury-fashion site conversion-rate
+        baseline is roughly 0.7–0.9%. We report against these weekly.</p>
+        <div class="callout flag">
+          <div class="co-label">Results depend on the creative</div>
+          <p>One condition runs under every number on this page: <strong>paid media can only
+          scale what the content earns.</strong> These ranges assume a steady supply of strong,
+          distinctive, on-brand creative from the media team. Generic or AI-generated filler
+          will not reach them; original, well-art-directed content will. Results will vary
+          directly with the quality of the imagery, video and copy produced.</p>
+        </div>
       </div>
     </section>
 
@@ -1515,26 +1632,28 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">Beyond paid</div>
         <h2 class="sec">Where this goes next</h2>
-        <p>The 90-day plan above is the committed scope — paid channels, attribution, lifecycle
-        and creative. But the most durable growth for a brand like Pecan Moon is earned, not
-        bought. This is the roadmap beyond Phase 1: <strong>not in the current budget or hours,
-        and noted here so the bigger picture is visible</strong> — we would scope it together
-        once the paid engine is proven.</p>
+        <p class="deck-lead">The 90-day plan is the committed scope. But the most durable growth
+        for a brand like Pecan Moon is <strong>earned, not bought</strong> — this is the roadmap
+        beyond Phase 1, noted so the bigger picture is visible. Not in the current budget or hours.</p>
 
-        <h3 class="sub">AI-search visibility (AEO / GEO)</h3>
-        <p>When someone asks ChatGPT or Google's AI for "the best luxury resort wear brands,"
-        Pecan Moon currently has no presence in the answer. That is changeable: structured
-        Schema markup, a library of destination-guide content ("What to wear in Mykonos"), and
-        Pecan Moon's Shopify catalog surfacing in ChatGPT's organic shopping results. Unlike a
-        paid click, an AI citation compounds — it keeps recommending the brand for years.</p>
-
-        <h3 class="sub">Earned media</h3>
-        <p>The brands that win AI citations are the brands that win editorial citations. A
-        PR and gifting program — hero pieces to editors at Vogue, WWD, Harper's Bazaar and Town
-        &amp; Country — authentic presence in the Reddit communities where destination-wedding
-        and capsule-wardrobe buyers gather, a Wikipedia entity for the brand and founder, and
-        targeted Substack placements together build a citation moat the comp set would need
-        years to dismantle.</p>
+        <div class="gcards c2">
+          <div class="gcard">
+            <div class="gc-tag">Phase 2+ · Upside</div>
+            <div class="gc-head">AI-search visibility (AEO / GEO)</div>
+            <div class="gc-text">Ask ChatGPT for "the best luxury resort wear brands" and Pecan
+            Moon is absent today. Schema markup, destination-guide content and catalog feeds
+            into AI shopping change that — and unlike a paid click, an AI citation compounds
+            for years.</div>
+          </div>
+          <div class="gcard">
+            <div class="gc-tag">Phase 2+ · Upside</div>
+            <div class="gc-head">Earned media</div>
+            <div class="gc-text">The brands that win AI citations win editorial ones first. PR
+            and gifting to Vogue, WWD and Harper's Bazaar, real Reddit presence, a Wikipedia
+            entity and Substack placements build a citation moat the comp set can't quickly
+            match.</div>
+          </div>
+        </div>
 
         <div class="callout">
           <div class="co-label">How to think about it</div>
@@ -1559,8 +1678,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
       <div class="wrap">
         <div class="kicker">The investment</div>
         <h2 class="sec">What Pecan Moon pays</h2>
-        <p>Three line items. Two of them — ad spend and software — Pecan Moon pays directly to
-        the platforms and vendors, so there is no markup and full visibility.</p>
+        <p class="deck-lead">Three line items. Two of them — ad spend and software — Pecan Moon
+        pays directly to the platforms and vendors, so there is <strong>no markup</strong> and
+        full visibility.</p>
         <div class="table-wrap">
           <table class="data">
             <caption>All-in monthly investment — Phase 1</caption>
@@ -1575,8 +1695,9 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         </div>
 
         <h3 class="sub">How the cost ramps</h3>
-        <p>The only line that grows is ad spend — and only when performance gates are met.
-        Zapp fees actually settle <em>down</em> after the build-heavy first two months.</p>
+        <p class="deck-sub">The only line that grows is ad spend — and only when performance
+        gates are met. Zapp fees actually settle <em>down</em> after the build-heavy first two
+        months.</p>
         <div class="chart">
           <div class="chart-title">Illustrative 6-month cost ramp</div>
           <svg viewBox="0 0 700 348" role="img" aria-label="Stacked monthly cost: roughly $5,625 in months 1 to 2, $6,875 in months 3 to 4, $9,375 in months 5 to 6">
@@ -1638,17 +1759,16 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         </div>
 
         <h3 class="sub">Fee structure</h3>
-        <p>We mirror the model already working on the Shopify side — an hourly rate with a
-        guaranteed floor and a capped ceiling, so the cost is predictable both ways.</p>
+        <p class="deck-lead">We mirror the model already working on the Shopify side — an hourly
+        rate with a guaranteed floor and a capped ceiling, so cost is predictable both ways.</p>
         <div class="stat-row">
           <div class="stat"><div class="sv">$75</div><div class="sl">Per hour</div></div>
           <div class="stat"><div class="sv">10 hrs</div><div class="sl">Guaranteed monthly minimum — $750 floor</div></div>
           <div class="stat"><div class="sv">30 hrs</div><div class="sl">Monthly cap without approval — $2,250 ceiling</div></div>
         </div>
-        <p>The first 60 days run closer to the cap — standing up Google, building Pinterest from
-        scratch, installing attribution and rebuilding Meta is front-loaded work. From around
-        month 3, most months settle into the 15–25 hour range. Hours split between Hamza and
-        Zena by the work.</p>
+        <p class="deck-sub">The first 60 days run closer to the cap — standing up four channels
+        and attribution is front-loaded work. From month 3, most months settle into the 15–25
+        hour range, split between Hamza and Zena by the work.</p>
         <div class="callout">
           <div class="co-label">On the performance bonus</div>
           <p>You raised the idea of a performance bonus, and we are glad to build one in. Rather
@@ -1717,7 +1837,7 @@ ol.steps li:not(:last-child):after{content:""; position:absolute; left:14px; top
         <ul>
           <li>$3,000/month ad budget, paid directly to the platforms — you control it</li>
           <li>≈ $375/month in attribution software, on your own accounts</li>
-          <li>Continued photography and content production</li>
+          <li>Continued photography and content production — strong, original creative is the input every channel's results depend on</li>
           <li>Meta Business Manager admin access for our team (a five-minute action)</li>
           <li>Brand guidelines and voice — we will help formalise what is not yet documented</li>
           <li>Creative and copy approvals within 48 hours</li>
