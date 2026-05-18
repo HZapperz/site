@@ -574,43 +574,23 @@ function Qualify() {
 }
 
 // ── Application form ─────────────────────────────────────────────
+const APPLY_TEMPLATE = `Name:
+
+Company:
+
+Website:
+
+Approx. monthly revenue:
+
+Biggest constraint right now (3 sentences max):
+`
+
+const APPLY_MAILTO =
+  'mailto:hamzazulquernain1@gmail.com' +
+  `?subject=${encodeURIComponent('Equity Partnership Application')}` +
+  `&body=${encodeURIComponent(APPLY_TEMPLATE)}`
+
 function Application() {
-  const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({
-    name: '',
-    company: '',
-    url: '',
-    revenue: '',
-    constraint: '',
-  })
-
-  const handle = (e: React.FormEvent) => {
-    e.preventDefault()
-    const body = `Name: ${form.name}
-Company: ${form.company}
-URL: ${form.url}
-Monthly revenue: ${form.revenue}
-
-Biggest constraint right now:
-${form.constraint}`
-
-    const mailto = `mailto:hamzazulquernain1@gmail.com?subject=${encodeURIComponent('Equity Partnership Application')}&body=${encodeURIComponent(body)}`
-    window.location.href = mailto
-    setSubmitted(true)
-  }
-
-  const inputStyle: React.CSSProperties = {
-    ...MONO,
-    backgroundColor: '#EEE7D3',
-    border: '1px solid rgba(12,12,12,0.15)',
-    color: '#0C0C0C',
-    padding: '12px 14px',
-    borderRadius: '6px',
-    fontSize: '14px',
-    width: '100%',
-    outline: 'none',
-  }
-
   return (
     <section id="apply" className="py-24 px-6" style={{ backgroundColor: '#EEE7D3' }}>
       <div className="max-w-3xl mx-auto">
@@ -643,126 +623,38 @@ ${form.constraint}`
             Tell me about the business.
           </h2>
           <p className="text-lg mb-10 leading-relaxed" style={{ color: '#3A3632' }}>
-            Five fields. I reply personally within 72 hours. If it looks like a fit, we schedule
-            the 2-week paid diagnostic. If not, I&apos;ll tell you what I&apos;d focus on instead.
+            The button below opens your mail app with a short template already in it — fill in
+            the five lines and send. I reply personally within 72 hours. If it looks like a fit,
+            we schedule the 2-week paid diagnostic. If not, I&apos;ll tell you what I&apos;d focus
+            on instead.
           </p>
         </Reveal>
 
-        {!submitted ? (
-          <Reveal delay={100}>
-            <form onSubmit={handle} className="flex flex-col gap-5">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs mb-2" style={{ ...MONO, color: '#7A756D', letterSpacing: '0.1em' }}>
-                    YOUR NAME
-                  </label>
-                  <input
-                    required
-                    value={form.name}
-                    onChange={e => setForm({ ...form, name: e.target.value })}
-                    style={inputStyle}
-                    onFocus={e => (e.currentTarget.style.borderColor = '#E8903A')}
-                    onBlur={e => (e.currentTarget.style.borderColor = 'rgba(12,12,12,0.15)')}
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs mb-2" style={{ ...MONO, color: '#7A756D', letterSpacing: '0.1em' }}>
-                    COMPANY
-                  </label>
-                  <input
-                    required
-                    value={form.company}
-                    onChange={e => setForm({ ...form, company: e.target.value })}
-                    style={inputStyle}
-                    onFocus={e => (e.currentTarget.style.borderColor = '#E8903A')}
-                    onBlur={e => (e.currentTarget.style.borderColor = 'rgba(12,12,12,0.15)')}
-                  />
-                </div>
-              </div>
+        <Reveal delay={100}>
+          <a
+            href={APPLY_MAILTO}
+            className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded transition-colors"
+            style={{ backgroundColor: '#0C0C0C', color: '#F5EFE0' }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#3A3632')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#0C0C0C')}
+          >
+            Apply by email <ArrowRight size={16} />
+          </a>
 
-              <div>
-                <label className="block text-xs mb-2" style={{ ...MONO, color: '#7A756D', letterSpacing: '0.1em' }}>
-                  WEBSITE URL
-                </label>
-                <input
-                  required
-                  type="url"
-                  placeholder="https://"
-                  value={form.url}
-                  onChange={e => setForm({ ...form, url: e.target.value })}
-                  style={inputStyle}
-                  onFocus={e => (e.currentTarget.style.borderColor = '#E8903A')}
-                  onBlur={e => (e.currentTarget.style.borderColor = 'rgba(12,12,12,0.15)')}
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs mb-2" style={{ ...MONO, color: '#7A756D', letterSpacing: '0.1em' }}>
-                  APPROX. MONTHLY REVENUE
-                </label>
-                <input
-                  required
-                  placeholder="$10K / $100K / $500K — ballpark is fine"
-                  value={form.revenue}
-                  onChange={e => setForm({ ...form, revenue: e.target.value })}
-                  style={inputStyle}
-                  onFocus={e => (e.currentTarget.style.borderColor = '#E8903A')}
-                  onBlur={e => (e.currentTarget.style.borderColor = 'rgba(12,12,12,0.15)')}
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs mb-2" style={{ ...MONO, color: '#7A756D', letterSpacing: '0.1em' }}>
-                  BIGGEST CONSTRAINT RIGHT NOW
-                </label>
-                <textarea
-                  required
-                  rows={5}
-                  placeholder="Three sentences max. What's blocking the number?"
-                  value={form.constraint}
-                  onChange={e => setForm({ ...form, constraint: e.target.value })}
-                  style={{ ...inputStyle, resize: 'vertical', minHeight: '120px', fontFamily: "'Inter', sans-serif" }}
-                  onFocus={e => (e.currentTarget.style.borderColor = '#E8903A')}
-                  onBlur={e => (e.currentTarget.style.borderColor = 'rgba(12,12,12,0.15)')}
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="self-start inline-flex items-center gap-2 px-8 py-4 text-base font-semibold rounded transition-colors"
-                style={{ backgroundColor: '#0C0C0C', color: '#F5EFE0' }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#3A3632')}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#0C0C0C')}
-              >
-                Submit application <ArrowRight size={16} />
-              </button>
-
-              <p className="text-xs" style={{ ...MONO, color: '#7A756D' }}>
-                Reply within 72 hours · Not every applicant gets a diagnostic · That&apos;s the point
-              </p>
-            </form>
-          </Reveal>
-        ) : (
-          <Reveal>
-            <div
-              className="p-8 rounded"
-              style={{
-                backgroundColor: '#F5EFE0',
-                border: '1px solid rgba(74,141,95,0.3)',
-                borderLeftWidth: '3px',
-                borderLeftColor: '#4a8d5f',
-              }}
+          <p className="text-sm mt-6 leading-relaxed" style={{ color: '#7A756D' }}>
+            No mail app, or prefer to write it yourself? Email{' '}
+            <a
+              href="mailto:hamzazulquernain1@gmail.com"
+              className="font-semibold transition-colors"
+              style={{ color: '#C97020' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#0C0C0C')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#C97020')}
             >
-              <p className="text-base font-semibold mb-2" style={{ ...DISPLAY, color: '#0C0C0C' }}>
-                Email composed.
-              </p>
-              <p className="text-sm leading-relaxed" style={{ color: '#3A3632' }}>
-                Hit send in your mail app — I&apos;ll reply personally within 72 hours. If
-                it&apos;s a fit, we book the diagnostic from there.
-              </p>
-            </div>
-          </Reveal>
-        )}
+              hamzazulquernain1@gmail.com
+            </a>{' '}
+            directly — name, company, website, monthly revenue, and your biggest constraint.
+          </p>
+        </Reveal>
       </div>
     </section>
   )
