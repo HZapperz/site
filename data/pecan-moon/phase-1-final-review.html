@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pecan Moon — Phase 1 · Your Final Review</title>
+<style>
+  :root {
+    --cream: #faf7f2;
+    --cream-warm: #f5efe6;
+    --paper: #fdfbf7;
+    --white: #ffffff;
+    --ink: #2c1810;
+    --ink-soft: #3a3028;
+    --muted: #6b5b4a;
+    --muted-soft: #8a8278;
+    --accent: #b89a6a;
+    --accent-dark: #8b6f47;
+    --accent-deep: #5c4a30;
+    --soft-gold: #e8dcc8;
+    --border: #e8e2d5;
+    --rule: #d9cdb8;
+    --highlight: #f7ecd4;
+    --leaf: #6b7d5a;
+    --shadow-sm: 0 1px 3px rgba(60,40,20,0.05);
+    --shadow-md: 0 2px 8px rgba(60,40,20,0.06), 0 8px 24px rgba(60,40,20,0.04);
+    --shadow-lg: 0 4px 12px rgba(60,40,20,0.08), 0 16px 48px rgba(60,40,20,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: var(--white); }
+
+  /* ===== TOPBAR ===== */
+  .topbar {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 14px 24px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+  }
+  .topbar .dot { color: var(--accent); margin: 0 12px; }
+  .topbar .pill {
+    background: var(--accent);
+    color: var(--ink);
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-left: 8px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(180deg, var(--cream-warm) 0%, var(--cream) 100%);
+    padding: 96px 24px 80px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero .eyebrow {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.34em;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    font-weight: 600;
+  }
+  .hero .eyebrow .complete-pill {
+    background: var(--leaf);
+    color: var(--cream);
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-left: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    font-size: 10px;
+  }
+  .hero h1 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(38px, 5.6vw, 64px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    max-width: 900px;
+    margin: 0 auto 20px;
+    letter-spacing: -0.018em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent-dark);
+    font-weight: 400;
+  }
+  .hero .subtitle {
+    font-size: clamp(16px, 1.7vw, 19px);
+    color: var(--muted);
+    max-width: 640px;
+    margin: 0 auto 40px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .hero .cta-row {
+    display: inline-flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero .cta {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 14px 28px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+  .hero .cta:hover { background: var(--ink); color: var(--cream); }
+  .hero .cta.primary { background: var(--ink); color: var(--cream); }
+  .hero .cta.primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+
+  /* ===== INTRO STRIP ===== */
+  .intro {
+    background: var(--white);
+    padding: 56px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .intro .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .intro .wrap p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .intro .wrap p strong { color: var(--ink); font-weight: 600; }
+  .intro .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto 28px;
+  }
+
+  /* ===== TOC ===== */
+  .toc {
+    background: var(--cream-warm);
+    padding: 40px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc .wrap { max-width: 920px; margin: 0 auto; }
+  .toc .label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: tocnum;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 6px 24px;
+  }
+  .toc li {
+    counter-increment: tocnum;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--rule);
+    font-size: 15px;
+    color: var(--ink-soft);
+    position: relative;
+    padding-left: 32px;
+  }
+  .toc li::before {
+    content: counter(tocnum, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .toc li a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .toc li a:hover { color: var(--accent-dark); }
+  .toc li .est {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+
+  /* ===== CONTAINER ===== */
+  .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== SECTION ===== */
+  section.q {
+    padding: 88px 0 64px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 24px;
+  }
+  section.q:last-of-type { border-bottom: none; }
+
+  .q-num {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .q-num .of { color: var(--muted-soft); margin-left: 6px; }
+
+  section.q h2 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(28px, 3.4vw, 40px);
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+  section.q h2 em { font-style: italic; color: var(--accent-dark); }
+
+  section.q .lede {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 680px;
+    font-style: italic;
+  }
+
+  /* ===== EMAIL MOCKUP ===== */
+  .email-frame {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 24px 0;
+    box-shadow: var(--shadow-md);
+  }
+  .email-frame .inbox-meta {
+    background: var(--white);
+    padding: 14px 22px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 12.5px;
+    color: var(--muted);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .email-frame .inbox-meta .from {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .email-frame .inbox-meta .subject {
+    color: var(--ink);
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 4px;
+  }
+  .email-frame .inbox-meta .preview {
+    color: var(--muted-soft);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .email-body {
+    background: var(--cream);
+    padding: 0;
+  }
+  .email-body .promo-bar {
+    text-align: center;
+    padding: 18px 20px 6px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+  }
+  .email-body .logo {
+    text-align: center;
+    padding: 24px 20px 4px;
+  }
+  .email-body .logo .brand {
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+    letter-spacing: 0.25em;
+    color: var(--ink);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  .email-body .place {
+    text-align: center;
+    padding: 0 20px 22px;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .email-body .white-card {
+    background: var(--white);
+    padding: 36px 0 0;
+  }
+  .email-body .gold-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto 26px;
+  }
+  .email-body .headline {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 400;
+    color: var(--ink);
+    padding: 0 20px 10px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+  .email-body .headline em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .email-body .sub-eyebrow {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    padding: 0 20px 18px;
+  }
+  .email-body .body-copy {
+    padding: 26px 48px 24px;
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    line-height: 1.95;
+    color: var(--ink-soft);
+  }
+  .email-body .body-copy p { margin-bottom: 16px; color: var(--ink-soft); }
+  .email-body .body-copy p:last-child { margin-bottom: 0; }
+  .email-body .body-copy.center { text-align: center; }
+  .email-body .body-copy .first-line { color: var(--ink); }
+
+  .email-body .signature {
+    padding: 16px 48px 36px;
+    font-family: 'Georgia', serif;
+  }
+  .email-body .signature .care {
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .email-body .signature .name {
+    font-style: italic;
+    font-size: 30px;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .email-body .signature .title {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .email-body .promo-block {
+    background: var(--cream);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .email-body .promo-block .promo-eyebrow {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .email-body .promo-block .promo-head {
+    font-family: 'Georgia', serif;
+    font-size: 26px;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+  .email-body .promo-block .code-chip {
+    display: inline-block;
+    background: var(--white);
+    border: 1px solid var(--accent);
+    padding: 14px 32px;
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    letter-spacing: 0.4em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .email-body .promo-block .code-foot {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--muted-soft);
+  }
+
+  .email-body .care-block {
+    background: var(--cream);
+    padding: 36px 48px;
+    text-align: center;
+  }
+  .email-body .care-block .care-eyebrow {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .email-body .care-block .care-head {
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+  .email-body .care-block p {
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+  }
+  .email-body .footer-strip {
+    text-align: center;
+    padding: 24px 20px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted-soft);
+    text-transform: uppercase;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== APPROVE PANEL ===== */
+  .approve-panel {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--leaf);
+    border-radius: 4px;
+    padding: 22px 28px;
+    margin: 24px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .approve-panel .ask-text {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+    flex: 1 1 280px;
+    line-height: 1.55;
+  }
+  .approve-panel .actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .approve-panel .btn {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .approve-panel .btn.primary {
+    background: var(--leaf);
+    color: var(--cream);
+    border-color: var(--leaf);
+  }
+  .approve-panel .btn.warn {
+    border-color: var(--accent-dark);
+    color: var(--accent-dark);
+  }
+
+  /* ===== TWO-COL FOR PAIRED EMAILS ===== */
+  .pair-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 26px;
+    margin: 24px 0;
+  }
+  .pair-grid .pair-item .pair-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.26em;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .pair-grid .pair-item .pair-sub {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  /* ===== OPTION CARDS (for Order Confirmation) ===== */
+  .option-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--soft-gold);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+  }
+  .option-card.recommended {
+    border-left-color: var(--leaf);
+    box-shadow: var(--shadow-md);
+  }
+  .option-card .option-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .option-card .option-letter {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .option-card .option-title {
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    color: var(--ink);
+    font-weight: 400;
+    flex: 1 1 200px;
+  }
+  .option-card .rec-pill {
+    background: var(--leaf);
+    color: var(--cream);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .option-card p { font-size: 15px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 10px; }
+
+  /* ===== OUR STORY DRAFT BLOCK ===== */
+  .story-frame {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 56px 56px 48px;
+    margin: 24px 0;
+    box-shadow: var(--shadow-md);
+    position: relative;
+  }
+  .story-frame::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .story-frame .story-eyebrow {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.3em;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 18px;
+  }
+  .story-frame .story-head {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 32px;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+  .story-frame .story-head em { font-style: italic; color: var(--accent-dark); }
+  .story-frame .story-body p {
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    line-height: 1.95;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+  .story-frame .placeholder {
+    background: var(--highlight);
+    color: var(--accent-deep);
+    padding: 1px 8px;
+    border-radius: 3px;
+    font-style: italic;
+    border-bottom: 1px dashed var(--accent-dark);
+    cursor: help;
+  }
+  .story-frame .placeholder sup {
+    color: var(--accent-dark);
+    font-weight: 700;
+    margin-left: 2px;
+    font-size: 10px;
+  }
+  .story-frame .story-sig {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--accent);
+    margin-top: 30px;
+  }
+  .placeholder-key {
+    background: var(--cream-warm);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .placeholder-key .key-label {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .placeholder-key ol {
+    list-style: none;
+    counter-reset: pkey;
+    padding-left: 0;
+  }
+  .placeholder-key ol li {
+    counter-increment: pkey;
+    padding: 8px 0 8px 36px;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    border-bottom: 1px dashed var(--rule);
+  }
+  .placeholder-key ol li:last-child { border-bottom: none; }
+  .placeholder-key ol li::before {
+    content: counter(pkey);
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 22px;
+    height: 22px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .placeholder-key ol li strong { color: var(--ink); font-weight: 600; }
+
+  /* ===== SIMPLE ASK PANEL (for Mobile / Vitals / Instagram) ===== */
+  .ask-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 36px;
+    margin: 24px 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .ask-block .what-i-need {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .ask-block .ask-headline {
+    font-family: 'Georgia', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 16px;
+    line-height: 1.35;
+  }
+  .ask-block p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .ask-block .options-inline {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  .ask-block .opt-chip {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 14px 20px;
+    border-radius: 4px;
+    font-family: 'Georgia', serif;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    flex: 1 1 200px;
+    line-height: 1.5;
+  }
+  .ask-block .opt-chip.rec {
+    border-color: var(--leaf);
+    border-left-width: 4px;
+    background: linear-gradient(90deg, rgba(107,125,90,0.04) 0%, transparent 30%);
+  }
+  .ask-block .opt-chip .opt-letter {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--accent);
+    margin-right: 8px;
+  }
+  .ask-block .opt-chip .opt-rec {
+    background: var(--leaf);
+    color: var(--cream);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ===== REPLY MAP (final section) ===== */
+  .reply-section {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 72px 24px 60px;
+    margin-top: 40px;
+  }
+  .reply-section .wrap { max-width: 720px; margin: 0 auto; }
+  .reply-section .eyebrow {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .reply-section h2 {
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    color: var(--cream);
+  }
+  .reply-section h2 em { font-style: italic; color: var(--accent); }
+  .reply-section .lede {
+    text-align: center;
+    font-size: 16px;
+    color: rgba(245,239,230,0.75);
+    font-style: italic;
+    max-width: 540px;
+    margin: 0 auto 40px;
+    line-height: 1.65;
+  }
+  .reply-section .replytmpl {
+    background: rgba(245,239,230,0.06);
+    border: 1px solid rgba(245,239,230,0.15);
+    border-radius: 6px;
+    padding: 28px 32px;
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    line-height: 1.95;
+    color: rgba(245,239,230,0.92);
+  }
+  .reply-section .replytmpl ol {
+    list-style: none;
+    counter-reset: rl;
+    padding: 0;
+  }
+  .reply-section .replytmpl ol li {
+    counter-increment: rl;
+    padding: 10px 0 10px 32px;
+    position: relative;
+    border-bottom: 1px dashed rgba(245,239,230,0.12);
+  }
+  .reply-section .replytmpl ol li:last-child { border-bottom: none; }
+  .reply-section .replytmpl ol li::before {
+    content: counter(rl);
+    position: absolute;
+    left: 0;
+    top: 13px;
+    color: var(--accent);
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+  .reply-section .replytmpl ol li strong { color: var(--cream); font-weight: 400; }
+  .reply-section .replytmpl ol li .your-bit {
+    color: var(--accent);
+    font-style: italic;
+  }
+  .reply-section .signoff {
+    text-align: center;
+    margin-top: 36px;
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    color: rgba(245,239,230,0.55);
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .reply-section .signoff strong {
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== FOOTER ===== */
+  footer.site-footer {
+    background: var(--accent-deep);
+    color: var(--cream);
+    text-align: center;
+    padding: 36px 24px;
+  }
+  footer.site-footer .brand {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  footer.site-footer .copy {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(245,239,230,0.65);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 720px) {
+    .hero { padding: 64px 20px 56px; }
+    .intro { padding: 40px 20px; }
+    .toc { padding: 32px 20px; }
+    section.q { padding: 56px 0 40px; }
+    .story-frame { padding: 36px 28px 32px; }
+    .email-body .body-copy,
+    .email-body .signature,
+    .email-body .care-block { padding-left: 28px; padding-right: 28px; }
+    .ask-block { padding: 24px 24px; }
+    .approve-panel { padding: 18px 22px; flex-direction: column; align-items: stretch; }
+    .approve-panel .actions { width: 100%; }
+    .approve-panel .actions .btn { flex: 1 1 auto; text-align: center; }
+    .reply-section { padding: 56px 20px 48px; }
+    .reply-section .replytmpl { padding: 22px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== TOPBAR ========== -->
+<div class="topbar">
+  Pecan Moon <span class="dot">·</span> Phase 1 <span class="dot">·</span> Final Review
+  <span class="pill">Complete</span>
+</div>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="eyebrow">Phase 01 <span class="complete-pill">Wrapped</span></div>
+  <h1>Phase 1 is <em>built.</em><br>Here's what we made.</h1>
+  <p class="subtitle">A few small calls from you and we're live. Take your time — everything below is ready when you are.</p>
+  <div class="cta-row">
+    <a href="#q01" class="cta primary">Begin review ↓</a>
+    <a href="#reply" class="cta">How to reply</a>
+  </div>
+</header>
+
+<!-- ========== INTRO ========== -->
+<div class="intro">
+  <div class="wrap">
+    <div class="divider"></div>
+    <p>What you'll find below: <strong>seven small decisions</strong>, each with the draft work already done. Read at your pace, reply when ready.</p>
+    <p>Some are one-word answers ("approved" / "use option B"). One is a quick read with five blanks to fill. None of them require more than fifteen minutes of your time.</p>
+  </div>
+</div>
+
+<!-- ========== TOC ========== -->
+<div class="toc">
+  <div class="wrap">
+    <div class="label">What's in this review</div>
+    <ol>
+      <li><a href="#q01">Our Story page</a><span class="est">5 min</span></li>
+      <li><a href="#q02">Order Confirmation email</a><span class="est">2 min</span></li>
+      <li><a href="#q03">Welcome emails (two of them)</a><span class="est">3 min</span></li>
+      <li><a href="#q04">Order Shipped + Delivered emails</a><span class="est">3 min</span></li>
+      <li><a href="#q05">Homepage on mobile</a><span class="est">1 min</span></li>
+      <li><a href="#q06">Vitals app decision</a><span class="est">30 sec</span></li>
+      <li><a href="#q07">Instagram bio link</a><span class="est">5 min on phone</span></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ========== Q1 · OUR STORY PAGE ========== -->
+<!-- ============================================================ -->
+<section class="q" id="q01">
+  <div class="container">
+    <div class="q-num">Decision 01<span class="of">— of 07</span></div>
+    <h2>Your <em>Our Story</em> page — a first-person draft.</h2>
+    <p class="lede">Right now, the Our Story page reads in third person ("At Pecan Moon, we believe…"). This draft puts it in your voice. ~280 words, reads in 90 seconds. Five small blanks for you to fill in — they're highlighted below in gold.</p>
+
+    <div class="story-frame">
+      <div class="story-eyebrow">A note from Mary</div>
+      <div class="story-head">A note from <em>Mary</em> —</div>
+      <div class="story-body">
+        <p>I grew up between <span class="placeholder">the village / the coast / __________<sup>1</sup></span> and the kitchens and gardens of women who dressed with intention. Nothing rushed. Nothing disposable. A linen dress lasted twenty summers because someone took the time to make it well, and someone else took the time to wear it well.</p>
+
+        <p>When I moved to Austin, I kept looking for the way those women dressed and not finding it. There was beautiful, and there was casual, and there was expensive — but there wasn't <em>considered.</em> Not in a way I recognized.</p>
+
+        <p>So I started making the pieces I wanted to wear. One at a time, by hand, in an atelier I built <span class="placeholder">two miles from my kitchen<sup>2</sup></span>. Each piece is named for <span class="placeholder">a woman I love<sup>3</sup></span>: Angela, Maria, Seraphina, Elora. Their dresses, their stories, their summers in <span class="placeholder">the Mediterranean / __________<sup>4</sup></span>.</p>
+
+        <p>I named the brand for <span class="placeholder">the pecan trees that line the road home, and for the moon that watches over the women who came before me<sup>5</sup></span>. A small inheritance, given quietly.</p>
+
+        <p>If you find your way here, I'd love for you to come stay a while. Step inside the atelier. Read the dispatches when they come. Wear a piece for twenty summers, if it suits you.</p>
+      </div>
+      <div class="story-sig">— Mary</div>
+    </div>
+
+    <div class="placeholder-key">
+      <div class="key-label">The five gold-highlighted spots — fill in or tell me what's true</div>
+      <ol>
+        <li><strong>Where you grew up.</strong> The texture matters — village name, coastal town, region. ("Between the Adriatic and my grandmother's garden in Split" is a thousand times better than "in Europe.")</li>
+        <li><strong>Atelier location.</strong> "Two miles from my kitchen" is a guess. Could be "in a converted garage behind the house," "in a studio on East 5th," etc.</li>
+        <li><strong>Whether pieces are actually named after women you love.</strong> If not — what's the naming convention? Places, feelings, seasons?</li>
+        <li><strong>The geographic anchor of the customer/brand.</strong> Currently "the Mediterranean." If your inspiration sits somewhere else (Texas Hill Country? The Aegean? Marrakech?), tell me.</li>
+        <li><strong>Why "Pecan Moon."</strong> My guess: pecan = the trees on your road home; moon = something celestial/feminine/family. Replace with the true story.</li>
+      </ol>
+    </div>
+
+    <div class="approve-panel">
+      <div class="ask-text">Fill in the five blanks (a sentence each is plenty) and reply. I'll push the page live within 10 minutes of getting your edits.</div>
+      <div class="actions">
+        <span class="btn primary">Fill in &amp; send back</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ========== Q2 · ORDER CONFIRMATION ========== -->
+<!-- ============================================================ -->
+<section class="q" id="q02">
+  <div class="container">
+    <div class="q-num">Decision 02<span class="of">— of 07</span></div>
+    <h2>Order confirmation email — <em>pick A or B.</em></h2>
+    <p class="lede">Right now, the email a customer gets after placing an order is generic — opens with "Dear {first_name}." We have two Mary-voice drafts ready. A is faster to ship; B is on-spec to the launch plan and reads warmer. Both end up live within an hour of your pick.</p>
+
+    <!-- OPTION A -->
+    <div class="option-card">
+      <div class="option-head">
+        <span class="option-letter">A</span>
+        <span class="option-title">Shorter, third-person — already in the system</span>
+      </div>
+      <p>The existing draft (sitting in Klaviyo, just needs to be switched on). Mentions Mary once, references the satin bag and atelier. Faster to ship.</p>
+    </div>
+
+    <div class="email-frame">
+      <div class="inbox-meta">
+        <div class="from">Pecan Moon &lt;shop@pecanmoon.com&gt;</div>
+        <div class="subject">Your order is confirmed</div>
+        <div class="preview">Thank you for your order — being prepared in our Austin atelier.</div>
+      </div>
+      <div class="email-body">
+        <div class="logo"><div class="brand">PECAN MOON</div></div>
+        <div class="place">Austin · Texas</div>
+        <div class="white-card">
+          <div class="gold-rule"></div>
+          <div class="headline">Thank you.</div>
+          <div class="sub-eyebrow">Your order is confirmed</div>
+          <div class="body-copy center">
+            <p>Sarah, your order has been received. It's being prepared by hand in our Austin atelier and will ship within three business days.</p>
+          </div>
+        </div>
+        <div class="care-block">
+          <div class="care-eyebrow">From the Atelier</div>
+          <div class="care-head">A note about your piece</div>
+          <p>Your order arrives with our signature satin bag, hand-designed by Mary, and complimentary gift wrapping. A handwritten note from the atelier will be tucked inside.</p>
+        </div>
+        <div class="footer-strip">Behind the Scenes · Follow Pecan Moon</div>
+      </div>
+    </div>
+
+    <!-- OPTION B -->
+    <div class="option-card recommended" style="margin-top: 36px;">
+      <div class="option-head">
+        <span class="option-letter">B</span>
+        <span class="option-title">Longer, first-person, signed "— Mary"</span>
+        <span class="rec-pill">Recommended</span>
+      </div>
+      <p>The richer draft we wrote specifically for Pecan Moon. Adds the "I saw your order come through this morning" opener, the satin pouch ritual, and the line that turns this email into a relationship: <em>"If anything isn't right — the fit, the color, the way it sits — write me back at this address. I read every reply."</em></p>
+      <p>Order confirmations open at 60%+. This is the highest open rate any of your emails will ever see. Worth the warmer voice.</p>
+    </div>
+
+    <div class="email-frame">
+      <div class="inbox-meta">
+        <div class="from">Mary at Pecan Moon &lt;shop@pecanmoon.com&gt;</div>
+        <div class="subject">A note from Mary, with your order</div>
+        <div class="preview">It's being made for you now.</div>
+      </div>
+      <div class="email-body">
+        <div class="logo"><div class="brand">PECAN MOON</div></div>
+        <div class="place">Austin · Texas</div>
+        <div class="white-card">
+          <div class="gold-rule"></div>
+          <div class="body-copy">
+            <p class="first-line"><strong>Sarah —</strong></p>
+            <p>I saw your order come through this morning.</p>
+            <p>It's already on the table in the atelier — pinned, marked, and waiting for the next hand to start on it. By the time you read this it's hand-finished and folded; by Friday it's at your door.</p>
+            <p>Here's what to expect when it arrives:</p>
+            <p>• A satin pouch with your piece inside it. <strong>Save the pouch</strong> — it's how the piece travels.<br>
+               • A small note from us, in the same hand that finished the seams.<br>
+               • The piece itself, in the colorway you chose. It will look exactly like the photograph.</p>
+            <p>If anything isn't right — the fit, the color, the way it sits — write me back at this address. I read every reply.</p>
+            <p>Thank you for letting us into your week.</p>
+          </div>
+          <div class="signature">
+            <div class="care">With care,</div>
+            <div class="name">Mary</div>
+            <div class="title">Founder, Pecan Moon</div>
+          </div>
+          <div class="body-copy" style="padding-top: 0; font-size: 14.5px; font-style: italic; color: var(--muted);">
+            <p>P.S. If you want to see the piece being made, I post the work from the atelier on Instagram. Quiet, slow, mostly hands.</p>
+          </div>
+        </div>
+        <div class="footer-strip">Behind the Scenes · Follow Pecan Moon</div>
+      </div>
+    </div>
+
+    <div class="approve-panel">
+      <div class="ask-text">Reply with "A" or "B" — and any one-line edits you want (a word changed, a paragraph cut, anything). I'll ship within the hour of getting your call.</div>
+      <div class="actions">
+        <span class="btn primary">Pick B (recommended)</span>
+        <span class="btn">Pick A</span>
+        <span class="btn warn">Tweak something</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ========== Q3 · WELCOME EMAILS ========== -->
+<!-- ============================================================ -->
+<section class="q" id="q03">
+  <div class="container">
+    <div class="q-num">Decision 03<span class="of">— of 07</span></div>
+    <h2>Welcome emails — <em>two of them, written.</em></h2>
+    <p class="lede">When someone signs up for the list, they land in one of two branches: people who've already bought from you (returning) vs. people who never have (new). The two drafts below cover each. You just need to approve them — and approve one small piece of plumbing on my end.</p>
+
+    <div class="pair-grid">
+      <!-- WELCOME EMAIL · NEW SUBSCRIBER -->
+      <div class="pair-item">
+        <div class="pair-label">For new subscribers</div>
+        <div class="pair-sub">"They've never bought before — welcome them properly, give them shipping."</div>
+        <div class="email-frame">
+          <div class="inbox-meta">
+            <div class="from">Mary at Pecan Moon</div>
+            <div class="subject">Welcome to Pecan Moon</div>
+            <div class="preview">Complimentary shipping on your first piece — a small thank-you.</div>
+          </div>
+          <div class="email-body">
+            <div class="promo-bar">Complimentary Shipping Over $1,000 · Handcrafted in Limited Quantities</div>
+            <div class="logo"><div class="brand">PECAN MOON</div></div>
+            <div class="place">Austin · Texas</div>
+            <div class="white-card">
+              <div class="gold-rule"></div>
+              <div class="headline">Welcome.</div>
+              <div class="sub-eyebrow">To Pecan Moon</div>
+              <div class="body-copy">
+                <p class="first-line"><strong>Sarah,</strong></p>
+                <p>I'm Mary, the founder of Pecan Moon. I started this brand from my home in Austin because I wanted to make pieces that feel slow, considered, and made by hand — the kind of garments that get better the longer you own them.</p>
+                <p>Most of our styles are made in editions of fewer than fifty. Once a piece is gone, it rarely returns.</p>
+                <p>As a small thank-you for joining us, your first order ships free — and arrives with a signature satin bag designed by my own hand.</p>
+              </div>
+            </div>
+            <div class="promo-block">
+              <div class="promo-eyebrow">A Small Welcome Gift</div>
+              <div class="promo-head">Complimentary Shipping<br>On Your First Order</div>
+              <div class="code-chip">WELCOME</div>
+              <div class="code-foot">Use at checkout. Valid on your first order only.</div>
+            </div>
+            <div class="white-card" style="padding-top: 8px;">
+              <div class="signature">
+                <div class="care">With care,</div>
+                <div class="name">Mary</div>
+                <div class="title">Founder, Pecan Moon</div>
+              </div>
+            </div>
+            <div class="footer-strip">Behind the Scenes · Follow Pecan Moon</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WELCOME EMAIL · RETURNING CUSTOMER -->
+      <div class="pair-item">
+        <div class="pair-label">For returning customers</div>
+        <div class="pair-sub">"They've already worn Pecan Moon — welcome them back instead."</div>
+        <div class="email-frame">
+          <div class="inbox-meta">
+            <div class="from">Mary at Pecan Moon</div>
+            <div class="subject">Welcome back to the list</div>
+            <div class="preview">A note from Mary — glad you're here, again.</div>
+          </div>
+          <div class="email-body">
+            <div class="promo-bar">Complimentary Shipping Over $1,000 · Handcrafted in Limited Quantities</div>
+            <div class="logo"><div class="brand">PECAN MOON</div></div>
+            <div class="place">Austin · Texas</div>
+            <div class="white-card">
+              <div class="gold-rule"></div>
+              <div class="headline">Glad you're here. <em>Again.</em></div>
+              <div class="sub-eyebrow">A note from Mary</div>
+              <div class="body-copy">
+                <p class="first-line"><strong>Sarah,</strong></p>
+                <p>Welcome back to the list. You've worn Pecan Moon before — which makes this feel less like a welcome and more like a return.</p>
+                <p>I'll send you new pieces as they're made, glimpses from the atelier, and the occasional letter. Nothing more, nothing less.</p>
+              </div>
+              <div class="signature">
+                <div class="care">With care,</div>
+                <div class="name">Mary</div>
+                <div class="title">Founder, Pecan Moon</div>
+              </div>
+            </div>
+            <div class="footer-strip">Behind the Scenes · Follow Pecan Moon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ask-block" style="margin-top: 36px;">
+      <div class="what-i-need">One small piece of plumbing</div>
+      <div class="ask-headline">Your welcome emails aren't currently reaching everyone who signs up.</div>
+      <p>The popup on your homepage writes signups to one place, but the welcome flow is reading from another. The fix is a small reconnection on my end. <strong>To do it, I need 10 quiet minutes where new signups won't get a welcome</strong> — I'll do this off-hours, late evening Austin time.</p>
+      <p>If that's fine, just say "go" and I'll handle it this week. The two emails above go live the moment I reconnect.</p>
+    </div>
+
+    <div class="approve-panel">
+      <div class="ask-text">Reply "approved" (or note any edits) and "go" on the plumbing. Both welcome emails go live this week.</div>
+      <div class="actions">
+        <span class="btn primary">Approve both + plumbing</span>
+        <span class="btn warn">Tweak something</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ========== Q4 · SHIPPED + DELIVERED ========== -->
+<!-- ============================================================ -->
+<section class="q" id="q04">
+  <div class="container">
+    <div class="q-num">Decision 04<span class="of">— of 07</span></div>
+    <h2>Order Shipped + Delivered emails — <em>two more, also written.</em></h2>
+    <p class="lede">The two transactional emails that fire after a customer's order leaves the atelier. Both currently say "Dear Customer, Your Order is out for delivery." We replaced both with first-person Mary-voice drafts. Approve below and I'll swap them in.</p>
+
+    <div class="pair-grid">
+      <!-- ORDER SHIPPED -->
+      <div class="pair-item">
+        <div class="pair-label">When the piece ships</div>
+        <div class="pair-sub">"Your order left our Austin atelier today, wrapped by hand…"</div>
+        <div class="email-frame">
+          <div class="inbox-meta">
+            <div class="from">Pecan Moon</div>
+            <div class="subject">Your order is on its way</div>
+            <div class="preview">Your Pecan Moon piece is on its way from Austin.</div>
+          </div>
+          <div class="email-body">
+            <div class="logo"><div class="brand">PECAN MOON</div></div>
+            <div class="place">Austin · Texas</div>
+            <div class="white-card">
+              <div class="gold-rule"></div>
+              <div class="headline">On its way to you.</div>
+              <div class="sub-eyebrow">Your order has shipped</div>
+              <div class="body-copy center">
+                <p>Sarah, your order left our Austin atelier today, wrapped by hand and tucked inside its signature satin bag.</p>
+              </div>
+            </div>
+            <div class="promo-block">
+              <div class="promo-eyebrow">Tracking Information</div>
+              <div class="promo-head">Track Your Order</div>
+              <div class="code-foot" style="margin-top: 14px;">Estimated delivery: 3–5 business days</div>
+            </div>
+            <div class="care-block">
+              <div class="care-eyebrow">When It Arrives</div>
+              <div class="care-head">A small ritual</div>
+              <p>Inside, you'll find a handwritten note, our signature satin bag, and care instructions for your piece. Take a moment when it arrives — these pieces are made slowly, and they're meant to be received the same way.</p>
+            </div>
+            <div class="footer-strip">Behind the Scenes · Follow Pecan Moon</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORDER DELIVERED -->
+      <div class="pair-item">
+        <div class="pair-label">When the piece arrives</div>
+        <div class="pair-sub">"It's arrived. I hope it finds you well…"</div>
+        <div class="email-frame">
+          <div class="inbox-meta">
+            <div class="from">Mary at Pecan Moon</div>
+            <div class="subject">Your piece has arrived</div>
+            <div class="preview">Your Pecan Moon piece has arrived — take a moment.</div>
+          </div>
+          <div class="email-body">
+            <div class="logo"><div class="brand">PECAN MOON</div></div>
+            <div class="place">Austin · Texas</div>
+            <div class="white-card">
+              <div class="gold-rule"></div>
+              <div class="headline">It's arrived.</div>
+              <div class="sub-eyebrow">Your order was delivered</div>
+              <div class="body-copy">
+                <p class="first-line"><strong>Sarah,</strong></p>
+                <p>Your piece has arrived. I hope it finds you well.</p>
+                <p>Take a moment with it before you wear it — unwrap it slowly, feel the fabric, find the handwritten note tucked inside. These pieces are made to be lived in, not rushed.</p>
+                <p>I'd love to know how it fits. Just reply — it comes straight to me.</p>
+              </div>
+              <div class="signature">
+                <div class="care">With care,</div>
+                <div class="name">Mary</div>
+                <div class="title">Founder, Pecan Moon</div>
+              </div>
+            </div>
+            <div class="care-block">
+              <div class="care-eyebrow">Caring For Your Piece</div>
+              <div class="care-head">A piece made to last</div>
+              <p style="text-align: left;"><strong>i. Wash cold.</strong> Hand wash or cold gentle cycle. Avoid bleach. Use a natural detergent.</p>
+              <p style="text-align: left;"><strong>ii. Lay flat to dry.</strong> Reshape while damp. Avoid hanging — natural fibers hold their shape best flat.</p>
+              <p style="text-align: left;"><strong>iii. Store with care.</strong> Use the satin bag for travel and storage. Cedar or lavender keeps moths away naturally.</p>
+            </div>
+            <div class="footer-strip">Behind the Scenes · Follow Pecan Moon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="approve-panel">
+      <div class="ask-text">Reply "approved" (or any line you want changed). Both go live within an hour of your nod.</div>
+      <div class="actions">
+        <span class="btn primary">Approve both</span>
+        <span class="btn warn">Tweak something</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ========== Q5 · MOBILE HOMEPAGE ========== -->
+<!-- ============================================================ -->
+<section class="q" id="q05">
+  <div class="container">
+    <div class="q-num">Decision 05<span class="of">— of 07</span></div>
+    <h2>The homepage on mobile — <em>needs a still image from you.</em></h2>
+    <p class="lede">On a phone, your homepage hero is still an autoplaying video — which means a customer opening pecanmoon.com on their iPhone doesn't see "Pecan Moon" or the tagline above the fold. The brand introduces itself only after they scroll. We can fix it cleanly, but it needs one thing from you.</p>
+
+    <div class="ask-block">
+      <div class="what-i-need">What I need</div>
+      <div class="ask-headline">A single still image that lands the brand register in one frame.</div>
+      <p>Could be cropped from a frame of the current homepage video, or a different photo you have on hand — anything that says "Pecan Moon" the moment a phone screen lights up. Cream knitwear, the atelier, a piece on a hanger, a hand at work — your call.</p>
+      <p>Send me whatever you've got and I'll handle the rest. The change takes me about an hour once the image is in hand, and it reverts cleanly via a single toggle if you ever want the video back.</p>
+    </div>
+
+    <div class="approve-panel">
+      <div class="ask-text">Drop a photo (any size, any orientation) in your reply. I'll crop, place, and ship it.</div>
+      <div class="actions">
+        <span class="btn primary">Send me a photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ========== Q6 · VITALS APP ========== -->
+<!-- ============================================================ -->
+<section class="q" id="q06">
+  <div class="container">
+    <div class="q-num">Decision 06<span class="of">— of 07</span></div>
+    <h2>The Vitals app — <em>your call on what to do with it.</em></h2>
+    <p class="lede">Vitals (the all-in-one Shopify app you have installed) is sitting in a paused state — the recurring subscription has lapsed, so none of its features (Live View visitor tracking, Sales Pop toasts) are firing. Which is actually a clean state, since those are the noisy features we didn't want anyway. Your call on what to do next.</p>
+
+    <div class="ask-block">
+      <div class="what-i-need">Three options</div>
+      <div class="options-inline">
+        <div class="opt-chip">
+          <span class="opt-letter">a.</span>
+          <strong>Re-subscribe</strong> ($29.99/mo) and we explicitly toggle the noisy features off.
+        </div>
+        <div class="opt-chip rec">
+          <span class="opt-letter">b.</span>
+          <strong>Leave it lapsed.</strong> Cheapest, and the noisy features can't fire anyway.
+          <span class="opt-rec">Recommended</span>
+        </div>
+        <div class="opt-chip">
+          <span class="opt-letter">c.</span>
+          <strong>Uninstall Vitals</strong> if you don't think you'll use it.
+        </div>
+      </div>
+    </div>
+
+    <div class="approve-panel">
+      <div class="ask-text">Just reply with the letter: a, b, or c.</div>
+      <div class="actions">
+        <span class="btn primary">Reply b (recommended)</span>
+        <span class="btn">a or c</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ========== Q7 · INSTAGRAM BIO ========== -->
+<!-- ============================================================ -->
+<section class="q" id="q07">
+  <div class="container">
+    <div class="q-num">Decision 07<span class="of">— of 07</span></div>
+    <h2>Instagram bio link — <em>five minutes on your phone.</em></h2>
+    <p class="lede">Instagram doesn't let me edit your profile, but this is a five-minute fix on your phone whenever you have a moment.</p>
+
+    <div class="ask-block">
+      <div class="what-i-need">What to do</div>
+      <div class="ask-headline">Point @pecan.moon's bio link at your full catalog.</div>
+      <p>Open Instagram → Profile → Edit Profile → Website. Paste in:</p>
+      <p style="background: var(--cream-warm); padding: 14px 22px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 15px; color: var(--ink); border-left: 3px solid var(--accent);">https://pecanmoon.com/collections/all</p>
+      <p>That's it. Reply "done" when you've done it (or "skip" if you'd rather a different URL — landing page, specific collection, anything).</p>
+    </div>
+
+    <div class="approve-panel">
+      <div class="ask-text">A five-minute task on your phone. Reply "done" when handled.</div>
+      <div class="actions">
+        <span class="btn primary">Done</span>
+        <span class="btn warn">Use a different URL</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ========== REPLY MAP ========== -->
+<!-- ============================================================ -->
+<section class="reply-section" id="reply">
+  <div class="wrap">
+    <div class="eyebrow">If it helps</div>
+    <h2>A <em>reply template</em> you can copy.</h2>
+    <p class="lede">Numbered, one-line each. Fill in your answers, hit send. Phase 1 lands within 48 hours of this reply.</p>
+
+    <div class="replytmpl">
+      <ol>
+        <li><strong>Our Story page:</strong> <span class="your-bit">Here are my five answers — 1) ____, 2) ____, 3) ____, 4) ____, 5) ____</span></li>
+        <li><strong>Order Confirmation:</strong> <span class="your-bit">Pick A / Pick B / Pick B with this tweak: ____</span></li>
+        <li><strong>Welcome emails + plumbing:</strong> <span class="your-bit">Approved / Approved with edits to ____ / Hold off on the plumbing</span></li>
+        <li><strong>Shipped + Delivered:</strong> <span class="your-bit">Approved / Approved with edits to ____</span></li>
+        <li><strong>Mobile homepage:</strong> <span class="your-bit">Photo attached / Sending separately / Skip for now</span></li>
+        <li><strong>Vitals:</strong> <span class="your-bit">a / b / c</span></li>
+        <li><strong>Instagram bio:</strong> <span class="your-bit">Done / Will do today / Use this URL instead: ____</span></li>
+      </ol>
+    </div>
+
+    <div class="signoff">
+      No urgency on any of this. Take your time.<br>
+      Happy to jump on a quick call instead if any of these are easier to talk through than type.<br><br>
+      <strong>— Hamza</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="brand">Pecan Moon</div>
+  <div class="copy">Austin · Texas · Phase 1 Final Review · 2026</div>
+</footer>
+
+</body>
+</html>
