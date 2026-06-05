@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pecan Moon × Zapp — Paid Acquisition Proposal</title>
+<style>
+  :root{
+    --paper:#faf7f0; --paper2:#f4eee2; --band:#f7f1e4;
+    --ink:#1d1813; --ink2:#3c352b; --muted:#6f6657; --faint:#9a9080;
+    --gold:#9a7b4f; --gold-deep:#7c6035; --rule:#e4dccb; --rule2:#cdc1a8;
+    --neg:#9c3b2e; --neg-bg:#f7ece8; --neg-rule:#e6cdc5;
+    --pos:#5b6b3c; --pos-bg:#eef1e6; --pos-rule:#d4dac0;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:900px;margin:0 auto;padding:0 32px}
+  em{font-style:italic}
+
+  /* hero */
+  header.hero{background:var(--paper);padding:62px 0 0}
+  .hero .kicker{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:24px}
+  .hero h1{font-family:var(--serif);font-size:3rem;line-height:1.04;margin:0 0 18px;font-weight:600;color:var(--ink);letter-spacing:-.015em}
+  .hero .period{font-size:1.02rem;line-height:1.62;color:var(--ink2);margin:0 0 30px;max-width:640px}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--rule2);border-bottom:1px solid var(--rule2);padding:18px 0}
+  .hero .meta span{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);font-weight:600;padding-right:26px;margin-right:26px;border-right:1px solid var(--rule)}
+  .hero .meta span:last-child{border-right:none;margin-right:0;padding-right:0}
+  .hero .meta b{display:block;font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--ink);text-transform:none;letter-spacing:0;margin-top:5px}
+
+  /* sections */
+  section{padding:46px 0 6px;border-top:1px solid var(--rule)}
+  .hero + .wrap section:first-child,section.first{border-top:none}
+  .kick{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:11px}
+  .kick .num{color:var(--rule2);margin-right:10px}
+  h2.sec{font-family:var(--serif);font-size:1.72rem;line-height:1.14;margin:0 0 8px;font-weight:600;color:var(--ink);letter-spacing:-.012em}
+  .lead{color:var(--muted);margin:8px 0 22px;font-size:1rem;line-height:1.58;max-width:680px}
+  .lead b{color:var(--ink2);font-weight:600}
+  p.body{font-size:.97rem;color:var(--ink2);margin:16px 0 0;line-height:1.66;max-width:720px}
+  p.body b{font-weight:600;color:var(--ink)}
+  p.fine{font-size:.84rem;color:var(--muted);line-height:1.6;margin:14px 0 0;max-width:720px}
+
+  /* figure band */
+  .figs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule2);margin:10px 0 0}
+  .figs.f3{grid-template-columns:repeat(3,1fr)}
+  .fig{padding:20px 22px 20px 0;border-right:1px solid var(--rule)}
+  .fig:last-child{border-right:none}
+  .fig .n{font-family:var(--serif);font-size:1.92rem;font-weight:600;line-height:1.04;color:var(--ink);letter-spacing:-.015em}
+  .fig .n small{font-size:1rem;font-weight:600}
+  .fig .n.neg{color:var(--neg)} .fig .n.gold{color:var(--gold-deep)} .fig .n.pos{color:var(--pos)}
+  .fig .l{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin-top:9px;line-height:1.4;font-weight:600}
+  @media(max-width:680px){.figs,.figs.f3{grid-template-columns:1fr 1fr}.fig{border-right:none}}
+
+  /* notes / callouts */
+  .note{padding:17px 22px;margin:18px 0 0;border-left:2px solid var(--gold);background:var(--band)}
+  .note .nl{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--gold-deep);margin-bottom:8px}
+  .note.neg{border-left-color:var(--neg);background:var(--neg-bg)} .note.neg .nl{color:var(--neg)}
+  .note.pos{border-left-color:var(--pos);background:var(--pos-bg)} .note.pos .nl{color:var(--pos)}
+  .note b{font-weight:600;color:var(--ink)} .note em{font-style:italic}
+  .note p{margin:0;font-size:.94rem;line-height:1.62;color:var(--ink2)}
+
+  /* tables */
+  .tw{overflow-x:auto;margin:12px 0 0}
+  table.tbl{width:100%;border-collapse:collapse;font-size:.9rem;min-width:540px}
+  .tbl th{text-align:left;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--muted);padding:0 16px 11px 16px;border-bottom:1.5px solid var(--ink)}
+  .tbl th:first-child,.tbl td:first-child{padding-left:0}
+  .tbl th:last-child,.tbl td:last-child{padding-right:0}
+  .tbl th.num,.tbl td.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .tbl td{padding:13px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top;line-height:1.5}
+  .tbl td.k{font-weight:600;color:var(--ink)}
+  .tbl td .s{display:block;font-size:.77rem;color:var(--faint);margin-top:3px;font-weight:400}
+  .tbl tr.hl td{background:var(--band)}
+  .tbl tr.pos td{background:var(--pos-bg);color:#43502c}
+  .tbl tr.pos td.k{color:var(--pos)}
+  .tbl tr.neg td{background:var(--neg-bg);color:#7a3024}
+  .tbl tr.neg td.k{color:var(--neg)}
+  .tbl tr.grp td{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;padding:20px 0 5px;border-bottom:1px solid var(--rule2);background:none}
+  .tbl tfoot td{border-bottom:none;border-top:1.5px solid var(--ink)}
+  .tnote{font-size:.8rem;color:var(--muted);margin-top:11px;line-height:1.58;max-width:740px}
+
+  /* pills */
+  .pill{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--rule2);border-radius:2px;color:var(--muted);vertical-align:1px;margin-left:6px}
+  .pill.gold{border-color:var(--gold);color:var(--gold-deep);background:var(--band)}
+  .pill.neg{border-color:var(--neg-rule);color:var(--neg);background:var(--neg-bg)}
+  .pill.pos{border-color:var(--pos-rule);color:var(--pos);background:var(--pos-bg)}
+
+  /* hairline card grids */
+  .cards{display:grid;gap:1px;background:var(--rule);margin:14px 0 0;border:1px solid var(--rule)}
+  .cards.c2{grid-template-columns:1fr 1fr}
+  .cards.c3{grid-template-columns:repeat(3,1fr)}
+  .card{background:var(--paper);padding:20px 22px;position:relative}
+  .card .ck{font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:9px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .card.muted .ck{color:var(--muted)}
+  .card h4{font-family:var(--serif);margin:0 0 7px;font-size:1.14rem;font-weight:600;color:var(--ink);line-height:1.2}
+  .card p{margin:0;font-size:.86rem;color:var(--muted);line-height:1.56}
+  .card p + p{margin-top:8px}
+  .card.rec{background:var(--band);box-shadow:inset 0 0 0 2px var(--gold)}
+  @media(max-width:680px){.cards.c2,.cards.c3{grid-template-columns:1fr}}
+
+  /* compare (today vs day 90) */
+  .compare{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;margin:14px 0 0;border:1px solid var(--rule2)}
+  .compare .col{padding:22px 26px}
+  .compare .col.now{background:var(--neg-bg)} .compare .col.then{background:var(--pos-bg)}
+  .compare .arrow{display:flex;align-items:center;justify-content:center;padding:0 14px;color:var(--gold);font-size:1.3rem;background:var(--paper);border-left:1px solid var(--rule2);border-right:1px solid var(--rule2)}
+  .compare .ch{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:13px}
+  .compare .now .ch{color:var(--neg)} .compare .then .ch{color:var(--pos)}
+  .compare .r{display:flex;justify-content:space-between;gap:14px;padding:6px 0;font-size:.92rem;border-top:1px solid rgba(0,0,0,.06)}
+  .compare .r:first-of-type{border-top:none}
+  .compare .r b{font-family:var(--serif);font-weight:600}
+  .compare .now .r b{color:var(--neg)} .compare .then .r b{color:var(--pos)}
+  .compare .r span{color:var(--muted)}
+  @media(max-width:680px){.compare{grid-template-columns:1fr}.compare .arrow{padding:8px 0;border:none;transform:rotate(90deg)}}
+
+  /* checklist */
+  ul.chk{margin:14px 0 0;padding:0;list-style:none}
+  ul.chk li{position:relative;padding:11px 0 11px 26px;border-top:1px solid var(--rule);font-size:.93rem;color:var(--ink2);line-height:1.58}
+  ul.chk li:first-child{border-top:none}
+  ul.chk li:before{content:"";position:absolute;left:1px;top:18px;width:6px;height:6px;background:var(--gold);border-radius:50%}
+  ul.chk li b{color:var(--ink);font-weight:600}
+  ul.chk li .who{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-deep);font-weight:700;margin-left:8px;white-space:nowrap}
+
+  /* AI rows */
+  .airow{display:grid;grid-template-columns:188px 1fr;gap:18px;align-items:baseline;padding:15px 0;border-top:1px solid var(--rule)}
+  .airow:first-of-type{border-top:none}
+  .airow .an{font-family:var(--serif);font-weight:600;color:var(--ink);font-size:1.02rem}
+  .airow .an .as{display:block;font-family:var(--sans);font-weight:400;font-size:.72rem;color:var(--faint);margin-top:3px;text-transform:uppercase;letter-spacing:.08em}
+  .airow .at{font-size:.89rem;color:var(--muted);line-height:1.58}
+  .airow .at b{color:var(--ink2);font-weight:600}
+  @media(max-width:620px){.airow{grid-template-columns:1fr;gap:4px}}
+
+  footer{margin-top:58px;border-top:1px solid var(--rule2);padding:30px 0 56px}
+  footer .wrap{color:var(--faint);font-size:.77rem;line-height:1.62}
+  footer b{color:var(--ink2);font-family:var(--serif);font-weight:600;font-size:.9rem}
+  .src{margin-top:11px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">Pecan Moon, Inc. &nbsp;·&nbsp; Zapp LLC &nbsp;·&nbsp; Paid Acquisition Proposal</div>
+    <h1>Same Budget,<br>Pointed at Intent</h1>
+    <p class="period">A plan to take over paid advertising on June 15 — concentrating your budget on Google, where people are already searching to buy, while we take over and optimize the existing Meta program and test new channels like TikTok as results justify. A flat fee, billed month to month, with numbers we can stand behind and a clean way out the moment it isn't working.</p>
+    <div class="meta">
+      <span>Prepared for<b>Mary Radenkovic &amp; Adam Milano</b></span>
+      <span>Takeover<b>June 15, 2026</b></span>
+      <span>Ad spend<b>$3,000–3,500/mo cap</b></span>
+      <span>Retainer<b>$1,200/mo · flat</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 1 · EXECUTIVE SUMMARY -->
+  <section class="first">
+    <div class="kick"><span class="num">01</span>Executive summary</div>
+    <h2 class="sec">The whole deal, on one screen</h2>
+    <p class="lead">On <b>June 15</b> we take over your paid advertising. Today, about <b>$3,000/mo on Meta</b> buys roughly <b>three orders a month at ~$1,000 each</b> — because it's aimed at traffic that mostly isn't a real US shopper. The plan is simple: point that <em>same</em> budget at people who are <b>already searching to buy</b> on Google, measure it honestly, and prove it works before spending a dollar more.</p>
+
+    <p class="body"><b>What it costs you.</b> Your ad spend doesn't change — that's already your money, billed straight to you by Google. The only new line on your side is a flat <b>$1,200/mo</b>.</p>
+    <div class="figs f3">
+      <div class="fig"><div class="n">$3–3.5k</div><div class="l">Your ad budget — unchanged · billed to you</div></div>
+      <div class="fig"><div class="n gold">$1,200</div><div class="l">The only new cost — flat, never a % of spend</div></div>
+      <div class="fig"><div class="n">~$4.2–4.75k</div><div class="l">All-in / month · cancel any month</div></div>
+    </div>
+
+    <p class="body" style="margin-top:26px"><b>What you get.</b> The same budget, pointed at intent — here's the shift we're aiming for over the first three months:</p>
+    <div class="compare">
+      <div class="col now">
+        <div class="ch">Today · Meta</div>
+        <div class="r"><span>Traffic</span><b>mostly not real</b></div>
+        <div class="r"><span>Cost per order</span><b>~$1,000</b></div>
+        <div class="r"><span>Spend control</span><b>black box</b></div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="col then">
+        <div class="ch">By month 3 · Google</div>
+        <div class="r"><span>Traffic</span><b>ready-to-buy US</b></div>
+        <div class="r"><span>Cost per order</span><b>toward $275–300</b></div>
+        <div class="r"><span>Spend control</span><b>steerable, measured</b></div>
+      </div>
+    </div>
+    <p class="tnote">These first months buy the conversion data that earns cheaper, scalable results later — clearing past breakeven into steady profit comes <em>after</em>, not within, this window.</p>
+
+    <p class="body" style="margin-top:26px"><b>How you're protected.</b></p>
+    <ul class="chk">
+      <li><b>We scale only once it's profitable</b> — never automatically, and never as a percentage of your spend.</li>
+      <li><b>If it stalls, we say so in writing</b> and recommend pausing rather than ask for more time — it's your call at any monthly review.</li>
+      <li><b>Month-to-month</b> — no minimum term, cancel on 30 days' notice, and your accounts, campaigns and data are always yours.</li>
+    </ul>
+
+    <div class="note">
+      <span class="nl">The recommendation, in one line</span>
+      <p>Lead with <b>Google Search + Shopping</b> — the one place a $3k budget can actually be steered, and where ready-to-buy demand already lives. Month one runs roughly <b>90% Google / 10% Meta</b>: we also take over and optimize the existing Meta/Instagram program, then <b>grow it as an active channel</b> and <b>test TikTok</b> from month two as results justify — the split reassessed at the end of every month. <b>Not</b> Performance Max yet (the account is far too small to run it well — explained at the back). Everything below is the evidence and the build — read on only if you'd like the detail.</p>
+    </div>
+  </section>
+
+  <!-- 2 · WHAT WE'RE TAKING OVER -->
+  <section>
+    <div class="kick"><span class="num">02</span>The starting point</div>
+    <h2 class="sec">What we're taking over</h2>
+    <p class="lead">The plan follows directly from the diagnosis, so here it is in one paragraph. Full detail lives in the Traffic Reality brief.</p>
+    <div class="figs">
+      <div class="fig"><div class="n">~1,700–2,150</div><div class="l">Real US shopper sessions / mo</div></div>
+      <div class="fig"><div class="n neg">3</div><div class="l">Paid-attributed orders / mo</div></div>
+      <div class="fig"><div class="n neg">~$1,000</div><div class="l">Cost per order — on a ~$500 product</div></div>
+      <div class="fig"><div class="n">~125–250</div><div class="l">Genuinely engaged sessions in that traffic</div></div>
+    </div>
+    <div class="note neg">
+      <span class="nl">The read</span>
+      <p>Of all the reported traffic, only <b>~1,700–2,150/mo are real US sessions</b> — and of <em>those</em>, an estimated <b>~125–250 show genuine interest</b> (a signup, an add-to-cart). The thin email-popup capture (~5 signups) is one corroborating signal, alongside the geo and bot data. In short: the current Meta program spends ~$3k to interrupt an audience <b>heavily inflated by bots, our own team, and overseas visitors</b> — and the ~$1,000 cost per order is the predictable result. The fix isn't a bigger version of the same thing; it's a different target.</p>
+    </div>
+  </section>
+
+  <!-- 3 · THE FUNNEL: TRAFFIC → EMAILS → ORDERS -->
+  <section>
+    <div class="kick"><span class="num">03</span>The funnel</div>
+    <h2 class="sec">What this traffic becomes — emails &amp; orders</h2>
+    <p class="lead">The budget doesn't just buy clicks; it produces a <b>list</b> and <b>orders</b>. Here's the realistic spectrum — <b>conservative, target, and upside</b> — built bottom-up from the clicks the spend buys and benchmark capture and conversion rates, not a top-down goal. <em>The steady-state figures are month-4-plus, once learning completes and at this same $3–3.5k budget; the months 1–3 ramp (detailed under Expectations) sits at or below the conservative line by design.</em></p>
+
+    <p class="body"><b>Step one — the clicks.</b> At an apparel blended cost-per-click of roughly <b>$0.90</b> (non-brand category Search ~$1.40, Shopping ~$0.75), the budget buys real, high-intent volume — the large majority Google Search and Shopping traffic, which unlike today's is high-intent <em>by definition</em>.</p>
+    <div class="figs f3">
+      <div class="fig"><div class="n">~3,000–3,800</div><div class="l">High-intent paid clicks / mo the budget buys</div></div>
+      <div class="fig"><div class="n gold">~$0.90</div><div class="l">Blended CPC · Search + Shopping mix</div></div>
+      <div class="fig"><div class="n">~12–30×</div><div class="l">More high-intent sessions than today's ~125–250 engaged</div></div>
+    </div>
+
+    <p class="body" style="margin-top:26px"><b>Step two — the list.</b> A functional email popup on that traffic builds the list the email program (run on its own track) later monetises. Today's popup captures ~5/mo — about <b>0.26%</b>, effectively broken — so even the conservative case here is little more than an <em>industry-floor</em> popup finally doing its job.</p>
+    <div class="tw">
+      <table class="tbl">
+        <thead><tr><th>Email capture</th><th class="num">Opt-in rate</th><th class="num">Emails / mo</th><th class="num">New list / first quarter</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Conservative<span class="s">soft / no-discount hook</span></td><td class="num">~1.5%</td><td class="num">~45–55</td><td class="num">~135–165</td></tr>
+          <tr class="hl"><td class="k">Target<span class="s">functional popup, on-brand incentive</span></td><td class="num">~2.5%</td><td class="num">~75–95</td><td class="num">~225–285</td></tr>
+          <tr><td class="k">Upside<span class="s">aggressive / gamified*</span></td><td class="num">~4.0%</td><td class="num">~120–150</td><td class="num">~360–450</td></tr>
+          <tr class="neg"><td class="k">Today<span class="s">thin / broken capture</span></td><td class="num">~0.26%</td><td class="num">~5</td><td class="num">~15</td></tr>
+        </tbody>
+      </table>
+      <p class="tnote">Off paid traffic only — organic, direct and returning sessions add to the list on top. *The ~4% upside typically needs a discount or gamified popup, which rubs against the no-discount luxury position, so <b>~2.5% is the planning anchor.</b> Benchmark: 2.1% average email-popup conversion across 1.24B displays (Omnisend, 2025) — 1.7% without a discount, 2.4% with.</p>
+    </div>
+
+    <p class="body" style="margin-top:26px"><b>Step three — the orders.</b> Apply a realistic conversion rate to that traffic. A little-known brand selling a <b>$500 considered purchase</b> converts in the <b>luxury band (~0.7–1.5%)</b> — not the 3–4% mass-market apparel average — and below it while the account is still learning. Steady-state:</p>
+    <div class="tw">
+      <table class="tbl">
+        <thead><tr><th>Steady-state orders</th><th class="num">Conv. rate</th><th class="num">Orders / mo</th><th class="num">Blended MER</th><th class="num">Implied CPA</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Conservative<span class="s">luxury floor, modest brand</span></td><td class="num">~0.4%</td><td class="num">~12–15</td><td class="num">~1.9–2.3×</td><td class="num">~$215–270</td></tr>
+          <tr class="pos"><td class="k">Target<span class="s">luxury benchmark</span></td><td class="num">~0.7%</td><td class="num">~21–27</td><td class="num">~3.2–4.2×</td><td class="num">~$120–155</td></tr>
+          <tr class="pos"><td class="k">Upside<span class="s">brand tailwind + warm list</span></td><td class="num">~1.1%</td><td class="num">~33–42</td><td class="num">~5.1–6.5×</td><td class="num">~$75–100</td></tr>
+          <tr class="neg"><td class="k">Today<span class="s">Meta, bot-inflated</span></td><td class="num">—</td><td class="num">~3</td><td class="num">~0.5×</td><td class="num">~$1,000</td></tr>
+        </tbody>
+      </table>
+      <p class="tnote">MER and CPA at ~$3,250 spend and $500 AOV. Breakeven CPA ≈ <b>$275–300</b> (55–60% margin, to confirm) → even the <b>conservative</b> steady-state case modestly clears breakeven, <b>target</b> runs ~2× it, and all three sit far under today's ~$1,000. Today's row isn't a true conversion rate — its traffic is bot/overseas-inflated, which is the problem being fixed. The captured list drives further <b>repeat and assisted orders</b> through the email program that are <em>not</em> counted in these paid figures.</p>
+    </div>
+
+    <div class="note">
+      <span class="nl">What the spectrum says</span>
+      <p>The honest planning case is the <b>Target</b> column — roughly <b>~75–95 new emails and ~21–27 orders a month at a ~3–4× return</b>, once past learning. The <b>Conservative</b> floor still clears breakeven, so the downside is "modestly profitable," not "lights money on fire." The <b>Upside</b> isn't won by more ad spend — it depends on the brand-building half (Mary's content, the email program, retargeting) supplying the earlier touchpoints, exactly as the Expectations section lays out. Every number here is bottom-up from the clicks the budget buys.</p>
+    </div>
+  </section>
+
+  <!-- 4 · THE REFRAME -->
+  <section>
+    <div class="kick"><span class="num">04</span>The idea</div>
+    <h2 class="sec">Capture demand — don't rent traffic</h2>
+    <p class="lead">Meta <b>interrupts</b> people who weren't shopping. Google <b>catches</b> people who already are. For a brand few people know yet, selling at a high price, the second is where the affordable, convertible demand lives.</p>
+    <div class="cards c2">
+      <div class="card">
+        <div class="ck">Core · catch ready-to-buy demand</div>
+        <h4>Google Search + Shopping</h4>
+        <p>Someone typing "occasion dress," "resort wear dress," or a destination outfit has already decided to buy — they're just choosing where. Apparel converts <b>~4% on Google search vs ~3% on Meta</b> in category averages, and Shopping clicks are cheap. This is the demand we can actually win.</p>
+      </div>
+      <div class="card muted">
+        <div class="ck">Second · take over &amp; grow</div>
+        <h4>Optimize Meta, then expand</h4>
+        <p>We inherit and fix the existing Meta/Instagram program from day one — better targeting, clean exclusions, retargeting the real visitors Google and organic bring in. Once it's working, we <b>grow it as an active channel</b> and test TikTok alongside. Google leads the spend; these build around it as results justify.</p>
+      </div>
+    </div>
+    <div class="note">
+      <span class="nl">The caveat that keeps this honest</span>
+      <p>Google <b>catches demand that already exists</b> — it doesn't create it. A brand few people know yet has little branded demand to catch, so early results come from <b>category terms</b> (not cheap searches for our own name) — and those mass-market ~4% averages are a <em>ceiling to aim at</em>, not our starting rate for a $500 considered purchase. That's exactly why the brand-building half — organic content and a credible social presence, produced by <b>Mary's team</b> alongside (not inside) ad management — is the necessary partner to this plan. The closest comparable, <b>Luca Faloni</b>, moved &gt;50% of budget to Google for ~30% lower customer-acquisition cost, but explicitly <em>kept</em> Instagram running for awareness. We propose the same split of roles, not abandoning social.</p>
+    </div>
+  </section>
+
+  <!-- 5 · CHANNEL PLAN -->
+  <section>
+    <div class="kick"><span class="num">05</span>The allocation</div>
+    <h2 class="sec">The channel plan</h2>
+    <p class="lead">Concentrate the budget where it works, then expand deliberately. At ~$3k, splitting evenly across channels guarantees every one stays stuck in learning — so month one runs roughly <b>90% Google / 10% Meta</b>, and we widen the mix only as results justify. <b>Total ad spend stays capped at $3,000–3,500; Meta and any later TikTok test come out of that cap, never on top of it</b>, and the split is reassessed at the end of every month.</p>
+    <div class="tw">
+      <table class="tbl">
+        <thead><tr><th>Month-1 allocation · ≈90 / 10</th><th class="num">Monthly</th><th>Role &amp; build</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="3">Core — Google ≈90% (catching ready-to-buy demand)</td></tr>
+          <tr><td class="k">Brand-defense Search</td><td class="num">~$150</td><td>Cheap protection of the "Pecan Moon" term, so we never lose our own name to a competitor or aggregator.</td></tr>
+          <tr><td class="k">Non-brand category Search</td><td class="num">~$1,400–1,600</td><td>Ready-to-buy terms — "occasion dress," "resort wear," "luxury maxi dress," destination outfits. The growth engine.</td></tr>
+          <tr><td class="k">Standard Shopping</td><td class="num">~$1,150–1,400</td><td>Full catalog, controllable bids, visible search terms. The imagery does the selling; the same feed is eligible to surface in Google's AI answers at no extra cost.</td></tr>
+          <tr><td class="k">Performance Max <span class="pill">phase 2</span></td><td class="num">—</td><td>Held back until the account clears ~30+ conversions/mo — a later-stage option, not an early-months deliverable (full reasoning at the back).</td></tr>
+          <tr class="grp"><td colspan="3">Meta / Instagram ≈10% — take over &amp; optimize</td></tr>
+          <tr><td class="k">Meta/IG takeover + optimize</td><td class="num">~$300–350</td><td>Inherit the existing campaigns day one — fix targeting, US-only / team / bot exclusions, retarget real visitors. Optimize first; <b>grow as an active channel after the month-1 review</b> if it earns it.</td></tr>
+          <tr class="grp"><td colspan="3">Phase 2 — months 2–3, within the same cap</td></tr>
+          <tr><td class="k">TikTok <span class="pill">M2–3</span></td><td class="num">—</td><td>Evaluated from month two — organic content (Mary's team) and/or a small paid test, decided on month-1 learnings, creative availability and budget. Funded by reallocating within the cap, never on top.</td></tr>
+          <tr class="hl"><td class="k">Total ad spend to platforms</td><td class="num">$3,000–3,500</td><td>Google-led at ≈90 / 10 in month 1, reassessed monthly. Billed to you directly by the platforms.</td></tr>
+        </tbody>
+      </table>
+      <p class="tnote">Month-1 split shown (Google ≈90%, Meta ≈10%); reassessed at the end of every month, when we decide whether to divert any budget between channels. The non-brand engine starts on manual/CPC-capped bidding and moves to Maximize Conversions once conversions accrue — and unlike PMax, its search terms stay visible and can be pruned, so it's controllable even at low volume.</p>
+    </div>
+
+    <p class="body" style="margin-top:24px"><b>The sequence — money follows proof.</b> The mix isn't fixed; it's re-cut at each month's review as the data comes in. Google leads the spend throughout; Meta and TikTok widen only where the numbers earn it.</p>
+    <div class="cards c3">
+      <div class="card rec">
+        <div class="ck"><span>Month 1</span><span class="pill gold">build</span></div>
+        <h4>Google build · Meta takeover</h4>
+        <p>Stand up Google Search + Shopping from scratch (~90%) and take over + optimize the inherited Meta/Instagram (~10%). Get clean tracking and real, intent-led traffic flowing.</p>
+      </div>
+      <div class="card">
+        <div class="ck"><span>End of month 1</span><span class="pill">review</span></div>
+        <h4>Reassess &amp; reallocate</h4>
+        <p>Read the first clean data and decide whether to divert any budget between channels. Incoming social-team creative feeds what we can expand next.</p>
+      </div>
+      <div class="card">
+        <div class="ck"><span>Months 2–3</span></div>
+        <h4>Grow Meta · test TikTok</h4>
+        <p>Grow Meta/Instagram as an active channel where it earns it, and evaluate TikTok (organic and/or a small paid test) — all still inside the $3–3.5k cap, Google kept as the priority spend.</p>
+      </div>
+    </div>
+    <div class="note">
+      <span class="nl">On the radar — not funded yet</span>
+      <p><b>Shopify Shop Campaigns.</b> Shopify's "pay only when you get a new customer" product is real and genuinely low-risk (capped cost-per-acquisition, billed only on an attributed order). But every public success case is low-priced impulse goods, it runs on a <b>Shop Cash cashback you partly fund</b> (an effective discount that rubs against a luxury, no-discount position), and there's no high-price proof. We keep all spend in Google for now and revisit it as a small, capped test once the core program is stable.</p>
+    </div>
+  </section>
+
+  <!-- 6 · WHAT TO EXPECT + NUMBERS -->
+  <section>
+    <div class="kick"><span class="num">06</span>Expectations</div>
+    <h2 class="sec">What to expect — and the numbers</h2>
+    <p class="lead">The most important expectation to set with the board up front: for a brand like this, a sale is rarely a single click. Fund the plan and then judge it on week-two results, and you kill a good program early.</p>
+    <p class="body">The rule of thumb is ~7 touches to convert a customer. For a <b>new, unknown brand selling a $500 considered purchase</b>, the real number runs higher — our planning assumption is <b>15+ meaningful touchpoints</b> from first exposure to first order. That's consistent with the category: luxury fashion is a multi-session, multi-week decision. Three things follow:</p>
+    <ul class="chk">
+      <li><b>The funnel has to be more than ads.</b> Search + Shopping catches the moment someone's ready to buy; organic content (Mary's team), the email program, and a small retargeting touch supply the earlier exposures. Ads alone can't manufacture 15 touchpoints.</li>
+      <li><b>The first 8–12 weeks are a ramp, not a verdict.</b> A brand-new account can't yet hit the order volume the bidding algorithms need, so it learns slowly. Early cost-per-order will be high and noisy — that's the price of building the data, not a sign the channel is wrong.</li>
+      <li><b>We judge on blended results, monthly</b> — not on a daily dashboard (the <em>how</em> is in section 07). At single-digit monthly orders, day-to-day numbers are too noisy to steer by.</li>
+    </ul>
+    <p class="body" style="margin-top:22px">Against that backdrop, here's what ~$3–3.5k realistically does, month by month. Planning ranges, not a hockey stick — treat them as directional, because at this volume outcomes are genuinely uncertain.</p>
+    <div class="tw">
+      <table class="tbl">
+        <thead><tr><th>Window</th><th class="num">Orders / mo</th><th class="num">Blended CPA</th><th>What we're doing — and judging</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Month 1<span class="s">build + learning</span></td><td class="num">~3–8</td><td class="num">$300–600+</td><td>Account, feed, and tracking go live; campaigns enter learning. Results are noise — we judge <em>nothing</em> on them yet, only that clean data is flowing.</td></tr>
+          <tr><td class="k">Month 2<span class="s">accruing history</span></td><td class="num">~5–10</td><td class="num">$300–500</td><td>Prune wasted queries, tune the feed, grow Meta/Instagram where it's working, and begin the TikTok evaluation. First survey-attributed reads on what's actually driving orders.</td></tr>
+          <tr class="pos"><td class="k">Month 3<span class="s">stabilising</span></td><td class="num">~6–12</td><td class="num">~$300–500</td><td>Cost-per-order trending <em>down toward</em> breakeven — not yet expected to clear it. Expand winning themes; lay groundwork for later scaling.</td></tr>
+        </tbody>
+      </table>
+      <p class="tnote">Breakeven CPA ≈ <b>$275–300</b> at ~$500 AOV and 55–60% gross margin (please confirm margin). At 6 orders on ~$3k spend the blended CPA is ~$500; the ~$300 end of the month-3 range is the 10–12 order case. Profitability is a <b>later-month</b> outcome — these first months buy the conversion history that gets us there. Today's ~$1,000 CPA is ~3× over breakeven; that's the gap we're closing.</p>
+    </div>
+    <div class="note">
+      <span class="nl">The framing for the board</span>
+      <p>$3–3.5k buys <b>proof and momentum, not a finished brand.</b> Moving from ~3 orders toward ~6–12/mo on real, ready-to-buy traffic is a 2–4× improvement that also builds the conversion history that unlocks cheaper, more automated scaling later. Fully establishing a premium brand to stable profit is a much bigger, longer number — for context, roughly $100–300k over 12–18 months, assuming spend scales to ~$8–15k/mo plus content; <em>that is not part of this ask.</em></p>
+    </div>
+  </section>
+
+  <!-- 7 · MEASUREMENT + SCALE/STOP -->
+  <section>
+    <div class="kick"><span class="num">07</span>Accountability</div>
+    <h2 class="sec">How we measure it — and when we scale or stop</h2>
+    <p class="lead">A measurement setup you can trust, that costs almost nothing — plus a clear rule in <em>both</em> directions: when spend goes up, and when we call it.</p>
+    <div class="cards c2">
+      <div class="card">
+        <div class="ck">What we track</div>
+        <h4>Total sales ÷ total spend, monthly</h4>
+        <p>Blended MER — every dollar of revenue over every dollar of spend, a number no platform can inflate — cross-checked against a post-purchase "how did you hear about us?" survey. A short written read each month, not a daily-dashboard fire drill.</p>
+      </div>
+      <div class="card">
+        <div class="ck">The free foundation</div>
+        <h4>GA4 + Enhanced Conversions</h4>
+        <p>First-party and free; recovers a meaningful share of conversions lost to privacy gaps (often cited up to ~10%, setup-dependent) and — more important at low volume — gives Google a cleaner signal to bid on. Customer Match from your email list means re-engagement still works even if Meta's pool is too thin.</p>
+      </div>
+    </div>
+    <div class="cards c2">
+      <div class="card">
+        <div class="ck"><span>The scale rule</span><span class="pill pos">up</span></div>
+        <h4>Only after it's profitable</h4>
+        <p>Only after <b>~2 straight months</b> of a profitable blended return (~2×+) — i.e. once you're <em>already</em> profitable — and only by mutual written agreement, would we revisit budget. The fee doesn't change at this spend level; for a materially larger program (e.g. ~$6–8k+ spend) we'd discuss it then. Never automatically, never as a % of spend.</p>
+      </div>
+      <div class="card">
+        <div class="ck"><span>The stop rule</span><span class="pill neg">down</span></div>
+        <h4>We'll say so in writing</h4>
+        <p>If after the first couple of months tracking is clean but the program isn't on a credible path to breakeven, that's a signal to pause or re-scope — <b>Mary &amp; Adam make that call at any monthly review</b>, and we'll recommend it in writing rather than ask for more time.</p>
+      </div>
+    </div>
+    <div class="note">
+      <span class="nl">What Zapp is accountable for from day one</span>
+      <p>Clean tracking and correct US-only / team / bot exclusions; a built and approved program; disciplined query pruning; a monthly written read; and an honest stop recommendation when the data calls for one. The ramp is not a blank cheque — the ChatGPT pilot has a kill criterion, and so does the core program.</p>
+    </div>
+  </section>
+
+  <!-- 8 · RISKS -->
+  <section>
+    <div class="kick"><span class="num">08</span>The downside</div>
+    <h2 class="sec">The two real risks — said plainly</h2>
+    <p class="lead">Every honest plan has a most-likely failure mode. Here are ours, sized, with what we do about each.</p>
+    <div class="cards c2">
+      <div class="card">
+        <div class="ck"><span>Risk 1 · demand ceiling</span></div>
+        <h4>Capture can plateau</h4>
+        <p>As covered in <em>The idea</em>, Google can only catch demand that already exists — and a little-known brand has only so much of it. Paid could plateau in the <b>high single digits</b> until organic and social build awareness alongside. <b>What we do:</b> keep the budget concentrated and efficient, and be explicit that growth past ~10–12 orders depends on the brand-building half, not more ad spend.</p>
+      </div>
+      <div class="card">
+        <div class="ck"><span>Risk 2 · creative dependency</span></div>
+        <h4>A dependency outside the contract</h4>
+        <p>The plan leans on <b>Mary's social team</b> delivering a steady creative/content cadence — which sits outside our scope. If it doesn't materialise, ad efficiency suffers. <b>What we do:</b> agree a minimum cadence up front, flag any shortfall in writing within two weeks of Review #1, and pause non-brand spend rather than burn it against weak creative.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · ROADMAP -->
+  <section>
+    <div class="kick"><span class="num">09</span>The build</div>
+    <h2 class="sec">The build, month by month <span class="pill gold">from scratch</span></h2>
+    <p class="lead">There's no Google account, Merchant Center, or product feed yet — so the first two weeks are a genuine build, not an inherit-and-tweak. Start <b>June 15</b>; each month ends in a review and you continue month to month.</p>
+    <div class="tw">
+      <table class="tbl">
+        <thead><tr><th>Phase</th><th>Workstreams</th><th>Milestone</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Month 1<span class="s">weeks 1–2 · foundation</span></td><td>Google Ads + Merchant Center + product feed built; conversion tracking (GA4 + Enhanced Conversions + add-to-cart / checkout events); US-only geo + team/office/bot exclusions; brand-safety negatives; Customer Match uploaded; existing Meta/Instagram access + audience-pool check; Shop Campaigns eligibility check.</td><td>Clean tracking live; campaigns built and approved.</td></tr>
+          <tr><td class="k">Month 1<span class="s">weeks 3–4 · launch</span></td><td>Brand-defense Search, non-brand category Search, and Standard Shopping go live (manual/CPC-capped to start) at ~90% of spend; in parallel, take over and optimize the existing Meta/Instagram campaigns (~10%). First imagery from Mary's team flowed into the feed. Baseline documented.</td><td>Live spend at ≈90/10; first clean week of higher-intent traffic; Review #1 (end of M1) reassesses the split.</td></tr>
+          <tr><td class="k">Month 2<span class="s">optimise &amp; widen</span></td><td>Prune wasted search terms, tune bids and feed, expand winning themes, move to Maximize Conversions as data accrues. Grow Meta/Instagram as an active channel where it earns it, and begin the TikTok evaluation (organic and/or a small paid test). First survey reads. Monthly review #2.</td><td>Cost-per-order trending down; Meta scaling where it works; TikTok direction set.</td></tr>
+          <tr><td class="k">Month 3<span class="s">stabilise</span></td><td>Double down on proven channels and themes; keep growing Meta where efficient; run the chosen TikTok test; lay groundwork for later PMax (graduation unlikely this early at these volumes); discuss a capped Shop Campaigns test if it fits. Month-3 review + the scale-or-stop call.</td><td>A stabilising multi-channel program and a data-backed decision on what's next.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 10 · COMMERCIALS -->
+  <section>
+    <div class="kick"><span class="num">10</span>Commercials</div>
+    <h2 class="sec">The investment, and the terms</h2>
+    <p class="lead">A flat fee, your ad budget held at its cap, a near-zero measurement stack — and a clean way out.</p>
+    <div class="tw">
+      <table class="tbl">
+        <thead><tr><th>Line</th><th class="num">Monthly</th><th>Paid to</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Ad spend — Google + Meta (+ later TikTok) <span class="s">(capped; channels reallocate within)</span></td><td class="num">$3,000–3,500</td><td>Google / Meta, billed directly to you</td></tr>
+          <tr><td class="k">Measurement tools</td><td class="num">$0–50</td><td>GA4/Google (free) + survey app</td></tr>
+          <tr><td class="k">Zapp management retainer <span class="s">— flat</span></td><td class="num">$1,200</td><td>Zapp LLC</td></tr>
+          <tr class="hl"><td class="k">All-in, per month</td><td class="num">$4,200–4,750</td><td>ad portion never exceeds your $3,500 cap</td></tr>
+        </tbody>
+        <tfoot><tr><td class="k">Billed monthly</td><td class="num">$4,200–4,750</td><td>no minimum term · stop on 30 days' notice</td></tr></tfoot>
+      </table>
+      <p class="tnote">Of the ~$4,200–4,750 all-in each month, <b>$1,200 is the Zapp retainer</b> and the rest is your own ad spend, billed to you directly by the platforms. Shifting budget between Google, Meta and any TikTok test reallocates within the cap; it does not add to it.</p>
+    </div>
+    <div class="note">
+      <span class="nl">Why $1,200 flat is the number</span>
+      <p>The month-one build is 15–25 hours; steady-state management, measurement and monthly reporting run ~10–15 hrs/mo. <b>$1,200 reflects that work</b>, sits inside the documented $500–$2,000 range for small-account management, and is <b>flat by design</b> — it doesn't scale with your spend, and it falls as a share of budget as you grow. We have no incentive to inflate your spend, because our fee doesn't move when it does.</p>
+    </div>
+    <div class="note pos">
+      <span class="nl">Terms</span>
+      <p><b>Month-to-month — no minimum term, 30-day written notice either side, no lock-in.</b> On exit, all accounts, campaigns, feeds and data remain your property and are handed over. We review together at the end of every month, and you decide each month whether to continue.</p>
+    </div>
+    <div class="cards c2" style="margin-top:18px">
+      <div class="card">
+        <div class="ck">In scope — what we own</div>
+        <h4>The full paid program</h4>
+        <p>Google build &amp; management (Search + Shopping, brand defense), takeover, optimization &amp; growth of Meta/Instagram, the TikTok evaluation (organic and/or paid test), all measurement &amp; tracking setup, monthly reporting &amp; review, AI feed-hygiene, and the scale-or-stop recommendation.</p>
+      </div>
+      <div class="card muted">
+        <div class="ck">Out of scope — handled elsewhere</div>
+        <h4>Creative, email &amp; site</h4>
+        <p>Creative &amp; organic content come from <b>Mary's social team</b>; the email program runs on its own track; site development is separate. We coordinate with all three, but they aren't billed here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 · WHAT WE NEED -->
+  <section>
+    <div class="kick"><span class="num">11</span>To start clean</div>
+    <h2 class="sec">What we'll need from you</h2>
+    <p class="lead">A short list to start clean on June 15 and keep the plan honest.</p>
+    <ul class="chk">
+      <li><b>Creative cadence from the social team</b> — product imagery for the feed, plus a steady drip of organic content and any Meta/TikTok creative, so the ads have a credible brand to land on and the channels we widen have fuel. <span class="who">Mary's team</span></li>
+      <li><b>Three day-one confirmations</b> — your true gross margin (it sets the breakeven cost-per-order), plus we'll check Shop Campaigns eligibility and the Meta audience-pool size in-account. <span class="who">June 15</span></li>
+      <li><b>Account access</b> — Google Ads / Merchant Center (we'll create them), Shopify admin, and the analytics properties. <span class="who">week 1</span></li>
+      <li><b>Sign-off on the channel sequence</b> — the ≈90/10 month-1 split, growing Meta after the month-1 review, and the months 2–3 TikTok test (plus any AI-ad experiment) before spend moves. <span class="who">your call</span></li>
+    </ul>
+  </section>
+
+  <!-- 12 · WHY NOT PMAX (detail, moved to back) -->
+  <section>
+    <div class="kick"><span class="num">12</span>The correction · detail</div>
+    <h2 class="sec">Why not "just more PMax"</h2>
+    <p class="lead">Performance Max has a reputation for being "set it and forget it." For an account with conversion history, it can be. For <b>this</b> account today, leading with PMax would quietly burn the budget — so we lead with Search + Standard Shopping and <b>graduate</b> to PMax later.</p>
+    <div class="tw">
+      <table class="tbl">
+        <thead><tr><th>The PMax assumption</th><th>What the evidence says for Pecan Moon today</th></tr></thead>
+        <tbody>
+          <tr><td class="k">"It optimises<br>automatically"</td><td>PMax needs roughly <b>30+ conversions/month</b> to optimise. Pecan Moon does <b>~3 orders/mo</b> — about <b>10× under</b> the floor. It would sit in permanent, volatile learning.</td></tr>
+          <tr><td class="k">"It's cheap and<br>efficient"</td><td>Google's own guidance suggests a daily budget around <b>3× your target CPA</b>. At a ~$300 target that's ~$900/day ≈ <b>~$27k/mo — roughly 8–10× the entire monthly budget.</b> PMax is structurally under-fuelled here.</td></tr>
+          <tr><td class="k">"It captures the<br>highest intent"</td><td>PMax bundles Search + Shopping with <b>Display, YouTube &amp; Gmail</b> you can't separate. In published comparisons, dedicated <b>Search converts several times better</b> on overlapping queries — and PMax inflates its own ROAS by absorbing branded demand.</td></tr>
+        </tbody>
+        <tfoot><tr class="pos"><td class="k">So we do this instead</td><td><b>Lead with Search + Standard Shopping</b> — controllable, transparent, genuinely ready-to-buy — build conversion history, and bring in PMax only once the account reliably clears <b>~30+ conversions/mo</b>.</td></tr></tfoot>
+      </table>
+      <p class="tnote">Sources: smarter-ecommerce 4,000+ campaign study; Optmyzr 503-account study (Feb 2025); Google Ads PMax budget guidance; Store Growers. The prevailing practitioner view for sub-$3k, thin-data accounts is consistent: Search/Shopping first, PMax later.</p>
+    </div>
+    <p class="body">This is the single biggest change from the original plan — and it's why we can show you <b>ranges we can actually defend</b> and let you see where every dollar goes, instead of handing the budget to a black box that can't optimise yet.</p>
+  </section>
+
+  <!-- 13 · AI SEARCH (detail, moved to back) -->
+  <section data-ai-section>
+    <div class="kick"><span class="num">13</span>AI search · detail</div>
+    <h2 class="sec">ChatGPT &amp; AI answers — what's free, what's a test</h2>
+    <p class="lead">More shopping journeys now start inside AI answers. The split: most of the value is a <b>free byproduct</b> of the Google feed we're already building — and ChatGPT ads, though newly buyable, carry caveats that matter for a luxury brand. Both checked against OpenAI's own documentation, June 2026.</p>
+    <p class="body"><b>① The free half — earned through the feed.</b> The same Google Merchant Center feed that powers our Shopping campaigns is what the AI surfaces read from:</p>
+    <div class="airow">
+      <div class="an">Google AI answers<span class="as">free byproduct</span></div>
+      <div class="at">AI Overviews / AI Mode / Gemini run on the <b>same Merchant Center feed</b> as our Shopping campaigns — so our products are <b>eligible to surface in Google's AI answers at no extra cost.</b></div>
+    </div>
+    <div class="airow">
+      <div class="an">ChatGPT product carousels<span class="as">organic — can't be bought</span></div>
+      <div class="at">ChatGPT's shopping results are organic; you can't pay to appear. One March 2026 analysis (Peec AI, via Search Engine Land) found a large share — reportedly <b>~80%</b> — appear sourced from Google Shopping's <em>organic</em> listings. Single-source and likely to shift, but it means a feed that <em>ranks well</em> can earn ChatGPT visibility too.</div>
+    </div>
+    <div class="airow">
+      <div class="an">Feed hygiene &amp; structured data<span class="as">the "be cited" lever</span></div>
+      <div class="at">Correct product IDs, conversational titles, lifestyle imagery, Product/Review schema, and real reviews — the levers that make AI engines cite us. <b>Bundled into the feed build at no media cost.</b></div>
+    </div>
+    <div class="note">
+      <span class="nl">The takeaway on the free half</span>
+      <p>No AI engine sells placement inside its organic answer — so a <b>clean, well-ranked feed plus structured data is the only "be cited" lever, and it costs zero media.</b> We treat ChatGPT spillover as plausible <em>upside</em> of doing the feed properly, not a number we'll forecast.</p>
+    </div>
+    <p class="body" style="margin-top:22px"><b>② The paid half — a small, optional, approval-gated pilot.</b> The genuinely new development: OpenAI opened a <b>self-serve Ads Manager</b> (beta) and removed its spend minimum in May 2026, so a small test is mechanically possible for the first time. Before it goes anywhere, the caveats that matter:</p>
+    <div class="tw">
+      <table class="tbl">
+        <thead><tr><th>The reality, June 2026</th><th>Why it matters for Pecan Moon</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Buyable self-serve now <span class="pill gold">new</span><span class="s">beta · no published minimum since May</span></td><td>A small, capped test is finally possible without a five-figure commitment.</td></tr>
+          <tr><td class="k">Ads show only to Free &amp; ChatGPT Go users<span class="s">Plus / Pro / Enterprise are ad-free</span></td><td><b>The catch for luxury:</b> the most affluent, highest-intent AI users — your buyer — sit on the paid, <em>ad-free</em> tiers. The ads can't reach them yet.</td></tr>
+          <tr><td class="k">Apparel isn't a named-eligible category<span class="s">allowlist: consumer goods, services, travel, digital</span></td><td>We're cleared only case-by-case at OpenAI's review — so the test is <b>contingent on them accepting our category.</b></td></tr>
+          <tr><td class="k">The brand opens the ad account<span class="s">tax ID + ID verification; agency invited in after</span></td><td>A quick client-side setup step (Mary), then we build and manage it.</td></tr>
+          <tr><td class="k">Official prices are bid ceilings, not costs<span class="s">e.g. a $3–5 max-CPC cap you set</span></td><td>There's no proven cost or return to forecast — so we'd run it for <b>learning</b>, not a promised result.</td></tr>
+        </tbody>
+      </table>
+      <p class="tnote">Sources: OpenAI Help Center "Ads in ChatGPT" &amp; "Ads Manager Beta" (updated ~Jun 1, 2026); Search Engine Land; Digiday. Named early ChatGPT advertisers are Best Buy, Lowe's &amp; VistaPrint — mass retail, not luxury, another sign it isn't a premium-brand channel yet. Circulating trade-press "effective cost" figures are unconfirmed by OpenAI and deliberately not used here.</p>
+    </div>
+    <div class="note pos">
+      <span class="nl">So how we'd treat it</span>
+      <p>Capture the <b>free</b> AI visibility from day one — it's in the feed work either way. Hold the ChatGPT-ads pilot as a <b>small, opt-in experiment</b>: a tiny capped budget (~$200–400) carved out <em>only</em> with your sign-off and a kill criterion, run for learning and incremental visits, and only once OpenAI clears our category. Bottom line — worth a curious toe in the water, but it can't reach the premium buyer today, so it stays an experiment, never core spend.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><b>Pecan Moon × Zapp — Paid Acquisition Proposal</b></div>
+    <div>Prepared by Zapp LLC · Hamza Zulquernain · June 2026 · Prepared exclusively for Pecan Moon, Inc.</div>
+    <div class="src">Builds on the Pecan Moon Traffic Reality &amp; $3,000 Question brief (60-day Shopify diagnosis, May 31, 2026). Channel strategy, benchmarks and economics were sourced and cross-checked across two research passes and an adversarial CFO review: Google / Meta / TikTok platform docs (learning-phase &amp; bidding floors) · smarter-ecommerce 4,000+ campaign PMax study 2025 · Optmyzr 503-account study (Feb 2025) · Store Growers · WordStream 2025 Google Ads benchmarks · Business of Fashion 2024 (Luca Faloni) · Shopify Help Center &amp; Changelog (Shop Campaigns) · OpenAI Help Center 2026 (ChatGPT ads) · Search Engine Land / Peec AI 2026 · Omnisend 2025 (popup benchmarks) · Statista &amp; industry luxury-ecommerce conversion averages · Northbeam / Triple Whale (MER) · AgencyAnalytics &amp; industry pricing surveys 2026. Order counts, ~$1,000 CPA, ~0.5× ROAS, ~$500 AOV, and the ~1,700–2,150 real-session estimate are this account's measured/derived figures, not industry norms; category benchmarks are mass-market averages used as ceilings, not forecasts; the month-by-month ranges are reasoned planning estimates, not guarantees; the section 03 funnel is built bottom-up — benchmark CPCs, popup-capture and conversion rates applied to the stated budget — and is illustrative, not a promise. AI-search ad availability and pricing are fast-moving and will be re-confirmed before any spend.</div>
+  </div>
+</footer>
+
+</body>
+</html>
