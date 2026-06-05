@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genni × Zapp Studios · Growth Partnership Proposal</title>
+<meta name="description" content="A focused plan to build Genni's distribution engine: conversion-first funnel, AI creative, and paid acquisition as one system.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23C45C3D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF6EF;          /* warm ivory */
+    --bg-sand:#F4EBDD;     /* sand, alternating sections */
+    --paper:#FFFDFA;       /* warm white, cards */
+    --ink:#251E18;         /* espresso */
+    --ink-2:#5E5247;       /* soft brown, body */
+    --muted:#928473;       /* muted captions */
+    --line:#E9DDCB;        /* warm hairline */
+    --line-2:#DBC9B1;
+    --coral:#C45C3D;       /* terracotta-coral, primary accent */
+    --coral-deep:#A8472C;
+    --coral-2:#E08E6F;
+    --coral-tint:#F6E7DC;
+    --ochre:#9C7A33;
+    --ok:#5E7A52;
+    --shadow:0 1px 2px rgba(60,40,24,.04),0 18px 40px -24px rgba(80,50,28,.26);
+    --shadow-lift:0 1px 2px rgba(60,40,24,.05),0 30px 60px -28px rgba(80,50,28,.34);
+    --serif:'Source Serif 4','Source Serif Pro',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--coral-tint);color:var(--coral-deep)}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  .narrow{max-width:760px}
+
+  h1,h2,h3,h4,.display{font-family:var(--serif);font-weight:400;letter-spacing:-.012em;line-height:1.07;color:var(--ink);font-optical-sizing:auto}
+  em{font-style:italic;font-family:var(--serif);color:var(--coral-deep);font-weight:400}
+  a{color:inherit}
+
+  /* ---- texture / atmosphere ---- */
+  .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .glow{position:fixed;z-index:0;pointer-events:none;width:760px;height:760px;border-radius:50%;
+    top:-280px;right:-220px;filter:blur(80px);opacity:.5;
+    background:radial-gradient(circle at center,rgba(224,142,111,.55),rgba(224,142,111,0) 62%)}
+  .glow.two{top:auto;bottom:-360px;left:-260px;right:auto;width:680px;height:680px;opacity:.32;
+    background:radial-gradient(circle at center,rgba(196,92,61,.4),rgba(196,92,61,0) 62%)}
+  main{position:relative;z-index:2}
+
+  /* ---- progress + nav ---- */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--coral);z-index:60;transition:width .12s linear}
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:transform .35s ease,background .3s ease,border-color .3s ease,backdrop-filter .3s ease;
+    border-bottom:1px solid transparent}
+  nav.solid{background:rgba(251,246,239,.82);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+  nav.hide{transform:translateY(-110%)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:500;font-size:18px;letter-spacing:-.01em}
+  .brand .mono{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
+    background:var(--ink);color:var(--bg);font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.02em}
+  .brand .x{color:var(--muted);font-family:var(--sans);font-weight:400;font-size:15px;margin:0 1px}
+  .navlinks{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:450}
+  .navlinks a{color:var(--ink-2);text-decoration:none;transition:color .2s;position:relative}
+  .navlinks a:hover{color:var(--coral-deep)}
+  .navcta{font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line-2);border-radius:100px;
+    padding:9px 17px;text-decoration:none;transition:all .25s ease}
+  .navcta:hover{border-color:var(--coral);color:var(--coral-deep);background:var(--coral-tint)}
+  @media(max-width:820px){.navlinks{display:none}}
+
+  /* ---- sections ---- */
+  section{padding:118px 0;position:relative}
+  section.sand{background:var(--bg-sand)}
+  section.tint{background:linear-gradient(180deg,var(--bg) 0%,var(--coral-tint) 100%)}
+  .rule-top{border-top:1px solid var(--line)}
+  .eyebrow{display:inline-flex;align-items:center;gap:11px;font-family:var(--sans);font-size:12px;font-weight:600;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:26px}
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--coral)}
+  .eyebrow .no{color:var(--muted);font-weight:500}
+
+  .lead{font-size:clamp(29px,4.1vw,50px);font-weight:400;line-height:1.08;max-width:880px;margin-bottom:26px;letter-spacing:-.018em}
+  .body-lg{font-size:19px;color:var(--ink-2);max-width:680px;line-height:1.62}
+  .body-lg + .body-lg{margin-top:18px}
+
+  /* ---- hero ---- */
+  #hero{min-height:100vh;display:flex;align-items:center;padding-top:96px;padding-bottom:80px}
+  #hero h1{font-size:clamp(46px,7.3vw,94px);font-weight:500;letter-spacing:-.025em;margin-bottom:30px;max-width:14ch}
+  #hero h1 em{font-style:normal}
+  #hero .sub{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:640px;margin-bottom:42px;line-height:1.6}
+  .hero-meta{display:flex;gap:46px;flex-wrap:wrap;margin-top:58px;padding-top:30px;border-top:1px solid var(--line)}
+  .hero-meta .blk{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:600}
+  .hero-meta .blk strong{display:block;font-family:var(--serif);font-size:18px;color:var(--ink);text-transform:none;
+    letter-spacing:-.01em;margin-top:7px;font-weight:500}
+
+  .cta{display:inline-flex;align-items:center;gap:11px;background:var(--ink);color:var(--bg);font-family:var(--sans);
+    font-weight:500;font-size:15.5px;padding:16px 30px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+    transition:transform .25s ease,box-shadow .25s ease,background .25s ease;box-shadow:0 10px 30px -12px rgba(37,30,24,.5)}
+  .cta:hover{transform:translateY(-2px);background:var(--coral-deep);box-shadow:0 16px 38px -12px rgba(168,71,44,.55)}
+  .cta svg{transition:transform .25s}
+  .cta:hover svg{transform:translateX(4px)}
+  .cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+  .cta.ghost:hover{background:var(--coral-tint);border-color:var(--coral);color:var(--coral-deep)}
+
+  /* ---- stat trio ---- */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:64px}
+  @media(max-width:820px){.stats{grid-template-columns:1fr}}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:32px 28px;box-shadow:var(--shadow)}
+  .stat .num{font-family:var(--serif);font-size:50px;font-weight:400;line-height:1;margin-bottom:14px;color:var(--ink);letter-spacing:-.02em}
+  .stat .num .u{color:var(--coral);font-size:.62em}
+  .stat .lbl{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+  .stat .src{margin-top:14px}
+
+  .src{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);text-decoration:none;transition:color .2s}
+  .src::before{content:"↗";font-weight:400;color:var(--coral)}
+  .src:hover{color:var(--coral-deep)}
+
+  /* ---- gap cards ---- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:58px}
+  @media(max-width:880px){.grid3{grid-template-columns:1fr}}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px 30px;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease;position:relative}
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift);border-color:var(--line-2)}
+  .card .kicker{font-family:var(--serif);font-size:15px;color:var(--coral);font-style:italic;margin-bottom:14px}
+  .card h3{font-size:21px;margin-bottom:12px;font-weight:500;letter-spacing:-.01em}
+  .card p{font-size:15px;color:var(--ink-2);line-height:1.58}
+  .card .tag{display:inline-flex;align-items:center;gap:7px;margin-top:18px;font-size:12px;font-weight:600;
+    color:var(--coral-deep);letter-spacing:.03em;background:var(--coral-tint);padding:6px 12px;border-radius:100px}
+
+  /* ---- two-col compare ---- */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:54px;border:1px solid var(--line);
+    border-radius:22px;overflow:hidden;background:var(--paper);box-shadow:var(--shadow)}
+  @media(max-width:760px){.compare{grid-template-columns:1fr}}
+  .compare .col{padding:38px 34px}
+  .compare .col:first-child{border-right:1px solid var(--line);background:linear-gradient(180deg,rgba(196,92,61,.05),transparent)}
+  @media(max-width:760px){.compare .col:first-child{border-right:none;border-bottom:1px solid var(--line)}}
+  .compare h3{font-size:17px;font-weight:600;font-family:var(--sans);letter-spacing:.01em;margin-bottom:18px;color:var(--ink)}
+  .compare h3 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--coral);margin-right:9px;vertical-align:middle}
+  .compare ul{list-style:none}
+  .compare li{font-size:15px;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;line-height:1.5;border-top:1px solid var(--line)}
+  .compare li:first-child{border-top:none}
+  .compare li::before{content:"";position:absolute;left:0;top:17px;width:11px;height:1px;background:var(--coral)}
+  .compare li b{color:var(--ink);font-weight:600}
+
+  /* ---- pillars ---- */
+  .pillar{display:grid;grid-template-columns:108px 1fr;gap:38px;padding:50px 0;border-top:1px solid var(--line);align-items:start}
+  @media(max-width:760px){.pillar{grid-template-columns:1fr;gap:18px;padding:40px 0}}
+  .pillar .pn{font-family:var(--serif);font-size:64px;font-weight:400;line-height:.9;color:var(--coral);letter-spacing:-.03em}
+  .pillar .pn.plus{color:var(--ink)}
+  .pillar h3{font-size:26px;font-weight:500;margin-bottom:14px;letter-spacing:-.015em}
+  .pillar > div > p{color:var(--ink-2);font-size:16.5px;max-width:680px;line-height:1.6}
+  .pillar .sub-points{list-style:none;margin-top:22px;display:grid;gap:11px;max-width:680px}
+  .pillar .sub-points li{font-size:15px;color:var(--ink-2);padding-left:26px;position:relative;line-height:1.5}
+  .pillar .sub-points li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;
+    border:1.5px solid var(--coral)}
+  .pillar .sub-points li b{color:var(--ink);font-weight:600}
+
+  /* ---- flow stepper ---- */
+  .flow{display:flex;align-items:stretch;gap:0;margin:26px 0 6px;flex-wrap:wrap;max-width:760px}
+  .flow .step{flex:1 1 0;min-width:104px;background:var(--paper);border:1px solid var(--line);border-radius:13px;
+    padding:15px 13px;text-align:center;position:relative}
+  .flow .step .n{font-family:var(--serif);font-size:13px;color:var(--coral);margin-bottom:5px}
+  .flow .step .t{font-size:13px;font-weight:600;color:var(--ink);line-height:1.25}
+  .flow .arrow{display:flex;align-items:center;color:var(--line-2);padding:0 7px;font-size:15px}
+  @media(max-width:620px){.flow{flex-direction:column}.flow .arrow{transform:rotate(90deg);padding:5px 0;justify-content:center}}
+
+  /* ---- ladder ---- */
+  .ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0 4px;max-width:680px}
+  @media(max-width:620px){.ladder{grid-template-columns:1fr}}
+  .ladder .rung{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px 18px}
+  .ladder .rung .lv{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:8px}
+  .ladder .rung h5{font-family:var(--serif);font-size:18px;font-weight:500;margin-bottom:6px}
+  .ladder .rung p{font-size:13.5px;color:var(--ink-2);line-height:1.45}
+
+  /* ---- surfaces (dual deployment) ---- */
+  .surfaces{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 6px;max-width:760px}
+  @media(max-width:620px){.surfaces{grid-template-columns:1fr}}
+  .surfaces .surf{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:22px 22px;position:relative}
+  .surfaces .surf .badge{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--coral-deep);
+    background:var(--coral-tint);display:inline-block;padding:5px 11px;border-radius:100px;margin-bottom:13px}
+  .surfaces .surf h5{font-family:var(--serif);font-size:19px;font-weight:500;margin-bottom:9px;letter-spacing:-.01em}
+  .surfaces .surf p{font-size:13.5px;color:var(--ink-2);line-height:1.52}
+  .surfaces .surf .stack{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);font-size:11.5px;font-weight:600;
+    letter-spacing:.03em;color:var(--muted)}
+  .surfaces .surf .stack b{color:var(--ink);font-weight:600}
+
+  /* ---- why ---- */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:54px}
+  @media(max-width:760px){.why{grid-template-columns:1fr}}
+  .why .item{display:flex;gap:18px;align-items:flex-start;padding:24px 0;border-top:1px solid var(--line)}
+  .why .item .ix{flex:0 0 auto;font-family:var(--serif);font-size:20px;color:var(--coral);width:30px;line-height:1.2}
+  .why .item h4{font-size:18px;font-weight:600;font-family:var(--sans);margin-bottom:7px;letter-spacing:-.01em}
+  .why .item p{font-size:15px;color:var(--ink-2);line-height:1.55}
+  .why .item p a{color:var(--coral-deep);text-decoration:none;border-bottom:1px solid var(--line-2);transition:border-color .2s}
+  .why .item p a:hover{border-color:var(--coral)}
+
+  /* ---- market table ---- */
+  .mtable{margin-top:54px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--paper);box-shadow:var(--shadow)}
+  .mrow{display:grid;grid-template-columns:1.4fr 1fr 1.5fr;gap:20px;padding:24px 30px;border-top:1px solid var(--line);align-items:center}
+  .mrow:first-child{border-top:none}
+  .mrow.head{background:var(--bg-sand);padding:16px 30px;border-top:none}
+  .mrow.head span{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .mrow .what{font-size:15.5px;color:var(--ink);font-weight:500}
+  .mrow .fig{font-family:var(--serif);font-size:23px;color:var(--coral-deep);font-weight:500;letter-spacing:-.01em}
+  .mrow .note{font-size:13.5px;color:var(--ink-2);line-height:1.45}
+  .mrow .note .src{margin-top:6px;display:inline-flex}
+  @media(max-width:720px){.mrow,.mrow.head{grid-template-columns:1fr;gap:6px;padding:20px 22px}.mrow.head{display:none}
+    .mrow .fig{font-size:21px}}
+
+  /* ---- pricing ---- */
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
+  @media(max-width:820px){.price-grid{grid-template-columns:1fr}}
+  .pcard{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:38px 34px;position:relative;box-shadow:var(--shadow);
+    display:flex;flex-direction:column}
+  .pcard.feature{border-color:var(--coral);background:linear-gradient(180deg,var(--coral-tint),var(--paper) 42%)}
+  .pcard .opt{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .pcard.feature .opt{color:var(--coral-deep)}
+  .pcard .pname{font-family:var(--serif);font-size:25px;font-weight:500;margin-bottom:6px;letter-spacing:-.01em}
+  .pcard .pdesc{font-size:14.5px;color:var(--ink-2);line-height:1.5;margin-bottom:22px}
+  .pcard .figure{font-family:var(--serif);font-size:42px;font-weight:400;color:var(--ink);line-height:1;letter-spacing:-.02em;margin-bottom:4px}
+  .pcard .figure .per{font-size:.42em;color:var(--muted);font-family:var(--sans);font-weight:500}
+  .pcard .plus-line{font-size:15px;color:var(--coral-deep);font-weight:600;margin-bottom:22px}
+  .pcard ul{list-style:none;margin-top:auto;display:grid;gap:11px;padding-top:22px;border-top:1px solid var(--line)}
+  .pcard.feature ul{border-top-color:var(--coral-2)}
+  .pcard li{font-size:14.5px;color:var(--ink-2);padding-left:26px;position:relative;line-height:1.45}
+  .pcard li::before{content:"✓";position:absolute;left:0;top:0;color:var(--coral);font-weight:700;font-size:13px}
+  .pcard li b{color:var(--ink);font-weight:600}
+  .price-note{font-size:14.5px;color:var(--muted);margin-top:24px;font-style:italic;font-family:var(--serif);max-width:760px;line-height:1.55}
+  .price-note b{color:var(--ink);font-style:normal;font-family:var(--sans);font-weight:600}
+
+  /* ---- timeline ---- */
+  .timeline{margin-top:46px;border-left:1.5px solid var(--line-2);padding-left:0}
+  .stage{position:relative;padding:8px 0 36px 38px;margin-left:0}
+  .stage::before{content:"";position:absolute;left:-7.5px;top:14px;width:13px;height:13px;border-radius:50%;
+    background:var(--bg);border:2.5px solid var(--coral)}
+  .stage.sub::before{width:9px;height:9px;left:-5.5px;border-width:2px;background:var(--coral);border-color:var(--coral)}
+  .stage .when{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral-deep);margin-bottom:6px}
+  .stage h4{font-family:var(--serif);font-size:21px;font-weight:500;margin-bottom:8px;letter-spacing:-.01em}
+  .stage h4 .dur{font-family:var(--sans);font-size:13px;color:var(--muted);font-weight:500;margin-left:10px;letter-spacing:0}
+  .stage p{font-size:15px;color:var(--ink-2);max-width:660px;line-height:1.55}
+  .weeks{margin-top:18px;display:grid;gap:0;max-width:680px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
+  .week{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:15px 20px;border-top:1px solid var(--line);align-items:baseline}
+  .week:first-child{border-top:none}
+  .week .wk{font-family:var(--serif);font-size:15px;color:var(--coral-deep);font-weight:500}
+  .week .wd{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+  .week .wd b{color:var(--ink);font-weight:600}
+  @media(max-width:560px){.week{grid-template-columns:1fr;gap:4px}}
+
+  /* ---- close ---- */
+  .closebox{background:var(--ink);border-radius:30px;padding:72px 56px;text-align:center;position:relative;overflow:hidden}
+  .closebox::before{content:"";position:absolute;width:540px;height:540px;border-radius:50%;top:-260px;right:-180px;
+    background:radial-gradient(circle,rgba(224,142,111,.4),transparent 65%)}
+  .closebox::after{content:"";position:absolute;width:480px;height:480px;border-radius:50%;bottom:-280px;left:-160px;
+    background:radial-gradient(circle,rgba(196,92,61,.34),transparent 65%)}
+  .closebox > *{position:relative;z-index:2}
+  .closebox .eyebrow{color:var(--coral-2)}
+  .closebox .eyebrow::before{background:var(--coral-2)}
+  .closebox h2{font-size:clamp(32px,5vw,52px);color:var(--bg);margin-bottom:20px;font-weight:400;letter-spacing:-.02em}
+  .closebox h2 em{color:var(--coral-2)}
+  .closebox p{font-size:18px;color:rgba(251,246,239,.78);max-width:580px;margin:0 auto 36px;line-height:1.6}
+  .closebox .cta{background:var(--bg);color:var(--ink)}
+  .closebox .cta:hover{background:var(--coral-2);color:var(--ink)}
+  .closebox .cta svg{stroke:currentColor}
+  .contact{margin-top:38px;display:inline-flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;
+    padding-top:28px;border-top:1px solid rgba(251,246,239,.16)}
+  .contact a,.contact span{font-size:14.5px;color:rgba(251,246,239,.82);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+  .contact a:hover{color:var(--coral-2)}
+  .contact .who{font-family:var(--serif);color:var(--bg);font-size:15px}
+
+  /* ---- footer / sources ---- */
+  footer{padding:64px 0 80px;border-top:1px solid var(--line);background:var(--bg-sand)}
+  footer .ftop{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+  footer .ftop .brand{font-size:17px}
+  footer .tag{font-size:13.5px;color:var(--muted);max-width:340px;line-height:1.55}
+  .sources h5{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .sources ol{list-style:none;counter-reset:s;display:grid;gap:9px;max-width:880px}
+  .sources li{counter-increment:s;font-size:12.5px;color:var(--ink-2);padding-left:28px;position:relative;line-height:1.5}
+  .sources li::before{content:counter(s);position:absolute;left:0;top:0;font-family:var(--serif);color:var(--coral);font-size:13px}
+  .sources a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
+  .sources a:hover{color:var(--coral-deep);border-color:var(--coral)}
+  .sources .disc{font-size:11.5px;color:var(--muted);margin-top:22px;max-width:880px;line-height:1.55;font-style:italic}
+
+  sup.fn{font-size:.62em;font-weight:600;color:var(--coral);vertical-align:super;line-height:0}
+  sup.fn a{text-decoration:none;color:inherit}
+
+  /* ---- reveal ---- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.09s}.reveal.d2{transition-delay:.18s}.reveal.d3{transition-delay:.27s}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
+
+  /* ---- print ---- */
+  @media print{
+    .glow,.grain,#progress,nav{display:none}
+    body{background:#fff;font-size:11pt}
+    section{padding:24px 0;break-inside:avoid}
+    .card,.pcard,.stat{box-shadow:none;break-inside:avoid}
+    .closebox{background:#fff;border:1px solid #ccc}
+    .closebox h2,.closebox p,.contact a,.contact span,.contact .who{color:#000}
+  }
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+<div class="glow two"></div>
+<div class="grain"></div>
+<div id="progress"></div>
+
+<nav id="nav">
+  <div class="wrap">
+    <div class="brand"><span class="mono">ZS</span> Genni <span class="x">×</span> Zapp Studios</div>
+    <div class="navlinks">
+      <a href="#opportunity">Opportunity</a>
+      <a href="#plan">The Plan</a>
+      <a href="#why">Why Us</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#close" class="navcta">Start the build</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="eyebrow reveal in">Growth &amp; Distribution Partnership</div>
+      <h1 class="reveal in">You built the product.<br>Now let's build the <em>distribution.</em></h1>
+      <p class="sub reveal in d1">Genni has the hardest part already built. The core AI hairstyle try-on is genuinely strong, and it's live on iOS and Android. But I tried it, and before marketing can pay off, the onboarding and the usability need work. This is the plan to fix the product first, then build the distribution engine that scales it: funnel, creative, and paid acquisition as one system.</p>
+      <a href="#opportunity" class="cta reveal in d2">See the plan
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <div class="hero-meta reveal in d3">
+        <div class="blk">Prepared for<strong>Bethel Kameni · Genni</strong></div>
+        <div class="blk">Prepared by<strong>Hamza · Zapp Studios</strong></div>
+        <div class="blk">Date<strong>June 2026</strong></div>
+        <div class="blk">Engagement<strong>Growth Engineering</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT FIRST -->
+  <section id="product" class="rule-top">
+    <div class="wrap">
+      <div class="eyebrow reveal">Before the marketing</div>
+      <p class="lead reveal">I downloaded Genni and used it. The honest read: <em>the product needs work before a dollar goes to ads.</em></p>
+      <p class="body-lg reveal d1">Marketing only amplifies what the product already does. Point paid traffic at an app that loses people early, and you just pay to fill a leaky bucket faster. The core AI try-on is genuinely strong, that's the hard part, and it's done. But two things decide whether a new user ever reaches that magic, and both need a pass before we scale spend.</p>
+      <div class="grid2">
+        <div class="card reveal">
+          <div class="kicker">Fix first</div>
+          <h3>The onboarding</h3>
+          <p>Today it drops you into the app instead of guiding you to the "aha." We rebuild it as the psychology-first flow in the plan below: personalize, reveal the try-on, then ask, so a first-time user hits a wow moment and a real reason to subscribe.</p>
+        </div>
+        <div class="card reveal d1">
+          <div class="kicker">Fix first</div>
+          <h3>The usability</h3>
+          <p>The try-on itself works, but the flow around it has friction that quietly costs retention and conversion: clarity, speed, and the small moments that make an app feel effortless. A focused UX pass before we turn on traffic, not after.</p>
+        </div>
+      </div>
+      <p class="body-lg reveal d1" style="margin-top:36px">The good news: this is the highest-leverage work there is, and it's exactly where the plan starts. Fix the product, then pour fuel on it.</p>
+    </div>
+  </section>
+
+  <!-- OPPORTUNITY -->
+  <section id="opportunity" class="sand rule-top">
+    <div class="wrap">
+      <div class="eyebrow reveal">The Opportunity</div>
+      <p class="lead reveal">AI beauty try-on is one of the fastest-rising consumer-AI categories, and the prize is already <em>proven</em>.</p>
+      <p class="body-lg reveal d1">The category leader, Perfect Corp (the YouCam apps), books <b>$60M+ a year</b> from roughly <b>one million paying subscribers</b> and <b>800+ white-label brand partners</b>, and earns about <b>89% of its revenue from the B2B side</b>.<sup class="fn"><a href="#sources">1</a></sup></p>
+      <p class="body-lg reveal d1">They didn't win on AR quality alone. They won on <em>distribution</em>. That's the opening: Genni already ships the consumer app <em>and</em> a B2B "Studio" try-on SDK. The technology is here. Get the experience converting, and distribution is the whole game.</p>
+      <div class="stats">
+        <div class="stat reveal"><div class="num">~$60<span class="u">M</span></div><div class="lbl">Annual revenue at the category leader, from ~1M paying subscribers, the ceiling this category supports.</div><a class="src" href="#sources">Perfect Corp filings</a></div>
+        <div class="stat reveal d1"><div class="num">800<span class="u">+</span></div><div class="lbl">Brand partners behind its white-label engine, the exact second lane Genni already has built.</div><a class="src" href="#sources">Perfect Corp filings</a></div>
+        <div class="stat reveal d2"><div class="num">70–90<span class="u">%</span></div><div class="lbl">Lower creative cost with AI vs. traditional production, so we can out-test every incumbent.</div><a class="src" href="#sources">Kalshi case · Segwise</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE GENNI IS -->
+  <section id="gaps" class="rule-top">
+    <div class="wrap">
+      <div class="eyebrow reveal">Where Genni Is Today</div>
+      <p class="lead reveal">A strong product with the growth layer still to build, which is three clean, high-leverage openings.</p>
+      <div class="grid3">
+        <div class="card reveal">
+          <div class="kicker">01 · clean slate</div>
+          <h3>No paid acquisition engine yet</h3>
+          <p>There's no paid presence running today, no Meta or TikTok ads, no creator campaigns. That's not a weakness, it's a clean slate: we build channel-by-channel, measured to ROAS, with zero legacy waste to unwind.</p>
+          <span class="tag">Opportunity: build from zero</span>
+        </div>
+        <div class="card reveal d1">
+          <div class="kicker">02 · plug the leak</div>
+          <h3>The funnel meets the paywall too late</h3>
+          <p>Today a user taps install, downloads, and only meets Genni's $9.99 paywall deep inside the app, after you've paid for the click and handed the store its ~30% cut. A web-first funnel captures intent <em>and</em> payment at the moment it's highest.</p>
+          <span class="tag">Opportunity: capture intent early</span>
+        </div>
+        <div class="card reveal d2">
+          <div class="kicker">03 · own the feed</div>
+          <h3>No creator / UGC engine yet</h3>
+          <p>This category is won on TikTok and Reels, before/after transformations, "preview before you cut," viral hooks. Genni's present in spirit but not at volume. An AI-powered UGC engine lets it show up everywhere the audience already is.</p>
+          <span class="tag">Opportunity: own short-form</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE -->
+  <section id="competitive" class="sand rule-top">
+    <div class="wrap">
+      <div class="eyebrow reveal">The Competitive Window</div>
+      <p class="lead reveal">The category is consolidating attention <em>right now</em>. Distribution is the line between leading and being a footnote.</p>
+      <p class="body-lg reveal d1">Perfect Corp shows the ceiling, but it's a broad, makeup-first incumbent. The AI-native, <b>hairstyle-first</b> niche is still wide open: a long tail of near-identical apps competing on app-store keywords and TikTok before/afters, none with a real moat.<sup class="fn"><a href="#sources">2</a></sup> Moving first and fast on distribution is how Genni takes that niche before the window narrows.</p>
+      <div class="compare reveal d1">
+        <div class="col">
+          <h3><span class="dot"></span>What the leader looks like</h3>
+          <ul>
+            <li><b>~1M paying subscribers</b> built on relentless paid + organic acquisition</li>
+            <li><b>800+ brand partners</b> on the B2B / white-label SDK side</li>
+            <li><b>~89% of revenue from B2B</b>, the real money is in licensing the try-on tech</li>
+            <li>A constant engine of creator &amp; UGC content engineered for short-form virality</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h3><span class="dot"></span>How the niche is won</h3>
+          <ul>
+            <li><b>TikTok &amp; Reels before/after</b> demos at high volume, the category's native format</li>
+            <li><b>Paid social</b> with disciplined, data-led creative testing</li>
+            <li><b>ASO &amp; SEO</b> capturing every "AI hairstyle / haircut try-on" search</li>
+            <li><b>A web-first funnel</b> that converts intent before the store ever sees it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE PLAN -->
+  <section id="plan" class="rule-top">
+    <div class="wrap">
+      <div class="eyebrow reveal">The Plan</div>
+      <p class="lead reveal">Three pillars, built as one <em>system</em>.</p>
+      <p class="body-lg reveal d1">Funnel, creative, and acquisition reinforce each other. Built separately they make noise; built together they compound into a growth engine. Here's how each one actually works.</p>
+
+      <div style="margin-top:34px">
+        <!-- Pillar 1 -->
+        <div class="pillar reveal">
+          <div class="pn">01</div>
+          <div>
+            <h3>Psychology-first onboarding &amp; a hard paywall</h3>
+            <p>The onboarding <em>is</em> the funnel. The apps that win subscriptions, Cal AI is the canonical example, don't drop you into the product; they run a personalized, psychology-driven onboarding that earns commitment one step at a time, lands the emotional "aha" at the peak, then presents a hard paywall. We build that exact flow for Genni, and run it on <em>two</em> surfaces, so every install converts however it arrives.</p>
+            <div class="flow">
+              <div class="step"><div class="n">01</div><div class="t">Personalize</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">02</div><div class="t">Upload selfie</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">03</div><div class="t">Building your look</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">04</div><div class="t">AI try-on reveal</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">05</div><div class="t">Your style match</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">06</div><div class="t">Hard paywall</div></div>
+            </div>
+            <div class="surfaces">
+              <div class="surf">
+                <span class="badge">For paid traffic</span>
+                <h5>Web → app funnel</h5>
+                <p>The onboarding and paywall live on the web. We charge via Stripe <em>before</em> the App Store's ~30% cut and friction, then deep-link the paying user into the app, turning cold ad clicks into subscribers at the moment intent peaks.</p>
+                <div class="stack">Stack: <b>Next.js + Stripe</b></div>
+              </div>
+              <div class="surf">
+                <span class="badge">For organic + ASO</span>
+                <h5>In-app onboarding</h5>
+                <p>The same psychology-driven onboarding, native inside the iOS app, ending at a hard paywall. Organic and App Store installs never touch the web funnel, and they deserve a first run engineered to convert, not a cold drop into the feature.</p>
+                <div class="stack">Stack: <b>StoreKit / RevenueCat</b></div>
+              </div>
+            </div>
+            <ul class="sub-points">
+              <li><b>Commitment, step by step:</b> each small answer is a micro-yes. By the paywall, subscribing is simply the next yes (the Cal AI / Cialdini playbook).</li>
+              <li><b>Make the payoff feel earned:</b> a short "building your look" beat, the labor illusion, so the result reads as custom, not canned.</li>
+              <li><b>Peak-end timing:</b> the AI try-on reveal is the emotional high; the paywall lands the instant value is most felt, never before it.</li>
+              <li><b>The paywall, engineered:</b> annual-anchored pricing, trial framing, objection-handling, the same hard paywall, A/B tuned on both surfaces and instrumented end to end.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Pillar 2 -->
+        <div class="pillar reveal">
+          <div class="pn">02</div>
+          <div>
+            <h3>AI-powered UGC creative engine</h3>
+            <p>A high-volume factory of before/after hooks and demo creative, produced with AI at a fraction of traditional cost, so we test dozens of angles a week and let data pick winners, instead of betting on one expensive shoot.</p>
+            <div class="flow">
+              <div class="step"><div class="n">01</div><div class="t">Angle &amp; brief</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">02</div><div class="t">AI generation</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">03</div><div class="t">Before / after cut</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">04</div><div class="t">Hook variants</div></div>
+              <div class="arrow">→</div>
+              <div class="step"><div class="n">05</div><div class="t">Test &amp; scale</div></div>
+            </div>
+            <ul class="sub-points">
+              <li><b>Volume target:</b> 20–30 fresh assets a week across before/after transformations, "preview before you cut," POV, and trend-jack formats.</li>
+              <li><b>The cost math:</b> traditional UGC runs ~$200 a video;<sup class="fn"><a href="#sources">5</a></sup> AI cuts production cost 70–90% (Kalshi made a national-TV-grade ad for ~$2k vs. $200k+).<sup class="fn"><a href="#sources">6</a></sup> We test more angles for the price of a few traditional videos.</li>
+              <li><b>Winners feed everything:</b> the best hooks become Spark Ads, App Store screenshots, and the next round of variants, a compounding library, not a one-off shoot.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Pillar 3 -->
+        <div class="pillar reveal">
+          <div class="pn">03</div>
+          <div>
+            <h3>Paid acquisition that scales</h3>
+            <p>Meta &amp; TikTok campaigns built on top of the funnel and the creative engine, start lean, find the winning combinations, then scale spend against a clear ROAS target. Plus the organic foundation: ASO and short-form presence to capture trend traffic for free.</p>
+            <div class="ladder">
+              <div class="rung"><div class="lv">1 · Test</div><h5>Spread small</h5><p>Many lean ad sets across hooks &amp; audiences. Read cost-per-result, not vanity metrics.</p></div>
+              <div class="rung"><div class="lv">2 · Validate</div><h5>Kill &amp; keep</h5><p>Cut anything under the ROAS line fast. Keep only combinations that prove payback.</p></div>
+              <div class="rung"><div class="lv">3 · Scale</div><h5>Pour in</h5><p>Concentrate budget on winners; refresh creative before fatigue. Scale only what pays.</p></div>
+            </div>
+            <ul class="sub-points">
+              <li><b>Channels:</b> TikTok Spark Ads on winning organic, Meta Advantage+ for efficiency, the two places this audience already is.</li>
+              <li><b>Free foundation:</b> ASO for "AI hairstyle / haircut try-on" plus consistent organic short-form, so paid isn't the only tap.</li>
+              <li><b>One number:</b> everything ladders to ROAS / payback, we scale only what's proven to return.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Bonus lane -->
+        <div class="pillar reveal">
+          <div class="pn plus">+</div>
+          <div>
+            <h3>The second lane: B2B white-label (Genni Studio)</h3>
+            <p>The category leader earns ~89% of its revenue from B2B, and Genni already has the Studio SDK and an early pitch (20–40% conversion lift, ~50% fewer shade-mismatch returns) for wig, extension, hair-color, and salon brands. It just has no distribution behind it yet. Once the consumer engine is humming, we open outbound on this lane, a second growth curve with far higher deal value.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY ZAPP -->
+  <section id="why" class="sand rule-top">
+    <div class="wrap">
+      <div class="eyebrow reveal">Why Zapp Studios</div>
+      <p class="lead reveal">Growth <em>engineering</em>, not just marketing.</p>
+      <p class="body-lg reveal d1">I build the funnel, the creative, and the acquisition as one connected system, as a senior operator who ships, not a junior agency team learning on your budget.</p>
+      <div class="why">
+        <div class="item reveal">
+          <div class="ix">01</div>
+          <div><h4>A proven, recent build</h4><p>Most recent funnel: <a href="https://royalpawzusa.com" target="_blank" rel="noopener">royalpawzusa.com</a>, a custom Next.js + Stripe booking funnel I built and grew from <b>7% to 33% booking conversion, ~8× revenue in four months</b>. The exact stack and playbook Genni's funnel needs.</p></div>
+        </div>
+        <div class="item reveal d1">
+          <div class="ix">02</div>
+          <div><h4>I build, not just advise</h4><p>Funnels, paywalls, landing pages, and AI creative, shipped end-to-end on a modern stack. You get an operator who executes, not a deck and a retainer.</p></div>
+        </div>
+        <div class="item reveal">
+          <div class="ix">03</div>
+          <div><h4>One connected system</h4><p>Funnel, creative, and acquisition designed to reinforce each other, so the whole engine compounds instead of three disconnected line items.</p></div>
+        </div>
+        <div class="item reveal d1">
+          <div class="ix">04</div>
+          <div><h4>Aligned incentives</h4><p>I only take on what I believe in, and I believe in this category. That's why one of the options below ties most of my upside directly to Genni's growth.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKET RATES + PRICING -->
+  <section id="pricing" class="rule-top">
+    <div class="wrap">
+      <div class="eyebrow reveal">What Growth Costs</div>
+      <p class="lead reveal">First, what the market charges, with the <em>receipts</em>.</p>
+      <p class="body-lg reveal d1">So the value is clear, here's what this work typically runs today. Every figure links to its source.</p>
+      <div class="mtable reveal d1">
+        <div class="mrow head"><span>What it is</span><span>Market rate</span><span>Detail</span></div>
+        <div class="mrow">
+          <div class="what">Fractional growth lead / agency retainer</div>
+          <div class="fig">$5k–$15k<span style="font-size:14px;color:var(--muted)">/mo</span></div>
+          <div class="note">Typical monthly retainer for a senior growth lead at an early-stage company.<a class="src" href="https://o-cmo.com/blog/fractional-cmo-cost/" target="_blank" rel="noopener">O-CMO · Databox</a></div>
+        </div>
+        <div class="mrow">
+          <div class="what">Agency fee on ad spend</div>
+          <div class="fig">10–20%</div>
+          <div class="note">Standard management fee charged <em>on top</em> of your media budget to run paid.<a class="src" href="https://agencyanalytics.com/blog/ppc-pricing" target="_blank" rel="noopener">AgencyAnalytics · WordStream</a></div>
+        </div>
+        <div class="mrow">
+          <div class="what">Traditional UGC video</div>
+          <div class="fig">~$200<span style="font-size:14px;color:var(--muted)">/video</span></div>
+          <div class="note">Average per single UGC video ($100–$500 range), before usage rights.<a class="src" href="https://billo.app/blog/ugc-rates/" target="_blank" rel="noopener">Billo · Influencer Hero</a></div>
+        </div>
+        <div class="mrow">
+          <div class="what">AI creative vs. traditional</div>
+          <div class="fig">70–90% less</div>
+          <div class="note">Production-cost reduction with AI (Kalshi: a ~$2k AI-made national ad vs. $200k+).<a class="src" href="https://news.designrush.com/kalshi-nba-finals-ai-ad-why-big-budget-commercials-are-dying" target="_blank" rel="noopener">DesignRush · Segwise</a></div>
+        </div>
+      </div>
+
+      <p class="lead reveal" style="margin-top:78px">Now here's where <em>we</em> land.</p>
+      <p class="body-lg reveal d1">Two ways to work, both priced visibly under the market, structured around your stage. Pick the one that fits how you want to share risk.</p>
+      <div class="price-grid">
+        <div class="pcard reveal">
+          <div class="opt">Option A · Embedded operator</div>
+          <div class="pname">The flat retainer</div>
+          <div class="pdesc">A senior operator at the floor of the market band, with strategy, management, and AI creative folded into one fee, not billed as extras on top.</div>
+          <div class="figure">$5,000<span class="per"> / month</span></div>
+          <div class="plus-line">One flat fee. No markup on your ad spend.</div>
+          <ul>
+            <li>At the <b>bottom of the $5k–$15k</b> market range</li>
+            <li><b>No 10–20% management fee</b> on your ad spend</li>
+            <li><b>AI creative included</b>, not $200/video</li>
+            <li>Simple, predictable, fixed monthly cost</li>
+          </ul>
+        </div>
+        <div class="pcard feature reveal d1">
+          <div class="opt">Option B · Growth partner</div>
+          <div class="pname">Skin in the game</div>
+          <div class="pdesc">The lowest cash outlay. I take the risk with you. My upside only grows if Genni does. This is the "I believe in it" option.</div>
+          <div class="figure">$2,000<span class="per"> / month</span></div>
+          <div class="plus-line">+ 2% equity + 10% revenue share</div>
+          <ul>
+            <li><b>~60% less cash</b> than Option A each month</li>
+            <li><b>2% equity</b>, aligned on the long game</li>
+            <li><b>10% revenue share</b>, I win when you grow</li>
+            <li>Most of my pay is <b>tied to results</b>, not hours</li>
+          </ul>
+        </div>
+      </div>
+      <p class="price-note reveal d1"><b>Either way:</b> the market would charge a $5k–$15k retainer <em>plus</em> a 10–20% management fee on your ad spend <em>plus</em> per-video creative. Both options above collapse those three line items into one number that sits under the first of them alone. Your ad budget itself, paid directly to Meta and TikTok, is separate from my fee in every option, exactly as it is with any operator.</p>
+
+      <!-- ENGAGEMENT TIMELINE -->
+      <p class="lead reveal" style="margin-top:82px">A staged partnership.</p>
+      <p class="body-lg reveal d1">Low-risk to start, with a fixed-scope first sprint under whichever model you choose, so the biggest leak is fixed before we ever scale spend.</p>
+      <div class="timeline reveal d1">
+        <div class="stage">
+          <div class="when">Stage 1 · ~4–6 weeks · fixed scope</div>
+          <h4>Growth Foundation<span class="dur">build the engine's core</span></h4>
+          <p>Web-to-app funnel, hard paywall, unified messaging, and the first batch of AI UGC creative, time-boxed and low-risk. Here's the week-by-week:</p>
+          <div class="weeks">
+            <div class="week"><div class="wk">Week 1</div><div class="wd"><b>Audit &amp; foundations.</b> Access, analytics &amp; attribution setup, positioning/messaging lock, full funnel architecture spec.</div></div>
+            <div class="week"><div class="wk">Week 2</div><div class="wd"><b>Onboarding build.</b> The psychology-driven quiz + AI try-on reveal, built as the web → app funnel (Next.js).</div></div>
+            <div class="week"><div class="wk">Week 3</div><div class="wd"><b>Paywalls, both surfaces.</b> Hard paywall + Stripe on web, the same onboarding wired native in-app (StoreKit / RevenueCat), deep-link handoff.</div></div>
+            <div class="week"><div class="wk">Week 4</div><div class="wd"><b>First creative batch + ASO.</b> 15–25 before/after AI hooks, store-listing &amp; keyword pass for "AI hairstyle."</div></div>
+            <div class="week"><div class="wk">Week 5</div><div class="wd"><b>Campaigns live.</b> TikTok + Meta pixels, ad accounts, Spark Ads, first lean test campaigns running.</div></div>
+            <div class="week"><div class="wk">Week 6</div><div class="wd"><b>Read &amp; plan scale.</b> Kill/keep on data, document the winning funnel + first ROAS signal, scope Stage 2.</div></div>
+          </div>
+        </div>
+        <div class="stage sub">
+          <div class="when">Stage 2 · ongoing</div>
+          <h4>Growth Engine<span class="dur">run &amp; scale acquisition</span></h4>
+          <p>Manage paid social and the creative engine against ROAS targets, weekly creative batches, funnel CRO, and lifecycle/retention work. This is where Option A or B applies.</p>
+        </div>
+        <div class="stage sub">
+          <div class="when">Stage 3 · expansion</div>
+          <h4>Scale + B2B<span class="dur">a second growth curve</span></h4>
+          <p>Expand winning channels and open outbound for Genni Studio, the white-label SDK lane with higher deal value, once the consumer engine is proven.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section id="close" class="tint rule-top">
+    <div class="wrap">
+      <div class="closebox reveal">
+        <div class="eyebrow">Let's begin</div>
+        <h2>Let's build Genni's <em>growth engine.</em></h2>
+        <p>The product is ready and the category window is open. The fastest path is the Foundation sprint: we align on goals, set the KPIs, and start.</p>
+        <a href="mailto:hamzazulquernain1@gmail.com?subject=Genni%20%C3%97%20Zapp%20Studios%20%E2%80%94%20Foundation%20Sprint" class="cta">Start with the Foundation sprint
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <div class="contact">
+          <span class="who">Hamza · Zapp Studios</span>
+          <a href="mailto:hamzazulquernain1@gmail.com">✉ hamzazulquernain1@gmail.com</a>
+          <a href="tel:+13468048886">☏ 346-804-8886</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="ftop">
+        <div class="brand"><span class="mono">ZS</span> Genni <span class="x">×</span> Zapp Studios</div>
+        <div class="tag">Growth &amp; Distribution Partnership Proposal, prepared for Bethel Kameni · Genni, June 2026.</div>
+      </div>
+      <div class="sources" id="sources">
+        <h5>Sources &amp; notes</h5>
+        <ol>
+          <li>Perfect Corp (NYSE: PERF),842 brand clients as of Q3 2025 ("over 800 brand partners"), ~946K–1M paying subscribers, $60.2M FY2024 revenue (≈89% B2B). <a href="https://ir.perfectcorp.com/news-and-events/news-releases/news-details/2025/Perfect-Corp--Reports-Unaudited-Financial-Results-for-the-Three-Months-and-the-Nine-Months-Ended-September-30-2025/default.aspx" target="_blank" rel="noopener">Q3 2025 results</a> · <a href="https://www.businesswire.com/news/home/20251110601035/en/" target="_blank" rel="noopener">"over 800 partners"</a></li>
+          <li>AI-hairstyle category is a fragmented long tail competing on ASO + TikTok before/after (e.g. "Hairstyle Try On" 1M+ installs); no standalone player has a verified large paid-subscriber base. <a href="https://www.tiktok.com/discover/ai-hairstyles" target="_blank" rel="noopener">TikTok discovery</a></li>
+          <li>Fractional growth lead / agency retainer ≈ $5k–$15k/mo. <a href="https://o-cmo.com/blog/fractional-cmo-cost/" target="_blank" rel="noopener">O-CMO</a> · <a href="https://databox.com/marketing-agency-retainer-fee" target="_blank" rel="noopener">Databox</a></li>
+          <li>Agency management fee ≈ 10–20% of ad spend. <a href="https://agencyanalytics.com/blog/ppc-pricing" target="_blank" rel="noopener">AgencyAnalytics</a> · <a href="https://www.wordstream.com/blog/ws/2015/07/15/ppc-agency-pricing" target="_blank" rel="noopener">WordStream</a></li>
+          <li>UGC video ≈ $200 average ($100–$500 range) per video. <a href="https://billo.app/blog/ugc-rates/" target="_blank" rel="noopener">Billo</a> · <a href="https://www.influencer-hero.com/blogs/ugc-influencer-rates" target="_blank" rel="noopener">Influencer Hero</a></li>
+          <li>AI creative ≈ 70–90% lower production cost; Kalshi's AI-made NBA Finals ad cost ~$2k vs. $200k–$2M traditional. <a href="https://news.designrush.com/kalshi-nba-finals-ai-ad-why-big-budget-commercials-are-dying" target="_blank" rel="noopener">DesignRush</a> · <a href="https://segwise.ai/blog/ai-creative-cpi-70-percent-honest-math" target="_blank" rel="noopener">Segwise</a></li>
+        </ol>
+        <p class="disc">A note on figures: market rates (3–5) and the category-leader data (1) are drawn from the cited sources and shown as ranges. The 70–90% creative-cost figure (6) is a directional production-cost estimate anchored by the named Kalshi campaign; broad independent research puts average marketing-cost savings lower. Genni-specific funnel-conversion and ROAS outcomes are targets, not guarantees.</p>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var prog=document.getElementById('progress');
+  var nav=document.getElementById('nav');
+  var lastY=window.scrollY;
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    var pct=h>0?(window.scrollY/h)*100:0;
+    prog.style.width=pct+'%';
+    var y=window.scrollY;
+    if(y>40){nav.classList.add('solid');}else{nav.classList.remove('solid');}
+    if(y>lastY && y>320){nav.classList.add('hide');}else{nav.classList.remove('hide');}
+    lastY=y;
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:0.12,rootMargin:'0px 0px -7% 0px'});
+    els.forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+  } else {
+    els.forEach(function(el){el.classList.add('in');});
+  }
+  setTimeout(function(){ document.querySelectorAll('.reveal:not(.in)').forEach(function(el){
+    var r=el.getBoundingClientRect(); if(r.top<window.innerHeight){el.classList.add('in');}
+  }); },450);
+})();
+</script>
+</body>
+</html>
