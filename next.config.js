@@ -14,6 +14,11 @@ const nextConfig = {
       { source: '/apartment-locator/fae', destination: '/apartment-locator/fae.html' },
     ]
   },
+  async headers() {
+    return [
+      { source: '/_tmp/:path*', headers: [{ key: 'Access-Control-Allow-Origin', value: '*' }] },
+    ]
+  },
 }
 
 module.exports = nextConfig
