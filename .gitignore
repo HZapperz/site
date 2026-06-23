@@ -30,3 +30,10 @@ next-env.d.ts
 
 # Local-only working directory for the Owen / TCT project (research notes, scratch files, mini Next.js project)
 /owen
+.env*
+
+# Local-only annotation tool (generated, not served)
+*.local.html
+
+# Internal build/apply tooling for the Drop-2 review (local only)
+data/pecan-moon/tools/
