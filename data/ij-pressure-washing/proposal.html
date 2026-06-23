@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I &amp; J Pressure Washing × Zapp Studios · Growth Proposal</title>
+<meta name="description" content="A private growth proposal for I &amp; J Pressure Washing: turn a 5-star Katy reputation into booked jobs with a real online-booking funnel, paid search, and SMS follow-up — designed, built, and run by one operator.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ZAPP STUDIOS — Home-Service Pitch design system (shared).
+   Inline this ENTIRE block verbatim inside <style> in every
+   proposal.html. Per-company, change ONLY the --accent /
+   --accent-deep / --accent-tint values in :root (palette guide
+   is in SPEC.md). Do not restyle anything else.
+   ============================================================ */
+:root{
+  --bg:#FBF6EF;            /* warm ivory */
+  --bg-sand:#F4EBDD;       /* sand, alternating sections */
+  --paper:#FFFDFA;         /* warm white, cards */
+  --ink:#251E18;           /* espresso, headings */
+  --ink-2:#5E5247;         /* soft brown, body */
+  --muted:#928473;         /* muted captions */
+  --line:#E9DDCB;          /* warm hairline */
+  --line-2:#DBC9B1;
+  --accent:#C45C3D;        /* PRIMARY accent — override per company */
+  --accent-deep:#A8472C;   /* darker accent — override per company */
+  --accent-tint:#F6E7DC;   /* faint accent wash — override per company */
+  --ok:#5E7A52;            /* positive green */
+  --bad:#B2473A;           /* leak/negative red */
+  --shadow:0 1px 2px rgba(60,40,24,.04),0 18px 40px -24px rgba(80,50,28,.26);
+  --shadow-lift:0 1px 2px rgba(60,40,24,.05),0 30px 60px -28px rgba(80,50,28,.34);
+  --serif:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--accent-tint);color:var(--accent-deep)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.narrow{max-width:780px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-.012em;line-height:1.1;color:var(--ink)}
+em{font-style:italic;font-family:var(--serif);color:var(--accent-deep);font-weight:400}
+a{color:inherit}
+strong{font-weight:600;color:var(--ink)}
+
+/* atmosphere */
+.glow{position:fixed;z-index:0;pointer-events:none;width:760px;height:760px;border-radius:50%;
+  top:-300px;right:-240px;filter:blur(90px);opacity:.42;
+  background:radial-gradient(circle at center,var(--accent-tint),rgba(255,255,255,0) 64%)}
+main{position:relative;z-index:2}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60;transition:width .12s linear}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+nav.solid{background:rgba(251,246,239,.85);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:500;font-size:18px}
+.brand .mono{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
+  background:var(--ink);color:var(--bg);font-family:var(--sans);font-weight:600;font-size:12px}
+.brand .x{color:var(--muted);font-weight:400;font-size:15px;margin:0 1px}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:450}
+.navlinks a{color:var(--ink-2);text-decoration:none;transition:color .2s}
+.navlinks a:hover{color:var(--accent-deep)}
+.navcta{font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line-2);border-radius:100px;
+  padding:9px 17px;text-decoration:none;transition:all .25s}
+.navcta:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-tint)}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* sections */
+section{padding:108px 0;position:relative}
+section.sand{background:var(--bg-sand)}
+section.tint{background:linear-gradient(180deg,var(--bg) 0%,var(--accent-tint) 100%)}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:24px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+.eyebrow .no{color:var(--muted);font-weight:500}
+.lead{font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.1;max-width:880px;margin-bottom:24px;letter-spacing:-.018em}
+.body-lg{font-size:19px;color:var(--ink-2);max-width:700px;line-height:1.62}
+.body-lg + .body-lg{margin-top:18px}
+p{max-width:720px;color:var(--ink-2)}
+p + p{margin-top:16px}
+
+/* hero */
+#hero{min-height:96vh;display:flex;align-items:center;padding-top:90px;padding-bottom:70px}
+#hero h1{font-size:clamp(44px,7vw,86px);font-weight:500;letter-spacing:-.025em;margin-bottom:26px;max-width:15ch}
+#hero h1 em{font-style:normal;color:var(--accent-deep)}
+#hero .sub{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:660px;margin-bottom:40px;line-height:1.6}
+.hero-meta{display:flex;gap:42px;flex-wrap:wrap;margin-top:54px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-meta .blk{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:600}
+.hero-meta .blk strong{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);text-transform:none;margin-top:6px;font-weight:500}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);font-family:var(--sans);
+  font-weight:500;font-size:15.5px;padding:15px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 10px 30px -12px rgba(37,30,24,.5)}
+.cta:hover{transform:translateY(-2px);background:var(--accent-deep);box-shadow:0 16px 38px -12px rgba(168,71,44,.5)}
+.cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.cta.ghost:hover{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-deep)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* stat trio */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+@media(max-width:820px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:var(--shadow)}
+.stat .num{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1;margin-bottom:12px;color:var(--ink);letter-spacing:-.02em}
+.stat .num em{color:var(--accent-deep);font-style:normal}
+.stat .lbl{font-size:14px;color:var(--ink-2);line-height:1.5}
+.stat .src{font-size:11.5px;color:var(--muted);margin-top:10px}
+
+/* generic card grid */
+.grid{display:grid;gap:22px;margin-top:46px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{font-size:15.5px}
+.card .k{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px}
+
+/* leak / callout box */
+.leak{border-left:3px solid var(--bad);background:#FBEEEA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.leak .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bad);margin-bottom:8px}
+.win{border-left:3px solid var(--ok);background:#EEF3EA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.win .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);margin-bottom:8px}
+
+/* current-vs-zapp comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:42px;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+@media(max-width:760px){.compare{grid-template-columns:1fr}}
+.compare .col{padding:30px 28px}
+.compare .col.now{background:#FBEEEA}
+.compare .col.zapp{background:var(--paper);border-left:1px solid var(--line)}
+.compare .col h4{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.compare .col.now h4{color:var(--bad)}
+.compare .col.zapp h4{color:var(--ok)}
+.compare ul{list-style:none}
+.compare li{font-size:15px;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--line)}
+.compare li:first-of-type{border-top:none}
+.compare .col.now li::before{content:"\2715";position:absolute;left:0;color:var(--bad);font-size:13px;top:10px}
+.compare .col.zapp li::before{content:"\2713";position:absolute;left:0;color:var(--ok);font-size:14px;top:10px}
+
+/* plan timeline */
+.phases{margin-top:46px;display:grid;gap:18px}
+.phase{display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.phase .no{font-family:var(--serif);font-size:34px;color:var(--accent);line-height:1;font-weight:400}
+.phase h3{font-size:20px;margin-bottom:8px}
+.phase p{font-size:15.5px}
+.phase .when{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px 30px;box-shadow:var(--shadow);position:relative}
+.tier.feature{border-color:var(--accent);box-shadow:var(--shadow-lift)}
+.tier .badge{position:absolute;top:-11px;left:30px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.tier h3{font-size:24px;margin-bottom:6px}
+.tier .price{font-family:var(--serif);font-size:34px;color:var(--ink);margin:14px 0 4px;letter-spacing:-.02em}
+.tier .price .ph{color:var(--accent-deep);font-style:italic;font-size:24px}
+.tier .note{font-size:13px;color:var(--muted);margin-bottom:20px}
+.tier ul{list-style:none;margin-top:18px}
+.tier li{font-size:15px;color:var(--ink-2);padding:8px 0 8px 24px;position:relative;border-top:1px solid var(--line)}
+.tier li::before{content:"\2713";position:absolute;left:0;color:var(--accent);top:8px}
+
+/* close */
+#close{text-align:center}
+#close h2{font-size:clamp(32px,5vw,56px);font-weight:500;margin-bottom:22px}
+#close .body-lg{margin:0 auto 36px}
+
+/* sources / footer */
+.sources{font-size:13px;color:var(--muted);max-width:880px}
+.sources ol{margin-left:18px;margin-top:14px}
+.sources li{padding:4px 0;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:18px;max-width:880px;line-height:1.55}
+</style>
+<style>
+/* Per-company accent — I & J Pressure Washing (water teal) */
+:root{
+  --accent:#2E8FA8;
+  --accent-deep:#1E6B80;
+  --accent-tint:#DAEEF2;
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <span class="brand"><span class="mono">Z</span> Zapp Studios <span class="x">×</span> I &amp; J Pressure Washing</span>
+    <span class="navlinks">
+      <a href="#audit">Audit</a>
+      <a href="#opportunity">Opportunity</a>
+      <a href="#proof">Proof</a>
+      <a href="#plan">Plan</a>
+      <a href="#pricing">Pricing</a>
+      <a class="navcta" href="/book">Book a call</a>
+    </span>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span>Growth Proposal</span> <span class="no">· June 7, 2026</span></div>
+      <h1>A 5-star service with <em>no way to book it.</em></h1>
+      <p class="sub">You earned a clean 5.0 reputation in Katy doing good work by hand. But the only path from "interested" to "booked" on your site is a form that emails you and a note that says "by appointment only." Every homeowner who wants a quote tonight and doesn't get a same-day callback hires the competitor with a "Book Now" button instead. That is a fixable software problem, not a marketing one.</p>
+      <div class="cta-row">
+        <a class="cta" href="/book">Book a 15-minute working call</a>
+        <a class="cta ghost" href="#plan">See the plan</a>
+      </div>
+      <div class="hero-meta">
+        <div class="blk">Prepared for<strong>I &amp; J Pressure Washing LLC</strong></div>
+        <div class="blk">Prepared by<strong>Hamza · Zapp Studios</strong></div>
+        <div class="blk">Date<strong>June 7, 2026</strong></div>
+        <div class="blk">Live rating<strong>5.0 on Google</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIT ============ -->
+  <section id="audit" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">01</span> <span>Where you are today</span></div>
+      <h2 class="lead">The reputation is real. The way to act on it isn't.</h2>
+      <p class="body-lg">I walked your funnel the way a Cinco Ranch homeowner would. The good news is exactly what your reviews say: the work is professional, prompt, and clean — customers describe house and fence washing that looks brand new, with no recurring complaints anywhere I looked. The constraint isn't your service. It's that there is no machine standing between a five-star reputation and a booked, paid job.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num"><em>5.0</em> ★</div>
+          <div class="lbl">Google rating across your reviews — a clean, complaint-free record.</div>
+          <div class="src">Google Business Profile, claimed · 1906 Kingston Meadow Ln, Katy</div>
+        </div>
+        <div class="stat">
+          <div class="num">Form<em>-only</em></div>
+          <div class="lbl">Your single conversion path is a "Get In Touch" form that "sends an email to the owner." No scheduler, no instant quote, no calendar.</div>
+          <div class="src">ijpressurewashingkaty.com · "by appointment only"</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>0</em></div>
+          <div class="lbl">Automated follow-ups. No SMS confirmations, no missed-call text-back, no reminders — lead capture is a raw email with no CRM behind it.</div>
+          <div class="src">No follow-up automation detected on the UENI template</div>
+        </div>
+      </div>
+
+      <div class="leak">
+        <div class="tag">The single biggest leak</div>
+        <p>There is no frictionless path from "interested" to "booked." A motivated homeowner lands, sees five stars, wants a quote tonight — and the only option is "email the owner and wait." Your site runs on a UENI DIY template: one contact form, "by appointment only," no online booking, no instant quote, no follow-up. Every lead that doesn't get a fast manual callback leaks straight to a competitor with a "Book Now" button.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GAPS ============ -->
+  <section id="gaps">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">02</span> <span>What it's costing you</span></div>
+      <h2 class="lead">Four places the demand quietly leaks out.</h2>
+      <p class="body-lg">None of these are about how well you clean a house. They're about what happens in the minutes after someone decides they want you — the part you currently handle by hand, one lead at a time.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="k">Gap 01 · No instant booking</div>
+          <h3>"Email the owner and wait"</h3>
+          <p>The entire path to a job is a basic form (name, email, phone, message) with no instant confirmation and no calendar. A homeowner ready to commit can't pick a slot — they submit and hope. Rolling Suds, in your exact zip, lets them book on the spot.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 02 · No speed-to-lead</div>
+          <h3>Every reply is manual</h3>
+          <p>With no auto-response or missed-call text-back, the lead sits until you personally see the email and call. In home services, the first business to respond usually wins the job. When you're up a ladder, that window closes on someone else.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 03 · No follow-up</div>
+          <h3>One touch, then silence</h3>
+          <p>No SMS confirmations, no reminders, no rebooking nudge for next season. Pressure washing is repeatable and seasonal — pollen in spring, curb-appeal before the holidays — but nothing brings a happy 2024 customer back. You re-earn every job from zero.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 04 · Invisible on search</div>
+          <h3>A demand-taker, not a demand-generator</h3>
+          <p>A UENI template rarely ranks for "pressure washing Katy" — and you don't. That head term is owned by Rolling Suds, Pressure King, and SEO incumbents. With no ads either, you surface only on brand-name and directory searches. The high-intent 77494 searches flow to whoever shows up first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPPORTUNITY ============ -->
+  <section id="opportunity" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">03</span> <span>The demand is already there</span></div>
+      <h2 class="lead">You're sitting in an affluent zip, in peak season, with a five-star name.</h2>
+      <p class="body-lg">77494 is far-west Katy — Cinco Ranch and Cross Creek Ranch — solidly affluent suburban homeowners who pay full price and re-book seasonally, not price-shoppers. June is peak pressure-washing demand in Houston. And you already have the one thing that's hardest to fake: a genuinely clean five-star reputation. The only missing piece is the machine that turns a search into a booking.</p>
+
+      <div class="win">
+        <div class="tag">Illustrative ROI · assumptions labeled</div>
+        <p><strong>The math, in your dollars.</strong> Assume you currently net roughly 15 jobs a month from word-of-mouth at a blended residential ticket of about $400 — call it ~$6,000/mo. <em>(These are assumptions to frame the model, not your reported figures; we'd replace them with your real numbers on the call.)</em> The leak isn't traffic quality, it's conversion. Royal Pawz — same pattern, different vertical — roughly 4× their booking conversion. Apply even a conservative <strong>2×</strong> on captured leads, via ads driving traffic to a fast landing page with real online booking and SMS follow-up, and 15 jobs becomes <strong>30+ booked jobs/month — about $12,000/mo</strong>. That's a roughly <strong>$6,000/mo (~$72k/yr) incremental swing</strong>, before higher-ticket bundles like house-plus-driveway-plus-gutters.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num"><em>$350–450</em></div>
+          <div class="lbl">Typical blended residential ticket in West Houston (house/soft wash $250–$600; full-exterior bundles $500–$900+).</div>
+          <div class="src">Vertical ticket ranges · assumption for modeling</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>$80–160</em></div>
+          <div class="lbl">Realistic cost per booked job at $5–$12 CPCs and an 8–12% landing-page booking rate — comfortably profitable on a $400 ticket.</div>
+          <div class="src">West-Houston paid-search economics · estimate</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>4–6×</em></div>
+          <div class="lbl">ROAS that well-run campaigns clear in this vertical — in line with the 5× Royal Pawz proof point below.</div>
+          <div class="src">Vertical benchmark · to be validated in-market</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF ============ -->
+  <section id="proof">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">04</span> <span>This isn't theory</span></div>
+      <h2 class="lead">I've shipped this exact system before — and moved the numbers.</h2>
+      <p class="body-lg">Royal Pawz had the same shape as you: real demand, good service, and a leak at the booking step. One operator — me — built the funnel, the booking app, and the Twilio SMS layer, then ran it. Here is what happened.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">7% → <em>30.8%</em></div>
+          <div class="lbl">Booking conversion — roughly 4× (+334%) more visitors turned into booked appointments.</div>
+          <div class="src">Royal Pawz · before vs after</div>
+        </div>
+        <div class="stat">
+          <div class="num">~$200 → <em>~$10K</em></div>
+          <div class="lbl">Monthly recurring revenue, in about four months — roughly a 50× lift off the new system.</div>
+          <div class="src">Royal Pawz · MRR</div>
+        </div>
+        <div class="stat">
+          <div class="num">2× → <em>5×</em></div>
+          <div class="lbl">ROAS, with LTV:CAC near 7.8× ($195 LTV against a $25 blended CPA).</div>
+          <div class="src">Royal Pawz · paid efficiency</div>
+        </div>
+      </div>
+
+      <p style="margin-top:40px">What I built there is the same stack you need: a client booking app, an ops app for the field, an admin dashboard, AI/Twilio SMS for confirmations, reminders and rebooking, plus session recording and A/B testing to keep tightening conversion. One operator, shipped in weeks. The vertical was different; the seam — marketing meeting software at the booking step — was identical.</p>
+    </div>
+  </section>
+
+  <!-- ============ PLAN ============ -->
+  <section id="plan" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">05</span> <span>The plan</span></div>
+      <h2 class="lead">From "by appointment only" to booked while you're on the truck.</h2>
+
+      <div class="compare">
+        <div class="col now">
+          <h4>Today</h4>
+          <ul>
+            <li>UENI DIY template, generic structure, weak SEO control</li>
+            <li>One "Get In Touch" form — "an email will be sent to the owner"</li>
+            <li>"By appointment only," no scheduler, no instant quote</li>
+            <li>No SMS, no missed-call text-back, no CRM</li>
+            <li>No ads — invisible for "pressure washing Katy"</li>
+            <li>Happy customers, but nothing brings them back next season</li>
+          </ul>
+        </div>
+        <div class="col zapp">
+          <h4>With Zapp</h4>
+          <ul>
+            <li>Fast 77494 landing page built to convert, not just exist</li>
+            <li>Real online booking — pick a slot, instant confirmation</li>
+            <li>Instant-quote path so intent never waits for a callback</li>
+            <li>Twilio SMS: confirmations, reminders, rebooking, missed-call text-back</li>
+            <li>Google Ads targeting high-intent Cinco Ranch / Cross Creek searches</li>
+            <li>Analytics and A/B testing so the system compounds over time</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phases">
+        <div class="phase">
+          <div class="no">01</div>
+          <div>
+            <h3>Diagnose</h3>
+            <p>Confirm the real numbers behind the assumptions: jobs per month, average ticket, where today's leads actually come from, and the true Google review picture. I deliver a prioritized written plan you keep either way.</p>
+            <div class="when">Week 1</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">02</div>
+          <div>
+            <h3>Build the booking funnel</h3>
+            <p>A fast, focused 77494 landing page and a real online-booking flow with instant confirmation and an instant-quote path — replacing "email the owner and wait" with "book a slot now."</p>
+            <div class="when">Weeks 2–4</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">03</div>
+          <div>
+            <h3>Turn on paid + SMS</h3>
+            <p>Launch Google Ads against high-intent Katy searches, wire in Twilio SMS for confirmations, reminders, rebooking and missed-call text-back, and connect a simple CRM so no lead falls through.</p>
+            <div class="when">Weeks 4–6</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">04</div>
+          <div>
+            <h3>Measure &amp; compound</h3>
+            <p>Session recording and A/B testing to push the booking rate up, seasonal rebooking campaigns to your existing happy customers, and a monthly read on ROAS and cost per booked job — so the system gets stronger, not stale.</p>
+            <div class="when">Ongoing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY ============ -->
+  <section id="why">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">06</span> <span>Why one operator</span></div>
+      <h2 class="lead">Your marketing problem is usually a software problem.</h2>
+      <p class="body-lg">You don't have a marketing problem and a separate engineering problem. You have one revenue system, and it breaks at the seam between the two — the booking step. Most agencies will sell you traffic into the same broken form. The fix is to make the person who diagnoses the leak the same person who builds the thing that closes it.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="k">The seam</div>
+          <h3>Where revenue actually leaks</h3>
+          <p>Between the ad and the booking, between the lead and the follow-up. That gap is half copy, half code — and it only closes when one person owns both sides of it.</p>
+        </div>
+        <div class="card">
+          <div class="k">One owner</div>
+          <h3>I diagnose, I build, I run</h3>
+          <p>No handoffs, no agency-plus-developer telephone game. The plan and the system come from the same hands, so what gets shipped is what was diagnosed.</p>
+        </div>
+        <div class="card">
+          <div class="k">Speed</div>
+          <h3>Weeks, not quarters</h3>
+          <p>A focused funnel, real booking, and SMS follow-up go live in weeks. June is peak pressure-washing season in Houston — the time to be capturing demand is now, not next year.</p>
+        </div>
+        <div class="card">
+          <div class="k">Track record</div>
+          <h3>Built the hard version before</h3>
+          <p>I was a founding engineer at DietAI through a seven-figure exit, and I built the Royal Pawz funnel, booking app and Twilio SMS stack that 4×'d conversion. Same playbook, pointed at your zip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing" class="tint">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">07</span> <span>Pricing</span></div>
+      <h2 class="lead">Two ways in. Start small if you want proof first.</h2>
+      <p class="body-lg">The diagnostic stands on its own — you keep the written plan whether or not we build together. The system build is the full stack, designed and run by one operator. Final scope and numbers come after we talk.</p>
+
+      <div class="tiers">
+        <div class="tier">
+          <h3>Revenue Diagnostic</h3>
+          <div class="price"><span class="ph">$[set]</span></div>
+          <div class="note">Final scope after the call</div>
+          <p style="font-size:15px;color:var(--ink-2)">A paid audit of your full funnel — booking flow, follow-up, search visibility, competitor "Book Now" gap — turned into a prioritized written plan you own with or without me.</p>
+          <ul>
+            <li>Walk-through of your real booking and lead path</li>
+            <li>Quantified conversion-leak map, ranked by dollar impact</li>
+            <li>Competitor teardown (Rolling Suds and the 77494 incumbents)</li>
+            <li>Written, prioritized action plan you keep either way</li>
+          </ul>
+        </div>
+        <div class="tier feature">
+          <span class="badge">Recommended</span>
+          <h3>Revenue System Build</h3>
+          <div class="price"><span class="ph">$[set]</span></div>
+          <div class="note">Final scope after the call</div>
+          <p style="font-size:15px;color:var(--ink-2)">The full acquisition-and-conversion stack — designed, built, and run by one operator — bolted onto the service quality you already have.</p>
+          <ul>
+            <li>Fast 77494 landing page built to convert</li>
+            <li>Real online booking + instant-quote path</li>
+            <li>Twilio SMS: confirmations, reminders, rebooking, missed-call text-back</li>
+            <li>Google Ads targeting high-intent Katy searches</li>
+            <li>CRM + analytics + A/B testing that compounds</li>
+            <li>One operator who diagnoses, builds, and runs it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSE ============ -->
+  <section id="close">
+    <div class="wrap narrow">
+      <h2>You have the five stars. Let's build the way to book them.</h2>
+      <p class="body-lg">A genuinely five-star, family-owned operator with no online booking, no follow-up, and no ads — heading into peak season while a national franchise eats the "Book Now" searches in your exact zip. The service is already good. Only the machine is missing. I build that machine.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="cta" href="/book">Book a 15-minute working call</a>
+      </div>
+      <p style="margin-top:34px;text-align:center;color:var(--muted);font-size:15px">— Hamza · Zapp Studios</p>
+    </div>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section id="sources" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">08</span> <span>Sources</span></div>
+      <h2 class="lead" style="font-size:clamp(24px,3vw,34px)">What this is built on.</h2>
+      <div class="sources">
+        <ol>
+          <li>ijpressurewashingkaty.com — homepage (UENI template, services, "by appointment only," "Family-owned," contact form, areas covered)</li>
+          <li>ijpressurewashingkaty.com/reviews — review list with dates (Jul 22 2024 cluster + Aug 30 2024)</li>
+          <li>ijpressurewashingkaty.com/about-us — about / services</li>
+          <li>Google Business Profile — claimed, 1906 Kingston Meadow Ln, Katy, 5.0 rating</li>
+          <li>yelp.com/biz/i-and-j-pressure-washing-katy — 15 photos, 5.0 rating, address</li>
+          <li>nextdoor.com — I &amp; J Pressure Washing LLC, Katy TX (recommendations, phone, family-owned)</li>
+          <li>homeadvisor.com — rated.AbelBonilla profile (owner-name signal; free estimates, credit cards)</li>
+          <li>us.centralindex.com — legal name "I &amp; J Pressure Washing LLC," 1906 Kingston Meadow Ln, Katy</li>
+          <li>facebook.com/IJpressurewashingllc — page exists (login-walled)</li>
+          <li>rollingsudspowerwashing.com/katy-cypress — competitor (online booking, per-zip SEO)</li>
+          <li>pressurekingsoftwash.com, pressurewashingkaty.com, ktxwindowcleaning.com — competitor set (SEO incumbents, "Best of Katy")</li>
+        </ol>
+        <p class="disclaimer">Figures are point-in-time (Google rating and review activity as of June 7, 2026). ROI examples use clearly labeled assumptions for vertical ticket size, conversion rates, and current volume — not your reported numbers — and are meant only to frame the model; we'd replace them with your real figures on the call. The "review count" displayed on the UENI widget is treated with caution and is not asserted here as a verified Google count. This is a private draft for discussion; independent verification is encouraged.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Zapp Studios — Houston, Texas</span>
+    <span>Private draft prepared for I &amp; J Pressure Washing LLC · June 7, 2026</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress'),nav=document.querySelector('nav');
+  function onScroll(){
+    var st=window.pageYOffset||document.documentElement.scrollTop;
+    var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    bar.style.width=(h>0?(st/h)*100:0)+'%';
+    if(st>40){nav.classList.add('solid');}else{nav.classList.remove('solid');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

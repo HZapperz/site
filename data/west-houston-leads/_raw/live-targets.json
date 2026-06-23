@@ -1,0 +1,184 @@
+[
+  {
+    "slug": "all-brands-ac",
+    "name": "All Brands Air Conditioning",
+    "area": "Spring / NW Houston",
+    "website": "https://www.allbrandsair.com",
+    "knownGoogle": "unknown — Google Business Profile review count/rating could NOT be con",
+    "knownBooking": "no — form-only + phone/manual-text. A 'Book Online' link exi",
+    "confirm": [
+      "Open the Google Business Profile for All Brands Air Conditioning (Spring/77388, phone 832-663-6160) and record the EXACT Google review count + star rating + claim status — this number was NOT obtainable this session and is the key open reputation metric.",
+      "Pull up the live allbrandsair.com/reviews/ page and confirm it STILL shows the fake 'Jane Faber, New York / Lorem ipsum' placeholder testimonials (screenshot for the pitch deck).",
+      "Verify TDLR license #TACLB147312E live at tdlr.texas.gov/LicenseSearch (numeric '147312') — confirm holder name, ACTIVE status, expiration date, and zero disciplinary actions."
+    ]
+  },
+  {
+    "slug": "high-energy-detailing",
+    "name": "High Energy Detailing",
+    "area": "Houston (mobile; serves west side)",
+    "website": "https://www.highenergydetailing.com/",
+    "knownGoogle": "5.0 stars, 16 reviews (Google Business Profile, live this session) — V",
+    "knownBooking": "no — quote/contact form only ('we'll be in touch shortly'); ",
+    "confirm": [
+      "Open the Google Business Profile and confirm the EXACT live review count and star rating (research found 5.0 / 16) and read the OLDEST review date to date the business' launch",
+      "Confirm the GBP is owner-claimed (look for owner responses to reviews, complete hours, website link) vs auto-generated",
+      "Walk the full booking flow on highenergydetailing.com: click 'Get Free Quote' and confirm it is a contact form with NO scheduling calendar or real-time availability, and note the exact form fields"
+    ]
+  },
+  {
+    "slug": "ij-pressure-washing",
+    "name": "I & J Pressure Washing LLC",
+    "area": "Katy 77494",
+    "website": "https://ijpressurewashingkaty.com",
+    "knownGoogle": "No independent Google Business Profile review count confirmed. Website",
+    "knownBooking": "form-only — single 'Get In Touch' contact form ('An email wi",
+    "confirm": [
+      "Google: search 'I & J Pressure Washing Katy' and open the Google Business Profile / Maps panel — confirm whether a GBP exists, is owner-CLAIMED, and the EXACT Google review count + star rating (the '24' figure is a UENI widget number, not confirmed as Google reviews)",
+      "On ijpressurewashingkaty.com/reviews click 'Load more' — count the actual distinct reviews and log every date; verify the cluster of 5 reviews all dated Jul 22, 2024 (seeded-review red flag) vs any organic reviews after Aug 2024",
+      "Open Yelp (yelp.com/biz/i-and-j-pressure-washing-katy) directly in-browser — confirm Yelp's OWN native review count + rating (not the carried-over widget) and the 15-photo count"
+    ]
+  },
+  {
+    "slug": "tex-mex-junk-removal",
+    "name": "Tex Mex Junk Removal",
+    "area": "Memorial, Katy, Cypress, NW Houston",
+    "website": "https://texmexjunk.com",
+    "knownGoogle": "Self-claimed 5.0 stars / 85+ reviews on own site and Nextdoor; an aggr",
+    "knownBooking": "manual-text-quote (also form-only). Schedule page is a name/",
+    "confirm": [
+      "Open the live Google Business Profile for 'Tex-Mex Junk Removal' (Houston) and record the EXACT star rating + review count and the date of the oldest review (to confirm the ~early-2024 founding and whether '85+' is real or marketing).",
+      "Confirm GBP claim status (is it owner-managed? does it show 'Claim this business' or owner responses to reviews?).",
+      "Load yelp.com/biz/tex-mex-junk-removal-houston in a real browser and record exact Yelp review count + rating (WebFetch was 403)."
+    ]
+  },
+  {
+    "slug": "rmp-plumbing",
+    "name": "RMP Plumbing LLC",
+    "area": "Cypress / Katy / Westchase-Briar Forest (77063, 77095)",
+    "website": "https://www.rmp-plumbing.com",
+    "knownGoogle": "unknown - Google Business Profile review count/rating could not be con",
+    "knownBooking": "form/request-only via external Dispatch.me link ('pick any 3",
+    "confirm": [
+      "Pull RMP Plumbing's Google Business Profile (search 'RMP Plumbing Cypress' + Google Maps): record exact Google review count, star rating, and GBP claim/verification status - this is the single most important missing metric.",
+      "Verify Master Plumber License #43398 (and Responsible Master Plumber designation) on the TSBPE public search at vo.licensing.hpc.texas.gov/datamart - confirm active status, RMP name (Arssenov vs Angelov), and any disciplinary flags; note the missing 'M' prefix.",
+      "Confirm TX entity status on comptroller.texas.gov franchise-tax account-status search (entity name 'RMP PLUMBING'): active vs forfeited, formation/registration date, registered agent, and reconcile the three addresses (4003 Waldo St 77063 / 16630 Stoneside Dr 77095 / 7722 Shavano Ln 77433)."
+    ]
+  },
+  {
+    "slug": "houston-strong-roofing",
+    "name": "Houston Strong Roofing Company, LLC",
+    "area": "Cypress 77429; serves Memorial / Spring Branch / Katy",
+    "website": "houstonstrongroofing.com",
+    "knownGoogle": "~213-239 reviews at ~4.9-5.0 stars (VERIFIED range across LocallyFind ",
+    "knownBooking": "no — form-only 'Get Your Free Estimate' contact form + click",
+    "confirm": [
+      "Open the Google Business Profile / Maps listing for 'Houston Strong Roofing Company, 15705 Jarvis Rd, Cypress 77429' and record the EXACT current Google review count, star rating, and whether the profile is claimed/verified (owner responses present?).",
+      "Record the date of the OLDEST Google review to confirm review-history depth and the date of the newest to confirm current velocity (reported flowing through June 2026).",
+      "Walk the houstonstrongroofing.com 'Get Your Free Estimate' form end-to-end on MOBILE: list exact fields, confirm there is NO online booking calendar / scheduler / instant quote, no live chat, and test whether a submission triggers any automated SMS/email confirmation."
+    ]
+  },
+  {
+    "slug": "modern-air-of-katy",
+    "name": "Modern Air of Katy",
+    "area": "Spring Branch (Wycliffe Dr 77043); targets Energy Corridor / Memorial / Briar Forest",
+    "website": "https://modernairofkaty.com",
+    "knownGoogle": "~142-145 reviews at ~4.9-5.0 stars (snapshots ranged 127/132/142/143/1",
+    "knownBooking": "yes — HouseCall Pro 'Book Same-Day Service' widget, plus con",
+    "confirm": [
+      "Open Google Business Profile / Maps for 'Modern Air of Katy 77043': confirm exact current Google review count + star rating + whether the GBP is owner-claimed (verified badge / owner replies visible)",
+      "Check the date of the OLDEST visible Google review — confirm the hypothesis that 140+ reviews were generated within ~Nov 2025-June 2026 (recent reputation campaign), not spread since 2011",
+      "On modernairofkaty.com mobile: click 'Book Same-Day Service' and confirm the HouseCall Pro widget actually loads a real-time scheduling calendar (vs a dead link), and whether online payment is offered at booking"
+    ]
+  },
+  {
+    "slug": "evergreen-lawn-care",
+    "name": "Evergreen Lawn Care, LLC",
+    "area": "Houston (west side)",
+    "website": "https://evergreenlawncaretx.com/",
+    "knownGoogle": "~430-458 reviews, 4.9 stars; GBP claimed/live (VERIFIED rating + GBP; ",
+    "knownBooking": "form-only / phone-only / manual-text-quote (NO online bookin",
+    "confirm": [
+      "Confirm EXACT current Google review count + rating on the live GBP (aggregators range 430-458; verify on Google Maps place g/11qlbz22fq)",
+      "Read the oldest Google review date and 1-2 star reviews to surface any service/billing complaint themes (none surfaced this session)",
+      "Confirm Google Business Profile is owner-claimed (photos/hours/posts present suggest yes) and check owner response rate to reviews"
+    ]
+  },
+  {
+    "slug": "katy-brothers-pressure-washing",
+    "name": "Katy Brothers Pressure Washing",
+    "area": "Katy",
+    "website": "Two",
+    "knownGoogle": "~123 reviews, 5.0 stars per a third-party directory (UNVERIFIED single",
+    "knownBooking": "no -- request-a-quote form + phone + manual text quote only ",
+    "confirm": [
+      "Open Google Maps and confirm the EXACT Google review count and star rating for 'Katy Brothers Pressure Washing' (directory says ~123 / 5.0 -- verify on Google itself and note the date of the oldest review to gauge true tenure)",
+      "Confirm Google Business Profile is claimed (look for owner responses to reviews, hours, photos, messaging enabled)",
+      "Load https://www.katybrotherspressurewashingtx.com and https://katybrothers.com on mobile -- confirm both are live, note which is the 'real' one, and check the katybrothers.com pages for the leftover restaurant-template artifact ('Discover Katy Brothers - Exceptional Cuisine' / cuisine wording)"
+    ]
+  },
+  {
+    "slug": "sunrise-maids",
+    "name": "Sunrise Maids",
+    "area": "West Houston (Energy Corridor, Memorial, Briar Forest, Katy)",
+    "website": "https://sunrisemaids.com",
+    "knownGoogle": "5.0 rating; count UNVERIFIED and conflicting — site claims 158, Trusti",
+    "knownBooking": "yes — full online booking + instant online quote via Booking",
+    "confirm": [
+      "Open the live Google Business Profile for Sunrise Maids (5614 1st St #19, Katy) and record the EXACT current review count and rating — reconcile the site's '158' vs Trustindex's '98'; confirm GBP is claimed/verified",
+      "Read the actual oldest Google review date to gauge true review-velocity vs the 2018 founding",
+      "Walk the full BookingKoala flow at booking.sunrisemaids.com/booking/new through to the payment step — confirm whether a credit card / Stripe is required online vs deposit-only vs pay-after"
+    ]
+  },
+  {
+    "slug": "his-kingdom-electrical",
+    "name": "His Kingdom Electrical LLC",
+    "area": "Houston / Katy",
+    "website": "none",
+    "knownGoogle": "unknown — no Google Business Profile / Google Maps listing found (appe",
+    "knownBooking": "no — phone-and-manual-quote only ('call us for your free quo",
+    "confirm": [
+      "Confirm exact legal name spelling: 'HIS KINGDOM ELECTRIC LLC' (Electric, not Electrical) on Texas Comptroller franchise-status tool (comptroller.texas.gov), and verify 'right to transact business' = Active using Tax ID 32095266055 / SOS file 0805566291.",
+      "Search TDLR license verification (tdlr.texas.gov/verify.htm) live for an Electrical Contractor license tied to His Kingdom Electric, the Waller 77484 address, or the owner's personal name — confirm whether a contractor license + designated master electrician actually exists (the downloaded state file showed none).",
+      "Confirm the owner's full identity: is 'Mr. Edwin' = Edwin Neftaly Larin (Harris Co. ME #524038), or someone else? Do NOT pitch with an assumed surname."
+    ]
+  },
+  {
+    "slug": "bellas-neat-maid",
+    "name": "Bella's Neat Maid Services",
+    "area": "Energy Corridor (office 2606 Skelton Dr)",
+    "website": "https://bellasneatmaidservices.com/",
+    "knownGoogle": "~28-39 Google reviews, ~4.5 stars (UNVERIFIED; aggregators vary: Chamb",
+    "knownBooking": "no — form-only + phone-only; CTAs go to /contact-us free-est",
+    "confirm": [
+      "Open the live Google Business Profile for 'Bella's Neat Maid Services Houston' and record the EXACT current Google review count and star rating (aggregators disagree: 24 vs 28 vs 39)",
+      "Confirm GBP claim status and which address it uses (2509 McClendon 77030 vs 2606 Skelton 77067) and whether a 'Book online' button exists",
+      "Record the date of the OLDEST Google review to corroborate the ~2014 / 12-year founding claim"
+    ]
+  },
+  {
+    "slug": "tree-care-houston",
+    "name": "Tree Care Houston (Spring Branch)",
+    "area": "Spring Branch (10700 Hammerly Blvd)",
+    "website": "https://www.treecarehouston.com",
+    "knownGoogle": "~85 reviews at 5.0 stars per TrustAnalytica aggregator (UNVERIFIED sin",
+    "knownBooking": "no — form-only. CTA 'Book Your Tree Service Now' links to /c",
+    "confirm": [
+      "Confirm EXACT Google Business Profile review count + star rating live (TrustAnalytica claims ~85 @ 5.0 — verify on Google Maps for the 10700 Hammerly Blvd / Houston listing; aggregators inflate)",
+      "Confirm GBP claim status and whether the profile is verified/owner-managed (look for owner replies to reviews)",
+      "Check the oldest-review date on Google + Yelp to gauge how long the digital presence has actually been active vs the 1979 founding claim"
+    ]
+  },
+  {
+    "slug": "emerald-lawn-care",
+    "name": "Emerald Lawn Care, LLC",
+    "area": "Houston",
+    "website": "None",
+    "knownGoogle": "unknown (no GBP rating/count confirmed; confirm live)",
+    "knownBooking": "form-only / quote-request (Jobber work_request intake form +",
+    "confirm": [
+      "Open facebook.com/EmeraldLawnCare.TX and record exact follower/like count, page-creation date (Page Transparency), owner/admin name if shown, and recency/style of posts (individual job photos?)",
+      "Search Google Maps for 'Emerald Lawn Care Hockley TX' (713-904-0575): confirm whether a Google Business Profile exists, is claimed, and capture exact star rating + review count + oldest-review date",
+      "Load the Yelp page (yelp.com/biz/emerald-lawn-care-hockley) in a live browser to capture the actual star rating and review count behind the 403"
+    ]
+  }
+]

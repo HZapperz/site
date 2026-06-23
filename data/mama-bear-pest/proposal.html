@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mama Bear Pest &amp; Outdoor × Zapp Studios · Growth Proposal</title>
+<meta name="description" content="A growth proposal for Mama Bear Pest &amp; Outdoor: fix the new-customer front door that leaks every cold lead, then feed it a paid engine — built and run by one operator.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ZAPP STUDIOS — Home-Service Pitch design system (shared).
+   Inline this ENTIRE block verbatim inside <style> in every
+   proposal.html. Per-company, change ONLY the --accent /
+   --accent-deep / --accent-tint values in :root (palette guide
+   is in SPEC.md). Do not restyle anything else.
+   ============================================================ */
+:root{
+  --bg:#FBF6EF;            /* warm ivory */
+  --bg-sand:#F4EBDD;       /* sand, alternating sections */
+  --paper:#FFFDFA;         /* warm white, cards */
+  --ink:#251E18;           /* espresso, headings */
+  --ink-2:#5E5247;         /* soft brown, body */
+  --muted:#928473;         /* muted captions */
+  --line:#E9DDCB;          /* warm hairline */
+  --line-2:#DBC9B1;
+  --accent:#C45C3D;        /* PRIMARY accent — override per company */
+  --accent-deep:#A8472C;   /* darker accent — override per company */
+  --accent-tint:#F6E7DC;   /* faint accent wash — override per company */
+  --ok:#5E7A52;            /* positive green */
+  --bad:#B2473A;           /* leak/negative red */
+  --shadow:0 1px 2px rgba(60,40,24,.04),0 18px 40px -24px rgba(80,50,28,.26);
+  --shadow-lift:0 1px 2px rgba(60,40,24,.05),0 30px 60px -28px rgba(80,50,28,.34);
+  --serif:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--accent-tint);color:var(--accent-deep)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.narrow{max-width:780px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-.012em;line-height:1.1;color:var(--ink)}
+em{font-style:italic;font-family:var(--serif);color:var(--accent-deep);font-weight:400}
+a{color:inherit}
+strong{font-weight:600;color:var(--ink)}
+
+/* atmosphere */
+.glow{position:fixed;z-index:0;pointer-events:none;width:760px;height:760px;border-radius:50%;
+  top:-300px;right:-240px;filter:blur(90px);opacity:.42;
+  background:radial-gradient(circle at center,var(--accent-tint),rgba(255,255,255,0) 64%)}
+main{position:relative;z-index:2}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60;transition:width .12s linear}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+nav.solid{background:rgba(251,246,239,.85);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:500;font-size:18px}
+.brand .mono{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
+  background:var(--ink);color:var(--bg);font-family:var(--sans);font-weight:600;font-size:12px}
+.brand .x{color:var(--muted);font-weight:400;font-size:15px;margin:0 1px}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:450}
+.navlinks a{color:var(--ink-2);text-decoration:none;transition:color .2s}
+.navlinks a:hover{color:var(--accent-deep)}
+.navcta{font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line-2);border-radius:100px;
+  padding:9px 17px;text-decoration:none;transition:all .25s}
+.navcta:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-tint)}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* sections */
+section{padding:108px 0;position:relative}
+section.sand{background:var(--bg-sand)}
+section.tint{background:linear-gradient(180deg,var(--bg) 0%,var(--accent-tint) 100%)}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:24px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+.eyebrow .no{color:var(--muted);font-weight:500}
+.lead{font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.1;max-width:880px;margin-bottom:24px;letter-spacing:-.018em}
+.body-lg{font-size:19px;color:var(--ink-2);max-width:700px;line-height:1.62}
+.body-lg + .body-lg{margin-top:18px}
+p{max-width:720px;color:var(--ink-2)}
+p + p{margin-top:16px}
+
+/* hero */
+#hero{min-height:96vh;display:flex;align-items:center;padding-top:90px;padding-bottom:70px}
+#hero h1{font-size:clamp(44px,7vw,86px);font-weight:500;letter-spacing:-.025em;margin-bottom:26px;max-width:15ch}
+#hero h1 em{font-style:normal;color:var(--accent-deep)}
+#hero .sub{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:660px;margin-bottom:40px;line-height:1.6}
+.hero-meta{display:flex;gap:42px;flex-wrap:wrap;margin-top:54px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-meta .blk{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:600}
+.hero-meta .blk strong{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);text-transform:none;margin-top:6px;font-weight:500}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);font-family:var(--sans);
+  font-weight:500;font-size:15.5px;padding:15px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 10px 30px -12px rgba(37,30,24,.5)}
+.cta:hover{transform:translateY(-2px);background:var(--accent-deep);box-shadow:0 16px 38px -12px rgba(168,71,44,.5)}
+.cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.cta.ghost:hover{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-deep)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* stat trio */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+@media(max-width:820px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:var(--shadow)}
+.stat .num{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1;margin-bottom:12px;color:var(--ink);letter-spacing:-.02em}
+.stat .num em{color:var(--accent-deep);font-style:normal}
+.stat .lbl{font-size:14px;color:var(--ink-2);line-height:1.5}
+.stat .src{font-size:11.5px;color:var(--muted);margin-top:10px}
+
+/* generic card grid */
+.grid{display:grid;gap:22px;margin-top:46px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{font-size:15.5px}
+.card .k{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px}
+
+/* leak / callout box */
+.leak{border-left:3px solid var(--bad);background:#FBEEEA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.leak .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bad);margin-bottom:8px}
+.win{border-left:3px solid var(--ok);background:#EEF3EA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.win .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);margin-bottom:8px}
+
+/* current-vs-zapp comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:42px;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+@media(max-width:760px){.compare{grid-template-columns:1fr}}
+.compare .col{padding:30px 28px}
+.compare .col.now{background:#FBEEEA}
+.compare .col.zapp{background:var(--paper);border-left:1px solid var(--line)}
+.compare .col h4{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.compare .col.now h4{color:var(--bad)}
+.compare .col.zapp h4{color:var(--ok)}
+.compare ul{list-style:none}
+.compare li{font-size:15px;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--line)}
+.compare li:first-of-type{border-top:none}
+.compare .col.now li::before{content:"\2715";position:absolute;left:0;color:var(--bad);font-size:13px;top:10px}
+.compare .col.zapp li::before{content:"\2713";position:absolute;left:0;color:var(--ok);font-size:14px;top:10px}
+
+/* plan timeline */
+.phases{margin-top:46px;display:grid;gap:18px}
+.phase{display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.phase .no{font-family:var(--serif);font-size:34px;color:var(--accent);line-height:1;font-weight:400}
+.phase h3{font-size:20px;margin-bottom:8px}
+.phase p{font-size:15.5px}
+.phase .when{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px 30px;box-shadow:var(--shadow);position:relative}
+.tier.feature{border-color:var(--accent);box-shadow:var(--shadow-lift)}
+.tier .badge{position:absolute;top:-11px;left:30px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.tier h3{font-size:24px;margin-bottom:6px}
+.tier .price{font-family:var(--serif);font-size:34px;color:var(--ink);margin:14px 0 4px;letter-spacing:-.02em}
+.tier .price .ph{color:var(--accent-deep);font-style:italic;font-size:24px}
+.tier .note{font-size:13px;color:var(--muted);margin-bottom:20px}
+.tier ul{list-style:none;margin-top:18px}
+.tier li{font-size:15px;color:var(--ink-2);padding:8px 0 8px 24px;position:relative;border-top:1px solid var(--line)}
+.tier li::before{content:"\2713";position:absolute;left:0;color:var(--accent);top:8px}
+
+/* close */
+#close{text-align:center}
+#close h2{font-size:clamp(32px,5vw,56px);font-weight:500;margin-bottom:22px}
+#close .body-lg{margin:0 auto 36px}
+
+/* sources / footer */
+.sources{font-size:13px;color:var(--muted);max-width:880px}
+.sources ol{margin-left:18px;margin-top:14px}
+.sources li{padding:4px 0;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:18px;max-width:880px;line-height:1.55}
+</style>
+<style>
+/* Per-company accent override — Mama Bear Pest & Outdoor (honey amber) */
+:root{
+  --accent:#C8842E;
+  --accent-deep:#9E6418;
+  --accent-tint:#F4E8D4;
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#hero" style="text-decoration:none">
+      <span class="mono">Z</span> Zapp Studios <span class="x">×</span> Mama Bear
+    </a>
+    <div class="navlinks">
+      <a href="#audit">Audit</a>
+      <a href="#opportunity">Opportunity</a>
+      <a href="#proof">Proof</a>
+      <a href="#plan">Plan</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a class="navcta" href="/book">Book a working call</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="narrow" style="margin:0">
+      <div class="eyebrow">Growth Proposal <span class="no">· June 7, 2026</span></div>
+      <h1>Your front door is a <em>form, not a calendar</em>.</h1>
+      <p class="sub">You earned a 5.0 rating and bought real field-service software — but only existing customers can book a time. Every cold lead and every future ad click lands on a contact form and waits for a callback. That is where the revenue leaks, and it is fixable.</p>
+      <div class="cta-row">
+        <a class="cta" href="/book">Book a 15-minute working call</a>
+        <a class="cta ghost" href="#plan">See the plan</a>
+      </div>
+      <div class="hero-meta">
+        <div class="blk">Prepared for<strong>Leda Harrington · Mama Bear Pest &amp; Outdoor</strong></div>
+        <div class="blk">Prepared by<strong>Hamza · Zapp Studios</strong></div>
+        <div class="blk">Date<strong>June 7, 2026</strong></div>
+        <div class="blk">Google rating<strong>5.0 ★ · 70 reviews</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIT ============ -->
+<section id="audit" class="sand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">01</span> Where you are today</div>
+    <h2 class="lead">A genuinely good business with a leaking front door.</h2>
+    <p class="body-lg">I went through mamabearpest.com the way a new customer would. The site is clean — a proper WordPress build with a service page for every pest, service-area pages, and an honest, eco-positioned brand voice that reviewers clearly respond to. The product is good. The problem is the path from interested visitor to booked job.</p>
+    <p class="body-lg">Here is what I found on June 7, 2026, in plain terms.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num"><em>5.0</em> ★</div>
+        <div class="lbl">Google rating across 70 reviews — a perfect score and real demand proof.</div>
+        <div class="src">Source: Google Business Profile, live 2026-06-07</div>
+      </div>
+      <div class="stat">
+        <div class="num">Form<em>-only</em></div>
+        <div class="lbl">The new-customer "Book Now" page is a name/phone request form — no date/time picker, no instant confirmation, no online payment.</div>
+        <div class="src">Source: mamabearpest.com/book-now</div>
+      </div>
+      <div class="stat">
+        <div class="num">No<em> SMS</em></div>
+        <div class="lbl">No Twilio, chat, or speed-to-lead auto-text detected on the new-lead path. Only Google Analytics is firing.</div>
+        <div class="src">Source: page source, live 2026-06-07</div>
+      </div>
+    </div>
+
+    <div class="leak">
+      <div class="tag">The biggest leak</div>
+      <p>You already own GorillaDesk — real scheduling software — but you only expose it to <strong>returning</strong> customers through a login-gated portal. New, cold, ad-driven traffic lands on a no-calendar contact form and is told to wait for a manual callback. The strongest part of your stack is hidden behind the weakest part of your funnel. That single split is where most of your interested visitors quietly disappear.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAPS ============ -->
+<section id="gaps">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">02</span> What it's costing you</div>
+    <h2 class="lead">Four gaps between a visitor and a booked job.</h2>
+    <p class="body-lg">None of these are about effort or service quality — your reviews already prove those. They are structural gaps in the machine around the work.</p>
+
+    <div class="grid two">
+      <div class="card">
+        <div class="k">Gap 01 · No front-door booking</div>
+        <h3>New leads can't pick a time.</h3>
+        <p>The "Book Now" page collects name, phone, address, and the problem — then ends. There is no slot to choose and no confirmation. A homeowner with a wasp nest today has no way to lock in tomorrow. The job that was ready to book becomes a callback queue, and a share of those leads cool off or call a competitor first.</p>
+      </div>
+      <div class="card">
+        <div class="k">Gap 02 · No speed-to-lead text</div>
+        <h3>Silence after submit.</h3>
+        <p>There is no automated text the moment a form comes in. In home services, the first business to respond usually wins the job. Without an instant "we've got your request, here's a time" message, you are competing on how fast a human happens to be free — not on the strength of your service.</p>
+      </div>
+      <div class="card">
+        <div class="k">Gap 03 · No paid acquisition</div>
+        <h3>Nothing feeds the pipe.</h3>
+        <p>I found no Google Ads and no Meta Pixel — so no paid search and no retargeting. Demand today is inbound: referrals, Nextdoor, and directory leads. That is a clean foundation, but it caps you at the volume word-of-mouth happens to produce. There is no dial you can turn up.</p>
+      </div>
+      <div class="card">
+        <div class="k">Gap 04 · Thin reviews, low reach</div>
+        <h3>The story isn't being seen.</h3>
+        <p>You have 70 five-star reviews and a real differentiation — honest, eco-friendly, family- and pet-safe, no annual lock-in contracts. But against Katy incumbents with 1,000+ reviews and page-one rankings, organic discovery is near zero. The problem isn't the story; it's how few people ever reach it.</p>
+      </div>
+    </div>
+
+    <div class="win">
+      <div class="tag">Why this is good news</div>
+      <p>Every one of these is a system fix, not a rebuild. You already have the licensed operator, the product, the brand, and the scheduling software. The work is connecting them so a stranger can find you, pick a time, and get confirmed — without a human in the loop for the first reply.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPPORTUNITY ============ -->
+<section id="opportunity" class="sand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">03</span> The demand is already there</div>
+    <h2 class="lead">You don't need more interest first. You need to stop dropping the interest you get.</h2>
+    <p class="body-lg">A 5.0 rating across 70 reviews, warm Nextdoor recommendations, and recurring praise for honesty and family-safe products is hard-won proof that people want what you sell. The differentiator — woman-owned, eco-conscious, no year-long-contract — is exactly what affluent West Houston homeowners in the Energy Corridor, Briar Forest, and Memorial pay a premium for. The constraint is reach and conversion, not desirability.</p>
+
+    <p class="body-lg">Here is the math, in your dollars, with every assumption labeled.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num">~<em>100</em></div>
+        <div class="lbl">New-customer visits per month — a modest target once a paid + Google Business Profile program is feeding the site. <em>Assumption.</em></div>
+        <div class="src">Illustrative traffic baseline</div>
+      </div>
+      <div class="stat">
+        <div class="num">7% → <em>30%</em></div>
+        <div class="lbl">Booking rate today (form-and-callback) versus a real online-booking rate. That's ~7 jobs/month becoming ~28-30 from the same traffic.</div>
+        <div class="src">Royal Pawz pattern, applied to your funnel</div>
+      </div>
+      <div class="stat">
+        <div class="num">~$<em>3.5K</em></div>
+        <div class="lbl">Incremental revenue per month at a conservative $200 blended first-job value — before any recurring-plan LTV. <em>Assumption: $200/job.</em></div>
+        <div class="src">~$1,600 → ~$5,500/mo swing</div>
+      </div>
+    </div>
+
+    <p style="margin-top:38px">To be clear about the assumptions: $200 is a deliberately conservative blended first-job value for this vertical — one-time general pest service typically runs $125-$250, and that ignores the real prize. A recurring quarterly plan is worth roughly $400-$700 a year, and rodent, exclusion, and termite jobs run higher. Every cold lead you convert into a recurring customer compounds. The point of leverage is not buying more traffic first — it is that today most interested visitors never reach a booked appointment at all.</p>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section id="proof">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">04</span> This isn't theory</div>
+    <h2 class="lead">I've moved these exact numbers before.</h2>
+    <p class="body-lg">Royal Pawz was a local pet-grooming business in the same position: real demand, happy customers, and a booking path that leaked. One operator — me — diagnosed it, built the funnel and the booking app, and wired up the Twilio SMS layer. The starting condition was a 7% booking rate. Sound familiar.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num">7% → <em>30.8%</em></div>
+        <div class="lbl">Booking conversion — roughly 4× more visitors turned into booked jobs from the same traffic (+334%).</div>
+        <div class="src">Royal Pawz, ~4-month program</div>
+      </div>
+      <div class="stat">
+        <div class="num">$200 → <em>$10K</em></div>
+        <div class="lbl">Monthly recurring revenue — about 50× in roughly four months, driven by conversion and recurring rebooking.</div>
+        <div class="src">Royal Pawz MRR</div>
+      </div>
+      <div class="stat">
+        <div class="num"><em>7.8×</em></div>
+        <div class="lbl">LTV:CAC ($195 LTV / $25 blended CPA), with ROAS moving from 2× to 5×.</div>
+        <div class="src">Royal Pawz unit economics</div>
+      </div>
+    </div>
+
+    <p style="margin-top:38px">What got built was the whole machine: a client booking app, a groomer operations app, an admin dashboard, AI/Twilio SMS for confirmations, reminders, and rebooking, plus session recording and A/B testing to keep tightening the funnel. One operator, shipped in weeks. The Mama Bear version is nearly a carbon copy — except you already own the scheduling software, so part of the build is extending what you have to the front door instead of starting from zero.</p>
+  </div>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section id="plan" class="sand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">05</span> The plan</div>
+    <h2 class="lead">Close the seam, then feed it.</h2>
+    <p class="body-lg">First we fix the conversion path so paid traffic is worth buying. Then, and only then, we turn on the channel that feeds it. Doing it in that order is what makes the spend profitable instead of expensive.</p>
+
+    <div class="compare">
+      <div class="col now">
+        <h4>Current funnel</h4>
+        <ul>
+          <li>New leads land on a no-calendar contact form</li>
+          <li>Scheduling software hidden behind a returning-customer login</li>
+          <li>Manual callback — no instant confirmation</li>
+          <li>No speed-to-lead text after a form is submitted</li>
+          <li>No Google Ads, no Meta Pixel, no retargeting</li>
+          <li>Reviews thin, organic discovery near zero</li>
+        </ul>
+      </div>
+      <div class="col zapp">
+        <h4>With Zapp</h4>
+        <ul>
+          <li>Cold visitors pick a real time slot and self-book</li>
+          <li>Front-door booking that extends the GorillaDesk you already own</li>
+          <li>Instant confirmation the moment they book</li>
+          <li>Twilio speed-to-lead text, reminders, and rebooking</li>
+          <li>Google Ads → a high-intent landing page built to convert</li>
+          <li>Automated review-request loop that grows your count over time</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="no">01</div>
+        <div>
+          <h3>Diagnose &amp; instrument</h3>
+          <p>Confirm the live numbers — exact review velocity, the booking drop-off, and where current leads come from — and wire analytics so every later change is measured, not guessed. You keep this written diagnosis whether or not we build together.</p>
+          <div class="when">Week 1</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="no">02</div>
+        <div>
+          <h3>Build the front-door booking funnel</h3>
+          <p>A high-intent landing page plus real new-customer online booking — extending the scheduling software you already own to the front door so a stranger can pick a time and get an instant confirmation. This is the single biggest lever.</p>
+          <div class="when">Weeks 2-4</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="no">03</div>
+        <div>
+          <h3>Turn on paid + SMS</h3>
+          <p>Launch Google Ads against high-intent Katy and West Houston pest terms, pointed at the new landing page, with Twilio speed-to-lead text, appointment reminders, and a review-request loop that also fixes the thin-review problem over time.</p>
+          <div class="when">Weeks 4-6</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="no">04</div>
+        <div>
+          <h3>Measure &amp; compound</h3>
+          <p>Read the funnel weekly, A/B test the landing page and SMS copy, and shift spend toward what books. As recurring plans stack up, the same booked job keeps paying — and the cost to acquire the next one keeps falling.</p>
+          <div class="when">Ongoing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section id="why">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">06</span> Why one operator</div>
+    <h2 class="lead">Your marketing problem is usually a software problem.</h2>
+    <p class="body-lg">You don't have a marketing problem and a separate engineering problem. You have one revenue system, and it breaks at the seam between the two — the handoff from "someone clicked an ad" to "the job is booked and confirmed." Agencies own the first half and hand you a form. Developers own the second half and never see the ad. The leak lives in the gap nobody owns.</p>
+
+    <div class="grid two">
+      <div class="card">
+        <div class="k">One owner</div>
+        <h3>I diagnose, I build, I run.</h3>
+        <p>The person who finds the leak is the person who fixes it and the person accountable for the number afterward. No translation loss between strategy and code, no finger-pointing between vendors.</p>
+      </div>
+      <div class="card">
+        <div class="k">Weeks, not quarters</div>
+        <h3>Shipped on a startup clock.</h3>
+        <p>The whole Royal Pawz machine — booking app, ops app, dashboard, Twilio SMS, A/B testing — was built and live in weeks. You move into peak pest season with a working funnel, not a roadmap.</p>
+      </div>
+      <div class="card">
+        <div class="k">Built to compound</div>
+        <h3>A system, not a campaign.</h3>
+        <p>This isn't a one-time ad push. It's owned infrastructure — booking, follow-up, reviews, analytics — that keeps converting and keeps getting cheaper to run as recurring customers stack up.</p>
+      </div>
+      <div class="card">
+        <div class="k">Founder cred</div>
+        <h3>I've done the hard version.</h3>
+        <p>Founding engineer at DietAI through a 7-figure exit. I've built revenue systems where the math had to work, and I'd rather under-promise and show you a moved number than pitch you a deck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" class="tint">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">07</span> Pricing</div>
+    <h2 class="lead">Two ways to start.</h2>
+    <p class="body-lg">Start with a paid diagnosis you keep no matter what, or go straight to the build. Your front-door leak is already clear enough that most operators in your position go to the build — but the choice is yours.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <h3>Revenue Diagnostic</h3>
+        <div class="price"><span class="ph">$[set]</span></div>
+        <div class="note">Final scope after the call</div>
+        <p style="font-size:15px">A paid audit of your full funnel — front door, booking path, follow-up, and acquisition — delivered as a prioritized written plan you own and can act on with or without me.</p>
+        <ul>
+          <li>Live teardown of the new-customer booking path</li>
+          <li>Confirmed conversion and review-velocity numbers</li>
+          <li>Prioritized, written action plan you keep</li>
+          <li>The ROI model built on your real ticket sizes</li>
+          <li>Credited toward the build if you continue</li>
+        </ul>
+      </div>
+      <div class="tier feature">
+        <div class="badge">Recommended</div>
+        <h3>Revenue System Build</h3>
+        <div class="price"><span class="ph">$[set]</span></div>
+        <div class="note">Final scope after the call</div>
+        <p style="font-size:15px">The full machine — front-door booking, paid acquisition, and automated follow-up — designed, built, and run by one operator. The Royal Pawz playbook, adapted to the software you already own.</p>
+        <ul>
+          <li>High-intent landing page built to convert</li>
+          <li>Real new-customer online booking at the front door</li>
+          <li>Twilio SMS: speed-to-lead, reminders, rebooking</li>
+          <li>Automated review-request loop</li>
+          <li>Google Ads launched against high-intent local terms</li>
+          <li>Analytics + A/B testing, measured weekly</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section id="close">
+  <div class="wrap">
+    <div class="narrow">
+      <h2>You already have the product. Let's build the machine around it.</h2>
+      <p class="body-lg">The service is good, the rating is perfect, and peak pest season is here. The only thing between you and more booked jobs is a front door that lets a stranger pick a time — and a channel that brings strangers to it. Fifteen minutes is enough to walk you through exactly how.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="cta" href="/book">Book a 15-minute working call</a>
+      </div>
+      <p style="margin:34px auto 0;font-family:var(--serif);font-size:18px;color:var(--ink)">— Hamza · Zapp Studios</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section id="sources" class="sand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">08</span> Sources</div>
+    <h2 class="lead" style="font-size:clamp(24px,3vw,34px)">What this is built on.</h2>
+    <div class="sources">
+      <ol>
+        <li>mamabearpest.com — homepage: platform, CTAs, 100% five-star claim, service lines</li>
+        <li>mamabearpest.com/book-now — new-customer contact form teardown (no date/time picker, no instant confirm, no online payment)</li>
+        <li>mamabearpest.com/schedule — returning-customer GorillaDesk portal link (login required)</li>
+        <li>mamabearpest.com/about-us — owners Leda &amp; John Harrington, brand story</li>
+        <li>mamabearpest.com/financing — Integrity Payments financing</li>
+        <li>Google Business Profile — 5.0 ★ rating across 70 reviews, claimed/verified (live 2026-06-07)</li>
+        <li>verifiedpestcontrol.com — TDA Structural Pest Control License #928581, John M Harrington, issued 2024-02-28, General Pest + Termite</li>
+        <li>IssueWire press release, Sept 12 2024 — Leda Harrington, CEO, woman-owned positioning</li>
+        <li>Nextdoor — Mama Bear Pest &amp; Outdoor neighbor recommendations</li>
+        <li>HomeAdvisor / Angi — Mama Bear listing (directory-lead presence)</li>
+        <li>gorilladesk.com — customer-portal capability used by returning customers</li>
+        <li>getmypests.com, enviroconpest.com, abchomeandcommercial.com — Katy competitor landscape</li>
+        <li>Page source review (live 2026-06-07) — Google Analytics present; no Meta Pixel, no Twilio/SMS automation detected</li>
+        <li>Royal Pawz — Zapp Studios case study (booking 7% → 30.8%, ~$200 → ~$10K MRR, LTV:CAC ≈ 7.8×)</li>
+      </ol>
+      <p class="disclaimer">Figures are point-in-time — Google reviews and on-site findings are as of June 7, 2026, and may change. Royal Pawz numbers are from a prior Zapp engagement and are illustrative of method, not a guarantee of identical results. ROI figures use labeled assumptions about traffic and ticket size and are for discussion. This is a private draft prepared for Mama Bear Pest &amp; Outdoor; independent verification is encouraged.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Zapp Studios · Houston, TX</span>
+    <span>Prepared for Mama Bear Pest &amp; Outdoor · June 7, 2026 · Private draft</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var p=document.getElementById('progress'),n=document.querySelector('nav');
+  function onScroll(){
+    var h=document.documentElement,
+        max=(h.scrollHeight-h.clientHeight)||1,
+        y=h.scrollTop||document.body.scrollTop;
+    p.style.width=(y/max*100)+'%';
+    if(y>40){n.classList.add('solid')}else{n.classList.remove('solid')}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

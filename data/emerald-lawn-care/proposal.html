@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emerald Lawn Care × Zapp Studios · Growth Proposal</title>
+<meta name="description" content="A growth proposal for Emerald Lawn Care: turn demand on with a real landing page, paid search, and SMS speed-to-lead — then let Jobber catch every booking.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ZAPP STUDIOS — Home-Service Pitch design system (shared).
+   Inline this ENTIRE block verbatim inside <style> in every
+   proposal.html. Per-company, change ONLY the --accent /
+   --accent-deep / --accent-tint values in :root (palette guide
+   is in SPEC.md). Do not restyle anything else.
+   ============================================================ */
+:root{
+  --bg:#FBF6EF;            /* warm ivory */
+  --bg-sand:#F4EBDD;       /* sand, alternating sections */
+  --paper:#FFFDFA;         /* warm white, cards */
+  --ink:#251E18;           /* espresso, headings */
+  --ink-2:#5E5247;         /* soft brown, body */
+  --muted:#928473;         /* muted captions */
+  --line:#E9DDCB;          /* warm hairline */
+  --line-2:#DBC9B1;
+  --accent:#C45C3D;        /* PRIMARY accent — override per company */
+  --accent-deep:#A8472C;   /* darker accent — override per company */
+  --accent-tint:#F6E7DC;   /* faint accent wash — override per company */
+  --ok:#5E7A52;            /* positive green */
+  --bad:#B2473A;           /* leak/negative red */
+  --shadow:0 1px 2px rgba(60,40,24,.04),0 18px 40px -24px rgba(80,50,28,.26);
+  --shadow-lift:0 1px 2px rgba(60,40,24,.05),0 30px 60px -28px rgba(80,50,28,.34);
+  --serif:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--accent-tint);color:var(--accent-deep)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.narrow{max-width:780px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-.012em;line-height:1.1;color:var(--ink)}
+em{font-style:italic;font-family:var(--serif);color:var(--accent-deep);font-weight:400}
+a{color:inherit}
+strong{font-weight:600;color:var(--ink)}
+
+/* atmosphere */
+.glow{position:fixed;z-index:0;pointer-events:none;width:760px;height:760px;border-radius:50%;
+  top:-300px;right:-240px;filter:blur(90px);opacity:.42;
+  background:radial-gradient(circle at center,var(--accent-tint),rgba(255,255,255,0) 64%)}
+main{position:relative;z-index:2}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60;transition:width .12s linear}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+nav.solid{background:rgba(251,246,239,.85);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:500;font-size:18px}
+.brand .mono{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
+  background:var(--ink);color:var(--bg);font-family:var(--sans);font-weight:600;font-size:12px}
+.brand .x{color:var(--muted);font-weight:400;font-size:15px;margin:0 1px}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:450}
+.navlinks a{color:var(--ink-2);text-decoration:none;transition:color .2s}
+.navlinks a:hover{color:var(--accent-deep)}
+.navcta{font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line-2);border-radius:100px;
+  padding:9px 17px;text-decoration:none;transition:all .25s}
+.navcta:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-tint)}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* sections */
+section{padding:108px 0;position:relative}
+section.sand{background:var(--bg-sand)}
+section.tint{background:linear-gradient(180deg,var(--bg) 0%,var(--accent-tint) 100%)}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:24px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+.eyebrow .no{color:var(--muted);font-weight:500}
+.lead{font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.1;max-width:880px;margin-bottom:24px;letter-spacing:-.018em}
+.body-lg{font-size:19px;color:var(--ink-2);max-width:700px;line-height:1.62}
+.body-lg + .body-lg{margin-top:18px}
+p{max-width:720px;color:var(--ink-2)}
+p + p{margin-top:16px}
+
+/* hero */
+#hero{min-height:96vh;display:flex;align-items:center;padding-top:90px;padding-bottom:70px}
+#hero h1{font-size:clamp(44px,7vw,86px);font-weight:500;letter-spacing:-.025em;margin-bottom:26px;max-width:15ch}
+#hero h1 em{font-style:normal;color:var(--accent-deep)}
+#hero .sub{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:660px;margin-bottom:40px;line-height:1.6}
+.hero-meta{display:flex;gap:42px;flex-wrap:wrap;margin-top:54px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-meta .blk{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:600}
+.hero-meta .blk strong{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);text-transform:none;margin-top:6px;font-weight:500}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);font-family:var(--sans);
+  font-weight:500;font-size:15.5px;padding:15px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 10px 30px -12px rgba(37,30,24,.5)}
+.cta:hover{transform:translateY(-2px);background:var(--accent-deep);box-shadow:0 16px 38px -12px rgba(168,71,44,.5)}
+.cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.cta.ghost:hover{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-deep)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* stat trio */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+@media(max-width:820px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:var(--shadow)}
+.stat .num{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1;margin-bottom:12px;color:var(--ink);letter-spacing:-.02em}
+.stat .num em{color:var(--accent-deep);font-style:normal}
+.stat .lbl{font-size:14px;color:var(--ink-2);line-height:1.5}
+.stat .src{font-size:11.5px;color:var(--muted);margin-top:10px}
+
+/* generic card grid */
+.grid{display:grid;gap:22px;margin-top:46px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{font-size:15.5px}
+.card .k{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px}
+
+/* leak / callout box */
+.leak{border-left:3px solid var(--bad);background:#FBEEEA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.leak .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bad);margin-bottom:8px}
+.win{border-left:3px solid var(--ok);background:#EEF3EA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.win .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);margin-bottom:8px}
+
+/* current-vs-zapp comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:42px;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+@media(max-width:760px){.compare{grid-template-columns:1fr}}
+.compare .col{padding:30px 28px}
+.compare .col.now{background:#FBEEEA}
+.compare .col.zapp{background:var(--paper);border-left:1px solid var(--line)}
+.compare .col h4{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.compare .col.now h4{color:var(--bad)}
+.compare .col.zapp h4{color:var(--ok)}
+.compare ul{list-style:none}
+.compare li{font-size:15px;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--line)}
+.compare li:first-of-type{border-top:none}
+.compare .col.now li::before{content:"\2715";position:absolute;left:0;color:var(--bad);font-size:13px;top:10px}
+.compare .col.zapp li::before{content:"\2713";position:absolute;left:0;color:var(--ok);font-size:14px;top:10px}
+
+/* plan timeline */
+.phases{margin-top:46px;display:grid;gap:18px}
+.phase{display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.phase .no{font-family:var(--serif);font-size:34px;color:var(--accent);line-height:1;font-weight:400}
+.phase h3{font-size:20px;margin-bottom:8px}
+.phase p{font-size:15.5px}
+.phase .when{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px 30px;box-shadow:var(--shadow);position:relative}
+.tier.feature{border-color:var(--accent);box-shadow:var(--shadow-lift)}
+.tier .badge{position:absolute;top:-11px;left:30px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.tier h3{font-size:24px;margin-bottom:6px}
+.tier .price{font-family:var(--serif);font-size:34px;color:var(--ink);margin:14px 0 4px;letter-spacing:-.02em}
+.tier .price .ph{color:var(--accent-deep);font-style:italic;font-size:24px}
+.tier .note{font-size:13px;color:var(--muted);margin-bottom:20px}
+.tier ul{list-style:none;margin-top:18px}
+.tier li{font-size:15px;color:var(--ink-2);padding:8px 0 8px 24px;position:relative;border-top:1px solid var(--line)}
+.tier li::before{content:"\2713";position:absolute;left:0;color:var(--accent);top:8px}
+
+/* close */
+#close{text-align:center}
+#close h2{font-size:clamp(32px,5vw,56px);font-weight:500;margin-bottom:22px}
+#close .body-lg{margin:0 auto 36px}
+
+/* sources / footer */
+.sources{font-size:13px;color:var(--muted);max-width:880px}
+.sources ol{margin-left:18px;margin-top:14px}
+.sources li{padding:4px 0;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:18px;max-width:880px;line-height:1.55}
+</style>
+<style>
+/* Per-company accent — emerald-lawn-care (emerald green) */
+:root{
+  --accent:#3E7D4F;
+  --accent-deep:#2C5C39;
+  --accent-tint:#E0EDE2;
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#hero" style="text-decoration:none">
+      <span class="mono">Z</span> Zapp Studios <span class="x">×</span> Emerald Lawn Care
+    </a>
+    <div class="navlinks">
+      <a href="#audit">Audit</a>
+      <a href="#opportunity">Opportunity</a>
+      <a href="#proof">Proof</a>
+      <a href="#plan">Plan</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a class="navcta" href="/book">Book a call</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================ HERO ============================ -->
+<section id="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">Growth Proposal</span> · June 7, 2026</div>
+    <h1>You built the demand. Now <em>turn it on</em> and let Jobber catch it.</h1>
+    <p class="sub">Emerald Lawn Care already earns 4.8 stars and intakes work through Jobber. The booking back end isn't the problem — there's just no front door driving people to it. No landing page, no paid search, no instant text-back. The demand exists; nothing is switched on to capture it at scale.</p>
+    <div class="cta-row">
+      <a class="cta" href="/book">Book a 15-minute working call</a>
+      <a class="cta ghost" href="#plan">See the plan</a>
+    </div>
+    <div class="hero-meta">
+      <div class="blk">Prepared for<strong>Emerald Lawn Care, LLC</strong></div>
+      <div class="blk">Prepared by<strong>Hamza · Zapp Studios</strong></div>
+      <div class="blk">Date<strong>June 7, 2026</strong></div>
+      <div class="blk">Live rating<strong>4.8 ★ · 23 reviews</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ AUDIT ============================ -->
+<section id="audit" class="sand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">01</span> Where you are today</div>
+    <h2 class="lead">A craft-proud operator with a working back end and no acquisition engine in front of it.</h2>
+    <p class="body-lg">I looked at your public footprint the way a prospective customer would. The work is good and the reviews back it up — 4.8 stars across 23 ratings, with neighbors specifically praising edging, detail, and HOA-compliance help on Facebook and Nextdoor. You run intake through Jobber, so once someone reaches you, you can quote and schedule cleanly.</p>
+    <p class="body-lg">The gap is everything <em>upstream</em> of that. There is no owned website — your presence is a Facebook page, free directory listings, and a Jobber quote-request link. A customer's path to you is: find the page, send a DM or call the cell, wait for a manual quote. There's no page running ads can point to, nothing for Google to rank, and no instant reply the moment interest spikes.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num"><em>4.8</em> ★</div>
+        <div class="lbl">Google rating across 23 reviews — strong proof, but a thin review count for a recurring-service business.</div>
+        <div class="src">Source: Google Business Profile, live-verified 2026-06-07</div>
+      </div>
+      <div class="stat">
+        <div class="num">No <em>site</em></div>
+        <div class="lbl">No owned landing page. Web presence is Facebook + a Jobber quote-request form + free directory listings.</div>
+        <div class="src">Source: web research; no owned domain found, verified by absence</div>
+      </div>
+      <div class="stat">
+        <div class="num"><em>0</em> ads</div>
+        <div class="lbl">No paid search, no Meta ads, no retargeting pixel. With no site, paid demand has nowhere to land.</div>
+        <div class="src">Source: assessed from absence of owned site + ad presence</div>
+      </div>
+    </div>
+
+    <div class="leak">
+      <div class="tag">The single biggest leak</div>
+      <p style="color:var(--ink)"><strong>The demand isn't switched on — and where it does exist, it has no front door.</strong> You're invisible on paid and organic search, so most of your category's high-intent buyers never see you. The few who do land on a Facebook page or a quote-request form, then wait. Jobber can catch a booking; it can't go out and create one. Right now nothing is driving qualified clicks to a page built to convert them, and nothing texts a lead back before they call the next name on the list.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GAPS ============================ -->
+<section id="gaps">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">02</span> What it's costing you</div>
+    <h2 class="lead">Four places revenue leaks before it ever reaches Jobber.</h2>
+    <p class="body-lg">None of these is a complaint about how you run jobs. They're all the same structural gap: there's no system turning demand into tracked, captured, fast-answered leads. Each one is fixable.</p>
+
+    <div class="grid two">
+      <div class="card">
+        <div class="k">Gap 01 · No landing page</div>
+        <h3>Nowhere to send a buyer</h3>
+        <p>A landing page is the one asset everything else needs. Without it you can't run Google Ads, you can't rank in organic search, and you can't retarget. A "$X per cut, pick your date" page that feeds straight into Jobber would convert browsers who today bounce off a Facebook profile or a bare quote form.</p>
+      </div>
+      <div class="card">
+        <div class="k">Gap 02 · Invisible on paid search</div>
+        <h3>Not in the auction at all</h3>
+        <p>When a Cypress or Hockley homeowner searches "lawn care near me," the results are aggregator apps and established locals with sites. You're not in that auction. Lawn-care search clicks cost roughly <strong>$40–$120 per lead</strong> (industry benchmark) — affordable, but only once there's a page to send them to and a way to track the cost per booked client.</p>
+      </div>
+      <div class="card">
+        <div class="k">Gap 03 · No speed-to-lead</div>
+        <h3>The first reply wins, and it isn't automated</h3>
+        <p>In home services, the business that replies first usually books the job. Today a DM or missed call waits for you to see it. An automated text-back the moment a lead comes in — confirmations, reminders, "ready to book?" — is exactly what Royal Pawz used to lift conversions, and Jobber supports the hooks to run it.</p>
+      </div>
+      <div class="card">
+        <div class="k">Gap 04 · Thin, unharvested reviews</div>
+        <h3>23 reviews under-sells a 4.8</h3>
+        <p>Your rating is excellent; the volume is light for a recurring-service brand, and there's no automated review request after a completed job. More reviews lift both ad click-through and organic trust. This is a compounding asset you're already earning the right to and not collecting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OPPORTUNITY ============================ -->
+<section id="opportunity" class="sand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">03</span> The demand is already there</div>
+    <h2 class="lead">A 4.8 rating and live neighbor requests prove the market wants you. It just can't find you yet.</h2>
+    <p class="body-lg">This isn't a business that needs to manufacture demand. You have 23 reviews at 4.8 stars, job-photo proof on Facebook, and Nextdoor threads where neighbors are openly asking for someone to take back overgrown yards. The work and the goodwill exist. What's missing is a tracked path that turns that intent into booked, recurring clients — and the ad reach to multiply it.</p>
+    <p class="body-lg">I'd model the math on your real geography: <em>mid-market suburban Cypress, Bridgeland, and Towne Lake</em> — solid HOA-driven recurring lawns, not Memorial-estate tickets. The numbers below use that footprint and Houston-area pricing.</p>
+
+    <div class="win">
+      <div class="tag">Illustrative ROI · assumptions labeled</div>
+      <p style="color:var(--ink)"><strong>Inputs (verified):</strong> Houston mowing averages ~$37 per cut; a weekly/bi-weekly recurring client is worth roughly <strong>$145/month</strong> in recurring revenue. <strong>Assumptions (illustrative, to confirm on the call):</strong> say you currently land about 6 new recurring clients a month organically. A landing page + frictionless booking + SMS follow-up in the Royal-Pawz mold typically lifts the booking rate 2–3×. Applied to your funnel, that's roughly <strong>+12 to +19 net new recurring clients a month</strong> — about <strong>$1,700 to $2,750 in new monthly recurring revenue</strong>, compounding, before adding any ad spend. Once a tracked page exists, paid Google Ads becomes viable at a knowable cost per client. Client baselines are illustrative; the pricing inputs are verified.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROOF ============================ -->
+<section id="proof">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">04</span> This isn't theory</div>
+    <h2 class="lead">I've moved these exact numbers for a recurring-service business.</h2>
+    <p class="body-lg">Royal Pawz is a grooming business with the same shape as yours: real demand, a manual booking handoff that leaked. One operator — me — built the front door and the follow-up. Here is what changed.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num">7% → <em>30.8%</em></div>
+        <div class="lbl">Booking conversion — roughly 4× (+334%) on the same incoming demand.</div>
+        <div class="src">Royal Pawz, ~4-month build window</div>
+      </div>
+      <div class="stat">
+        <div class="num">$200 → <em>$10K</em></div>
+        <div class="lbl">Monthly recurring revenue, ~50× in about four months as the funnel compounded.</div>
+        <div class="src">Royal Pawz MRR</div>
+      </div>
+      <div class="stat">
+        <div class="num"><em>7.8×</em></div>
+        <div class="lbl">LTV:CAC ($195 LTV / $25 blended CPA), with ROAS moving from 2× to 5×.</div>
+        <div class="src">Royal Pawz unit economics</div>
+      </div>
+    </div>
+
+    <p style="margin-top:40px">What I built there is the same kit I'd build here: a client booking app, an ops view, an admin dashboard, and AI/Twilio SMS handling confirmations, reminders, and rebooking — plus session recording and A/B testing to keep tightening conversion. One operator, shipped in weeks. For Emerald, the back end is lighter because Jobber already exists, so more of the work goes straight into the parts that win you clients: the page, the ads, and the speed-to-lead text.</p>
+  </div>
+</section>
+
+<!-- ============================ PLAN ============================ -->
+<section id="plan" class="sand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">05</span> The plan</div>
+    <h2 class="lead">Turn demand on, point it at a page built to convert, then let Jobber do what it already does.</h2>
+
+    <div class="compare">
+      <div class="col now">
+        <h4>Current</h4>
+        <ul>
+          <li>No owned landing page; presence is Facebook + directories</li>
+          <li>Invisible on paid and organic search</li>
+          <li>Lead path: DM or call, then a manual quote-request</li>
+          <li>No automated text-back when a lead comes in</li>
+          <li>No retargeting pixel, no tracked cost per booked client</li>
+          <li>4.8 ★ on 23 reviews, with no automated review request</li>
+        </ul>
+      </div>
+      <div class="col zapp">
+        <h4>With Zapp</h4>
+        <ul>
+          <li>A fast landing page that feeds straight into Jobber intake</li>
+          <li>Google Ads pointed at that page at a knowable cost per client</li>
+          <li>Instant booking link with a clear "$X per cut, pick your date"</li>
+          <li>Twilio SMS that texts every lead back in seconds</li>
+          <li>Pixel + analytics so every dollar is tracked end to end</li>
+          <li>Automated review requests that grow the 4.8 past 23</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="no">01</div>
+        <div>
+          <h3>Diagnose</h3>
+          <p>Confirm the real numbers — review volume, current lead flow, owner goals — and map exactly where demand is being left on the table. You keep the written plan whether or not we build together.</p>
+          <div class="when">Week 1</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="no">02</div>
+        <div>
+          <h3>Build the front door</h3>
+          <p>Design and ship a conversion-focused landing page wired into your existing Jobber intake, with a clear bookable offer, your job photos, and your reviews up front. This is the asset everything else needs.</p>
+          <div class="when">Weeks 2–3</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="no">03</div>
+        <div>
+          <h3>Turn on paid + SMS</h3>
+          <p>Launch Google Ads for Cypress/Hockley search terms pointed at the new page, and connect Twilio SMS so every inbound lead gets an instant text-back, with confirmations, reminders, and review requests automated.</p>
+          <div class="when">Weeks 3–4</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="no">04</div>
+        <div>
+          <h3>Measure &amp; compound</h3>
+          <p>Track cost per booked client, run A/B tests on the page and ads, and tune the spend toward the lowest CAC. Recurring revenue compounds, and reviews accumulate to lift every future click.</p>
+          <div class="when">Ongoing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WHY ============================ -->
+<section id="why">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">06</span> Why one operator</div>
+    <h2 class="lead">Your marketing problem is usually a software problem.</h2>
+    <p class="body-lg">You don't have a marketing problem and a separate engineering problem. You have one revenue system, and it breaks at the seam between the two — between the ad that creates demand and the page and text that capture it. The person who diagnoses that seam should be the person who builds across it.</p>
+
+    <div class="grid two">
+      <div class="card">
+        <div class="k">One seam, one owner</div>
+        <h3>Marketing and engineering, by the same hands</h3>
+        <p>An agency hands you a campaign and a separate developer hands you a page, and the leak lives in the gap between them. I diagnose, I build, and I run the whole path — ad to page to text to booking — so nothing falls through the seam.</p>
+      </div>
+      <div class="card">
+        <div class="k">Weeks, not quarters</div>
+        <h3>Shipped fast, measured honestly</h3>
+        <p>Because it's one operator and you already run Jobber, the build is weeks, not quarters. Every change is tracked against cost per booked client, so we keep what works and cut what doesn't.</p>
+      </div>
+      <div class="card">
+        <div class="k">Built on your stack</div>
+        <h3>Jobber stays; we add the front door</h3>
+        <p>You've already invested in Jobber for intake and scheduling. I don't replace that — I feed it. The landing page and SMS plug into what you run today, so the system gets stronger without disrupting how you operate.</p>
+      </div>
+      <div class="card">
+        <div class="k">Founder credibility</div>
+        <h3>I've built and sold this kind of system</h3>
+        <p>I was a founding engineer at DietAI through a seven-figure exit, and I built the Royal Pawz revenue system end to end. This is the work I do: turning proven demand into a measurable, compounding booking engine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRICING ============================ -->
+<section id="pricing" class="tint">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">07</span> Pricing</div>
+    <h2 class="lead">Start with a diagnostic. Build the system only if the numbers justify it.</h2>
+    <p class="body-lg">I'd rather earn the build than assume it. The Diagnostic is a paid audit that stands on its own — you keep the plan with or without me. If the numbers justify a full build, the Revenue System Build turns the demand on. Final amounts are set after the call, once scope is clear.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <h3>Revenue Diagnostic</h3>
+        <div class="price"><span class="ph">$[set]</span></div>
+        <div class="note">Final scope after the call</div>
+        <p style="font-size:15px;color:var(--ink-2)">A paid audit of your full funnel, ending in a prioritized, written plan you keep — with or without me.</p>
+        <ul>
+          <li>Verified read of reviews, lead flow, and current conversion</li>
+          <li>Where demand is leaking before it reaches Jobber</li>
+          <li>Landing-page, paid-search, and SMS opportunity, quantified</li>
+          <li>A prioritized build plan you own outright</li>
+        </ul>
+      </div>
+      <div class="tier feature">
+        <span class="badge">Recommended next step</span>
+        <h3>Revenue System Build</h3>
+        <div class="price"><span class="ph">$[set]</span></div>
+        <div class="note">Final scope after the call</div>
+        <p style="font-size:15px;color:var(--ink-2)">The full acquisition engine, designed, built, and run by one operator on top of your existing Jobber.</p>
+        <ul>
+          <li>Conversion landing page wired into Jobber intake</li>
+          <li>Google Ads pointed at the page at a knowable cost per client</li>
+          <li>Twilio SMS speed-to-lead, confirmations, and reminders</li>
+          <li>Automated review requests to grow past 23</li>
+          <li>Pixel, analytics, and A/B testing on the funnel</li>
+          <li>Built and run by one operator, shipped in weeks</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CLOSE ============================ -->
+<section id="close">
+  <div class="wrap narrow">
+    <div class="eyebrow" style="justify-content:center"><span class="no">08</span> The opportunity</div>
+    <h2>You earned the demand. Let's switch it on and let Jobber catch it.</h2>
+    <p class="body-lg">The reviews, the craft, and the booking back end are already in place. What's missing is the front door — a page, the ads to fill it, and a text that answers in seconds. That's a few weeks of focused work, and it compounds. Let's spend fifteen minutes confirming the numbers.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="cta" href="/book">Book a 15-minute working call</a>
+    </div>
+    <p style="margin:36px auto 0;text-align:center;color:var(--ink);font-family:var(--serif);font-size:18px">— Hamza · Zapp Studios</p>
+  </div>
+</section>
+
+<!-- ============================ SOURCES ============================ -->
+<section id="sources" class="sand">
+  <div class="wrap">
+    <div class="eyebrow"><span class="no">09</span> Sources &amp; notes</div>
+    <div class="sources">
+      <p>This proposal uses only verified, point-in-time research on Emerald Lawn Care, LLC. Key sources:</p>
+      <ol>
+        <li>facebook.com/EmeraldLawnCare.TX — target Facebook page (brand, phone, email, service area, job photos)</li>
+        <li>nextdoor.com/pages/emerald-lawn-care-hockley-tx — Hockley Nextdoor page (service area, neighbor demand, themes)</li>
+        <li>yelp.com/biz/emerald-lawn-care-hockley — Yelp listing (125 photos, "Request a Quote" CTA)</li>
+        <li>Google Business Profile — live-verified 4.8 ★ / 23 reviews (2026-06-07)</li>
+        <li>clienthub.getjobber.com — Jobber work-request intake form (current booking flow)</li>
+        <li>housecallpro.com / getjobber.com lawn-pricing guides — Houston mowing ~$37/cut, ~$145/mo recurring LTV</li>
+        <li>greenindustrypros.com / evergrowmarketing.com — lawn-care Google Ads CPL benchmarks (~$40–$120/lead)</li>
+        <li>lawnstarter.com / yourgreenpal.com / lawnpride.com — Cypress/Hockley aggregator and franchise competitors</li>
+      </ol>
+      <p class="disclaimer">Figures are point-in-time and provided for discussion. Google reviews (4.8 ★ / 23) are accurate as of 2026-06-07 and may change. ROI figures are clearly labeled illustrative where they rest on assumed client and conversion baselines; pricing inputs are drawn from cited 2026 Houston-area sources. Owner name, entity registration, and exact lead volume were not confirmable from primary sources and are not asserted here — they're the first things the Diagnostic confirms. This is a draft prepared for discussion; independent verification is encouraged. Pricing shown as placeholders; final amounts are set after a scoping call.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Zapp Studios · Houston</span>
+    <span>Prepared for Emerald Lawn Care · June 7, 2026 · Private draft</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress'),nav=document.querySelector('nav');
+  function onScroll(){
+    var st=window.pageYOffset||document.documentElement.scrollTop;
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(st/h)*100:0)+'%';
+    if(st>40){nav.classList.add('solid');}else{nav.classList.remove('solid');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>

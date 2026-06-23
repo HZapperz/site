@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Southern Roots Fencing × Zapp Studios · Growth Proposal</title>
+<meta name="description" content="You earned 100 five-star Google reviews and page-one organic ranking — then routed every lead into a 4-step form with no instant response. Here is how I close that leak.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ZAPP STUDIOS — Home-Service Pitch design system (shared).
+   Inline this ENTIRE block verbatim inside <style> in every
+   proposal.html. Per-company, change ONLY the --accent /
+   --accent-deep / --accent-tint values in :root (palette guide
+   is in SPEC.md). Do not restyle anything else.
+   ============================================================ */
+:root{
+  --bg:#FBF6EF;            /* warm ivory */
+  --bg-sand:#F4EBDD;       /* sand, alternating sections */
+  --paper:#FFFDFA;         /* warm white, cards */
+  --ink:#251E18;           /* espresso, headings */
+  --ink-2:#5E5247;         /* soft brown, body */
+  --muted:#928473;         /* muted captions */
+  --line:#E9DDCB;          /* warm hairline */
+  --line-2:#DBC9B1;
+  --accent:#C45C3D;        /* PRIMARY accent — override per company */
+  --accent-deep:#A8472C;   /* darker accent — override per company */
+  --accent-tint:#F6E7DC;   /* faint accent wash — override per company */
+  --ok:#5E7A52;            /* positive green */
+  --bad:#B2473A;           /* leak/negative red */
+  --shadow:0 1px 2px rgba(60,40,24,.04),0 18px 40px -24px rgba(80,50,28,.26);
+  --shadow-lift:0 1px 2px rgba(60,40,24,.05),0 30px 60px -28px rgba(80,50,28,.34);
+  --serif:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--accent-tint);color:var(--accent-deep)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.narrow{max-width:780px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-.012em;line-height:1.1;color:var(--ink)}
+em{font-style:italic;font-family:var(--serif);color:var(--accent-deep);font-weight:400}
+a{color:inherit}
+strong{font-weight:600;color:var(--ink)}
+
+/* atmosphere */
+.glow{position:fixed;z-index:0;pointer-events:none;width:760px;height:760px;border-radius:50%;
+  top:-300px;right:-240px;filter:blur(90px);opacity:.42;
+  background:radial-gradient(circle at center,var(--accent-tint),rgba(255,255,255,0) 64%)}
+main{position:relative;z-index:2}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60;transition:width .12s linear}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+nav.solid{background:rgba(251,246,239,.85);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:500;font-size:18px}
+.brand .mono{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
+  background:var(--ink);color:var(--bg);font-family:var(--sans);font-weight:600;font-size:12px}
+.brand .x{color:var(--muted);font-weight:400;font-size:15px;margin:0 1px}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:450}
+.navlinks a{color:var(--ink-2);text-decoration:none;transition:color .2s}
+.navlinks a:hover{color:var(--accent-deep)}
+.navcta{font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line-2);border-radius:100px;
+  padding:9px 17px;text-decoration:none;transition:all .25s}
+.navcta:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-tint)}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* sections */
+section{padding:108px 0;position:relative}
+section.sand{background:var(--bg-sand)}
+section.tint{background:linear-gradient(180deg,var(--bg) 0%,var(--accent-tint) 100%)}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:24px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+.eyebrow .no{color:var(--muted);font-weight:500}
+.lead{font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.1;max-width:880px;margin-bottom:24px;letter-spacing:-.018em}
+.body-lg{font-size:19px;color:var(--ink-2);max-width:700px;line-height:1.62}
+.body-lg + .body-lg{margin-top:18px}
+p{max-width:720px;color:var(--ink-2)}
+p + p{margin-top:16px}
+
+/* hero */
+#hero{min-height:96vh;display:flex;align-items:center;padding-top:90px;padding-bottom:70px}
+#hero h1{font-size:clamp(44px,7vw,86px);font-weight:500;letter-spacing:-.025em;margin-bottom:26px;max-width:15ch}
+#hero h1 em{font-style:normal;color:var(--accent-deep)}
+#hero .sub{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:660px;margin-bottom:40px;line-height:1.6}
+.hero-meta{display:flex;gap:42px;flex-wrap:wrap;margin-top:54px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-meta .blk{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:600}
+.hero-meta .blk strong{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);text-transform:none;margin-top:6px;font-weight:500}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);font-family:var(--sans);
+  font-weight:500;font-size:15.5px;padding:15px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 10px 30px -12px rgba(37,30,24,.5)}
+.cta:hover{transform:translateY(-2px);background:var(--accent-deep);box-shadow:0 16px 38px -12px rgba(168,71,44,.5)}
+.cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.cta.ghost:hover{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-deep)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* stat trio */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+@media(max-width:820px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:var(--shadow)}
+.stat .num{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1;margin-bottom:12px;color:var(--ink);letter-spacing:-.02em}
+.stat .num em{color:var(--accent-deep);font-style:normal}
+.stat .lbl{font-size:14px;color:var(--ink-2);line-height:1.5}
+.stat .src{font-size:11.5px;color:var(--muted);margin-top:10px}
+
+/* generic card grid */
+.grid{display:grid;gap:22px;margin-top:46px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{font-size:15.5px}
+.card .k{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px}
+
+/* leak / callout box */
+.leak{border-left:3px solid var(--bad);background:#FBEEEA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.leak .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bad);margin-bottom:8px}
+.win{border-left:3px solid var(--ok);background:#EEF3EA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.win .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);margin-bottom:8px}
+
+/* current-vs-zapp comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:42px;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+@media(max-width:760px){.compare{grid-template-columns:1fr}}
+.compare .col{padding:30px 28px}
+.compare .col.now{background:#FBEEEA}
+.compare .col.zapp{background:var(--paper);border-left:1px solid var(--line)}
+.compare .col h4{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.compare .col.now h4{color:var(--bad)}
+.compare .col.zapp h4{color:var(--ok)}
+.compare ul{list-style:none}
+.compare li{font-size:15px;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--line)}
+.compare li:first-of-type{border-top:none}
+.compare .col.now li::before{content:"\2715";position:absolute;left:0;color:var(--bad);font-size:13px;top:10px}
+.compare .col.zapp li::before{content:"\2713";position:absolute;left:0;color:var(--ok);font-size:14px;top:10px}
+
+/* plan timeline */
+.phases{margin-top:46px;display:grid;gap:18px}
+.phase{display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.phase .no{font-family:var(--serif);font-size:34px;color:var(--accent);line-height:1;font-weight:400}
+.phase h3{font-size:20px;margin-bottom:8px}
+.phase p{font-size:15.5px}
+.phase .when{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px 30px;box-shadow:var(--shadow);position:relative}
+.tier.feature{border-color:var(--accent);box-shadow:var(--shadow-lift)}
+.tier .badge{position:absolute;top:-11px;left:30px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.tier h3{font-size:24px;margin-bottom:6px}
+.tier .price{font-family:var(--serif);font-size:34px;color:var(--ink);margin:14px 0 4px;letter-spacing:-.02em}
+.tier .price .ph{color:var(--accent-deep);font-style:italic;font-size:24px}
+.tier .note{font-size:13px;color:var(--muted);margin-bottom:20px}
+.tier ul{list-style:none;margin-top:18px}
+.tier li{font-size:15px;color:var(--ink-2);padding:8px 0 8px 24px;position:relative;border-top:1px solid var(--line)}
+.tier li::before{content:"\2713";position:absolute;left:0;color:var(--accent);top:8px}
+
+/* close */
+#close{text-align:center}
+#close h2{font-size:clamp(32px,5vw,56px);font-weight:500;margin-bottom:22px}
+#close .body-lg{margin:0 auto 36px}
+
+/* sources / footer */
+.sources{font-size:13px;color:var(--muted);max-width:880px}
+.sources ol{margin-left:18px;margin-top:14px}
+.sources li{padding:4px 0;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:18px;max-width:880px;line-height:1.55}
+</style>
+<style>
+/* Per-company accent — Southern Roots Fencing (timber brown) */
+:root{
+  --accent:#8A6A3A;
+  --accent-deep:#6B5028;
+  --accent-tint:#EFE6D2;
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="mono">Z</span> Zapp Studios <span class="x">×</span> Southern Roots</div>
+    <div class="navlinks">
+      <a href="#audit">Audit</a>
+      <a href="#opportunity">Opportunity</a>
+      <a href="#proof">Proof</a>
+      <a href="#plan">Plan</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a class="navcta" href="/book">Book a call</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span>Growth Proposal</span> <span class="no">· June 7, 2026</span></div>
+      <h1>You built a 5.0 reputation. Then you <em>parked it behind a form.</em></h1>
+      <p class="sub">100 five-star Google reviews and page-one organic ranking send strangers to your site every week. Every one of them lands on a four-step "Get A Quick Quote" form with no instant reply and no automated follow-up. That is not a marketing problem. It is a conversion layer you have not built yet.</p>
+      <div class="cta-row">
+        <a class="cta" href="/book">Book a 15-minute working call</a>
+        <a class="cta ghost" href="#plan">See the plan</a>
+      </div>
+      <div class="hero-meta">
+        <div class="blk">Prepared for<strong>Southern Roots Fencing · Cameron Roesler</strong></div>
+        <div class="blk">Prepared by<strong>Hamza · Zapp Studios</strong></div>
+        <div class="blk">Date<strong>June 7, 2026</strong></div>
+        <div class="blk">Live Google rating<strong>5.0 ★ · 100 reviews</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIT ============ -->
+  <section id="audit" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">01</span> <span>Where you are today</span></div>
+      <h2 class="lead">The top of your funnel is already winning. The bottom is doing the work by hand.</h2>
+      <p class="body-lg">I read your site, your quote form, and your review profiles the way a new customer would. The verdict is clear and, honestly, flattering: you have done the hard part. A 5.0 rating across 100 Google reviews, page-one organic presence for "fence installation Katy TX," and a programmatic footprint of city pages pulling traffic from Katy to Cypress to Fulshear. Strangers trust you before they ever speak to you.</p>
+      <p class="body-lg">Then they hit the booking layer, and the system goes quiet. The only path forward is a four-step request form, or a phone call. After they submit, nothing fires back. No confirmation, no text, no calendar. Their lead sits in a queue waiting on a human callback at whatever "best time to call" they guessed at. For a stranger weighing a $5,000 fence, silence reads as risk.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">5.0<em>★</em></div>
+          <div class="lbl">Google rating across 100 reviews — best-in-class for Katy/Cypress fencing.</div>
+          <div class="src">Source: Trustindex review widget on southernrootsfencing.com, 2026-06-07</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>4</em>-step</div>
+          <div class="lbl">"Get A Quick Quote" request form — fence specs, property details, contact, notes. No calendar, no instant quote, no scheduling.</div>
+          <div class="src">Source: southernrootsfencing.com/quick-quote/</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>0</em></div>
+          <div class="lbl">Automated follow-up detected. The "best time to call" field implies a manual, human callback for every lead.</div>
+          <div class="src">Source: form teardown, no auto-reply/SMS signal found</div>
+        </div>
+      </div>
+
+      <div class="leak">
+        <div class="tag">The single biggest conversion leak</div>
+        <p>A four-step form with no instant response and no automated follow-up, sitting on top of strong organic traffic and 100 five-star reviews. Mobile visitors abandon mid-form. The ones who finish wait on a manual callback while a faster competitor — or a moment of doubt — closes the gap. You are paying in reputation and SEO to fill a bucket that leaks at the last inch.</p>
+      </div>
+      <p>Two honest caveats up front, because precision is the whole point. I have not confirmed from the outside whether any CRM or automation already runs behind that form — the first thing the diagnostic does is verify it. And the 5.0/100 figure is the live Trustindex count on your domain; your own Cypress page shows a 215-review aggregate. I work from what I can verify, and I flag what I cannot.</p>
+    </div>
+  </section>
+
+  <!-- ============ GAPS ============ -->
+  <section id="gaps">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">02</span> <span>What it's costing you</span></div>
+      <h2 class="lead">Four gaps between a click and a signed fence job.</h2>
+      <p class="body-lg">None of these are about your craft or your reputation. Every one of them lives in the software layer between the lead and the calendar — the seam where revenue quietly drains.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="k">Gap 01 · No instant response</div>
+          <h3>The first to reply usually wins</h3>
+          <p>A homeowner pricing a fence rarely asks one company. When your reply depends on a person reaching the callback queue, a competitor with an auto-text or instant quote answers first. In high-ticket trades, speed-to-lead is one of the strongest predictors of who closes the job.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 02 · No after-hours capture</div>
+          <h3>Evenings and weekends go cold</h3>
+          <p>People shop for fencing after work and on Sundays. A form with no auto-confirmation and no scheduling means those leads land in an inbox until someone is back at a desk. By Monday, the warmest ones have moved on. A booking + confirmation flow captures them at the moment of intent.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 03 · No SMS follow-up</div>
+          <h3>The follow-up never gets sent</h3>
+          <p>Most fence quotes do not close on first contact — they close on the second or third touch. With no automated SMS or email nurture, every follow-up depends on Cameron or a rep remembering to chase it by hand. Busy weeks mean warm leads simply go quiet. That is recoverable revenue, not lost demand.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 04 · No conversion measurement</div>
+          <h3>You can't fix what you can't see</h3>
+          <p>I could not confirm conversion tracking (GA4, Meta Pixel, Google Ads tags) from the outside. Without it, you cannot see where leads drop in the four-step form, or which city pages convert. Today you are flying on instinct. The diagnostic puts numbers under it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPPORTUNITY ============ -->
+  <section id="opportunity" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">03</span> <span>The demand is already there</span></div>
+      <h2 class="lead">You don't need more attention. You need to convert the attention you have.</h2>
+      <p class="body-lg">100 five-star reviews is not a vanity number — it is proof of demand and a product worth pouring more leads into. Reviewers name Cameron directly, praise the stick-built precision, the clean job sites, the ~1.5-day turnarounds. That reputation already outranks Hill Fence on rating and out-reviews Custer Fence. None of your local competitors pair that trust with an instant-response booking layer. Whoever adds it first converts the same traffic at a far higher rate. That is the wedge.</p>
+      <p class="body-lg">And the geography is on your side. Memorial, Briar Forest, and the Energy Corridor are full of homeowners replacing aging fences on high-value lots — exactly the custom, high-ticket work you do best. A frictionless conversion layer earns you more of those jobs without buying a single extra click.</p>
+
+      <div class="win">
+        <div class="tag">Illustrative ROI — your numbers, conservative assumptions</div>
+        <p><strong>Assumptions (labeled, to be confirmed in the diagnostic):</strong> ~100 quote-form leads per month; current close rate ~10% = 10 jobs; conservative ~$5,000 average installed fence (West Houston residential wood/privacy installs typically run $3,500–$9,000+, custom and metal higher).</p>
+        <p style="margin-top:14px"><strong>Today:</strong> 10 jobs × $5,000 = <strong>~$50,000/month</strong>. Move the close rate from 10% to 18% on the <em>same leads</em> — through instant response plus automated follow-up — and you reach 18 jobs = <strong>~$90,000/month</strong>. That is roughly <strong>+$40,000/month (~+$480,000/year)</strong> with zero extra ad spend.</p>
+        <p style="margin-top:14px">An 18% close rate is deliberately conservative: Royal Pawz roughly quadrupled its booking rate with this exact pattern. Layer a managed Google Ads top-of-funnel on top and the upside compounds. For a high-ticket trade like fencing, even a few extra closed jobs a month dwarf any fee I would charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROOF ============ -->
+  <section id="proof">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">04</span> <span>This isn't theory</span></div>
+      <h2 class="lead">I have closed this exact leak before. Here are the numbers.</h2>
+      <p class="body-lg">Royal Pawz had the same shape of problem you do: real demand, a leaky conversion layer. One operator — me — diagnosed it, then built the funnel, the booking app, and the Twilio SMS automation, and moved the numbers. Different trade, identical pattern.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">7% → <em>30.8%</em></div>
+          <div class="lbl">Booking conversion on the same traffic — roughly 4×, a +334% lift after instant booking and automated follow-up went live.</div>
+          <div class="src">Royal Pawz, Zapp Studios case study</div>
+        </div>
+        <div class="stat">
+          <div class="num">$200 → <em>$10K</em></div>
+          <div class="lbl">Monthly recurring revenue, ~50× in about four months — driven by conversion, not just more spend.</div>
+          <div class="src">Royal Pawz, Zapp Studios case study</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>7.8×</em></div>
+          <div class="lbl">LTV:CAC ($195 LTV / $25 blended CPA). ROAS moved 2× → 5× as the funnel tightened.</div>
+          <div class="src">Royal Pawz, Zapp Studios case study</div>
+        </div>
+      </div>
+
+      <p style="margin-top:40px">What I built there, one operator, shipped in weeks: a client booking app, a groomer ops app, an admin dashboard, AI/Twilio SMS for confirmations, reminders, and rebooking, plus session recording and A/B testing to keep tuning the funnel. The fencing version of this is narrower and faster — instant booking, SMS follow-up, and measurement on top of demand you already have.</p>
+    </div>
+  </section>
+
+  <!-- ============ PLAN ============ -->
+  <section id="plan" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">05</span> <span>The plan</span></div>
+      <h2 class="lead">From a manual callback queue to a measured booking system.</h2>
+
+      <div class="compare">
+        <div class="col now">
+          <h4>Current</h4>
+          <ul>
+            <li>4-step request form, no scheduling or instant quote</li>
+            <li>No auto-confirmation after a lead submits</li>
+            <li>Manual human callback at a guessed "best time to call"</li>
+            <li>No SMS or email follow-up — chasing is by memory</li>
+            <li>No confirmed conversion tracking or retargeting</li>
+            <li>Best-in-class reviews doing none of the closing work</li>
+          </ul>
+        </div>
+        <div class="col zapp">
+          <h4>With Zapp</h4>
+          <ul>
+            <li>Streamlined quote-to-booking flow built for mobile</li>
+            <li>Instant auto-reply the second a lead submits</li>
+            <li>Twilio SMS: confirmations, reminders, and rebooking</li>
+            <li>Automated follow-up sequence on every unclosed lead</li>
+            <li>GA4 + conversion tracking + A/B testing on the funnel</li>
+            <li>Your 5.0 reputation surfaced at the moment of decision</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phases">
+        <div class="phase">
+          <div class="no">01</div>
+          <div>
+            <h3>Diagnose</h3>
+            <p>I walk the full four-step form on mobile, submit a test lead, and measure time-to-first-response. I confirm whether any automation or tracking already exists, then quantify the real form-abandon and slow-response leak in dollars. You get a prioritized written plan you keep either way.</p>
+            <div class="when">Week 1</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">02</div>
+          <div>
+            <h3>Build the booking funnel</h3>
+            <p>A streamlined quote-to-booking flow on top of your existing site and brand, designed to convert mobile visitors instead of losing them mid-form, with an instant auto-reply on every submission.</p>
+            <div class="when">Weeks 2–4</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">03</div>
+          <div>
+            <h3>Turn on SMS + paid</h3>
+            <p>Twilio SMS for confirmations, reminders, and follow-up so no warm lead goes cold. Then, optionally, a tightly managed Google Ads top-of-funnel pointed at high-value West Houston geos — only once the conversion layer is proven.</p>
+            <div class="when">Weeks 4–6</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">04</div>
+          <div>
+            <h3>Measure & compound</h3>
+            <p>Conversion tracking and A/B testing on the live funnel. We watch real close rates, cut what does not convert, and reinvest in what does. The system gets sharper every month instead of staying static.</p>
+            <div class="when">Ongoing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY ============ -->
+  <section id="why">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">06</span> <span>Why one operator</span></div>
+      <h2 class="lead">Your marketing problem is usually a software problem.</h2>
+      <p class="body-lg">You do not have a marketing problem and a separate engineering problem. You have one revenue system, and it breaks at the seam between the two — the exact place an agency hands off to a developer and the leak goes unowned. The person who diagnoses that seam should be the person who builds across it.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="k">One throat to choke</div>
+          <h3>I diagnose, I build, I run</h3>
+          <p>No agency-to-developer handoff where the conversion layer falls through. The same operator who finds the leak writes the code that closes it and stays on to tune it.</p>
+        </div>
+        <div class="card">
+          <div class="k">Weeks, not quarters</div>
+          <h3>Shipped, not slide-decked</h3>
+          <p>The Royal Pawz booking app, ops app, dashboard, and SMS automation were built and shipped by one operator in weeks. You get working software on your funnel, not a strategy you have to go hire someone else to execute.</p>
+        </div>
+        <div class="card">
+          <div class="k">Founder to founder</div>
+          <h3>I've built the thing, not just sold it</h3>
+          <p>I was a founding engineer at DietAI through a seven-figure exit. I speak in shipped systems and measured close rates, not impressions. You guard quality on every fence; I guard it on every line of the funnel.</p>
+        </div>
+        <div class="card">
+          <div class="k">Greenfield acquisition</div>
+          <h3>You're not locked into anyone</h3>
+          <p>You are not dependent on a lead-gen marketplace — Thumbtack is dormant, no Angi or HomeAdvisor lock-in. That means a Zapp-owned booking and acquisition system is greenfield: every gain compounds for you, not a middleman.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing" class="tint">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">07</span> <span>How we'd work together</span></div>
+      <h2 class="lead">Start with proof, not a leap of faith.</h2>
+      <p class="body-lg">You are an established, staffed, ~9-year company — so the right entry is a paid diagnostic that quantifies the real dollar leak before anyone builds anything. The system build follows once the diagnostic has proven the number.</p>
+
+      <div class="tiers">
+        <div class="tier">
+          <h3>Revenue Diagnostic</h3>
+          <div class="price"><span class="ph">$[set]</span></div>
+          <div class="note">Final scope after the call</div>
+          <p>A paid audit of your funnel, end to end. I quantify the form-abandon and slow-response leak in real dollars and hand you a prioritized written plan.</p>
+          <ul>
+            <li>Full mobile walkthrough of the 4-step quote form</li>
+            <li>Test lead submitted, time-to-first-response measured</li>
+            <li>Confirm what automation / tracking already exists</li>
+            <li>Dollar-quantified conversion leak, your numbers</li>
+            <li>Prioritized written plan you keep — with or without me</li>
+          </ul>
+        </div>
+        <div class="tier feature">
+          <div class="badge">Recommended path</div>
+          <h3>Revenue System Build</h3>
+          <div class="price"><span class="ph">$[set]</span></div>
+          <div class="note">Final scope after the call</div>
+          <p>The conversion layer, designed, built, and run by one operator — on top of demand you already have.</p>
+          <ul>
+            <li>Streamlined quote-to-booking funnel built for mobile</li>
+            <li>Instant auto-reply on every lead submission</li>
+            <li>Twilio SMS: confirmations, reminders, rebooking, nurture</li>
+            <li>CRM + conversion tracking + A/B testing on the funnel</li>
+            <li>Optional managed Google Ads to high-value West Houston geos</li>
+            <li>Built and run by the operator who diagnosed the leak</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSE ============ -->
+  <section id="close">
+    <div class="wrap narrow">
+      <div class="eyebrow" style="justify-content:center"><span>Let's close the leak</span></div>
+      <h2>You've already earned the demand. Let's stop it leaking at the last inch.</h2>
+      <p class="body-lg">100 five-star reviews and page-one ranking are pulling in high-ticket leads every week. Right now they dead-end in a form. Give me 15 minutes and I will walk you through exactly where the leak is and what closing it is worth in your dollars.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="cta" href="/book">Book a 15-minute working call</a>
+      </div>
+      <p style="margin-top:34px;color:var(--muted);font-style:italic">— Hamza · Zapp Studios</p>
+    </div>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section id="sources" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">08</span> <span>Sources</span></div>
+      <div class="sources">
+        <ol>
+          <li>https://southernrootsfencing.com/ — homepage, services, service area, CTAs</li>
+          <li>https://southernrootsfencing.com/about-southern-roots-fencing/ — owner Cameron Roesler, brand story</li>
+          <li>https://southernrootsfencing.com/cypress-fence-company/ — "5.0 / 215 reviews" badge; quote-form-only funnel</li>
+          <li>https://southernrootsfencing.com/katy-fence-company/ — Katy service page; organic ranking</li>
+          <li>https://southernrootsfencing.com/quick-quote/ — 4-step request-quote form teardown</li>
+          <li>https://www.trustindex.io/reviews/southernrootsfencing.com — 100 Google reviews, 5.0</li>
+          <li>https://www.thumbtack.com/tx/katy/fences/southern-roots-fencing/service/531780434147524623 — 5.0/43, 8 employees, payments, "not bidding"</li>
+          <li>https://www.facebook.com/people/Southern-Roots-Fencing-and-Supply/100087242767747/ — Facebook page</li>
+          <li>https://www.bizapedia.com/tx/southern-roots-fencing-and-supply-llc.html — legal entity name confirmation</li>
+          <li>https://reviews.birdeye.com/hill-fence-katy-tx-166538409864560 — competitor Hill Fence ~113 reviews, 4.6</li>
+          <li>https://www.custerfence.com/cypress-fence-company/ — competitor Custer Fence ("40+ five-star")</li>
+          <li>https://www.superiorfenceandrail.com/west-houston/katy/ — Superior Fence &amp; Rail franchise (30k+ reviews)</li>
+          <li>Royal Pawz — Zapp Studios internal case study (7% → 30.8% booking conversion; $200 → $10K MRR; 2× → 5× ROAS)</li>
+        </ol>
+        <p class="disclaimer">Figures are point-in-time (Google reviews and funnel state verified as of 2026-06-07) and several items in the dossier are explicitly unverified — exact live Google Business Profile count, formation date, and whether any CRM or tracking already exists. This is a draft for discussion; independent verification is encouraged, and the diagnostic exists to replace these assumptions with measured numbers. ROI math is illustrative, uses labeled assumptions, and is not a guarantee of results.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Zapp Studios · Houston venture studio</div>
+    <div>Prepared for Southern Roots Fencing · June 7, 2026 · Private draft</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress'),nav=document.querySelector('nav');
+  function onScroll(){
+    var st=window.pageYOffset||document.documentElement.scrollTop;
+    var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    bar.style.width=(h>0?(st/h)*100:0)+'%';
+    if(st>40){nav.classList.add('solid');}else{nav.classList.remove('solid');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

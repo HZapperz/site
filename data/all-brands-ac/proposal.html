@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Brands Air Conditioning × Zapp Studios · Growth Proposal</title>
+<meta name="description" content="You earned 130+ five-star reviews, then hid them behind placeholder text and a form. A plan to surface the reputation you have and book the jobs you are already losing.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%232F6FB0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ZAPP STUDIOS — Home-Service Pitch design system (shared).
+   Inline this ENTIRE block verbatim inside <style> in every
+   proposal.html. Per-company, change ONLY the --accent /
+   --accent-deep / --accent-tint values in :root (palette guide
+   is in SPEC.md). Do not restyle anything else.
+   ============================================================ */
+:root{
+  --bg:#FBF6EF;            /* warm ivory */
+  --bg-sand:#F4EBDD;       /* sand, alternating sections */
+  --paper:#FFFDFA;         /* warm white, cards */
+  --ink:#251E18;           /* espresso, headings */
+  --ink-2:#5E5247;         /* soft brown, body */
+  --muted:#928473;         /* muted captions */
+  --line:#E9DDCB;          /* warm hairline */
+  --line-2:#DBC9B1;
+  --accent:#C45C3D;        /* PRIMARY accent — override per company */
+  --accent-deep:#A8472C;   /* darker accent — override per company */
+  --accent-tint:#F6E7DC;   /* faint accent wash — override per company */
+  --ok:#5E7A52;            /* positive green */
+  --bad:#B2473A;           /* leak/negative red */
+  --shadow:0 1px 2px rgba(60,40,24,.04),0 18px 40px -24px rgba(80,50,28,.26);
+  --shadow-lift:0 1px 2px rgba(60,40,24,.05),0 30px 60px -28px rgba(80,50,28,.34);
+  --serif:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--accent-tint);color:var(--accent-deep)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.narrow{max-width:780px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-.012em;line-height:1.1;color:var(--ink)}
+em{font-style:italic;font-family:var(--serif);color:var(--accent-deep);font-weight:400}
+a{color:inherit}
+strong{font-weight:600;color:var(--ink)}
+
+/* atmosphere */
+.glow{position:fixed;z-index:0;pointer-events:none;width:760px;height:760px;border-radius:50%;
+  top:-300px;right:-240px;filter:blur(90px);opacity:.42;
+  background:radial-gradient(circle at center,var(--accent-tint),rgba(255,255,255,0) 64%)}
+main{position:relative;z-index:2}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60;transition:width .12s linear}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+nav.solid{background:rgba(251,246,239,.85);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:500;font-size:18px}
+.brand .mono{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
+  background:var(--ink);color:var(--bg);font-family:var(--sans);font-weight:600;font-size:12px}
+.brand .x{color:var(--muted);font-weight:400;font-size:15px;margin:0 1px}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:450}
+.navlinks a{color:var(--ink-2);text-decoration:none;transition:color .2s}
+.navlinks a:hover{color:var(--accent-deep)}
+.navcta{font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line-2);border-radius:100px;
+  padding:9px 17px;text-decoration:none;transition:all .25s}
+.navcta:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-tint)}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* sections */
+section{padding:108px 0;position:relative}
+section.sand{background:var(--bg-sand)}
+section.tint{background:linear-gradient(180deg,var(--bg) 0%,var(--accent-tint) 100%)}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:24px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+.eyebrow .no{color:var(--muted);font-weight:500}
+.lead{font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.1;max-width:880px;margin-bottom:24px;letter-spacing:-.018em}
+.body-lg{font-size:19px;color:var(--ink-2);max-width:700px;line-height:1.62}
+.body-lg + .body-lg{margin-top:18px}
+p{max-width:720px;color:var(--ink-2)}
+p + p{margin-top:16px}
+
+/* hero */
+#hero{min-height:96vh;display:flex;align-items:center;padding-top:90px;padding-bottom:70px}
+#hero h1{font-size:clamp(44px,7vw,86px);font-weight:500;letter-spacing:-.025em;margin-bottom:26px;max-width:15ch}
+#hero h1 em{font-style:normal;color:var(--accent-deep)}
+#hero .sub{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:660px;margin-bottom:40px;line-height:1.6}
+.hero-meta{display:flex;gap:42px;flex-wrap:wrap;margin-top:54px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-meta .blk{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:600}
+.hero-meta .blk strong{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);text-transform:none;margin-top:6px;font-weight:500}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);font-family:var(--sans);
+  font-weight:500;font-size:15.5px;padding:15px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 10px 30px -12px rgba(37,30,24,.5)}
+.cta:hover{transform:translateY(-2px);background:var(--accent-deep);box-shadow:0 16px 38px -12px rgba(168,71,44,.5)}
+.cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.cta.ghost:hover{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-deep)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* stat trio */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+@media(max-width:820px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:var(--shadow)}
+.stat .num{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1;margin-bottom:12px;color:var(--ink);letter-spacing:-.02em}
+.stat .num em{color:var(--accent-deep);font-style:normal}
+.stat .lbl{font-size:14px;color:var(--ink-2);line-height:1.5}
+.stat .src{font-size:11.5px;color:var(--muted);margin-top:10px}
+
+/* generic card grid */
+.grid{display:grid;gap:22px;margin-top:46px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{font-size:15.5px}
+.card .k{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px}
+
+/* leak / callout box */
+.leak{border-left:3px solid var(--bad);background:#FBEEEA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.leak .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bad);margin-bottom:8px}
+.win{border-left:3px solid var(--ok);background:#EEF3EA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.win .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);margin-bottom:8px}
+
+/* current-vs-zapp comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:42px;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+@media(max-width:760px){.compare{grid-template-columns:1fr}}
+.compare .col{padding:30px 28px}
+.compare .col.now{background:#FBEEEA}
+.compare .col.zapp{background:var(--paper);border-left:1px solid var(--line)}
+.compare .col h4{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.compare .col.now h4{color:var(--bad)}
+.compare .col.zapp h4{color:var(--ok)}
+.compare ul{list-style:none}
+.compare li{font-size:15px;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--line)}
+.compare li:first-of-type{border-top:none}
+.compare .col.now li::before{content:"\2715";position:absolute;left:0;color:var(--bad);font-size:13px;top:10px}
+.compare .col.zapp li::before{content:"\2713";position:absolute;left:0;color:var(--ok);font-size:14px;top:10px}
+
+/* plan timeline */
+.phases{margin-top:46px;display:grid;gap:18px}
+.phase{display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.phase .no{font-family:var(--serif);font-size:34px;color:var(--accent);line-height:1;font-weight:400}
+.phase h3{font-size:20px;margin-bottom:8px}
+.phase p{font-size:15.5px}
+.phase .when{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px 30px;box-shadow:var(--shadow);position:relative}
+.tier.feature{border-color:var(--accent);box-shadow:var(--shadow-lift)}
+.tier .badge{position:absolute;top:-11px;left:30px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.tier h3{font-size:24px;margin-bottom:6px}
+.tier .price{font-family:var(--serif);font-size:34px;color:var(--ink);margin:14px 0 4px;letter-spacing:-.02em}
+.tier .price .ph{color:var(--accent-deep);font-style:italic;font-size:24px}
+.tier .note{font-size:13px;color:var(--muted);margin-bottom:20px}
+.tier ul{list-style:none;margin-top:18px}
+.tier li{font-size:15px;color:var(--ink-2);padding:8px 0 8px 24px;position:relative;border-top:1px solid var(--line)}
+.tier li::before{content:"\2713";position:absolute;left:0;color:var(--accent);top:8px}
+
+/* close */
+#close{text-align:center}
+#close h2{font-size:clamp(32px,5vw,56px);font-weight:500;margin-bottom:22px}
+#close .body-lg{margin:0 auto 36px}
+
+/* sources / footer */
+.sources{font-size:13px;color:var(--muted);max-width:880px}
+.sources ol{margin-left:18px;margin-top:14px}
+.sources li{padding:4px 0;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:18px;max-width:880px;line-height:1.55}
+
+/* ---- per-company accent override: all-brands-ac (cool blue) ---- */
+:root{
+  --accent:#2F6FB0;
+  --accent-deep:#1E5288;
+  --accent-tint:#DEEAF5;
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <span class="mono">Z</span> Zapp Studios <span class="x">×</span> All Brands AC
+    </div>
+    <div class="navlinks">
+      <a href="#audit">Audit</a>
+      <a href="#opportunity">Opportunity</a>
+      <a href="#proof">Proof</a>
+      <a href="#plan">Plan</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a href="/book" class="navcta">Book a call</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">Growth Proposal</span> · June 7, 2026</div>
+      <h1>You earned the reviews. Your site is <em>hiding them</em>.</h1>
+      <p class="sub">All Brands holds a 5.0 on Google and 130-plus five-star reviews across Thumbtack, Best Pick and Angi. A homeowner who clicks "Book Online" lands on a contact form, and your reviews page shows nobody real. You are losing the customers your reputation already won, at the exact moment they were ready to schedule.</p>
+      <div class="cta-row">
+        <a href="/book" class="cta">Book a 15-minute working call</a>
+        <a href="#plan" class="cta ghost">See the plan</a>
+      </div>
+      <div class="hero-meta">
+        <div class="blk">Prepared for<strong>All Brands Air Conditioning</strong></div>
+        <div class="blk">Prepared by<strong>Hamza · Zapp Studios</strong></div>
+        <div class="blk">Date<strong>June 7, 2026</strong></div>
+        <div class="blk">Live Google rating<strong>5.0 ★ · 73 reviews</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIT ============ -->
+  <section id="audit" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">01</span> Where you are today</div>
+      <h2 class="lead">A great operator with a funnel that leaks at the last step.</h2>
+      <p class="body-lg">I pulled up your live profile and your site the way a homeowner with a dead AC would, on June 7. The verdict is short: the service is clearly excellent and the demand is real. The problem is everything between a ready customer and a booked job. Here is exactly what I found.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">5.0<em>★</em></div>
+          <div class="lbl">Live Google rating across <strong>73 reviews</strong>, profile claimed. As high as or higher than every incumbent in Spring.</div>
+          <div class="src">Source: Google Business Profile, live check 2026-06-07</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>Form</em></div>
+          <div class="lbl">"Book Online" routes to a <strong>contact form</strong> — name, email, phone, address, message. No calendar, no real scheduling, no instant confirmation.</div>
+          <div class="src">Source: allbrandsair.com live teardown</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>Zero</em></div>
+          <div class="lbl">No SMS follow-up, no missed-call text-back, no Google Analytics, no Meta Pixel. You cannot measure or recover a single lost lead.</div>
+          <div class="src">Source: live tag check, no pixels detected</div>
+        </div>
+      </div>
+
+      <div class="leak">
+        <div class="tag">Biggest conversion leak</div>
+        <p style="color:var(--ink)">The path from "interested homeowner" to "booked job" breaks twice. First, your <strong>/reviews/ page</strong> displays the trust signal that closes the sale — and your real five-star reviews are sitting on Thumbtack and Best Pick instead. Second, there is <strong>no online booking</strong>: every ready customer is funneled into a form or a phone call that depends on you being free to answer. Demand is being generated, then spilled at the conversion step.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GAPS ============ -->
+  <section id="gaps">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">02</span> What it's costing you</div>
+      <h2 class="lead">Four gaps, each one a job you don't book.</h2>
+      <p class="body-lg">None of these is a marketing problem in the usual sense. Your marketing already works — 23 hires on Thumbtack, repeat recommendations on Nextdoor, "Best Pick since 2024." These are software gaps sitting between your reputation and your calendar.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="k">Gap 01 · Trust</div>
+          <h3>Your social proof is invisible on your own site</h3>
+          <p>You have 130-plus genuine five-star reviews spread across Thumbtack (4.9, 72 reviews), Best Pick (5.0, 62 ratings) and Angi. None of it is surfaced where it closes the sale — your own pages. A homeowner comparing you to The Chill Brothers sees their 1,000-plus Google reviews and your reviews page; the reputation you earned never gets to do its job.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 02 · Capture</div>
+          <h3>No way to book the job in the moment</h3>
+          <p>"Book Online" sends a homeowner to a form, then to waiting. In peak Houston summer, a customer with a dead AC will book the first contractor with an open slot. With no calendar and no instant confirmation, every lead becomes a callback race you have to win by phone — and the ones you can't answer in minutes are gone.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 03 · Follow-up</div>
+          <h3>No SMS, no missed-call text-back</h3>
+          <p>"Call or text 24/7" is you, by hand, around the clock. There is no automated text-back when a call is missed, no confirmation, no reminder, no rebooking nudge. A missed call at 9pm in July is a $900 job that goes to whoever texts back first. Right now nothing texts back for you.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 04 · Measurement</div>
+          <h3>No pixels, no analytics, no retargeting</h3>
+          <p>There is no Google Analytics and no Meta Pixel on your site. You cannot see how many people reach the form and leave, you cannot retarget the homeowner who almost booked, and you can't run paid search profitably because you can't measure what a click is worth. You're flying with no instruments — and renting leads from Thumbtack instead of owning a funnel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPPORTUNITY ============ -->
+  <section id="opportunity" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">03</span> The demand is already there</div>
+      <h2 class="lead">You don't need more demand. You need to stop spilling it.</h2>
+      <p class="body-lg">This is the part that makes the math easy. Most home-service businesses I look at have a reputation problem. You have the opposite: a 5.0 on Google, 4.9 on Thumbtack, 23 hires, "Best Pick since 2024," and praise that says the quiet part out loud — fast response, honest repair-first, no upsell, correct diagnosis where others failed. The demand and the trust already exist. They're just leaking out at the conversion step.</p>
+
+      <div class="win">
+        <div class="tag">What the reviews tell me</div>
+        <p style="color:var(--ink)">Homeowners are choosing you <em>and recommending you</em> despite the friction, not because of the funnel. That means the lift here is conversion infrastructure, not a brand-building slog. The cheapest revenue you can add this summer is the demand you're already generating and currently losing.</p>
+      </div>
+
+      <h3 style="font-size:24px;margin:48px 0 8px">What a Royal-Pawz-style lift is worth, in your dollars</h3>
+      <p>Here is a deliberately conservative model. Every input is an assumption, labeled as one — we replace these with your real numbers in the Diagnostic.</p>
+      <div class="grid three" style="margin-top:30px">
+        <div class="card">
+          <div class="k">Assumption</div>
+          <h3>~120 visits / mo</h3>
+          <p>Funnel visits from organic, marketplace and brand search reaching your booking path. <strong>Assumed</strong> — confirmed live in the Diagnostic.</p>
+        </div>
+        <div class="card">
+          <div class="k">Assumption</div>
+          <h3>~8% → ~16%</h3>
+          <p>Booked-rate today vs. a <strong>conservative doubling</strong>. Royal Pawz moved booking from 7% to 31%; I'm modeling less than half that lift.</p>
+        </div>
+        <div class="card">
+          <div class="k">Assumption</div>
+          <h3>~$900 / job</h3>
+          <p>Blended ticket across repairs and a steady share of installs. Houston HVAC repairs run $150–$600; replacements $7K–$14K+. <strong>Assumed</strong> blend.</p>
+        </div>
+      </div>
+      <p style="margin-top:28px"><strong>The arithmetic.</strong> 120 visits at ~8% is ~10 booked jobs a month. Lifting the booked rate to ~16% at the same traffic is ~19 jobs — <strong>roughly +9 jobs a month</strong>. At a blended $900 per job that's about <strong>+$8,100 a month, near +$97K a year</strong> in recovered revenue, before spending a dollar more on traffic. And a single financed system replacement ($7K–$14K) landing in a month can dwarf the whole model. The lever that pulls this is exactly the two things broken on your site today: real reviews on the page, and real online booking.</p>
+    </div>
+  </section>
+
+  <!-- ============ PROOF ============ -->
+  <section id="proof">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">04</span> This isn't theory</div>
+      <h2 class="lead">I've moved these exact numbers before.</h2>
+      <p class="body-lg">Royal Pawz had the same shape of problem you do — real demand, a funnel that leaked at booking. As one operator I built the funnel, the booking app, and the Twilio SMS layer, then ran the optimization. Here is what happened.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">7% → <em>30.8%</em></div>
+          <div class="lbl">Booking conversion — roughly <strong>4×</strong> (+334%) on the same traffic. The lift is in the funnel, not the ad spend.</div>
+          <div class="src">Royal Pawz, before / after</div>
+        </div>
+        <div class="stat">
+          <div class="num">~$200 → <em>~$10K</em></div>
+          <div class="lbl">Monthly recurring revenue, about <strong>50×</strong> in roughly four months as the system compounded.</div>
+          <div class="src">Royal Pawz MRR, ~4 months</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>7.8×</em></div>
+          <div class="lbl">LTV:CAC ($195 LTV / $25 blended CPA), with ROAS moving from <strong>2× to 5×</strong>.</div>
+          <div class="src">Royal Pawz unit economics</div>
+        </div>
+      </div>
+
+      <p style="margin-top:40px">What got built was one connected system: a client booking app, an operations app, an admin dashboard, AI and Twilio SMS for confirmations, reminders and rebooking, plus session recording and A/B testing to keep tightening the funnel. One operator, shipped in weeks. The same playbook maps cleanly onto an HVAC funnel — real reviews on the page, instant online booking, text-back that never sleeps, and instruments so we can prove the lift.</p>
+    </div>
+  </section>
+
+  <!-- ============ PLAN ============ -->
+  <section id="plan" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">05</span> The plan</div>
+      <h2 class="lead">Surface the reputation. Capture the intent. Measure everything.</h2>
+      <p class="body-lg">No rebuild of what works. Your service-page SEO scaffolding and your brand stay. We fix the two breaks in the conversion path, then add the measurement and follow-up that lets the whole thing compound.</p>
+
+      <div class="compare">
+        <div class="col now">
+          <h4>Current</h4>
+          <ul>
+            <li>Reviews page shows placeholder content, not your real 5-star reviews</li>
+            <li>"Book Online" dumps homeowners into a contact form</li>
+            <li>Follow-up is you, by hand, "call or text 24/7"</li>
+            <li>No SMS confirmations, reminders or rebooking</li>
+            <li>No analytics, no pixel — nothing measured, nothing retargeted</li>
+            <li>Leads rented from Thumbtack and aggregators</li>
+          </ul>
+        </div>
+        <div class="col zapp">
+          <h4>With Zapp</h4>
+          <ul>
+            <li>Your real Google / Thumbtack / Best Pick reviews live on the page</li>
+            <li>Frictionless online booking with instant confirmation</li>
+            <li>Automated Twilio SMS: confirm, remind, rebook, missed-call text-back</li>
+            <li>Optimized landing page built to convert ready homeowners</li>
+            <li>Analytics + pixel installed — every step measured and retargetable</li>
+            <li>A funnel you own, ready to scale with paid search in peak season</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phases">
+        <div class="phase">
+          <div class="no">01</div>
+          <div>
+            <h3>Diagnose</h3>
+            <p>Confirm the live numbers — booked rate, traffic, where the form abandons — and pin the real ROI figure. Verify the open items: canonical phone number, TDLR license status, current Google Ads presence. You leave with a prioritized written plan you keep either way.</p>
+            <div class="when">Week 1</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">02</div>
+          <div>
+            <h3>Build the booking funnel</h3>
+            <p>Pull your real reviews onto the site, build an optimized landing page, and replace the contact-form detour with real online booking and instant confirmation. This is the single biggest conversion lever and it goes first.</p>
+            <div class="when">Weeks 2–4</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">03</div>
+          <div>
+            <h3>Turn on SMS and measurement</h3>
+            <p>Twilio SMS for confirmations, reminders, rebooking and missed-call text-back, so no lead goes cold after hours. Install analytics and the pixel so every step is measured and the homeowner who almost booked can be brought back.</p>
+            <div class="when">Weeks 4–6</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">04</div>
+          <div>
+            <h3>Measure and compound</h3>
+            <p>With instruments in place and a funnel that converts, we can turn on paid search profitably — and own the "ac repair spring tx" intent the incumbents currently buy. Session recording and A/B testing keep tightening the booked rate month over month.</p>
+            <div class="when">Week 6+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY ============ -->
+  <section id="why">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">06</span> Why one operator</div>
+      <h2 class="lead">Your marketing problem is usually a software problem.</h2>
+      <p class="body-lg">You don't have a marketing problem and a separate engineering problem. You have one revenue system, and it breaks at the seam between the two — the handoff from "a homeowner wants you" to "the job is on the calendar." That seam is where your revenue is leaking right now. The person who diagnoses it should be the person who builds it.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="k">The thesis</div>
+          <h3>One revenue system, one owner</h3>
+          <p>An agency hands you a report and a contractor hands you code, and the leak lives in the gap between them. I diagnose it, I build it, and I run it — so nothing falls through the seam.</p>
+        </div>
+        <div class="card">
+          <div class="k">Speed</div>
+          <h3>Shipped in weeks, not quarters</h3>
+          <p>You're a sub-one-year-old LLC in peak season. You don't have a year to wait. The Royal Pawz system shipped in weeks; yours can too, with the highest-leverage fix going live first.</p>
+        </div>
+        <div class="card">
+          <div class="k">Fit</div>
+          <h3>Built for an owner-operator</h3>
+          <p>You answer your own phone and text customers directly. My engagement model is the same — direct, one operator, no account-manager layer. We move at the speed you already run.</p>
+        </div>
+        <div class="card">
+          <div class="k">Track record</div>
+          <h3>Founder credibility</h3>
+          <p>I was a founding engineer at DietAI through a seven-figure exit. I've built and shipped revenue systems that move real numbers — and I'm bringing that to the conversion gap on your site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section id="pricing" class="tint">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">07</span> Pricing</div>
+      <h2 class="lead">Start with a diagnosis. Build only if the math is there.</h2>
+      <p class="body-lg">Two ways to start. The Diagnostic stands on its own — you keep the written plan whether or not we build together. The Build is the obvious end state once the numbers are confirmed.</p>
+
+      <div class="tiers">
+        <div class="tier">
+          <h3>Revenue Diagnostic</h3>
+          <div class="price"><span class="ph">$[set]</span></div>
+          <div class="note">Final scope after the call.</div>
+          <p style="font-size:15px">A paid audit of your full funnel, ending in a prioritized written plan you keep with or without me.</p>
+          <ul>
+            <li>Live confirmation of your booked rate, traffic and form-abandon points</li>
+            <li>The real ROI number for fixing the conversion leak, in your dollars</li>
+            <li>Verification of open items — phone, TDLR status, ad presence</li>
+            <li>A prioritized, written action plan — yours to keep, build or not</li>
+          </ul>
+        </div>
+        <div class="tier feature">
+          <div class="badge">Recommended</div>
+          <h3>Revenue System Build</h3>
+          <div class="price"><span class="ph">$[set]</span></div>
+          <div class="note">Final scope after the call.</div>
+          <p style="font-size:15px">The full system — designed, built and run by one operator.</p>
+          <ul>
+            <li>Your real reviews surfaced on an optimized, conversion-first landing page</li>
+            <li>Frictionless online booking with instant confirmation</li>
+            <li>Twilio SMS: confirmations, reminders, rebooking, missed-call text-back</li>
+            <li>Analytics + pixel installed for measurement and retargeting</li>
+            <li>Google Ads ready to scale "ac repair spring tx" in peak season</li>
+            <li>Session recording + A/B testing to compound the booked rate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSE ============ -->
+  <section id="close">
+    <div class="wrap narrow">
+      <h2>You already earned the demand. Let's stop losing it.</h2>
+      <p class="body-lg">A 5.0 rating and 130-plus five-star reviews are doing nothing for you while they sit on someone else's site and your booking is a form. Fifteen minutes on a call and I'll show you, in your own numbers, what closing that gap is worth this summer.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a href="/book" class="cta">Book a 15-minute working call</a>
+      </div>
+      <p style="margin:34px auto 0;color:var(--muted);font-size:15px">— Hamza · Zapp Studios</p>
+    </div>
+  </section>
+
+  <!-- ============ SOURCES ============ -->
+  <section id="sources" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">08</span> Sources</div>
+      <h2 class="lead" style="font-size:clamp(24px,3vw,34px)">What this is built on.</h2>
+      <div class="sources">
+        <ol>
+          <li>Google Business Profile — All Brands Air Conditioning (Spring, 77388) · live check 2026-06-07 · 5.0 ★ / 73 reviews, profile claimed</li>
+          <li>https://www.allbrandsair.com/ — homepage, platform (Lirp/Duda), no pixels detected</li>
+          <li>https://www.allbrandsair.com/reviews/ — reviews page (real Google widget now live; placeholder testimonials removed)</li>
+          <li>https://www.allbrandsair.com/contact/ — contact-form fields, hours, "call or text 24/7"</li>
+          <li>https://www.allbrandsair.com/services/ac-services/ — no online booking, no pricing surfaced</li>
+          <li>https://www.thumbtack.com/tx/spring/central-air-conditioning-repair/all-brands-air-conditioning/ — 4.9 ★, 72 reviews, 23 hires</li>
+          <li>https://www.bestpickreports.com/air-conditioning-and-heating/houston/all-brands-air-conditioning — 5.0 ★, 62 ratings, "Best Pick since 2024," family-owned</li>
+          <li>https://www.angi.com/companylist/us/tx/spring/all-brands-air-conditioning-reviews-1.htm — 5.0 ★ overall</li>
+          <li>https://comptroller.texas.gov/taxes/franchise/account-status/search/32100919680 — TX LLC formed 06/25/2025, Taxpayer #32100919680, ACTIVE</li>
+          <li>https://www.facebook.com/ads/library/?q=All%20Brands%20Air%20Conditioning — Meta Ad Library, no advertiser match</li>
+          <li>https://www.expertise.com/home-improvement/hvac/texas/spring — competitive landscape (All Brands not in top 7)</li>
+          <li>https://www.tdlr.texas.gov/LicenseSearch/ — TDLR license #TACLB147312E (self-reported, Class B; live status to be verified)</li>
+        </ol>
+        <p class="disclaimer">Figures are point-in-time. Google reviews and live-site findings are as of 2026-06-07. Several items remain to be confirmed live in the Diagnostic (canonical phone number, TDLR license status, current Google Ads activity, owner identity). The ROI model is illustrative and built on labeled assumptions, not asserted facts. This is a draft for discussion; independent verification is encouraged.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Zapp Studios · Houston</span>
+    <span>Private draft prepared for All Brands Air Conditioning · June 7, 2026</span>
+  </div>
+</footer>
+
+<script>
+  var prog = document.getElementById('progress');
+  var nav = document.querySelector('nav');
+  function onScroll(){
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max * 100 : 0;
+    prog.style.width = pct + '%';
+    if ((window.scrollY || h.scrollTop) > 40) nav.classList.add('solid');
+    else nav.classList.remove('solid');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+</script>
+
+</body>
+</html>

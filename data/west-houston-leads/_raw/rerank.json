@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "mama-bear-pest",
+    "name": "Mama Bear Pest & Outdoor LLC",
+    "vertical": "Pest control",
+    "fit0": 82,
+    "fit": 82,
+    "verdict": "early-stage",
+    "g": "5/70"
+  },
+  {
+    "slug": "ij-pressure-washing",
+    "name": "I & J Pressure Washing LLC",
+    "vertical": "Pressure washing",
+    "fit0": 82,
+    "fit": 82,
+    "verdict": "early-stage",
+    "g": "5/24"
+  },
+  {
+    "slug": "tex-mex-junk-removal",
+    "name": "Tex Mex Junk Removal",
+    "vertical": "Junk removal",
+    "fit0": 78,
+    "fit": 78,
+    "verdict": "borderline",
+    "g": "4.9/113"
+  },
+  {
+    "slug": "all-brands-ac",
+    "name": "All Brands Air Conditioning",
+    "vertical": "HVAC",
+    "fit0": 74,
+    "fit": 74,
+    "verdict": "early-stage",
+    "g": "5/73"
+  },
+  {
+    "slug": "high-energy-detailing",
+    "name": "High Energy Detailing",
+    "vertical": "Mobile auto detailing",
+    "fit0": 72,
+    "fit": 72,
+    "verdict": "early-stage",
+    "g": "5/16"
+  },
+  {
+    "slug": "rmp-plumbing",
+    "name": "RMP Plumbing LLC",
+    "vertical": "Plumbing",
+    "fit0": 68,
+    "fit": 68,
+    "verdict": "borderline",
+    "g": "4.6/103"
+  },
+  {
+    "slug": "emerald-lawn-care",
+    "name": "Emerald Lawn Care, LLC",
+    "vertical": "Lawn care / landscaping",
+    "fit0": 62,
+    "fit": 62,
+    "verdict": "early-stage",
+    "g": "4.8/23"
+  },
+  {
+    "slug": "bellas-neat-maid",
+    "name": "Bella's Neat Maid Services",
+    "vertical": "House cleaning",
+    "fit0": 62,
+    "fit": 62,
+    "verdict": "early-stage",
+    "g": "4.5/30"
+  },
+  {
+    "slug": "southern-roots-fencing",
+    "name": "Southern Roots Fencing",
+    "vertical": "Fencing",
+    "fit0": 58,
+    "fit": 58,
+    "verdict": "borderline",
+    "g": "5/100"
+  },
+  {
+    "slug": "katy-brothers-pressure-washing",
+    "name": "Katy Brothers Pressure Washing",
+    "vertical": "Pressure washing",
+    "fit0": 52,
+    "fit": 52,
+    "verdict": "borderline",
+    "g": "5/125"
+  },
+  {
+    "slug": "tree-care-houston",
+    "name": "Tree Care Houston",
+    "vertical": "Tree service",
+    "fit0": 52,
+    "fit": 52,
+    "verdict": "borderline",
+    "g": "unknown/unknown"
+  },
+  {
+    "slug": "houston-strong-roofing",
+    "name": "Houston Strong Roofing Company, LLC",
+    "vertical": "Roofing",
+    "fit0": 62,
+    "fit": 34,
+    "verdict": "established",
+    "g": "4.9/238"
+  },
+  {
+    "slug": "evergreen-lawn-care",
+    "name": "Evergreen Lawn Care, LLC",
+    "vertical": "Lawn care / landscaping",
+    "fit0": 58,
+    "fit": 30,
+    "verdict": "established",
+    "g": "4.9/434"
+  },
+  {
+    "slug": "jcc-roofing",
+    "name": "JC&C Roofing Company",
+    "vertical": "Roofing",
+    "fit0": 22,
+    "fit": 22,
+    "verdict": "unclear",
+    "g": "unknown/unknown"
+  },
+  {
+    "slug": "washington-ac-heating",
+    "name": "Washington A/C & Heating, LLC",
+    "vertical": "HVAC",
+    "fit0": 48,
+    "fit": 20,
+    "verdict": "established",
+    "g": "4.9/148"
+  },
+  {
+    "slug": "conquer-electrical",
+    "name": "Conquer Electrical Services LLC",
+    "vertical": "Electrical",
+    "fit0": 24,
+    "fit": 18,
+    "verdict": "disqualified",
+    "g": "5/GBP exists (5.0, low count)"
+  },
+  {
+    "slug": "his-kingdom-electrical",
+    "name": "His Kingdom Electrical LLC",
+    "vertical": "Electrical",
+    "fit0": 62,
+    "fit": 18,
+    "verdict": "early-stage",
+    "g": "5/23"
+  },
+  {
+    "slug": "katy-fence-company",
+    "name": "Katy Fence Company",
+    "vertical": "Fencing",
+    "fit0": 42,
+    "fit": 14,
+    "verdict": "established",
+    "g": "4.9/252"
+  },
+  {
+    "slug": "modern-air-of-katy",
+    "name": "Modern Air of Katy",
+    "vertical": "HVAC",
+    "fit0": 52,
+    "fit": 9,
+    "verdict": "established",
+    "g": "5/143"
+  },
+  {
+    "slug": "sunrise-maids",
+    "name": "Sunrise Maids",
+    "vertical": "House cleaning",
+    "fit0": 42,
+    "fit": 0,
+    "verdict": "established",
+    "g": "5/181"
+  }
+]

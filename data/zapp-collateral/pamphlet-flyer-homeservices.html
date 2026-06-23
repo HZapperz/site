@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zapp Studios — Home-Services Flyer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;0,9..144,500&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   ZAPP STUDIOS — print collateral design system (shared).
+   Inline this ENTIRE block in every collateral HTML <style>, then add the
+   artifact's own    rule (see SPEC.md).
+   Brand matches the live site (app/globals.css): cream / ink / amber.
+   ========================================================================== */
+:root{
+  --cream:#F5EFE0;        /* primary background */
+  --cream-soft:#EEE7D3;   /* section / panel background */
+  --cream-dim:#E2D9BD;    /* borders, hairlines */
+  --ink:#0C0C0C;          /* headings, high-contrast */
+  --ink-soft:#3A3632;     /* body text */
+  --ink-muted:#7A756D;    /* captions */
+  --ink-faint:#B5AFA3;    /* subtle */
+  --amber:#E8903A;        /* primary accent */
+  --amber-light:#F0A855;
+  --amber-dark:#C97020;
+  --amber-glow:rgba(232,144,58,.12);
+  --ok:#4F7A43;
+  --bad:#B2473A;
+  --display:'Space Grotesk','Inter',sans-serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--sans);color:var(--ink-soft);line-height:1.5;font-size:11pt;background:#9a958c}
+h1,h2,h3,h4{font-family:var(--display);color:var(--ink);font-weight:700;line-height:1.06;letter-spacing:-.02em}
+em,.serif{font-family:var(--serif);font-style:italic;font-weight:400}
+strong{color:var(--ink);font-weight:600}
+.amber{color:var(--amber-dark)}
+
+/* ---- physical page model ----
+   On screen: sheets float on a neutral desk with shadow.
+   In print: exact size (set @page per file), no shadow, hard page breaks. */
+.page{position:relative;background:var(--cream);color:var(--ink-soft);overflow:hidden;
+  margin:22px auto;box-shadow:0 10px 40px rgba(0,0,0,.28);page-break-after:always}
+.page:last-child{page-break-after:auto}
+.page.portrait{width:8.5in;height:11in}
+.page.landscape{width:11in;height:8.5in}
+.pad{padding:0.6in}
+@media print{
+  body{background:#fff}
+  .page{margin:0;box-shadow:none}
+  .screen-only,.guides{display:none !important}
+}
+
+/* ---- eyebrow label (the site's SectionLabel: amber rule + mono caps) ---- */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:8.5pt;
+  font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-dark)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--amber)}
+.eyebrow.plain::before{display:none}
+
+/* ---- type ---- */
+.kicker{font-family:var(--mono);font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+.lead{font-family:var(--display);font-weight:700;letter-spacing:-.022em;line-height:1.04}
+.quote{font-family:var(--serif);font-style:italic;color:var(--ink);line-height:1.28}
+p{max-width:62ch}
+.muted{color:var(--ink-muted)}
+.hr{height:1px;background:var(--cream-dim);border:0;margin:14px 0}
+
+/* ---- stat trio ---- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:var(--cream-soft);border:1px solid var(--cream-dim);border-radius:10px;padding:14px 14px}
+.stat .num{font-family:var(--display);font-weight:700;font-size:20pt;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.stat .num .u{color:var(--amber-dark)}
+.stat .cap{font-size:8pt;color:var(--ink-muted);margin-top:6px;line-height:1.35}
+
+/* ---- offer ladder ---- */
+.ladder{display:grid;gap:9px}
+.rung{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;
+  background:var(--cream-soft);border:1px solid var(--cream-dim);border-radius:10px;padding:12px 14px}
+.rung .n{font-family:var(--mono);font-size:8pt;color:var(--amber-dark);font-weight:600;padding-top:2px}
+.rung h4{font-size:11.5pt;margin-bottom:3px}
+.rung p{font-size:9pt;color:var(--ink-soft);max-width:none}
+.rung.feature{border-color:var(--amber);background:var(--amber-glow)}
+
+/* ---- numbered steps (Diagnose / Build / Grow / Innovate) ---- */
+.steps{display:grid;gap:10px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:12px}
+.step .no{font-family:var(--serif);font-style:italic;font-size:17pt;color:var(--amber);line-height:1}
+.step h4{font-size:11pt;margin-bottom:2px}
+.step p{font-size:9pt;max-width:none}
+
+/* ---- fit columns ---- */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fit ul{list-style:none}
+.fit li{font-size:9pt;padding:5px 0 5px 18px;position:relative;color:var(--ink-soft)}
+.fit .yes h5,.fit .no h5{font-family:var(--mono);font-size:8pt;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.fit .yes h5{color:var(--ok)} .fit .no h5{color:var(--ink-muted)}
+.fit .yes li::before{content:"✓";position:absolute;left:0;color:var(--ok)}
+.fit .no li::before{content:"–";position:absolute;left:0;color:var(--ink-faint)}
+
+/* ---- objection table (cheat-sheet) ---- */
+.obj{width:100%;border-collapse:collapse;font-size:9pt}
+.obj th,.obj td{text-align:left;vertical-align:top;padding:7px 10px;border-bottom:1px solid var(--cream-dim)}
+.obj th{font-family:var(--mono);font-size:7.5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);background:var(--cream-soft)}
+.obj td:first-child{font-weight:600;color:var(--ink);width:34%}
+
+/* ---- CTA + QR block ---- */
+.cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);
+  font-family:var(--display);font-weight:600;font-size:10pt;padding:10px 18px;border-radius:100px;text-decoration:none}
+.cta.amber{background:var(--amber);color:var(--ink)}
+.qrblock{display:flex;align-items:center;gap:12px}
+.qrblock .qr{width:0.95in;height:0.95in;flex:0 0 auto;background:var(--cream);border:1px solid var(--cream-dim);border-radius:8px;padding:4px}
+.qrblock .qr svg,.qrblock .qr img{width:100%;height:100%;display:block}
+.qrblock .lbl{font-size:8.5pt;color:var(--ink-soft);line-height:1.35}
+.qrblock .lbl b{display:block;font-family:var(--display);color:var(--ink);font-size:10pt}
+
+/* ---- wordmark / brand lockup ---- */
+.wordmark{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;
+  color:var(--ink);letter-spacing:-.01em}
+.wordmark .z{display:inline-flex;align-items:center;justify-content:center;width:1.5em;height:1.5em;
+  border-radius:6px;background:var(--amber);color:var(--ink);font-weight:700;font-size:.9em}
+
+/* ---- business card ---- */
+.card{width:3.75in;height:2.25in;background:var(--cream);position:relative;overflow:hidden}  /* 3.5x2 trim + .125 bleed */
+.card.dark{background:var(--ink);color:var(--cream)}
+.card .safe{position:absolute;inset:0.1875in;display:flex;flex-direction:column}  /* .125 bleed + .0625 safe */
+.card.dark .wordmark{color:var(--cream)}
+
+/* ---- tri-fold panels ---- */
+.trifold{display:flex;width:100%;height:100%}
+.panel{flex:1 1 3.6667in;width:3.6667in;height:100%;padding:0.32in;display:flex;flex-direction:column;
+  border-right:1px dashed transparent}
+.guides .panel{border-right:1px dashed var(--cream-dim)}
+.guides .panel:last-child{border-right:0}
+.panel.cover{background:var(--ink);color:var(--cream)}
+.panel.cover h1,.panel.cover h2{color:var(--cream)}
+.panel.accent{background:var(--amber-glow)}
+
+/* utility */
+.row{display:flex;gap:12px;align-items:center}
+.col{display:flex;flex-direction:column}
+.between{justify-content:space-between}
+.mt-a{margin-top:auto}
+.center{text-align:center}
+.tag{display:inline-block;font-family:var(--mono);font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber-dark);border:1px solid var(--amber);border-radius:100px;padding:3px 9px}
+
+/* ==========================================================================
+   ARTIFACT-SPECIFIC — pamphlet-flyer-homeservices.html
+   US-Letter PORTRAIT, two sheets (Front, Back). True size.
+   ========================================================================== */
+@page { size: 8.5in 11in; margin: 0 }
+.page.portrait{display:flex;flex-direction:column}
+.flyer{flex:1 1 auto;display:flex;flex-direction:column;padding:0.7in 0.7in 0.62in}
+.flyer .grow{flex:1 1 auto}
+
+/* front hero */
+.hero-lead{font-size:38pt;line-height:0.98;letter-spacing:-.026em;margin:14px 0 0}
+.hero-lead .amber{color:var(--amber-dark)}
+.oneliner{font-size:12.5pt;line-height:1.42;color:var(--ink-soft);margin-top:16px;max-width:54ch}
+.proof-head{font-family:var(--mono);font-size:8pt;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-muted);margin-bottom:10px}
+.stats .num{font-size:21pt}
+.ctaband{display:flex;align-items:center;justify-content:space-between;gap:18px;
+  background:var(--cream-soft);border:1px solid var(--cream-dim);border-radius:12px;padding:16px 18px}
+
+/* back */
+.sec-title{font-size:16pt;letter-spacing:-.02em;margin-bottom:12px}
+.flyer.back{padding-top:0.62in}
+.fit{margin-top:2px}
+.closeband{background:var(--ink);color:var(--cream);border-radius:12px;padding:20px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:22px}
+.closeband .quote{color:var(--cream);font-size:13.5pt;max-width:40ch}
+.closeband .qrblock .qr{background:var(--cream)}
+.closeband .qrblock .lbl{color:var(--cream)}
+.closeband .qrblock .lbl b{color:var(--cream)}
+.foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;
+  font-family:var(--mono);font-size:8pt;letter-spacing:.06em;color:var(--ink-muted)}
+.foot .pl{color:var(--amber-dark)}
+@media print{ .page{page-break-after:always} .page:last-child{page-break-after:auto} }
+</style>
+</head>
+<body>
+
+<!-- ============================ FRONT ============================ -->
+<section class="page portrait">
+  <div class="flyer front">
+
+    <div class="row between">
+      <span class="wordmark"><span class="z">Z</span>Zapp Studios</span>
+      <span class="kicker">Houston, TX</span>
+    </div>
+
+    <div style="margin-top:26px">
+      <span class="eyebrow">Home &amp; field services</span>
+      <h1 class="hero-lead">You earned the reviews.<br><span class="amber">Your booking flow is leaking them.</span></h1>
+      <p class="oneliner">Most SMBs bolt a marketing agency onto a dev shop — and lose months in the translation. I'm one operator who does both, so your funnel, your product, and your revenue move together.</p>
+    </div>
+
+    <div class="grow"></div>
+
+    <div>
+      <div class="proof-head">Proof — Royal Pawz USA, a local mobile-grooming service</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="num">7% <span class="u">→</span> 30.8%</div>
+          <div class="cap">Booking conversion, A/B tested (+334%). The same stack maps to pest, HVAC, roofing, cleaning, lawn.</div>
+        </div>
+        <div class="stat">
+          <div class="num">$200 <span class="u">→</span> $10K</div>
+          <div class="cap">MRR in about four months — roughly 50× — by fixing the page before touching the budget.</div>
+        </div>
+        <div class="stat">
+          <div class="num">7.8<span class="u">×</span></div>
+          <div class="cap">LTV:CAC ($195 avg LTV / $25 blended CPA), with ROAS moving 2× to 5×.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:22px">
+      <div class="ctaband">
+        <div class="qrblock">
+          <div class="qr">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="630" height="630">
+	<title>QR Code</title>
+	<desc>https://calendly.com/hamzazulquernain1/zapp-studios-consulting</desc>
+	<rect style="fill:rgb(245, 239, 224);fill-opacity:1" x="0" y="0" width="630" height="630" />
+	<g id="elements">
+		<path style="fill:rgb(12, 12, 12)" d="M 18,18 l 18,0 0,18 -18,0 z M 36,18 l 18,0 0,18 -18,0 z M 54,18 l 18,0 0,18 -18,0 z M 72,18 l 18,0 0,18 -18,0 z M 90,18 l 18,0 0,18 -18,0 z M 108,18 l 18,0 0,18 -18,0 z M 126,18 l 18,0 0,18 -18,0 z M 180,18 l 18,0 0,18 -18,0 z M 252,18 l 18,0 0,18 -18,0 z M 270,18 l 18,0 0,18 -18,0 z M 306,18 l 18,0 0,18 -18,0 z M 342,18 l 18,0 0,18 -18,0 z M 360,18 l 18,0 0,18 -18,0 z M 378,18 l 18,0 0,18 -18,0 z M 396,18 l 18,0 0,18 -18,0 z M 432,18 l 18,0 0,18 -18,0 z M 486,18 l 18,0 0,18 -18,0 z M 504,18 l 18,0 0,18 -18,0 z M 522,18 l 18,0 0,18 -18,0 z M 540,18 l 18,0 0,18 -18,0 z M 558,18 l 18,0 0,18 -18,0 z M 576,18 l 18,0 0,18 -18,0 z M 594,18 l 18,0 0,18 -18,0 z M 18,36 l 18,0 0,18 -18,0 z M 126,36 l 18,0 0,18 -18,0 z M 180,36 l 18,0 0,18 -18,0 z M 198,36 l 18,0 0,18 -18,0 z M 216,36 l 18,0 0,18 -18,0 z M 252,36 l 18,0 0,18 -18,0 z M 270,36 l 18,0 0,18 -18,0 z M 288,36 l 18,0 0,18 -18,0 z M 324,36 l 18,0 0,18 -18,0 z M 342,36 l 18,0 0,18 -18,0 z M 378,36 l 18,0 0,18 -18,0 z M 450,36 l 18,0 0,18 -18,0 z M 486,36 l 18,0 0,18 -18,0 z M 594,36 l 18,0 0,18 -18,0 z M 18,54 l 18,0 0,18 -18,0 z M 54,54 l 18,0 0,18 -18,0 z M 72,54 l 18,0 0,18 -18,0 z M 90,54 l 18,0 0,18 -18,0 z M 126,54 l 18,0 0,18 -18,0 z M 162,54 l 18,0 0,18 -18,0 z M 198,54 l 18,0 0,18 -18,0 z M 234,54 l 18,0 0,18 -18,0 z M 288,54 l 18,0 0,18 -18,0 z M 306,54 l 18,0 0,18 -18,0 z M 360,54 l 18,0 0,18 -18,0 z M 378,54 l 18,0 0,18 -18,0 z M 396,54 l 18,0 0,18 -18,0 z M 414,54 l 18,0 0,18 -18,0 z M 432,54 l 18,0 0,18 -18,0 z M 486,54 l 18,0 0,18 -18,0 z M 522,54 l 18,0 0,18 -18,0 z M 540,54 l 18,0 0,18 -18,0 z M 558,54 l 18,0 0,18 -18,0 z M 594,54 l 18,0 0,18 -18,0 z M 18,72 l 18,0 0,18 -18,0 z M 54,72 l 18,0 0,18 -18,0 z M 72,72 l 18,0 0,18 -18,0 z M 90,72 l 18,0 0,18 -18,0 z M 126,72 l 18,0 0,18 -18,0 z M 162,72 l 18,0 0,18 -18,0 z M 198,72 l 18,0 0,18 -18,0 z M 216,72 l 18,0 0,18 -18,0 z M 252,72 l 18,0 0,18 -18,0 z M 270,72 l 18,0 0,18 -18,0 z M 324,72 l 18,0 0,18 -18,0 z M 360,72 l 18,0 0,18 -18,0 z M 414,72 l 18,0 0,18 -18,0 z M 432,72 l 18,0 0,18 -18,0 z M 486,72 l 18,0 0,18 -18,0 z M 522,72 l 18,0 0,18 -18,0 z M 540,72 l 18,0 0,18 -18,0 z M 558,72 l 18,0 0,18 -18,0 z M 594,72 l 18,0 0,18 -18,0 z M 18,90 l 18,0 0,18 -18,0 z M 54,90 l 18,0 0,18 -18,0 z M 72,90 l 18,0 0,18 -18,0 z M 90,90 l 18,0 0,18 -18,0 z M 126,90 l 18,0 0,18 -18,0 z M 162,90 l 18,0 0,18 -18,0 z M 180,90 l 18,0 0,18 -18,0 z M 216,90 l 18,0 0,18 -18,0 z M 234,90 l 18,0 0,18 -18,0 z M 306,90 l 18,0 0,18 -18,0 z M 324,90 l 18,0 0,18 -18,0 z M 342,90 l 18,0 0,18 -18,0 z M 360,90 l 18,0 0,18 -18,0 z M 378,90 l 18,0 0,18 -18,0 z M 396,90 l 18,0 0,18 -18,0 z M 414,90 l 18,0 0,18 -18,0 z M 432,90 l 18,0 0,18 -18,0 z M 486,90 l 18,0 0,18 -18,0 z M 522,90 l 18,0 0,18 -18,0 z M 540,90 l 18,0 0,18 -18,0 z M 558,90 l 18,0 0,18 -18,0 z M 594,90 l 18,0 0,18 -18,0 z M 18,108 l 18,0 0,18 -18,0 z M 126,108 l 18,0 0,18 -18,0 z M 162,108 l 18,0 0,18 -18,0 z M 180,108 l 18,0 0,18 -18,0 z M 198,108 l 18,0 0,18 -18,0 z M 216,108 l 18,0 0,18 -18,0 z M 288,108 l 18,0 0,18 -18,0 z M 306,108 l 18,0 0,18 -18,0 z M 342,108 l 18,0 0,18 -18,0 z M 378,108 l 18,0 0,18 -18,0 z M 396,108 l 18,0 0,18 -18,0 z M 414,108 l 18,0 0,18 -18,0 z M 486,108 l 18,0 0,18 -18,0 z M 594,108 l 18,0 0,18 -18,0 z M 18,126 l 18,0 0,18 -18,0 z M 36,126 l 18,0 0,18 -18,0 z M 54,126 l 18,0 0,18 -18,0 z M 72,126 l 18,0 0,18 -18,0 z M 90,126 l 18,0 0,18 -18,0 z M 108,126 l 18,0 0,18 -18,0 z M 126,126 l 18,0 0,18 -18,0 z M 162,126 l 18,0 0,18 -18,0 z M 198,126 l 18,0 0,18 -18,0 z M 234,126 l 18,0 0,18 -18,0 z M 270,126 l 18,0 0,18 -18,0 z M 306,126 l 18,0 0,18 -18,0 z M 342,126 l 18,0 0,18 -18,0 z M 378,126 l 18,0 0,18 -18,0 z M 414,126 l 18,0 0,18 -18,0 z M 450,126 l 18,0 0,18 -18,0 z M 486,126 l 18,0 0,18 -18,0 z M 504,126 l 18,0 0,18 -18,0 z M 522,126 l 18,0 0,18 -18,0 z M 540,126 l 18,0 0,18 -18,0 z M 558,126 l 18,0 0,18 -18,0 z M 576,126 l 18,0 0,18 -18,0 z M 594,126 l 18,0 0,18 -18,0 z M 162,144 l 18,0 0,18 -18,0 z M 180,144 l 18,0 0,18 -18,0 z M 216,144 l 18,0 0,18 -18,0 z M 234,144 l 18,0 0,18 -18,0 z M 270,144 l 18,0 0,18 -18,0 z M 288,144 l 18,0 0,18 -18,0 z M 342,144 l 18,0 0,18 -18,0 z M 378,144 l 18,0 0,18 -18,0 z M 396,144 l 18,0 0,18 -18,0 z M 18,162 l 18,0 0,18 -18,0 z M 54,162 l 18,0 0,18 -18,0 z M 72,162 l 18,0 0,18 -18,0 z M 90,162 l 18,0 0,18 -18,0 z M 108,162 l 18,0 0,18 -18,0 z M 126,162 l 18,0 0,18 -18,0 z M 180,162 l 18,0 0,18 -18,0 z M 234,162 l 18,0 0,18 -18,0 z M 252,162 l 18,0 0,18 -18,0 z M 270,162 l 18,0 0,18 -18,0 z M 324,162 l 18,0 0,18 -18,0 z M 360,162 l 18,0 0,18 -18,0 z M 414,162 l 18,0 0,18 -18,0 z M 432,162 l 18,0 0,18 -18,0 z M 450,162 l 18,0 0,18 -18,0 z M 486,162 l 18,0 0,18 -18,0 z M 504,162 l 18,0 0,18 -18,0 z M 522,162 l 18,0 0,18 -18,0 z M 540,162 l 18,0 0,18 -18,0 z M 558,162 l 18,0 0,18 -18,0 z M 36,180 l 18,0 0,18 -18,0 z M 54,180 l 18,0 0,18 -18,0 z M 72,180 l 18,0 0,18 -18,0 z M 90,180 l 18,0 0,18 -18,0 z M 108,180 l 18,0 0,18 -18,0 z M 198,180 l 18,0 0,18 -18,0 z M 216,180 l 18,0 0,18 -18,0 z M 234,180 l 18,0 0,18 -18,0 z M 270,180 l 18,0 0,18 -18,0 z M 306,180 l 18,0 0,18 -18,0 z M 324,180 l 18,0 0,18 -18,0 z M 342,180 l 18,0 0,18 -18,0 z M 360,180 l 18,0 0,18 -18,0 z M 396,180 l 18,0 0,18 -18,0 z M 432,180 l 18,0 0,18 -18,0 z M 486,180 l 18,0 0,18 -18,0 z M 504,180 l 18,0 0,18 -18,0 z M 540,180 l 18,0 0,18 -18,0 z M 558,180 l 18,0 0,18 -18,0 z M 594,180 l 18,0 0,18 -18,0 z M 18,198 l 18,0 0,18 -18,0 z M 54,198 l 18,0 0,18 -18,0 z M 90,198 l 18,0 0,18 -18,0 z M 126,198 l 18,0 0,18 -18,0 z M 162,198 l 18,0 0,18 -18,0 z M 198,198 l 18,0 0,18 -18,0 z M 216,198 l 18,0 0,18 -18,0 z M 234,198 l 18,0 0,18 -18,0 z M 252,198 l 18,0 0,18 -18,0 z M 270,198 l 18,0 0,18 -18,0 z M 288,198 l 18,0 0,18 -18,0 z M 306,198 l 18,0 0,18 -18,0 z M 324,198 l 18,0 0,18 -18,0 z M 378,198 l 18,0 0,18 -18,0 z M 396,198 l 18,0 0,18 -18,0 z M 414,198 l 18,0 0,18 -18,0 z M 468,198 l 18,0 0,18 -18,0 z M 486,198 l 18,0 0,18 -18,0 z M 522,198 l 18,0 0,18 -18,0 z M 558,198 l 18,0 0,18 -18,0 z M 576,198 l 18,0 0,18 -18,0 z M 36,216 l 18,0 0,18 -18,0 z M 90,216 l 18,0 0,18 -18,0 z M 108,216 l 18,0 0,18 -18,0 z M 144,216 l 18,0 0,18 -18,0 z M 198,216 l 18,0 0,18 -18,0 z M 270,216 l 18,0 0,18 -18,0 z M 288,216 l 18,0 0,18 -18,0 z M 306,216 l 18,0 0,18 -18,0 z M 378,216 l 18,0 0,18 -18,0 z M 396,216 l 18,0 0,18 -18,0 z M 468,216 l 18,0 0,18 -18,0 z M 486,216 l 18,0 0,18 -18,0 z M 522,216 l 18,0 0,18 -18,0 z M 540,216 l 18,0 0,18 -18,0 z M 558,216 l 18,0 0,18 -18,0 z M 594,216 l 18,0 0,18 -18,0 z M 54,234 l 18,0 0,18 -18,0 z M 108,234 l 18,0 0,18 -18,0 z M 126,234 l 18,0 0,18 -18,0 z M 198,234 l 18,0 0,18 -18,0 z M 234,234 l 18,0 0,18 -18,0 z M 288,234 l 18,0 0,18 -18,0 z M 324,234 l 18,0 0,18 -18,0 z M 360,234 l 18,0 0,18 -18,0 z M 414,234 l 18,0 0,18 -18,0 z M 450,234 l 18,0 0,18 -18,0 z M 468,234 l 18,0 0,18 -18,0 z M 504,234 l 18,0 0,18 -18,0 z M 522,234 l 18,0 0,18 -18,0 z M 540,234 l 18,0 0,18 -18,0 z M 90,252 l 18,0 0,18 -18,0 z M 108,252 l 18,0 0,18 -18,0 z M 144,252 l 18,0 0,18 -18,0 z M 162,252 l 18,0 0,18 -18,0 z M 198,252 l 18,0 0,18 -18,0 z M 252,252 l 18,0 0,18 -18,0 z M 306,252 l 18,0 0,18 -18,0 z M 342,252 l 18,0 0,18 -18,0 z M 360,252 l 18,0 0,18 -18,0 z M 414,252 l 18,0 0,18 -18,0 z M 432,252 l 18,0 0,18 -18,0 z M 450,252 l 18,0 0,18 -18,0 z M 468,252 l 18,0 0,18 -18,0 z M 486,252 l 18,0 0,18 -18,0 z M 504,252 l 18,0 0,18 -18,0 z M 540,252 l 18,0 0,18 -18,0 z M 576,252 l 18,0 0,18 -18,0 z M 594,252 l 18,0 0,18 -18,0 z M 18,270 l 18,0 0,18 -18,0 z M 54,270 l 18,0 0,18 -18,0 z M 90,270 l 18,0 0,18 -18,0 z M 126,270 l 18,0 0,18 -18,0 z M 162,270 l 18,0 0,18 -18,0 z M 180,270 l 18,0 0,18 -18,0 z M 234,270 l 18,0 0,18 -18,0 z M 252,270 l 18,0 0,18 -18,0 z M 288,270 l 18,0 0,18 -18,0 z M 342,270 l 18,0 0,18 -18,0 z M 378,270 l 18,0 0,18 -18,0 z M 396,270 l 18,0 0,18 -18,0 z M 414,270 l 18,0 0,18 -18,0 z M 450,270 l 18,0 0,18 -18,0 z M 468,270 l 18,0 0,18 -18,0 z M 486,270 l 18,0 0,18 -18,0 z M 576,270 l 18,0 0,18 -18,0 z M 18,288 l 18,0 0,18 -18,0 z M 90,288 l 18,0 0,18 -18,0 z M 108,288 l 18,0 0,18 -18,0 z M 144,288 l 18,0 0,18 -18,0 z M 180,288 l 18,0 0,18 -18,0 z M 216,288 l 18,0 0,18 -18,0 z M 234,288 l 18,0 0,18 -18,0 z M 252,288 l 18,0 0,18 -18,0 z M 288,288 l 18,0 0,18 -18,0 z M 306,288 l 18,0 0,18 -18,0 z M 360,288 l 18,0 0,18 -18,0 z M 396,288 l 18,0 0,18 -18,0 z M 450,288 l 18,0 0,18 -18,0 z M 468,288 l 18,0 0,18 -18,0 z M 486,288 l 18,0 0,18 -18,0 z M 504,288 l 18,0 0,18 -18,0 z M 540,288 l 18,0 0,18 -18,0 z M 558,288 l 18,0 0,18 -18,0 z M 126,306 l 18,0 0,18 -18,0 z M 162,306 l 18,0 0,18 -18,0 z M 180,306 l 18,0 0,18 -18,0 z M 198,306 l 18,0 0,18 -18,0 z M 216,306 l 18,0 0,18 -18,0 z M 288,306 l 18,0 0,18 -18,0 z M 306,306 l 18,0 0,18 -18,0 z M 324,306 l 18,0 0,18 -18,0 z M 414,306 l 18,0 0,18 -18,0 z M 450,306 l 18,0 0,18 -18,0 z M 468,306 l 18,0 0,18 -18,0 z M 504,306 l 18,0 0,18 -18,0 z M 522,306 l 18,0 0,18 -18,0 z M 594,306 l 18,0 0,18 -18,0 z M 54,324 l 18,0 0,18 -18,0 z M 108,324 l 18,0 0,18 -18,0 z M 144,324 l 18,0 0,18 -18,0 z M 162,324 l 18,0 0,18 -18,0 z M 180,324 l 18,0 0,18 -18,0 z M 234,324 l 18,0 0,18 -18,0 z M 270,324 l 18,0 0,18 -18,0 z M 306,324 l 18,0 0,18 -18,0 z M 324,324 l 18,0 0,18 -18,0 z M 342,324 l 18,0 0,18 -18,0 z M 360,324 l 18,0 0,18 -18,0 z M 378,324 l 18,0 0,18 -18,0 z M 396,324 l 18,0 0,18 -18,0 z M 414,324 l 18,0 0,18 -18,0 z M 432,324 l 18,0 0,18 -18,0 z M 486,324 l 18,0 0,18 -18,0 z M 504,324 l 18,0 0,18 -18,0 z M 540,324 l 18,0 0,18 -18,0 z M 558,324 l 18,0 0,18 -18,0 z M 576,324 l 18,0 0,18 -18,0 z M 594,324 l 18,0 0,18 -18,0 z M 18,342 l 18,0 0,18 -18,0 z M 54,342 l 18,0 0,18 -18,0 z M 72,342 l 18,0 0,18 -18,0 z M 108,342 l 18,0 0,18 -18,0 z M 126,342 l 18,0 0,18 -18,0 z M 180,342 l 18,0 0,18 -18,0 z M 198,342 l 18,0 0,18 -18,0 z M 234,342 l 18,0 0,18 -18,0 z M 270,342 l 18,0 0,18 -18,0 z M 288,342 l 18,0 0,18 -18,0 z M 324,342 l 18,0 0,18 -18,0 z M 378,342 l 18,0 0,18 -18,0 z M 396,342 l 18,0 0,18 -18,0 z M 414,342 l 18,0 0,18 -18,0 z M 450,342 l 18,0 0,18 -18,0 z M 486,342 l 18,0 0,18 -18,0 z M 504,342 l 18,0 0,18 -18,0 z M 522,342 l 18,0 0,18 -18,0 z M 558,342 l 18,0 0,18 -18,0 z M 576,342 l 18,0 0,18 -18,0 z M 36,360 l 18,0 0,18 -18,0 z M 90,360 l 18,0 0,18 -18,0 z M 108,360 l 18,0 0,18 -18,0 z M 180,360 l 18,0 0,18 -18,0 z M 198,360 l 18,0 0,18 -18,0 z M 234,360 l 18,0 0,18 -18,0 z M 270,360 l 18,0 0,18 -18,0 z M 342,360 l 18,0 0,18 -18,0 z M 360,360 l 18,0 0,18 -18,0 z M 378,360 l 18,0 0,18 -18,0 z M 396,360 l 18,0 0,18 -18,0 z M 414,360 l 18,0 0,18 -18,0 z M 486,360 l 18,0 0,18 -18,0 z M 504,360 l 18,0 0,18 -18,0 z M 522,360 l 18,0 0,18 -18,0 z M 540,360 l 18,0 0,18 -18,0 z M 558,360 l 18,0 0,18 -18,0 z M 576,360 l 18,0 0,18 -18,0 z M 18,378 l 18,0 0,18 -18,0 z M 36,378 l 18,0 0,18 -18,0 z M 54,378 l 18,0 0,18 -18,0 z M 72,378 l 18,0 0,18 -18,0 z M 108,378 l 18,0 0,18 -18,0 z M 126,378 l 18,0 0,18 -18,0 z M 144,378 l 18,0 0,18 -18,0 z M 162,378 l 18,0 0,18 -18,0 z M 198,378 l 18,0 0,18 -18,0 z M 216,378 l 18,0 0,18 -18,0 z M 252,378 l 18,0 0,18 -18,0 z M 270,378 l 18,0 0,18 -18,0 z M 306,378 l 18,0 0,18 -18,0 z M 324,378 l 18,0 0,18 -18,0 z M 360,378 l 18,0 0,18 -18,0 z M 378,378 l 18,0 0,18 -18,0 z M 414,378 l 18,0 0,18 -18,0 z M 432,378 l 18,0 0,18 -18,0 z M 468,378 l 18,0 0,18 -18,0 z M 522,378 l 18,0 0,18 -18,0 z M 540,378 l 18,0 0,18 -18,0 z M 576,378 l 18,0 0,18 -18,0 z M 18,396 l 18,0 0,18 -18,0 z M 36,396 l 18,0 0,18 -18,0 z M 54,396 l 18,0 0,18 -18,0 z M 108,396 l 18,0 0,18 -18,0 z M 162,396 l 18,0 0,18 -18,0 z M 216,396 l 18,0 0,18 -18,0 z M 306,396 l 18,0 0,18 -18,0 z M 324,396 l 18,0 0,18 -18,0 z M 360,396 l 18,0 0,18 -18,0 z M 378,396 l 18,0 0,18 -18,0 z M 432,396 l 18,0 0,18 -18,0 z M 486,396 l 18,0 0,18 -18,0 z M 504,396 l 18,0 0,18 -18,0 z M 558,396 l 18,0 0,18 -18,0 z M 594,396 l 18,0 0,18 -18,0 z M 18,414 l 18,0 0,18 -18,0 z M 72,414 l 18,0 0,18 -18,0 z M 126,414 l 18,0 0,18 -18,0 z M 144,414 l 18,0 0,18 -18,0 z M 162,414 l 18,0 0,18 -18,0 z M 270,414 l 18,0 0,18 -18,0 z M 288,414 l 18,0 0,18 -18,0 z M 378,414 l 18,0 0,18 -18,0 z M 396,414 l 18,0 0,18 -18,0 z M 450,414 l 18,0 0,18 -18,0 z M 504,414 l 18,0 0,18 -18,0 z M 522,414 l 18,0 0,18 -18,0 z M 540,414 l 18,0 0,18 -18,0 z M 558,414 l 18,0 0,18 -18,0 z M 576,414 l 18,0 0,18 -18,0 z M 18,432 l 18,0 0,18 -18,0 z M 54,432 l 18,0 0,18 -18,0 z M 162,432 l 18,0 0,18 -18,0 z M 180,432 l 18,0 0,18 -18,0 z M 198,432 l 18,0 0,18 -18,0 z M 216,432 l 18,0 0,18 -18,0 z M 234,432 l 18,0 0,18 -18,0 z M 252,432 l 18,0 0,18 -18,0 z M 270,432 l 18,0 0,18 -18,0 z M 288,432 l 18,0 0,18 -18,0 z M 306,432 l 18,0 0,18 -18,0 z M 360,432 l 18,0 0,18 -18,0 z M 378,432 l 18,0 0,18 -18,0 z M 396,432 l 18,0 0,18 -18,0 z M 414,432 l 18,0 0,18 -18,0 z M 450,432 l 18,0 0,18 -18,0 z M 468,432 l 18,0 0,18 -18,0 z M 486,432 l 18,0 0,18 -18,0 z M 522,432 l 18,0 0,18 -18,0 z M 540,432 l 18,0 0,18 -18,0 z M 558,432 l 18,0 0,18 -18,0 z M 594,432 l 18,0 0,18 -18,0 z M 18,450 l 18,0 0,18 -18,0 z M 72,450 l 18,0 0,18 -18,0 z M 90,450 l 18,0 0,18 -18,0 z M 108,450 l 18,0 0,18 -18,0 z M 126,450 l 18,0 0,18 -18,0 z M 162,450 l 18,0 0,18 -18,0 z M 198,450 l 18,0 0,18 -18,0 z M 270,450 l 18,0 0,18 -18,0 z M 306,450 l 18,0 0,18 -18,0 z M 324,450 l 18,0 0,18 -18,0 z M 360,450 l 18,0 0,18 -18,0 z M 450,450 l 18,0 0,18 -18,0 z M 468,450 l 18,0 0,18 -18,0 z M 486,450 l 18,0 0,18 -18,0 z M 504,450 l 18,0 0,18 -18,0 z M 522,450 l 18,0 0,18 -18,0 z M 576,450 l 18,0 0,18 -18,0 z M 594,450 l 18,0 0,18 -18,0 z M 162,468 l 18,0 0,18 -18,0 z M 216,468 l 18,0 0,18 -18,0 z M 234,468 l 18,0 0,18 -18,0 z M 306,468 l 18,0 0,18 -18,0 z M 360,468 l 18,0 0,18 -18,0 z M 378,468 l 18,0 0,18 -18,0 z M 396,468 l 18,0 0,18 -18,0 z M 450,468 l 18,0 0,18 -18,0 z M 522,468 l 18,0 0,18 -18,0 z M 558,468 l 18,0 0,18 -18,0 z M 594,468 l 18,0 0,18 -18,0 z M 18,486 l 18,0 0,18 -18,0 z M 36,486 l 18,0 0,18 -18,0 z M 54,486 l 18,0 0,18 -18,0 z M 72,486 l 18,0 0,18 -18,0 z M 90,486 l 18,0 0,18 -18,0 z M 108,486 l 18,0 0,18 -18,0 z M 126,486 l 18,0 0,18 -18,0 z M 198,486 l 18,0 0,18 -18,0 z M 216,486 l 18,0 0,18 -18,0 z M 234,486 l 18,0 0,18 -18,0 z M 252,486 l 18,0 0,18 -18,0 z M 270,486 l 18,0 0,18 -18,0 z M 288,486 l 18,0 0,18 -18,0 z M 306,486 l 18,0 0,18 -18,0 z M 324,486 l 18,0 0,18 -18,0 z M 342,486 l 18,0 0,18 -18,0 z M 378,486 l 18,0 0,18 -18,0 z M 396,486 l 18,0 0,18 -18,0 z M 414,486 l 18,0 0,18 -18,0 z M 432,486 l 18,0 0,18 -18,0 z M 450,486 l 18,0 0,18 -18,0 z M 486,486 l 18,0 0,18 -18,0 z M 522,486 l 18,0 0,18 -18,0 z M 558,486 l 18,0 0,18 -18,0 z M 576,486 l 18,0 0,18 -18,0 z M 18,504 l 18,0 0,18 -18,0 z M 126,504 l 18,0 0,18 -18,0 z M 162,504 l 18,0 0,18 -18,0 z M 180,504 l 18,0 0,18 -18,0 z M 288,504 l 18,0 0,18 -18,0 z M 360,504 l 18,0 0,18 -18,0 z M 396,504 l 18,0 0,18 -18,0 z M 432,504 l 18,0 0,18 -18,0 z M 450,504 l 18,0 0,18 -18,0 z M 522,504 l 18,0 0,18 -18,0 z M 540,504 l 18,0 0,18 -18,0 z M 558,504 l 18,0 0,18 -18,0 z M 576,504 l 18,0 0,18 -18,0 z M 18,522 l 18,0 0,18 -18,0 z M 54,522 l 18,0 0,18 -18,0 z M 72,522 l 18,0 0,18 -18,0 z M 90,522 l 18,0 0,18 -18,0 z M 126,522 l 18,0 0,18 -18,0 z M 162,522 l 18,0 0,18 -18,0 z M 216,522 l 18,0 0,18 -18,0 z M 234,522 l 18,0 0,18 -18,0 z M 288,522 l 18,0 0,18 -18,0 z M 324,522 l 18,0 0,18 -18,0 z M 414,522 l 18,0 0,18 -18,0 z M 450,522 l 18,0 0,18 -18,0 z M 468,522 l 18,0 0,18 -18,0 z M 486,522 l 18,0 0,18 -18,0 z M 504,522 l 18,0 0,18 -18,0 z M 522,522 l 18,0 0,18 -18,0 z M 540,522 l 18,0 0,18 -18,0 z M 576,522 l 18,0 0,18 -18,0 z M 18,540 l 18,0 0,18 -18,0 z M 54,540 l 18,0 0,18 -18,0 z M 72,540 l 18,0 0,18 -18,0 z M 90,540 l 18,0 0,18 -18,0 z M 126,540 l 18,0 0,18 -18,0 z M 162,540 l 18,0 0,18 -18,0 z M 180,540 l 18,0 0,18 -18,0 z M 198,540 l 18,0 0,18 -18,0 z M 216,540 l 18,0 0,18 -18,0 z M 234,540 l 18,0 0,18 -18,0 z M 252,540 l 18,0 0,18 -18,0 z M 270,540 l 18,0 0,18 -18,0 z M 306,540 l 18,0 0,18 -18,0 z M 324,540 l 18,0 0,18 -18,0 z M 360,540 l 18,0 0,18 -18,0 z M 378,540 l 18,0 0,18 -18,0 z M 432,540 l 18,0 0,18 -18,0 z M 450,540 l 18,0 0,18 -18,0 z M 468,540 l 18,0 0,18 -18,0 z M 522,540 l 18,0 0,18 -18,0 z M 576,540 l 18,0 0,18 -18,0 z M 594,540 l 18,0 0,18 -18,0 z M 18,558 l 18,0 0,18 -18,0 z M 54,558 l 18,0 0,18 -18,0 z M 72,558 l 18,0 0,18 -18,0 z M 90,558 l 18,0 0,18 -18,0 z M 126,558 l 18,0 0,18 -18,0 z M 162,558 l 18,0 0,18 -18,0 z M 216,558 l 18,0 0,18 -18,0 z M 288,558 l 18,0 0,18 -18,0 z M 306,558 l 18,0 0,18 -18,0 z M 324,558 l 18,0 0,18 -18,0 z M 342,558 l 18,0 0,18 -18,0 z M 378,558 l 18,0 0,18 -18,0 z M 414,558 l 18,0 0,18 -18,0 z M 450,558 l 18,0 0,18 -18,0 z M 486,558 l 18,0 0,18 -18,0 z M 504,558 l 18,0 0,18 -18,0 z M 540,558 l 18,0 0,18 -18,0 z M 558,558 l 18,0 0,18 -18,0 z M 18,576 l 18,0 0,18 -18,0 z M 126,576 l 18,0 0,18 -18,0 z M 216,576 l 18,0 0,18 -18,0 z M 234,576 l 18,0 0,18 -18,0 z M 252,576 l 18,0 0,18 -18,0 z M 288,576 l 18,0 0,18 -18,0 z M 306,576 l 18,0 0,18 -18,0 z M 342,576 l 18,0 0,18 -18,0 z M 396,576 l 18,0 0,18 -18,0 z M 432,576 l 18,0 0,18 -18,0 z M 522,576 l 18,0 0,18 -18,0 z M 540,576 l 18,0 0,18 -18,0 z M 558,576 l 18,0 0,18 -18,0 z M 18,594 l 18,0 0,18 -18,0 z M 36,594 l 18,0 0,18 -18,0 z M 54,594 l 18,0 0,18 -18,0 z M 72,594 l 18,0 0,18 -18,0 z M 90,594 l 18,0 0,18 -18,0 z M 108,594 l 18,0 0,18 -18,0 z M 126,594 l 18,0 0,18 -18,0 z M 162,594 l 18,0 0,18 -18,0 z M 180,594 l 18,0 0,18 -18,0 z M 198,594 l 18,0 0,18 -18,0 z M 234,594 l 18,0 0,18 -18,0 z M 288,594 l 18,0 0,18 -18,0 z M 324,594 l 18,0 0,18 -18,0 z M 360,594 l 18,0 0,18 -18,0 z M 414,594 l 18,0 0,18 -18,0 z M 432,594 l 18,0 0,18 -18,0 z M 450,594 l 18,0 0,18 -18,0 z M 468,594 l 18,0 0,18 -18,0 z M 504,594 l 18,0 0,18 -18,0 z M 576,594 l 18,0 0,18 -18,0 z " />
+	</g>
+</svg>
+          </div>
+          <div class="lbl"><b>Scan to book a 15-minute call</b>A working call, not a pitch.</div>
+        </div>
+        <div class="col" style="text-align:right">
+          <span class="tag">Growth + software, one operator</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ BACK ============================ -->
+<section class="page portrait">
+  <div class="flyer back">
+
+    <span class="eyebrow">Your marketing problem is usually a software problem</span>
+    <p class="oneliner" style="margin-top:12px;max-width:60ch">You don't have a marketing problem and a separate engineering problem. You have one revenue system — and it breaks at the seam between the two. Google Ads, an optimized landing page, frictionless online booking, and Twilio SMS follow-up — the exact stack that took Royal Pawz from a 7% to a 30.8% booking rate.</p>
+
+    <hr class="hr">
+
+    <h2 class="sec-title">How it works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="no">1</div>
+        <div>
+          <h4>Diagnose</h4>
+          <p>Find the real constraint. I audit the funnel end to end and let the data say whether it's the messaging, the product, or the distribution — so we fix what's actually broken, not what's easy to bill for.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no">2</div>
+        <div>
+          <h4>Build</h4>
+          <p>Ship the software that fixes it. Landing pages, apps, checkout flows, CRM, automations, analytics — real working software in weeks, not a slide deck for someone else to execute.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no">3</div>
+        <div>
+          <h4>Grow</h4>
+          <p>Run it and compound it. A/B tests, retention flows, new channels. The system keeps improving while it runs — because the person measuring it is the person who can change it.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no">4</div>
+        <div>
+          <h4>Innovate</h4>
+          <p>Build in the leverage. AI and automation wired into the parts of your business that should run themselves — so your team's hours go to the work that actually grows the company.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="hr">
+
+    <div class="row" style="align-items:flex-start;gap:24px">
+      <div style="flex:1 1 0">
+        <h2 class="sec-title">Where to start</h2>
+        <div class="ladder">
+          <div class="rung">
+            <div class="n">01</div>
+            <div>
+              <h4>Revenue Diagnostic</h4>
+              <p>A paid, deep audit of your funnel and product. You leave with a prioritized plan you can act on — with me or without me.</p>
+            </div>
+          </div>
+          <div class="rung feature">
+            <div class="n">02</div>
+            <div>
+              <h4>Revenue System Build</h4>
+              <p>Funnel, software, and growth — designed, built, and run as one system, shipped in weeks.</p>
+            </div>
+          </div>
+          <div class="rung">
+            <div class="n">03</div>
+            <div>
+              <h4>Equity Partnership</h4>
+              <p>Reduced cash, shared equity, a long horizon. Reserved for a few businesses I believe I can compound.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="flex:1 1 0">
+        <h2 class="sec-title">Is this a fit</h2>
+        <div class="fit">
+          <div class="yes">
+            <h5>A fit if</h5>
+            <ul>
+              <li>You have real revenue and want to compound it — not just patch one leak</li>
+              <li>Your growth keeps stalling on something only an engineer can fix</li>
+              <li>You want one accountable operator, not an agency and a dev shop</li>
+              <li>You can give a decision-maker and real access to your data</li>
+            </ul>
+          </div>
+          <div class="no">
+            <h5>Not yet if</h5>
+            <ul>
+              <li>You're pre-revenue or still finding product–market fit — startup consulting may fit better</li>
+              <li>You want a strategy deck and recommendations, not someone who ships the fix</li>
+              <li>You want daily meetings and status calls — I stay in the build</li>
+              <li>You're choosing on lowest price alone</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grow"></div>
+
+    <div class="closeband">
+      <p class="quote">Most teams split the people who decide what to do from the people who do it. That seam is where revenue leaks. I close it.</p>
+      <div class="qrblock">
+        <div class="qr">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="630" height="630">
+	<title>QR Code</title>
+	<desc>https://calendly.com/hamzazulquernain1/zapp-studios-consulting</desc>
+	<rect style="fill:rgb(245, 239, 224);fill-opacity:1" x="0" y="0" width="630" height="630" />
+	<g id="elements">
+		<path style="fill:rgb(12, 12, 12)" d="M 18,18 l 18,0 0,18 -18,0 z M 36,18 l 18,0 0,18 -18,0 z M 54,18 l 18,0 0,18 -18,0 z M 72,18 l 18,0 0,18 -18,0 z M 90,18 l 18,0 0,18 -18,0 z M 108,18 l 18,0 0,18 -18,0 z M 126,18 l 18,0 0,18 -18,0 z M 180,18 l 18,0 0,18 -18,0 z M 252,18 l 18,0 0,18 -18,0 z M 270,18 l 18,0 0,18 -18,0 z M 306,18 l 18,0 0,18 -18,0 z M 342,18 l 18,0 0,18 -18,0 z M 360,18 l 18,0 0,18 -18,0 z M 378,18 l 18,0 0,18 -18,0 z M 396,18 l 18,0 0,18 -18,0 z M 432,18 l 18,0 0,18 -18,0 z M 486,18 l 18,0 0,18 -18,0 z M 504,18 l 18,0 0,18 -18,0 z M 522,18 l 18,0 0,18 -18,0 z M 540,18 l 18,0 0,18 -18,0 z M 558,18 l 18,0 0,18 -18,0 z M 576,18 l 18,0 0,18 -18,0 z M 594,18 l 18,0 0,18 -18,0 z M 18,36 l 18,0 0,18 -18,0 z M 126,36 l 18,0 0,18 -18,0 z M 180,36 l 18,0 0,18 -18,0 z M 198,36 l 18,0 0,18 -18,0 z M 216,36 l 18,0 0,18 -18,0 z M 252,36 l 18,0 0,18 -18,0 z M 270,36 l 18,0 0,18 -18,0 z M 288,36 l 18,0 0,18 -18,0 z M 324,36 l 18,0 0,18 -18,0 z M 342,36 l 18,0 0,18 -18,0 z M 378,36 l 18,0 0,18 -18,0 z M 450,36 l 18,0 0,18 -18,0 z M 486,36 l 18,0 0,18 -18,0 z M 594,36 l 18,0 0,18 -18,0 z M 18,54 l 18,0 0,18 -18,0 z M 54,54 l 18,0 0,18 -18,0 z M 72,54 l 18,0 0,18 -18,0 z M 90,54 l 18,0 0,18 -18,0 z M 126,54 l 18,0 0,18 -18,0 z M 162,54 l 18,0 0,18 -18,0 z M 198,54 l 18,0 0,18 -18,0 z M 234,54 l 18,0 0,18 -18,0 z M 288,54 l 18,0 0,18 -18,0 z M 306,54 l 18,0 0,18 -18,0 z M 360,54 l 18,0 0,18 -18,0 z M 378,54 l 18,0 0,18 -18,0 z M 396,54 l 18,0 0,18 -18,0 z M 414,54 l 18,0 0,18 -18,0 z M 432,54 l 18,0 0,18 -18,0 z M 486,54 l 18,0 0,18 -18,0 z M 522,54 l 18,0 0,18 -18,0 z M 540,54 l 18,0 0,18 -18,0 z M 558,54 l 18,0 0,18 -18,0 z M 594,54 l 18,0 0,18 -18,0 z M 18,72 l 18,0 0,18 -18,0 z M 54,72 l 18,0 0,18 -18,0 z M 72,72 l 18,0 0,18 -18,0 z M 90,72 l 18,0 0,18 -18,0 z M 126,72 l 18,0 0,18 -18,0 z M 162,72 l 18,0 0,18 -18,0 z M 198,72 l 18,0 0,18 -18,0 z M 216,72 l 18,0 0,18 -18,0 z M 252,72 l 18,0 0,18 -18,0 z M 270,72 l 18,0 0,18 -18,0 z M 324,72 l 18,0 0,18 -18,0 z M 360,72 l 18,0 0,18 -18,0 z M 414,72 l 18,0 0,18 -18,0 z M 432,72 l 18,0 0,18 -18,0 z M 486,72 l 18,0 0,18 -18,0 z M 522,72 l 18,0 0,18 -18,0 z M 540,72 l 18,0 0,18 -18,0 z M 558,72 l 18,0 0,18 -18,0 z M 594,72 l 18,0 0,18 -18,0 z M 18,90 l 18,0 0,18 -18,0 z M 54,90 l 18,0 0,18 -18,0 z M 72,90 l 18,0 0,18 -18,0 z M 90,90 l 18,0 0,18 -18,0 z M 126,90 l 18,0 0,18 -18,0 z M 162,90 l 18,0 0,18 -18,0 z M 180,90 l 18,0 0,18 -18,0 z M 216,90 l 18,0 0,18 -18,0 z M 234,90 l 18,0 0,18 -18,0 z M 306,90 l 18,0 0,18 -18,0 z M 324,90 l 18,0 0,18 -18,0 z M 342,90 l 18,0 0,18 -18,0 z M 360,90 l 18,0 0,18 -18,0 z M 378,90 l 18,0 0,18 -18,0 z M 396,90 l 18,0 0,18 -18,0 z M 414,90 l 18,0 0,18 -18,0 z M 432,90 l 18,0 0,18 -18,0 z M 486,90 l 18,0 0,18 -18,0 z M 522,90 l 18,0 0,18 -18,0 z M 540,90 l 18,0 0,18 -18,0 z M 558,90 l 18,0 0,18 -18,0 z M 594,90 l 18,0 0,18 -18,0 z M 18,108 l 18,0 0,18 -18,0 z M 126,108 l 18,0 0,18 -18,0 z M 162,108 l 18,0 0,18 -18,0 z M 180,108 l 18,0 0,18 -18,0 z M 198,108 l 18,0 0,18 -18,0 z M 216,108 l 18,0 0,18 -18,0 z M 288,108 l 18,0 0,18 -18,0 z M 306,108 l 18,0 0,18 -18,0 z M 342,108 l 18,0 0,18 -18,0 z M 378,108 l 18,0 0,18 -18,0 z M 396,108 l 18,0 0,18 -18,0 z M 414,108 l 18,0 0,18 -18,0 z M 486,108 l 18,0 0,18 -18,0 z M 594,108 l 18,0 0,18 -18,0 z M 18,126 l 18,0 0,18 -18,0 z M 36,126 l 18,0 0,18 -18,0 z M 54,126 l 18,0 0,18 -18,0 z M 72,126 l 18,0 0,18 -18,0 z M 90,126 l 18,0 0,18 -18,0 z M 108,126 l 18,0 0,18 -18,0 z M 126,126 l 18,0 0,18 -18,0 z M 162,126 l 18,0 0,18 -18,0 z M 198,126 l 18,0 0,18 -18,0 z M 234,126 l 18,0 0,18 -18,0 z M 270,126 l 18,0 0,18 -18,0 z M 306,126 l 18,0 0,18 -18,0 z M 342,126 l 18,0 0,18 -18,0 z M 378,126 l 18,0 0,18 -18,0 z M 414,126 l 18,0 0,18 -18,0 z M 450,126 l 18,0 0,18 -18,0 z M 486,126 l 18,0 0,18 -18,0 z M 504,126 l 18,0 0,18 -18,0 z M 522,126 l 18,0 0,18 -18,0 z M 540,126 l 18,0 0,18 -18,0 z M 558,126 l 18,0 0,18 -18,0 z M 576,126 l 18,0 0,18 -18,0 z M 594,126 l 18,0 0,18 -18,0 z M 162,144 l 18,0 0,18 -18,0 z M 180,144 l 18,0 0,18 -18,0 z M 216,144 l 18,0 0,18 -18,0 z M 234,144 l 18,0 0,18 -18,0 z M 270,144 l 18,0 0,18 -18,0 z M 288,144 l 18,0 0,18 -18,0 z M 342,144 l 18,0 0,18 -18,0 z M 378,144 l 18,0 0,18 -18,0 z M 396,144 l 18,0 0,18 -18,0 z M 18,162 l 18,0 0,18 -18,0 z M 54,162 l 18,0 0,18 -18,0 z M 72,162 l 18,0 0,18 -18,0 z M 90,162 l 18,0 0,18 -18,0 z M 108,162 l 18,0 0,18 -18,0 z M 126,162 l 18,0 0,18 -18,0 z M 180,162 l 18,0 0,18 -18,0 z M 234,162 l 18,0 0,18 -18,0 z M 252,162 l 18,0 0,18 -18,0 z M 270,162 l 18,0 0,18 -18,0 z M 324,162 l 18,0 0,18 -18,0 z M 360,162 l 18,0 0,18 -18,0 z M 414,162 l 18,0 0,18 -18,0 z M 432,162 l 18,0 0,18 -18,0 z M 450,162 l 18,0 0,18 -18,0 z M 486,162 l 18,0 0,18 -18,0 z M 504,162 l 18,0 0,18 -18,0 z M 522,162 l 18,0 0,18 -18,0 z M 540,162 l 18,0 0,18 -18,0 z M 558,162 l 18,0 0,18 -18,0 z M 36,180 l 18,0 0,18 -18,0 z M 54,180 l 18,0 0,18 -18,0 z M 72,180 l 18,0 0,18 -18,0 z M 90,180 l 18,0 0,18 -18,0 z M 108,180 l 18,0 0,18 -18,0 z M 198,180 l 18,0 0,18 -18,0 z M 216,180 l 18,0 0,18 -18,0 z M 234,180 l 18,0 0,18 -18,0 z M 270,180 l 18,0 0,18 -18,0 z M 306,180 l 18,0 0,18 -18,0 z M 324,180 l 18,0 0,18 -18,0 z M 342,180 l 18,0 0,18 -18,0 z M 360,180 l 18,0 0,18 -18,0 z M 396,180 l 18,0 0,18 -18,0 z M 432,180 l 18,0 0,18 -18,0 z M 486,180 l 18,0 0,18 -18,0 z M 504,180 l 18,0 0,18 -18,0 z M 540,180 l 18,0 0,18 -18,0 z M 558,180 l 18,0 0,18 -18,0 z M 594,180 l 18,0 0,18 -18,0 z M 18,198 l 18,0 0,18 -18,0 z M 54,198 l 18,0 0,18 -18,0 z M 90,198 l 18,0 0,18 -18,0 z M 126,198 l 18,0 0,18 -18,0 z M 162,198 l 18,0 0,18 -18,0 z M 198,198 l 18,0 0,18 -18,0 z M 216,198 l 18,0 0,18 -18,0 z M 234,198 l 18,0 0,18 -18,0 z M 252,198 l 18,0 0,18 -18,0 z M 270,198 l 18,0 0,18 -18,0 z M 288,198 l 18,0 0,18 -18,0 z M 306,198 l 18,0 0,18 -18,0 z M 324,198 l 18,0 0,18 -18,0 z M 378,198 l 18,0 0,18 -18,0 z M 396,198 l 18,0 0,18 -18,0 z M 414,198 l 18,0 0,18 -18,0 z M 468,198 l 18,0 0,18 -18,0 z M 486,198 l 18,0 0,18 -18,0 z M 522,198 l 18,0 0,18 -18,0 z M 558,198 l 18,0 0,18 -18,0 z M 576,198 l 18,0 0,18 -18,0 z M 36,216 l 18,0 0,18 -18,0 z M 90,216 l 18,0 0,18 -18,0 z M 108,216 l 18,0 0,18 -18,0 z M 144,216 l 18,0 0,18 -18,0 z M 198,216 l 18,0 0,18 -18,0 z M 270,216 l 18,0 0,18 -18,0 z M 288,216 l 18,0 0,18 -18,0 z M 306,216 l 18,0 0,18 -18,0 z M 378,216 l 18,0 0,18 -18,0 z M 396,216 l 18,0 0,18 -18,0 z M 468,216 l 18,0 0,18 -18,0 z M 486,216 l 18,0 0,18 -18,0 z M 522,216 l 18,0 0,18 -18,0 z M 540,216 l 18,0 0,18 -18,0 z M 558,216 l 18,0 0,18 -18,0 z M 594,216 l 18,0 0,18 -18,0 z M 54,234 l 18,0 0,18 -18,0 z M 108,234 l 18,0 0,18 -18,0 z M 126,234 l 18,0 0,18 -18,0 z M 198,234 l 18,0 0,18 -18,0 z M 234,234 l 18,0 0,18 -18,0 z M 288,234 l 18,0 0,18 -18,0 z M 324,234 l 18,0 0,18 -18,0 z M 360,234 l 18,0 0,18 -18,0 z M 414,234 l 18,0 0,18 -18,0 z M 450,234 l 18,0 0,18 -18,0 z M 468,234 l 18,0 0,18 -18,0 z M 504,234 l 18,0 0,18 -18,0 z M 522,234 l 18,0 0,18 -18,0 z M 540,234 l 18,0 0,18 -18,0 z M 90,252 l 18,0 0,18 -18,0 z M 108,252 l 18,0 0,18 -18,0 z M 144,252 l 18,0 0,18 -18,0 z M 162,252 l 18,0 0,18 -18,0 z M 198,252 l 18,0 0,18 -18,0 z M 252,252 l 18,0 0,18 -18,0 z M 306,252 l 18,0 0,18 -18,0 z M 342,252 l 18,0 0,18 -18,0 z M 360,252 l 18,0 0,18 -18,0 z M 414,252 l 18,0 0,18 -18,0 z M 432,252 l 18,0 0,18 -18,0 z M 450,252 l 18,0 0,18 -18,0 z M 468,252 l 18,0 0,18 -18,0 z M 486,252 l 18,0 0,18 -18,0 z M 504,252 l 18,0 0,18 -18,0 z M 540,252 l 18,0 0,18 -18,0 z M 576,252 l 18,0 0,18 -18,0 z M 594,252 l 18,0 0,18 -18,0 z M 18,270 l 18,0 0,18 -18,0 z M 54,270 l 18,0 0,18 -18,0 z M 90,270 l 18,0 0,18 -18,0 z M 126,270 l 18,0 0,18 -18,0 z M 162,270 l 18,0 0,18 -18,0 z M 180,270 l 18,0 0,18 -18,0 z M 234,270 l 18,0 0,18 -18,0 z M 252,270 l 18,0 0,18 -18,0 z M 288,270 l 18,0 0,18 -18,0 z M 342,270 l 18,0 0,18 -18,0 z M 378,270 l 18,0 0,18 -18,0 z M 396,270 l 18,0 0,18 -18,0 z M 414,270 l 18,0 0,18 -18,0 z M 450,270 l 18,0 0,18 -18,0 z M 468,270 l 18,0 0,18 -18,0 z M 486,270 l 18,0 0,18 -18,0 z M 576,270 l 18,0 0,18 -18,0 z M 18,288 l 18,0 0,18 -18,0 z M 90,288 l 18,0 0,18 -18,0 z M 108,288 l 18,0 0,18 -18,0 z M 144,288 l 18,0 0,18 -18,0 z M 180,288 l 18,0 0,18 -18,0 z M 216,288 l 18,0 0,18 -18,0 z M 234,288 l 18,0 0,18 -18,0 z M 252,288 l 18,0 0,18 -18,0 z M 288,288 l 18,0 0,18 -18,0 z M 306,288 l 18,0 0,18 -18,0 z M 360,288 l 18,0 0,18 -18,0 z M 396,288 l 18,0 0,18 -18,0 z M 450,288 l 18,0 0,18 -18,0 z M 468,288 l 18,0 0,18 -18,0 z M 486,288 l 18,0 0,18 -18,0 z M 504,288 l 18,0 0,18 -18,0 z M 540,288 l 18,0 0,18 -18,0 z M 558,288 l 18,0 0,18 -18,0 z M 126,306 l 18,0 0,18 -18,0 z M 162,306 l 18,0 0,18 -18,0 z M 180,306 l 18,0 0,18 -18,0 z M 198,306 l 18,0 0,18 -18,0 z M 216,306 l 18,0 0,18 -18,0 z M 288,306 l 18,0 0,18 -18,0 z M 306,306 l 18,0 0,18 -18,0 z M 324,306 l 18,0 0,18 -18,0 z M 414,306 l 18,0 0,18 -18,0 z M 450,306 l 18,0 0,18 -18,0 z M 468,306 l 18,0 0,18 -18,0 z M 504,306 l 18,0 0,18 -18,0 z M 522,306 l 18,0 0,18 -18,0 z M 594,306 l 18,0 0,18 -18,0 z M 54,324 l 18,0 0,18 -18,0 z M 108,324 l 18,0 0,18 -18,0 z M 144,324 l 18,0 0,18 -18,0 z M 162,324 l 18,0 0,18 -18,0 z M 180,324 l 18,0 0,18 -18,0 z M 234,324 l 18,0 0,18 -18,0 z M 270,324 l 18,0 0,18 -18,0 z M 306,324 l 18,0 0,18 -18,0 z M 324,324 l 18,0 0,18 -18,0 z M 342,324 l 18,0 0,18 -18,0 z M 360,324 l 18,0 0,18 -18,0 z M 378,324 l 18,0 0,18 -18,0 z M 396,324 l 18,0 0,18 -18,0 z M 414,324 l 18,0 0,18 -18,0 z M 432,324 l 18,0 0,18 -18,0 z M 486,324 l 18,0 0,18 -18,0 z M 504,324 l 18,0 0,18 -18,0 z M 540,324 l 18,0 0,18 -18,0 z M 558,324 l 18,0 0,18 -18,0 z M 576,324 l 18,0 0,18 -18,0 z M 594,324 l 18,0 0,18 -18,0 z M 18,342 l 18,0 0,18 -18,0 z M 54,342 l 18,0 0,18 -18,0 z M 72,342 l 18,0 0,18 -18,0 z M 108,342 l 18,0 0,18 -18,0 z M 126,342 l 18,0 0,18 -18,0 z M 180,342 l 18,0 0,18 -18,0 z M 198,342 l 18,0 0,18 -18,0 z M 234,342 l 18,0 0,18 -18,0 z M 270,342 l 18,0 0,18 -18,0 z M 288,342 l 18,0 0,18 -18,0 z M 324,342 l 18,0 0,18 -18,0 z M 378,342 l 18,0 0,18 -18,0 z M 396,342 l 18,0 0,18 -18,0 z M 414,342 l 18,0 0,18 -18,0 z M 450,342 l 18,0 0,18 -18,0 z M 486,342 l 18,0 0,18 -18,0 z M 504,342 l 18,0 0,18 -18,0 z M 522,342 l 18,0 0,18 -18,0 z M 558,342 l 18,0 0,18 -18,0 z M 576,342 l 18,0 0,18 -18,0 z M 36,360 l 18,0 0,18 -18,0 z M 90,360 l 18,0 0,18 -18,0 z M 108,360 l 18,0 0,18 -18,0 z M 180,360 l 18,0 0,18 -18,0 z M 198,360 l 18,0 0,18 -18,0 z M 234,360 l 18,0 0,18 -18,0 z M 270,360 l 18,0 0,18 -18,0 z M 342,360 l 18,0 0,18 -18,0 z M 360,360 l 18,0 0,18 -18,0 z M 378,360 l 18,0 0,18 -18,0 z M 396,360 l 18,0 0,18 -18,0 z M 414,360 l 18,0 0,18 -18,0 z M 486,360 l 18,0 0,18 -18,0 z M 504,360 l 18,0 0,18 -18,0 z M 522,360 l 18,0 0,18 -18,0 z M 540,360 l 18,0 0,18 -18,0 z M 558,360 l 18,0 0,18 -18,0 z M 576,360 l 18,0 0,18 -18,0 z M 18,378 l 18,0 0,18 -18,0 z M 36,378 l 18,0 0,18 -18,0 z M 54,378 l 18,0 0,18 -18,0 z M 72,378 l 18,0 0,18 -18,0 z M 108,378 l 18,0 0,18 -18,0 z M 126,378 l 18,0 0,18 -18,0 z M 144,378 l 18,0 0,18 -18,0 z M 162,378 l 18,0 0,18 -18,0 z M 198,378 l 18,0 0,18 -18,0 z M 216,378 l 18,0 0,18 -18,0 z M 252,378 l 18,0 0,18 -18,0 z M 270,378 l 18,0 0,18 -18,0 z M 306,378 l 18,0 0,18 -18,0 z M 324,378 l 18,0 0,18 -18,0 z M 360,378 l 18,0 0,18 -18,0 z M 378,378 l 18,0 0,18 -18,0 z M 414,378 l 18,0 0,18 -18,0 z M 432,378 l 18,0 0,18 -18,0 z M 468,378 l 18,0 0,18 -18,0 z M 522,378 l 18,0 0,18 -18,0 z M 540,378 l 18,0 0,18 -18,0 z M 576,378 l 18,0 0,18 -18,0 z M 18,396 l 18,0 0,18 -18,0 z M 36,396 l 18,0 0,18 -18,0 z M 54,396 l 18,0 0,18 -18,0 z M 108,396 l 18,0 0,18 -18,0 z M 162,396 l 18,0 0,18 -18,0 z M 216,396 l 18,0 0,18 -18,0 z M 306,396 l 18,0 0,18 -18,0 z M 324,396 l 18,0 0,18 -18,0 z M 360,396 l 18,0 0,18 -18,0 z M 378,396 l 18,0 0,18 -18,0 z M 432,396 l 18,0 0,18 -18,0 z M 486,396 l 18,0 0,18 -18,0 z M 504,396 l 18,0 0,18 -18,0 z M 558,396 l 18,0 0,18 -18,0 z M 594,396 l 18,0 0,18 -18,0 z M 18,414 l 18,0 0,18 -18,0 z M 72,414 l 18,0 0,18 -18,0 z M 126,414 l 18,0 0,18 -18,0 z M 144,414 l 18,0 0,18 -18,0 z M 162,414 l 18,0 0,18 -18,0 z M 270,414 l 18,0 0,18 -18,0 z M 288,414 l 18,0 0,18 -18,0 z M 378,414 l 18,0 0,18 -18,0 z M 396,414 l 18,0 0,18 -18,0 z M 450,414 l 18,0 0,18 -18,0 z M 504,414 l 18,0 0,18 -18,0 z M 522,414 l 18,0 0,18 -18,0 z M 540,414 l 18,0 0,18 -18,0 z M 558,414 l 18,0 0,18 -18,0 z M 576,414 l 18,0 0,18 -18,0 z M 18,432 l 18,0 0,18 -18,0 z M 54,432 l 18,0 0,18 -18,0 z M 162,432 l 18,0 0,18 -18,0 z M 180,432 l 18,0 0,18 -18,0 z M 198,432 l 18,0 0,18 -18,0 z M 216,432 l 18,0 0,18 -18,0 z M 234,432 l 18,0 0,18 -18,0 z M 252,432 l 18,0 0,18 -18,0 z M 270,432 l 18,0 0,18 -18,0 z M 288,432 l 18,0 0,18 -18,0 z M 306,432 l 18,0 0,18 -18,0 z M 360,432 l 18,0 0,18 -18,0 z M 378,432 l 18,0 0,18 -18,0 z M 396,432 l 18,0 0,18 -18,0 z M 414,432 l 18,0 0,18 -18,0 z M 450,432 l 18,0 0,18 -18,0 z M 468,432 l 18,0 0,18 -18,0 z M 486,432 l 18,0 0,18 -18,0 z M 522,432 l 18,0 0,18 -18,0 z M 540,432 l 18,0 0,18 -18,0 z M 558,432 l 18,0 0,18 -18,0 z M 594,432 l 18,0 0,18 -18,0 z M 18,450 l 18,0 0,18 -18,0 z M 72,450 l 18,0 0,18 -18,0 z M 90,450 l 18,0 0,18 -18,0 z M 108,450 l 18,0 0,18 -18,0 z M 126,450 l 18,0 0,18 -18,0 z M 162,450 l 18,0 0,18 -18,0 z M 198,450 l 18,0 0,18 -18,0 z M 270,450 l 18,0 0,18 -18,0 z M 306,450 l 18,0 0,18 -18,0 z M 324,450 l 18,0 0,18 -18,0 z M 360,450 l 18,0 0,18 -18,0 z M 450,450 l 18,0 0,18 -18,0 z M 468,450 l 18,0 0,18 -18,0 z M 486,450 l 18,0 0,18 -18,0 z M 504,450 l 18,0 0,18 -18,0 z M 522,450 l 18,0 0,18 -18,0 z M 576,450 l 18,0 0,18 -18,0 z M 594,450 l 18,0 0,18 -18,0 z M 162,468 l 18,0 0,18 -18,0 z M 216,468 l 18,0 0,18 -18,0 z M 234,468 l 18,0 0,18 -18,0 z M 306,468 l 18,0 0,18 -18,0 z M 360,468 l 18,0 0,18 -18,0 z M 378,468 l 18,0 0,18 -18,0 z M 396,468 l 18,0 0,18 -18,0 z M 450,468 l 18,0 0,18 -18,0 z M 522,468 l 18,0 0,18 -18,0 z M 558,468 l 18,0 0,18 -18,0 z M 594,468 l 18,0 0,18 -18,0 z M 18,486 l 18,0 0,18 -18,0 z M 36,486 l 18,0 0,18 -18,0 z M 54,486 l 18,0 0,18 -18,0 z M 72,486 l 18,0 0,18 -18,0 z M 90,486 l 18,0 0,18 -18,0 z M 108,486 l 18,0 0,18 -18,0 z M 126,486 l 18,0 0,18 -18,0 z M 198,486 l 18,0 0,18 -18,0 z M 216,486 l 18,0 0,18 -18,0 z M 234,486 l 18,0 0,18 -18,0 z M 252,486 l 18,0 0,18 -18,0 z M 270,486 l 18,0 0,18 -18,0 z M 288,486 l 18,0 0,18 -18,0 z M 306,486 l 18,0 0,18 -18,0 z M 324,486 l 18,0 0,18 -18,0 z M 342,486 l 18,0 0,18 -18,0 z M 378,486 l 18,0 0,18 -18,0 z M 396,486 l 18,0 0,18 -18,0 z M 414,486 l 18,0 0,18 -18,0 z M 432,486 l 18,0 0,18 -18,0 z M 450,486 l 18,0 0,18 -18,0 z M 486,486 l 18,0 0,18 -18,0 z M 522,486 l 18,0 0,18 -18,0 z M 558,486 l 18,0 0,18 -18,0 z M 576,486 l 18,0 0,18 -18,0 z M 18,504 l 18,0 0,18 -18,0 z M 126,504 l 18,0 0,18 -18,0 z M 162,504 l 18,0 0,18 -18,0 z M 180,504 l 18,0 0,18 -18,0 z M 288,504 l 18,0 0,18 -18,0 z M 360,504 l 18,0 0,18 -18,0 z M 396,504 l 18,0 0,18 -18,0 z M 432,504 l 18,0 0,18 -18,0 z M 450,504 l 18,0 0,18 -18,0 z M 522,504 l 18,0 0,18 -18,0 z M 540,504 l 18,0 0,18 -18,0 z M 558,504 l 18,0 0,18 -18,0 z M 576,504 l 18,0 0,18 -18,0 z M 18,522 l 18,0 0,18 -18,0 z M 54,522 l 18,0 0,18 -18,0 z M 72,522 l 18,0 0,18 -18,0 z M 90,522 l 18,0 0,18 -18,0 z M 126,522 l 18,0 0,18 -18,0 z M 162,522 l 18,0 0,18 -18,0 z M 216,522 l 18,0 0,18 -18,0 z M 234,522 l 18,0 0,18 -18,0 z M 288,522 l 18,0 0,18 -18,0 z M 324,522 l 18,0 0,18 -18,0 z M 414,522 l 18,0 0,18 -18,0 z M 450,522 l 18,0 0,18 -18,0 z M 468,522 l 18,0 0,18 -18,0 z M 486,522 l 18,0 0,18 -18,0 z M 504,522 l 18,0 0,18 -18,0 z M 522,522 l 18,0 0,18 -18,0 z M 540,522 l 18,0 0,18 -18,0 z M 576,522 l 18,0 0,18 -18,0 z M 18,540 l 18,0 0,18 -18,0 z M 54,540 l 18,0 0,18 -18,0 z M 72,540 l 18,0 0,18 -18,0 z M 90,540 l 18,0 0,18 -18,0 z M 126,540 l 18,0 0,18 -18,0 z M 162,540 l 18,0 0,18 -18,0 z M 180,540 l 18,0 0,18 -18,0 z M 198,540 l 18,0 0,18 -18,0 z M 216,540 l 18,0 0,18 -18,0 z M 234,540 l 18,0 0,18 -18,0 z M 252,540 l 18,0 0,18 -18,0 z M 270,540 l 18,0 0,18 -18,0 z M 306,540 l 18,0 0,18 -18,0 z M 324,540 l 18,0 0,18 -18,0 z M 360,540 l 18,0 0,18 -18,0 z M 378,540 l 18,0 0,18 -18,0 z M 432,540 l 18,0 0,18 -18,0 z M 450,540 l 18,0 0,18 -18,0 z M 468,540 l 18,0 0,18 -18,0 z M 522,540 l 18,0 0,18 -18,0 z M 576,540 l 18,0 0,18 -18,0 z M 594,540 l 18,0 0,18 -18,0 z M 18,558 l 18,0 0,18 -18,0 z M 54,558 l 18,0 0,18 -18,0 z M 72,558 l 18,0 0,18 -18,0 z M 90,558 l 18,0 0,18 -18,0 z M 126,558 l 18,0 0,18 -18,0 z M 162,558 l 18,0 0,18 -18,0 z M 216,558 l 18,0 0,18 -18,0 z M 288,558 l 18,0 0,18 -18,0 z M 306,558 l 18,0 0,18 -18,0 z M 324,558 l 18,0 0,18 -18,0 z M 342,558 l 18,0 0,18 -18,0 z M 378,558 l 18,0 0,18 -18,0 z M 414,558 l 18,0 0,18 -18,0 z M 450,558 l 18,0 0,18 -18,0 z M 486,558 l 18,0 0,18 -18,0 z M 504,558 l 18,0 0,18 -18,0 z M 540,558 l 18,0 0,18 -18,0 z M 558,558 l 18,0 0,18 -18,0 z M 18,576 l 18,0 0,18 -18,0 z M 126,576 l 18,0 0,18 -18,0 z M 216,576 l 18,0 0,18 -18,0 z M 234,576 l 18,0 0,18 -18,0 z M 252,576 l 18,0 0,18 -18,0 z M 288,576 l 18,0 0,18 -18,0 z M 306,576 l 18,0 0,18 -18,0 z M 342,576 l 18,0 0,18 -18,0 z M 396,576 l 18,0 0,18 -18,0 z M 432,576 l 18,0 0,18 -18,0 z M 522,576 l 18,0 0,18 -18,0 z M 540,576 l 18,0 0,18 -18,0 z M 558,576 l 18,0 0,18 -18,0 z M 18,594 l 18,0 0,18 -18,0 z M 36,594 l 18,0 0,18 -18,0 z M 54,594 l 18,0 0,18 -18,0 z M 72,594 l 18,0 0,18 -18,0 z M 90,594 l 18,0 0,18 -18,0 z M 108,594 l 18,0 0,18 -18,0 z M 126,594 l 18,0 0,18 -18,0 z M 162,594 l 18,0 0,18 -18,0 z M 180,594 l 18,0 0,18 -18,0 z M 198,594 l 18,0 0,18 -18,0 z M 234,594 l 18,0 0,18 -18,0 z M 288,594 l 18,0 0,18 -18,0 z M 324,594 l 18,0 0,18 -18,0 z M 360,594 l 18,0 0,18 -18,0 z M 414,594 l 18,0 0,18 -18,0 z M 432,594 l 18,0 0,18 -18,0 z M 450,594 l 18,0 0,18 -18,0 z M 468,594 l 18,0 0,18 -18,0 z M 504,594 l 18,0 0,18 -18,0 z M 576,594 l 18,0 0,18 -18,0 z " />
+	</g>
+</svg>
+        </div>
+        <div class="lbl"><b>Scan to book a 15-minute call</b></div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="wordmark" style="font-size:10pt"><span class="z">Z</span>Zapp Studios</span>
+      <span>hamzazulquernain1@gmail.com &nbsp;·&nbsp; Houston, TX &nbsp;·&nbsp; <span class="pl">[ zappstudios.com ]</span></span>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

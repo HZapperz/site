@@ -1,0 +1,140 @@
+/* ==========================================================================
+   ZAPP STUDIOS — print collateral design system (shared).
+   Inline this ENTIRE block in every collateral HTML <style>, then add the
+   artifact's own  @page { size: …; margin: 0 }  rule (see SPEC.md).
+   Brand matches the live site (app/globals.css): cream / ink / amber.
+   ========================================================================== */
+:root{
+  --cream:#F5EFE0;        /* primary background */
+  --cream-soft:#EEE7D3;   /* section / panel background */
+  --cream-dim:#E2D9BD;    /* borders, hairlines */
+  --ink:#0C0C0C;          /* headings, high-contrast */
+  --ink-soft:#3A3632;     /* body text */
+  --ink-muted:#7A756D;    /* captions */
+  --ink-faint:#B5AFA3;    /* subtle */
+  --amber:#E8903A;        /* primary accent */
+  --amber-light:#F0A855;
+  --amber-dark:#C97020;
+  --amber-glow:rgba(232,144,58,.12);
+  --ok:#4F7A43;
+  --bad:#B2473A;
+  --display:'Space Grotesk','Inter',sans-serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--sans);color:var(--ink-soft);line-height:1.5;font-size:11pt;background:#9a958c}
+h1,h2,h3,h4{font-family:var(--display);color:var(--ink);font-weight:700;line-height:1.06;letter-spacing:-.02em}
+em,.serif{font-family:var(--serif);font-style:italic;font-weight:400}
+strong{color:var(--ink);font-weight:600}
+.amber{color:var(--amber-dark)}
+
+/* ---- physical page model ----
+   On screen: sheets float on a neutral desk with shadow.
+   In print: exact size (set @page per file), no shadow, hard page breaks. */
+.page{position:relative;background:var(--cream);color:var(--ink-soft);overflow:hidden;
+  margin:22px auto;box-shadow:0 10px 40px rgba(0,0,0,.28);page-break-after:always}
+.page:last-child{page-break-after:auto}
+.page.portrait{width:8.5in;height:11in}
+.page.landscape{width:11in;height:8.5in}
+.pad{padding:0.6in}
+@media print{
+  body{background:#fff}
+  .page{margin:0;box-shadow:none}
+  .screen-only,.guides{display:none !important}
+}
+
+/* ---- eyebrow label (the site's SectionLabel: amber rule + mono caps) ---- */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:8.5pt;
+  font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--amber-dark)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--amber)}
+.eyebrow.plain::before{display:none}
+
+/* ---- type ---- */
+.kicker{font-family:var(--mono);font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+.lead{font-family:var(--display);font-weight:700;letter-spacing:-.022em;line-height:1.04}
+.quote{font-family:var(--serif);font-style:italic;color:var(--ink);line-height:1.28}
+p{max-width:62ch}
+.muted{color:var(--ink-muted)}
+.hr{height:1px;background:var(--cream-dim);border:0;margin:14px 0}
+
+/* ---- stat trio ---- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:var(--cream-soft);border:1px solid var(--cream-dim);border-radius:10px;padding:14px 14px}
+.stat .num{font-family:var(--display);font-weight:700;font-size:20pt;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.stat .num .u{color:var(--amber-dark)}
+.stat .cap{font-size:8pt;color:var(--ink-muted);margin-top:6px;line-height:1.35}
+
+/* ---- offer ladder ---- */
+.ladder{display:grid;gap:9px}
+.rung{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;
+  background:var(--cream-soft);border:1px solid var(--cream-dim);border-radius:10px;padding:12px 14px}
+.rung .n{font-family:var(--mono);font-size:8pt;color:var(--amber-dark);font-weight:600;padding-top:2px}
+.rung h4{font-size:11.5pt;margin-bottom:3px}
+.rung p{font-size:9pt;color:var(--ink-soft);max-width:none}
+.rung.feature{border-color:var(--amber);background:var(--amber-glow)}
+
+/* ---- numbered steps (Diagnose / Build / Grow / Innovate) ---- */
+.steps{display:grid;gap:10px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:12px}
+.step .no{font-family:var(--serif);font-style:italic;font-size:17pt;color:var(--amber);line-height:1}
+.step h4{font-size:11pt;margin-bottom:2px}
+.step p{font-size:9pt;max-width:none}
+
+/* ---- fit columns ---- */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fit ul{list-style:none}
+.fit li{font-size:9pt;padding:5px 0 5px 18px;position:relative;color:var(--ink-soft)}
+.fit .yes h5,.fit .no h5{font-family:var(--mono);font-size:8pt;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.fit .yes h5{color:var(--ok)} .fit .no h5{color:var(--ink-muted)}
+.fit .yes li::before{content:"✓";position:absolute;left:0;color:var(--ok)}
+.fit .no li::before{content:"–";position:absolute;left:0;color:var(--ink-faint)}
+
+/* ---- objection table (cheat-sheet) ---- */
+.obj{width:100%;border-collapse:collapse;font-size:9pt}
+.obj th,.obj td{text-align:left;vertical-align:top;padding:7px 10px;border-bottom:1px solid var(--cream-dim)}
+.obj th{font-family:var(--mono);font-size:7.5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);background:var(--cream-soft)}
+.obj td:first-child{font-weight:600;color:var(--ink);width:34%}
+
+/* ---- CTA + QR block ---- */
+.cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--cream);
+  font-family:var(--display);font-weight:600;font-size:10pt;padding:10px 18px;border-radius:100px;text-decoration:none}
+.cta.amber{background:var(--amber);color:var(--ink)}
+.qrblock{display:flex;align-items:center;gap:12px}
+.qrblock .qr{width:0.95in;height:0.95in;flex:0 0 auto;background:var(--cream);border:1px solid var(--cream-dim);border-radius:8px;padding:4px}
+.qrblock .qr svg,.qrblock .qr img{width:100%;height:100%;display:block}
+.qrblock .lbl{font-size:8.5pt;color:var(--ink-soft);line-height:1.35}
+.qrblock .lbl b{display:block;font-family:var(--display);color:var(--ink);font-size:10pt}
+
+/* ---- wordmark / brand lockup ---- */
+.wordmark{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;
+  color:var(--ink);letter-spacing:-.01em}
+.wordmark .z{display:inline-flex;align-items:center;justify-content:center;width:1.5em;height:1.5em;
+  border-radius:6px;background:var(--amber);color:var(--ink);font-weight:700;font-size:.9em}
+
+/* ---- business card ---- */
+.card{width:3.75in;height:2.25in;background:var(--cream);position:relative;overflow:hidden}  /* 3.5x2 trim + .125 bleed */
+.card.dark{background:var(--ink);color:var(--cream)}
+.card .safe{position:absolute;inset:0.1875in;display:flex;flex-direction:column}  /* .125 bleed + .0625 safe */
+.card.dark .wordmark{color:var(--cream)}
+
+/* ---- tri-fold panels ---- */
+.trifold{display:flex;width:100%;height:100%}
+.panel{flex:1 1 3.6667in;width:3.6667in;height:100%;padding:0.32in;display:flex;flex-direction:column;
+  border-right:1px dashed transparent}
+.guides .panel{border-right:1px dashed var(--cream-dim)}
+.guides .panel:last-child{border-right:0}
+.panel.cover{background:var(--ink);color:var(--cream)}
+.panel.cover h1,.panel.cover h2{color:var(--cream)}
+.panel.accent{background:var(--amber-glow)}
+
+/* utility */
+.row{display:flex;gap:12px;align-items:center}
+.col{display:flex;flex-direction:column}
+.between{justify-content:space-between}
+.mt-a{margin-top:auto}
+.center{text-align:center}
+.tag{display:inline-block;font-family:var(--mono);font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber-dark);border:1px solid var(--amber);border-radius:100px;padding:3px 9px}

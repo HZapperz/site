@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tex-Mex Junk Removal × Zapp Studios · Growth Proposal</title>
+<meta name="description" content="A private growth proposal for Tex-Mex Junk Removal: turn the manual text-a-photo quote into instant-quote, book-now, and automated SMS follow-up — built and run by one operator.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ZAPP STUDIOS — Home-Service Pitch design system (shared).
+   Inline this ENTIRE block verbatim inside <style> in every
+   proposal.html. Per-company, change ONLY the --accent /
+   --accent-deep / --accent-tint values in :root (palette guide
+   is in SPEC.md). Do not restyle anything else.
+   ============================================================ */
+:root{
+  --bg:#FBF6EF;            /* warm ivory */
+  --bg-sand:#F4EBDD;       /* sand, alternating sections */
+  --paper:#FFFDFA;         /* warm white, cards */
+  --ink:#251E18;           /* espresso, headings */
+  --ink-2:#5E5247;         /* soft brown, body */
+  --muted:#928473;         /* muted captions */
+  --line:#E9DDCB;          /* warm hairline */
+  --line-2:#DBC9B1;
+  --accent:#C45C3D;        /* PRIMARY accent — override per company */
+  --accent-deep:#A8472C;   /* darker accent — override per company */
+  --accent-tint:#F6E7DC;   /* faint accent wash — override per company */
+  --ok:#5E7A52;            /* positive green */
+  --bad:#B2473A;           /* leak/negative red */
+  --shadow:0 1px 2px rgba(60,40,24,.04),0 18px 40px -24px rgba(80,50,28,.26);
+  --shadow-lift:0 1px 2px rgba(60,40,24,.05),0 30px 60px -28px rgba(80,50,28,.34);
+  --serif:'Source Serif 4','Source Serif Pro',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--accent-tint);color:var(--accent-deep)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.narrow{max-width:780px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-.012em;line-height:1.1;color:var(--ink)}
+em{font-style:italic;font-family:var(--serif);color:var(--accent-deep);font-weight:400}
+a{color:inherit}
+strong{font-weight:600;color:var(--ink)}
+
+/* atmosphere */
+.glow{position:fixed;z-index:0;pointer-events:none;width:760px;height:760px;border-radius:50%;
+  top:-300px;right:-240px;filter:blur(90px);opacity:.42;
+  background:radial-gradient(circle at center,var(--accent-tint),rgba(255,255,255,0) 64%)}
+main{position:relative;z-index:2}
+
+/* progress + nav */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:60;transition:width .12s linear}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+nav.solid{background:rgba(251,246,239,.85);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:500;font-size:18px}
+.brand .mono{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;
+  background:var(--ink);color:var(--bg);font-family:var(--sans);font-weight:600;font-size:12px}
+.brand .x{color:var(--muted);font-weight:400;font-size:15px;margin:0 1px}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:450}
+.navlinks a{color:var(--ink-2);text-decoration:none;transition:color .2s}
+.navlinks a:hover{color:var(--accent-deep)}
+.navcta{font-size:13.5px;font-weight:500;color:var(--ink);border:1px solid var(--line-2);border-radius:100px;
+  padding:9px 17px;text-decoration:none;transition:all .25s}
+.navcta:hover{border-color:var(--accent);color:var(--accent-deep);background:var(--accent-tint)}
+@media(max-width:860px){.navlinks{display:none}}
+
+/* sections */
+section{padding:108px 0;position:relative}
+section.sand{background:var(--bg-sand)}
+section.tint{background:linear-gradient(180deg,var(--bg) 0%,var(--accent-tint) 100%)}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:12px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:24px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+.eyebrow .no{color:var(--muted);font-weight:500}
+.lead{font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.1;max-width:880px;margin-bottom:24px;letter-spacing:-.018em}
+.body-lg{font-size:19px;color:var(--ink-2);max-width:700px;line-height:1.62}
+.body-lg + .body-lg{margin-top:18px}
+p{max-width:720px;color:var(--ink-2)}
+p + p{margin-top:16px}
+
+/* hero */
+#hero{min-height:96vh;display:flex;align-items:center;padding-top:90px;padding-bottom:70px}
+#hero h1{font-size:clamp(44px,7vw,86px);font-weight:500;letter-spacing:-.025em;margin-bottom:26px;max-width:15ch}
+#hero h1 em{font-style:normal;color:var(--accent-deep)}
+#hero .sub{font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:660px;margin-bottom:40px;line-height:1.6}
+.hero-meta{display:flex;gap:42px;flex-wrap:wrap;margin-top:54px;padding-top:28px;border-top:1px solid var(--line)}
+.hero-meta .blk{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:600}
+.hero-meta .blk strong{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);text-transform:none;margin-top:6px;font-weight:500}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);font-family:var(--sans);
+  font-weight:500;font-size:15.5px;padding:15px 28px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 10px 30px -12px rgba(37,30,24,.5)}
+.cta:hover{transform:translateY(-2px);background:var(--accent-deep);box-shadow:0 16px 38px -12px rgba(168,71,44,.5)}
+.cta.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2);box-shadow:none}
+.cta.ghost:hover{background:var(--accent-tint);border-color:var(--accent);color:var(--accent-deep)}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* stat trio */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+@media(max-width:820px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px 26px;box-shadow:var(--shadow)}
+.stat .num{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1;margin-bottom:12px;color:var(--ink);letter-spacing:-.02em}
+.stat .num em{color:var(--accent-deep);font-style:normal}
+.stat .lbl{font-size:14px;color:var(--ink-2);line-height:1.5}
+.stat .src{font-size:11.5px;color:var(--muted);margin-top:10px}
+
+/* generic card grid */
+.grid{display:grid;gap:22px;margin-top:46px}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:var(--shadow)}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{font-size:15.5px}
+.card .k{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:14px}
+
+/* leak / callout box */
+.leak{border-left:3px solid var(--bad);background:#FBEEEA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.leak .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bad);margin-bottom:8px}
+.win{border-left:3px solid var(--ok);background:#EEF3EA;border-radius:0 14px 14px 0;padding:22px 26px;margin:32px 0;max-width:820px}
+.win .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);margin-bottom:8px}
+
+/* current-vs-zapp comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:42px;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+@media(max-width:760px){.compare{grid-template-columns:1fr}}
+.compare .col{padding:30px 28px}
+.compare .col.now{background:#FBEEEA}
+.compare .col.zapp{background:var(--paper);border-left:1px solid var(--line)}
+.compare .col h4{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+.compare .col.now h4{color:var(--bad)}
+.compare .col.zapp h4{color:var(--ok)}
+.compare ul{list-style:none}
+.compare li{font-size:15px;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--line)}
+.compare li:first-of-type{border-top:none}
+.compare .col.now li::before{content:"\2715";position:absolute;left:0;color:var(--bad);font-size:13px;top:10px}
+.compare .col.zapp li::before{content:"\2713";position:absolute;left:0;color:var(--ok);font-size:14px;top:10px}
+
+/* plan timeline */
+.phases{margin-top:46px;display:grid;gap:18px}
+.phase{display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow)}
+.phase .no{font-family:var(--serif);font-size:34px;color:var(--accent);line-height:1;font-weight:400}
+.phase h3{font-size:20px;margin-bottom:8px}
+.phase p{font-size:15.5px}
+.phase .when{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+
+/* pricing */
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+@media(max-width:820px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:34px 30px;box-shadow:var(--shadow);position:relative}
+.tier.feature{border-color:var(--accent);box-shadow:var(--shadow-lift)}
+.tier .badge{position:absolute;top:-11px;left:30px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.tier h3{font-size:24px;margin-bottom:6px}
+.tier .price{font-family:var(--serif);font-size:34px;color:var(--ink);margin:14px 0 4px;letter-spacing:-.02em}
+.tier .price .ph{color:var(--accent-deep);font-style:italic;font-size:24px}
+.tier .note{font-size:13px;color:var(--muted);margin-bottom:20px}
+.tier ul{list-style:none;margin-top:18px}
+.tier li{font-size:15px;color:var(--ink-2);padding:8px 0 8px 24px;position:relative;border-top:1px solid var(--line)}
+.tier li::before{content:"\2713";position:absolute;left:0;color:var(--accent);top:8px}
+
+/* close */
+#close{text-align:center}
+#close h2{font-size:clamp(32px,5vw,56px);font-weight:500;margin-bottom:22px}
+#close .body-lg{margin:0 auto 36px}
+
+/* sources / footer */
+.sources{font-size:13px;color:var(--muted);max-width:880px}
+.sources ol{margin-left:18px;margin-top:14px}
+.sources li{padding:4px 0;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:18px;max-width:880px;line-height:1.55}
+</style>
+<style>
+/* per-company accent override — Tex-Mex Junk Removal (terracotta rust) */
+:root{
+  --accent:#B5532E;
+  --accent-deep:#8C3D1E;
+  --accent-tint:#F3E1D5;
+}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div id="progress"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#hero" style="text-decoration:none">
+      <span class="mono">Z</span> Zapp Studios <span class="x">×</span> Tex-Mex
+    </a>
+    <div class="navlinks">
+      <a href="#audit">Audit</a>
+      <a href="#opportunity">Opportunity</a>
+      <a href="#proof">Proof</a>
+      <a href="#plan">Plan</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a class="navcta" href="/book">Book a call</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 01 · HERO -->
+  <section id="hero">
+    <div class="wrap">
+      <div class="narrow" style="margin:0">
+        <div class="eyebrow"><span class="no">Growth Proposal</span> · June 7, 2026</div>
+        <h1>You earned the lead. The <em>text-back loop</em> is losing it.</h1>
+        <p class="sub">Tex-Mex has the hard part already: a 4.9-star reputation, 113 Google reviews, and an audience that pays attention. But every high-intent visitor is funneled into "send a photo and wait for Marco to text a price." That wait is where the job goes to Junk King's instant online quote. I close that gap.</p>
+        <div class="cta-row">
+          <a class="cta" href="/book">Book a 15-minute working call</a>
+          <a class="cta ghost" href="#plan">See the plan</a>
+        </div>
+        <div class="hero-meta">
+          <div class="blk">Prepared for<strong>Marco Ayala · Tex-Mex Junk Removal</strong></div>
+          <div class="blk">Prepared by<strong>Hamza · Zapp Studios</strong></div>
+          <div class="blk">Date<strong>June 7, 2026</strong></div>
+          <div class="blk">Live rating<strong>4.9 ★ · 113 reviews</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · AUDIT -->
+  <section id="audit" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">01</span> Where you are today</div>
+      <h2 class="lead">An honest look at the funnel you've built.</h2>
+      <p class="body-lg">I walked your site and your booking flow before writing a word of this. The reputation is real and the content effort is well above stage. What I want to show you is where the system stops working — not the marketing, the mechanics.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num"><em>4.9</em> ★</div>
+          <div class="lbl">Live Google rating across <strong>113 reviews</strong> — a verified, owner-managed profile.</div>
+          <div class="src">Source: live Google Business Profile, 2026-06-07</div>
+        </div>
+        <div class="stat">
+          <div class="num">Form<em>-only</em></div>
+          <div class="lbl">"Schedule a Pickup" is a name / phone / email / description form with a photo upload. No real-time calendar, no instant price.</div>
+          <div class="src">Source: texmexjunk.com/schedule-a-pickup</div>
+        </div>
+        <div class="stat">
+          <div class="num">No <em>SMS</em></div>
+          <div class="lbl">Follow-up is entirely manual — Marco texting quotes back. No auto-acknowledgment, no reminder, no rebooking nudge.</div>
+          <div class="src">Source: site teardown, no automation detected</div>
+        </div>
+      </div>
+
+      <div class="leak">
+        <div class="tag">The single biggest leak</div>
+        <p><strong>The manual text-a-photo quote loop.</strong> A visitor who is ready to book has to upload a photo, then wait for a human to come back with a price. That one wait does three things at once: it loses the speed-to-lead race to competitors with instant online quotes, it drops every after-hours and weekend lead until you have time to reply, and it leaves no automated nudge for the people who never hear back. You are paying — in attention you already bought — to fill a queue that leaks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · GAPS -->
+  <section id="gaps">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">02</span> What it's costing you</div>
+      <h2 class="lead">Four gaps, all on top of real demand.</h2>
+      <p class="body-lg">None of these are a marketing problem. They are software gaps — the seam between "they found you" and "they booked." Each one is quantifiable.</p>
+
+      <div class="grid two">
+        <div class="card">
+          <div class="k">Gap 01 · No instant quote</div>
+          <h3>Speed-to-lead, lost</h3>
+          <p>Junk King and Clearout give a price the moment a customer asks. You give a promise of a reply "within 1 hour." In a same-day vertical, the first credible number usually wins the job. Every minute of wait is conversion you've already paid for, bleeding out.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 02 · No after-hours capture</div>
+          <h3>The 24-hour window leaks</h3>
+          <p>Your form is open around the clock; your reply is not. A request that lands at 9pm Saturday sits until Marco can answer. An instant-quote plus auto-SMS confirms, prices, and holds that lead the second it arrives — even when no one is awake.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 03 · No automated follow-up</div>
+          <h3>Silent leads stay silent</h3>
+          <p>There is no SMS sequence for the people who request a quote and go quiet. In junk removal that's a large share of every inbox. A two-touch automated follow-up is the cheapest revenue in the business — and right now it isn't running at all.</p>
+        </div>
+        <div class="card">
+          <div class="k">Gap 04 · No conversion tracking</div>
+          <h3>You're flying without instruments</h3>
+          <p>A GoDaddy form gives you no pixel, no conversion events, no view of where leads drop. You can't optimize what you can't see — and you can't safely buy paid search until the funnel underneath it is measured. Fix the instruments, then spend.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · OPPORTUNITY -->
+  <section id="opportunity" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">03</span> The demand is already there</div>
+      <h2 class="lead">You don't have a demand problem. You have a conversion problem.</h2>
+      <p class="body-lg">113 five-star-leaning reviews, roughly 5,900 Instagram followers, and a content library deeper than most haulers twice your age. The attention is bought. And the service area is the right one — Memorial, the Memorial Villages, and the Energy Corridor, the affluent West-Houston neighborhoods where a $1,600 estate cleanout or a $900 garage job is a normal ticket, not an outlier.</p>
+
+      <div class="win">
+        <div class="tag">Grounded ROI — same lead flow, better conversion</div>
+        <p>The math below uses your own verified ticket sizes. The lead-count and booking-rate inputs are <strong>illustrative assumptions</strong> for discussion, not measured facts — we confirm the real numbers in the Diagnostic.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">~$400</div>
+          <div class="lbl">Blended residential ticket, drawn from your published pricing — quarter load $165, half $350, full $550, cleanouts $485–$8,500.</div>
+          <div class="src">Source: texmexjunk.com/our-pricing, /case-studies</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>~25%</em> &rarr; 45%</div>
+          <div class="lbl">Illustrative booking-conversion lift from instant-quote + book-now + automated SMS, on the same monthly request volume.</div>
+          <div class="src">Assumption — confirmed in Diagnostic</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>+$9.6K</em>/mo</div>
+          <div class="lbl">At ~120 requests/mo, lifting 30 booked jobs to ~54 is roughly +$115K/yr — before any paid-search layer is added.</div>
+          <div class="src">Illustrative; ~$400 ticket × added jobs</div>
+        </div>
+      </div>
+
+      <p style="margin-top:40px">Read that carefully: <strong>+$9,600 a month from leads you already earn</strong>, with no extra ad spend — just by closing the gap between the request and the booking. Even a conservative doubling of after-hours capture alone pays for the build. Paid search is the layer you add <em>after</em> the funnel converts, not before.</p>
+    </div>
+  </section>
+
+  <!-- 05 · PROOF -->
+  <section id="proof">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">04</span> This isn't theory</div>
+      <h2 class="lead">I built this exact system once already. It moved the numbers.</h2>
+      <p class="body-lg">Royal Pawz, a pet-grooming operator, had the same shape of problem you do: real demand, a funnel that leaked at booking. One operator — me — built the funnel, the booking app, and the Twilio SMS layer, and ran it. Here is what changed.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="num">7% &rarr; <em>30.8%</em></div>
+          <div class="lbl">Booking conversion — roughly 4× (+334%) on the same traffic, by removing friction and automating follow-up.</div>
+          <div class="src">Royal Pawz, ~4-month engagement</div>
+        </div>
+        <div class="stat">
+          <div class="num">$200 &rarr; <em>$10K</em></div>
+          <div class="lbl">Monthly recurring revenue, roughly 50× in about four months as the system compounded.</div>
+          <div class="src">Royal Pawz MRR</div>
+        </div>
+        <div class="stat">
+          <div class="num"><em>7.8×</em></div>
+          <div class="lbl">LTV:CAC — $195 LTV against a $25 blended CPA, with ROAS moving from 2× to 5×.</div>
+          <div class="src">Royal Pawz unit economics</div>
+        </div>
+      </div>
+
+      <p style="margin-top:40px">What got built: a client booking app, a groomer ops app, an admin dashboard, AI-assisted Twilio SMS for confirmations, reminders and rebooking, plus session recording and A/B testing — all by one operator, shipped in weeks. Your business is a cleaner fit than Royal Pawz was, because your demand already exists. I'm not growing you from zero; I'm fixing the leak in a system that's already earning.</p>
+    </div>
+  </section>
+
+  <!-- 06 · PLAN -->
+  <section id="plan" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">05</span> The plan</div>
+      <h2 class="lead">From "text us a photo" to instant-quote, book-now, automated.</h2>
+
+      <div class="compare">
+        <div class="col now">
+          <h4>Today</h4>
+          <ul>
+            <li>Photo upload, then wait for Marco to text a price</li>
+            <li>No real-time calendar — every job confirmed by hand</li>
+            <li>No online payment or deposit; pay-after only</li>
+            <li>After-hours and weekend leads sit until you reply</li>
+            <li>No automated SMS follow-up for quiet leads</li>
+            <li>No pixel, no conversion tracking, no retargeting</li>
+          </ul>
+        </div>
+        <div class="col zapp">
+          <h4>With Zapp</h4>
+          <ul>
+            <li>Instant online quote from item selection or photo</li>
+            <li>Book-now calendar that confirms the job on the spot</li>
+            <li>Optional deposit to cut no-shows, pay-after preserved</li>
+            <li>Auto-SMS confirms and prices the second a lead lands</li>
+            <li>Two-touch SMS sequence re-engages silent requests</li>
+            <li>Full conversion tracking, ready for paid search</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phases">
+        <div class="phase">
+          <div class="no">01</div>
+          <div>
+            <h3>Diagnose</h3>
+            <p>I instrument your current flow, confirm the real numbers — monthly requests, true booking rate, where leads drop — and hand you a prioritized written plan. You keep it whether or not we build together.</p>
+            <div class="when">Week 1</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">02</div>
+          <div>
+            <h3>Build the booking funnel</h3>
+            <p>An optimized landing page with instant-quote logic built on your published flat-rate pricing, plus a book-now calendar with optional deposit. The text-a-photo path stays for the people who want it — but it stops being the only door.</p>
+            <div class="when">Weeks 2–4</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">03</div>
+          <div>
+            <h3>Turn on SMS &amp; paid acquisition</h3>
+            <p>Twilio SMS for confirmations, reminders, and rebooking, plus an automated follow-up sequence for quiet leads. Once conversion is proven, a measured Google Ads layer feeds the funnel — tracked end to end, not sprayed blind.</p>
+            <div class="when">Weeks 4–6</div>
+          </div>
+        </div>
+        <div class="phase">
+          <div class="no">04</div>
+          <div>
+            <h3>Measure &amp; compound</h3>
+            <p>With real conversion data flowing, I A/B-test the funnel, sharpen the highest-intent terms, and lean into your highest-ticket recurring work — estate, eviction, and property-manager cleanouts. The system gets better every month it runs.</p>
+            <div class="when">Ongoing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · WHY -->
+  <section id="why">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">06</span> Why one operator</div>
+      <h2 class="lead">Your marketing problem is usually a software problem.</h2>
+      <p class="body-lg">You don't have a marketing problem and a separate engineering problem. You have one revenue system, and it breaks at the seam between the two — exactly where your photo-text quote sits. The person who diagnoses that seam should be the person who builds across it.</p>
+
+      <div class="grid three">
+        <div class="card">
+          <div class="k">One seam, one owner</div>
+          <h3>I diagnose, I build, I run</h3>
+          <p>No agency handoff, no "the dev will get to it." The person who finds the leak writes the code that closes it and watches the numbers move.</p>
+        </div>
+        <div class="card">
+          <div class="k">Weeks, not quarters</div>
+          <h3>Shipped, not scoped forever</h3>
+          <p>Royal Pawz went from a leaking funnel to $10K MRR in about four months. Booking, SMS, and tracking are weeks of work when one operator owns the whole stack.</p>
+        </div>
+        <div class="card">
+          <div class="k">Founder credibility</div>
+          <h3>I've built at real scale</h3>
+          <p>Founding engineer at DietAI through a seven-figure exit. I build production systems that handle real revenue — and I treat your business like one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · PRICING -->
+  <section id="pricing" class="tint">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">07</span> What it costs</div>
+      <h2 class="lead">Two ways in. Start with the truth, then build the system.</h2>
+      <p class="body-lg">Pricing is set after we talk, once I've seen your real numbers. Here is the shape of the two engagements.</p>
+
+      <div class="tiers">
+        <div class="tier">
+          <h3>Revenue Diagnostic</h3>
+          <div class="price"><span class="ph">$[set]</span></div>
+          <div class="note">Final scope after the call</div>
+          <p style="font-size:15px;color:var(--ink-2)">A paid audit of your funnel end to end. I instrument the flow, confirm where leads actually drop, and hand you a prioritized written plan you keep with or without me.</p>
+          <ul>
+            <li>Full teardown of the quote-to-booking path</li>
+            <li>Confirmed numbers: requests, booking rate, drop-off</li>
+            <li>Prioritized written action plan, yours to keep</li>
+            <li>Honest read on paid-search readiness</li>
+          </ul>
+        </div>
+        <div class="tier feature">
+          <div class="badge">Recommended</div>
+          <h3>Revenue System Build</h3>
+          <div class="price"><span class="ph">$[set]</span></div>
+          <div class="note">Final scope after the call</div>
+          <p style="font-size:15px;color:var(--ink-2)">The full build, designed and run by one operator: instant-quote funnel, book-now calendar, Twilio SMS follow-up, CRM, and conversion analytics — with a measured paid-search layer once it converts.</p>
+          <ul>
+            <li>Optimized landing page with instant-quote logic</li>
+            <li>Book-now calendar with optional deposit</li>
+            <li>Twilio SMS: confirm, remind, rebook, re-engage</li>
+            <li>CRM, conversion tracking, and A/B testing</li>
+            <li>Google Ads layer once the funnel is proven</li>
+            <li>Built, shipped, and run by one operator</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · CLOSE -->
+  <section id="close">
+    <div class="wrap">
+      <div class="narrow">
+        <h2>Stop leaking the leads you already earned.</h2>
+        <p class="body-lg">You've built the demand. I'll build the system that turns it into booked, tracked jobs — instant quote, book-now, automated follow-up, run by one operator. Fifteen minutes to see if it fits.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="cta" href="/book">Book a 15-minute working call</a>
+        </div>
+        <p style="margin:36px auto 0;color:var(--muted);font-size:15px">— Hamza · Zapp Studios</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources" class="sand">
+    <div class="wrap">
+      <div class="eyebrow"><span class="no">08</span> Sources &amp; notes</div>
+      <div class="sources">
+        <p>Findings drawn from public sources and a live browser pass on 2026-06-07.</p>
+        <ol>
+          <li>Live Google Business Profile — Tex-Mex Junk Removal (Houston): 4.9 ★ / 113 reviews, owner-managed (browser-verified 2026-06-07)</li>
+          <li>https://texmexjunk.com/ — homepage, platform, brand</li>
+          <li>https://texmexjunk.com/our-pricing — flat-rate tiers, text-photo quote</li>
+          <li>https://texmexjunk.com/schedule-a-pickup — form + photo upload, no calendar, pay-after</li>
+          <li>https://texmexjunk.com/case-studies — job sizes $485–$8,500; named customers</li>
+          <li>https://texmexjunk.com/about-us — owner Marco Ayala, heritage, ex-GM 5+ yrs</li>
+          <li>https://www.instagram.com/texmexjunkremoval/ — ~5,905 followers, content cadence</li>
+          <li>https://www.junk-king.com/locations/houston — competitor with instant online estimate</li>
+          <li>https://clearoutjunk.com/junk-removal-houston — competitor, online quote flow</li>
+          <li>https://pushleads.com/junk-removal-marketing/junk-removal-google-ads/ — CPC / CPL / ROAS benchmarks</li>
+          <li>Royal Pawz engagement — booking conversion, MRR, and unit-economics figures (Zapp internal case study)</li>
+        </ol>
+        <p class="disclaimer">This is a private draft for discussion. Figures are point-in-time: Google rating and review count verified 2026-06-07 and will drift. ROI and lead-volume math is explicitly illustrative — the lead count and booking-rate inputs are assumptions to be confirmed in the Diagnostic, not measured facts. Ticket sizes are taken from Tex-Mex's own published pricing. Independent verification is encouraged.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Zapp Studios · Houston venture studio</span>
+    <span>Prepared for Tex-Mex Junk Removal · June 7, 2026 · Confidential draft</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('progress'),nav=document.querySelector('nav');
+  function onScroll(){
+    var h=document.documentElement,top=h.scrollTop||document.body.scrollTop;
+    var max=(h.scrollHeight-h.clientHeight)||1;
+    bar.style.width=(top/max*100)+'%';
+    if(top>40){nav.classList.add('solid');}else{nav.classList.remove('solid');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
