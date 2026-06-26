@@ -82,17 +82,32 @@ td.col-photos{width:480px}td.col-attrs{width:180px}td.col-st{width:200px}
 <style id="annot-style">
 figure.pf{cursor:pointer;position:relative}
 figure.pf:hover{outline:2px solid #2a6cff;outline-offset:-2px}
-figure.pf[data-sel]{outline:3px solid #1a8f3c;outline-offset:-3px}
-figure.pf[data-sel] img{opacity:.94}
-figure.pf[data-sel="1"]{outline:4px solid #e0a020;outline-offset:-4px}
+figure.pf[data-sel]{outline:3px solid var(--selc,#1a8f3c);outline-offset:-3px}
+figure.pf[data-sel] img{opacity:.95}
+figure.pf[data-hero="1"]{outline:4px solid #e0a020;outline-offset:-4px}
 .curate-num{position:absolute;top:4px;left:4px;min-width:16px;height:18px;line-height:18px;text-align:center;
   background:#1a8f3c;color:#fff;font:700 10px Arial;border-radius:9px;padding:0 6px;z-index:7;pointer-events:none;display:none}
 .curate-num.hero{background:#e0a020;color:#2a221c}
 .curate-star{position:absolute;top:3px;right:4px;width:20px;height:20px;line-height:20px;text-align:center;
   background:rgba(0,0,0,.55);color:#fff;font:12px Arial;border-radius:10px;z-index:8;cursor:pointer;display:none}
 figure.pf[data-sel] .curate-star{display:block}
-figure.pf[data-sel="1"] .curate-star{color:#ffd35e;background:rgba(0,0,0,.72)}
+figure.pf[data-hero="1"] .curate-star{color:#ffd35e;background:rgba(0,0,0,.72)}
 .curate-star:hover{background:#000}
+.curate-pill{position:absolute;left:3px;bottom:3px;display:none;align-items:center;gap:4px;background:rgba(0,0,0,.62);
+  color:#fff;font:700 10px Arial;border-radius:9px;padding:2px 7px 2px 4px;z-index:8;cursor:pointer;max-width:90%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.curate-pill .sw{width:11px;height:11px;border-radius:50%;border:1px solid rgba(255,255,255,.75);flex:0 0 auto}
+.curate-pill:hover{background:rgba(0,0,0,.88)}
+body.annot-curate figure.pf.multi .curate-pill{display:inline-flex}
+figure.pf.curate-dim{opacity:.16;filter:grayscale(.55)}
+.curate-colorbar{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:0 0 8px;padding:6px 8px;background:#f4efe7;border:1px solid #e0d5c4;border-radius:8px}
+.curate-colorbar .cb-lbl{font:700 11px Arial;color:#7a6a55;margin-right:2px}
+.cb-chip{display:inline-flex;align-items:center;gap:5px;font:600 11px Arial;color:#2a221c;background:#fff;border:1px solid #cbb89f;border-radius:14px;padding:3px 9px;cursor:pointer}
+.cb-chip .sw{width:13px;height:13px;border-radius:50%;border:1px solid rgba(0,0,0,.25)}
+.cb-chip .cb-n{font-weight:700;color:#1a8f3c}
+.cb-chip.nohero{border-color:#d9a441;background:#fff7e9}
+.cb-chip.nohero .cb-n{color:#c07a18}
+.cb-chip.active{outline:2px solid #2a6cff;outline-offset:1px}
+.cb-chip.cb-all{color:#5a4a3c}
 .curate-cchip{font:700 10px Arial;color:#1a6f33;background:#eaf6ec;border:1px solid #bcd9bc;border-radius:4px;padding:1px 6px;margin-left:6px;display:none}
 .annot-pnote{font:600 11px Arial;color:#9a4a12;background:#fff3e0;border:1px solid #f0c890;border-radius:4px;padding:2px 6px;margin-top:4px;cursor:pointer;display:inline-block}
 .annot-pnote.set{background:#ffe0b8}
@@ -111,7 +126,7 @@ figure.pf[data-sel="1"] .curate-star{color:#ffd35e;background:rgba(0,0,0,.72)}
 .annot-modal textarea{width:100%;height:300px;font:11px monospace;box-sizing:border-box}
 .annot-modal button{font:600 12px Arial;border-radius:6px;border:1px solid #cbb89f;background:#3a3026;color:#faf6f0;padding:6px 10px;cursor:pointer;margin-left:6px}
 </style>
-<script type="application/json" id="annot-config">{"mode": "hosted", "buildHash": "pmcur-0626", "api": "/api/drop2-annotations", "reviewerDefault": "hamza", "secret": "pm-drop2-7Qx9", "handles": [{"h": "annabel", "name": "Annabel"}, {"h": "beyonce", "name": "Beyonce"}, {"h": "billie-cover-up", "name": "Billie Cover Up"}, {"h": "bonnie", "name": "Bonnie"}, {"h": "catalina-black-lace-caftan", "name": "Catalina Black Lace Caftan"}, {"h": "donna", "name": "Donna"}, {"h": "freedom", "name": "Freedom"}, {"h": "jane-dress", "name": "Jane Dress"}, {"h": "lui-blouse", "name": "Lui Blouse"}, {"h": "lula-caftan", "name": "Lula Caftan"}, {"h": "rosalind-caftan", "name": "Rosalind Caftan"}, {"h": "simone", "name": "Simone"}, {"h": "willow-dress", "name": "Willow Dress"}, {"h": "handmade-sadie-dress", "name": "Handmade Sadie Dress"}, {"h": "agnes-top", "name": "Agnes - Top"}, {"h": "aitana", "name": "Aitana"}, {"h": "ali-bottom", "name": "Ali (Bottom)"}, {"h": "ali-top-1", "name": "Ali (Top)"}, {"h": "callie-leather-shorts", "name": "Callie"}, {"h": "carla-bikini-bottom", "name": "Carla Bikini (Bottom)"}, {"h": "carla-bikini-top", "name": "Carla Bikini (Top)"}, {"h": "cassidy-bottom", "name": "Cassidy (Bottom)"}, {"h": "cassidy-top", "name": "Cassidy (Top)"}, {"h": "cherry", "name": "Cherry"}, {"h": "dixie-bottom", "name": "Dixie (Bottom)"}, {"h": "dixie-top-1", "name": "Dixie (Top)"}, {"h": "jane-pants", "name": "Jane Pants"}, {"h": "josie-top-1", "name": "Josie - Top"}, {"h": "josie-bottom", "name": "Josie Bottom"}, {"h": "kay-bottom", "name": "Kay (Bottom)"}, {"h": "kay-top-1", "name": "Kay - Top"}, {"h": "mary-ann-bottom", "name": "Mary Ann (Bottom)"}, {"h": "mary-ann-top-1", "name": "Mary Ann - TOP"}, {"h": "missy-swimsuit", "name": "Missy - Swimsuit"}, {"h": "ornela", "name": "Ornela"}, {"h": "river-top", "name": "River (Top)"}, {"h": "sandra-pants", "name": "Sandra Pants"}, {"h": "sarah-top", "name": "Sarah (Top)"}, {"h": "selena-top-1", "name": "Selena - Top"}, {"h": "shiloh-bottom", "name": "Shiloh (Bottom)"}, {"h": "shiloh-top-1", "name": "Shiloh - Top"}, {"h": "swimsuit-hadley", "name": "Swimsuit Hadley"}, {"h": "willow-bottom", "name": "Willow (Bottom)"}, {"h": "willow-top", "name": "Willow (Top)"}, {"h": "ximena", "name": "Ximena"}, {"h": "zoya-jeans-skirt", "name": "Zoya - Jeans Skirt"}, {"h": "barbara", "name": "Barbara"}, {"h": "dress-hattie", "name": "Hattie"}, {"h": "anges-bottom", "name": "Agnes (Bottom)"}, {"h": "aurora-bottom", "name": "Aurora (Bottom)"}, {"h": "river-bottom", "name": "River (Bottom)"}, {"h": "sarah-bottom", "name": "Sarah (Bottom)"}, {"h": "selena-bottom", "name": "Selena (Bottom)"}, {"h": "D2-32 \u00b7 not in Shopify", "name": "Africa Caftan"}, {"h": "D2-02 \u00b7 not in Shopify", "name": "Kitty"}, {"h": "D2-04 \u00b7 not in Shopify", "name": "Regina"}, {"h": "D2-06 \u00b7 not in Shopify", "name": "Jane Oversize Shirt"}, {"h": "D2-28 \u00b7 not in Shopify", "name": "Tess"}, {"h": "D2-34 \u00b7 not in Shopify", "name": "Frankie"}, {"h": "D2-03 \u00b7 not in Shopify", "name": "Valeria"}, {"h": "D2-18 \u00b7 not in Shopify", "name": "Sierra"}, {"h": "D2-50 \u00b7 not in Shopify", "name": "Aurora (Top)"}, {"h": "D2-44 \u00b7 not in Shopify", "name": "Missoni One-Shoulder Swimsuit"}, {"h": "D2-45 \u00b7 not in Shopify", "name": "Matching Turban (Missoni)"}, {"h": "D2-36 \u00b7 not in Shopify", "name": "Nina (Top)"}, {"h": "D2-17 \u00b7 not in Shopify", "name": "Leather Belt"}], "preflag": [{"handle": "ximena", "group": "1", "srckey": "7b757f46e0b334f1", "status": "delete", "comment": "AI: two-piece swimsuit, not a dress \u2014 wrong garment type", "reason": "wrong-garment (AI)"}, {"handle": "simone", "group": "2", "srckey": "55453b9bcdba5b6b", "status": "delete", "comment": "AI: different cut-out one-piece silhouette than Simone", "reason": "wrong-garment (AI)"}, {"handle": "simone", "group": "2", "srckey": "fafb791aa5b73901", "status": "delete", "comment": "AI: different one-piece construction than Simone", "reason": "wrong-garment (AI)"}, {"handle": "carla-bikini-bottom", "group": "2", "srckey": "87a2e1af5d7b730a", "status": "delete", "comment": "AI: model in gold/tan ruched bottoms, not the black Carla bottom", "reason": "wrong-garment (AI)"}, {"handle": "carla-bikini-bottom", "group": "2", "srckey": "7e4573a98c9102e6", "status": "delete", "comment": "AI: model in gold/tan bottoms, not the black Carla bottom", "reason": "wrong-garment (AI)"}, {"handle": "carla-bikini-bottom", "group": "2", "srckey": "a51684fa04f377db", "status": "delete", "comment": "AI: model in gold/tan bottoms, not the black Carla bottom", "reason": "wrong-garment (AI)"}, {"handle": "josie-bottom", "group": "2", "srckey": "0f8160fa725c7a3f", "status": "keep", "comment": "AI flagged a non-matching garment in Josie's model shots \u2014 review this row", "reason": "wrong-garment (AI)"}, {"handle": "jane-pants", "group": "3", "srckey": "1214883db01effbb", "status": "delete", "comment": "AI: white/cream shorts, not the purple/blue Jane trousers", "reason": "wrong-garment (AI)"}, {"handle": "jane-pants", "group": "3", "srckey": "10ce7944ae3c3986", "status": "delete", "comment": "AI: yellow/green patterned pants, not the Jane trousers", "reason": "wrong-garment (AI)"}, {"handle": "annabel", "group": "1", "srckey": "ee7da55fd87bb17b", "status": "keep", "comment": "AI: brown bodysuit \u2014 confirm this is the legit BROWN colorway, not contamination", "reason": "wrong-garment (AI)"}, {"handle": "annabel", "group": "2", "srckey": "670fc6f77359d9be", "status": "keep", "comment": "AI: bronze/darker bodysuit \u2014 confirm legit colorway", "reason": "wrong-garment (AI)"}, {"handle": "catalina-black-lace-caftan", "group": "1", "srckey": "c75407db8b71e152", "status": "keep", "comment": "AI: teal/petrol caftan \u2014 colorway; confirm it belongs here", "reason": "wrong-garment (AI)"}, {"handle": "catalina-black-lace-caftan", "group": "1", "srckey": "626b9315836c1023", "status": "keep", "comment": "AI: burgundy/red caftan \u2014 colorway; confirm it belongs here", "reason": "wrong-garment (AI)"}, {"handle": "catalina-black-lace-caftan", "group": "1", "srckey": "9cb91ed4225f8193", "status": "keep", "comment": "AI: white/cream caftan \u2014 colorway; confirm it belongs here", "reason": "wrong-garment (AI)"}, {"handle": "catalina-black-lace-caftan", "group": "1", "srckey": "d127bc1f42af8f3d", "status": "keep", "comment": "AI: black caftan w/ cream lace \u2014 confirm colorway vs wrong item", "reason": "wrong-garment (AI)"}, {"handle": "jane-pants", "group": "3", "srckey": "15d47678a11f2c48", "status": "keep", "comment": "AI: printed pants partially visible \u2014 review", "reason": "wrong-garment (AI)"}, {"handle": "sandra-pants", "group": "2", "srckey": "081c27f3aca281ad", "status": "keep", "comment": "AI: looks like a multi-piece styled outfit, not the standalone pant", "reason": "wrong-garment (AI)"}], "variant": "curate"}</script>
+<script type="application/json" id="annot-config">{"mode": "hosted", "buildHash": "pmcur2-0626", "api": "/api/drop2-annotations", "reviewerDefault": "hamza", "secret": "pm-drop2-7Qx9", "handles": [{"h": "annabel", "name": "Annabel"}, {"h": "beyonce", "name": "Beyonce"}, {"h": "billie-cover-up", "name": "Billie Cover Up"}, {"h": "bonnie", "name": "Bonnie"}, {"h": "catalina-black-lace-caftan", "name": "Catalina Black Lace Caftan"}, {"h": "donna", "name": "Donna"}, {"h": "freedom", "name": "Freedom"}, {"h": "jane-dress", "name": "Jane Dress"}, {"h": "lui-blouse", "name": "Lui Blouse"}, {"h": "lula-caftan", "name": "Lula Caftan"}, {"h": "rosalind-caftan", "name": "Rosalind Caftan"}, {"h": "simone", "name": "Simone"}, {"h": "willow-dress", "name": "Willow Dress"}, {"h": "handmade-sadie-dress", "name": "Handmade Sadie Dress"}, {"h": "agnes-top", "name": "Agnes - Top"}, {"h": "aitana", "name": "Aitana"}, {"h": "ali-bottom", "name": "Ali (Bottom)"}, {"h": "ali-top-1", "name": "Ali (Top)"}, {"h": "callie-leather-shorts", "name": "Callie"}, {"h": "carla-bikini-bottom", "name": "Carla Bikini (Bottom)"}, {"h": "carla-bikini-top", "name": "Carla Bikini (Top)"}, {"h": "cassidy-bottom", "name": "Cassidy (Bottom)"}, {"h": "cassidy-top", "name": "Cassidy (Top)"}, {"h": "cherry", "name": "Cherry"}, {"h": "dixie-bottom", "name": "Dixie (Bottom)"}, {"h": "dixie-top-1", "name": "Dixie (Top)"}, {"h": "jane-pants", "name": "Jane Pants"}, {"h": "josie-top-1", "name": "Josie - Top"}, {"h": "josie-bottom", "name": "Josie Bottom"}, {"h": "kay-bottom", "name": "Kay (Bottom)"}, {"h": "kay-top-1", "name": "Kay - Top"}, {"h": "mary-ann-bottom", "name": "Mary Ann (Bottom)"}, {"h": "mary-ann-top-1", "name": "Mary Ann - TOP"}, {"h": "missy-swimsuit", "name": "Missy - Swimsuit"}, {"h": "ornela", "name": "Ornela"}, {"h": "river-top", "name": "River (Top)"}, {"h": "sandra-pants", "name": "Sandra Pants"}, {"h": "sarah-top", "name": "Sarah (Top)"}, {"h": "selena-top-1", "name": "Selena - Top"}, {"h": "shiloh-bottom", "name": "Shiloh (Bottom)"}, {"h": "shiloh-top-1", "name": "Shiloh - Top"}, {"h": "swimsuit-hadley", "name": "Swimsuit Hadley"}, {"h": "willow-bottom", "name": "Willow (Bottom)"}, {"h": "willow-top", "name": "Willow (Top)"}, {"h": "ximena", "name": "Ximena"}, {"h": "zoya-jeans-skirt", "name": "Zoya - Jeans Skirt"}, {"h": "barbara", "name": "Barbara"}, {"h": "dress-hattie", "name": "Hattie"}, {"h": "anges-bottom", "name": "Agnes (Bottom)"}, {"h": "aurora-bottom", "name": "Aurora (Bottom)"}, {"h": "river-bottom", "name": "River (Bottom)"}, {"h": "sarah-bottom", "name": "Sarah (Bottom)"}, {"h": "selena-bottom", "name": "Selena (Bottom)"}, {"h": "D2-32 \u00b7 not in Shopify", "name": "Africa Caftan"}, {"h": "D2-02 \u00b7 not in Shopify", "name": "Kitty"}, {"h": "D2-04 \u00b7 not in Shopify", "name": "Regina"}, {"h": "D2-06 \u00b7 not in Shopify", "name": "Jane Oversize Shirt"}, {"h": "D2-28 \u00b7 not in Shopify", "name": "Tess"}, {"h": "D2-34 \u00b7 not in Shopify", "name": "Frankie"}, {"h": "D2-03 \u00b7 not in Shopify", "name": "Valeria"}, {"h": "D2-18 \u00b7 not in Shopify", "name": "Sierra"}, {"h": "D2-50 \u00b7 not in Shopify", "name": "Aurora (Top)"}, {"h": "D2-44 \u00b7 not in Shopify", "name": "Missoni One-Shoulder Swimsuit"}, {"h": "D2-45 \u00b7 not in Shopify", "name": "Matching Turban (Missoni)"}, {"h": "D2-36 \u00b7 not in Shopify", "name": "Nina (Top)"}, {"h": "D2-17 \u00b7 not in Shopify", "name": "Leather Belt"}], "preflag": [{"handle": "ximena", "group": "1", "srckey": "7b757f46e0b334f1", "status": "delete", "comment": "AI: two-piece swimsuit, not a dress \u2014 wrong garment type", "reason": "wrong-garment (AI)"}, {"handle": "simone", "group": "2", "srckey": "55453b9bcdba5b6b", "status": "delete", "comment": "AI: different cut-out one-piece silhouette than Simone", "reason": "wrong-garment (AI)"}, {"handle": "simone", "group": "2", "srckey": "fafb791aa5b73901", "status": "delete", "comment": "AI: different one-piece construction than Simone", "reason": "wrong-garment (AI)"}, {"handle": "carla-bikini-bottom", "group": "2", "srckey": "87a2e1af5d7b730a", "status": "delete", "comment": "AI: model in gold/tan ruched bottoms, not the black Carla bottom", "reason": "wrong-garment (AI)"}, {"handle": "carla-bikini-bottom", "group": "2", "srckey": "7e4573a98c9102e6", "status": "delete", "comment": "AI: model in gold/tan bottoms, not the black Carla bottom", "reason": "wrong-garment (AI)"}, {"handle": "carla-bikini-bottom", "group": "2", "srckey": "a51684fa04f377db", "status": "delete", "comment": "AI: model in gold/tan bottoms, not the black Carla bottom", "reason": "wrong-garment (AI)"}, {"handle": "josie-bottom", "group": "2", "srckey": "0f8160fa725c7a3f", "status": "keep", "comment": "AI flagged a non-matching garment in Josie's model shots \u2014 review this row", "reason": "wrong-garment (AI)"}, {"handle": "jane-pants", "group": "3", "srckey": "1214883db01effbb", "status": "delete", "comment": "AI: white/cream shorts, not the purple/blue Jane trousers", "reason": "wrong-garment (AI)"}, {"handle": "jane-pants", "group": "3", "srckey": "10ce7944ae3c3986", "status": "delete", "comment": "AI: yellow/green patterned pants, not the Jane trousers", "reason": "wrong-garment (AI)"}, {"handle": "annabel", "group": "1", "srckey": "ee7da55fd87bb17b", "status": "keep", "comment": "AI: brown bodysuit \u2014 confirm this is the legit BROWN colorway, not contamination", "reason": "wrong-garment (AI)"}, {"handle": "annabel", "group": "2", "srckey": "670fc6f77359d9be", "status": "keep", "comment": "AI: bronze/darker bodysuit \u2014 confirm legit colorway", "reason": "wrong-garment (AI)"}, {"handle": "catalina-black-lace-caftan", "group": "1", "srckey": "c75407db8b71e152", "status": "keep", "comment": "AI: teal/petrol caftan \u2014 colorway; confirm it belongs here", "reason": "wrong-garment (AI)"}, {"handle": "catalina-black-lace-caftan", "group": "1", "srckey": "626b9315836c1023", "status": "keep", "comment": "AI: burgundy/red caftan \u2014 colorway; confirm it belongs here", "reason": "wrong-garment (AI)"}, {"handle": "catalina-black-lace-caftan", "group": "1", "srckey": "9cb91ed4225f8193", "status": "keep", "comment": "AI: white/cream caftan \u2014 colorway; confirm it belongs here", "reason": "wrong-garment (AI)"}, {"handle": "catalina-black-lace-caftan", "group": "1", "srckey": "d127bc1f42af8f3d", "status": "keep", "comment": "AI: black caftan w/ cream lace \u2014 confirm colorway vs wrong item", "reason": "wrong-garment (AI)"}, {"handle": "jane-pants", "group": "3", "srckey": "15d47678a11f2c48", "status": "keep", "comment": "AI: printed pants partially visible \u2014 review", "reason": "wrong-garment (AI)"}, {"handle": "sandra-pants", "group": "2", "srckey": "081c27f3aca281ad", "status": "keep", "comment": "AI: looks like a multi-piece styled outfit, not the standalone pant", "reason": "wrong-garment (AI)"}], "variant": "curate", "productColors": {"annabel": ["Nude", "Brown"], "beyonce": [], "billie-cover-up": [], "bonnie": [], "catalina-black-lace-caftan": ["Black", "Pearl", "Red", "Petrol"], "donna": [], "freedom": [], "jane-dress": [], "lui-blouse": [], "lula-caftan": [], "rosalind-caftan": ["Yellow with Flowers", "Yellow"], "simone": ["Silver", "Black"], "willow-dress": [], "handmade-sadie-dress": ["Old Gold", "Green", "Silver"], "agnes-top": [], "aitana": ["Black", "Royal Blue"], "ali-bottom": ["Black", "Blue"], "ali-top-1": ["Black", "Blue"], "callie-leather-shorts": [], "carla-bikini-bottom": [], "carla-bikini-top": [], "cassidy-bottom": [], "cassidy-top": [], "cherry": [], "dixie-bottom": [], "dixie-top-1": [], "jane-pants": ["White", "Purple"], "josie-top-1": [], "josie-bottom": [], "kay-bottom": [], "kay-top-1": [], "mary-ann-bottom": ["Black", "White", "Yellow"], "mary-ann-top-1": ["Black", "White", "Yellow"], "missy-swimsuit": [], "ornela": [], "river-top": [], "sandra-pants": ["Black", "Brown", "White"], "sarah-top": [], "selena-top-1": [], "shiloh-bottom": ["Yellow", "Pink"], "shiloh-top-1": ["Yellow", "Pink"], "swimsuit-hadley": ["Beige", "Green"], "willow-bottom": ["Matching"], "willow-top": [], "ximena": ["Yellow", "Petrol Blue"], "zoya-jeans-skirt": [], "barbara": [], "dress-hattie": [], "anges-bottom": [], "aurora-bottom": [], "river-bottom": [], "sarah-bottom": [], "selena-bottom": [], "D2-32 \u00b7 not in Shopify": [], "D2-02 \u00b7 not in Shopify": [], "D2-04 \u00b7 not in Shopify": [], "D2-06 \u00b7 not in Shopify": [], "D2-28 \u00b7 not in Shopify": [], "D2-34 \u00b7 not in Shopify": [], "D2-03 \u00b7 not in Shopify": [], "D2-18 \u00b7 not in Shopify": [], "D2-50 \u00b7 not in Shopify": [], "D2-44 \u00b7 not in Shopify": [], "D2-45 \u00b7 not in Shopify": [], "D2-36 \u00b7 not in Shopify": [], "D2-17 \u00b7 not in Shopify": []}, "colorMap": {"annabel": {"1|0": "Nude", "1|1": "Brown", "2|0": "Nude", "2|1": "Nude", "2|2": "Nude", "2|3": "Nude", "2|4": "Brown", "2|5": "Nude", "4|0": "Brown", "4|1": "Nude", "4|2": "Nude", "4|3": "Brown"}, "catalina-black-lace-caftan": {"1|0": "Black", "1|1": "Petrol", "1|2": "Red", "1|3": "Pearl", "1|4": "Black", "1|5": "Black", "1|6": "Black", "1|7": "Black", "2|0": "Black", "2|1": "Black", "2|2": "Black", "2|3": "Black", "2|4": "Black", "3|0": "Black", "3|1": "Black", "3|2": "Black", "4|0": "Black", "4|1": "Black", "4|2": "Black", "4|3": "Black", "4|4": "Black", "4|5": "Black", "4|6": "Black", "4|7": "Black", "4|8": "Black", "4|9": "Black", "4|10": "Black", "4|11": "Black"}, "rosalind-caftan": {"1|0": "Yellow with Flowers", "1|1": "Yellow with Flowers", "1|2": "Yellow with Flowers", "1|3": "Yellow with Flowers", "1|4": "Yellow with Flowers", "1|5": "Yellow with Flowers", "1|6": "Yellow with Flowers", "2|0": "Yellow with Flowers", "2|1": "Yellow with Flowers", "3|0": "Yellow with Flowers", "3|1": "Yellow with Flowers", "4|0": "Yellow with Flowers", "4|1": "Yellow with Flowers", "4|2": "Yellow with Flowers", "4|3": "Yellow with Flowers", "4|4": "Yellow with Flowers", "4|5": "Yellow with Flowers", "4|6": "Yellow with Flowers", "4|7": "Yellow with Flowers", "4|8": "Yellow with Flowers", "4|9": "Yellow with Flowers", "4|10": "Yellow with Flowers", "4|11": "Yellow with Flowers", "4|12": "Yellow with Flowers", "4|13": "Yellow with Flowers", "4|14": "Yellow with Flowers", "4|15": "Yellow with Flowers"}, "simone": {"1|0": "Silver", "1|1": "Black", "2|0": "Black", "2|1": "Black", "4|0": "Black", "4|1": "Black", "4|2": "Black"}, "handmade-sadie-dress": {"1|0": "Old Gold", "1|1": "Green", "1|2": "Silver", "1|3": "Old Gold", "1|4": "Old Gold", "1|5": "Old Gold", "2|0": "Old Gold", "2|1": "Old Gold", "2|2": "Old Gold", "2|3": "Old Gold", "3|0": "Green", "3|1": "Silver", "3|2": "Old Gold", "3|3": "Old Gold", "3|4": "Old Gold", "3|5": "Old Gold", "4|0": "Old Gold", "4|1": "Old Gold", "4|2": "Old Gold", "4|3": "Old Gold", "4|4": "Old Gold", "4|5": "Old Gold", "4|6": "Old Gold", "4|7": "Old Gold", "4|8": "Old Gold", "4|9": "Old Gold", "4|10": "Old Gold", "4|11": "Old Gold", "4|12": "Old Gold", "4|13": "Old Gold", "4|14": "Old Gold"}, "aitana": {"1|0": "Royal Blue", "1|1": "Black", "2|0": "Black", "2|1": "Black", "2|2": "Black", "2|3": "Royal Blue", "2|4": "Black", "2|5": "Black", "4|0": "Black", "4|1": "Black", "4|2": "Black", "4|3": "Black", "4|4": "Black", "4|5": "Black", "4|6": "Black", "4|7": "Black", "4|8": "Black", "4|9": "Black", "4|10": "Black", "4|11": "Black", "4|12": "Black", "4|13": "Black", "4|14": "Black"}, "ali-bottom": {"1|0": "Blue", "2|0": "Black", "2|1": "Black", "2|2": "Blue", "2|3": "Black", "3|0": "Blue", "3|1": "Blue", "4|0": "Blue", "4|1": "Black", "4|2": "Black", "4|3": "Black", "4|4": "Black", "4|5": "Black", "4|6": "Black", "4|7": "Black", "4|8": "Black", "4|9": "Black", "4|10": "Black", "4|11": "Black", "4|12": "Black", "4|13": "Black", "4|14": "Black", "4|15": "Black"}, "ali-top-1": {"1|0": "Blue", "2|0": "Black", "2|1": "Black", "2|2": "Black", "2|3": "Black", "3|0": "Blue", "3|1": "Black", "3|2": "Black", "3|3": "Black", "3|4": "Black"}, "jane-pants": {"1|0": "Purple", "1|1": "White", "1|2": "White", "1|3": "White", "1|4": "White", "2|0": "Purple", "2|1": "White", "2|2": "White", "2|3": "White", "2|4": "White", "3|0": "Purple", "3|1": "Purple", "3|2": "White", "3|3": "White", "3|4": "Purple", "3|5": "White", "4|0": "Purple", "4|1": "Purple", "4|2": "Purple", "4|3": "Purple", "4|4": "Purple", "4|5": "Purple", "4|6": "Purple", "4|7": "Purple", "4|8": "Purple", "4|9": "Purple", "4|10": "Purple", "4|11": "Purple", "4|12": "Purple", "4|13": "Purple", "4|14": "Purple", "4|15": "Purple"}, "shiloh-bottom": {"1|0": "Yellow", "2|0": "Yellow", "3|0": "Yellow", "4|0": "Yellow", "4|1": "Yellow", "4|2": "Yellow", "4|3": "Yellow", "4|4": "Yellow", "4|5": "Yellow", "4|6": "Yellow", "4|7": "Yellow", "4|8": "Yellow", "4|9": "Yellow", "4|10": "Yellow", "4|11": "Yellow", "4|12": "Yellow", "4|13": "Yellow", "4|14": "Yellow", "4|15": "Yellow"}, "shiloh-top-1": {"1|0": "Yellow", "2|0": "Yellow", "3|0": "Yellow"}, "swimsuit-hadley": {"1|0": "Beige", "2|0": "Beige", "3|0": "Beige", "3|1": "Beige", "4|0": "Beige", "4|1": "Beige", "4|2": "Beige", "4|3": "Beige", "4|4": "Green", "4|5": "Beige", "4|6": "Beige", "4|7": "Beige", "4|8": "Beige", "4|9": "Beige", "4|10": "Beige", "4|11": "Beige", "4|12": "Beige", "4|13": "Beige", "4|14": "Beige", "4|15": "Beige"}, "ximena": {"1|0": "Petrol Blue", "1|1": "Petrol Blue", "1|2": "Yellow", "1|3": "Yellow", "2|0": "Petrol Blue", "2|1": "Petrol Blue", "2|2": "Petrol Blue", "2|3": "Yellow", "4|0": "Yellow", "4|1": "Petrol Blue", "4|2": "Petrol Blue", "4|3": "Petrol Blue", "4|4": "Petrol Blue", "4|5": "Petrol Blue", "4|6": "Petrol Blue", "4|7": "Petrol Blue", "4|8": "Petrol Blue", "4|9": "Petrol Blue", "4|10": "Petrol Blue", "4|11": "Petrol Blue", "4|12": "Petrol Blue", "4|13": "Petrol Blue", "4|14": "Petrol Blue", "4|15": "Petrol Blue"}, "mary-ann-bottom": {"1|0": "Black", "1|1": "White", "1|2": "Yellow", "2|0": "Black", "2|1": "White", "2|2": "White", "2|3": "White", "2|4": "Yellow", "2|5": "Yellow", "2|6": "Black", "4|0": "Black", "4|1": "Black", "4|2": "Black", "4|3": "Black", "4|4": "Black", "4|5": "Black", "4|6": "Black", "4|7": "Black", "4|8": "Black", "4|9": "Black", "4|10": "Black", "4|11": "Black", "4|12": "Black", "4|13": "Black", "4|14": "Black", "4|15": "Black"}, "mary-ann-top-1": {"1|0": "Black", "1|1": "White", "1|2": "Yellow", "2|0": "Black", "2|1": "White", "2|2": "White", "2|3": "White", "2|4": "Yellow", "2|5": "Black", "3|0": "Black"}, "sandra-pants": {"1|0": "Brown", "1|1": "White", "2|0": "Black", "2|1": "Black", "4|0": "Black", "4|1": "Black", "4|2": "Black", "4|3": "Black", "4|4": "Black", "4|5": "Black", "4|6": "Black", "4|7": "Black", "4|8": "Black", "4|9": "Black", "4|10": "Black", "4|11": "Black", "4|12": "Black", "4|13": "Black"}}, "colorSwatch": {"Blue": "#3f6fb0", "Old Gold": "#b8923f", "Petrol": "#1d6f7a", "Red": "#b3261e", "Purple": "#7a4fb0", "Pearl": "#efe9dd", "Yellow with Flowers": "#e0b94a", "Petrol Blue": "#1d6f7a", "Green": "#7f9b6b", "Beige": "#d7c4a3", "Brown": "#5c3a26", "Nude": "#d8b48f", "Silver": "#c8ccce", "Pink": "#e39bb0", "White": "#f3f3f3", "Matching": "#9a8f80", "Royal Blue": "#234fa0", "Black": "#222222", "Yellow": "#e8c23a"}}</script>
 <script>
 (function(){
   var CFG = JSON.parse(document.getElementById("annot-config").textContent);
@@ -120,194 +135,170 @@ figure.pf[data-sel="1"] .curate-star{color:#ffd35e;background:rgba(0,0,0,.72)}
   var reviewer = MODE==="hosted" ? (qs.get("r")||qs.get("reviewer")||CFG.reviewerDefault||"hamza") : "local";
   var apiR = "curate-"+reviewer;                       // isolated from confirm/review blobs
   var LSKEY = "pdc:"+BUILD+":"+reviewer;
-  var NAME = {}; (CFG.handles||[]).forEach(function(o){ NAME[o.h]=o.name||o.h; });
-  var state = {sel:{}, notes:{}};
-  var saveT=null, PMAP=null;
+  var NAME={}, PCOLORS=CFG.productColors||{}, CMAP=CFG.colorMap||{}, SW=CFG.colorSwatch||{};
+  (CFG.handles||[]).forEach(function(o){ NAME[o.h]=o.name||o.h; });
+  var state = {sel:{}, color:{}, notes:{}};
+  var saveT=null, PMAP=null, filt={};
   var esc = (window.CSS&&CSS.escape) ? CSS.escape : function(s){ return s.replace(/[^a-zA-Z0-9_-]/g,"\\$&"); };
 
   function figId(f){ return f.dataset.h+"|"+f.dataset.g+"|"+f.dataset.i; }
   function allFigs(){ return [].slice.call(document.querySelectorAll("figure.pf")); }
   function figsOf(h){ return [].slice.call(document.querySelectorAll('figure.pf[data-h="'+esc(h)+'"]')); }
+  function byFigId(fid){ var p=fid.split("|"); return document.querySelector('figure.pf[data-h="'+esc(p[0])+'"][data-g="'+p[1]+'"][data-i="'+p[2]+'"]'); }
   function selArr(h){ return state.sel[h] || (state.sel[h]=[]); }
   function findFig(h,g,k){ return document.querySelector('figure.pf[data-h="'+esc(h)+'"][data-g="'+g+'"][data-k="'+esc(k)+'"]'); }
-  function byFigId(fid){ var p=fid.split("|"); return document.querySelector('figure.pf[data-h="'+esc(p[0])+'"][data-g="'+p[1]+'"][data-i="'+p[2]+'"]'); }
   function pmap(){ if(PMAP) return PMAP; PMAP={}; document.querySelectorAll(".pname").forEach(function(pn){ var td=pn.closest("td"); var hEl=td&&td.querySelector(".handle"); if(hEl) PMAP[hEl.textContent.trim()]=pn; }); return PMAP; }
-  function normalize(){ if(!state||typeof state!=="object") state={}; if(!state.sel)state.sel={}; if(!state.notes)state.notes={}; }
+  function colorsOf(h){ return PCOLORS[h]||[]; }
+  function isMulti(h){ return colorsOf(h).length>=2; }
+  function swatch(c){ return SW[c] || "#9a8f80"; }
+  function textOn(hex){ var m=/^#?([0-9a-f]{6})$/i.exec(hex||""); if(!m) return "#fff"; var n=parseInt(m[1],16),r=(n>>16)&255,g=(n>>8)&255,b=n&255; return (0.299*r+0.587*g+0.114*b)>150?"#222":"#fff"; }
+  function colorOf(f){ var fid=figId(f); if(state.color[fid]) return state.color[fid];
+    var h=f.dataset.h, mm=CMAP[h], k=f.dataset.g+"|"+f.dataset.i; if(mm&&mm[k]) return mm[k];
+    var cs=colorsOf(h); return cs.length?cs[0]:null; }
+  function colorOfFid(fid){ var f=byFigId(fid); return f?colorOf(f):null; }
+  function normalize(){ if(!state||typeof state!=="object")state={}; if(!state.sel)state.sel={}; if(!state.color)state.color={}; if(!state.notes)state.notes={}; }
 
   // ---- persistence (isolated curate-<reviewer> blob) ----
-  function save(){
-    normalize();
-    try{ localStorage.setItem(LSKEY, JSON.stringify(state)); }catch(e){}
-    if(MODE==="hosted"){ clearTimeout(saveT); saveT=setTimeout(pushServer,700); setSaveStatus("saving..."); }
-    else setSaveStatus("saved locally");
-  }
+  function save(){ normalize(); try{ localStorage.setItem(LSKEY, JSON.stringify(state)); }catch(e){}
+    if(MODE==="hosted"){ clearTimeout(saveT); saveT=setTimeout(pushServer,700); setSaveStatus("saving..."); } else setSaveStatus("saved locally"); }
   function loadLocal(){ try{ var s=localStorage.getItem(LSKEY); if(s){ state=JSON.parse(s); } }catch(e){} normalize(); }
-  function pushServer(){
-    fetch(CFG.api+"?reviewer="+encodeURIComponent(apiR)+"&k="+encodeURIComponent(CFG.secret||""),
+  function pushServer(){ fetch(CFG.api+"?reviewer="+encodeURIComponent(apiR)+"&k="+encodeURIComponent(CFG.secret||""),
       {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({buildHash:BUILD,state:state})})
-      .then(function(r){ setSaveStatus(r.ok?"saved ✓":"save failed"); })
-      .catch(function(){ setSaveStatus("offline (saved locally)"); });
-  }
-  function pullServer(cb){
-    fetch(CFG.api+"?reviewer="+encodeURIComponent(apiR)+"&k="+encodeURIComponent(CFG.secret||""))
-      .then(function(r){ return r.ok?r.json():null; })
-      .then(function(d){ if(d&&d.state&&d.buildHash===BUILD){ state=d.state; normalize(); } cb&&cb(); })
-      .catch(function(){ cb&&cb(); });
-  }
+      .then(function(r){ setSaveStatus(r.ok?"saved ✓":"save failed"); }).catch(function(){ setSaveStatus("offline (saved locally)"); }); }
+  function pullServer(cb){ fetch(CFG.api+"?reviewer="+encodeURIComponent(apiR)+"&k="+encodeURIComponent(CFG.secret||""))
+      .then(function(r){ return r.ok?r.json():null; }).then(function(d){ if(d&&d.state&&d.buildHash===BUILD){ state=d.state; normalize(); } cb&&cb(); }).catch(function(){ cb&&cb(); }); }
+
+  // per-color order of a picked figure (0 = hero of its color); -1 if not picked
+  function colorOrder(f){ var h=f.dataset.h, fid=figId(f), arr=state.sel[h]||[], col=colorOf(f), k=0;
+    for(var j=0;j<arr.length;j++){ if(arr[j]===fid) return k; if(colorOfFid(arr[j])===col) k++; } return -1; }
 
   // ---- chrome / paint ----
   function ensureChrome(f){
     if(f.__chrome) return;
     var n=document.createElement("span"); n.className="curate-num"; f.appendChild(n); f.__num=n;
-    var s=document.createElement("span"); s.className="curate-star"; s.textContent="★"; s.title="make this the hero";
-    s.addEventListener("click",function(e){ e.stopPropagation(); e.preventDefault(); makeHero(f); });
-    f.appendChild(s);
+    var s=document.createElement("span"); s.className="curate-star"; s.textContent="★"; s.title="make this the hero of its color";
+    s.addEventListener("click",function(e){ e.stopPropagation(); e.preventDefault(); makeHero(f); }); f.appendChild(s);
+    var p=document.createElement("span"); p.className="curate-pill"; p.title="click to change this photo's color"; f.appendChild(p); f.__pill=p;
+    p.addEventListener("click",function(e){ e.stopPropagation(); e.preventDefault(); cycleColor(f); });
     f.__chrome=true;
   }
   function paint(f){
     ensureChrome(f);
-    var arr=state.sel[f.dataset.h]||[], i=arr.indexOf(figId(f));
-    if(i<0){ f.removeAttribute("data-sel"); f.__num.style.display="none"; return; }
-    f.setAttribute("data-sel", String(i+1));
-    f.__num.textContent = i===0 ? "★ HERO" : String(i+1);
-    f.__num.className = "curate-num" + (i===0?" hero":"");
-    f.__num.style.display="block";
+    var h=f.dataset.h, multi=isMulti(h);
+    f.classList.toggle("multi", multi);
+    if(multi){ var col=colorOf(f); f.__pill.innerHTML='<span class="sw" style="background:'+swatch(col)+'"></span>'+(col||"?"); }
+    var ord=colorOrder(f);
+    if(ord<0){ f.removeAttribute("data-sel"); f.removeAttribute("data-hero"); f.__num.style.display="none"; }
+    else if(ord===0){ f.setAttribute("data-sel","1"); f.setAttribute("data-hero","1");
+      f.__num.className="curate-num hero"; f.__num.textContent="★ HERO"; f.__num.style.background=""; f.__num.style.color=""; f.__num.style.display="block"; }
+    else { f.setAttribute("data-sel",String(ord+1)); f.removeAttribute("data-hero");
+      var c=multi?swatch(colorOf(f)):"#1a8f3c"; f.style.setProperty("--selc",c);
+      f.__num.className="curate-num"; f.__num.textContent=String(ord+1); f.__num.style.background=c; f.__num.style.color=textOn(c); f.__num.style.display="block"; }
+    var fl=filt[h]; f.classList.toggle("curate-dim", !!(fl && multi && colorOf(f)!==fl));
   }
-  function paintProduct(h){ figsOf(h).forEach(paint); paintCount(h); }
-  function paintAll(){ allFigs().forEach(paint); paintNotes(); recount(); }
+  function paintProduct(h){ figsOf(h).forEach(paint); paintColorbar(h); paintCount(h); }
+  function paintAll(){ ensureColorbars(); allFigs().forEach(paint); paintNotes(); paintAllColorbars(); recount(); }
 
-  // ---- select / hero ----
-  function toggle(f){
-    var h=f.dataset.h, fid=figId(f), arr=selArr(h), i=arr.indexOf(fid);
-    if(i>=0) arr.splice(i,1); else arr.push(fid);
-    if(!arr.length) delete state.sel[h];
-    save(); paintProduct(h); recount();
-  }
-  function makeHero(f){
-    var h=f.dataset.h, fid=figId(f), arr=selArr(h), i=arr.indexOf(fid);
+  // ---- select / hero / color ----
+  function toggle(f){ var h=f.dataset.h, fid=figId(f), arr=selArr(h), i=arr.indexOf(fid);
+    if(i>=0) arr.splice(i,1); else arr.push(fid); if(!arr.length) delete state.sel[h]; save(); paintProduct(h); recount(); }
+  function makeHero(f){ var h=f.dataset.h, fid=figId(f), arr=selArr(h), col=colorOf(f), i=arr.indexOf(fid);
     if(i>=0) arr.splice(i,1);
-    arr.unshift(fid);
-    save(); paintProduct(h); recount();
-  }
+    var pos=-1; for(var j=0;j<arr.length;j++){ if(colorOfFid(arr[j])===col){ pos=j; break; } }
+    if(pos<0) arr.push(fid); else arr.splice(pos,0,fid);
+    if(!arr.length) delete state.sel[h]; save(); paintProduct(h); recount(); }
+  function cycleColor(f){ var h=f.dataset.h, cs=colorsOf(h); if(cs.length<2) return;
+    var cur=colorOf(f), i=cs.indexOf(cur); state.color[figId(f)]=cs[(i+1)%cs.length]; save(); paintProduct(h); recount(); }
 
-  // ---- per-product note (comment / "regenerate hero") ----
-  function paintNotes(){
-    var m=pmap();
-    Object.keys(m).forEach(function(h){
-      var pn=m[h], chip=pn.__note;
-      if(!chip){ chip=document.createElement("div"); chip.className="annot-pnote";
-        chip.addEventListener("click",function(e){e.stopPropagation();editNote(h);});
-        pn.parentNode.insertBefore(chip, pn.nextSibling); pn.__note=chip; }
-      var has=state.notes[h];
-      chip.textContent = has ? ("📝 "+(has.length>40?has.slice(0,40)+"…":has)) : "+ note / regen hero";
-      chip.classList.toggle("set", !!has);
+  // ---- per-product color bar (multi-color products) ----
+  function ensureColorbars(){
+    Object.keys(PCOLORS).forEach(function(h){ if(!isMulti(h)) return;
+      var figs=figsOf(h); if(!figs.length) return; var td=figs[0].closest("td"); if(!td||td.__cbar) return;
+      var bar=document.createElement("div"); bar.className="curate-colorbar";
+      var html='<span class="cb-lbl">Colors — click to focus:</span>';
+      colorsOf(h).forEach(function(c){ html+='<button class="cb-chip" data-c="'+c.replace(/"/g,"&quot;")+'"><span class="sw" style="background:'+swatch(c)+'"></span>'+c+' <span class="cb-n">0</span></button>'; });
+      html+='<button class="cb-chip cb-all" data-c="">All</button>';
+      bar.innerHTML=html; td.insertBefore(bar, td.firstChild); td.__cbar=bar;
+      bar.querySelectorAll(".cb-chip").forEach(function(b){ b.addEventListener("click",function(e){ e.stopPropagation();
+        var c=b.getAttribute("data-c"); filt[h]=(c && filt[h]!==c)?c:null; paintProduct(h); }); });
     });
   }
-  function editNote(h){
-    var v=prompt("Note for "+(NAME[h]||h)+" (e.g. 'regenerate hero — too dark'):", state.notes[h]||"");
-    if(v===null) return;
-    if(v.trim()) state.notes[h]=v.trim(); else delete state.notes[h];
-    save(); paintNotes(); recount();
+  function paintColorbar(h){ var figs=figsOf(h); if(!figs.length) return; var td=figs[0].closest("td"); var bar=td&&td.__cbar; if(!bar) return;
+    var cnt={}; (state.sel[h]||[]).forEach(function(fid){ var c=colorOfFid(fid); cnt[c]=(cnt[c]||0)+1; });
+    bar.querySelectorAll(".cb-chip").forEach(function(b){ var c=b.getAttribute("data-c");
+      if(c){ var n=cnt[c]||0; b.querySelector(".cb-n").textContent=n; b.classList.toggle("nohero", n===0); }
+      b.classList.toggle("active", (filt[h]||"")===c); });
   }
-  function paintCount(h){
-    var pn=pmap()[h]; if(!pn) return;
-    var chip=pn.__cnt, n=(state.sel[h]||[]).length;
+  function paintAllColorbars(){ Object.keys(PCOLORS).forEach(function(h){ if(isMulti(h)) paintColorbar(h); }); }
+
+  // ---- per-product note + count chips ----
+  function paintNotes(){ var m=pmap(); Object.keys(m).forEach(function(h){ var pn=m[h], chip=pn.__note;
+    if(!chip){ chip=document.createElement("div"); chip.className="annot-pnote"; chip.addEventListener("click",function(e){e.stopPropagation();editNote(h);}); pn.parentNode.insertBefore(chip, pn.nextSibling); pn.__note=chip; }
+    var has=state.notes[h]; chip.textContent= has?("📝 "+(has.length>40?has.slice(0,40)+"…":has)):"+ note / regen hero"; chip.classList.toggle("set", !!has); }); }
+  function editNote(h){ var v=prompt("Note for "+(NAME[h]||h)+" (e.g. 'regenerate Red hero — too dark'):", state.notes[h]||""); if(v===null) return;
+    if(v.trim()) state.notes[h]=v.trim(); else delete state.notes[h]; save(); paintNotes(); recount(); }
+  function paintCount(h){ var pn=pmap()[h]; if(!pn) return; var chip=pn.__cnt, n=(state.sel[h]||[]).length;
     if(!chip){ chip=document.createElement("span"); chip.className="curate-cchip"; pn.appendChild(chip); pn.__cnt=chip; }
-    chip.style.display = n?"inline-block":"none";
-    chip.textContent = n+" picked";
-  }
+    chip.style.display=n?"inline-block":"none"; chip.textContent=n+" picked"; }
   function paintAllCounts(){ var m=pmap(); Object.keys(m).forEach(paintCount); }
 
   // ---- export / import ----
-  function buildExport(){
-    var picks=[];
-    Object.keys(state.sel).forEach(function(h){
-      var arr=state.sel[h]||[]; if(!arr.length) return;
-      var imgs=arr.map(function(fid){ var f=byFigId(fid); if(!f) return null;
-        return {group:f.dataset.g, srckey:f.dataset.k, src:f.querySelector("img").getAttribute("src"), isNew:f.dataset.n==="1"}; }).filter(Boolean);
-      if(!imgs.length) return;
-      picks.push({handle:h, name:NAME[h]||h, hero:imgs[0], supplementary:imgs.slice(1), comment:state.notes[h]||""});
-    });
+  function imgObj(f){ return {group:f.dataset.g, srckey:f.dataset.k, src:f.querySelector("img").getAttribute("src"), isNew:f.dataset.n==="1"}; }
+  function buildExport(){ var picks=[];
+    Object.keys(state.sel).forEach(function(h){ var arr=state.sel[h]||[]; if(!arr.length) return;
+      var groups={}, order=[];
+      arr.forEach(function(fid){ var f=byFigId(fid); if(!f) return; var c=colorOf(f)||""; if(!(c in groups)){ groups[c]=[]; order.push(c); } groups[c].push(imgObj(f)); });
+      var byColor=order.map(function(c){ return {color:c, hero:groups[c][0], supplementary:groups[c].slice(1)}; });
+      picks.push({handle:h, name:NAME[h]||h, multiColor:isMulti(h), byColor:byColor, comment:state.notes[h]||""}); });
     var notes={}; for(var h in state.notes){ if(state.notes[h]) notes[h]=state.notes[h]; }
-    return {tool:"pecan-drop2-curate", version:1, buildHash:BUILD, reviewer:reviewer, picks:picks, productNotes:notes};
-  }
-  function downloadExport(){
-    var data=JSON.stringify(buildExport(),null,2);
-    var blob=new Blob([data],{type:"application/json"}); var url=URL.createObjectURL(blob);
-    var a=document.createElement("a"); a.href=url; a.download="drop2-curate-"+reviewer+".json";
-    document.body.appendChild(a); a.click();
-    setTimeout(function(){ a.remove(); URL.revokeObjectURL(url); }, 600);
-    setSaveStatus("downloaded ✓");
-  }
-  function importJSON(obj){
-    state={sel:{}, notes:(obj&&obj.productNotes)||{}};
-    ((obj&&obj.picks)||[]).forEach(function(p){
-      var arr=[];
-      [].concat(p.hero?[p.hero]:[], p.supplementary||[]).forEach(function(im){
-        var f=findFig(p.handle, im.group, im.srckey); if(f) arr.push(figId(f)); });
-      if(arr.length) state.sel[p.handle]=arr;
-      if(p.comment && !state.notes[p.handle]) state.notes[p.handle]=p.comment;
-    });
-    normalize(); save(); paintAll();
-  }
-  function modal(title, textValue, withImport){
-    var m=document.createElement("div"); m.className="annot-modal";
-    m.innerHTML='<div class="box"><h3 style="margin-top:0">'+title+'</h3>'+
-      '<textarea>'+textValue.replace(/</g,"&lt;")+'</textarea>'+
-      '<div style="margin-top:10px;text-align:right">'+
-      (withImport?'<button class="imp">Import this</button> ':'<button class="cp">Copy</button> ')+
-      '<button class="x">Close</button></div></div>';
-    document.body.appendChild(m);
-    m.querySelector(".x").addEventListener("click",function(){m.remove();});
-    var imp=m.querySelector(".imp"); if(imp) imp.addEventListener("click",function(){
-      try{ importJSON(JSON.parse(m.querySelector("textarea").value)); m.remove(); }
-      catch(e){ alert("Invalid JSON: "+e.message); } });
-  }
+    return {tool:"pecan-drop2-curate", version:2, buildHash:BUILD, reviewer:reviewer, picks:picks, productNotes:notes}; }
+  function downloadExport(){ var data=JSON.stringify(buildExport(),null,2); var blob=new Blob([data],{type:"application/json"});
+    var url=URL.createObjectURL(blob); var a=document.createElement("a"); a.href=url; a.download="drop2-curate-"+reviewer+".json"; document.body.appendChild(a); a.click();
+    setTimeout(function(){ a.remove(); URL.revokeObjectURL(url); },600); setSaveStatus("downloaded ✓"); }
+  function importJSON(obj){ state={sel:{}, color:{}, notes:(obj&&obj.productNotes)||{}};
+    ((obj&&obj.picks)||[]).forEach(function(p){ var arr=[];
+      (p.byColor||[]).forEach(function(bc){ [].concat(bc.hero?[bc.hero]:[], bc.supplementary||[]).forEach(function(im){
+        var f=findFig(p.handle, im.group, im.srckey); if(f){ arr.push(figId(f)); if(bc.color) state.color[figId(f)]=bc.color; } }); });
+      if(arr.length) state.sel[p.handle]=arr; if(p.comment && !state.notes[p.handle]) state.notes[p.handle]=p.comment; });
+    normalize(); save(); paintAll(); }
+  function modal(title,textValue,withImport){ var m=document.createElement("div"); m.className="annot-modal";
+    m.innerHTML='<div class="box"><h3 style="margin-top:0">'+title+'</h3><textarea>'+textValue.replace(/</g,"&lt;")+'</textarea>'+
+      '<div style="margin-top:10px;text-align:right">'+(withImport?'<button class="imp">Import this</button> ':'')+'<button class="x">Close</button></div></div>';
+    document.body.appendChild(m); m.querySelector(".x").addEventListener("click",function(){m.remove();});
+    var imp=m.querySelector(".imp"); if(imp) imp.addEventListener("click",function(){ try{ importJSON(JSON.parse(m.querySelector("textarea").value)); m.remove(); }catch(e){ alert("Invalid JSON: "+e.message); } }); }
 
   // ---- counts / toolbar ----
-  function recount(){
-    var prod=0, imgs=0;
+  function recount(){ var prod=0, imgs=0, covered=0, needed=0;
     for(var h in state.sel){ var a=state.sel[h]; if(a&&a.length){ prod++; imgs+=a.length; } }
+    Object.keys(PCOLORS).forEach(function(h){ if(!isMulti(h)) return; var have={}; (state.sel[h]||[]).forEach(function(fid){ have[colorOfFid(fid)]=1; });
+      colorsOf(h).forEach(function(c){ needed++; if(have[c]) covered++; }); });
     var notes=0; for(var n in state.notes){ if(state.notes[n]) notes++; }
     var el=document.getElementById("annot-cnts");
-    if(el) el.innerHTML="🛒 <b>"+prod+"</b>/66 products · 🖼 <b>"+imgs+"</b> picked · 📝 <b>"+notes+"</b> notes";
-    paintAllCounts();
-  }
+    if(el) el.innerHTML="🛒 <b>"+prod+"</b>/66 products · 🖼 <b>"+imgs+"</b> picked · 🎨 <b>"+covered+"</b>/"+needed+" colors · 📝 <b>"+notes+"</b>";
+    paintAllCounts(); paintAllColorbars(); }
   function setSaveStatus(t){ var e=document.getElementById("annot-save"); if(e) e.textContent=t; }
-  function bar(){
-    var b=document.createElement("div"); b.id="annot-bar";
-    b.innerHTML='<b>Pick catalog images</b> · '+(MODE==="hosted"?("you: "+reviewer):"local")+
-      '<span class="save-st" id="annot-save"></span>'+
+  function bar(){ var b=document.createElement("div"); b.id="annot-bar";
+    b.innerHTML='<b>Pick catalog images</b> · '+(MODE==="hosted"?("you: "+reviewer):"local")+'<span class="save-st" id="annot-save"></span>'+
       '<div class="cnts" id="annot-cnts"></div>'+
-      '<div>Click photos <b>in order</b>: 1st = <b style="color:#ffd35e">★ HERO</b>, the rest are extra shots. Click again to remove · the <b>★</b> on a photo promotes it to hero · use <b>+ note</b> to flag a hero to regenerate.</div>'+
-      '<div class="row">'+
-        '<button id="annot-export">⬇ Download picks</button>'+
-        '<button id="annot-import">Import</button>'+
-      '</div>'+
-      '<div class="row"><span>Jump:</span><select id="annot-jump"><option value="">—</option>'+
-        (CFG.handles||[]).map(function(o){return '<option value="'+o.h+'">'+(o.name||o.h)+'</option>';}).join("")+
-      '</select></div>';
+      '<div>Click photos <b>in order</b> → 1st of <b>each color</b> = <b style="color:#ffd35e">★ HERO</b>, rest = extra shots. Multi-color items show a <b>color pill</b> (click it to fix a photo\'s color) + a color bar (click a color to focus). <b>★</b> on a photo = make it that color\'s hero · <b>+ note</b> to flag a hero to regenerate.</div>'+
+      '<div class="row"><button id="annot-export">⬇ Download picks</button><button id="annot-import">Import</button></div>'+
+      '<div class="row"><span>Jump:</span><select id="annot-jump"><option value="">—</option>'+(CFG.handles||[]).map(function(o){return '<option value="'+o.h+'">'+(o.name||o.h)+'</option>';}).join("")+'</select></div>';
     document.body.appendChild(b);
     document.getElementById("annot-export").addEventListener("click",downloadExport);
     document.getElementById("annot-import").addEventListener("click",function(){ modal("Import a previously downloaded picks JSON","",true); });
-    document.getElementById("annot-jump").addEventListener("change",function(){
-      var h=this.value; if(!h) return;
+    document.getElementById("annot-jump").addEventListener("change",function(){ var h=this.value; if(!h) return;
       var f=document.querySelector('figure.pf[data-h="'+esc(h)+'"]'); var tr=f&&f.closest("tr");
-      if(tr){ tr.scrollIntoView({behavior:"smooth",block:"center"}); tr.style.transition="background .3s"; tr.style.background="#fff7e6"; setTimeout(function(){tr.style.background="";},1200); }
-    });
+      if(tr){ tr.scrollIntoView({behavior:"smooth",block:"center"}); tr.style.transition="background .3s"; tr.style.background="#fff7e6"; setTimeout(function(){tr.style.background="";},1200); } });
   }
 
   // ---- wire: one click on a photo toggles selection ----
-  document.addEventListener("click",function(e){
-    if(!e.target.closest) return;
-    if(e.target.closest(".annot-pnote")||e.target.closest("#annot-bar")||e.target.closest(".annot-modal")||e.target.closest(".curate-star")) return;
-    var f=e.target.closest("figure.pf");
-    if(f){ e.preventDefault(); toggle(f); }
-  });
+  document.addEventListener("click",function(e){ if(!e.target.closest) return;
+    if(e.target.closest(".annot-pnote")||e.target.closest("#annot-bar")||e.target.closest(".annot-modal")||e.target.closest(".curate-star")||e.target.closest(".curate-pill")||e.target.closest(".curate-colorbar")) return;
+    var f=e.target.closest("figure.pf"); if(f){ e.preventDefault(); toggle(f); } });
 
   function start(){ document.body.classList.add("annot-curate"); bar(); paintAll(); }
   loadLocal();
-  if(MODE==="hosted"){ pullServer(function(){ if(!Object.keys(state.sel).length && !Object.keys(state.notes).length) loadLocal(); start(); }); }
+  if(MODE==="hosted"){ pullServer(function(){ if(!Object.keys(state.sel).length && !Object.keys(state.notes).length && !Object.keys(state.color).length) loadLocal(); start(); }); }
   else start();
 })();
 </script>
