@@ -420,10 +420,10 @@ function FlagshipCase() {
           >
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-6">
               {[
-                { v: '$200→$10K', l: 'MRR growth' },
-                { v: '50×', l: 'in 4 months' },
-                { v: '334%', l: 'conversion lift' },
-                { v: '5×', l: 'ROAS' },
+                { v: '12×', l: 'revenue · 6 months' },
+                { v: '+331%', l: 'conversion lift · A/B' },
+                { v: '30.8%', l: 'booking conversion' },
+                { v: '52%', l: 'repeat revenue · June' },
               ].map(m => (
                 <div key={m.l}>
                   <p

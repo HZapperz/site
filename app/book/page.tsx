@@ -1,7 +1,8 @@
 'use client'
 
+import { Suspense } from 'react'
 import Script from 'next/script'
-import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Mail, Calendar } from 'lucide-react'
 import Nav from '../_components/Nav'
 import Footer from '../_components/Footer'
@@ -9,6 +10,53 @@ import Footer from '../_components/Footer'
 const DISPLAY: React.CSSProperties = { fontFamily: "'Space Grotesk', 'Inter', sans-serif" }
 const MONO: React.CSSProperties = { fontFamily: "'JetBrains Mono', monospace" }
 const SERIF: React.CSSProperties = { fontFamily: "'Fraunces', Georgia, serif" }
+
+function HeaderCopy({ founder }: { founder: boolean }) {
+  return (
+    <div className="text-center mb-12 animate-fade-in-up">
+      <p
+        className="text-xs uppercase mb-6"
+        style={{ ...MONO, letterSpacing: '0.25em', color: '#E8903A' }}
+      >
+        {founder ? 'Book a free founder call' : 'Book a 15-min intake'}
+      </p>
+      <h1
+        className="font-bold mb-6 leading-tight"
+        style={{
+          ...DISPLAY,
+          fontSize: 'clamp(40px, 5vw, 64px)',
+          color: '#0C0C0C',
+          letterSpacing: '-0.025em',
+        }}
+      >
+        {founder ? <>Bring the idea.</> : <>Let&apos;s see if we&apos;re a fit.</>}
+      </h1>
+      <p
+        className="text-lg max-w-xl mx-auto leading-relaxed"
+        style={{ ...SERIF, color: '#3A3632', fontStyle: 'italic' }}
+      >
+        {founder ? (
+          <>
+            Thirty minutes on what you&apos;re building. I&apos;ll push on positioning, scope,
+            and go-to-market — a sounding board, not a sales call. There&apos;s nothing to
+            pitch: my build calendar is closed.
+          </>
+        ) : (
+          <>
+            15 minutes. I&apos;ll ask about your business and where revenue is leaking. If
+            there&apos;s a clear path forward, I&apos;ll send written scope within a couple of
+            days. Not a pitch call.
+          </>
+        )}
+      </p>
+    </div>
+  )
+}
+
+function BookHeader() {
+  const params = useSearchParams()
+  return <HeaderCopy founder={params.get('type') === 'founder'} />
+}
 
 export default function BookPage() {
   return (
@@ -21,34 +69,10 @@ export default function BookPage() {
       <Nav mode="cream" />
 
       <div className="max-w-5xl mx-auto px-6 pt-28 pb-20">
-        {/* Header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <p
-            className="text-xs uppercase mb-6"
-            style={{ ...MONO, letterSpacing: '0.25em', color: '#E8903A' }}
-          >
-            Book a 15-min intake
-          </p>
-          <h1
-            className="font-bold mb-6 leading-tight"
-            style={{
-              ...DISPLAY,
-              fontSize: 'clamp(40px, 5vw, 64px)',
-              color: '#0C0C0C',
-              letterSpacing: '-0.025em',
-            }}
-          >
-            Let&apos;s see if we&apos;re a fit.
-          </h1>
-          <p
-            className="text-lg max-w-xl mx-auto leading-relaxed"
-            style={{ ...SERIF, color: '#3A3632', fontStyle: 'italic' }}
-          >
-            15 minutes. I&apos;ll ask about your business and where revenue is leaking. If
-            there&apos;s a clear path forward, I&apos;ll send written scope within a couple of
-            days. Not a pitch call.
-          </p>
-        </div>
+        {/* Header — copy adapts when arriving from /startups (?type=founder) */}
+        <Suspense fallback={<HeaderCopy founder={false} />}>
+          <BookHeader />
+        </Suspense>
 
         {/* Calendly */}
         <div

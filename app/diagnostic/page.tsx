@@ -184,12 +184,13 @@ function WhyStartHere() {
               Royal Pawz USA &mdash; Houston
             </p>
             <p className="text-base leading-relaxed" style={{ ...SERIF, color: '#F5EFE0', fontStyle: 'italic' }}>
-              &ldquo;The diagnostic on that engagement found a 43.6% bounce rate &mdash; not ad
-              spend &mdash; as the real bottleneck. Fixing the page before touching the budget
-              is what made the 50&times; MRR growth possible.&rdquo;
+              &ldquo;The diagnostic on that engagement found that 68.3% of signups never
+              completed a booking &mdash; the auth wall, not ad spend, was the real bottleneck.
+              Removing it before touching the budget is what made the 12&times; revenue growth
+              possible.&rdquo;
             </p>
             <p className="text-xs mt-4" style={{ ...MONO, color: '#6B6560' }}>
-              $200 MRR &rarr; $10K MRR in 4 months &middot; 334% conversion lift &middot; Hamza joined as equity partner
+              12&times; monthly revenue in 6 months &middot; +331% conversion lift (7.1% &rarr; 30.8%, A/B tested) &middot; Hamza joined as equity partner
             </p>
           </div>
         </Reveal>
