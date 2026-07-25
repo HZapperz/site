@@ -183,15 +183,17 @@ footer{text-align:center;color:var(--soft);font-size:13.5px;padding:14px 18px 30
   <div class="field">
   <label for="fp_line">One line across the page</label>
   <p class="rule">Around 6 to 9 words reads best</p>
-  <textarea id="fp_line" data-key="fp_line" data-label="One line across the page" data-count="9"
-    data-unit="words" rows="2" placeholder="Type here"></textarea>
+  <textarea id="fp_line" data-key="fp_line" data-label="One line across the page" data-section="Full page"
+    data-count="9" data-unit="words" data-optional="1"
+    rows="2" placeholder="Type here"></textarea>
   <p class="count" data-for="fp_line"></p>
 </div>
   <div class="field">
   <label for="fp_para">A paragraph, only for C</label>
   <p class="rule">Up to 35 words</p>
-  <textarea id="fp_para" data-key="fp_para" data-label="A paragraph, only for C" data-count="35"
-    data-unit="words" rows="3" placeholder="Type here"></textarea>
+  <textarea id="fp_para" data-key="fp_para" data-label="A paragraph, only for C" data-section="Full page"
+    data-count="35" data-unit="words" data-optional="1"
+    rows="3" placeholder="Type here"></textarea>
   <p class="count" data-for="fp_para"></p>
 </div>
 </section>
@@ -216,15 +218,17 @@ footer{text-align:center;color:var(--soft);font-size:13.5px;padding:14px 18px 30
   <div class="field">
   <label for="t5_title">Title</label>
   <p class="rule">5 words maximum</p>
-  <textarea id="t5_title" data-key="t5_title" data-label="Title" data-count="5"
-    data-unit="words" rows="1" placeholder="Type here"></textarea>
+  <textarea id="t5_title" data-key="t5_title" data-label="Title" data-section="Top 5"
+    data-count="5" data-unit="words"
+    rows="1" placeholder="Type here"></textarea>
   <p class="count" data-for="t5_title"></p>
 </div>
   <div class="field">
   <label for="t5_body">Paragraph</label>
   <p class="rule">70 words maximum</p>
-  <textarea id="t5_body" data-key="t5_body" data-label="Paragraph" data-count="70"
-    data-unit="words" rows="6" placeholder="Type here"></textarea>
+  <textarea id="t5_body" data-key="t5_body" data-label="Paragraph" data-section="Top 5"
+    data-count="70" data-unit="words"
+    rows="6" placeholder="Type here"></textarea>
   <p class="count" data-for="t5_body"></p>
 </div>
 
@@ -263,29 +267,33 @@ footer{text-align:center;color:var(--soft);font-size:13.5px;padding:14px 18px 30
   <div class="field">
   <label for="em_subject">Subject line</label>
   <p class="rule">8 words maximum</p>
-  <textarea id="em_subject" data-key="em_subject" data-label="Subject line" data-count="8"
-    data-unit="words" rows="1" placeholder="Type here"></textarea>
+  <textarea id="em_subject" data-key="em_subject" data-label="Subject line" data-section="Email"
+    data-count="8" data-unit="words"
+    rows="1" placeholder="Type here"></textarea>
   <p class="count" data-for="em_subject"></p>
 </div>
   <div class="field">
   <label for="em_preheader">Pre-header</label>
   <p class="rule">75 characters maximum, the grey line under the subject</p>
-  <textarea id="em_preheader" data-key="em_preheader" data-label="Pre-header" data-count="75"
-    data-unit="chars" rows="2" placeholder="Type here"></textarea>
+  <textarea id="em_preheader" data-key="em_preheader" data-label="Pre-header" data-section="Email"
+    data-count="75" data-unit="chars"
+    rows="2" placeholder="Type here"></textarea>
   <p class="count" data-for="em_preheader"></p>
 </div>
   <div class="field">
   <label for="em_headline">Headline</label>
   <p class="rule">5 to 7 words</p>
-  <textarea id="em_headline" data-key="em_headline" data-label="Headline" data-count="7"
-    data-unit="words" rows="1" placeholder="Type here"></textarea>
+  <textarea id="em_headline" data-key="em_headline" data-label="Headline" data-section="Email"
+    data-count="7" data-unit="words"
+    rows="1" placeholder="Type here"></textarea>
   <p class="count" data-for="em_headline"></p>
 </div>
   <div class="field">
   <label for="em_body">Paragraph</label>
   <p class="rule">200 words maximum</p>
-  <textarea id="em_body" data-key="em_body" data-label="Paragraph" data-count="200"
-    data-unit="words" rows="7" placeholder="Type here"></textarea>
+  <textarea id="em_body" data-key="em_body" data-label="Paragraph" data-section="Email"
+    data-count="200" data-unit="words"
+    rows="7" placeholder="Type here"></textarea>
   <p class="count" data-for="em_body"></p>
 </div>
 
@@ -294,29 +302,33 @@ footer{text-align:center;color:var(--soft);font-size:13.5px;padding:14px 18px 30
     <div class="field">
   <label for="em_head_a">Short headline one</label>
   <p class="rule">2 to 3 words</p>
-  <textarea id="em_head_a" data-key="em_head_a" data-label="Short headline one" data-count="3"
-    data-unit="words" rows="1" placeholder="Type here"></textarea>
+  <textarea id="em_head_a" data-key="em_head_a" data-label="Short headline one" data-section="Email, template 2"
+    data-count="3" data-unit="words"
+    rows="1" placeholder="Type here"></textarea>
   <p class="count" data-for="em_head_a"></p>
 </div>
     <div class="field">
   <label for="em_para_a">Short paragraph one</label>
   <p class="rule">30 to 40 words, and both must be the same length</p>
-  <textarea id="em_para_a" data-key="em_para_a" data-label="Short paragraph one" data-count="40"
-    data-unit="words" rows="3" placeholder="Type here"></textarea>
+  <textarea id="em_para_a" data-key="em_para_a" data-label="Short paragraph one" data-section="Email, template 2"
+    data-count="40" data-unit="words"
+    rows="3" placeholder="Type here"></textarea>
   <p class="count" data-for="em_para_a"></p>
 </div>
     <div class="field">
   <label for="em_head_b">Short headline two</label>
   <p class="rule">2 to 3 words</p>
-  <textarea id="em_head_b" data-key="em_head_b" data-label="Short headline two" data-count="3"
-    data-unit="words" rows="1" placeholder="Type here"></textarea>
+  <textarea id="em_head_b" data-key="em_head_b" data-label="Short headline two" data-section="Email, template 2"
+    data-count="3" data-unit="words"
+    rows="1" placeholder="Type here"></textarea>
   <p class="count" data-for="em_head_b"></p>
 </div>
     <div class="field">
   <label for="em_para_b">Short paragraph two</label>
   <p class="rule">30 to 40 words, the same length as the first</p>
-  <textarea id="em_para_b" data-key="em_para_b" data-label="Short paragraph two" data-count="40"
-    data-unit="words" rows="3" placeholder="Type here"></textarea>
+  <textarea id="em_para_b" data-key="em_para_b" data-label="Short paragraph two" data-section="Email, template 2"
+    data-count="40" data-unit="words"
+    rows="3" placeholder="Type here"></textarea>
   <p class="count" data-for="em_para_b"></p>
 </div>
   </div>
@@ -470,9 +482,11 @@ function summary() {
   document.querySelectorAll('textarea[data-key]').forEach(ta => {
     if (!t2 && ta.closest('.t2')) return;          // template 1 does not use those fields
     const v = (state[ta.dataset.key] || '').trim();
+    if (!v && ta.dataset.optional) return;         // an untouched optional field is not news
     const n = countOf(v, ta.dataset.unit), max = parseInt(ta.dataset.count, 10);
-    line(ta.dataset.label.toUpperCase() + '  (' + n + ' of ' + max + ' ' + ta.dataset.unit + (n > max ? ', OVER' : '') + ')');
-    line(v ? '  ' + v.replace(/\n/g, '\n  ') : '  (empty)');
+    const head = (ta.dataset.section ? ta.dataset.section.toUpperCase() + ' · ' : '') + ta.dataset.label.toUpperCase();
+    line(head + '  (' + n + ' of ' + max + ' ' + ta.dataset.unit + (n > max ? ', OVER THE LIMIT' : '') + ')');
+    line(v ? '  ' + v.replace(/\n/g, '\n  ') : '  (still empty)');
     line('');
   });
   return L.join('\n');
