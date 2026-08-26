@@ -35,12 +35,23 @@
 - (Startup Consulting — for pre-revenue founders; mention only where relevant.)
 
 ## Proof — Royal Pawz USA (a mobile dog-grooming / local-service business)
-- **$200 → $10K MRR** (≈ 50× in ~4 months)
-- **7% → 30.8% booking conversion** (+334%, A/B tested)
-- **2× → 5× ROAS**
-- **7.8× LTV:CAC** ($195 avg LTV / $25 blended CPA)
+
+These are the only Royal Pawz figures cleared for client-facing use. They match
+the published case study at /rev-eng/royalpawzusa and the shared chart data in
+app/_components/RevenueChart.tsx. Do not substitute numbers from older decks.
+
+- **12× monthly revenue by month six** (peak 13.6× in May, indexed to Dec '25 = 1.0×)
+- **16 → 136 grooms per month** (Dec baseline → May peak)
+- **7.1% → 30.8% booking conversion** (+331%, A/B tested, n=54)
+- **13% → 52% repeat customers' share of revenue** (crossed 50% in June)
 - What was built: Google Ads → optimized landing page → frictionless online booking → **Twilio SMS** follow-up (confirmations, reminders, rebooking) + analytics + A/B testing. One operator.
-- Diagnostic insight to quote: "The diagnostic found a 43.6% bounce rate — not ad spend — as the real bottleneck. Fixing the page before touching the budget is what made the 50× MRR growth possible."
+- Diagnostic insight to quote: "The diagnostic found that 68.3% of signups never completed a booking — the auth wall, not ad spend, was the real bottleneck. Fixing the flow before touching the budget is what moved revenue 12× in six months."
+
+**Retired — do not use:** "$200 → $10K MRR", "50×", "+334%", "2× → 5× ROAS",
+"7.8× LTV:CAC", "43.6% bounce rate", "vs 1.8%". The CPA and LTV figures were
+modelled rather than measured; the rest are superseded by the case study above.
+Revenue is stated as a multiple of the December baseline — dollar figures stay
+off client-facing material.
 
 ## Fit — "A fit if" (verbatim)
 - "You have real revenue and want to compound it — not just patch one leak"
@@ -56,10 +67,13 @@
 
 ## Home-services framing (for the tailored pieces — same spine, reframed)
 - Hook: **"You earned the reviews. Your booking flow is leaking them."**
-- The system: Google Ads → an optimized landing page → frictionless online booking → Twilio SMS follow-up — the exact stack that took Royal Pawz from a 7% to a 30.8% booking rate.
+- The system: Google Ads → an optimized landing page → frictionless online booking → Twilio SMS follow-up — the exact stack that took Royal Pawz from a 7.1% to a 30.8% booking rate.
 - Concrete gaps these businesses have: a "contact form" instead of real booking; no instant reply / after-hours capture; manual text-back quoting; no automated review/reminder follow-up; invisible on paid search.
 - Why it lands: Royal Pawz IS a local home/field-service business — the proof maps directly to pest, HVAC, roofing, cleaning, detailing, junk, fencing, lawn.
 - Examples of the payoff: cold ad clicks become booked jobs; missed after-hours calls get captured and texted back; five-star reputation actually converts.
 
 ## Voice
-Confident and calm, data-driven, first-person "I", plain and specific. No hype, no gimmicks, no emoji, no exclamation marks. It lands because it's precise, not loud. NO pricing anywhere (scope comes after a call).
+Confident and calm, data-driven, first-person "I", plain and specific. No hype, no gimmicks, no emoji, no exclamation marks. It lands because it's precise, not loud. Pricing: the Diagnostic ($5,000, credited against a Build inside 30 days) and
+the Rescue tiers are public and may be quoted. The Build is "from $18,000,
+scoped after the diagnostic" — never quote a ceiling. Never name an hourly rate
+in anything a client sees.

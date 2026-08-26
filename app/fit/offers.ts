@@ -76,7 +76,7 @@ export const OFFERS: Record<OfferKey, Offer> = {
       'The dangerous things fixed, if you want them fixed',
     ],
     timeline: 'Audit in five business days',
-    priceBand: 'Audit $1,500 · Audit and fix $4,500 · Full rebuild from $8,000',
+    priceBand: 'Audit $1,500 · Audit and fix $4,500 · Full rebuild from $12,000',
   },
 
   partnership: {

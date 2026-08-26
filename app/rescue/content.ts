@@ -96,7 +96,7 @@ export const TIERS = [
   },
   {
     name: 'Rescue Build',
-    price: 'from $8,000',
+    price: 'from $12,000',
     timing: '4–6 weeks',
     forWho: 'It needs to become real software.',
     includes: [
@@ -114,7 +114,7 @@ export const TIERS = [
 export const FAQS = [
   {
     q: 'How much does it cost to fix an AI-built app?',
-    a: 'A fixed-fee audit is $1,500 and takes five business days. Fixing the critical issues typically runs $4,500 over two weeks. A full rescue build — where the architecture genuinely has to change — starts at $8,000 and takes four to six weeks. Across the market, rescue work generally lands between $1,000 and $10,000, with full rebuilds running $25,000 to $50,000. If someone quotes you a rebuild before looking at the code, get a second opinion.',
+    a: 'A fixed-fee audit is $1,500 and takes five business days. Fixing the critical issues typically runs $4,500 over two weeks. A full rescue build — where the architecture genuinely has to change — starts at $12,000 and takes four to six weeks. Across the market, rescue work generally lands between $1,000 and $10,000, and a ground-up rebuild from an agency more commonly runs $25,000 to $50,000. A rescue build costs less than that because it keeps whatever is already sound instead of starting again. If someone quotes you a rebuild before looking at the code, get a second opinion.',
   },
   {
     q: 'Does my app really need a full rewrite?',

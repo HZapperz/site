@@ -50,7 +50,7 @@ function structuredData() {
       about: BUILDERS.map((b) => ({ '@type': 'Thing', name: b })),
       offers: TIERS.map((t) => {
         const amount = Number(t.price.replace(/[^0-9]/g, ''))
-        // "from $8,000" is a floor, not a fixed price. Marking it up as fixed
+        // "from $12,000" is a floor, not a fixed price. Marking it up as fixed
         // would be a more precise claim than the page actually makes.
         const isFrom = /from/i.test(t.price)
         return {
