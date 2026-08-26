@@ -304,10 +304,50 @@ function Phases() {
 
 // ── Commercial structure ─────────────────────────────────────────
 const TERMS = [
-  { label: 'Cash', value: 'Reduced', sub: 'Lower upfront in exchange for equity' },
-  { label: 'Equity', value: '1–10%', sub: 'Negotiated on diagnostic — depends on stage' },
+  { label: 'Pilot', value: '$7,500', sub: 'Two weeks, paid, credited against the first three months' },
+  { label: 'Cash', value: 'Reduced', sub: 'Floor of 60–70% of list, never zero' },
   { label: 'Term', value: '6–24 mo', sub: 'Renegotiated each cycle' },
   { label: 'Slots', value: '4 max', sub: 'Capped to protect output quality' },
+]
+
+/**
+ * Two ways to structure the upside.
+ *
+ * The old page offered "1–10% equity" and nothing else. For a business this
+ * size that is a minority stake nobody can sell: a private-company minority
+ * position carries roughly a one-third marketability discount before you reach
+ * the fact that most SMBs never trade at all. Option A removes the cap-table
+ * event entirely; option B keeps real ownership but adds the mechanism that
+ * makes it mean something without a sale.
+ *
+ * Both are described in plain terms here and papered by the client's counsel.
+ * Nothing on this page is tax or legal advice.
+ */
+const STRUCTURES = [
+  {
+    key: 'A',
+    name: 'Contract equity',
+    line: 'A contractual share of what the business sells for, without becoming a shareholder.',
+    points: [
+      'A fixed percentage of transaction value if the business is ever sold',
+      'No shares issued, no cap table to reopen, no new party on your governance',
+      'No voting rights and no say in how you run the company',
+      'Ends when the engagement ends — no trailing claim on a business I am no longer building',
+    ],
+    best: 'Best when you want the incentive aligned but have no intention of taking on a partner.',
+  },
+  {
+    key: 'B',
+    name: 'Real equity, earned in tranches',
+    line: 'Actual ownership, vested against time and results rather than handed over on day one.',
+    points: [
+      'Granted in three parts: on signing, over time, and against agreed performance',
+      'Voting rights and information rights on the table where you want a genuine partner',
+      'If there is no sale by year five, an independent valuation sets the mark and the performance tranche settles against it',
+      'If I leave early, unvested equity is forfeited and the company can buy back the rest at fair value',
+    ],
+    best: 'Best when you are actually building toward a sale, or you want a partner with a vote.',
+  },
 ]
 
 function Structure() {
@@ -330,8 +370,8 @@ function Structure() {
             <span style={{ color: '#E8903A' }}>Real skin in the game.</span>
           </h2>
           <p className="text-lg max-w-2xl mb-12 leading-relaxed" style={{ color: '#3A3632' }}>
-            Exact terms negotiated per engagement. The numbers below are typical, not universal —
-            we land on specifics during the diagnostic.
+            Exact terms negotiated per engagement. The numbers below are typical, not universal &mdash;
+            we land on specifics during the pilot, and your lawyer papers whichever structure you pick.
           </p>
         </Reveal>
 
@@ -371,6 +411,62 @@ function Structure() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={120}>
+          <h3
+            className="font-bold mt-20 mb-3 leading-tight"
+            style={{ ...DISPLAY, fontSize: 'clamp(24px, 3vw, 34px)', color: '#0C0C0C', letterSpacing: '-0.02em' }}
+          >
+            Two ways to structure the upside
+          </h3>
+          <p className="text-base max-w-2xl mb-10 leading-relaxed" style={{ color: '#3A3632' }}>
+            Most businesses this size never sell, and a minority stake in one that doesn&rsquo;t is worth
+            a good deal less than its share of the company on paper. So there are two honest ways to do
+            this, and which one fits depends on whether you are actually building toward a sale.
+          </p>
+        </Reveal>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          {STRUCTURES.map((st, i) => (
+            <Reveal key={st.key} delay={160 + i * 80}>
+              <div
+                className="p-7 rounded h-full flex flex-col"
+                style={{ backgroundColor: '#EEE7D3', border: '1px solid rgba(12,12,12,0.08)' }}
+              >
+                <p className="text-[10px] uppercase mb-3" style={{ ...MONO, letterSpacing: '0.18em', color: '#E8903A' }}>
+                  Option {st.key}
+                </p>
+                <p className="font-bold text-xl mb-2" style={{ ...DISPLAY, color: '#0C0C0C', letterSpacing: '-0.01em' }}>
+                  {st.name}
+                </p>
+                <p className="text-sm leading-relaxed mb-5" style={{ color: '#3A3632' }}>
+                  {st.line}
+                </p>
+                <ul className="space-y-2.5 mb-6">
+                  {st.points.map(pt => (
+                    <li key={pt} className="text-[13px] leading-snug pl-4 relative" style={{ color: '#3A3632' }}>
+                      <span className="absolute left-0" style={{ color: '#E8903A' }}>&mdash;</span>
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                <p
+                  className="text-[13px] leading-snug mt-auto pt-4"
+                  style={{ color: '#7A756D', borderTop: '1px solid rgba(12,12,12,0.08)' }}
+                >
+                  {st.best}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={320}>
+          <p className="text-xs mt-6 max-w-2xl leading-relaxed" style={{ ...MONO, color: '#7A756D' }}>
+            Either way the pilot comes first, the percentage is agreed after it rather than before, and
+            your own attorney and accountant paper the instrument. Nothing here is tax or legal advice.
+          </p>
+        </Reveal>
       </div>
     </section>
   )

@@ -84,8 +84,8 @@ export const OFFERS: Record<OfferKey, Offer> = {
     line: 'You have real revenue and you would rather have a partner carrying risk than a vendor sending invoices.',
     deliverables: [
       'A two-week paid pilot first, which is the real filter',
-      'Reduced cash in exchange for 1 to 10 percent, negotiated on the diagnostic',
-      'A six to twenty-four month term, renegotiated each cycle',
+      'Two structures: a contractual share of a future sale, or real equity vested in tranches',
+      'A six to twenty-four month term, renegotiated each cycle. Cash never drops below 60 to 70 percent of list.',
       'Four slots exist. I am not able to run more than that well.',
     ],
     timeline: 'Two-week pilot, then a decision both ways',
