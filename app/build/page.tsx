@@ -14,6 +14,7 @@ import {
 import Nav from '../_components/Nav'
 import Footer from '../_components/Footer'
 import StickyCTA from '../_components/StickyCTA'
+import { FAQS } from './content'
 
 const DISPLAY: React.CSSProperties = { fontFamily: "'Space Grotesk', 'Inter', sans-serif" }
 const MONO: React.CSSProperties = { fontFamily: "'JetBrains Mono', monospace" }
@@ -138,7 +139,7 @@ function Hero() {
           style={{ opacity: 0 }}
         >
           <Link
-            href="/book"
+            href="/book?offer=build"
             className="inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-semibold rounded transition-colors"
             style={{ backgroundColor: '#0C0C0C', color: '#F5EFE0' }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#3A3632')}
@@ -162,6 +163,13 @@ function Hero() {
             Start with a diagnostic &rarr;
           </Link>
         </div>
+
+        <p className="animate-fade-in-up delay-500 text-xs mb-5" style={{ ...MONO, color: '#7A756D', opacity: 0 }}>
+          Not sure this is the one?{' '}
+          <Link href="/fit" style={{ color: '#3A3632', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+            Answer six questions and I&rsquo;ll tell you &rarr;
+          </Link>
+        </p>
 
         <p
           className="animate-fade-in-up delay-500 text-xs"
@@ -718,32 +726,6 @@ function Pricing() {
 }
 
 // ── FAQ ──────────────────────────────────────────────────────────
-const FAQS = [
-  {
-    q: 'Why not just hire a freelance developer?',
-    a: "A freelancer builds what you tell them to build. I diagnose what’s actually broken in the funnel, design the fix, then build it. The build is the smaller half of the value — knowing what to build and why is the rest.",
-  },
-  {
-    q: 'What tools and stack do you work in?',
-    a: 'Whatever fits. Next.js/React, plain HTML, Webflow, Framer, WordPress, GoHighLevel, HubSpot, Airtable, n8n, custom Node/Python. I recommend the simplest thing that actually works.',
-  },
-  {
-    q: 'How is the timeline only a few weeks?',
-    a: 'One operator, no translation layer between an agency and a dev shop, and a productized diagnosis-to-delivery loop. Agencies take 12+ weeks because briefs route through five people. The work doesn’t.',
-  },
-  {
-    q: "What’s the time commitment on my end?",
-    a: 'About an hour a week — a sync, timely answers to questions, and tool access. I handle the build and iteration.',
-  },
-  {
-    q: 'What happens after the engagement?',
-    a: 'You own everything — code, docs, dashboards, and a full walkthrough. No lock-in. If you want ongoing optimization, we can structure that separately.',
-  },
-  {
-    q: "What if it doesn’t hit the targets?",
-    a: "If the Build doesn’t hit the performance targets we set at scoping, I keep optimizing at no extra cost until it does. The diagnostic filters out projects where I can’t see a clear path.",
-  },
-]
 
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
@@ -794,13 +776,24 @@ function FAQ() {
                     }}
                   />
                 </button>
-                {open === i && (
-                  <div className="px-6 pb-6">
-                    <p className="text-base leading-relaxed" style={{ color: '#3A3632' }}>
-                      {f.a}
-                    </p>
-                  </div>
-                )}
+                {/* Rendered always, collapsed with CSS rather than unmounted, so the
+                    answer text reaches AI crawlers and matches the FAQPage schema
+                    in layout.tsx. Still user-expandable — nothing hidden from
+                    people that bots can see. */}
+                <div
+                  className="px-6"
+                  style={{
+                    maxHeight: open === i ? '40rem' : 0,
+                    paddingBottom: open === i ? '1.5rem' : 0,
+                    overflow: 'hidden',
+                    transition: 'max-height 0.3s ease, padding-bottom 0.3s ease',
+                  }}
+                  aria-hidden={open !== i}
+                >
+                  <p className="text-base leading-relaxed" style={{ color: '#3A3632' }}>
+                    {f.a}
+                  </p>
+                </div>
               </div>
             </Reveal>
           ))}
@@ -833,7 +826,7 @@ function FinalCTA() {
           </p>
 
           <Link
-            href="/book"
+            href="/book?offer=build"
             className="inline-flex items-center gap-2 px-10 py-5 font-bold rounded transition-colors text-base"
             style={{ backgroundColor: '#E8903A', color: '#0C0C0C' }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#F0A855')}
@@ -862,7 +855,7 @@ export default function BuildPage() {
       <FAQ />
       <FinalCTA />
       <Footer mode="cream" />
-      <StickyCTA href="/book" label="Book a call" />
+      <StickyCTA href="/book?offer=build" label="Book a call" />
     </main>
   )
 }

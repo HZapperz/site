@@ -22,7 +22,9 @@ export default function Footer({ mode = 'cream' }: { mode?: FooterMode }) {
       style={{
         backgroundColor: bg,
         borderTop: `1px solid ${border}`,
-      }}
+        '--fl-muted': mutedText,
+        '--fl-hover': hoverText,
+      } as React.CSSProperties}
     >
       <div className="max-w-6xl mx-auto flex flex-col gap-10">
         {/* Primary row */}
@@ -56,10 +58,7 @@ export default function Footer({ mode = 'cream' }: { mode?: FooterMode }) {
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="text-xs transition-colors"
-                  style={{ color: mutedText }}
-                  onMouseEnter={e => (e.currentTarget.style.color = hoverText)}
-                  onMouseLeave={e => (e.currentTarget.style.color = mutedText)}
+                  className="text-xs footer-link"
                 >
                   {l.label}
                 </Link>
@@ -73,16 +72,14 @@ export default function Footer({ mode = 'cream' }: { mode?: FooterMode }) {
                 Company
               </p>
               {[
+                { href: '/fit', label: 'Find your fit' },
                 { href: '/rev-eng/royalpawzusa', label: 'Royal Pawz case study' },
                 { href: '/book', label: 'Book a call' },
               ].map(l => (
                 <Link
                   key={l.href}
                   href={l.href}
-                  className="text-xs transition-colors"
-                  style={{ color: mutedText }}
-                  onMouseEnter={e => (e.currentTarget.style.color = hoverText)}
-                  onMouseLeave={e => (e.currentTarget.style.color = mutedText)}
+                  className="text-xs footer-link"
                 >
                   {l.label}
                 </Link>
@@ -106,18 +103,14 @@ export default function Footer({ mode = 'cream' }: { mode?: FooterMode }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              style={{ color: mutedText }}
-              onMouseEnter={e => (e.currentTarget.style.color = hoverText)}
-              onMouseLeave={e => (e.currentTarget.style.color = mutedText)}
+              className="footer-link"
             >
               <Linkedin size={16} />
             </Link>
             <Link
               href="mailto:hamzazulquernain1@gmail.com"
               aria-label="Email"
-              style={{ color: mutedText }}
-              onMouseEnter={e => (e.currentTarget.style.color = hoverText)}
-              onMouseLeave={e => (e.currentTarget.style.color = mutedText)}
+              className="footer-link"
             >
               <Mail size={16} />
             </Link>

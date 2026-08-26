@@ -71,13 +71,13 @@ export default function Nav({ mode = 'cream' }: { mode?: NavMode }) {
             </Link>
           ))}
           <Link
-            href="/book"
+            href="/fit"
             className="text-sm font-semibold px-4 py-2 rounded transition-colors"
             style={{ backgroundColor: '#E8903A', color: '#0C0C0C' }}
             onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#F0A855')}
             onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#E8903A')}
           >
-            Book a call →
+            Find your fit →
           </Link>
         </div>
 
@@ -115,12 +115,12 @@ export default function Nav({ mode = 'cream' }: { mode?: NavMode }) {
             </Link>
           ))}
           <Link
-            href="/book"
+            href="/fit"
             onClick={() => setMenuOpen(false)}
             className="text-sm font-semibold px-4 py-2 rounded text-center"
             style={{ backgroundColor: '#E8903A', color: '#0C0C0C' }}
           >
-            Book a call →
+            Find your fit →
           </Link>
         </div>
       )}

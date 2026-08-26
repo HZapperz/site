@@ -7,12 +7,49 @@ import Footer from './_components/Footer'
 import StickyCTA from './_components/StickyCTA'
 import RevenueChart from './_components/RevenueChart'
 import PortraitSlot from './_components/PortraitSlot'
+import { BUSINESS_OPTIONS, nextStep } from './fit/content'
 
 const SERIF: React.CSSProperties = { fontFamily: "'Fraunces', Georgia, serif" }
 const MONO: React.CSSProperties = { fontFamily: "'JetBrains Mono', monospace" }
 
 const HAIR = '1px solid rgba(12,12,12,0.14)'
 const HAIR_SOFT = '1px solid rgba(12,12,12,0.09)'
+
+const HERO_PROMPT = 'Start here — what kind of business are you running?'
+
+/**
+ * Question one of the /fit funnel, answerable from the homepage.
+ *
+ * A real anchor rather than an onClick handler: it prefetches, it survives a
+ * right-click, and it carries the answer in the URL so the funnel still picks
+ * it up when localStorage is blocked. `entry` separates hero traffic from the
+ * band further down the page.
+ */
+function HeroTile({ value, label, compact = false }: { value: string; label: string; compact?: boolean }) {
+  const [hover, setHover] = useState(false)
+  // 'Just an idea' skips the commercial questions, so the seed link has to
+  // land on whichever step the graph actually routes it to.
+  const to = nextStep('business', { business: value as never }) ?? 'revenue'
+  return (
+    <Link
+      href={`/fit?s=${to}&business=${value}&entry=${compact ? 'band' : 'hero'}`}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      className={`rounded flex items-center justify-between gap-3 transition-all ${compact ? 'px-4 py-3' : 'px-4 py-3.5'}`}
+      style={{
+        backgroundColor: '#FDFAF2',
+        border: hover ? '1px solid rgba(12,12,12,0.30)' : HAIR,
+        transform: hover ? 'translateY(-1px)' : 'translateY(0)',
+        boxShadow: hover ? '0 4px 14px rgba(12,12,12,0.07)' : 'none',
+      }}
+    >
+      <span className="text-[14px] font-medium leading-snug" style={{ color: '#0C0C0C' }}>
+        {label}
+      </span>
+      <span className="text-[13px] shrink-0" style={{ color: hover ? '#E8903A' : '#B5AFA3' }}>→</span>
+    </Link>
+  )
+}
 
 // ── Scroll-in animation hook ──────────────────────────────────────
 function useInView(threshold = 0.1) {
@@ -173,15 +210,31 @@ function Hero() {
             SMBs — as one continuous system, so the number that finally moves is revenue.
           </p>
 
-          <div className="animate-fade-in-up delay-300 flex flex-wrap items-center gap-x-5 gap-y-3" style={{ opacity: 0 }}>
+          <div className="animate-fade-in-up delay-300" style={{ opacity: 0 }}>
+            <p className="text-[11px] uppercase mb-3" style={{ ...MONO, letterSpacing: '0.18em', color: '#7A756D' }}>
+              {HERO_PROMPT}
+            </p>
+            <div className="grid sm:grid-cols-2 gap-2">
+              {BUSINESS_OPTIONS.map(o => (
+                <HeroTile key={o.value} value={o.value} label={o.label} />
+              ))}
+            </div>
+          </div>
+
+          <div className="animate-fade-in-up delay-400 flex flex-wrap items-center gap-x-5 gap-y-2 mt-6" style={{ opacity: 0 }}>
             <Link
               href="/book"
-              className="inline-flex items-center gap-2 px-7 py-4 text-sm font-semibold rounded transition-colors"
-              style={{ backgroundColor: '#E8903A', color: '#0C0C0C' }}
-              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#F0A855')}
-              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#E8903A')}
+              className="text-sm transition-colors"
+              style={{
+                color: '#3A3632',
+                textDecoration: 'underline',
+                textDecorationColor: 'rgba(12,12,12,0.25)',
+                textUnderlineOffset: '3px',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#0C0C0C')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#3A3632')}
             >
-              Book a 15-minute call →
+              Or skip ahead and book a call
             </Link>
             <Link
               href="/rev-eng/royalpawzusa"
@@ -199,8 +252,8 @@ function Hero() {
             </Link>
           </div>
 
-          <p className="animate-fade-in-up delay-400 text-xs mt-5" style={{ ...MONO, color: '#7A756D', opacity: 0 }}>
-            A working call, not a pitch. You keep the notes.
+          <p className="animate-fade-in-up delay-500 text-xs mt-5" style={{ ...MONO, color: '#7A756D', opacity: 0 }}>
+            Six questions, about a minute. No pitch at the end of it.
           </p>
         </div>
 
@@ -553,6 +606,43 @@ function StartupsBand() {
   )
 }
 
+// ── Vibe-code rescue band ────────────────────────────────────────
+function RescueBand() {
+  return (
+    <section className="px-6">
+      <div
+        className="max-w-6xl mx-auto py-10 flex flex-col md:flex-row md:items-baseline gap-3 md:gap-8"
+        style={{ borderTop: HAIR }}
+      >
+        <Reveal className="flex-1">
+          <p className="text-[15px] leading-relaxed max-w-2xl" style={{ color: '#3A3632' }}>
+            <span style={{ ...SERIF, fontWeight: 600, color: '#0C0C0C' }}>
+              Built it yourself with AI, and now it&apos;s broken?
+            </span>{' '}
+            Lovable, Bolt, Replit and v0 get you to a working prototype and stop. I audit
+            AI-generated codebases for a fixed fee and tell you what&apos;s actually wrong — you
+            keep the report either way.
+          </p>
+        </Reveal>
+        <Reveal delay={100}>
+          <Link
+            href="/rescue"
+            className="text-sm font-semibold whitespace-nowrap transition-colors"
+            style={{
+              color: '#0C0C0C',
+              textDecoration: 'underline',
+              textDecorationColor: 'rgba(12,12,12,0.3)',
+              textUnderlineOffset: '3px',
+            }}
+          >
+            Vibe-code rescue →
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
 // ── The operator ─────────────────────────────────────────────────
 function Operator() {
   return (
@@ -604,6 +694,38 @@ const CALL_STEPS = [
   { n: '02', title: 'Written scope in days', desc: 'no deck, no retainer pitch' },
   { n: '03', title: 'You decide', desc: 'the notes are yours either way' },
 ]
+
+function FunnelBand() {
+  const { ref, v } = useInView()
+  return (
+    <section ref={ref} className="py-20 px-6" style={{ borderTop: HAIR_SOFT }}>
+      <div
+        className="max-w-6xl mx-auto"
+        style={{ opacity: v ? 1 : 0, transform: v ? 'translateY(0)' : 'translateY(20px)', transition: 'opacity .7s ease-out, transform .7s ease-out' }}
+      >
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 lg:gap-12 items-center">
+          <div>
+            <h2
+              className="leading-[1.15] mb-3"
+              style={{ ...SERIF, fontWeight: 500, fontSize: 'clamp(26px, 3.2vw, 36px)', color: '#0C0C0C', letterSpacing: '-0.015em' }}
+            >
+              Not sure which of those you need?
+            </h2>
+            <p className="text-[15px] leading-relaxed max-w-sm" style={{ color: '#3A3632' }}>
+              Answer six questions and I will tell you which one I would actually recommend — including
+              when the answer is that you do not need me yet.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-2">
+            {BUSINESS_OPTIONS.map(o => (
+              <HeroTile key={o.value} value={o.value} label={o.label} compact />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
 
 function FinalCTA() {
   return (
@@ -675,10 +797,12 @@ export default function HomePage() {
       <CurrentBook />
       <Ladder />
       <StartupsBand />
+      <RescueBand />
       <Operator />
+      <FunnelBand />
       <FinalCTA />
       <Footer mode="cream" />
-      <StickyCTA href="/book" label="Book a call" />
+      <StickyCTA href="/fit" label="Find your fit" />
     </main>
   )
 }

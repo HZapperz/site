@@ -143,3 +143,17 @@ body.dark-page ::selection {
   main { padding: 0 !important; }
   section { break-inside: avoid; page-break-inside: avoid; border: none !important; }
 }
+
+/* ── Footer links ─────────────────────────────────────────────────
+   CSS hover rather than onMouseEnter, so Footer can stay a server
+   component. It previously carried JS handlers, which throw
+   "Event handlers cannot be passed to Client Component props" the
+   moment a server page renders it. Colours come in per mode as
+   custom properties. */
+.footer-link {
+  color: var(--fl-muted);
+  transition: color 0.2s ease;
+}
+.footer-link:hover {
+  color: var(--fl-hover);
+}

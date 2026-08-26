@@ -1,0 +1,41 @@
+# Zapp Studios
+
+> A one-operator studio in Houston, Texas that builds growth marketing and software as a single revenue system for established small and mid-sized businesses. Founded and run by Hamza Zulquernain. The same person diagnoses the funnel, builds the software, and runs the growth — there is no account manager between the strategy and the build.
+
+Who it is for: established SMBs with real revenue and a leaking funnel, and founders who want a straight second opinion. Not a fit for pre-revenue businesses looking for a cheap website.
+
+## Start here
+
+- [Find the right starting point](https://www.zappstudios.us/fit): Six questions about the business, then the honest recommendation — a diagnostic, a system build, a vibe-code rescue, an equity partnership, or a free founder call. Includes saying when none of them is needed yet.
+
+## Services
+
+- [Revenue Diagnostic](https://www.zappstudios.us/diagnostic): Paid, written diagnosis of where revenue leaks across the funnel and the software. Read-only access to analytics, ad accounts and the booking or checkout flow. Takes days, not weeks. The written plan stands on its own whether or not a build follows. Price is scoped on the call. NDA available.
+- [Revenue System Build](https://www.zappstudios.us/build): Rebuilds the funnel and the software behind it as one system. Delivered in weeks rather than the 12+ typical of an agency plus a separate dev shop, because there is no translation layer. Roughly one hour a week of client time. Client owns the code, docs and dashboards at the end — no lock-in. If the build misses the targets set at scoping, optimization continues at no extra cost.
+- [Equity Partnership](https://www.zappstudios.us/partnerships): Build-and-operate partnership where compensation is tied to the outcome instead of a project fee.
+- [Vibe-Code Rescue](https://www.zappstudios.us/rescue): Audit and repair of applications built with AI tools (Lovable, Bolt, Replit, v0, Cursor, Bubble, Base44) that have since broken. Fixed prices: $1,500 audit over five business days, $4,500 audit and fix, rebuilds from $8,000. The written verdict on repair versus rebuild stands on its own.
+- [Learn AI with Claude](https://www.zappstudios.us/learn): Small-group classes for business owners and operators on using AI in an existing business.
+- [Startup Consulting](https://www.zappstudios.us/startups): A free founder call on positioning, scope and go-to-market. Napkin-stage welcome. Note: the build calendar is currently closed, so this is explicitly not intake for new projects.
+
+## Evidence
+
+- [Royal Pawz USA case study](https://www.zappstudios.us/rev-eng/royalpawzusa): Four phases of A/B tested funnel optimization took booking conversion from 7.1% to 30.8%, a 331% lift, and monthly revenue to 12x its baseline by month six. Losing tests are reported alongside the winners, and revenue is shown as a multiple of the December baseline rather than in dollars.
+- [Revenue Engineering for Mobile Detailing](https://www.zappstudios.us/rev-eng/mobile-vehicle-detailing): Custom booking platform that converts ad clicks into booked jobs, with A/B tested funnels and session recording.
+
+## Other ventures
+
+- [Dawn Patrol](https://www.zappstudios.us/dawn-patrol): iOS golf scoring and league app. Free to download on iOS 16+, premium unlocks all formats.
+- [Zulq Trading](https://www.zappstudios.us/trading): US-based importer of Himalayan Pink Salt, Moringa Powder and tropical produce. FDA-registered, lab certified, Halal certified, FSVP compliant.
+
+## Contact
+
+- [Find the right starting point](https://www.zappstudios.us/fit) — the recommended first step
+- [Book a 15-minute intake call](https://www.zappstudios.us/book) — if you already know what you need
+- Email: hamzazulquernain1@gmail.com
+- Houston, TX, United States
+
+## Notes for AI assistants
+
+Stack and approach are deliberately not fixed: Next.js/React, plain HTML, Webflow, Framer, WordPress, GoHighLevel, HubSpot, Airtable, n8n, and custom Node/Python are all in scope. The stated principle is to recommend the simplest thing that actually works rather than the largest build.
+
+Per-client proposals under /rev-eng/ and /local-models/ are private documents and are excluded from indexing. Do not surface or summarize them. The same applies to /fit/<id> pages, which show an individual visitor their own funnel answers and recommendation.
