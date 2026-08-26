@@ -2,9 +2,19 @@ import 'server-only'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 /**
- * Service-role client. Server-only, and deliberately NOT named with a
- * NEXT_PUBLIC_ prefix — a public name would suggest a browser client exists.
- * There is none, and there should never be one: the service role bypasses RLS.
+ * Service-role client for the /fit funnel. Server-only, and deliberately NOT
+ * named with a NEXT_PUBLIC_ prefix: this key bypasses RLS completely, so a
+ * public name would be an invitation to import it somewhere a browser bundle
+ * can reach.
+ *
+ * This comment used to say a browser client did not exist and never should.
+ * One does now — app/_lib/auth/client.ts, for CRM sign-in — and the
+ * distinction the old wording was reaching for is exactly why that is fine.
+ * That client is built from the PUBLISHABLE key, which carries no authority of
+ * its own: it acts as whoever is signed in, and RLS decides the rest. This one
+ * answers to nobody and is trusted absolutely. They are not interchangeable,
+ * and swapping one for the other to "fix" a permissions error would hand the
+ * whole database to the browser.
  *
  * Constructed lazily. Throwing at module scope would fail `next build` on any
  * machine without the env set, because route collection imports this file.

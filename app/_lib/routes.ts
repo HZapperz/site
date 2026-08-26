@@ -44,4 +44,7 @@ export const PRIVATE_PREFIXES = [
   '/houston-zips',
   '/apartment-locator',
   '/_tmp',
+  '/admin',         // the CRM. Auth-gated, but a crawler should not even try
+  '/login',
+  '/auth/',         // OAuth callback
 ]

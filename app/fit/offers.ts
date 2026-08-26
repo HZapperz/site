@@ -89,7 +89,8 @@ export const OFFERS: Record<OfferKey, Offer> = {
       'Four slots exist. I am not able to run more than that well.',
     ],
     timeline: 'Two-week pilot, then a decision both ways',
-    priceBand: null,
+    priceBand:
+      '$7,500 for the pilot, credited in full against the first three months if we continue. The equity is negotiated after it, not before.',
   },
 
   build: {
@@ -102,7 +103,8 @@ export const OFFERS: Record<OfferKey, Offer> = {
       'You own the code, the docs and the dashboards. No lock-in.',
     ],
     timeline: 'Weeks, and about an hour a week of your time',
-    priceBand: null,
+    priceBand:
+      'From $18,000. Most land between $18,000 and $45,000 — scoped after the diagnostic, once the work is actually known.',
   },
 
   diagnostic: {
@@ -114,8 +116,9 @@ export const OFFERS: Record<OfferKey, Offer> = {
       'A recorded walkthrough you can hand to your team',
       'The plan stands on its own whether or not I build it',
     ],
-    timeline: 'Days, not weeks',
-    priceBand: null,
+    timeline: 'Seven to ten business days',
+    priceBand:
+      '$5,000. Credited in full against a Build started within thirty days, so if we go ahead it costs nothing.',
   },
 }
 

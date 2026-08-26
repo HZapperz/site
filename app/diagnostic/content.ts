@@ -17,7 +17,7 @@ export const FAQS = [
   },
   {
     q: 'How long does it take?',
-    a: "Days, not weeks. The exact timeline is scoped on the call depending on the size of the funnel and the complexity of the software.",
+    a: "Seven to ten business days from the moment I have access. Long enough to pull real data rather than skim dashboards, short enough that the answer still applies when you get it.",
   },
   {
     q: 'Do you sign an NDA?',
@@ -25,6 +25,6 @@ export const FAQS = [
   },
   {
     q: 'What does it cost?',
-    a: "Scoped on the call. It depends on the size and complexity of the funnel — a single-product DTC site is different from a multi-location service business with a custom booking system. The number lands before you commit. No surprises.",
+    a: "$5,000, flat. If you start a Build within thirty days, the whole $5,000 is credited against it, so the diagnosis costs nothing when it leads somewhere. If it doesn't, you keep the written plan and can hand it to anyone.",
   },
 ]
