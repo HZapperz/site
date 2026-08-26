@@ -1,4 +1,17 @@
 import type { Metadata } from 'next'
+
+/**
+ * Rendered per request, and this must live in the layout: page.tsx is a client
+ * component, where route segment config is silently ignored.
+ *
+ * Everything that matters on /book varies by query param — the header copy
+ * (`?type=founder`, `?offer=`) and the Calendly data-url (`?lead=`). Statically
+ * prerendered, the useSearchParams subtree renders client-side only, so the
+ * server shipped default copy and a Calendly URL with no lead id. Calendly's
+ * widget.js reads data-url when it scans the DOM, so that race could drop the
+ * lead id and quietly break the booking-to-lead join.
+ */
+export const dynamic = 'force-dynamic'
 import JsonLd from '../_components/JsonLd'
 import { SITE_URL, ORG_ID, CONTACT_EMAIL } from '../_lib/schema'
 
